@@ -5,6 +5,11 @@ var OLCS = OLCS || {};
  * that the ajax submission matches the form's method
  * and action etc
  *
+ * @NOTE: invoking this component *actually submits* the
+ * form in question; it does NOT set up listeners which
+ * at some indeterminate point will then submit it
+ *
+ * If that's what you're after, please use OLCS.formHandler instead
  */
 
 OLCS.formAjax = (function(document, $, undefined) {
@@ -23,17 +28,7 @@ OLCS.formAjax = (function(document, $, undefined) {
     // we'll serialize nothing
     var data = form.serialize();
 
-    // we might have more than one submit button in form so
-    // we need to send button name to the server
-    // @FIXME this needs removing; formAjax shouldn't care about injecting
-    // arbitrary form data - it should already be there if it needs to be
-    var buttonClicked = $("button[type=submit][clicked=true]").attr('name');
-
     var enabledElements;
-
-    if (buttonClicked != undefined) {
-        data += '&buttonClicked=' + buttonClicked;
-    }
 
     if (disableOnSubmit) {
       enabledElements = form.find(":input").not(":disabled");

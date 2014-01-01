@@ -50,6 +50,7 @@ OLCS.formHelper = (function(document, $, undefined) {
     .find("[name*=\\[" + name + "\\]]");
   };
 
+  // @TODO: make this work with string selectors, not just objects
   exports.pressButton = function(form, button) {
     var actionValue = button.val();
     var actionName  = button.attr("name");
@@ -105,7 +106,12 @@ OLCS.formHelper = (function(document, $, undefined) {
   };
 
   exports.render = function(container, body) {
+    // the fact we redraw means we sometimes lose our
+    // scroll position; so cache it and re-apply it immediately after render
+    var scrollTop = $(window).scrollTop();
     $(container).html(body);
+    $(window).scrollTop(scrollTop);
+
     OLCS.eventEmitter.emit("render");
   };
 
