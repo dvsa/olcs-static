@@ -1,0 +1,262 @@
+/**
+ *
+ * Operator Licencing & Compliance Service
+ *	
+ * 
+ * 1. Base styles & resets
+ * 2. Typography
+ * 3. Layout
+ * 4. Global header
+ * 5. Global footer
+ * 6. Forms
+ *
+  */
+
+/* ==========================================================================
+   1. Base styles & resets
+   ========================================================================== */
+
+@import 
+'../govuk_toolkit/stylesheets/_device-pixels',
+'../govuk_toolkit/stylesheets/_measurements', 
+'../govuk_toolkit/stylesheets/_css3',
+'../govuk_toolkit/stylesheets/_colours',
+'../govuk_toolkit/stylesheets/_typography',
+'../govuk_toolkit/stylesheets/design-patterns/_buttons';
+
+@import '_fonts';
+
+html {
+	font-size: 100%; 
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+	margin: 0;
+	font-size: 100%;
+	font-family: $NTA-Light;
+	font-weight: 400;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	line-height: 1.5em;
+	vertical-align: baseline;
+}
+
+menu, ol, ul {
+	padding: 0;
+	margin: 0;
+}
+
+img {
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+}
+
+/* Generic links styling */
+a { color: inherit; }
+
+a:focus { outline: thin dotted; }
+
+a:active,
+a:hover { 
+	outline: 0; 
+}
+
+.visually-hidden {
+	position: absolute;
+	left: -9999em;
+}
+
+
+/* ==========================================================================
+   2. Typography
+   ========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {
+    font-family: sans-serif;
+}
+
+h1, h2, h3, h4, h5, p {
+	margin: 0 0 0.5em 0;
+}
+
+h1 {
+	@include bold-36;
+	margin-top:1em;
+}
+
+h3 {
+	@include bold-24;
+}
+
+b, strong {
+    font-weight: bold;
+}
+
+small {
+    font-size: 80%;
+}
+
+.subtitle {
+	@include core-19;
+	color: $grey-1;
+	margin: -0.5em 0 1em 0;
+}
+
+/* ==========================================================================
+   3. Layout
+   ========================================================================== */
+
+/* Full width centerd */
+.full-width-centred {
+	max-width: 960px;
+	margin: 0 auto;
+	overflow: auto;
+}
+
+.main {
+	@extend .full-width-centred;
+	padding: 0 $gutter-half;
+	@media (min-width: 500px){
+		padding: 0 $gutter;
+	}
+}
+
+/* ==========================================================================
+   4. Global header
+   ========================================================================== */
+
+.global-header {
+	background: $black;
+	color: $white;
+}
+
+.global-header__wrapper {
+	@extend .full-width-centred;
+	padding: 0.5em $gutter-half;
+	@media (min-width: 500px){
+		padding: 0.5em $gutter;
+	}
+}
+
+.global-header__logo {
+	float: left;
+	height: 30px;
+	padding: 6px 0 1px 0;
+	color: white;
+	font-family: $NTA-Light;
+	font-weight: bold;
+	font-size: 30px;
+	line-height: 1;
+	text-decoration: none;
+	overflow: visible;
+	img {
+		margin-top: -2px;
+		width: 35px;
+		height: 31px;
+		padding-right: 6px;
+		float: left;
+	}
+}
+
+.global-header__title {
+	@include bold-19();
+	float: right;
+	overflow: hidden;
+	text-align: right;
+	margin: 0.25em 0 0 0;
+	display: block;
+	@media (max-width: 500px){
+		display: none;
+	}
+}
+
+.global-header__phase-tag {
+	background: $alpha-colour;
+	width: auto;
+	margin-left: $gutter-half;
+	letter-spacing: 0.2em;
+	font-weight: 700;
+	font-size: 0.75em;
+	text-transform: uppercase;
+	padding: 6px 10px;
+	position: relative;
+}
+
+/* Breadcrumbs */
+.global-breadcrumbs {
+	@include core-16();
+	border-top: 10px solid $alpha-colour;
+	border-bottom: 1px solid $grey-2;
+	max-width: 960px;
+	margin: 0;
+	padding: 0.75em 0;
+	overflow: auto;
+	list-style: none;
+}
+
+.global-breadcrumbs__item {
+	float: left;
+	padding-right: 1em;
+	margin-right: 0.5em;
+	color: $black;
+	background: url('../images/breadcrumb-arrow.png') no-repeat 100% 70%;
+	@include device-pixel-ratio($ratio: 2) {
+		background: url('../images/breadcrumb-arrow-2x.png') no-repeat 100% 40%;
+		background-size: 6px 11px;
+	}
+	a {
+		color: $black;
+	}
+	&.current {
+		background: none;
+	}
+}
+
+
+/* ==========================================================================
+   4. Global footer
+   ========================================================================== */
+
+.global-footer {
+	background: $grey-3;
+	border-top: 1px solid $grey-2;
+	color: #454a4c;
+	a {
+		color: inherit;
+	}
+}
+
+.global-footer__wrapper {
+	max-width: 960px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 1.5em $gutter;
+	overflow: auto;
+}
+
+.global-footer__links {
+	float: left;
+	list-style: none;
+}
+
+.global-footer__link {
+	margin-right: $gutter-half;
+	@media (min-width: 500px){
+		display: inline;
+	}
+}
+
+/* ==========================================================================
+   5. Forms
+   ========================================================================== */
+
+
+@import '_forms';

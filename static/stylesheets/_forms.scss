@@ -1,0 +1,253 @@
+/**
+ *
+ * FORMS
+ *
+ * Generic form styling for the alphagov govuk frontend toolkit 
+ * https://github.com/alphagov/govuk_frontend_toolkit
+ *
+ * 1. Resets
+ * 2. Wrapper
+ * 3. Labelling
+ * 4. Inputs
+ * 5. Buttons
+ * 6. Validation
+ *
+ */
+
+/* 1. Resets ----------------------------------------*/
+
+button,
+select {
+    text-transform: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%;
+    margin: 0;
+    vertical-align: baseline;
+    *vertical-align: middle;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+    *overflow: visible;
+}
+
+button[disabled],
+html input[disabled] {
+    cursor: default;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+    *height: 13px;
+    *width: 13px;
+}
+
+input[type="search"] {
+    -webkit-appearance: textfield;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box; 
+    box-sizing: content-box;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+textarea {
+    overflow: auto;
+    vertical-align: top;
+}
+
+
+/* 2. Wrappers ----------------------------------------*/
+
+form {
+	max-width: 500px;
+	width: 100%;
+	margin: 0;
+	padding-bottom: 3em;
+}
+
+fieldset {
+	margin: 0 0 2em 0;
+	padding: 0;
+	border: 0;
+    fieldset {
+    	margin-bottom: 1.5em;
+    }
+}
+
+.field { 
+	margin: 0 $gutter-one-quarter 1em 0;
+}
+
+.field--inline {
+	float: left;
+	margin: 0 $gutter-one-quarter 0 0;
+	label {
+		@include core-16;
+	}
+}
+.field--list { 
+	margin: 0 $gutter-one-quarter 0.5em 0;
+	label {
+		@include core-16;
+	}
+}
+
+/* 3. Labelling ----------------------------------------*/
+
+legend {
+	@include core-24;
+	*margin-left: -7px;
+	margin-bottom: 0.5em;
+	padding: 0;
+	color: black;
+}
+
+.legend--small {
+	@include core-19;
+}
+
+label {
+	@include core-19;
+	display: block;
+	margin-bottom: 0.2em;
+}
+
+.field__hint {
+	display: block;
+	color: $grey-1;
+	margin-top: 0.5em;
+}
+
+/* 4. Inputs ----------------------------------------*/
+
+input,
+textarea {
+	display: block;
+	padding: 0.5em 1.5%;
+	background-color: #f9f9f9;
+	border: 1px solid #A2A2A2;
+}
+
+.extra-long { width: $full-width; }
+
+.long { width: $two-thirds; }
+
+.medium { width: $half; }
+
+.short { 
+	width: $one-quarter; 
+	width: 140px;
+	@media (max-width: 500px){
+		width: $half;
+	}
+}
+
+.extra-long,
+.long,
+.medium {
+	@media (max-width: 500px){
+		width: 97%;
+	}
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+	display: inline;
+	margin-right: $gutter-one-quarter;
+	border: none;
+}
+
+textarea {
+	min-height: 10em;
+	padding-top: 0.5em;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 3px solid #ffbf47; 
+}
+
+/* 5. Buttons ----------------------------------------*/
+
+.button--primary {
+	@include button();
+	@extend %button;
+}
+
+.button--secondary {
+	@include button($grey-3);
+	@extend %button;
+}
+
+.button--warning {
+	@include button($red);
+	@extend %button;
+}
+
+%button {
+	*padding-top: 0;
+	margin-right: 0.25em;
+	@include border-radius(3px);
+	@include core-19();
+}
+
+
+/* 6. Validation ----------------------------------------*/
+
+%validation-box {
+	padding: 1em 1em 0 1em;
+	margin: 0 0 1em -1em;
+	overflow: hidden;
+	background: #fef7f7;
+}
+
+.validation-summary {
+	@extend %validation-box;
+	border: 3px solid $mellow-red;
+}
+
+.validation-summary__list {
+	margin-bottom: 1em;
+}
+
+.validation-summary__item {
+	color: $mellow-red;
+	margin: 0 0 0 1.5em;
+	a {
+		color: $mellow-red;
+	}
+}
+
+.validation-wrapper {
+	@extend %validation-box;
+	border-left: 3px solid $mellow-red;
+}
+
+.validation-wrapper__message {
+	@include core-16;
+	display: block;
+	margin-bottom: 0.5em;
+	color: $mellow-red;
+}

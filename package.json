@@ -1,0 +1,10 @@
+{
+  "name": "olcs-app",
+  "version": "0.0.1",
+  "dependencies": {
+    "grunt-cli": "latest",
+    "grunt-contrib-sass": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-html-validation": "latest"
+  }
+}
