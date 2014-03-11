@@ -72,6 +72,7 @@ body {
   font-size: 100%;
   font-family: "nta", Arial, sans-serif;
   font-weight: 400;
+  color: #0b0c0c;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -96,6 +97,7 @@ img {
 /* Generic links styling */
 a {
   color: #005ea5;
+  text-decoration: none;
 }
 
 a:focus {
@@ -106,12 +108,6 @@ a:active,
 a:hover {
   color: #2e8aca;
   outline: 0;
-}
-
-ol a, ul a {
-  text-decoration: none;
-}
-ol a:hover, ul a:hover {
   text-decoration: underline;
 }
 
@@ -647,7 +643,7 @@ textarea {
 input:focus,
 textarea:focus,
 select:focus {
-  outline: 0;
+  outline: 3px solid #ffbf47;
 }
 
 /* 5. Buttons ----------------------------------------*/
@@ -959,4 +955,30 @@ select:focus {
   padding: 0.5em 0 0.25em 0;
   display: block;
   border-bottom: 1px solid #bfc1c3;
+}
+
+/* ==========================================================================
+   7. Tables
+   ========================================================================== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5em;
+  border: 1px solid #bfc1c3;
+}
+
+tr:nth-child(even) {
+  background: #f8f8f8;
+}
+
+td, th {
+  padding: 0.25em 0.5em;
+  border: 1px dotted #bfc1c3;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: #dee0e2;
+  border: 1px solid #bfc1c3;
 }

@@ -38,6 +38,7 @@ body {
 	font-size: 100%;
 	font-family: $NTA-Light;
 	font-weight: 400;
+	color: $black;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -60,7 +61,10 @@ img {
 }
 
 /* Generic links styling */
-a { color: $link-colour; }
+a { 
+	color: $link-colour; 
+	text-decoration: none;
+}
 
 a:focus { outline: thin dotted; }
 
@@ -68,15 +72,7 @@ a:active,
 a:hover { 
 	color: $link-active-colour;
 	outline: 0; 
-}
-
-ol, ul {
-	a {
-		text-decoration: none;
-		&:hover {
-			text-decoration: underline;
-		}
-	}
+	text-decoration: underline;
 }
 
 .visually-hidden {
@@ -331,4 +327,31 @@ small {
 	padding: 0.5em 0 0.25em 0;
 	display: block;
 	border-bottom: 1px solid $grey-2;
+}
+
+/* ==========================================================================
+   7. Tables
+   ========================================================================== */
+
+table { 
+  width: 100%; 
+  border-collapse: collapse; 
+  margin-bottom: 1.5em;
+  border: 1px solid $grey-2; 
+}
+
+tr:nth-child(even) { 
+  background: $grey-4; 
+}
+
+td, th { 
+  padding: 0.25em 0.5em; 
+  border: 1px dotted $grey-2; 
+  text-align: left; 
+  vertical-align: top;
+}
+
+th { 
+  background: $grey-3; 
+  border: 1px solid $grey-2; 
 }
