@@ -6,8 +6,8 @@
  * 1. Base styles & resets
  * 2. Typography
  * 3. Layout
- * 4. Global header
- * 5. Global footer
+ * 4. Headers
+ * 5. Footers
  * 6. Forms
  *
   */
@@ -50,19 +50,33 @@ menu, ol, ul {
 	margin: 0;
 }
 
+li {
+	line-height: 1.2em;
+}
+
 img {
     border: 0;
     -ms-interpolation-mode: bicubic;
 }
 
 /* Generic links styling */
-a { color: inherit; }
+a { color: $link-colour; }
 
 a:focus { outline: thin dotted; }
 
 a:active,
 a:hover { 
+	color: $link-active-colour;
 	outline: 0; 
+}
+
+ol, ul {
+	a {
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 }
 
 .visually-hidden {
@@ -88,12 +102,15 @@ h1, h2, h3, h4, h5, p {
 }
 
 h1 {
-	@include bold-36;
-	margin-top:1em;
+	@include bold-48;
 }
 
 h3 {
 	@include bold-24;
+}
+
+h4 {
+	@include bold-19;
 }
 
 b, strong {
@@ -105,7 +122,7 @@ small {
 }
 
 .subtitle {
-	@include core-19;
+	@include core-24;
 	color: $grey-1;
 	margin: -0.5em 0 1em 0;
 }
@@ -114,23 +131,48 @@ small {
    3. Layout
    ========================================================================== */
 
-/* Full width centerd */
 .full-width-centred {
 	max-width: 960px;
 	margin: 0 auto;
 	overflow: auto;
-}
-
-.main {
-	@extend .full-width-centred;
 	padding: 0 $gutter-half;
-	@media (min-width: 500px){
+	@media (min-width: 640px){
 		padding: 0 $gutter;
 	}
 }
 
+.page-wrapper {
+	@extend .full-width-centred;
+}
+
+.main {
+	overflow: display;
+	&:focus {
+		outline: 0;
+	}
+}
+
+.content--primary {
+	width: 70%;
+	max-width: 580px;
+	float: left;
+	@media (max-width: 640px){
+		width: 100%;
+	}
+}
+
+.content--secondary {
+	width: 25%;
+	margin-right: 5%;
+	float: left;
+	@media (max-width: 640px){
+		width: 100%;
+	}
+}
+
+
 /* ==========================================================================
-   4. Global header
+   4. Headers
    ========================================================================== */
 
 .global-header {
@@ -141,7 +183,7 @@ small {
 .global-header__wrapper {
 	@extend .full-width-centred;
 	padding: 0.5em $gutter-half;
-	@media (min-width: 500px){
+	@media (min-width: 640px){
 		padding: 0.5em $gutter;
 	}
 }
@@ -164,6 +206,11 @@ small {
 		padding-right: 6px;
 		float: left;
 	}
+	&:hover {
+		border-bottom: 1px solid #FFF;
+		margin-bottom: -1px;
+		color: #FFF;
+	}
 }
 
 .global-header__title {
@@ -173,7 +220,7 @@ small {
 	text-align: right;
 	margin: 0.25em 0 0 0;
 	display: block;
-	@media (max-width: 500px){
+	@media (max-width: 640px){
 		display: none;
 	}
 }
@@ -190,13 +237,16 @@ small {
 	position: relative;
 }
 
+.page-header {
+	padding-top: 1em;
+	border-bottom: 1px solid $grey-2;
+	margin-bottom: 1.5em;
+}
+
 /* Breadcrumbs */
 .global-breadcrumbs {
 	@include core-16();
 	border-top: 10px solid $alpha-colour;
-	border-bottom: 1px solid $grey-2;
-	max-width: 960px;
-	margin: 0;
 	padding: 0.75em 0;
 	overflow: auto;
 	list-style: none;
@@ -222,7 +272,7 @@ small {
 
 
 /* ==========================================================================
-   4. Global footer
+   4. Footers
    ========================================================================== */
 
 .global-footer {
@@ -236,7 +286,6 @@ small {
 
 .global-footer__wrapper {
 	max-width: 960px;
-	width: 100%;
 	margin: 0 auto;
 	padding: 1.5em $gutter;
 	overflow: auto;
@@ -249,7 +298,7 @@ small {
 
 .global-footer__link {
 	margin-right: $gutter-half;
-	@media (min-width: 500px){
+	@media (min-width: 640px){
 		display: inline;
 	}
 }
@@ -258,5 +307,28 @@ small {
    5. Forms
    ========================================================================== */
 
-
 @import '_forms';
+
+
+/* ==========================================================================
+   6. Navigation
+   ========================================================================== */
+
+.vertical-navigation {
+	width: 100%;
+	margin-bottom: 1.5em;
+	ol {
+		list-style: none;
+	}
+}
+
+.vertical-navigation__title {
+	margin-bottom: 0;
+}
+
+.vertical-navigation__item {
+	width: 100%;
+	padding: 0.5em 0 0.25em 0;
+	display: block;
+	border-bottom: 1px solid $grey-2;
+}

@@ -80,31 +80,29 @@ textarea {
 /* 2. Wrappers ----------------------------------------*/
 
 form {
-	max-width: 500px;
-	width: 100%;
 	margin: 0;
 	padding-bottom: 3em;
+	width: 100%;
 }
 
 fieldset {
-	margin: 0 0 2em 0;
+	margin: 0 0 1.5em 0;
 	padding: 0;
 	border: 0;
-    fieldset {
-    	margin-bottom: 1.5em;
-    }
 }
 
 .field { 
-	margin: 0 $gutter-one-quarter 1em 0;
+	margin: 0 0 1em 0;
 }
 
 .field--inline {
-	float: left;
-	margin: 0 $gutter-one-quarter 0 0;
+	margin-right: 0.25em;
+	display: inline;
 	label {
 		@include core-16;
-	}
+		display: inline;
+		margin-right: 0.25em;
+	}	
 }
 .field--list { 
 	margin: 0 $gutter-one-quarter 0.5em 0;
@@ -125,6 +123,7 @@ legend {
 
 .legend--small {
 	@include core-19;
+	margin-bottom: 0.25em
 }
 
 label {
@@ -143,13 +142,12 @@ label {
 
 input,
 textarea {
-	display: block;
 	padding: 0.5em 1.5%;
 	background-color: #f9f9f9;
 	border: 1px solid #A2A2A2;
 }
 
-.extra-long { width: $full-width; }
+.extra-long { width: 97%; }
 
 .long { width: $two-thirds; }
 
@@ -158,7 +156,7 @@ textarea {
 .short { 
 	width: $one-quarter; 
 	width: 140px;
-	@media (max-width: 500px){
+	@media (max-width: 640px){
 		width: $half;
 	}
 }
@@ -166,7 +164,7 @@ textarea {
 .extra-long,
 .long,
 .medium {
-	@media (max-width: 500px){
+	@media (max-width: 640px){
 		width: 97%;
 	}
 }
@@ -186,14 +184,16 @@ textarea {
 input:focus,
 textarea:focus,
 select:focus {
-  outline: 3px solid #ffbf47; 
+  outline: 0; 
 }
+
 
 /* 5. Buttons ----------------------------------------*/
 
 .button--primary {
 	@include button();
 	@extend %button;
+	vertical-align: top;
 }
 
 .button--secondary {
@@ -207,10 +207,12 @@ select:focus {
 }
 
 %button {
-	*padding-top: 0;
 	margin-right: 0.25em;
 	@include border-radius(3px);
 	@include core-19();
+	*padding-top: 0;
+	padding-top : 0\9;
+
 }
 
 
@@ -221,8 +223,9 @@ select:focus {
 	margin: 0 0 1em -1em;
 	overflow: hidden;
 	background: #fef7f7;
-	@media (max-width: 500px){
-		margin: 0 -$gutter-half 1em 0;
+	@media (max-width: 640px){
+		margin-left: -$gutter-half;
+		margin-right: -$gutter-half;
 	}
 }
 
@@ -237,7 +240,7 @@ select:focus {
 
 .validation-summary__item {
 	color: $mellow-red;
-	margin: 0 0 0 1.5em;
+	margin: 0 0 0.3em 1.5em;
 	a {
 		color: $mellow-red;
 	}
