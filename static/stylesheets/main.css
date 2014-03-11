@@ -837,6 +837,11 @@ select:focus {
   overflow: hidden;
   background: #fef7f7;
 }
+@media (max-width: 500px) {
+  .validation-summary, .validation-wrapper {
+    margin-right: -15px;
+  }
+}
 
 .validation-summary {
   border: 3px solid #df3034;

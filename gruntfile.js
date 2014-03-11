@@ -15,22 +15,23 @@ module.exports = function(grunt) {
             options: {
                     reset: grunt.option('reset') || false,
                     stoponerror: false,
-                    remotePath: "http://localhost:8888",
-                    remoteFiles: ["static/templates"],
-                    relaxerror: ["Bad value X-UA-Compatible for attribute http-equiv on element meta."]
+                    relaxerror: ["Bad value X-UA-Compatible for attribute http-equiv on element meta.",
+                                 "Saw <?. Probable cause: Attempt to use an XML processing instruction in HTML. (XML processing instructions are not supported in HTML.)"]
             },
             files: {
-                    src: ['stylesheets/*.php']
+                src: ['templates/application-search.php',
+                      'templates/form-elements.php']
             }
         },
         watch: {
             scripts: {
-                files: ['static/stylesheets/*.scss'],
-                tasks: ['sass'],
+                files: ['static/stylesheets/*.scss','templates/*.php'],
+                tasks: ['sass', 'validation'],
                 options: {
                     spawn: false,
                 },
-            } 
+            },
+
         }
     });
 

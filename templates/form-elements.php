@@ -23,7 +23,7 @@
 			        <h3>There was a problem submitting the form</h3>
 			        <p>Please try the following:</p>
 			        <ol class="validation-summary__list">
-			        	<li class="validation-summary__item"><a href="#error1">Enter a town or city</a></li>
+			        	<li class="validation-summary__item"><a href="#error1">Enter a day or city</a></li>
 			         	<li class="validation-summary__item"><a href="#error2">Enter your date of birth</a></li>
 			         	<li class="validation-summary__item"><a href="#error3">Select a gender</a></li>
 			         	<li class="validation-summary__item"><a href="#error4">Tell us what you are interested in</a></li>
