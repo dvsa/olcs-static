@@ -9,6 +9,8 @@
  * 4. Headers
  * 5. Footers
  * 6. Forms
+ * 7. Tables
+ * 8. Actions
  *
   */
 /* ==========================================================================
@@ -216,7 +218,7 @@ small {
 }
 
 .main {
-  overflow: display;
+  overflow: visible;
 }
 .main:focus {
   outline: 0;
@@ -281,6 +283,7 @@ small {
   float: left;
 }
 .global-header__logo:hover {
+  text-decoration: none;
   border-bottom: 1px solid #FFF;
   margin-bottom: -1px;
   color: #FFF;
@@ -372,8 +375,9 @@ small {
    4. Footers
    ========================================================================== */
 .global-footer {
-  background: #dee0e2;
   border-top: 1px solid #bfc1c3;
+  margin-top: 1.5em;
+  background: #dee0e2;
   color: #454a4c;
 }
 .global-footer a {
@@ -483,7 +487,6 @@ textarea {
 /* 2. Wrappers ----------------------------------------*/
 form {
   margin: 0;
-  padding-bottom: 3em;
   width: 100%;
 }
 
@@ -963,7 +966,7 @@ select:focus {
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 1.5em;
+  margin-bottom: 0.5em;
   border: 1px solid #bfc1c3;
 }
 
@@ -981,4 +984,11 @@ td, th {
 th {
   background: #dee0e2;
   border: 1px solid #bfc1c3;
+}
+
+/* ==========================================================================
+   8. Actions
+   ========================================================================== */
+.actions {
+  margin: 0.25em 0;
 }

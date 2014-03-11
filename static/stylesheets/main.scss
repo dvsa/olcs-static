@@ -9,6 +9,8 @@
  * 4. Headers
  * 5. Footers
  * 6. Forms
+ * 7. Tables
+ * 8. Actions
  *
   */
 
@@ -142,7 +144,7 @@ small {
 }
 
 .main {
-	overflow: display;
+	overflow: visible;
 	&:focus {
 		outline: 0;
 	}
@@ -203,6 +205,7 @@ small {
 		float: left;
 	}
 	&:hover {
+		text-decoration: none;
 		border-bottom: 1px solid #FFF;
 		margin-bottom: -1px;
 		color: #FFF;
@@ -272,8 +275,9 @@ small {
    ========================================================================== */
 
 .global-footer {
-	background: $grey-3;
 	border-top: 1px solid $grey-2;
+	margin-top: 1.5em;
+	background: $grey-3;
 	color: #454a4c;
 	a {
 		color: inherit;
@@ -336,7 +340,7 @@ small {
 table { 
   width: 100%; 
   border-collapse: collapse; 
-  margin-bottom: 1.5em;
+  margin-bottom: 0.5em;
   border: 1px solid $grey-2; 
 }
 
@@ -354,4 +358,12 @@ td, th {
 th { 
   background: $grey-3; 
   border: 1px solid $grey-2; 
+}
+
+/* ==========================================================================
+   8. Actions
+   ========================================================================== */
+
+.actions {
+	margin: 0.25em 0;
 }

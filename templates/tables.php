@@ -43,6 +43,9 @@
 					</tr>
 					</tbody>
 				</table>
+				<div class="actions">
+					<input class="button--primary" type="submit" value="Add another row">
+				</div><!-- end actions -->
 
 			</div><!-- end main -->
 
