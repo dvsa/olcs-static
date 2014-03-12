@@ -21,8 +21,8 @@
 						<p>Services should use clear, easy to read type, with consistent styles and a clear hierarchy of information.</p>
 						<h2 id="the-govuk-typeface">The GOV.UK typeface</h2>
 						<p>GOV.UK uses the typeface New Transport, cut especially for government use. This typeface is embedded in the GOV.UK CSS and is served to browsers via a WOFF file (or an EOT file for Internet Explorer 8). The font is hinted to display well on all browsers. Older browsers do not receive the typeface.</p>
-						<p>We currently use two weights of New Transport: Light and Bold. Italics should not be used. The number of different type sizes on a page should be kept to the minimum, and only one typeface/font should be used on each website.</p>
-						<h2>A big heading about typography</h2>
+						<p>We currently use two weights of New Transport: Light and <b>Bold</b>. Italics should not be used. The number of different type sizes on a page should be kept to the minimum, and only one typeface/font should be used on each website.</p>
+						<h2>Overview</h2>
 						<h3 id="using-new-transport">Using New Transport</h3>
 						<p>New Transport is not licenced for use outside of the GOV.UK domain. When your service goes live you'll be given access to the typeface.</p>
 						<p>If the service uses numbers in columns or tables, you should change these to use the tabular number version of New Transport. This replaces the standard numbers with new versions that have a fixed width. The main noticable difference is a base on the character 1. GDS has used this on the <a href="/performance">Performance Platform</a> and Trade Tariff.</p>
@@ -35,10 +35,10 @@
 							<li><a href="">Accessibility standard</a></li>
 							<li><a href="">Accessibility testing</a></li>
 							<li><a href="">Accessibility statements and policies</a></li>
-							<li><a href="">Assistive technologies</a></li>
-							<li><a href="">Accessible formats</a></li>
-							<li><a href="">Accessible content</a></li>
-							<li><a href="">Further reading</a></li>
+							<li>Assistive technologies</li>
+							<li>Accessible formats</li>
+							<li>Accessible content</li>
+							<li>Further reading</li>
 						</ul>
 					</div>
 				</div>

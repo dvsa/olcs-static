@@ -63,6 +63,7 @@
   font-weight: bold;
 }
 html {
+  background: #dee0e2;
   font-size: 100%;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -71,6 +72,7 @@ html {
 
 body {
   margin: 0;
+  background: #FFF;
   font-size: 100%;
   font-family: "nta", Arial, sans-serif;
   font-weight: 400;
@@ -79,6 +81,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.5em;
+  text-transform: none;
   vertical-align: baseline;
 }
 
@@ -87,8 +90,14 @@ menu, ol, ul {
   margin: 0;
 }
 
+ul {
+  list-style: circle;
+  list-style-position: inside;
+}
+
 li {
   line-height: 1.2em;
+  margin-bottom: .5em;
 }
 
 img {
@@ -120,6 +129,74 @@ a:hover {
 /* ==========================================================================
    2. Typography
    ========================================================================== */
+h1, h2, h3, h4, p {
+  font-weight: 700;
+  margin: 0 0 0.5em 0;
+}
+
+h1 {
+  font-size: 48px;
+  margin: 0.25em 0 0.5em 0;
+}
+@media (max-width: 640px) {
+  h1 {
+    font-size: 32px;
+  }
+}
+
+h2 {
+  font-size: 36px;
+}
+@media (max-width: 640px) {
+  h2 {
+    font-size: 24px;
+  }
+}
+
+h3 {
+  font-size: 24px;
+}
+@media (max-width: 640px) {
+  h3 {
+    font-size: 20px;
+  }
+}
+h3.subtitle {
+  color: #6f777b;
+  font-weight: 400;
+  margin-bottom: 1em;
+}
+
+h4 {
+  font-size: 19px;
+}
+@media (max-width: 640px) {
+  h4 {
+    font-size: 16px;
+  }
+}
+
+p {
+  font-size: 19px;
+  font-weight: 400;
+}
+@media (max-width: 640px) {
+  p {
+    font-size: 16px;
+  }
+}
+p + p {
+  margin-top: -0.5em;
+}
+
+b, strong {
+  font-weight: 700;
+}
+
+small {
+  font-size: 80%;
+}
+
 html,
 button,
 input,
@@ -128,113 +205,14 @@ textarea {
   font-family: sans-serif;
 }
 
-h1, h2, h3, h4, h5, p {
-  margin: 0 0 15px 0;
+.article h2, .article h3, .article h4 {
+  margin-bottom: .5em;
 }
-
-.article h1,
-.article h2,
-.article h3,
-.article h4,
-.article h5 {
-  margin-top: 30px;
-}
-
-h1 {
-  font-family: "nta", Arial, sans-serif;
-  font-size: 48px;
-  line-height: 1.04167;
-  font-weight: 400;
-  text-transform: none;
-  font-weight: 700;
-}
-@media (max-width: 640px) {
-  h1 {
-    font-size: 32px;
-    line-height: 1.09375;
-  }
-}
-
-h2 {
-  font-family: "nta", Arial, sans-serif;
-  font-size: 36px;
-  line-height: 1.11111;
-  font-weight: 400;
-  text-transform: none;
-  font-weight: 700;
-}
-@media (max-width: 640px) {
-  h2 {
-    font-size: 24px;
-    line-height: 1.04167;
-  }
-}
-
-h3 {
-  font-family: "nta", Arial, sans-serif;
-  font-size: 24px;
-  line-height: 1.25;
-  font-weight: 400;
-  text-transform: none;
-  font-weight: 700;
-}
-@media (max-width: 640px) {
-  h3 {
-    font-size: 20px;
-    line-height: 1.2;
-  }
-}
-
-h4 {
-  font-family: "nta", Arial, sans-serif;
+.article ul {
   font-size: 19px;
-  line-height: 1.31579;
-  font-weight: 400;
-  text-transform: none;
 }
-@media (max-width: 640px) {
-  h4 {
-    font-size: 16px;
-    line-height: 1.25;
-  }
-}
-
-p {
-  font-family: "nta", Arial, sans-serif;
-  font-size: 19px;
-  line-height: 1.31579;
-  font-weight: 400;
-  text-transform: none;
-}
-@media (max-width: 640px) {
-  p {
-    font-size: 16px;
-    line-height: 1.25;
-  }
-}
-
-b, strong {
-  font-weight: bold;
-}
-
-small {
-  font-size: 80%;
-}
-
-.subtitle {
-  font-family: "nta", Arial, sans-serif;
-  font-size: 24px;
-  line-height: 1.25;
-  font-weight: 400;
-  text-transform: none;
-  color: #6f777b;
-  margin: -0.5em 0 1em 0;
-}
-@media (max-width: 640px) {
-  .subtitle {
-    font-size: 20px;
-    line-height: 1.2;
-  }
+.article p {
+  margin-bottom: 1.25em;
 }
 
 /* ==========================================================================
@@ -526,8 +504,8 @@ form {
 }
 
 fieldset {
-  margin: 0 0 1.5em 0;
-  padding: 0;
+  margin: 0 0 0 0;
+  padding: 0 0 1em 0;
   border: 0;
 }
 
@@ -979,19 +957,11 @@ select:focus {
    ========================================================================== */
 .vertical-navigation {
   width: 100%;
-  margin-bottom: 1.5em;
-}
-.vertical-navigation ol {
-  list-style: none;
-}
-
-.vertical-navigation__title {
-  margin-bottom: 0;
 }
 
 .vertical-navigation__item {
   width: 100%;
-  padding: 0.5em 0 0.25em 0;
+  padding: 0 0 .5em 0;
   display: block;
   border-bottom: 1px solid #bfc1c3;
 }

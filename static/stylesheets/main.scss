@@ -29,6 +29,7 @@
 @import '_fonts';
 
 html {
+	background: $grey-3;
 	font-size: 100%; 
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
@@ -37,6 +38,7 @@ html {
 
 body {
 	margin: 0;
+	background: #FFF;
 	font-size: 100%;
 	font-family: $NTA-Light;
 	font-weight: 400;
@@ -45,6 +47,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	line-height: 1.5em;
+	text-transform: none;
 	vertical-align: baseline;
 }
 
@@ -53,8 +56,14 @@ menu, ol, ul {
 	margin: 0;
 }
 
+ul {
+	list-style: circle;
+	list-style-position:inside;
+}
+
 li {
 	line-height: 1.2em;
+	margin-bottom: .5em;
 }
 
 img {
@@ -95,6 +104,50 @@ a:hover {
    2. Typography
    ========================================================================== */
 
+@mixin font-size($font-size, $print-font-size, $font-size-640) {
+	@if $is-print == false {
+		font-size: $font-size;
+	} @else {
+		font-size: $print-font-size;
+	}
+	@media (max-width: 640px) {
+		font-size: $font-size-640;
+  	}
+}
+
+h1, h2, h3, h4, p {
+	font-weight: 700;
+	margin: 0 0 0.5em 0;
+}
+
+h1 { 
+	@include font-size(48px,18pt,32px);
+	margin: 0.25em 0 0.5em 0;
+}
+
+h2 { @include font-size(36px,18pt,24px); }
+
+h3 { 
+	@include font-size(24px,16pt,20px); 
+	&.subtitle {
+		color: $grey-1;
+		font-weight: 400;
+		margin-bottom: 1em;
+	}
+}
+
+h4 {  @include font-size(19px,14pt,16px);  }
+
+p { 
+	@include font-size(19px,14pt,16px);
+	font-weight: 400;
+	&+p { margin-top: -0.5em; }
+}
+
+b, strong { font-weight: 700; }
+
+small { font-size: 80%; }
+
 html,
 button,
 input,
@@ -103,36 +156,10 @@ textarea {
     font-family: sans-serif;
 }
 
-h1, h2, h3, h4, h5, p {
-	margin: 0 0 $gutter-half 0;
-}
-
-.article h1,
-.article h2,
-.article h3,
-.article h4,
-.article h5 {
-	margin-top: $gutter;
-}
-
-h1 { @include bold-48; }
-
-h2 { @include bold-36; }
-
-h3 { @include bold-24; }
-
-h4 { @include core-19; }
-
-p { @include core-19; }
-
-b, strong { font-weight: bold; }
-
-small { font-size: 80%; }
-
-.subtitle {
-	@include core-24;
-	color: $grey-1;
-	margin: -0.5em 0 1em 0;
+.article {
+	h2,h3,h4{ margin-bottom: .5em; }
+	ul { font-size: 19px; }
+	p { margin-bottom: 1.25em; }
 }
 
 /* ==========================================================================
@@ -326,19 +353,11 @@ small { font-size: 80%; }
 
 .vertical-navigation {
 	width: 100%;
-	margin-bottom: 1.5em;
-	ol {
-		list-style: none;
-	}
-}
-
-.vertical-navigation__title {
-	margin-bottom: 0;
 }
 
 .vertical-navigation__item {
 	width: 100%;
-	padding: 0.5em 0 0.25em 0;
+	padding: 0 0 .5em 0;
 	display: block;
 	border-bottom: 1px solid $grey-2;
 	@include navigation-link;
