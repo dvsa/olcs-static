@@ -99,7 +99,6 @@ img {
 /* Generic links styling */
 a {
   color: #005ea5;
-  text-decoration: none;
 }
 
 a:focus {
@@ -130,7 +129,15 @@ textarea {
 }
 
 h1, h2, h3, h4, h5, p {
-  margin: 0 0 0.5em 0;
+  margin: 0 0 15px 0;
+}
+
+.article h1,
+.article h2,
+.article h3,
+.article h4,
+.article h5 {
+  margin-top: 30px;
 }
 
 h1 {
@@ -145,6 +152,21 @@ h1 {
   h1 {
     font-size: 32px;
     line-height: 1.09375;
+  }
+}
+
+h2 {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 36px;
+  line-height: 1.11111;
+  font-weight: 400;
+  text-transform: none;
+  font-weight: 700;
+}
+@media (max-width: 640px) {
+  h2 {
+    font-size: 24px;
+    line-height: 1.04167;
   }
 }
 
@@ -169,10 +191,23 @@ h4 {
   line-height: 1.31579;
   font-weight: 400;
   text-transform: none;
-  font-weight: 700;
 }
 @media (max-width: 640px) {
   h4 {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+p {
+  font-family: "nta", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.31579;
+  font-weight: 400;
+  text-transform: none;
+}
+@media (max-width: 640px) {
+  p {
     font-size: 16px;
     line-height: 1.25;
   }
@@ -237,7 +272,7 @@ small {
 
 .content--secondary {
   width: 25%;
-  margin-right: 5%;
+  margin: 0 5% 0.5em 0;
   float: left;
 }
 @media (max-width: 640px) {
@@ -544,6 +579,7 @@ legend {
   line-height: 1.25;
   font-weight: 400;
   text-transform: none;
+  font-weight: 700;
   *margin-left: -7px;
   margin-bottom: 0.5em;
   padding: 0;
@@ -959,14 +995,25 @@ select:focus {
   display: block;
   border-bottom: 1px solid #bfc1c3;
 }
+.vertical-navigation__item a {
+  text-decoration: none;
+}
+.vertical-navigation__item a:hover {
+  text-decoration: underline;
+}
 
 /* ==========================================================================
    7. Tables
    ========================================================================== */
+.table__wrapper {
+  overflow: auto;
+  width: 100%;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 0.5em;
+  margin-bottom: 1em;
   border: 1px solid #bfc1c3;
 }
 
@@ -975,13 +1022,25 @@ tr:nth-child(even) {
 }
 
 td, th {
-  padding: 0.25em 0.5em;
+  padding: 0.5em;
   border: 1px dotted #bfc1c3;
   text-align: left;
   vertical-align: top;
+  font-family: "nta", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 300;
+  text-transform: none;
+}
+@media (max-width: 640px) {
+  td, th {
+    font-size: 14px;
+    line-height: 1.14286;
+  }
 }
 
 th {
+  font-weight: 600;
   background: #dee0e2;
   border: 1px solid #bfc1c3;
 }
@@ -990,5 +1049,5 @@ th {
    8. Actions
    ========================================================================== */
 .actions {
-  margin: 0.25em 0;
+  margin-bottom: 0.5em;
 }

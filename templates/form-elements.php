@@ -12,14 +12,10 @@
 				<?php include 'includes/page-header.php';  ?>
 
 				<div class="content--secondary">
-					<div class="vertical-navigation" role="navigation">
-						<h4 class="vertical-navigation__title">Content</h4>
-						<ol>
-							<li class="vertical-navigation__item"><a href="#fieldset--postal-address">Postal address</a></li>
-							<li class="vertical-navigation__item"><a href="#fieldset--personal-information">Personal information</a></li>
-							<li class="vertical-navigation__item"><a href="#fieldset--about-you">About you</a></li>
-						</ol>
-					</div><!-- end vertical-navigation -->
+					<?php 
+						$verticalNavigationItems = array('Postal address', 'Personal information', 'About you');
+						include 'includes/vertical-navigation.php';
+					?>
 				</div><!-- end content- secondary -->
 
 				<div class="content--primary">
@@ -36,7 +32,7 @@
 					        </ol>
 				        </div><!-- end validation-header -->
 						
-						<fieldset id="fieldset--postal-address">
+						<fieldset id="postal-address">
 							<legend>Postal address</legend>
 							<div class="field">
 								<label for="address__line-one">Address line 1</label>
@@ -69,7 +65,7 @@
 							</fieldset>
 						</fieldset><!-- end fieldset- postal-address -->
 
-						<fieldset id="fieldset--personal-information">
+						<fieldset id="personal-information">
 							<legend>Personal information</legend>
 							<div class="field">
 								<label for="title">Title</label>
@@ -153,7 +149,7 @@
 							</div>
 						</fieldset><!-- end fieldset- personal-information -->
 
-						<fieldset id="fieldset--about-you">
+						<fieldset id="about-you">
 							<legend>About you</legend>
 							<fieldset>
 								<legend class="legend--small">I am interested in</legend>

@@ -113,7 +113,7 @@ fieldset {
 /* 3. Labelling ----------------------------------------*/
 
 legend {
-	@include core-24;
+	@include bold-24;
 	*margin-left: -7px;
 	margin-bottom: 0.5em;
 	padding: 0;
@@ -211,7 +211,6 @@ select:focus {
 	@include core-19();
 	*padding-top: 0;
 	padding-top : 0\9;
-
 }
 
 
