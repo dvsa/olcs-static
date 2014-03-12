@@ -98,7 +98,7 @@ fieldset {
 	margin-right: 0.25em;
 	display: inline;
 	label {
-		@include core-16;
+		@extend %small-text;
 		display: inline;
 		margin-right: 0.25em;
 	}	
@@ -106,14 +106,14 @@ fieldset {
 .field--list { 
 	margin: 0 $gutter-one-quarter 0.5em 0;
 	label {
-		@include core-16;
+		@extend %small-text;
 	}
 }
 
 /* 3. Labelling ----------------------------------------*/
 
 legend {
-	@include bold-24;
+	@extend h3;
 	*margin-left: -7px;
 	margin-bottom: 0.5em;
 	padding: 0;
@@ -121,12 +121,12 @@ legend {
 }
 
 .legend--small {
-	@include core-19;
+	@extend %paragraph-text;
 	margin-bottom: 0.25em
 }
 
 label {
-	@include core-19;
+	@extend %paragraph-text;
 	display: block;
 	margin-bottom: 0.2em;
 }
@@ -189,28 +189,121 @@ select:focus {
 
 /* 5. Buttons ----------------------------------------*/
 
+@mixin button-colour ($colour: $button-colour) {
+	background: $colour;
+	@include box-shadow(0 2px 0 darken($colour, 15%));
+    @include ie-lte(8) {
+	    border-bottom: 2px solid darken($colour, 15%);
+	}
+	&:visited{
+	    background-color: $colour;
+	}
+	&:hover,
+	&:focus {
+		background-color: darken($colour, 5%);
+	}
+	&:active {
+    	top: 2px;
+    	@include box-shadow(0 0 0 $colour);
+  	}
+	&.disabled,
+	&[disabled="disabled"],
+	&[disabled] {
+		@include opacity(0.5);
+		&:hover{
+			cursor: default;
+			background-color: $colour;
+		}
+		&:active {
+			top: 0;
+			@include box-shadow(0 2px 0 darken($colour, 15%));
+			@include ie-lte(8) {
+				border-bottom: 2px solid darken($colour, 15%);
+			}
+		}
+	}
+	@if lightness($colour) < 50% {
+		color: $white;
+		&:link,
+		&:hover,
+		&:focus,
+		&:visited{
+			color: $white;
+		}
+	} @else {
+		color: $text-colour;
+		&:link,
+		&:hover,
+		&:focus,
+		&:visited{
+			color: $text-colour;
+		}
+	}
+
+}
+
+%button {
+	@extend %paragraph-text;
+	@include inline-block;
+	margin-right: 0.25em;
+	padding: 5px 10px 3px 10px;
+	border: none;
+	@include border-radius(3px);
+	-webkit-appearance: none;
+	cursor: pointer;
+	font-family: $NTA-Light;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	&[rel="external"]:after {
+		display: none;
+		content: none;
+		margin-left: 0;
+		margin-right: 0;
+	}
+	@include ie-lte(8) {
+		&[type="submit"],
+		&[type="reset"],
+		&[type="button"] {
+			filter:chroma(color=#000000);
+		}
+		&[type=submit].button {
+			filter: none;
+		}
+	}
+	&:before {
+		content: "";
+		height: 110%;
+		width: 100%;
+		display: block;
+		background: transparent;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	&:active:before {
+		top: -10%;
+		height: 120%;
+		@include ie(6) {
+			top: auto;
+			height: 100%;
+		}
+	}
+}
+
 .button--primary {
-	@include button();
+	@include button-colour();
 	@extend %button;
 	vertical-align: top;
 }
 
 .button--secondary {
-	@include button($grey-3);
+	@include button-colour($grey-3);
 	@extend %button;
 }
 
 .button--warning {
-	@include button($red);
+	@include button-colour($red);
 	@extend %button;
-}
-
-%button {
-	margin-right: 0.25em;
-	@include border-radius(3px);
-	@include core-19();
-	*padding-top: 0;
-	padding-top : 0\9;
 }
 
 
@@ -250,7 +343,7 @@ select:focus {
 }
 
 .validation-wrapper__message {
-	@include core-16;
+	@extend %small-text;
 	display: block;
 	margin-bottom: 0.5em;
 	color: $mellow-red;

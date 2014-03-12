@@ -139,10 +139,20 @@ h3 {
 h4 {  @include font-size(19px,14pt,16px);  }
 
 p { 
+	@extend %paragraph-text;
+}
+
+p+p { margin-top: -0.5em; }
+
+%paragraph-text {
 	@include font-size(19px,14pt,16px);
 	font-weight: 400;
-	&+p { margin-top: -0.5em; }
 }
+
+%small-text {
+	@include font-size(16px,12pt,14px);
+}
+
 
 b, strong { font-weight: 700; }
 
@@ -388,7 +398,7 @@ td, th {
 	border: 1px dotted $grey-2; 
 	text-align: left; 
 	vertical-align: top;
-	@include core-16;
+	@extend %small-text;
 }
 
 th { 
