@@ -22,7 +22,7 @@
 					<table>
 						<thead>
 							<tr>
-								<th><input type="checkbox"></th>
+								<th></th>
 								<th>Licence number</th>
 								<th>Operator / trading name</th>
 								<th>Postcode</th>

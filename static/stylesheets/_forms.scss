@@ -92,21 +92,20 @@ fieldset {
 
 .field { 
 	margin: 0 0 1em 0;
-}
-
-.field--inline {
-	margin-right: 0.25em;
-	display: inline;
-	label {
-		@extend %small-text;
-		display: inline;
+	&--inline {
 		margin-right: 0.25em;
-	}	
-}
-.field--list { 
-	margin: 0 $gutter-one-quarter 0.5em 0;
-	label {
-		@extend %small-text;
+		display: inline;
+		label {
+			@extend %small-text;
+			display: inline;
+			margin-right: 0.25em;
+		}	
+	}
+	&--list { 
+		margin: 0 $gutter-one-quarter 0.5em 0;
+		label {
+			@extend %small-text;
+		}
 	}
 }
 
@@ -200,6 +199,7 @@ select:focus {
 	}
 	&:hover,
 	&:focus {
+		text-decoration: none;
 		background-color: darken($colour, 5%);
 	}
 	&:active {
@@ -242,17 +242,19 @@ select:focus {
 }
 
 %button {
-	@extend %paragraph-text;
 	@include inline-block;
-	margin-right: 0.25em;
-	padding: 5px 10px 3px 10px;
-	border: none;
 	@include border-radius(3px);
-	-webkit-appearance: none;
-	cursor: pointer;
+	border: none;
+	margin: 0 0.25em 0 0;
+	padding: 0.35em 0.5em 0.15em 0.5em;
+	padding : 0.3em 0.5em 0.4em 0.5em\9;
 	font-family: $NTA-Light;
+	text-decoration: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
+	vertical-align: top;
+	-webkit-appearance: none;
+	cursor: pointer;
 	&[rel="external"]:after {
 		display: none;
 		content: none;
@@ -269,40 +271,31 @@ select:focus {
 			filter: none;
 		}
 	}
-	&:before {
-		content: "";
-		height: 110%;
-		width: 100%;
-		display: block;
-		background: transparent;
-		position: absolute;
-		top: 0;
-		left: 0;
-	}
-	&:active:before {
-		top: -10%;
-		height: 120%;
-		@include ie(6) {
-			top: auto;
-			height: 100%;
+}
+
+.button {
+	&--primary {
+		@extend %paragraph-text;
+		@include button-colour();
+		@extend %button;
+		&--large {
+			@extend h3;
+			@include button-colour();
+			@extend %button;
+			font-weight: normal;
+			padding: 0.5em 0.6em 0.35em 0.6em;
 		}
 	}
-}
-
-.button--primary {
-	@include button-colour();
-	@extend %button;
-	vertical-align: top;
-}
-
-.button--secondary {
-	@include button-colour($grey-3);
-	@extend %button;
-}
-
-.button--warning {
-	@include button-colour($red);
-	@extend %button;
+	&--secondary {
+		@extend %paragraph-text;
+		@include button-colour($grey-3);
+		@extend %button;
+	}
+	&--warning {
+		@extend %paragraph-text;
+		@include button-colour($red);
+		@extend %button;
+	}
 }
 
 
@@ -322,28 +315,25 @@ select:focus {
 .validation-summary {
 	@extend %validation-box;
 	border: 3px solid $mellow-red;
-}
-
-.validation-summary__list {
-	margin-bottom: 1em;
-}
-
-.validation-summary__item {
-	color: $mellow-red;
-	margin: 0 0 0.3em 1.5em;
-	a {
+	&__list {
+		margin-bottom: 1em;
+	}
+	&__item {
 		color: $mellow-red;
+		margin: 0 0 0.3em 1.5em;
+		a {
+			color: $mellow-red;
+		}
 	}
 }
 
 .validation-wrapper {
 	@extend %validation-box;
 	border-left: 3px solid $mellow-red;
-}
-
-.validation-wrapper__message {
-	@extend %small-text;
-	display: block;
-	margin-bottom: 0.5em;
-	color: $mellow-red;
+		&__message {
+		@extend %small-text;
+		display: block;
+		margin-bottom: 0.5em;
+		color: $mellow-red;
+	}
 }

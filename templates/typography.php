@@ -22,6 +22,7 @@
 						<h2 id="the-govuk-typeface">The GOV.UK typeface</h2>
 						<p>GOV.UK uses the typeface New Transport, cut especially for government use. This typeface is embedded in the GOV.UK CSS and is served to browsers via a WOFF file (or an EOT file for Internet Explorer 8). The font is hinted to display well on all browsers. Older browsers do not receive the typeface.</p>
 						<p>We currently use two weights of New Transport: Light and <b>Bold</b>. Italics should not be used. The number of different type sizes on a page should be kept to the minimum, and only one typeface/font should be used on each website.</p>
+						<p><a href="" class="button--primary--large">Get started</a></p>
 						<h2>Overview</h2>
 						<h3 id="using-new-transport">Using New Transport</h3>
 						<p>New Transport is not licenced for use outside of the GOV.UK domain. When your service goes live you'll be given access to the typeface.</p>
