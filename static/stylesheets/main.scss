@@ -1,6 +1,6 @@
 /**
  *
- * Operator Licencing & Compliance Service
+ * OPERATOR LICENCE & COMPLIANCE SYSTEM
  *	
  * 
  * 1. Base styles & resets
@@ -153,7 +153,6 @@ p+p { margin-top: -0.5em; }
 	@include font-size(16px,12pt,14px);
 }
 
-
 b, strong { font-weight: 700; }
 
 small { font-size: 80%; }
@@ -167,9 +166,9 @@ textarea {
 }
 
 .article {
-	h2,h3,h4{ margin-bottom: .5em; }
+	h2,h3,h4{ margin-bottom: 0.75em; }
 	ul { font-size: 19px; }
-	p { margin-bottom: 1.25em; }
+	p { margin-bottom: 1.5em; }
 }
 
 /* ==========================================================================
@@ -260,7 +259,7 @@ textarea {
 }
 
 .global-header__title {
-	@include bold-19();
+	@extend h4;
 	float: right;
 	overflow: hidden;
 	text-align: right;
@@ -279,7 +278,7 @@ textarea {
 	font-weight: 700;
 	font-size: 0.75em;
 	text-transform: uppercase;
-	padding: 6px 10px;
+	padding: 0.5em;
 	position: relative;
 }
 
@@ -291,7 +290,7 @@ textarea {
 
 /* Breadcrumbs */
 .global-breadcrumbs {
-	@include core-16();
+	@extend %small-text;
 	border-top: 10px solid $alpha-colour;
 	padding: 0.75em 0;
 	overflow: auto;
@@ -332,21 +331,37 @@ textarea {
 }
 
 .global-footer__wrapper {
-	max-width: 960px;
-	margin: 0 auto;
-	padding: 1.5em $gutter;
-	overflow: auto;
+	@extend .full-width-centred;
+	padding-top: 2em;
+	padding-bottom: 1.5em;
 }
 
 .global-footer__links {
 	float: left;
-	list-style: none;
+	width: 75%;
+	padding-top: 7em;
 }
 
 .global-footer__link {
 	margin-right: $gutter-half;
 	@media (min-width: 640px){
 		display: inline;
+	}
+}
+
+.global-footer__copyright {
+	width: 25%;
+	height: 150px;	
+	float: left;
+	display: block;
+	background: url('../images/gov.uk_footer_crest.png') no-repeat 0 0 ;
+	@include device-pixel-ratio($ratio: 2) {
+		background: url('../images/footer-crest-2x.png') no-repeat 0 0;
+		background-size: 125px 102px;
+	}
+	a {
+		display: block;
+		padding-top: 7em;
 	}
 }
 
@@ -365,6 +380,10 @@ textarea {
 	width: 100%;
 }
 
+.vertical-navigation__title {
+	margin-bottom: 0.5em;
+}
+
 .vertical-navigation__item {
 	width: 100%;
 	padding: 0 0 .5em 0;
@@ -377,6 +396,16 @@ textarea {
    7. Tables
    ========================================================================== */
 
+.table__header {
+	width: 100%;
+	position: relative;
+	overflow: auto;
+	h2 {
+		position: absolute;
+		bottom: 0;
+	}
+}
+
 .table__wrapper {
 	overflow: auto;
 	width: 100%;
@@ -386,7 +415,10 @@ table {
 	width: 100%; 
 	border-collapse: collapse; 
 	margin-bottom: 1em;
-	border: 1px solid $grey-2; 
+	border: 1px solid $grey-2;
+	input[type="checkbox"] {
+		margin-right: 0;
+	}
 }
 
 tr:nth-child(even) { 
@@ -394,11 +426,11 @@ tr:nth-child(even) {
 }
 
 td, th { 
+	@extend %small-text;
 	padding: 0.5em; 
 	border: 1px dotted $grey-2; 
 	text-align: left; 
 	vertical-align: top;
-	@extend %small-text;
 }
 
 th { 
@@ -413,4 +445,10 @@ th {
 
 .actions {
 	margin-bottom: 0.5em;
+}
+
+.actions--right {
+	@extend .actions;
+	float: right;
+	margin-bottom: 1em;
 }

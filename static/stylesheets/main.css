@@ -1,6 +1,6 @@
 /**
  *
- * Operator Licencing & Compliance Service
+ * OPERATOR LICENCE & COMPLIANCE SYSTEM
  *	
  * 
  * 1. Base styles & resets
@@ -129,7 +129,7 @@ a:hover {
 /* ==========================================================================
    2. Typography
    ========================================================================== */
-h1, h2, h3, legend, h4, p {
+h1, h2, h3, legend, h4, .global-header__title, p {
   font-weight: 700;
   margin: 0 0 0.5em 0;
 }
@@ -167,11 +167,11 @@ h3.subtitle, legend.subtitle {
   margin-bottom: 1em;
 }
 
-h4 {
+h4, .global-header__title {
   font-size: 19px;
 }
 @media (max-width: 640px) {
-  h4 {
+  h4, .global-header__title {
     font-size: 16px;
   }
 }
@@ -190,11 +190,11 @@ p, .legend--small, label, .button--primary, .button--secondary, .button--warning
   }
 }
 
-.field--inline label, .field--list label, .validation-wrapper__message, td, th {
+.global-breadcrumbs, .field--inline label, .field--list label, .validation-wrapper__message, td, th {
   font-size: 16px;
 }
 @media (max-width: 640px) {
-  .field--inline label, .field--list label, .validation-wrapper__message, td, th {
+  .global-breadcrumbs, .field--inline label, .field--list label, .validation-wrapper__message, td, th {
     font-size: 14px;
   }
 }
@@ -215,27 +215,27 @@ textarea {
   font-family: sans-serif;
 }
 
-.article h2, .article h3, .article legend, .article h4 {
-  margin-bottom: .5em;
+.article h2, .article h3, .article legend, .article h4, .article .global-header__title {
+  margin-bottom: 0.75em;
 }
 .article ul {
   font-size: 19px;
 }
 .article p {
-  margin-bottom: 1.25em;
+  margin-bottom: 1.5em;
 }
 
 /* ==========================================================================
    3. Layout
    ========================================================================== */
-.full-width-centred, .page-wrapper, .global-header__wrapper {
+.full-width-centred, .page-wrapper, .global-header__wrapper, .global-footer__wrapper {
   max-width: 960px;
   margin: 0 auto;
   overflow: auto;
   padding: 0 15px;
 }
 @media (min-width: 640px) {
-  .full-width-centred, .page-wrapper, .global-header__wrapper {
+  .full-width-centred, .page-wrapper, .global-header__wrapper, .global-footer__wrapper {
     padding: 0 30px;
   }
 }
@@ -313,23 +313,11 @@ textarea {
 }
 
 .global-header__title {
-  font-family: "nta", Arial, sans-serif;
-  font-size: 19px;
-  line-height: 1.31579;
-  font-weight: 400;
-  text-transform: none;
-  font-weight: 700;
   float: right;
   overflow: hidden;
   text-align: right;
   margin: 0.25em 0 0 0;
   display: block;
-}
-@media (max-width: 640px) {
-  .global-header__title {
-    font-size: 16px;
-    line-height: 1.25;
-  }
 }
 @media (max-width: 640px) {
   .global-header__title {
@@ -345,7 +333,7 @@ textarea {
   font-weight: 700;
   font-size: 0.75em;
   text-transform: uppercase;
-  padding: 6px 10px;
+  padding: 0.5em;
   position: relative;
 }
 
@@ -357,21 +345,10 @@ textarea {
 
 /* Breadcrumbs */
 .global-breadcrumbs {
-  font-family: "nta", Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.25;
-  font-weight: 300;
-  text-transform: none;
   border-top: 10px solid #d53880;
   padding: 0.75em 0;
   overflow: auto;
   list-style: none;
-}
-@media (max-width: 640px) {
-  .global-breadcrumbs {
-    font-size: 14px;
-    line-height: 1.14286;
-  }
 }
 
 .global-breadcrumbs__item {
@@ -408,15 +385,14 @@ textarea {
 }
 
 .global-footer__wrapper {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 1.5em 30px;
-  overflow: auto;
+  padding-top: 2em;
+  padding-bottom: 1.5em;
 }
 
 .global-footer__links {
   float: left;
-  list-style: none;
+  width: 75%;
+  padding-top: 7em;
 }
 
 .global-footer__link {
@@ -426,6 +402,24 @@ textarea {
   .global-footer__link {
     display: inline;
   }
+}
+
+.global-footer__copyright {
+  width: 25%;
+  height: 150px;
+  float: left;
+  display: block;
+  background: url("../images/gov.uk_footer_crest.png") no-repeat 0 0;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .global-footer__copyright {
+    background: url("../images/footer-crest-2x.png") no-repeat 0 0;
+    background-size: 125px 102px;
+  }
+}
+.global-footer__copyright a {
+  display: block;
+  padding-top: 7em;
 }
 
 /* ==========================================================================
@@ -814,6 +808,10 @@ select:focus {
   width: 100%;
 }
 
+.vertical-navigation__title {
+  margin-bottom: 0.5em;
+}
+
 .vertical-navigation__item {
   width: 100%;
   padding: 0 0 .5em 0;
@@ -830,6 +828,16 @@ select:focus {
 /* ==========================================================================
    7. Tables
    ========================================================================== */
+.table__header {
+  width: 100%;
+  position: relative;
+  overflow: auto;
+}
+.table__header h2 {
+  position: absolute;
+  bottom: 0;
+}
+
 .table__wrapper {
   overflow: auto;
   width: 100%;
@@ -840,6 +848,9 @@ table {
   border-collapse: collapse;
   margin-bottom: 1em;
   border: 1px solid #bfc1c3;
+}
+table input[type="checkbox"] {
+  margin-right: 0;
 }
 
 tr:nth-child(even) {
@@ -862,6 +873,11 @@ th {
 /* ==========================================================================
    8. Actions
    ========================================================================== */
-.actions {
+.actions, .actions--right {
   margin-bottom: 0.5em;
+}
+
+.actions--right {
+  float: right;
+  margin-bottom: 1em;
 }
