@@ -11,6 +11,7 @@
  * 6. Forms
  * 7. Tables
  * 8. Actions
+ * 9. Modals & alerts
  *
   */
 /* ==========================================================================
@@ -129,7 +130,7 @@ a:hover {
 /* ==========================================================================
    2. Typography
    ========================================================================== */
-h1, h2, h3, legend, .button--primary--large, h4, .global-header__title, p {
+h1, h2, .modal h1, h3, legend, .button--primary--large, h4, .global-header__title, p, .modal .subtitle {
   font-weight: 700;
   margin: 0 0 0.5em 0;
 }
@@ -144,11 +145,11 @@ h1 {
   }
 }
 
-h2 {
+h2, .modal h1 {
   font-size: 36px;
 }
 @media (max-width: 640px) {
-  h2 {
+  h2, .modal h1 {
     font-size: 24px;
   }
 }
@@ -176,25 +177,25 @@ h4, .global-header__title {
   }
 }
 
-p + p {
+p + p, .modal .subtitle + p, .modal p + .subtitle, .modal .subtitle + .subtitle {
   margin-top: -0.5em;
 }
 
-p, .legend--small, label, .button--primary, .button--secondary, .button--warning {
+p, .modal .subtitle, .legend--small, label, .button--primary, .button--secondary, .button--warning {
   font-size: 19px;
   font-weight: 400;
 }
 @media (max-width: 640px) {
-  p, .legend--small, label, .button--primary, .button--secondary, .button--warning {
+  p, .modal .subtitle, .legend--small, label, .button--primary, .button--secondary, .button--warning {
     font-size: 16px;
   }
 }
 
-.global-breadcrumbs, .field--inline label, .field--list label, .validation-wrapper__message, td, th {
+.global-breadcrumbs, .field--inline label, .field--list label, .validation-wrapper__message, td, th, .modal__close, .alert p, .alert .modal .subtitle, .modal .alert .subtitle {
   font-size: 16px;
 }
 @media (max-width: 640px) {
-  .global-breadcrumbs, .field--inline label, .field--list label, .validation-wrapper__message, td, th {
+  .global-breadcrumbs, .field--inline label, .field--list label, .validation-wrapper__message, td, th, .modal__close, .alert p, .alert .modal .subtitle, .modal .alert .subtitle {
     font-size: 14px;
   }
 }
@@ -215,13 +216,13 @@ textarea {
   font-family: sans-serif;
 }
 
-.article h2, .article h3, .article legend, .article .button--primary--large, .article h4, .article .global-header__title {
+.article h2, .article .modal h1, .modal .article h1, .article h3, .article legend, .article .button--primary--large, .article h4, .article .global-header__title {
   margin-bottom: 0.75em;
 }
 .article ul {
   font-size: 19px;
 }
-.article p {
+.article p, .article .modal .subtitle, .modal .article .subtitle {
   margin-bottom: 1.5em;
 }
 
@@ -266,6 +267,10 @@ textarea {
   .content--secondary {
     width: 100%;
   }
+}
+
+.right-aligned {
+  float: right;
 }
 
 /* ==========================================================================
@@ -504,12 +509,17 @@ form {
 
 fieldset {
   margin: 0 0 0 0;
-  padding: 0 0 1em 0;
+  padding: 0 0 0.5em 0;
   border: 0;
 }
 
 .field {
   margin: 0 0 1em 0;
+}
+@media (max-width: 640px) {
+  .field {
+    margin-bottom: 0.75em;
+  }
 }
 .field--inline {
   margin-right: 0.25em;
@@ -552,6 +562,7 @@ textarea {
   padding: 0.5em 1.5%;
   background-color: #f9f9f9;
   border: 1px solid #A2A2A2;
+  max-width: 400px;
 }
 
 .extra-long {
@@ -851,7 +862,7 @@ select:focus {
   position: relative;
   overflow: auto;
 }
-.table__header h2 {
+.table__header h2, .table__header .modal h1, .modal .table__header h1 {
   position: absolute;
   bottom: 0;
 }
@@ -895,6 +906,75 @@ th {
   margin-bottom: 1.5em;
 }
 .actions--right {
-  float: right;
   margin-bottom: 1em;
+}
+
+/* ==========================================================================
+   9. Modals & alerts
+   ========================================================================== */
+.overlay, .modal__wrapper, .alert__wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  zoom: 1;
+  filter: alpha(opacity=80);
+  opacity: 0.8;
+  background: #0b0c0c;
+}
+
+.modal, .alert {
+  display: block;
+  background: white;
+  padding: 1em;
+  overflow: hidden;
+  position: relative;
+}
+@media (max-width: 640px) {
+  .modal, .alert {
+    padding: 0.5em 1em 4.25em 1em;
+  }
+}
+
+.modal {
+  margin: 7.5% auto;
+  padding: 1em 1.25em 4.25em 1.25em;
+  width: 80%;
+  max-width: 640px;
+  /* Overides */
+}
+.modal__close {
+  position: absolute;
+  right: 1em;
+  top: 0.5em;
+}
+.modal form {
+  max-height: 300px;
+  overflow: auto;
+}
+.modal .actions {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 1em 0 1.25em 0;
+  margin: 0 1.25em;
+  width: 94%;
+  background: white;
+  border-top: 1px solid #bfc1c3;
+}
+@media (max-width: 640px) {
+  .modal .actions {
+    margin: 0 1em;
+  }
+}
+
+.alert {
+  margin: 25% auto;
+  width: 40%;
+  max-width: 440px;
+  padding: 1.5em 1em 0 1em;
 }

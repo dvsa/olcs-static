@@ -86,12 +86,15 @@ form {
 
 fieldset {
 	margin: 0 0 0 0;
-	padding: 0 0 1em 0;
+	padding: 0 0 0.5em 0;
 	border: 0;
 }
 
 .field { 
 	margin: 0 0 1em 0;
+	@media (max-width: 640px) {
+		margin-bottom: 0.75em;
+	}
 	&--inline {
 		margin-right: 0.25em;
 		display: inline;
@@ -143,6 +146,7 @@ textarea {
 	padding: 0.5em 1.5%;
 	background-color: #f9f9f9;
 	border: 1px solid #A2A2A2;
+	max-width: 400px;
 }
 
 .extra-long { width: 97%; }

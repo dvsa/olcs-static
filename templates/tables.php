@@ -12,7 +12,7 @@
 				<?php include 'includes/page-header.php';  ?>
 				<div class="table__header">				
 					<h2>Table header</h2>
-					<div class="actions--right">
+					<div class="actions right-aligned">
 						<input class="button--primary" type="submit" value="Add">
 						<input class="button--secondary" type="submit" value="Edit" disabled="disabled">
 						<input class="button--warning" type="submit" value="Delete" disabled="disabled">

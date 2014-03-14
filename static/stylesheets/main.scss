@@ -11,6 +11,7 @@
  * 6. Forms
  * 7. Tables
  * 8. Actions
+ * 9. Modals & alerts
  *
   */
 
@@ -213,6 +214,10 @@ textarea {
 			width: 100%;
 		}
 	}
+}
+
+.right-aligned {
+	float: right;
 }
 
 
@@ -444,8 +449,89 @@ th {
 .actions {
 	margin-bottom: 1.5em;
 	&--right {
-		float: right;
 		margin-bottom: 1em;
 	}
 }
 
+/* ==========================================================================
+   9. Modals & alerts
+   ========================================================================== */
+%fixed {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.overlay {
+	@extend %fixed;
+	@include opacity(0.8);
+	background: $black;
+}
+
+%overlay-box {
+	display: block;
+	background: $white;
+	padding: 1em;
+	overflow: hidden;
+	position: relative;
+	@media (max-width:640px) {
+		padding: 0.5em 1em 4.25em 1em;
+	}
+}
+
+.modal {
+	@extend %overlay-box;
+	margin: 7.5% auto;
+	padding: 1em 1.25em 4.25em 1.25em;
+	width: 80%;
+	max-width: 640px;
+	&__wrapper {
+		@extend %fixed;
+	}
+	&__close {
+		@extend %small-text;
+		position: absolute;
+		right: 1em;
+		top: 0.5em;
+	}
+	/* Overides */
+	h1 {
+		@extend h2;
+	}
+	.subtitle {
+		@extend p;
+	}
+	form {
+		max-height: 300px;
+		overflow: auto;
+	}
+	.actions {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		padding: 1em 0 1.25em 0;
+		margin: 0 1.25em;
+		@media (max-width:640px) {
+			margin: 0 1em;
+		}
+		width: 94%;
+		background: $white;
+		border-top: 1px solid $grey-2;
+	}
+}
+
+.alert {
+	@extend %overlay-box;
+	margin: 25% auto;
+	width: 40%;
+	max-width: 440px;
+	padding: 1.5em 1em 0 1em;
+	&__wrapper {
+		@extend %fixed;
+	}
+	p {
+		@extend %small-text;
+	}
+}
