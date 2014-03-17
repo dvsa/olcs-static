@@ -47,7 +47,7 @@ body {
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	line-height: 1.5em;
+	line-height: 1.31579;
 	text-transform: none;
 	vertical-align: baseline;
 }
@@ -63,8 +63,7 @@ ul {
 }
 
 li {
-	line-height: 1.2em;
-	margin-bottom: .5em;
+	margin-bottom: .25em;
 }
 
 img {
@@ -100,10 +99,14 @@ a:hover {
 	left: -9999em;
 }
 
-
 /* ==========================================================================
    2. Typography
    ========================================================================== */
+
+h1, h2, h3, h4, p {
+	font-weight: 700;
+	margin: 0 0 0.5em 0;
+}
 
 @mixin font-size($font-size, $print-font-size, $font-size-640) {
 	@if $is-print == false {
@@ -116,42 +119,38 @@ a:hover {
   	}
 }
 
-h1, h2, h3, h4, p {
-	font-weight: 700;
-	margin: 0 0 0.5em 0;
-}
+%h2 { @include font-size(36px,18pt,24px); }
 
-h1 { 
-	@include font-size(48px,18pt,32px);
-	margin: 0.25em 0 0.5em 0;
-}
+%h3 { @include font-size(24px,16pt,20px); }
 
-h2 { @include font-size(36px,18pt,24px); }
-
-h3 { 
-	@include font-size(24px,16pt,20px); 
-	&.subtitle {
-		color: $grey-1;
-		font-weight: 400;
-		margin-bottom: 1em;
-	}
-}
-
-h4 {  @include font-size(19px,14pt,16px);  }
-
-p { 
-	@extend %paragraph-text;
-}
-
-p+p { margin-top: -0.5em; }
+%h4 { @include font-size(19px,14pt,16px); }
 
 %paragraph-text {
 	@include font-size(19px,14pt,16px);
 	font-weight: 400;
 }
 
-%small-text {
-	@include font-size(16px,12pt,14px);
+%small-text { @include font-size(16px,12pt,14px); }
+
+h1 { 
+	@include font-size(48px,18pt,32px);
+	margin: 0 0 0 0;
+}
+
+h2 { @extend %h2; }
+
+h3 { 
+	@extend %h3;
+	&.subtitle {
+		color: $grey-1;
+		font-weight: 400;
+	}
+}
+
+h4 { @extend %h4; }
+
+p { 
+	@extend %paragraph-text;
 }
 
 b, strong { font-weight: 700; }
@@ -167,16 +166,20 @@ textarea {
 }
 
 .article {
-	h2,h3,h4{ margin-bottom: 0.75em; }
-	ul { font-size: 19px; }
-	p { margin-bottom: 1.5em; }
+	h2 { margin-bottom: 0.25em;}
+	h3,h4{ margin-bottom: 0.5em; }
+	ul { 
+		@extend %paragraph-text; 
+		margin-bottom: 1em;
+	}
+	p { margin-bottom: 0.75em; }
 }
 
 /* ==========================================================================
    3. Layout
    ========================================================================== */
 
-.full-width-centred {
+%full-width-centred {
 	max-width: 960px;
 	margin: 0 auto;
 	overflow: auto;
@@ -187,7 +190,7 @@ textarea {
 }
 
 .page-wrapper {
-	@extend .full-width-centred;
+	@extend %full-width-centred;
 }
 
 .main {
@@ -229,7 +232,7 @@ textarea {
 	background: $black;
 	color: $white;
 	&__wrapper {
-		@extend .full-width-centred;
+		@extend %full-width-centred;
 		padding: 0.5em $gutter-half;
 		@media (min-width: 640px){
 			padding: 0.5em $gutter;
@@ -261,7 +264,7 @@ textarea {
 		}
 	}
 	&__title {
-		@extend h4;
+		@extend %h4;
 		float: right;
 		overflow: hidden;
 		text-align: right;
@@ -285,9 +288,9 @@ textarea {
 }
 
 .page-header {
-	padding-top: 1em;
 	border-bottom: 1px solid $grey-2;
 	margin-bottom: 1.5em;
+	padding-bottom: 0.5em;
 }
 
 /* Breadcrumbs */
@@ -330,7 +333,7 @@ textarea {
 		color: inherit;
 	}
 	&__wrapper {
-		@extend .full-width-centred;
+		@extend %full-width-centred;
 		padding: 2em $gutter;
 	}
 	&__links {
@@ -388,7 +391,7 @@ textarea {
 	}
 	&__item {
 		width: 100%;
-		padding: 0 0 .5em 0;
+		padding: 0.25em 0 .5em 0;
 		display: block;
 		border-bottom: 1px solid $grey-2;
 		@include navigation-link;
@@ -404,8 +407,8 @@ textarea {
 	position: relative;
 	overflow: auto;
 	h2 {
-		position: absolute;
-		bottom: 0;
+		float: left;
+		margin-bottom: 0;
 	}
 }
 
@@ -447,10 +450,7 @@ th {
    ========================================================================== */
 
 .actions {
-	margin-bottom: 1.5em;
-	&--right {
-		margin-bottom: 1em;
-	}
+	margin-bottom: 1em;
 }
 
 /* ==========================================================================
@@ -472,6 +472,7 @@ th {
 
 %overlay-box {
 	display: block;
+	border: 3px solid $grey-2;
 	background: $white;
 	padding: 1em;
 	overflow: hidden;
@@ -484,7 +485,7 @@ th {
 .modal {
 	@extend %overlay-box;
 	margin: 7.5% auto;
-	padding: 1em 1.25em 4.25em 1.25em;
+	padding: 1em 1.25em 4em 1.25em;
 	width: 80%;
 	max-width: 640px;
 	&__wrapper {
@@ -493,15 +494,14 @@ th {
 	&__close {
 		@extend %small-text;
 		position: absolute;
-		right: 1em;
-		top: 0.5em;
+		right: 1.25em;
+		top: 1em;
 	}
-	/* Overides */
 	h1 {
-		@extend h2;
+		@extend %h2;
 	}
 	.subtitle {
-		@extend p;
+		@extend %paragraph-text;
 	}
 	form {
 		max-height: 300px;
@@ -513,25 +513,34 @@ th {
 		left: 0;
 		padding: 1em 0 1.25em 0;
 		margin: 0 1.25em;
+		width: 94%;
+		background: $white;
 		@media (max-width:640px) {
 			margin: 0 1em;
 		}
-		width: 94%;
-		background: $white;
-		border-top: 1px solid $grey-2;
 	}
 }
 
-.alert {
+.alert, .alert--warning  {
 	@extend %overlay-box;
-	margin: 25% auto;
+	margin: 20% auto;
 	width: 40%;
-	max-width: 440px;
-	padding: 1.5em 1em 0 1em;
+	max-width: 360px;
+	min-width: 260px;
+	padding: 1em 1em 0.5em 1em;
 	&__wrapper {
 		@extend %fixed;
 	}
+	.actions {
+		text-align: center;
+	}
 	p {
 		@extend %small-text;
+		margin-bottom: 1em;	
 	}
+}
+
+.alert--warning {
+	background: $warning-background;
+	border: 3px solid $mellow-red;
 }

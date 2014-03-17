@@ -1,5 +1,5 @@
 <?php
-	$pageTitle = "OLCS Modal";
+	$pageTitle = "Modal form";
 ?>
 		<?php include 'includes/global-header.php'; ?>
 
@@ -8,7 +8,7 @@
 
 			<div id="main" role="main" tabindex="-1" class="main">
 
-				<?php include 'modal-content.php'; ?>
+				<?php include 'modal-form-include.php'; ?>
 
 			</div><!-- end main -->
 

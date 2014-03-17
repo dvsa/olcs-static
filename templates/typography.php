@@ -1,5 +1,5 @@
 <?php
-	$pageTitle = "OLCS Typography";
+	$pageTitle = "Typography";
 	$pageSubtitle = "Everything you need to create make great looking typography";
 ?>
 		<?php include 'includes/global-header.php'; ?>

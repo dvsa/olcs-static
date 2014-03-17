@@ -16,6 +16,8 @@
 
 /* 1. Resets ----------------------------------------*/
 
+$warning-background: #fef7f7;
+
 button,
 select {
     text-transform: none;
@@ -86,14 +88,14 @@ form {
 
 fieldset {
 	margin: 0 0 0 0;
-	padding: 0 0 0.5em 0;
+	padding: 0 0 1em 0;
 	border: 0;
 }
 
 .field { 
-	margin: 0 0 1em 0;
+	margin: 0 0 0.75em 0;
 	@media (max-width: 640px) {
-		margin-bottom: 0.75em;
+		margin-bottom: 0.5em;
 	}
 	&--inline {
 		margin-right: 0.25em;
@@ -115,22 +117,21 @@ fieldset {
 /* 3. Labelling ----------------------------------------*/
 
 legend {
-	@extend h3;
+	@extend %h3;
 	*margin-left: -7px;
-	margin-bottom: 0.5em;
+	margin-bottom: 0.25em;
 	padding: 0;
 	color: black;
 }
 
 .legend--small {
-	@extend %paragraph-text;
-	margin-bottom: 0.25em
+	@extend label;
 }
 
 label {
 	@extend %paragraph-text;
 	display: block;
-	margin-bottom: 0.2em;
+	margin-bottom: 0.25em;
 }
 
 .field__hint {
@@ -287,7 +288,6 @@ select:focus {
 			@include button-colour();
 			@extend %button;
 			font-weight: normal;
-			padding: 0.5em 0.6em 0.35em 0.6em;
 		}
 	}
 	&--secondary {
@@ -309,7 +309,7 @@ select:focus {
 	padding: 1em 1em 0 1em;
 	margin: 0 0 1em -1em;
 	overflow: hidden;
-	background: #fef7f7;
+	background: $warning-background;
 	@media (max-width: 640px){
 		margin-left: -$gutter-half;
 		margin-right: -$gutter-half;

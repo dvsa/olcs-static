@@ -1,5 +1,5 @@
 <?php
-	$pageTitle = "OLCS Tables";
+	$pageTitle = "Tables";
 	$pageSubtitle = "Everything you need to create complex tables";
 ?>
 		<?php include 'includes/global-header.php'; ?>

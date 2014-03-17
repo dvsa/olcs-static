@@ -81,7 +81,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: 1.5em;
+  line-height: 1.31579;
   text-transform: none;
   vertical-align: baseline;
 }
@@ -97,8 +97,7 @@ ul {
 }
 
 li {
-  line-height: 1.2em;
-  margin-bottom: .5em;
+  margin-bottom: .25em;
 }
 
 img {
@@ -130,19 +129,9 @@ a:hover {
 /* ==========================================================================
    2. Typography
    ========================================================================== */
-h1, h2, .modal h1, h3, legend, .button--primary--large, h4, .global-header__title, p, .modal .subtitle {
+h1, h2, h3, .button--primary--large, h4, p {
   font-weight: 700;
   margin: 0 0 0.5em 0;
-}
-
-h1 {
-  font-size: 48px;
-  margin: 0.25em 0 0.5em 0;
-}
-@media (max-width: 640px) {
-  h1 {
-    font-size: 32px;
-  }
 }
 
 h2, .modal h1 {
@@ -154,18 +143,13 @@ h2, .modal h1 {
   }
 }
 
-h3, legend, .button--primary--large {
+h3, .button--primary--large, legend {
   font-size: 24px;
 }
 @media (max-width: 640px) {
-  h3, legend, .button--primary--large {
+  h3, .button--primary--large, legend {
     font-size: 20px;
   }
-}
-h3.subtitle, legend.subtitle, .subtitle.button--primary--large {
-  color: #6f777b;
-  font-weight: 400;
-  margin-bottom: 1em;
 }
 
 h4, .global-header__title {
@@ -177,27 +161,38 @@ h4, .global-header__title {
   }
 }
 
-p + p, .modal .subtitle + p, .modal p + .subtitle, .modal .subtitle + .subtitle {
-  margin-top: -0.5em;
-}
-
-p, .modal .subtitle, .legend--small, label, .button--primary, .button--secondary, .button--warning {
+p, .article ul, label, .legend--small, .button--primary, .button--secondary, .button--warning, .modal .subtitle {
   font-size: 19px;
   font-weight: 400;
 }
 @media (max-width: 640px) {
-  p, .modal .subtitle, .legend--small, label, .button--primary, .button--secondary, .button--warning {
+  p, .article ul, label, .legend--small, .button--primary, .button--secondary, .button--warning, .modal .subtitle {
     font-size: 16px;
   }
 }
 
-.global-breadcrumbs, .field--inline label, .field--list label, .validation-wrapper__message, td, th, .modal__close, .alert p, .alert .modal .subtitle, .modal .alert .subtitle {
+.global-breadcrumbs, .field--inline label, .field--inline .legend--small, .field--list label, .field--list .legend--small, .validation-wrapper__message, td, th, .modal__close, .alert p, .alert--warning p {
   font-size: 16px;
 }
 @media (max-width: 640px) {
-  .global-breadcrumbs, .field--inline label, .field--list label, .validation-wrapper__message, td, th, .modal__close, .alert p, .alert .modal .subtitle, .modal .alert .subtitle {
+  .global-breadcrumbs, .field--inline label, .field--inline .legend--small, .field--list label, .field--list .legend--small, .validation-wrapper__message, td, th, .modal__close, .alert p, .alert--warning p {
     font-size: 14px;
   }
+}
+
+h1 {
+  font-size: 48px;
+  margin: 0 0 0 0;
+}
+@media (max-width: 640px) {
+  h1 {
+    font-size: 32px;
+  }
+}
+
+h3.subtitle, .subtitle.button--primary--large {
+  color: #6f777b;
+  font-weight: 400;
 }
 
 b, strong {
@@ -216,27 +211,30 @@ textarea {
   font-family: sans-serif;
 }
 
-.article h2, .article .modal h1, .modal .article h1, .article h3, .article legend, .article .button--primary--large, .article h4, .article .global-header__title {
-  margin-bottom: 0.75em;
+.article h2 {
+  margin-bottom: 0.25em;
+}
+.article h3, .article .button--primary--large, .article h4 {
+  margin-bottom: 0.5em;
 }
 .article ul {
-  font-size: 19px;
+  margin-bottom: 1em;
 }
-.article p, .article .modal .subtitle, .modal .article .subtitle {
-  margin-bottom: 1.5em;
+.article p {
+  margin-bottom: 0.75em;
 }
 
 /* ==========================================================================
    3. Layout
    ========================================================================== */
-.full-width-centred, .page-wrapper, .global-header__wrapper, .global-footer__wrapper {
+.page-wrapper, .global-header__wrapper, .global-footer__wrapper {
   max-width: 960px;
   margin: 0 auto;
   overflow: auto;
   padding: 0 15px;
 }
 @media (min-width: 640px) {
-  .full-width-centred, .page-wrapper, .global-header__wrapper, .global-footer__wrapper {
+  .page-wrapper, .global-header__wrapper, .global-footer__wrapper {
     padding: 0 30px;
   }
 }
@@ -338,9 +336,9 @@ textarea {
 }
 
 .page-header {
-  padding-top: 1em;
   border-bottom: 1px solid #bfc1c3;
   margin-bottom: 1.5em;
+  padding-bottom: 0.5em;
 }
 
 /* Breadcrumbs */
@@ -509,23 +507,23 @@ form {
 
 fieldset {
   margin: 0 0 0 0;
-  padding: 0 0 0.5em 0;
+  padding: 0 0 1em 0;
   border: 0;
 }
 
 .field {
-  margin: 0 0 1em 0;
+  margin: 0 0 0.75em 0;
 }
 @media (max-width: 640px) {
   .field {
-    margin-bottom: 0.75em;
+    margin-bottom: 0.5em;
   }
 }
 .field--inline {
   margin-right: 0.25em;
   display: inline;
 }
-.field--inline label {
+.field--inline label, .field--inline .legend--small {
   display: inline;
   margin-right: 0.25em;
 }
@@ -536,18 +534,14 @@ fieldset {
 /* 3. Labelling ----------------------------------------*/
 legend {
   *margin-left: -7px;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.25em;
   padding: 0;
   color: black;
 }
 
-.legend--small {
-  margin-bottom: 0.25em;
-}
-
-label {
+label, .legend--small {
   display: block;
-  margin-bottom: 0.2em;
+  margin-bottom: 0.25em;
 }
 
 .field__hint {
@@ -684,7 +678,6 @@ select:focus {
   box-shadow: 0 2px 0 #003518;
   color: white;
   font-weight: normal;
-  padding: 0.5em 0.6em 0.35em 0.6em;
 }
 .button--primary--large:visited {
   background-color: #00823b;
@@ -843,7 +836,7 @@ select:focus {
 }
 .vertical-navigation__item {
   width: 100%;
-  padding: 0 0 .5em 0;
+  padding: 0.25em 0 .5em 0;
   display: block;
   border-bottom: 1px solid #bfc1c3;
 }
@@ -862,9 +855,9 @@ select:focus {
   position: relative;
   overflow: auto;
 }
-.table__header h2, .table__header .modal h1, .modal .table__header h1 {
-  position: absolute;
-  bottom: 0;
+.table__header h2 {
+  float: left;
+  margin-bottom: 0;
 }
 
 .table__wrapper {
@@ -903,16 +896,13 @@ th {
    8. Actions
    ========================================================================== */
 .actions {
-  margin-bottom: 1.5em;
-}
-.actions--right {
   margin-bottom: 1em;
 }
 
 /* ==========================================================================
    9. Modals & alerts
    ========================================================================== */
-.overlay, .modal__wrapper, .alert__wrapper {
+.overlay, .modal__wrapper, .alert__wrapper, .alert--warning__wrapper {
   position: fixed;
   top: 0;
   left: 0;
@@ -927,30 +917,30 @@ th {
   background: #0b0c0c;
 }
 
-.modal, .alert {
+.modal, .alert, .alert--warning {
   display: block;
+  border: 3px solid #bfc1c3;
   background: white;
   padding: 1em;
   overflow: hidden;
   position: relative;
 }
 @media (max-width: 640px) {
-  .modal, .alert {
+  .modal, .alert, .alert--warning {
     padding: 0.5em 1em 4.25em 1em;
   }
 }
 
 .modal {
   margin: 7.5% auto;
-  padding: 1em 1.25em 4.25em 1.25em;
+  padding: 1em 1.25em 4em 1.25em;
   width: 80%;
   max-width: 640px;
-  /* Overides */
 }
 .modal__close {
   position: absolute;
-  right: 1em;
-  top: 0.5em;
+  right: 1.25em;
+  top: 1em;
 }
 .modal form {
   max-height: 300px;
@@ -964,7 +954,6 @@ th {
   margin: 0 1.25em;
   width: 94%;
   background: white;
-  border-top: 1px solid #bfc1c3;
 }
 @media (max-width: 640px) {
   .modal .actions {
@@ -972,9 +961,21 @@ th {
   }
 }
 
-.alert {
-  margin: 25% auto;
+.alert, .alert--warning {
+  margin: 20% auto;
   width: 40%;
-  max-width: 440px;
-  padding: 1.5em 1em 0 1em;
+  max-width: 360px;
+  min-width: 260px;
+  padding: 1em 1em 0.5em 1em;
+}
+.alert .actions, .alert--warning .actions {
+  text-align: center;
+}
+.alert p, .alert--warning p {
+  margin-bottom: 1em;
+}
+
+.alert--warning {
+  background: #fef7f7;
+  border: 3px solid #df3034;
 }
