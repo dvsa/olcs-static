@@ -16,6 +16,11 @@
 					<div class="content--primary"></div><!-- end content- primary -->
 					<div class="content--secondary right-aligned"></div><!-- end content- secondary -->
 				</div>
+				<div class="row"><!-- For example purpose only, do not use .row elements --> 
+					<div class="content--one-third"></div><!-- end content- primary -->
+					<div class="content--one-third"></div><!-- end content- secondary -->
+					<div class="content--one-third last"></div><!-- end content- primary -->
+				</div>
 			</div><!-- end main -->
 		</div><!-- end page-wrapper -->
 

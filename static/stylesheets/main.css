@@ -284,6 +284,13 @@ textarea {
     width: 100%;
   }
 }
+.content--one-third {
+  width: 30%;
+  margin-right: 5%;
+}
+.content--one-third.last {
+  margin-right: 0;
+}
 
 .right-aligned {
   float: right;

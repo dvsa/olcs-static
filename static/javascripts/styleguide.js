@@ -30,5 +30,5 @@ function toggleOverlay() {
 }
 
 function layoutStyles() {
-	$('.content--primary, .content--secondary').css({'background':'#d5d5d5','height':'200px'});
+	$('.content--primary, .content--secondary, .content--one-third').css({'background':'#d5d5d5','height':'200px', 'float':'left'});
 }

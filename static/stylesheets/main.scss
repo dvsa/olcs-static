@@ -233,6 +233,13 @@ textarea {
 			}
 		}
 	}
+	&--one-third {
+		width: 30%;
+		margin-right: 5%;
+		&.last {
+			margin-right: 0;
+		}
+	}
 }
 
 .right-aligned {

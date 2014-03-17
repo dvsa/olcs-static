@@ -12,51 +12,10 @@
 			<div id="main" role="main" tabindex="-1" class="main">
 
 				<?php include 'includes/page-header.php';  ?>
-				<div class="content--primary">
-					<div class="article">
-					<?php
-					$directoryToRead = __DIR__;
-					$filesToIgnore = array(
-						'index.php',
-						'.',
-						'..',
-						'.DS_Store',
-						'includes',
-						'modal-form-include.php',
-						'modal-table-include.php'
-					);
-					$index = array();
-					if ($handle = opendir($directoryToRead)) {
-						while (false !== ($entry = readdir($handle))) {
-							if (!in_array($entry, $filesToIgnore)) {
-
-								if (strstr($entry, '-')) {
-									list($key, $restOfFileName) = explode('-', $entry, 2);	
-								} else {
-									$key = '';
-									$restOfFileName = $entry;
-								}
-								
-								$key = ucwords($key);
-								if (!isset($index[$key])) {
-									$index[$key] = array();
-								}
-								$index[$key][] = array('fileName' => $entry, 'label' => ucwords(str_replace('-', ' ', strtok($restOfFileName, '.'))));
-							}
-					   }
-					} ?>
-
-						<ul>
-							<?php
-							foreach ($index as $folder => $files) {
-							if (count($files) < 2) { ?>
-								<li><a href="<?php echo $files[0]['fileName']; ?>"><?php echo $folder . ' ' . $files[0]['label']; ?></a></li>
-								<?php } else { foreach ($files as $file) { ?>
-								<li><a href="<?php echo $file['fileName']; ?>"><?php echo $folder; ?> <?php echo $file['label']; ?></a></li><?php }?>
-								<?php } } ?>
-						</ul>
-					</div>
-				</div><!-- end content- primary -->
+				<div class="content--one-third">
+					<h3><a href="">Typography</a></h3>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+				</div>
 
 			</div><!-- end main -->
 
