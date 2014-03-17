@@ -1,4 +1,1 @@
-<?php
-    echo "hello world";
-    phpinfo();
-?>
+ <?php header("Location: http://olcs-frontend-styleguide.herokuapp.com/templates/"); >

@@ -29,7 +29,14 @@
 					if ($handle = opendir($directoryToRead)) {
 						while (false !== ($entry = readdir($handle))) {
 							if (!in_array($entry, $filesToIgnore)) {
-								list($key, $restOfFileName) = explode('-', $entry, 2);
+
+								if (strstr($entry, '-')) {
+									list($key, $restOfFileName) = explode('-', $entry, 2);	
+								} else {
+									$key = '';
+									$restOfFileName = $entry;
+								}
+								
 								$key = ucwords($key);
 								if (!isset($index[$key])) {
 									$index[$key] = array();
@@ -48,13 +55,6 @@
 								<li><a href="<?php echo $file['fileName']; ?>"><?php echo $folder; ?> <?php echo $file['label']; ?></a></li><?php }?>
 								<?php } } ?>
 						</ul>
-						<h3>Requirements</h3>
-						<ul>
-							<li><a href="">Sass 3.3</a></li>
-							<li><a href="">Node.js</a></li>
-						</ul>
-						<h3>HTML</h3>
-						<p>Use the BEM styntax, use as few wrapper elements as possible. Dont use </p>
 					</div>
 				</div><!-- end content- primary -->
 
