@@ -1,10 +1,15 @@
 $(document).ready(function() {
+	$('.row').css({'width':'100%','overflow':'auto', 'margin-bottom': '1.5em'});
+
 	var title = $(document).attr('title');
 	if (title==='Form elements') {
 		toggleValidation();
 	}
 	if (title=='Alerts' || title=='Modal form js' || title=='Modal table js') {
 		toggleOverlay();
+	}
+	if (title==='Layout') {
+		layoutStyles();
 	}
 });
 
@@ -22,4 +27,8 @@ function toggleOverlay() {
 		e.preventDefault();
 		$('.overlay, .modal__wrapper, .alert__wrapper').toggle();
 	});
+}
+
+function layoutStyles() {
+	$('.content--primary, .content--secondary').css({'background':'#d5d5d5','height':'200px'});
 }
