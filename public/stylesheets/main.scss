@@ -169,7 +169,7 @@ textarea {
 .hint {
 	display: block;
 	color: $grey-1;
-	margin: 0 0 .75em 0;
+	margin: 0.5em 0;
 }
 
 /* 2.1 Article styles
@@ -475,12 +475,12 @@ input::-moz-focus-inner {
    ========================================================================== */
 
 form {
-	margin: 0;
+	margin: 0 0 1.5em 0;
 	width: 100%;
 }
 
 fieldset {
-	margin: 0 0 2em 0;
+	margin: 0 0 1em 0;
 	padding: 0;
 	border: 0;
 	clear: both;
@@ -491,8 +491,7 @@ fieldset {
 }
 
 .field { 
-	margin: 0 0 1rem 0;
-	margin-bottom: 20px;
+	margin: 0 0 1em 0;
 	@media (max-width: 640px) {
 		margin-bottom: .5em;
 	}
@@ -663,7 +662,6 @@ select:focus {
 	}	
 	&:hover {
 		background: $grey-4;
-		color: $link-colour; 
 	}
 }
 
@@ -717,6 +715,7 @@ select:focus {
 		@extend %navigation__link;	
 		border: 1px solid $grey-2;
 		border-bottom-color: $white;
+		font-weight: 600;
 		@media(max-width: 640px) {
 			border: none;
 			border-bottom: 1px solid $grey-2;
@@ -767,13 +766,11 @@ select:focus {
 
 .results-settings {
 	float: left;
-	p {
+	label {
 		@extend %paragraph--small;
-		margin-right: 1em;
-		display: inline;
 	}
-	a {
-		margin-left: 0.5em;
+	select {
+		margin: 0 .25em;
 	}
 }
 
@@ -806,10 +803,77 @@ $summary-background: #e6eff5;
 	}
 }
 
+/* 7.7 Progress
+   ========================================================================== */
+
+$progress-items: 7;
+
+.progress {
+	@extend %navigation;
+	border-top: 1px dotted $grey-2;
+	overflow: visible;
+	margin-top: 50px;
+	@media (max-width: 640px) {
+		border-top: none;
+		margin: 0;
+	}
+	&__item {
+		@extend %navigation__item;
+		text-align: center;
+		width: (100% - ($progress-items * 2))/$progress-items;
+		margin: -2em 1% 1.5em 1%;	
+		background: url('images/progress.png') no-repeat no-repeat 50% -140px;
+		@include device-pixel-ratio($ratio: 2) {
+			background: url('../images/progress-2x.png') no-repeat 50% -140px;
+			background-size: 52px 200px;
+		}
+		@media (max-width: 640px) {
+			background: none;
+			padding: 0;
+			margin: 0;
+			width: 100%;
+			text-align: left;
+		}
+	}
+	a, .current {
+		display: block;
+		padding-top: 3.75em;
+		@media (max-width: 640px) {
+			padding: .5em 0;
+			border-bottom: 1px solid $grey-2;
+		}
+	}
+	a:hover {
+		@media (max-width: 640px) {
+			background: $grey-4;
+		}
+	}
+	.current {
+		font-weight: 700;
+		@include device-pixel-ratio($ratio: 2) {
+			background-position:50% 5px;
+		}
+	}
+}
+
 
 /* ==========================================================================
-   8. Tables
+   8. Tablese
    ========================================================================== */
+
+.table__header {
+	display: block;
+	width: 100%;
+	overflow: hidden;
+	h3 {
+		margin-top: 0.5em;
+		float: left;
+	}
+	.actions-container {
+		float: right;
+		margin: 0 -0.25em 1em 0;
+	}
+}
 
 .table__wrapper {
 	display: block;
@@ -850,13 +914,17 @@ td {
 }
 
 tfoot {
-	th, td {
-		background: $summary-background;
-		border: none;
+	tr {
 		border: 1px solid $summary-border;
+		background: $summary-background;
+	}
+	th, td {	
+		border: none;
+		overflow: hidden;
 	}
 	th {
 		text-align: right;
+		background: $summary-background;
 	}
 }
 
@@ -870,18 +938,20 @@ tfoot {
 	}
 }
 
-
-
 /* ==========================================================================
    9. Actions
    ========================================================================== */
 
-.actions {
-	margin: 0 0 2.5em 0;
+/* Use this to wrap multiple actions */
+.actions-container {
+	margin: 0 0 1.5em 0;
 	float: left;
+	&.right-aligned {
+		float: right;
+	}
 }
 
-@mixin button-colour ($colour: $button-colour) {
+@mixin action-colour ($colour: $button-colour) {
 	background: $colour;
 	@include box-shadow(0 2px 0 darken($colour, 15%));
     @include ie-lte(8) {
@@ -934,7 +1004,7 @@ tfoot {
 	}
 }
 
-%button {
+%action-box {
 	@include inline-block;
 	@include border-radius(3px);
 	border: none;
@@ -966,32 +1036,34 @@ tfoot {
 	}
 }
 
-.button {
+.action {
 	&--primary {
 		@extend %paragraph--large;
-		@include button-colour();
-		@extend %button;
-		&--large {
-			@extend h3;
-			@include button-colour();
-			@extend %button;
-			font-weight: normal;
-		}
+		@include action-colour();
+		@extend %action-box;
 	}
 	&--secondary {
 		@extend %paragraph--large;
-		@include button-colour($grey-3);
-		@extend %button;
+		@include action-colour($grey-3);
+		@extend %action-box;
 	}
 	&--warning {
 		@extend %paragraph--large;
-		@include button-colour($red);
-		@extend %button;
+		@include action-colour($red);
+		@extend %action-box;
+	}
+	&.large {
+		@extend h3;
+		font-weight: normal;
+	}
+	&.small {
+		font-size: 16px;
+		font-weight: normal;
 	}
 }
 
 
-/* ===================================§=======================================
+/* ==========================================================================
    10. Modals & alerts
    ========================================================================== */
 
@@ -1001,7 +1073,6 @@ tfoot {
 	left: 0;
 	width: 100%;
 	height: 100%;
-
 }
 
 .overlay {
@@ -1069,7 +1140,7 @@ tfoot {
 		padding-right: 2.5%;
 		width: 97.5%;
 	}
-	.actions {
+	.actions-container {
 		margin-bottom: .25em;
 	}
 }

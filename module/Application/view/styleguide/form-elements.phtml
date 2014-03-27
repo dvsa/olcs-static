@@ -27,7 +27,9 @@
     			<input id="address-line-two" name="address" type="text" class="long">
 			</div>
 			<div class="validation-wrapper">
-				<span class="validation-wrapper__message" id="error2">Please complete your biography</span>
+				<ul>
+					<li id="error2">Please complete your biography</li>
+				</ul>
 				<div class="field">
 					<label for="town-city">Town/city</label>
 	    			<input id="town-city" name="town-city" type="text" class="long">
@@ -44,7 +46,7 @@
         			<input id="postcode-search" name="postcode" type="text" class="short">
 				</div>
 				<div class="field inline">
-					<input class="button--primary" type="submit" value="Search">
+					<input class="action--primary" type="submit" value="Search">
 				</div>
 			</fieldset>
 		</fieldset><!-- end #postal-address -->
@@ -66,7 +68,9 @@
     			<input id="last-name" name="name" type="text" class="long" />
 			</div>
 			<div class="validation-wrapper">
-				<span class="validation-wrapper__message" id="error3">Please complete your biography</span>
+				<ul>
+					<li id="error3">Please complete your biography</li>
+				</ul>
 				<div class="field">
 					<label>Date of birth</label>
 					<select id="day" name="date-of-birth">
@@ -106,7 +110,9 @@
 				</div>
 			</fieldset>
 			<div class="validation-wrapper">
-				<span class="validation-wrapper__message" id="error3">Please complete your biography</span>
+				<ul>
+					<li id="error3">Please complete your biography</li>
+				</ul>
 				<div class="field">
 					<label for="biography">Biography</label>
 					<textarea id="biography" class="extra-long" placeholder="Enter text here"></textarea>
@@ -115,10 +121,10 @@
 			</div><!-- end .validation-wrapsper -->
 		</fieldset><!-- end #about-you -->
 
-		<div class="actions">
-			<input class="button--secondary" type="submit" value="Previous">
-			<input class="button--primary" type="submit" value="Next">
-			<input class="button--warning" type="submit" value="Delete">
+		<div class="actions-container">
+			<input class="action--secondary" type="submit" value="Previous">
+			<input class="action--primary" type="submit" value="Next">
+			<input class="action--warning" type="submit" value="Delete">
 		</div><!-- end .actions -->
 
 	</form>

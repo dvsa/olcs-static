@@ -17,6 +17,7 @@ $(document).ready(function() {
 	}
 	if (docUrl.indexOf('popup-form') > -1) {
 		ajaxModal('/styleguide/popup-form-no-js','.modal','#main');
+		toggleOverlay();
 	}
 	if (docUrl.indexOf('operating-centres') > -1) {
 		modal('.modal','#main');
@@ -58,9 +59,6 @@ function modal($targetEl,$fragmentEl) {
 
 	$('.js-modal').click(function(e){
 		e.preventDefault();
-
-		// Disable body scrolling when overlay is visible
-		$('body').css('overflow','hidden');
 
 		// Ajax request
 		$.ajax({

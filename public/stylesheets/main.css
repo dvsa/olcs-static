@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /**
  *
  *  OPERATOR LICENCE & COMPLIANCE SYSTEM
@@ -139,11 +138,11 @@ h2 {
   }
 }
 
-h3, .button--primary--large, legend {
+h3, .action.large, legend {
   font-size: 24px;
 }
 @media (max-width: 640px) {
-  h3, .button--primary--large, legend {
+  h3, .action.large, legend {
     font-size: 20px;
   }
 }
@@ -158,26 +157,26 @@ h4, .global-header__title, .modal h1 {
   }
 }
 
-.article ul, .article p, label, fieldset fieldset legend, .button--primary, .button--secondary, .button--warning {
+.article ul, .article p, label, fieldset fieldset legend, .action--primary, .action--secondary, .action--warning {
   font-size: 19px;
   font-weight: 400;
 }
 @media (max-width: 640px) {
-  .article ul, .article p, label, fieldset fieldset legend, .button--primary, .button--secondary, .button--warning {
+  .article ul, .article p, label, fieldset fieldset legend, .action--primary, .action--secondary, .action--warning {
     font-size: 16px;
   }
 }
 
-p, .one-third p, .global-footer__copyright p, .field.inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .results-settings p, .accordion p, .accordion__item__action, td, th, .modal__close, .modal .subtitle, .alert p, .alert--warning p {
+p, .one-third p, .global-footer__copyright p, .field.inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .results-settings label, .accordion p, .accordion__item__action, td, th, .modal__close, .modal .subtitle, .alert p, .alert--warning p {
   font-size: 16px;
 }
 @media (max-width: 640px) {
-  p, .one-third p, .global-footer__copyright p, .field.inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .results-settings p, .accordion p, .accordion__item__action, td, th, .modal__close, .modal .subtitle, .alert p, .alert--warning p {
+  p, .one-third p, .global-footer__copyright p, .field.inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .results-settings label, .accordion p, .accordion__item__action, td, th, .modal__close, .modal .subtitle, .alert p, .alert--warning p {
     font-size: 14px;
   }
 }
 
-h1, h2, h3, .button--primary--large, h4, h5, p {
+h1, h2, h3, .action.large, h4, h5, p {
   clear: both;
   margin: 0 0 7.5px 0;
   font-weight: 700;
@@ -220,7 +219,7 @@ textarea {
 .hint {
   display: block;
   color: #6f777b;
-  margin: 0 0 .75em 0;
+  margin: 0.5em 0;
 }
 
 /* 2.1 Article styles
@@ -228,7 +227,7 @@ textarea {
 .article h2 {
   margin-bottom: .25em;
 }
-.article h3, .article .button--primary--large, .article h4 {
+.article h3, .article .action.large, .article h4 {
   margin-bottom: .5em;
 }
 .article ul {
@@ -504,12 +503,12 @@ input::-moz-focus-inner {
 /* 6.2 Wrapper elements
    ========================================================================== */
 form {
-  margin: 0;
+  margin: 0 0 1.5em 0;
   width: 100%;
 }
 
 fieldset {
-  margin: 0 0 2em 0;
+  margin: 0 0 1em 0;
   padding: 0;
   border: 0;
   clear: both;
@@ -520,8 +519,7 @@ fieldset fieldset {
 }
 
 .field {
-  margin: 0 0 1rem 0;
-  margin-bottom: 20px;
+  margin: 0 0 1em 0;
 }
 @media (max-width: 640px) {
   .field {
@@ -658,18 +656,18 @@ select:focus {
 /* ==========================================================================
    7. Navigation
    ========================================================================== */
-.tabs, .vertical-navigation, .accordion {
+.tabs, .vertical-navigation, .accordion, .progress {
   list-style: none;
   width: 100%;
   overflow: auto;
 }
 
-.tabs__item {
+.tabs__item, .progress__item {
   float: left;
   margin-bottom: 0;
 }
 @media (max-width: 640px) {
-  .tabs__item {
+  .tabs__item, .progress__item {
     width: 100%;
   }
 }
@@ -687,7 +685,6 @@ select:focus {
 }
 .tabs a:hover, .tabs .current:hover, .vertical-navigation a:hover {
   background: #f8f8f8;
-  color: #005ea5;
 }
 
 /* 7.1 Global breadcrumbs
@@ -729,6 +726,7 @@ select:focus {
 .tabs .current {
   border: 1px solid #bfc1c3;
   border-bottom-color: white;
+  font-weight: 600;
 }
 @media (max-width: 640px) {
   .tabs .current {
@@ -769,12 +767,8 @@ select:focus {
 .results-settings {
   float: left;
 }
-.results-settings p {
-  margin-right: 1em;
-  display: inline;
-}
-.results-settings a {
-  margin-left: 0.5em;
+.results-settings select {
+  margin: 0 .25em;
 }
 
 /* 7.6 Accordion
@@ -799,9 +793,81 @@ select:focus {
   top: .75em;
 }
 
-/* ==========================================================================
-   8. Tables
+/* 7.7 Progress
    ========================================================================== */
+.progress {
+  border-top: 1px dotted #bfc1c3;
+  overflow: visible;
+  margin-top: 50px;
+}
+@media (max-width: 640px) {
+  .progress {
+    border-top: none;
+    margin: 0;
+  }
+}
+.progress__item {
+  text-align: center;
+  width: 12.28571%;
+  margin: -2em 1% 1.5em 1%;
+  background: url("images/progress.png") no-repeat no-repeat 50% -140px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .progress__item {
+    background: url("../images/progress-2x.png") no-repeat 50% -140px;
+    background-size: 52px 200px;
+  }
+}
+@media (max-width: 640px) {
+  .progress__item {
+    background: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: left;
+  }
+}
+.progress a, .progress .current {
+  display: block;
+  padding-top: 3.75em;
+}
+@media (max-width: 640px) {
+  .progress a, .progress .current {
+    padding: .5em 0;
+    border-bottom: 1px solid #bfc1c3;
+  }
+}
+@media (max-width: 640px) {
+  .progress a:hover {
+    background: #f8f8f8;
+  }
+}
+.progress .current {
+  font-weight: 700;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .progress .current {
+    background-position: 50% 5px;
+  }
+}
+
+/* ==========================================================================
+   8. Tablese
+   ========================================================================== */
+.table__header {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+}
+.table__header h3, .table__header .action.large {
+  margin-top: 0.5em;
+  float: left;
+}
+.table__header .actions-container {
+  float: right;
+  margin: 0 -0.25em 1em 0;
+}
+
 .table__wrapper {
   display: block;
   width: 100%;
@@ -839,13 +905,17 @@ td {
   overflow: hidden;
 }
 
-tfoot th, tfoot td {
-  background: #e6eff5;
-  border: none;
+tfoot tr {
   border: 1px solid #cdd7dc;
+  background: #e6eff5;
+}
+tfoot th, tfoot td {
+  border: none;
+  overflow: hidden;
 }
 tfoot th {
   text-align: right;
+  background: #e6eff5;
 }
 
 .delete {
@@ -861,12 +931,16 @@ tfoot th {
 /* ==========================================================================
    9. Actions
    ========================================================================== */
-.actions {
-  margin: 0 0 2.5em 0;
+/* Use this to wrap multiple actions */
+.actions-container {
+  margin: 0 0 1.5em 0;
   float: left;
 }
+.actions-container.right-aligned {
+  float: right;
+}
 
-.button--primary, .button--primary--large, .button--secondary, .button--warning {
+.action--primary, .action--secondary, .action--warning {
   display: -moz-inline-stack;
   display: inline-block;
   -webkit-border-radius: 3px;
@@ -884,168 +958,136 @@ tfoot th {
   -webkit-appearance: none;
   cursor: pointer;
 }
-[rel="external"].button--primary:after, [rel="external"].button--primary--large:after, [rel="external"].button--secondary:after, [rel="external"].button--warning:after {
+[rel="external"].action--primary:after, [rel="external"].action--secondary:after, [rel="external"].action--warning:after {
   display: none;
   content: none;
   margin-left: 0;
   margin-right: 0;
 }
 
-.button--primary {
+.action--primary {
   background: #00823b;
   -webkit-box-shadow: 0 2px 0 #003518;
   -moz-box-shadow: 0 2px 0 #003518;
   box-shadow: 0 2px 0 #003518;
   color: white;
 }
-.button--primary:visited {
+.action--primary:visited {
   background-color: #00823b;
 }
-.button--primary:hover, .button--primary:focus {
+.action--primary:hover, .action--primary:focus {
   text-decoration: none;
   background-color: #00692f;
 }
-.button--primary:active {
+.action--primary:active {
   top: 2px;
   -webkit-box-shadow: 0 0 0 #00823b;
   -moz-box-shadow: 0 0 0 #00823b;
   box-shadow: 0 0 0 #00823b;
 }
-.button--primary.disabled, .button--primary[disabled="disabled"], .button--primary[disabled] {
+.action--primary.disabled, .action--primary[disabled="disabled"], .action--primary[disabled] {
   zoom: 1;
   filter: alpha(opacity=50);
   opacity: 0.5;
 }
-.button--primary.disabled:hover, .button--primary[disabled="disabled"]:hover, .button--primary[disabled]:hover {
+.action--primary.disabled:hover, .action--primary[disabled="disabled"]:hover, .action--primary[disabled]:hover {
   cursor: default;
   background-color: #00823b;
 }
-.button--primary.disabled:active, .button--primary[disabled="disabled"]:active, .button--primary[disabled]:active {
+.action--primary.disabled:active, .action--primary[disabled="disabled"]:active, .action--primary[disabled]:active {
   top: 0;
   -webkit-box-shadow: 0 2px 0 #003518;
   -moz-box-shadow: 0 2px 0 #003518;
   box-shadow: 0 2px 0 #003518;
 }
-.button--primary:link, .button--primary:hover, .button--primary:focus, .button--primary:visited {
+.action--primary:link, .action--primary:hover, .action--primary:focus, .action--primary:visited {
   color: white;
 }
-.button--primary--large {
-  background: #00823b;
-  -webkit-box-shadow: 0 2px 0 #003518;
-  -moz-box-shadow: 0 2px 0 #003518;
-  box-shadow: 0 2px 0 #003518;
-  color: white;
-  font-weight: normal;
-}
-.button--primary--large:visited {
-  background-color: #00823b;
-}
-.button--primary--large:hover, .button--primary--large:focus {
-  text-decoration: none;
-  background-color: #00692f;
-}
-.button--primary--large:active {
-  top: 2px;
-  -webkit-box-shadow: 0 0 0 #00823b;
-  -moz-box-shadow: 0 0 0 #00823b;
-  box-shadow: 0 0 0 #00823b;
-}
-.button--primary--large.disabled, .button--primary--large[disabled="disabled"], .button--primary--large[disabled] {
-  zoom: 1;
-  filter: alpha(opacity=50);
-  opacity: 0.5;
-}
-.button--primary--large.disabled:hover, .button--primary--large[disabled="disabled"]:hover, .button--primary--large[disabled]:hover {
-  cursor: default;
-  background-color: #00823b;
-}
-.button--primary--large.disabled:active, .button--primary--large[disabled="disabled"]:active, .button--primary--large[disabled]:active {
-  top: 0;
-  -webkit-box-shadow: 0 2px 0 #003518;
-  -moz-box-shadow: 0 2px 0 #003518;
-  box-shadow: 0 2px 0 #003518;
-}
-.button--primary--large:link, .button--primary--large:hover, .button--primary--large:focus, .button--primary--large:visited {
-  color: white;
-}
-.button--secondary {
+.action--secondary {
   background: #dee0e2;
   -webkit-box-shadow: 0 2px 0 #b5babe;
   -moz-box-shadow: 0 2px 0 #b5babe;
   box-shadow: 0 2px 0 #b5babe;
   color: #0b0c0c;
 }
-.button--secondary:visited {
+.action--secondary:visited {
   background-color: #dee0e2;
 }
-.button--secondary:hover, .button--secondary:focus {
+.action--secondary:hover, .action--secondary:focus {
   text-decoration: none;
   background-color: #d0d3d6;
 }
-.button--secondary:active {
+.action--secondary:active {
   top: 2px;
   -webkit-box-shadow: 0 0 0 #dee0e2;
   -moz-box-shadow: 0 0 0 #dee0e2;
   box-shadow: 0 0 0 #dee0e2;
 }
-.button--secondary.disabled, .button--secondary[disabled="disabled"], .button--secondary[disabled] {
+.action--secondary.disabled, .action--secondary[disabled="disabled"], .action--secondary[disabled] {
   zoom: 1;
   filter: alpha(opacity=50);
   opacity: 0.5;
 }
-.button--secondary.disabled:hover, .button--secondary[disabled="disabled"]:hover, .button--secondary[disabled]:hover {
+.action--secondary.disabled:hover, .action--secondary[disabled="disabled"]:hover, .action--secondary[disabled]:hover {
   cursor: default;
   background-color: #dee0e2;
 }
-.button--secondary.disabled:active, .button--secondary[disabled="disabled"]:active, .button--secondary[disabled]:active {
+.action--secondary.disabled:active, .action--secondary[disabled="disabled"]:active, .action--secondary[disabled]:active {
   top: 0;
   -webkit-box-shadow: 0 2px 0 #b5babe;
   -moz-box-shadow: 0 2px 0 #b5babe;
   box-shadow: 0 2px 0 #b5babe;
 }
-.button--secondary:link, .button--secondary:hover, .button--secondary:focus, .button--secondary:visited {
+.action--secondary:link, .action--secondary:hover, .action--secondary:focus, .action--secondary:visited {
   color: #0b0c0c;
 }
-.button--warning {
+.action--warning {
   background: #b10e1e;
   -webkit-box-shadow: 0 2px 0 #6a0812;
   -moz-box-shadow: 0 2px 0 #6a0812;
   box-shadow: 0 2px 0 #6a0812;
   color: white;
 }
-.button--warning:visited {
+.action--warning:visited {
   background-color: #b10e1e;
 }
-.button--warning:hover, .button--warning:focus {
+.action--warning:hover, .action--warning:focus {
   text-decoration: none;
   background-color: #990c1a;
 }
-.button--warning:active {
+.action--warning:active {
   top: 2px;
   -webkit-box-shadow: 0 0 0 #b10e1e;
   -moz-box-shadow: 0 0 0 #b10e1e;
   box-shadow: 0 0 0 #b10e1e;
 }
-.button--warning.disabled, .button--warning[disabled="disabled"], .button--warning[disabled] {
+.action--warning.disabled, .action--warning[disabled="disabled"], .action--warning[disabled] {
   zoom: 1;
   filter: alpha(opacity=50);
   opacity: 0.5;
 }
-.button--warning.disabled:hover, .button--warning[disabled="disabled"]:hover, .button--warning[disabled]:hover {
+.action--warning.disabled:hover, .action--warning[disabled="disabled"]:hover, .action--warning[disabled]:hover {
   cursor: default;
   background-color: #b10e1e;
 }
-.button--warning.disabled:active, .button--warning[disabled="disabled"]:active, .button--warning[disabled]:active {
+.action--warning.disabled:active, .action--warning[disabled="disabled"]:active, .action--warning[disabled]:active {
   top: 0;
   -webkit-box-shadow: 0 2px 0 #6a0812;
   -moz-box-shadow: 0 2px 0 #6a0812;
   box-shadow: 0 2px 0 #6a0812;
 }
-.button--warning:link, .button--warning:hover, .button--warning:focus, .button--warning:visited {
+.action--warning:link, .action--warning:hover, .action--warning:focus, .action--warning:visited {
   color: white;
 }
+.action.large {
+  font-weight: normal;
+}
+.action.small {
+  font-size: 16px;
+  font-weight: normal;
+}
 
-/* ===================================§=======================================
+/* ==========================================================================
    10. Modals & alerts
    ========================================================================== */
 .overlay, .modal__wrapper, .alert__wrapper, .alert--warning__wrapper {
@@ -1119,7 +1161,7 @@ tfoot th {
   padding-right: 2.5%;
   width: 97.5%;
 }
-.modal .actions {
+.modal .actions-container {
   margin-bottom: .25em;
 }
 

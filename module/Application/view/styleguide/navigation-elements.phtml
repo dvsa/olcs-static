@@ -1,5 +1,8 @@
 <?php echo $this->render('partials/page-header.phtml', array('pageTitle' => 'Navigation elements', 'pageSubTitle'=> 'Includes a standard set of vertical and horizontal navigation mechanisms')); ?>
 
+	
+				<!-- Tabbed navigation -->
+
 				<div class="full-width">
 					<h3>Tabbed navigation</h3>
 					<ul class="tabs" role="navigation" >
@@ -7,14 +10,33 @@
 						<li class="tabs__item current">Item two</li>
 						<li class="tabs__item"><a href="">Item three</a></li>
 						<li class="tabs__item"><a href="">Item four</a></li>
-						<li class="tabs__item disabled"><a href="">Item five</a></li>
+						<li class="tabs__item"><a href="">Item five</a></li>
 						<li class="tabs__item"><a href="">Item six</a></li>
-						<li class="tabs__item disabled"><a href="">Item seven</a></li>
+						<li class="tabs__item"><a href="">Item seven</a></li>
 					</ul><!-- end .tabs -->
 					<div class="tabs__content">
 						<p>This is the content, switchable by the tabs</p>
 					</div>
 				</div><!-- end .full-width -->
+
+
+				<!-- Progress navigation -->
+
+				<div class="full-width">
+					<h3>Progress navigation</h3>
+					<ul class="progress" role="navigation" >
+						<li class="progress__item"><a href=""><span>Type of licence</span></a></li>
+						<li class="progress__item current"><span>Your business</span></li>
+						<li class="progress__item"><a href=""><span>Operating centres</span></a></li>
+						<li class="progress__item"><a href=""><span>Transport managers</span></a></li>
+						<li class="progress__item"><a href=""><span>Vehicle and safety</span></a></li>
+						<li class="progress__item"><a href=""><span>Declaration</span></a></li>
+						<li class="progress__item"><a href=""><span>Payment</span></a></li>
+					</ul><!-- end .progress -->
+				</div><!-- end .full-width -->
+
+
+				<!-- Accordion -->
 
 				<div class="full-width">
 					<h3>Accordion</h3>
@@ -37,10 +59,16 @@
                     </ul><!-- end .accordion -->
 				</div><!-- end .full-width -->
 
+
+				<!-- Vertical navigation-->
+
 				<div class="one-third">
 					<h3>Vertical navigation</h3>
 	                <?php echo $this->render('partials/vertical-navigation.phtml', array('navItems' => array('Postal address', 'Personal information', 'About you'))); ?>
                 </div><!-- end .one-third -->
+
+
+                <!-- Pagination-->
 
 				<div class="full-width">
 					<h3>Pagination</h3>

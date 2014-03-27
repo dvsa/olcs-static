@@ -22,8 +22,11 @@
     <body>
     <?php echo $this->render('layout/partials/header.phtml'); ?>
 
-	<div class="page-wrapper">
-        <?php echo $this->render('layout/partials/breadcrumbs.phtml'); ?>
+	<div class="page-wrapper">        
+        <ol class="global-breadcrumbs">
+            <li class="global-breadcrumbs__item"><a href="/">Home</a></li>
+            <li class="global-breadcrumbs__item current"><a href="">Search</a></li>
+        </ol><!-- end .global-breadcrumbs -->
         <div id="main" role="main">
             <?php echo $this->content; ?>
         </div>

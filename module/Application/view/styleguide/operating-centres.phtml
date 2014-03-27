@@ -17,49 +17,52 @@
 
 
 <div class="three-quarters">
-
-	<!-- Operating centers -->
-	<div class="table__header">
-		<h3 id="operating-centres">Operating centres</h3>
-	</div><!-- end .table__header -->
-	<div class="table__wrapper">
-		<table>
-			<thead>
-				<tr>
-					<th>Address</th>
-					<th>Vehicles</th>
-					<th>Trailers</th>
-					<th>Permission</th>
-					<th>Advertised</th>
-					<th>Proof</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><a href="">24 Dulwich Road, Southwell</a></td>
-					<td>3</td>
-					<td>5</td>
-					<td>Yes</td>
-					<td>Yes</td>
-					<td>No</td>
-					<td class="delete"><a href="">Delete</a></td>
-				</tr>
-				<tr>
-					<td><a href="">177 Beeston Industrial Park</a></td>
-					<td>26</td>
-					<td>2</td>
-					<td>Yes</td>
-					<td>Yes</td>
-					<td>Yes</td>
-					<td class="delete"><a href="">Delete</a></td>
-				</tr>
-			</tbody>
-		</table>
-	</div><!-- end .table-wrapper -->
-	<div class="actions">
-		<a href="operating-centres_add" class="button--primary js-modal">Add operating centre</a>
-	</div>
+	<form>
+		<!-- Operating centers -->
+		<div class="table__header">
+			<h3>Operating centres</h3>
+			<div class="actions-container">
+				<input class="action--primary" type="submit" value="Add">
+				<input class="action--secondary" type="submit" value="Edit">
+				<input class="action--warning" type="submit" value="Delete">
+			</div><!-- end .actions-container -->
+		</div><!-- end .table__header -->
+		<div class="table__wrapper">
+			<table>
+				<thead>
+					<tr>
+						<th></th>
+						<th>Address</th>
+						<th>Vehicles</th>
+						<th>Trailers</th>
+						<th>Permission</th>
+						<th>Advertised</th>
+						<th>Proof</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><input name="row" type="radio"></td>
+						<td><a href="">24 Dulwich Road, Southwell</a></td>
+						<td>3</td>
+						<td>5</td>
+						<td>Yes</td>
+						<td>Yes</td>
+						<td>No</td>
+					</tr>
+					<tr>
+						<td><input name="row" type="radio"></td>
+						<td><a href="">177 Beeston Industrial Park</a></td>
+						<td>26</td>
+						<td>2</td>
+						<td>Yes</td>
+						<td>Yes</td>
+						<td>Yes</td>
+					</tr>
+				</tbody>
+			</table>
+		</div><!-- end .table-wrapper -->
+	</form>
 
 
 	<!-- Authorised vehicles -->
@@ -76,36 +79,38 @@
 	            <input class="short" id="no-of-trailers" name="no-of-trailers" placeholder="" type="text" value="">
 	        </div>
 		</fieldset>
-		<div class="actions">
-			<input class="button--primary" type="submit" value="Calculate">
+		<div class="actions-container">
+			<input class="action--primary" type="submit" value="Calculate">
 		</div><!-- end .actions -->
 	</form>
 
 
 	<!-- Financial evidence -->
-	<h3 id="financial-evidence">Financial evidence</h3>
-	<p class="hint">Please upload copies of your accounts or bank statements to prove you have sufficient funds</p>
-	<div class="table__wrapper">
-		<table>
-			<thead>
-				<tr>
-					<th>File name</th>
-					<th>Evidence type</th>
-					<th></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Amber_taxis_accounts_2012-2013.xls</td>
-					<td>Accounts</td>
-					<td class="delete"><a href="">Delete</a></td>
-				</tr>
-			</tbody>
-		</table>
-	</div><!-- end .table_wrapper -->
-	<div class="actions">
-		<input class="button--primary" type="submit" value="Upload evidence">
-	</div><!-- end .actions -->
+	<form>
+		<h3 id="financial-evidence">Financial evidence</h3>
+		<p class="hint">Please upload copies of your accounts or bank statements to prove you have sufficient funds</p>
+		<div class="table__wrapper">
+			<table>
+				<thead>
+					<tr>
+						<th>File name</th>
+						<th>Evidence type</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Amber_taxis_accounts_2012-2013.xls</td>
+						<td>Accounts</td>
+						<td class="delete"><a href="">Delete</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div><!-- end .table_wrapper -->
+		<div class="actions-container">
+			<input class="action--primary" type="submit" value="Upload evidence">
+		</div><!-- end .actions -->
+	</form>
 
 
 	<!-- Totals -->
