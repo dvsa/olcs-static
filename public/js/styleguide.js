@@ -22,6 +22,11 @@ $(document).ready(function() {
 	if (docUrl.indexOf('operating-centres') > -1) {
 		modal('.modal','#main');
 	}
+
+	if (docUrl.indexOf('progressive-form') > -1) {
+		progDisclosure();
+	}
+
 });
 
 function toggleValidation() {
@@ -69,7 +74,6 @@ function modal($targetEl,$fragmentEl) {
 				$('.overlay, .modal__wrapper').show();
 			}
 		});
-
 	});
 
 	// Close the modal
@@ -77,3 +81,17 @@ function modal($targetEl,$fragmentEl) {
 		$('.overlay, .modal__wrapper').hide();
 	});
 }
+
+function progDisclosure() {
+
+
+}
+
+
+
+
+
+
+
+
+

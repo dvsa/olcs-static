@@ -847,6 +847,19 @@ select:focus {
   background-position: 50% 5px;
 }
 
+/* 7.8 Filter
+   ========================================================================== */
+.filters__list {
+  list-style: none;
+  margin-top: .75em;
+}
+.filters__title {
+  font-weight: 700;
+}
+.filters__item {
+  margin-bottom: .25em;
+}
+
 /* ==========================================================================
    8. Tables
    ========================================================================== */
@@ -914,14 +927,30 @@ tfoot th {
   background: #e6eff5;
 }
 
-.delete {
-  width: 5%;
+.sortable {
+  cursor: pointer;
+  background: #dee0e2 url("../images/down-arrow.png") no-repeat 95% 15px;
 }
-.delete a {
-  color: #df3034;
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .sortable {
+    background-image: url("../images/down-arrow-2x.png");
+    background-size: 10px 45px;
+  }
 }
-.delete a:hover {
-  color: #b10e1e;
+.sortable:hover {
+  background-color: #cccccc;
+}
+.sortable:active {
+  color: #6f777b;
+}
+.sortable.selected {
+  background: #cccccc url("../images/down-arrow.png") no-repeat 95% -22px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .sortable.selected {
+    background-image: url("../images/down-arrow-2x.png");
+    background-size: 10px 45px;
+  }
 }
 
 /* ==========================================================================

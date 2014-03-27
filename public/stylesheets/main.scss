@@ -854,6 +854,21 @@ $progress-items: 7;
 	}
 }
 
+/* 7.8 Filter
+   ========================================================================== */
+
+.filters {
+	&__list {
+		list-style: none;
+		margin-top: .75em;
+	}
+	&__title {
+		font-weight: 700;
+	}
+	&__item {
+		margin-bottom: .25em;
+	}
+}
 
 /* ==========================================================================
    8. Tables
@@ -926,12 +941,25 @@ tfoot {
 	}
 }
 
-.delete	{
-	width: 5%;
-	a {
-		color: $mellow-red;
-		&:hover {
-			color: $red;
+
+.sortable {
+	cursor: pointer;
+	background: $grey-3 url('../images/down-arrow.png') no-repeat 95% 15px;
+	@include device-pixel-ratio($ratio: 2) {
+		background-image: url('../images/down-arrow-2x.png');
+		background-size: 10px 45px;
+	}
+	&:hover {
+		background-color: #cccccc;
+	}
+	&:active {
+		color: $grey-1;
+	}
+	&.selected {
+		background: #cccccc url('../images/down-arrow.png') no-repeat 95% -22px;
+		@include device-pixel-ratio($ratio: 2) {
+			background-image: url('../images/down-arrow-2x.png');
+			background-size: 10px 45px;
 		}
 	}
 }
