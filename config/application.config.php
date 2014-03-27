@@ -3,6 +3,7 @@ return array(
     // This should be an array of module namespaces used in the application.
     'modules' => array(
         'Application',
+        'Common'
     ),
 
     // These are various options for the listeners attached to the ModuleManager
@@ -14,6 +15,7 @@ return array(
         'module_paths' => array(
             './module',
             './vendor',
+            __DIR__ . '/../vendor/olcs/OlcsCommon'
         ),
 
         // An array of paths from which to glob configuration files after
