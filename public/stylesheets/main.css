@@ -810,7 +810,7 @@ select:focus {
   text-align: center;
   width: 12.28571%;
   margin: -2em 1% 1.5em 1%;
-  background: url("images/progress.png") no-repeat no-repeat 50% -140px;
+  background: url("../images/progress.png") no-repeat 50% -140px;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .progress__item {
@@ -844,11 +844,7 @@ select:focus {
 }
 .progress .current {
   font-weight: 700;
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  .progress .current {
-    background-position: 50% 5px;
-  }
+  background-position: 50% 5px;
 }
 
 /* ==========================================================================

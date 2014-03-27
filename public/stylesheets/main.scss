@@ -822,7 +822,7 @@ $progress-items: 7;
 		text-align: center;
 		width: (100% - ($progress-items * 2))/$progress-items;
 		margin: -2em 1% 1.5em 1%;	
-		background: url('images/progress.png') no-repeat no-repeat 50% -140px;
+		background: url('../images/progress.png') no-repeat 50% -140px;
 		@include device-pixel-ratio($ratio: 2) {
 			background: url('../images/progress-2x.png') no-repeat 50% -140px;
 			background-size: 52px 200px;
@@ -850,9 +850,7 @@ $progress-items: 7;
 	}
 	.current {
 		font-weight: 700;
-		@include device-pixel-ratio($ratio: 2) {
-			background-position:50% 5px;
-		}
+		background-position:50% 5px;
 	}
 }
 
