@@ -6,11 +6,11 @@
         "type": "package",
         "package": {
             "name": "olcs/OlcsCommon",
-            "version": "0.1.1",
+            "version": "dev-develop",
             "source": {
                 "url": "gitolite@git.clb.npm:olcs-common.git",
                 "type": "git",
-                "reference": "origin/develop"
+                "reference": "develop"
                 }
             }
         }
@@ -18,11 +18,6 @@
     "require": {
         "php": ">=5.4",
         "zendframework/zendframework": "2.2.*",
-        "olcs/OlcsCommon": "0.1.*"
-    },
-    "autoload" : {
-        "psr-4": {
-            "Common\\": "vendor/olcs/OlcsCommon/Common/src"
-        }
+        "olcs/OlcsCommon": "dev-develop"
     }
 }
