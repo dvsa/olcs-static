@@ -16,12 +16,7 @@
 	</div><!-- end .case-summary -->
 </div><!-- end .full-width -->
 
-<!-- Vertical navigation -->
-<div class="one-quarter">
-    <?php echo $this->render('partials/vertical-navigation.phtml', array('navItems' => array('Operating centres', 'Authorised vehicles', 'Financial evidence'))); ?>
-</div><!-- end .one-quarter -->
-
-<div class="three-quarters">
+<div class="full-width">
 	<form>
 		<div class="table__header">
 			<h3>CRUD table</h3>
@@ -40,7 +35,6 @@
 					<tr>
 						<th></th>
 						<th>Licence no.</th>
-						<th>Trading name</th>
 						<th>Postcode</th>
 						<th>First name</th>
 						<th>Last name</th>
@@ -52,7 +46,6 @@
 					<tr>
 						<td><input name="row" type="radio"></td>
 						<td><a href="">76163222712</a></td>
-						<td>Jim Jefferey's Haulage LTD</td>
 						<td>LS7 4QP</td>
 						<td>James</td>
 						<td>Jefferey</td>
@@ -62,7 +55,6 @@
 					<tr>
 						<td><input name="row" type="radio"></td>
 						<td><a href="">36233242279</a></td>
-						<td>Amber Taxis</td>
 						<td>LS3 2PS</td>
 						<td>Mohammed</td>
 						<td>Ali</td>
@@ -72,7 +64,6 @@
 					<tr>
 						<td><input name="row" type="radio"></td>
 						<td><a href="">86173252712</a></td>
-						<td>Jim Jefferey's Haulage LTD</td>
 						<td>LS7 4QP</td>
 						<td>James</td>
 						<td>Jefferey</td>
@@ -82,7 +73,6 @@
 					<tr>
 						<td><input name="row" type="radio"></td>
 						<td><a href="">8272632422</a></td>
-						<td>Amber Taxis</td>
 						<td>LS3 2PS</td>
 						<td>Mohammed</td>
 						<td>Ali</td>
@@ -92,7 +82,7 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<th colspan="7">Totals</th>
+						<th colspan="6">Totals</th>
 						<td>477</td>
 					</tr>
 				</tfoot>

@@ -914,7 +914,7 @@ tr:nth-child(even) {
 }
 
 td, th {
-  padding: .5em;
+  padding: .5em .5em .4em .5em;
   border: 1px dotted #bfc1c3;
   text-align: left;
   vertical-align: top;
