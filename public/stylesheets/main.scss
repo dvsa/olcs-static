@@ -718,7 +718,7 @@ select:focus {
 		font-weight: 600;
 		@media(max-width: 640px) {
 			border: none;
-			border-bottom: 1px solid $grey-2;
+			border-bottom: 3px solid $black;
 		}	
 		&:hover {
 			background: none;
@@ -851,6 +851,9 @@ $progress-items: 7;
 	.current {
 		font-weight: 700;
 		background-position:50% 5px;
+		@media (max-width: 640px) {
+			border-bottom: 3px solid $black;
+		}
 	}
 }
 
@@ -1109,6 +1112,7 @@ tfoot {
 }
 
 %overlay-box {
+	@include border-radius(3px);
 	display: block;
 	border: 3px solid $grey-2;
 	background: $white;
