@@ -14,6 +14,7 @@
  *  8. Tables
  *  9. Actions
  * 10. Modals & alerts
+ * 11. Compliance 
  *
  **/
 
@@ -68,6 +69,16 @@ ul {
 img {
     border: 0;
     -ms-interpolation-mode: bicubic;
+}
+
+dt {
+	font-weight: 700;
+}
+
+dd {
+	margin: 0 0 1em 0;
+	float: left;
+	width: 30%;
 }
 
 /* 1.1 Links
@@ -147,6 +158,10 @@ h3 { @extend %h3; }
 h4 { 
 	@extend %h4; 
 	margin-bottom: 0;
+}
+
+h5 { 
+	@extend %paragraph--small;
 }
 
 p { 
@@ -1153,9 +1168,8 @@ tfoot {
 	/* Ajaxed content overides*/
 	.page-header {
 		background: $grey-3;
-		margin: 0; 
+		margin: 0 0 1em 0; 
 		padding: 0.6em 1em 0.4em;
-		margin-bottom: 1em;
 	}
 	h1 {
 		@extend %h4;
@@ -1201,3 +1215,11 @@ tfoot {
 	background: $warning-background;
 	border: 3px solid $mellow-red;
 }
+
+
+/* ==========================================================================
+   11. Compliance
+   ========================================================================== */
+
+@import '_compliance';
+

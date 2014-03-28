@@ -1,0 +1,35 @@
+
+/* 11.1 Case summary
+   ========================================================================== */
+
+.case-summary {
+	@include border-radius(3px);
+	background: $grey-4;
+	border: 3px solid $grey-2;
+	overflow: auto;
+	padding-bottom: .5em;
+	margin-top: -1.7em;
+	h5 {
+		background: $grey-3;
+		margin: 0 0 .4em 0; 
+		padding: .5em 1.5% .4em 1.5%;
+		border-bottom: 1px solid $grey-2;
+	}
+	&__list {
+		list-style: none;
+	}
+	&__item {
+		@extend %container;
+		margin: .4em 0 .4em 1.5%;
+		width: 23.5%;
+		color: $grey-1;
+	}
+	b {
+		display: block;
+		color: $black;
+	}
+	.summary {
+		width: 40%;
+	}
+}
+

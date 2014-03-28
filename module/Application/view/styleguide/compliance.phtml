@@ -1,0 +1,103 @@
+<?php echo $this->render('partials/page-header.phtml', array('pageTitle' => 'Compliance')); ?>
+
+<!-- Case summary -->
+<div class="full-width">
+	<div class="case-summary">
+		<h5>Case summary information</h5>
+		<ul class="case-summary__list">
+			<li class="case-summary__item"><b>Case number</b>12341890456</li>
+			<li class="case-summary__item"><b>Operator name</b>Super Big Truckers &amp; Ltd.</li>
+			<li class="case-summary__item"><b>Licence number</b>OB14256542</li>
+			<li class="case-summary__item"><b>ECMS</b>Convictions</li>
+			<li class="case-summary__item"><b>Received</b>10/02/2013</li>
+			<li class="case-summary__item"><b>Categorie(s)</b>Convictions</li>
+			<li class="case-summary__item summary"><b>Summary</b>Case for convictiosn against company directors</li>
+		</ul><!-- end .case-summary__list -->
+	</div><!-- end .case-summary -->
+</div><!-- end .full-width -->
+
+<!-- Vertical navigation -->
+<div class="one-quarter">
+    <?php echo $this->render('partials/vertical-navigation.phtml', array('navItems' => array('Operating centres', 'Authorised vehicles', 'Financial evidence'))); ?>
+</div><!-- end .one-quarter -->
+
+<div class="three-quarters">
+	<form>
+		<div class="table__header">
+			<h3>CRUD table</h3>
+			<!-- Tables should be wrapped in a <div clas=".table__wrapper">... 
+				 element to allow them to overflow correctly  -->
+			<div class="actions-container">
+				<input class="action--primary" type="submit" value="Add">
+				<input class="action--secondary" type="submit" value="Edit">
+				<input class="action--warning" type="submit" value="Delete">
+			</div><!-- end .actions-container -->
+		</div><!-- end .table__header -->
+
+		<div class="table__wrapper">
+			<table>
+				<thead>
+					<tr>
+						<th></th>
+						<th>Licence no.</th>
+						<th>Trading name</th>
+						<th>Postcode</th>
+						<th>First name</th>
+						<th>Last name</th>
+						<th>D.O.B</th>
+						<th>Conv.</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><input name="row" type="radio"></td>
+						<td><a href="">76163222712</a></td>
+						<td>Jim Jefferey's Haulage LTD</td>
+						<td>LS7 4QP</td>
+						<td>James</td>
+						<td>Jefferey</td>
+						<td>07/02/1963</td>
+						<td>14</td>
+					</tr>
+					<tr>
+						<td><input name="row" type="radio"></td>
+						<td><a href="">36233242279</a></td>
+						<td>Amber Taxis</td>
+						<td>LS3 2PS</td>
+						<td>Mohammed</td>
+						<td>Ali</td>
+						<td>23/11/1943</td>
+						<td>5</td>
+					</tr>
+					<tr>
+						<td><input name="row" type="radio"></td>
+						<td><a href="">86173252712</a></td>
+						<td>Jim Jefferey's Haulage LTD</td>
+						<td>LS7 4QP</td>
+						<td>James</td>
+						<td>Jefferey</td>
+						<td>07/02/1963</td>
+						<td>14</td>
+					</tr>
+					<tr>
+						<td><input name="row" type="radio"></td>
+						<td><a href="">8272632422</a></td>
+						<td>Amber Taxis</td>
+						<td>LS3 2PS</td>
+						<td>Mohammed</td>
+						<td>Ali</td>
+						<td>23/11/1943</td>
+						<td>5</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<th colspan="7">Totals</th>
+						<td>477</td>
+					</tr>
+				</tfoot>
+			</table>
+		</div><!-- end .table__wrapper -->
+	</form>
+</div>
+
