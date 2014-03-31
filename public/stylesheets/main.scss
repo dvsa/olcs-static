@@ -503,7 +503,7 @@ form {
 }
 
 fieldset {
-	margin: 0;
+	margin: 0 0 2em 0;
 	padding: 0;
 	border: 0;
 	clear: both;
@@ -511,10 +511,6 @@ fieldset {
 		margin-bottom: 1em;
 		padding-bottom: 0
 	}
-}
-
-fieldset + fieldset {
-	margin-top: 2em;
 }
 
 .field { 
@@ -795,6 +791,7 @@ select:focus {
 
 .results-settings {
 	float: left;
+	margin-bottom: 2em;
 	label {
 		@extend %paragraph--small;
 	}
@@ -946,6 +943,9 @@ $progress-items: 7;
 	.actions-container {
 		float: right;
 		margin: 0 -0.25em 0 0;
+		select {
+			margin: 3px 3px 0 0;
+		}
 	}
 }
 
@@ -995,7 +995,7 @@ td {
 
 tfoot {
 	tr,
-	tr :nth-child(even) { 
+	tr:nth-child(even) { 
 		border: 1px solid $summary-border;
 		background: $summary-background;
 	}
@@ -1139,6 +1139,7 @@ tfoot {
 		@include action-colour();
 		@extend %action-box;
 		&.large {
+			margin-top: -0.5em;
 			@extend %paragraph--large;
 		}
 	}
@@ -1146,17 +1147,27 @@ tfoot {
 		@include action-colour($grey-3);
 		@extend %action-box;
 		&.large {
+			margin-top: -0.5em;
 			@extend %paragraph--large;
 		}
 	}
 	&--warning {
 		@include action-colour($red);
 		@extend %action-box;
-		&.large {
-			@extend %paragraph--large;
-		}
 	}
 }
+
+.action--primary.large,
+.action--secondary.large, 
+.action--warning.large {
+	margin-top: -0.5em;
+	@extend %paragraph--large;
+	.article & {
+		margin-top: 0.5em;
+	}
+}
+
+
 
 /* ==========================================================================
    10. Modals & alerts

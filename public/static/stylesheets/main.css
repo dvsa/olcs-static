@@ -172,12 +172,14 @@ h4, .global-header__title, .modal h1 {
   }
 }
 
-.article ul, .article p, label, fieldset fieldset legend, .action--primary.large, .action--secondary.large, .action--warning.large {
+.article ul, .article p, label, fieldset fieldset legend, .action--primary.large, .action--secondary.large,
+.action--warning.large {
   font-size: 19px;
   font-weight: 400;
 }
 @media (max-width: 640px) {
-  .article ul, .article p, label, fieldset fieldset legend, .action--primary.large, .action--secondary.large, .action--warning.large {
+  .article ul, .article p, label, fieldset fieldset legend, .action--primary.large, .action--secondary.large,
+  .action--warning.large {
     font-size: 16px;
   }
 }
@@ -530,7 +532,7 @@ form {
 }
 
 fieldset {
-  margin: 0;
+  margin: 0 0 2em 0;
   padding: 0;
   border: 0;
   clear: both;
@@ -538,10 +540,6 @@ fieldset {
 fieldset fieldset {
   margin-bottom: 1em;
   padding-bottom: 0;
-}
-
-fieldset + fieldset {
-  margin-top: 2em;
 }
 
 .field {
@@ -793,6 +791,7 @@ select:focus {
    ========================================================================== */
 .results-settings {
   float: left;
+  margin-bottom: 2em;
 }
 .results-settings select {
   margin: 0 .25em;
@@ -930,6 +929,9 @@ select:focus {
   float: right;
   margin: 0 -0.25em 0 0;
 }
+.table__header .actions-container select {
+  margin: 3px 3px 0 0;
+}
 
 .table__wrapper {
   display: block;
@@ -975,7 +977,7 @@ td b {
 }
 
 tfoot tr,
-tfoot tr :nth-child(even) {
+tfoot tr:nth-child(even) {
   border: 1px solid #cdd7dc;
   background: #e6eff5;
 }
@@ -1092,6 +1094,9 @@ tfoot th {
 .action--primary:link, .action--primary:hover, .action--primary:focus, .action--primary:visited {
   color: white;
 }
+.action--primary.large {
+  margin-top: -0.5em;
+}
 .action--secondary {
   background: #dee0e2;
   -webkit-box-shadow: 0 2px 0 #b5babe;
@@ -1130,6 +1135,9 @@ tfoot th {
 .action--secondary:link, .action--secondary:hover, .action--secondary:focus, .action--secondary:visited {
   color: #0b0c0c;
 }
+.action--secondary.large {
+  margin-top: -0.5em;
+}
 .action--warning {
   background: #b10e1e;
   -webkit-box-shadow: 0 2px 0 #6a0812;
@@ -1167,6 +1175,17 @@ tfoot th {
 }
 .action--warning:link, .action--warning:hover, .action--warning:focus, .action--warning:visited {
   color: white;
+}
+
+.action--primary.large,
+.action--secondary.large,
+.action--warning.large {
+  margin-top: -0.5em;
+}
+.article .action--primary.large, .article
+.action--secondary.large, .article
+.action--warning.large {
+  margin-top: 0.5em;
 }
 
 /* ==========================================================================
@@ -1313,4 +1332,8 @@ tfoot th {
 }
 .case-summary b {
   display: block;
+}
+.case-summary .action--secondary {
+  float: right;
+  margin-top: 0.5em;
 }

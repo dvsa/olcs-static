@@ -144,5 +144,89 @@
 			</div><!-- end .table__wrapper -->
 			<?php echo $this->render('partials/pagination.phtml'); ?>
 
+
+			<!-- Multi-action CRUD table -->
+
+			<form>	
+				<div class="table__header">
+					<h3>Multi-action CRUD table</h3>
+					<div class="actions-container">
+						<select id="table-actions" name="table-actions">
+							<option value="Please select">Actions</option>
+							<option value="Please select">Add</option>
+							<option value="Please select">Edit</option>
+							<option value="Please select">Delete</option>
+							<option value="Please select">Redirect</option>
+							<option value="Please select">Close</option>
+						</select>
+						<input class="action--primary" type="submit" value="Submit">
+					</div><!-- end .actions-container -->
+				</div><!-- end .table__header -->
+				<div class="table__wrapper">
+					<table>
+						<thead>
+							<tr>
+								<th></th>
+								<th>Licence no.</th>
+								<th>Trading name</th>
+								<th>Postcode</th>
+								<th>First name</th>
+								<th>Last name</th>
+								<th>D.O.B</th>
+								<th>Conv.</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><input name="row" type="radio"></td>
+								<td><a href="">76163222712</a></td>
+								<td>Jim Jefferey's Haulage LTD</td>
+								<td>LS7 4QP</td>
+								<td>James</td>
+								<td>Jefferey</td>
+								<td>07/02/1963</td>
+								<td>14</td>
+							</tr>
+							<tr>
+								<td><input name="row" type="radio"></td>
+								<td><a href="">36233242279</a></td>
+								<td>Amber Taxis</td>
+								<td>LS3 2PS</td>
+								<td>Mohammed</td>
+								<td>Ali</td>
+								<td>23/11/1943</td>
+								<td>5</td>
+							</tr>
+							<tr>
+								<td><input name="row" type="radio"></td>
+								<td><a href="">86173252712</a></td>
+								<td>Jim Jefferey's Haulage LTD</td>
+								<td>LS7 4QP</td>
+								<td>James</td>
+								<td>Jefferey</td>
+								<td>07/02/1963</td>
+								<td>14</td>
+							</tr>
+							<tr>
+								<td><input name="row" type="radio"></td>
+								<td><a href="">8272632422</a></td>
+								<td>Amber Taxis</td>
+								<td>LS3 2PS</td>
+								<td>Mohammed</td>
+								<td>Ali</td>
+								<td>23/11/1943</td>
+								<td>5</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<th colspan="7">Totals</th>
+								<td>477</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div><!-- end .table__wrapper -->
+			</form>
+
 		</div><!-- end .full-width -->
 

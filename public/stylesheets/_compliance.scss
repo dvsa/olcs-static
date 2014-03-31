@@ -29,4 +29,8 @@
 	&__toggle { float: right; }
 	h5 { float: left; }
 	b { display: block; }
+	.action--secondary {
+		float: right;
+		margin-top: 0.5em;
+	}
 }
