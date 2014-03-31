@@ -1,30 +1,32 @@
 .case-summary {
 	@include border-radius(3px);
+	@extend %paragraph--small;
 	border: 3px solid $grey-2;
 	overflow: hidden;
-	margin: -1.7em 0 1em 0;
-	h5 {
-		width: 100%;
+	margin: -1.8em 0 1em 0;
+	@media (max-width: 640px) {
+		display: none;
+	}
+	&__header {
+		width: 97%;
 		background: $grey-3;
-		margin: 0 0 .25em 0; 
-		padding: .5em 1.5% .4em 1.5%;
+		padding: .5em 1.5% .5em 1.5%;
 		border-bottom: 1px solid $grey-2;
-		
+		overflow: auto;
 	}
 	&__list {
 		list-style: none;
-		margin: 0;
-		padding: 0.5em 0 0 0;
+		padding-top: .75em;
 	}
 	&__item {
 		float: left;
 		width: 22%;
-		padding: 0 1.5% .75em 1.5%;
+		padding: 0 1.5% 1em 1.5%;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
-	b {
-		display: block;
-	}
+	&__toggle { float: right; }
+	h5 { float: left; }
+	b { display: block; }
 }

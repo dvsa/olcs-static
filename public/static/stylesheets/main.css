@@ -89,6 +89,10 @@ body {
   vertical-align: baseline;
 }
 
+pre {
+  overflow: auto;
+}
+
 menu, ol, ul {
   padding: 0;
   margin: 0;
@@ -149,11 +153,11 @@ h2 {
   }
 }
 
-h3, .action.large, legend {
+h3, legend {
   font-size: 24px;
 }
 @media (max-width: 640px) {
-  h3, .action.large, legend {
+  h3, legend {
     font-size: 20px;
   }
 }
@@ -168,26 +172,26 @@ h4, .global-header__title, .modal h1 {
   }
 }
 
-.article ul, .article p, label, fieldset fieldset legend, .action--primary, .action--secondary, .action--warning {
+.article ul, .article p, label, fieldset fieldset legend, .action--primary.large, .action--secondary.large, .action--warning.large {
   font-size: 19px;
   font-weight: 400;
 }
 @media (max-width: 640px) {
-  .article ul, .article p, label, fieldset fieldset legend, .action--primary, .action--secondary, .action--warning {
+  .article ul, .article p, label, fieldset fieldset legend, .action--primary.large, .action--secondary.large, .action--warning.large {
     font-size: 16px;
   }
 }
 
-h5, p, .one-third p, .global-footer__copyright p, .field.inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .results-settings label, .accordion p, .accordion__item__action, .table__header input, .table__header a, td, th, .modal__close, .modal .subtitle, .alert p, .alert--warning p {
+h5, p, .one-third p, .global-footer__copyright p, .field.inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .results-settings label, .accordion p, .accordion__item__action, td, th, .action--primary, .action--secondary, .action--warning, .modal__close, .modal .subtitle, .alert p, .alert--warning p, .case-summary {
   font-size: 16px;
 }
 @media (max-width: 640px) {
-  h5, p, .one-third p, .global-footer__copyright p, .field.inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .results-settings label, .accordion p, .accordion__item__action, .table__header input, .table__header a, td, th, .modal__close, .modal .subtitle, .alert p, .alert--warning p {
+  h5, p, .one-third p, .global-footer__copyright p, .field.inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .results-settings label, .accordion p, .accordion__item__action, td, th, .action--primary, .action--secondary, .action--warning, .modal__close, .modal .subtitle, .alert p, .alert--warning p, .case-summary {
     font-size: 14px;
   }
 }
 
-h1, h2, h3, .action.large, h4, h5, p {
+h1, h2, h3, h4, h5, p {
   clear: both;
   margin: 0 0 7.5px 0;
   font-weight: 700;
@@ -204,6 +208,10 @@ h1 {
 }
 
 h4 {
+  margin-bottom: 0;
+}
+
+h5 {
   margin-bottom: 0;
 }
 
@@ -230,7 +238,10 @@ textarea {
 .hint {
   display: block;
   color: #6f777b;
-  margin: 0.5em 0;
+  margin-top: .5em;
+}
+fieldset .hint {
+  margin-top: 0;
 }
 
 /* 2.1 Article styles
@@ -238,7 +249,7 @@ textarea {
 .article h2 {
   margin-bottom: .25em;
 }
-.article h3, .article .action.large, .article h4 {
+.article h3, .article h4 {
   margin-bottom: .5em;
 }
 .article ul {
@@ -514,12 +525,12 @@ input::-moz-focus-inner {
 /* 6.2 Wrapper elements
    ========================================================================== */
 form {
-  margin: 0 0 1.5em 0;
+  margin: 0 0 2em 0;
   width: 100%;
 }
 
 fieldset {
-  margin: 0 0 2em 0;
+  margin: 0;
   padding: 0;
   border: 0;
   clear: both;
@@ -527,6 +538,10 @@ fieldset {
 fieldset fieldset {
   margin-bottom: 1em;
   padding-bottom: 0;
+}
+
+fieldset + fieldset {
+  margin-top: 2em;
 }
 
 .field {
@@ -551,7 +566,7 @@ fieldset fieldset {
    ========================================================================== */
 legend {
   *margin-left: -7px;
-  margin-bottom: .25em;
+  margin-top: .25em;
   padding: 0;
   color: black;
   font-weight: 700;
@@ -562,6 +577,7 @@ label {
   margin: 0 .5em .25em 0;
 }
 
+/* Styling for nested fieldsets */
 /* 6.3 Inputs
    ========================================================================== */
 input,
@@ -907,13 +923,12 @@ select:focus {
   width: 100%;
   overflow: hidden;
 }
-.table__header h3, .table__header .action.large {
-  margin-top: 0.5em;
+.table__header h3 {
   float: left;
 }
 .table__header .actions-container {
   float: right;
-  margin: .5em -0.25em 1em 0;
+  margin: 0 -0.25em 0 0;
 }
 
 .table__wrapper {
@@ -925,11 +940,14 @@ select:focus {
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 1em;
+  margin-bottom: .75em;
 }
 table input[type="checkbox"],
 table input[type="radio"] {
   margin-right: 0;
+}
+form table {
+  margin-bottom: 0;
 }
 
 tr:nth-child(even) {
@@ -937,7 +955,7 @@ tr:nth-child(even) {
 }
 
 td, th {
-  padding: .5em 1.5% .4em 1.5%;
+  padding: .5em .5em .4em .5em;
   border: 1px dotted #bfc1c3;
   text-align: left;
   vertical-align: top;
@@ -956,11 +974,13 @@ td b {
   display: block;
 }
 
-tfoot tr {
+tfoot tr,
+tfoot tr :nth-child(even) {
   border: 1px solid #cdd7dc;
   background: #e6eff5;
 }
-tfoot th, tfoot td {
+tfoot th,
+tfoot td {
   border: none;
   overflow: hidden;
 }
@@ -998,10 +1018,9 @@ tfoot th {
 /* ==========================================================================
    9. Actions
    ========================================================================== */
-/* Use this to wrap multiple actions */
+/* Use these to wrap multiple actions */
 .actions-container {
-  margin: 0 0 1.5em 0;
-  float: left;
+  padding-bottom: 2px;
 }
 .actions-container.right-aligned {
   float: right;
@@ -1032,6 +1051,9 @@ tfoot th {
   margin-right: 0;
 }
 
+.action:after {
+  clear: both;
+}
 .action--primary {
   background: #00823b;
   -webkit-box-shadow: 0 2px 0 #003518;
@@ -1146,13 +1168,6 @@ tfoot th {
 .action--warning:link, .action--warning:hover, .action--warning:focus, .action--warning:visited {
   color: white;
 }
-.action.large {
-  font-weight: normal;
-}
-.action.small {
-  font-size: 16px;
-  font-weight: normal;
-}
 
 /* ==========================================================================
    10. Modals & alerts
@@ -1264,27 +1279,37 @@ tfoot th {
   border-radius: 3px;
   border: 3px solid #bfc1c3;
   overflow: hidden;
-  margin: -1.7em 0 1em 0;
+  margin: -1.8em 0 1em 0;
 }
-.case-summary h5 {
-  width: 100%;
+@media (max-width: 640px) {
+  .case-summary {
+    display: none;
+  }
+}
+.case-summary__header {
+  width: 97%;
   background: #dee0e2;
-  margin: 0 0 .25em 0;
-  padding: .5em 1.5% .4em 1.5%;
+  padding: .5em 1.5% .5em 1.5%;
   border-bottom: 1px solid #bfc1c3;
+  overflow: auto;
 }
 .case-summary__list {
   list-style: none;
-  margin: 0;
-  padding: 0.5em 0 0 0;
+  padding-top: .75em;
 }
 .case-summary__item {
   float: left;
   width: 22%;
-  padding: 0 1.5% .75em 1.5%;
+  padding: 0 1.5% 1em 1.5%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.case-summary__toggle {
+  float: right;
+}
+.case-summary h5 {
+  float: left;
 }
 .case-summary b {
   display: block;

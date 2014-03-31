@@ -56,6 +56,10 @@ body {
 	vertical-align: baseline;
 }
 
+pre {
+	overflow: auto;
+}
+
 menu, ol, ul {
 	padding: 0;
 	margin: 0;
@@ -162,6 +166,7 @@ h4 {
 
 h5 { 
 	@extend %paragraph--small;
+	margin-bottom: 0;
 }
 
 p { 
@@ -184,7 +189,10 @@ textarea {
 .hint {
 	display: block;
 	color: $grey-1;
-	margin: 0.5em 0;
+	margin-top: .5em;
+	fieldset & {
+		margin-top: 0;
+	}
 }
 
 /* 2.1 Article styles
@@ -490,12 +498,12 @@ input::-moz-focus-inner {
    ========================================================================== */
 
 form {
-	margin: 0 0 1.5em 0;
+	margin: 0 0 2em 0;
 	width: 100%;
 }
 
 fieldset {
-	margin: 0 0 2em 0;
+	margin: 0;
 	padding: 0;
 	border: 0;
 	clear: both;
@@ -503,6 +511,10 @@ fieldset {
 		margin-bottom: 1em;
 		padding-bottom: 0
 	}
+}
+
+fieldset + fieldset {
+	margin-top: 2em;
 }
 
 .field { 
@@ -528,7 +540,7 @@ fieldset {
 legend {
 	@extend %h3;
 	*margin-left: -7px;
-	margin-bottom: .25em;
+	margin-top: .25em;
 	padding: 0;
 	color: black;
 	font-weight: 700;
@@ -539,6 +551,8 @@ label {
 	display: block;
 	margin: 0 .5em .25em 0;
 }
+
+/* Styling for nested fieldsets */
 
 fieldset fieldset legend {
 	@extend %paragraph--large;
@@ -927,15 +941,11 @@ $progress-items: 7;
 	width: 100%;
 	overflow: hidden;
 	h3 {
-		margin-top: 0.5em;
 		float: left;
 	}
 	.actions-container {
 		float: right;
-		margin: .5em -0.25em 1em 0;
-	}
-	input, a {
-		@extend %paragraph--small;
+		margin: 0 -0.25em 0 0;
 	}
 }
 
@@ -948,10 +958,13 @@ $progress-items: 7;
 table { 
 	width: 100%;
 	border-collapse: collapse; 
-	margin-bottom: 1em;
+	margin-bottom: .75em;
 	input[type="checkbox"],
 	input[type="radio"] {
 		margin-right: 0;
+	}
+	form & {
+		margin-bottom: 0;
 	}
 }
 
@@ -961,7 +974,7 @@ tr:nth-child(even) {
 
 td, th { 
 	@extend %paragraph--small;
-	padding: .5em 1.5% .4em 1.5%;
+	padding: .5em .5em .4em .5em;
 	border: 1px dotted $grey-2; 
 	text-align: left; 
 	vertical-align: top;
@@ -981,11 +994,13 @@ td {
 }
 
 tfoot {
-	tr {
+	tr,
+	tr :nth-child(even) { 
 		border: 1px solid $summary-border;
 		background: $summary-background;
 	}
-	th, td {	
+	th, 
+	td {	
 		border: none;
 		overflow: hidden;
 	}
@@ -1022,10 +1037,9 @@ tfoot {
    9. Actions
    ========================================================================== */
 
-/* Use this to wrap multiple actions */
+/* Use these to wrap multiple actions */
 .actions-container {
-	margin: 0 0 1.5em 0;
-	float: left;
+	padding-bottom: 2px;
 	&.right-aligned {
 		float: right;
 	}
@@ -1087,6 +1101,7 @@ tfoot {
 %action-box {
 	@include inline-block;
 	@include border-radius(3px);
+	@extend %paragraph--small;
 	border: none;
 	margin: 0 .25em 0 0;
 	padding: .3em .5em .1em .5em;
@@ -1117,31 +1132,31 @@ tfoot {
 }
 
 .action {
+	&:after {
+		clear:both;
+	}
 	&--primary {
-		@extend %paragraph--large;
 		@include action-colour();
 		@extend %action-box;
+		&.large {
+			@extend %paragraph--large;
+		}
 	}
 	&--secondary {
-		@extend %paragraph--large;
 		@include action-colour($grey-3);
 		@extend %action-box;
+		&.large {
+			@extend %paragraph--large;
+		}
 	}
 	&--warning {
-		@extend %paragraph--large;
 		@include action-colour($red);
 		@extend %action-box;
-	}
-	&.large {
-		@extend h3;
-		font-weight: normal;
-	}
-	&.small {
-		font-size: 16px;
-		font-weight: normal;
+		&.large {
+			@extend %paragraph--large;
+		}
 	}
 }
-
 
 /* ==========================================================================
    10. Modals & alerts

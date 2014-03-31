@@ -22,11 +22,12 @@ $(document).ready(function() {
 	if (docUrl.indexOf('operating-centres') > -1) {
 		modal('.modal','#main');
 	}
-
 	if (docUrl.indexOf('progressive-form') > -1) {
 		progDisclosure();
 	}
-
+	if (docUrl.indexOf('compliance') > -1) {
+		showHide('.case-summary__toggle','.case-summary__list');
+	}
 });
 
 function toggleValidation() {
@@ -58,6 +59,10 @@ function ajaxModal(url,$targetEl,$fragmentEl) {
 	});
 }
 
+
+/*
+ * Generic Ajax overlay function
+ */
 function modal($targetEl,$fragmentEl) {
 	// Hide the overlay on load
 	$('.overlay, .modal__wrapper').hide();
@@ -82,12 +87,22 @@ function modal($targetEl,$fragmentEl) {
 	});
 }
 
-function progDisclosure() {
+
+/*
+ * Progressive disclosure function 
+ */
+function progDisclosure() {}
 
 
+/*
+ * Generic show & hide function
+ */
+function showHide($target,$element) {
+	$($target).click(function(e) {
+		e.preventDefault();
+		$($element).toggle();
+	});
 }
-
-
 
 
 

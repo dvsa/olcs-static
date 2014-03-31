@@ -9,12 +9,10 @@
 	</div>
 </div><!-- end .modal__wrapper -->
 
-
 <!-- Vertical navigation -->
 <div class="one-quarter">
     <?php echo $this->render('partials/vertical-navigation.phtml', array('navItems' => array('Operating centres', 'Authorised vehicles', 'Financial evidence'))); ?>
 </div><!-- end .one-quarter -->
-
 
 <div class="three-quarters">
 	<form>
@@ -64,7 +62,6 @@
 		</div><!-- end .table-wrapper -->
 	</form>
 
-
 	<!-- Authorised vehicles -->
 	<form>
 		<fieldset>
@@ -80,38 +77,39 @@
 	        </div>
 		</fieldset>
 		<div class="actions-container">
-			<input class="action--primary" type="submit" value="Calculate">
+			<input class="action--primary large" type="submit" value="Calculate">
 		</div><!-- end .actions -->
 	</form>
 
-
 	<!-- Financial evidence -->
 	<form>
-		<h3 id="financial-evidence">Financial evidence</h3>
-		<p class="hint">Please upload copies of your accounts or bank statements to prove you have sufficient funds</p>
+		<div class="table__header">
+			<h3 id="financial-evidence">Financial evidence</h3>
+			<div class="actions-container">
+				<input class="action--primary" type="submit" value="Upload">
+				<input class="action--warning" type="submit" value="Delete">
+			</div><!-- end .actions-container -->
+		</div><!-- end .table__header -->
 		<div class="table__wrapper">
 			<table>
 				<thead>
 					<tr>
+						<th></th>
 						<th>File name</th>
 						<th>Evidence type</th>
-						<th></th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
+						<td><input name="row" type="radio"></td>
 						<td>Amber_taxis_accounts_2012-2013.xls</td>
 						<td>Accounts</td>
-						<td class="delete"><a href="">Delete</a></td>
 					</tr>
 				</tbody>
 			</table>
 		</div><!-- end .table_wrapper -->
-		<div class="actions-container">
-			<input class="action--primary" type="submit" value="Upload evidence">
-		</div><!-- end .actions -->
+		<p class="hint">Please upload copies of your accounts or bank statements to prove you have sufficient funds</p>		
 	</form>
-
 
 	<!-- Totals -->
 	<h3 id="totals">Totals</h3>
@@ -129,7 +127,5 @@
 			</tfoot>
 		</table>
 	</div><!-- end .table-wrapper -->
-
-
 
 </div><!-- end .three-quarters -->
