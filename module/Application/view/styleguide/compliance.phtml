@@ -1,7 +1,8 @@
-<?php echo $this->render('partials/page-header.phtml', array('pageTitle' => 'Compliance')); ?>
+<?php echo $this->render('partials/page-header.phtml', array('pageTitle' => 'Case details')); ?>
 
-<!-- Case summary -->
 <div class="full-width">
+
+	<!-- Case summary -->
 	<div class="case-summary">
 		<h5>Case summary information</h5>
 		<ul class="case-summary__list">
@@ -10,11 +11,26 @@
 			<li class="case-summary__item"><b>Licence number</b>OB14256542</li>
 			<li class="case-summary__item"><b>ECMS</b>Convictions</li>
 			<li class="case-summary__item"><b>Received</b>10/02/2013</li>
-			<li class="case-summary__item"><b>Categorie(s)</b>Convictions</li>
-			<li class="case-summary__item summary"><b>Summary</b>Case for convictiosn against company directors</li>
+			<li class="case-summary__item"><b>Categorie(s)</b>Convictions, another one, another one</li>
+			<li class="case-summary__item"><b>Summary</b>Case for convictiosn against company another really long word</li>
 		</ul><!-- end .case-summary__list -->
 	</div><!-- end .case-summary -->
+
+	<!-- Horizontal navigation -->
+	<ul class="horizontal-navigation" role="navigation" >
+		<li class="horizontal-navigation__item"><a href="">Overview</a></li>
+		<li class="horizontal-navigation__item current">Convictions</li>
+		<li class="horizontal-navigation__item"><a href="">Prohibitions</a></li>
+		<li class="horizontal-navigation__item"><a href="">Penalties</a></li>
+		<li class="horizontal-navigation__item"><a href="">Statements</a></li>
+		<li class="horizontal-navigation__item"><a href="">Complaints</a></li>
+		<li class="horizontal-navigation__item"><a href="">Documents</a></li>
+		<li class="horizontal-navigation__item"><a href="">Notes</a></li>
+	</ul><!-- end .horizontal-navigation -->
+
+
 </div><!-- end .full-width -->
+
 
 <div class="full-width">
 	<form>

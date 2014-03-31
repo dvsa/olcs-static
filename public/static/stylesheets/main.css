@@ -178,11 +178,11 @@ h4, .global-header__title, .modal h1 {
   }
 }
 
-h5, p, .one-third p, .global-footer__copyright p, .field.inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .results-settings label, .accordion p, .accordion__item__action, td, th, .modal__close, .modal .subtitle, .alert p, .alert--warning p {
+h5, p, .one-third p, .global-footer__copyright p, .field.inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .results-settings label, .accordion p, .accordion__item__action, .table__header input, .table__header a, td, th, .modal__close, .modal .subtitle, .alert p, .alert--warning p {
   font-size: 16px;
 }
 @media (max-width: 640px) {
-  h5, p, .one-third p, .global-footer__copyright p, .field.inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .results-settings label, .accordion p, .accordion__item__action, td, th, .modal__close, .modal .subtitle, .alert p, .alert--warning p {
+  h5, p, .one-third p, .global-footer__copyright p, .field.inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .results-settings label, .accordion p, .accordion__item__action, .table__header input, .table__header a, td, th, .modal__close, .modal .subtitle, .alert p, .alert--warning p {
     font-size: 14px;
   }
 }
@@ -286,12 +286,12 @@ textarea {
   width: 95%;
 }
 
-.one-third, .global-footer__copyright, .one-quarter, .one-half, .two-thirds, .global-footer__links, .three-quarters, .full-width, .page-header, .global-breadcrumbs, .case-summary__item {
+.one-third, .global-footer__copyright, .one-quarter, .one-half, .two-thirds, .global-footer__links, .three-quarters, .full-width, .page-header, .global-breadcrumbs {
   float: left;
   margin: 0 2.5% 1.5em 2.5%;
 }
 @media (max-width: 640px) {
-  .one-third, .global-footer__copyright, .one-quarter, .one-half, .two-thirds, .global-footer__links, .three-quarters, .full-width, .page-header, .global-breadcrumbs, .case-summary__item {
+  .one-third, .global-footer__copyright, .one-quarter, .one-half, .two-thirds, .global-footer__links, .three-quarters, .full-width, .page-header, .global-breadcrumbs {
     width: 92%;
     margin: 0 4% 1.5em 4%;
   }
@@ -667,41 +667,41 @@ select:focus {
 /* ==========================================================================
    7. Navigation
    ========================================================================== */
-.tabs, .vertical-navigation, .accordion, .progress {
+.tabs, .vertical-navigation, .accordion, .progress, .horizontal-navigation {
   list-style: none;
   width: 100%;
   overflow: auto;
 }
 
-.tabs__item, .progress__item {
+.tabs__item, .progress__item, .horizontal-navigation__item {
   float: left;
   margin-bottom: 0;
 }
 @media (max-width: 640px) {
-  .tabs__item, .progress__item {
+  .tabs__item, .progress__item, .horizontal-navigation__item {
     width: 100%;
   }
 }
 
-.tabs a, .tabs .current, .vertical-navigation a {
+.tabs a, .tabs .current, .vertical-navigation a, .horizontal-navigation a, .horizontal-navigation .current {
   display: block;
   position: relative;
-  padding: .5em 1em;
+  padding: .5em 1em .4em 1em;
 }
 @media (max-width: 640px) {
-  .tabs a, .tabs .current, .vertical-navigation a {
+  .tabs a, .tabs .current, .vertical-navigation a, .horizontal-navigation a, .horizontal-navigation .current {
     border-bottom: 1px solid #bfc1c3;
     padding: .5em 0;
   }
 }
-.tabs a:hover, .tabs .current:hover, .vertical-navigation a:hover {
+.tabs a:hover, .tabs .current:hover, .vertical-navigation a:hover, .horizontal-navigation a:hover, .horizontal-navigation .current:hover {
   background: #f8f8f8;
 }
 
 /* 7.1 Global breadcrumbs
    ========================================================================== */
 .global-breadcrumbs {
-  margin-bottom: 0.5em;
+  margin-bottom: 0;
   border-top: 10px solid #d53880;
   padding: .75em 0;
   overflow: auto;
@@ -876,6 +876,29 @@ select:focus {
   margin-bottom: .25em;
 }
 
+/* 7.9 Horizontal navigation
+   ========================================================================== */
+.horizontal-navigation {
+  border-bottom: 1px solid #dee0e2;
+}
+.horizontal-navigation a:hover {
+  background: none;
+}
+.horizontal-navigation .current {
+  border-bottom: 3px solid #d53880;
+  font-weight: 600;
+}
+@media (max-width: 640px) {
+  .horizontal-navigation .current {
+    border: none;
+    border-bottom: 3px solid #d53880;
+  }
+}
+.horizontal-navigation .current:hover {
+  background: none;
+  color: #0b0c0c;
+}
+
 /* ==========================================================================
    8. Tables
    ========================================================================== */
@@ -890,7 +913,7 @@ select:focus {
 }
 .table__header .actions-container {
   float: right;
-  margin: 0 -0.25em 1em 0;
+  margin: .5em -0.25em 1em 0;
 }
 
 .table__wrapper {
@@ -914,7 +937,7 @@ tr:nth-child(even) {
 }
 
 td, th {
-  padding: .5em .5em .4em .5em;
+  padding: .5em 1.5% .4em 1.5%;
   border: 1px dotted #bfc1c3;
   text-align: left;
   vertical-align: top;
@@ -928,6 +951,9 @@ th {
 
 td {
   overflow: hidden;
+}
+td b {
+  display: block;
 }
 
 tfoot tr {
@@ -1232,36 +1258,34 @@ tfoot th {
 /* ==========================================================================
    11. Compliance
    ========================================================================== */
-/* 11.1 Case summary
-   ========================================================================== */
 .case-summary {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  background: #f8f8f8;
   border: 3px solid #bfc1c3;
-  overflow: auto;
-  padding-bottom: .5em;
-  margin-top: -1.7em;
+  overflow: hidden;
+  margin: -1.7em 0 1em 0;
 }
 .case-summary h5 {
+  width: 100%;
   background: #dee0e2;
-  margin: 0 0 .4em 0;
+  margin: 0 0 .25em 0;
   padding: .5em 1.5% .4em 1.5%;
   border-bottom: 1px solid #bfc1c3;
 }
 .case-summary__list {
   list-style: none;
+  margin: 0;
+  padding: 0.5em 0 0 0;
 }
 .case-summary__item {
-  margin: .4em 0 .4em 1.5%;
-  width: 23.5%;
-  color: #6f777b;
+  float: left;
+  width: 22%;
+  padding: 0 1.5% .75em 1.5%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .case-summary b {
   display: block;
-  color: #0b0c0c;
-}
-.case-summary .summary {
-  width: 40%;
 }

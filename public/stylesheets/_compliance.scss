@@ -1,35 +1,30 @@
-
-/* 11.1 Case summary
-   ========================================================================== */
-
 .case-summary {
 	@include border-radius(3px);
-	background: $grey-4;
 	border: 3px solid $grey-2;
-	overflow: auto;
-	padding-bottom: .5em;
-	margin-top: -1.7em;
+	overflow: hidden;
+	margin: -1.7em 0 1em 0;
 	h5 {
+		width: 100%;
 		background: $grey-3;
-		margin: 0 0 .4em 0; 
+		margin: 0 0 .25em 0; 
 		padding: .5em 1.5% .4em 1.5%;
 		border-bottom: 1px solid $grey-2;
+		
 	}
 	&__list {
 		list-style: none;
+		margin: 0;
+		padding: 0.5em 0 0 0;
 	}
 	&__item {
-		@extend %container;
-		margin: .4em 0 .4em 1.5%;
-		width: 23.5%;
-		color: $grey-1;
+		float: left;
+		width: 22%;
+		padding: 0 1.5% .75em 1.5%;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 	b {
 		display: block;
-		color: $black;
-	}
-	.summary {
-		width: 40%;
 	}
 }
-

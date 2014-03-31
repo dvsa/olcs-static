@@ -670,7 +670,7 @@ select:focus {
 %navigation__link {
 	display: block;
 	position: relative;
-	padding: .5em 1em;
+	padding: .5em 1em .4em 1em;
 	@media(max-width: 640px) {
 		border-bottom: 1px solid $grey-2;
 		padding: .5em 0;
@@ -686,7 +686,7 @@ select:focus {
 .global-breadcrumbs {
 	@extend .full-width;
 	@extend %paragraph--small;
-	margin-bottom: 0.5em;
+	margin-bottom: 0;
 	border-top: 10px solid $alpha-colour;
 	padding: .75em 0;
 	overflow: auto;
@@ -888,6 +888,36 @@ $progress-items: 7;
 	}
 }
 
+/* 7.9 Horizontal navigation
+   ========================================================================== */
+
+.horizontal-navigation {
+	@extend %navigation;
+	border-bottom: 1px solid $grey-3;
+	&__item {
+		@extend %navigation__item;
+	}
+	a {
+		@extend %navigation__link;
+		&:hover {
+			background: none;
+		}
+	}
+	.current {
+		@extend %navigation__link;	
+		border-bottom: 3px solid $alpha-colour;
+		font-weight: 600;
+		@media(max-width: 640px) {
+			border: none;
+			border-bottom: 3px solid $alpha-colour;
+		}	
+		&:hover {
+			background: none;
+			color: $black;
+		}
+	}
+}
+
 /* ==========================================================================
    8. Tables
    ========================================================================== */
@@ -902,7 +932,10 @@ $progress-items: 7;
 	}
 	.actions-container {
 		float: right;
-		margin: 0 -0.25em 1em 0;
+		margin: .5em -0.25em 1em 0;
+	}
+	input, a {
+		@extend %paragraph--small;
 	}
 }
 
@@ -928,7 +961,7 @@ tr:nth-child(even) {
 
 td, th { 
 	@extend %paragraph--small;
-	padding: .5em .5em .4em .5em; 
+	padding: .5em 1.5% .4em 1.5%;
 	border: 1px dotted $grey-2; 
 	text-align: left; 
 	vertical-align: top;
@@ -941,7 +974,10 @@ th {
 }
 
 td {
-	overflow: hidden;
+   	overflow: hidden;
+	b { 
+		display: block;
+	}
 }
 
 tfoot {
