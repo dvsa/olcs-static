@@ -67,7 +67,10 @@ menu, ol, ul {
 
 ul {
 	list-style: circle;
-	list-style-position:inside;
+	list-style-position: inside;
+	h1, h2, h3, h4, h5 {
+		display: inline;
+	}
 }
 
 img {
@@ -88,9 +91,7 @@ dd {
 /* 1.1 Links
    ========================================================================== */
 
-a { 
-	color: $link-colour; 
-}
+a { color: $link-colour; }
 
 a:focus { outline: thin dotted; }
 
@@ -193,6 +194,10 @@ textarea {
 	fieldset & {
 		margin-top: 0;
 	}
+}
+
+.current {
+	font-weight: 700;
 }
 
 /* 2.1 Article styles
@@ -789,11 +794,14 @@ select:focus {
 .results-settings {
 	float: left;
 	margin-bottom: 2em;
-	label {
-		@extend %paragraph--small;
+	&__list {
+		list-style: none;
+		float: left;
 	}
-	select {
-		margin: 0 .25em;
+	p, &__item {
+		float: left;
+		margin-right: .5em;
+		clear: none;
 	}
 }
 
@@ -872,7 +880,6 @@ $progress-items: 7;
 		}
 	}
 	.current {
-		font-weight: 700;
 		background-position:50% 5px;
 		@media (max-width: 640px) {
 			border-bottom: 3px solid $black;
@@ -914,7 +921,7 @@ $progress-items: 7;
 	.current {
 		@extend %navigation__link;	
 		border-bottom: 3px solid $alpha-colour;
-		font-weight: 600;
+		font-weight: 700;
 		@media(max-width: 640px) {
 			border: none;
 			border-bottom: 3px solid $alpha-colour;
@@ -949,6 +956,12 @@ $progress-items: 7;
 .table__wrapper {
 	display: block;
 	width: 100%;
+	overflow: auto;
+}
+
+.table__footer {
+	width: 100%;
+	clear:right;
 	overflow: auto;
 }
 

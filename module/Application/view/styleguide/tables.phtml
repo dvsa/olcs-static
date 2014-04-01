@@ -142,7 +142,9 @@
 					</tbody>
 				</table>
 			</div><!-- end .table__wrapper -->
-			<?php echo $this->render('partials/pagination.phtml'); ?>
+			<div class="table__footer">
+				<?php echo $this->render('partials/pagination.phtml'); ?>
+			</div>
 
 
 			<!-- Multi-action CRUD table -->
@@ -159,7 +161,7 @@
 							<option value="Redirect">Redirect</option>
 							<option value="Close">Close</option>
 						</select>
-						<input class="action--secondary" type="submit" value="Submit">
+						<input class="action--primary" type="submit" value="Submit">
 					</div><!-- end .actions-container -->
 				</div><!-- end .table__header -->
 				<div class="table__wrapper">

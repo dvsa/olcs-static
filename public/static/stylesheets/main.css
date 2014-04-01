@@ -102,6 +102,9 @@ ul {
   list-style: circle;
   list-style-position: inside;
 }
+ul h1, ul h2, ul h3, ul h4, ul h5 {
+  display: inline;
+}
 
 img {
   border: 0;
@@ -184,11 +187,11 @@ h4, .global-header__title, .modal h1 {
   }
 }
 
-h5, p, .one-third p, .global-footer__copyright p, .field.inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .results-settings label, .accordion p, .accordion__item__action, td, th, .action--primary, .action--secondary, .action--warning, .modal__close, .modal .subtitle, .alert p, .alert--warning p, .case-summary {
+h5, p, .one-third p, .global-footer__copyright p, .field.inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .accordion p, .accordion__item__action, td, th, .action--primary, .action--secondary, .action--warning, .modal__close, .modal .subtitle, .alert p, .alert--warning p, .case-summary {
   font-size: 16px;
 }
 @media (max-width: 640px) {
-  h5, p, .one-third p, .global-footer__copyright p, .field.inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .results-settings label, .accordion p, .accordion__item__action, td, th, .action--primary, .action--secondary, .action--warning, .modal__close, .modal .subtitle, .alert p, .alert--warning p, .case-summary {
+  h5, p, .one-third p, .global-footer__copyright p, .field.inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .accordion p, .accordion__item__action, td, th, .action--primary, .action--secondary, .action--warning, .modal__close, .modal .subtitle, .alert p, .alert--warning p, .case-summary {
     font-size: 14px;
   }
 }
@@ -244,6 +247,10 @@ textarea {
 }
 fieldset .hint {
   margin-top: 0;
+}
+
+.current {
+  font-weight: 700;
 }
 
 /* 2.1 Article styles
@@ -791,8 +798,14 @@ select:focus {
   float: left;
   margin-bottom: 2em;
 }
-.results-settings select {
-  margin: 0 .25em;
+.results-settings__list {
+  list-style: none;
+  float: left;
+}
+.results-settings p, .results-settings__item {
+  float: left;
+  margin-right: .5em;
+  clear: none;
 }
 
 /* 7.6 Accordion
@@ -867,7 +880,6 @@ select:focus {
   }
 }
 .progress .current {
-  font-weight: 700;
   background-position: 50% 5px;
 }
 @media (max-width: 640px) {
@@ -899,7 +911,7 @@ select:focus {
 }
 .horizontal-navigation .current {
   border-bottom: 3px solid #d53880;
-  font-weight: 600;
+  font-weight: 700;
 }
 @media (max-width: 640px) {
   .horizontal-navigation .current {
@@ -934,6 +946,12 @@ select:focus {
 .table__wrapper {
   display: block;
   width: 100%;
+  overflow: auto;
+}
+
+.table__footer {
+  width: 100%;
+  clear: right;
   overflow: auto;
 }
 
