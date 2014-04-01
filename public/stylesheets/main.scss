@@ -536,7 +536,7 @@ fieldset {
 legend {
 	@extend %h3;
 	*margin-left: -7px;
-	margin-top: .25em;
+	margin: .25em 0;
 	padding: 0;
 	color: black;
 	font-weight: 700;
@@ -654,9 +654,6 @@ select:focus {
 		color: $mellow-red;
 	}
 }
-
-/* 6.7 Form items
-   ========================================================================== */
 
 
 /* ==========================================================================
@@ -883,7 +880,7 @@ $progress-items: 7;
 	}
 }
 
-/* 7.8 Filter
+/* 7.8 Filters
    ========================================================================== */
 
 .filters {
@@ -1242,12 +1239,24 @@ tfoot {
 	form {
 		overflow: auto;
 		margin-bottom: 0;
-		padding-left: 1px;
-		padding-right: 2.5%;
+		padding: 0 2.5% 1.5em 1px;
 		width: 97.5%;
 	}
-	.actions-container {
-		margin-bottom: .25em;
+	table {
+		margin-bottom: 3.5em;
+	}
+	.actions-container {	
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		height: 2em;
+		padding: 1.5em 2.5% .5em 2.5%;
+		margin: 0;
+		text-align: right;
+		overflow: auto;
+		width: 95%;
+		border-top: 1px solid $grey-3;
+		background: $grey-4;
 	}
 }
 
