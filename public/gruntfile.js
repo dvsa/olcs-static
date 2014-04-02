@@ -5,7 +5,6 @@ module.exports = function(grunt) {
             dist: {
                 options: {
                     style: 'expanded',
-                    livereload: true,
                 },
                 files: {
                     'static/stylesheets/main.css': 'stylesheets/main.scss'
@@ -13,8 +12,11 @@ module.exports = function(grunt) {
             }
         },
         watch: {
+            options: {
+                livereload: true,
+            },
             scripts: {
-                files: ['stylesheets/*.scss'],
+                files: ['stylesheets/main.scss','stylesheets/_compliance.scss'],
                 tasks: ['sass'],
                 options: {
                     spawn: false,

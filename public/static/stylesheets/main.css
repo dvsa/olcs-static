@@ -1325,15 +1325,35 @@ tfoot th {
 /* ==========================================================================
    11. Compliance
    ========================================================================== */
-/* 11.1 Case summary
+/* 11.1 Summary lists
    ========================================================================== */
+.summary {
+  margin-bottom: 1.5em;
+}
+.summary__list {
+  list-style: none;
+  overflow: auto;
+}
+.summary__item {
+  float: left;
+  width: 23.125%;
+  margin: 0 1.5% .75em 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.summary__item b {
+  display: block;
+}
+
+/* Case summary */
 .case-summary {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
   border: 3px solid #bfc1c3;
   overflow: hidden;
-  margin: -1.8em 0 1em 0;
+  margin: -1.8em 0 1.5em 0;
 }
 @media (max-width: 640px) {
   .case-summary {
@@ -1343,35 +1363,15 @@ tfoot th {
 .case-summary__header {
   width: 97%;
   background: #dee0e2;
-  padding: .5em 1.5% .5em 1.5%;
+  padding: .5em 1.5%;
   border-bottom: 1px solid #bfc1c3;
   overflow: auto;
 }
+.case-summary__header h5 {
+  float: left;
+}
 .case-summary__list {
   list-style: none;
-  padding-top: .75em;
+  padding: .75em 0 0 1.5%;
+  overflow: auto;
 }
-.case-summary__item {
-  float: left;
-  width: 22%;
-  padding: 0 1.5% 1em 1.5%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.case-summary__toggle {
-  float: right;
-}
-.case-summary h5 {
-  float: left;
-}
-.case-summary b {
-  display: block;
-}
-.case-summary .action--secondary {
-  float: right;
-  margin-top: 0.5em;
-}
-
-/* 11.2 
-   ========================================================================== */
