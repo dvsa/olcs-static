@@ -1013,6 +1013,10 @@ tfoot th {
     background-size: 10px 45px;
   }
 }
+.sortable a {
+  color: #0b0c0c;
+  text-decoration: none;
+}
 .sortable:hover {
   background-color: #cccccc;
 }
@@ -1021,12 +1025,16 @@ tfoot th {
 }
 .sortable.selected {
   background: #cccccc url("../images/down-arrow.png") no-repeat 95% -22px;
+  cursor: default;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .sortable.selected {
     background-image: url("../images/down-arrow-2x.png");
     background-size: 10px 45px;
   }
+}
+.sortable.selected a {
+  cursor: default;
 }
 
 /* ==========================================================================
