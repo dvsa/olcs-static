@@ -4,7 +4,8 @@ module.exports = function(grunt) {
         sass: {
             dist: {
                 options: {
-                    style: 'expanded'
+                    style: 'expanded',
+                    livereload: true,
                 },
                 files: {
                     'static/stylesheets/main.css': 'stylesheets/main.scss'
@@ -17,6 +18,7 @@ module.exports = function(grunt) {
                 tasks: ['sass'],
                 options: {
                     spawn: false,
+
                 },
             },
 
