@@ -1005,12 +1005,12 @@ tfoot th {
 
 .sortable {
   padding: 0;
-  background: #dee0e2 url("../images/down-arrow.png") no-repeat 95% 15px;
+  background: #dee0e2 url("../images/down-arrow.png") no-repeat right 0.6em top 14px;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .sortable {
     background-image: url("../images/down-arrow-2x.png");
-    background-size: 10px 45px;
+    background-size: 10px 130px;
   }
 }
 .sortable a {
@@ -1025,14 +1025,17 @@ tfoot th {
 .sortable:active {
   color: #6f777b;
 }
-.sortable.selected {
-  background: #cccccc url("../images/down-arrow.png") no-repeat 95% -22px;
+.sortable.ascending {
+  background: #cccccc url("../images/down-arrow.png") no-repeat right 0.6em top -108px;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  .sortable.selected {
+  .sortable.ascending {
     background-image: url("../images/down-arrow-2x.png");
-    background-size: 10px 45px;
+    background-size: 10px 130px;
   }
+}
+.sortable.descending {
+  background-color: #cccccc;
 }
 
 /* ==========================================================================
