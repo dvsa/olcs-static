@@ -1004,7 +1004,7 @@ tfoot th {
 }
 
 .sortable {
-  cursor: pointer;
+  padding: 0;
   background: #dee0e2 url("../images/down-arrow.png") no-repeat 95% 15px;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
@@ -1014,6 +1014,8 @@ tfoot th {
   }
 }
 .sortable a {
+  display: block;
+  padding: .5em .5em .4em .5em;
   color: #0b0c0c;
   text-decoration: none;
 }
@@ -1025,16 +1027,12 @@ tfoot th {
 }
 .sortable.selected {
   background: #cccccc url("../images/down-arrow.png") no-repeat 95% -22px;
-  cursor: default;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .sortable.selected {
     background-image: url("../images/down-arrow-2x.png");
     background-size: 10px 45px;
   }
-}
-.sortable.selected a {
-  cursor: default;
 }
 
 /* ==========================================================================
