@@ -1,0 +1,62 @@
+// These styles currently not being used by the 
+// application, but they may be needed in the future. 
+
+
+/*  Accordion
+   ========================================================================== */
+
+.accordion {
+	@extend %navigation;
+	margin-bottom: 1.5em;
+	p {
+		@extend %paragraph--small;
+		margin-bottom: 0;
+	}
+	&__item {
+		position: relative;
+		overflow: auto;
+		padding: .75em 1em;
+		margin-bottom: 0;
+		border-bottom: 1px solid $summary-border;
+		background: $summary-background;
+	}
+	&__item__action {
+		@extend %paragraph--small;
+		position: absolute;
+		right: 1em;
+		top: .75em;	
+	}
+}
+
+
+/* Tabs
+   ========================================================================== */
+
+.tabs {
+	@extend %navigation;
+	&__item {
+		@extend %navigation__item;
+	}
+	&__content {
+		border-top: 1px solid $grey-2;
+		padding: 1em 0;
+		margin-top: -1px;
+	}
+	a {
+		@extend %navigation__link;
+	}
+	.current {
+		@extend %navigation__link;	
+		border: 1px solid $grey-2;
+		border-bottom-color: $white;
+		font-weight: 600;
+		@media(max-width: 640px) {
+			border: none;
+			border-bottom: 3px solid $black;
+		}	
+		&:hover {
+			background: none;
+			color: $black;
+		}
+	}
+}

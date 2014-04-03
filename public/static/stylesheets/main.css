@@ -175,23 +175,23 @@ h4, .global-header__title, .modal h1 {
   }
 }
 
-.article ul, .article p, label, fieldset fieldset legend, .action--primary.large, .action--secondary.large,
+.article ul, .article p, label, fieldset fieldset legend, .table__header span, .action--primary.large, .action--secondary.large,
 .action--warning.large {
   font-size: 19px;
   font-weight: 400;
 }
 @media (max-width: 640px) {
-  .article ul, .article p, label, fieldset fieldset legend, .action--primary.large, .action--secondary.large,
+  .article ul, .article p, label, fieldset fieldset legend, .table__header span, .action--primary.large, .action--secondary.large,
   .action--warning.large {
     font-size: 16px;
   }
 }
 
-h5, p, .one-third p, .global-footer__copyright p, .field.inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .accordion p, .accordion__item__action, td, th, .action--primary, .action--secondary, .action--warning, .modal__close, .modal .subtitle, .alert p, .alert--warning p, .case-summary {
+h5, p, .one-third p, .global-footer__copyright p, .field.inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, td, th, .action--primary, .action--secondary, .action--warning, .modal__close, .modal .subtitle, .alert p, .alert--warning p, .case-summary {
   font-size: 16px;
 }
 @media (max-width: 640px) {
-  h5, p, .one-third p, .global-footer__copyright p, .field.inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .accordion p, .accordion__item__action, td, th, .action--primary, .action--secondary, .action--warning, .modal__close, .modal .subtitle, .alert p, .alert--warning p, .case-summary {
+  h5, p, .one-third p, .global-footer__copyright p, .field.inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, td, th, .action--primary, .action--secondary, .action--warning, .modal__close, .modal .subtitle, .alert p, .alert--warning p, .case-summary {
     font-size: 14px;
   }
 }
@@ -682,34 +682,34 @@ select:focus {
 /* ==========================================================================
    7. Navigation
    ========================================================================== */
-.tabs, .vertical-navigation, .accordion, .progress, .horizontal-navigation {
+.progress, .horizontal-navigation, .mega-menu, .vertical-navigation {
   list-style: none;
   width: 100%;
   overflow: auto;
 }
 
-.tabs__item, .progress__item, .horizontal-navigation__item {
+.progress__item, .horizontal-navigation__item, .mega-menu__item {
   float: left;
   margin-bottom: 0;
 }
 @media (max-width: 640px) {
-  .tabs__item, .progress__item, .horizontal-navigation__item {
+  .progress__item, .horizontal-navigation__item, .mega-menu__item {
     width: 100%;
   }
 }
 
-.tabs a, .tabs .current, .vertical-navigation a, .horizontal-navigation a, .horizontal-navigation .current {
+.horizontal-navigation a, .horizontal-navigation .current, .mega-menu a, .vertical-navigation a {
   display: block;
   position: relative;
   padding: .5em 1em .4em 1em;
 }
 @media (max-width: 640px) {
-  .tabs a, .tabs .current, .vertical-navigation a, .horizontal-navigation a, .horizontal-navigation .current {
+  .horizontal-navigation a, .horizontal-navigation .current, .mega-menu a, .vertical-navigation a {
     border-bottom: 1px solid #bfc1c3;
     padding: .5em 0;
   }
 }
-.tabs a:hover, .tabs .current:hover, .vertical-navigation a:hover, .horizontal-navigation a:hover, .horizontal-navigation .current:hover {
+.horizontal-navigation a:hover, .horizontal-navigation .current:hover, .mega-menu a:hover, .vertical-navigation a:hover {
   background: #f8f8f8;
 }
 
@@ -742,98 +742,14 @@ select:focus {
   background: none;
 }
 
-/* 7.2 Tabs
-   ========================================================================== */
-.tabs__content {
-  border-top: 1px solid #bfc1c3;
-  padding: 1em 0;
-  margin-top: -1px;
-}
-.tabs .current {
-  border: 1px solid #bfc1c3;
-  border-bottom-color: white;
-  font-weight: 600;
-}
-@media (max-width: 640px) {
-  .tabs .current {
-    border: none;
-    border-bottom: 3px solid #0b0c0c;
-  }
-}
-.tabs .current:hover {
-  background: none;
-  color: #0b0c0c;
-}
-
-/* 7.3 Vertical navigation
-   ========================================================================== */
-.vertical-navigation__title {
-  margin-bottom: 0;
-}
-.vertical-navigation a {
-  padding: .5em 0;
-  border-bottom: 1px solid #bfc1c3;
-}
-
-/* 7.4 Pagination
-   ========================================================================== */
-.pagination__item {
-  display: inline;
-  margin: 0 5px;
-}
-
-@media (max-width: 640px) {
-  a[rel="previous"],
-  a[rel="next"] {
-    display: none;
-  }
-}
-/* 7.5 Results settings
-   ========================================================================== */
-.results-settings {
-  float: left;
-  margin-bottom: 2em;
-}
-.results-settings__list {
-  list-style: none;
-  float: left;
-}
-.results-settings p, .results-settings__item {
-  float: left;
-  margin-right: .5em;
-  clear: none;
-}
-
-/* 7.6 Accordion
-   ========================================================================== */
-.accordion {
-  margin-bottom: 1.5em;
-}
-.accordion p {
-  margin-bottom: 0;
-}
-.accordion__item {
-  position: relative;
-  overflow: auto;
-  padding: .75em 1em;
-  margin-bottom: 0;
-  border-bottom: 1px solid #cdd7dc;
-  background: #e6eff5;
-}
-.accordion__item__action {
-  position: absolute;
-  right: 1em;
-  top: .75em;
-}
-
-/* 7.7 Progress
+/* 7.2 Progress
    ========================================================================== */
 .progress {
   border-top: 1px dotted #bfc1c3;
   overflow: visible;
   margin-top: 2em;
 }
-@media (max-width: 640px) {
+@media (max-width: 840px) {
   .progress {
     border-top: none;
     margin: 0;
@@ -841,7 +757,7 @@ select:focus {
 }
 .progress__item {
   text-align: center;
-  width: 12.28571%;
+  width: 9.11111%;
   margin: -2em 1% 1.5em 1%;
   background: url("../images/progress.png") no-repeat 50% -140px;
 }
@@ -851,7 +767,7 @@ select:focus {
     background-size: 52px 200px;
   }
 }
-@media (max-width: 640px) {
+@media (max-width: 840px) {
   .progress__item {
     background: none;
     padding: 0;
@@ -861,43 +777,32 @@ select:focus {
   }
 }
 .progress a, .progress .current {
+  line-height: 1.2;
   display: block;
   padding-top: 3.75em;
 }
-@media (max-width: 640px) {
+@media (max-width: 840px) {
   .progress a, .progress .current {
     padding: .5em 0;
     border-bottom: 1px solid #bfc1c3;
   }
 }
-@media (max-width: 640px) {
+@media (max-width: 840px) {
   .progress a:hover {
     background: #f8f8f8;
   }
 }
 .progress .current {
   background-position: 50% 5px;
+  font-weight: 700;
 }
-@media (max-width: 640px) {
+@media (max-width: 840px) {
   .progress .current {
     border-bottom: 3px solid #0b0c0c;
   }
 }
 
-/* 7.8 Filters
-   ========================================================================== */
-.filters__list {
-  list-style: none;
-  margin-top: .75em;
-}
-.filters__title {
-  font-weight: 700;
-}
-.filters__item {
-  margin-bottom: .25em;
-}
-
-/* 7.9 Horizontal navigation
+/* 7.3 Horizontal navigation
    ========================================================================== */
 .horizontal-navigation {
   border-bottom: 1px solid #dee0e2;
@@ -920,6 +825,83 @@ select:focus {
   color: #0b0c0c;
 }
 
+/* 7.4 Mega menu
+   ========================================================================== */
+.mega-menu {
+  padding: 0 0 .5em 0;
+}
+.mega-menu__item {
+  width: 23.5%;
+  margin-right: 1.5%;
+}
+.mega-menu a {
+  padding-left: 0;
+  border-bottom: 1px solid #bfc1c3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.mega-menu a:hover {
+  background: none;
+}
+.mega-menu .current {
+  border-bottom: 3px solid #d53880;
+  font-weight: 700;
+  padding: .5em 0 0.25em 0;
+}
+
+/* 7.5 Vertical navigation
+   ========================================================================== */
+.vertical-navigation__title {
+  margin-bottom: 0;
+}
+.vertical-navigation a {
+  padding: .5em 0;
+  border-bottom: 1px solid #bfc1c3;
+}
+
+/* 7.6 Pagination
+   ========================================================================== */
+.pagination__item {
+  display: inline;
+  margin: 0 5px;
+}
+
+@media (max-width: 640px) {
+  a[rel="previous"],
+  a[rel="next"] {
+    display: none;
+  }
+}
+/* 7.7 Results settings
+   ========================================================================== */
+.results-settings {
+  float: left;
+  margin-bottom: 2em;
+}
+.results-settings__list {
+  list-style: none;
+  float: left;
+}
+.results-settings p, .results-settings__item {
+  float: left;
+  margin-right: .5em;
+  clear: none;
+}
+
+/* 7.8 Filters
+   ========================================================================== */
+.filters__list {
+  list-style: none;
+  margin-top: .75em;
+}
+.filters__title {
+  font-weight: 700;
+}
+.filters__item {
+  margin-bottom: .25em;
+}
+
 /* ==========================================================================
    8. Tables
    ========================================================================== */
@@ -930,6 +912,11 @@ select:focus {
 }
 .table__header h3 {
   float: left;
+}
+.table__header span {
+  font-weight: 400;
+  color: #6f777b;
+  padding-left: .4em;
 }
 .table__header .actions-container {
   float: right;

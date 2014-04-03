@@ -1,34 +1,43 @@
 $(document).ready(function() {
 	$('.row').css({'width':'100%','overflow':'auto', 'margin-bottom': '2.5em'});
 	var docUrl = document.location.href;
-	
+
 	if (docUrl.indexOf('form-elements') > -1) {
 		toggleValidation();
 	}
-	if (docUrl.indexOf('alert') > -1) {
+	else if (docUrl.indexOf('alert') > -1) {
 		toggleOverlay();
 	}
-	if (docUrl.indexOf('layouts') > -1) {
+	else if (docUrl.indexOf('layouts') > -1) {
 		layoutStyles();
 	}
-	if (docUrl.indexOf('popup-table') > -1) {
+	else if (docUrl.indexOf('popup-table') > -1) {
 		ajaxModal('/styleguide/popup-table-no-js','.modal','#main');
 		toggleOverlay();
 	}
-	if (docUrl.indexOf('popup-form') > -1) {
+	else if (docUrl.indexOf('popup-form') > -1) {
 		ajaxModal('/styleguide/popup-form-no-js','.modal','#main');
 		toggleOverlay();
 	}
-	if (docUrl.indexOf('operating-centres') > -1) {
+	else if (docUrl.indexOf('operating-centres') > -1) {
 		modal('.modal','#main');
 	}
-	if (docUrl.indexOf('progressive-form') > -1) {
-		$.fn.progressiveDisclosure.defaults;
-	}
-	if (docUrl.indexOf('compliance') > -1) {
+	// else if (docUrl.indexOf('progressive-form') > -1) {
+	// 	$.fn.progressiveDisclosure.defaults;
+	// }
+	else if (docUrl.indexOf('compliance') > -1) {
 		showHide('.case-summary__toggle','.case-summary__list');
 	}
+	else {
+		return;
+	}
 });
+
+
+
+/*
+ * Toggle validation styling on and off
+ */
 
 function toggleValidation() {
 	$('body').prepend('<style>.toggler { position: fixed; display: block; background: black; bottom: 0; right: 0; color: white; padding: 0.25em 0.5em; } .toggler a {color: white;} </style><div class="toggler"><a href="#">Validation</a></div>');
@@ -38,6 +47,11 @@ function toggleValidation() {
 	});
 }
 
+
+/*
+ * Toggle overlay visibility
+ */
+
 function toggleOverlay() {
 	$('input, .button--primary--large, .modal__close').click(function(e) {
 		e.preventDefault();
@@ -45,9 +59,18 @@ function toggleOverlay() {
 	});
 }
 
+
+/*
+ * Styling for layout page in the styleguide
+ */
+
 function layoutStyles() {
 	$('.full-width, .one-quarter, .one-third, .two-thirds, .three-quarters, .one-half').css({'background':'#d5d5d5','height':'200px', 'margin-bottom':'5%'});
 }
+
+
+
+
 
 function ajaxModal(url,$targetEl,$fragmentEl) {
 	$.ajax({
@@ -63,6 +86,7 @@ function ajaxModal(url,$targetEl,$fragmentEl) {
 /*
  * Generic Ajax overlay function
  */
+
 function modal($targetEl,$fragmentEl) {
 	// Hide the overlay on load
 	$('.overlay, .modal__wrapper').hide();
@@ -88,9 +112,7 @@ function modal($targetEl,$fragmentEl) {
 }
 
 
-
-
-/**
+/*
  * Progressively discloses page element
  */
 
