@@ -19,10 +19,6 @@
  **/
 
 
-/* ==========================================================================
-   1. Base styles & resets
-   ========================================================================== */
-
 @import 
 '../govuk_toolkit/stylesheets/_device-pixels',
 '../govuk_toolkit/stylesheets/_measurements', 
@@ -35,6 +31,11 @@
 
 $summary-border: #cdd7dc;
 $summary-background: #e6eff5;
+
+
+/* ==========================================================================
+   1. Base styles & resets
+   ========================================================================== */
 
 html {
 	background: $grey-3;
@@ -725,14 +726,14 @@ select:focus {
    ========================================================================== */
 
 $progress-items: 9;
-$progress-breakpoint: 840px;
+$breakpoint: 840px;
 
 .progress {
 	@extend %navigation;
 	border-top: 1px dotted $grey-2;
 	overflow: visible;
 	margin-top: 2em;
-	@media (max-width: $progress-breakpoint) {
+	@media (max-width: $breakpoint) {
 		border-top: none;
 		margin: 0;
 	}
@@ -746,32 +747,32 @@ $progress-breakpoint: 840px;
 			background: url('../images/progress-2x.png') no-repeat 50% -140px;
 			background-size: 52px 200px;
 		}
-		@media (max-width: $progress-breakpoint) {
+	}
+	a, .current {
+		line-height: 1.2;
+		display: block;
+		padding-top: 3.75em;
+	}
+	.current {
+		background-position:50% 5px;
+		font-weight: 700;
+	}
+	@media (max-width: $breakpoint) {
+		&__item {
 			background: none;
 			padding: 0;
 			margin: 0;
 			width: 100%;
 			text-align: left;
 		}
-	}
-	a, .current {
-		line-height: 1.2;
-		display: block;
-		padding-top: 3.75em;
-		@media (max-width: $progress-breakpoint) {
+		a:hover {
+			background: $grey-4;
+		}
+		a, .current {
 			padding: .5em 0;
 			border-bottom: 1px solid $grey-2;
 		}
-	}
-	a:hover {
-		@media (max-width: $progress-breakpoint) {
-			background: $grey-4;
-		}
-	}
-	.current {
-		background-position:50% 5px;
-		font-weight: 700;
-		@media (max-width: $progress-breakpoint) {
+		.current {
 			border-bottom: 3px solid $black;
 		}
 	}
@@ -779,6 +780,8 @@ $progress-breakpoint: 840px;
 
 /* 7.3 Horizontal navigation
    ========================================================================== */
+
+$breakpoint: 880px;
 
 .horizontal-navigation {
 	@extend %navigation;
@@ -788,6 +791,9 @@ $progress-breakpoint: 840px;
 	}
 	a {
 		@extend %navigation__link;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 		&:hover {
 			background: none;
 		}
@@ -796,7 +802,7 @@ $progress-breakpoint: 840px;
 		@extend %navigation__link;	
 		border-bottom: 3px solid $alpha-colour;
 		font-weight: 700;
-		@media(max-width: 640px) {
+		@media(max-width: $breakpoint) {
 			border: none;
 			border-bottom: 3px solid $alpha-colour;
 		}	
@@ -805,10 +811,22 @@ $progress-breakpoint: 840px;
 			color: $black;
 		}
 	}
+	@media(max-width: $breakpoint) {
+		border-bottom: none;
+		&__item {
+			width: 100%;
+			border-bottom: 1px solid $grey-3;
+		}
+		a, .current {
+			padding: .5em 0;
+		}
+	}
 }
 
 /* 7.4 Mega menu
    ========================================================================== */
+
+$breakpoint: 640px;
 
 .mega-menu {
 	@extend %navigation;
@@ -820,11 +838,11 @@ $progress-breakpoint: 840px;
 	}
 	a {
 		@extend %navigation__link;
-		padding-left: 0;
-		border-bottom: 1px solid $grey-2;
-		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
+		white-space: nowrap;
+		padding-left: 0;
+		border-bottom: 1px solid $grey-2;
 		&:hover {
 			background: none;
 		}
@@ -834,7 +852,11 @@ $progress-breakpoint: 840px;
 		font-weight: 700;
 		padding: .5em 0 0.25em 0;
 	}
-
+	@media(max-width: $breakpoint) {
+		&__item {
+			width: 100%;
+		}
+	}
 }
 
 /* 7.5 Vertical navigation
@@ -865,8 +887,8 @@ $progress-breakpoint: 840px;
 }
 
 @media(max-width: 640px) {
-	a[rel="previous"],
-	a[rel="next"] {
+	a[rel="Previous"],
+	a[rel="Next"] {
 		display: none;
 	}
 }
@@ -901,6 +923,9 @@ $progress-breakpoint: 840px;
 	}
 	&__item {
 		margin-bottom: .25em;
+	}
+	label {
+		@extend %paragraph--small;
 	}
 }
 
