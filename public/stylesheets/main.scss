@@ -1028,12 +1028,12 @@ tfoot {
 		padding: .5em .5em .4em .5em;
 		color: $black;
 		text-decoration: none;
+		&:active {
+			color: $grey-1;
+		}
 	}
 	&:hover {
 		background-color: #cccccc;
-	}
-	&:active {
-		color: $grey-1;
 	}
 	&.ascending {
 		background: #cccccc url('../images/down-arrow.png') no-repeat right .6em top -108px;

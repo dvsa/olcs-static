@@ -23,7 +23,7 @@ $(document).ready(function() {
 		modal('.modal','#main');
 	}
 	if (docUrl.indexOf('progressive-form') > -1) {
-		progDisclosure();
+		$.fn.progressiveDisclosure.defaults;
 	}
 	if (docUrl.indexOf('compliance') > -1) {
 		showHide('.case-summary__toggle','.case-summary__list');
@@ -88,14 +88,58 @@ function modal($targetEl,$fragmentEl) {
 }
 
 
-/*
- * Progressive disclosure function 
+
+
+/**
+ * Progressively discloses page element
  */
-function progDisclosure() {}
+
+(function($) {
+	 $.fn.progressiveDisclosure = function(options) {
+
+		var opts = $.extend({}, $.fn.progressiveDisclosure.defaults, options);
+
+		$(trigger).click(function() {
+			$.ajax({
+				url: url,
+				type: 'GET',
+				success: function(data) {
+					$(data).find(fragment).insertAfter(target);
+				}
+			});
+		});
+
+	    $.fn.progressiveDisclosure.defaults = {
+			trigger : '.radio-female',
+			url : 'progressive-form-2',
+	        fragment : '#another-fieldset',
+	        target : '#personal-information fieldset'
+	    };
+
+	 };
+})(jQuery);
+
+
+
+
+
+
+
+// function progDisclosure($triggerEl,url,$fragmentEl,$targetEl) {
+// 	$($triggerEl).click(function() {
+// 		$.ajax({
+// 			url: url,
+// 			type: 'GET',
+// 			success: function(data) {
+// 				$(data).find($fragmentEl).insertAfter($targetEl);
+// 			}
+// 		});
+// 	});
+// }
 
 
 /*
- * Generic show & hide function
+ * Generic show & hide 
  */
 function showHide($target,$element) {
 	$($target).click(function(e) {

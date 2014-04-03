@@ -1019,11 +1019,11 @@ tfoot th {
   color: #0b0c0c;
   text-decoration: none;
 }
+.sortable a:active {
+  color: #6f777b;
+}
 .sortable:hover {
   background-color: #cccccc;
-}
-.sortable:active {
-  color: #6f777b;
 }
 .sortable.ascending {
   background: #cccccc url("../images/down-arrow.png") no-repeat right 0.6em top -108px;
