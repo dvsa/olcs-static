@@ -10,13 +10,14 @@
             "source": {
                 "url": "gitolite@git.clb.npm:olcs-common.git",
                 "type": "git",
-                "reference": "develop"
+                "reference": "origin/develop"
                 }
             }
         }
     ],
     "require": {
         "php": ">=5.4",
-        "zendframework/zendframework": "2.2.*"
+        "zendframework/zendframework": "2.2.*",
+        "olcs/OlcsCommon": "dev-develop"
     }
 }
