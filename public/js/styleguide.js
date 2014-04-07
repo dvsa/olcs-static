@@ -31,6 +31,9 @@ $(document).ready(function() {
 	else {
 		return;
 	}
+
+	validation();
+
 });
 
 
@@ -142,11 +145,6 @@ function modal($targetEl,$fragmentEl) {
 })(jQuery);
 
 
-
-
-
-
-
 // function progDisclosure($triggerEl,url,$fragmentEl,$targetEl) {
 // 	$($triggerEl).click(function() {
 // 		$.ajax({
@@ -169,6 +167,33 @@ function showHide($target,$element) {
 		$($element).toggle();
 	});
 }
+
+
+
+/*
+ * Validation
+ */
+
+function validation() {
+	$('#form--sign-up').validate();
+	$('#address-line-two').rules( 'add', {
+		required: true,
+		minlength: 2,
+		messages: {
+			required: 'This is required',
+			minlength: jQuery.format('At least 2 characters please')
+		}
+	});
+}
+
+
+
+
+
+
+
+
+
 
 
 
