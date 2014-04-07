@@ -1,25 +1,23 @@
-<?php echo $this->render('partials/page-header.phtml', array('pageTitle' => 'Progress form 2', 'pageSubTitle'=> 'An example of a progressive form')); ?>
+<?php echo $this->render('partials/page-header.phtml', array('pageTitle' => 'Progressive form 2')); ?>
 
 <div class="two-thirds">
 	<form>
-		<fieldset>
-			<div class="field">
-				<label for="first-name">First name</label>
-    			<input id="first-name" name="name" type="text" class="long">
-			</div>
-			<div class="field">
-				<label for="last-name">Last name</label>
-    			<input id="last-name" name="name" type="text" class="long" />
-			</div>
-			<div class="field">
-				<label for="town">Where were you born?</label>
-    			<input id="town" name="town" type="text" class="long" />
-			</div>
-		</fieldset>
+	
+		<fieldset id="another-fieldset">
+			<fieldset>
+				<legend class="legend">Size</legend>
+				<div class="field--inline">
+					<label><input type="radio" name="size">Big</label>
+				</div>
+				<div class="field--inline">
+					<label><input type="radio" name="size" data-ajax="progressive-form-3">Small</label>
+				</div>
+			</fieldset>
+		</fieldset><!-- end #another-fieldset -->
 
 		<div class="actions-container">
-			<a href="progressive-form-1" class="action--secondary">Previous</a>
-			<a href="progressive-form-3" class="action--primary">Next</a>
+			<input class="action--primary large" type="submit" value="Save">
+			<a href="">Back to whereever</a>
 		</div><!-- end .actions -->
 
 	</form>

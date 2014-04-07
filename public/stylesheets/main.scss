@@ -19,10 +19,6 @@
  **/
 
 
-/* ==========================================================================
-   1. Base styles & resets
-   ========================================================================== */
-
 @import 
 '../govuk_toolkit/stylesheets/_device-pixels',
 '../govuk_toolkit/stylesheets/_measurements', 
@@ -32,6 +28,14 @@
 '../govuk_toolkit/stylesheets/design-patterns/_buttons';
 
 @import '_fonts';
+
+$summary-border: #cdd7dc;
+$summary-background: #e6eff5;
+
+
+/* ==========================================================================
+   1. Base styles & resets
+   ========================================================================== */
 
 html {
 	background: $grey-3;
@@ -67,7 +71,10 @@ menu, ol, ul {
 
 ul {
 	list-style: circle;
-	list-style-position:inside;
+	list-style-position: inside;
+	h1, h2, h3, h4, h5 {
+		display: inline;
+	}
 }
 
 img {
@@ -88,9 +95,7 @@ dd {
 /* 1.1 Links
    ========================================================================== */
 
-a { 
-	color: $link-colour; 
-}
+a { color: $link-colour; }
 
 a:focus { outline: thin dotted; }
 
@@ -536,7 +541,7 @@ fieldset {
 legend {
 	@extend %h3;
 	*margin-left: -7px;
-	margin-top: .25em;
+	margin: .25em 0;
 	padding: 0;
 	color: black;
 	font-weight: 700;
@@ -655,9 +660,6 @@ select:focus {
 	}
 }
 
-/* 6.7 Form items
-   ========================================================================== */
-
 
 /* ==========================================================================
    7. Navigation
@@ -720,39 +722,144 @@ select:focus {
 	}
 }
 
-/* 7.2 Tabs
+/* 7.2 Progress
    ========================================================================== */
 
-.tabs {
+$progress-items: 9;
+$breakpoint: 840px;
+
+.progress {
 	@extend %navigation;
+	border-top: 1px dotted $grey-2;
+	overflow: visible;
+	margin-top: 2em;
+	@media (max-width: $breakpoint) {
+		border-top: none;
+		margin: 0;
+	}
+	&__item {
+		@extend %navigation__item;
+		text-align: center;
+		width: (100% - ($progress-items * 2))/$progress-items;
+		margin: -2em 1% 1.5em 1%;	
+		background: url('../images/progress.png') no-repeat 50% -140px;
+		@include device-pixel-ratio($ratio: 2) {
+			background: url('../images/progress-2x.png') no-repeat 50% -140px;
+			background-size: 52px 200px;
+		}
+	}
+	a, .current {
+		line-height: 1.2;
+		display: block;
+		padding-top: 3.75em;
+	}
+	.current {
+		background-position:50% 5px;
+		font-weight: 700;
+	}
+	@media (max-width: $breakpoint) {
+		&__item {
+			background: none;
+			padding: 0;
+			margin: 0;
+			width: 100%;
+			text-align: left;
+		}
+		a:hover {
+			background: $grey-4;
+		}
+		a, .current {
+			padding: .5em 0;
+			border-bottom: 1px solid $grey-2;
+		}
+		.current {
+			border-bottom: 3px solid $black;
+		}
+	}
+}
+
+/* 7.3 Horizontal navigation
+   ========================================================================== */
+
+$breakpoint: 880px;
+
+.horizontal-navigation {
+	@extend %navigation;
+	border-bottom: 1px solid $grey-3;
 	&__item {
 		@extend %navigation__item;
 	}
-	&__content {
-		border-top: 1px solid $grey-2;
-		padding: 1em 0;
-		margin-top: -1px;
-	}
 	a {
 		@extend %navigation__link;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		&:hover {
+			background: none;
+		}
 	}
 	.current {
 		@extend %navigation__link;	
-		border: 1px solid $grey-2;
-		border-bottom-color: $white;
-		font-weight: 600;
-		@media(max-width: 640px) {
+		border-bottom: 3px solid $alpha-colour;
+		font-weight: 700;
+		@media(max-width: $breakpoint) {
 			border: none;
-			border-bottom: 3px solid $black;
+			border-bottom: 3px solid $alpha-colour;
 		}	
 		&:hover {
 			background: none;
 			color: $black;
 		}
 	}
+	@media(max-width: $breakpoint) {
+		border-bottom: none;
+		&__item {
+			width: 100%;
+			border-bottom: 1px solid $grey-3;
+		}
+		a, .current {
+			padding: .5em 0;
+		}
+	}
 }
 
-/* 7.3 Vertical navigation
+/* 7.4 Mega menu
+   ========================================================================== */
+
+$breakpoint: 640px;
+
+.mega-menu {
+	@extend %navigation;
+	padding: 0 0 .5em 0;
+	&__item {
+		@extend %navigation__item;
+		width: 23.5%;
+		margin-right: 1.5%;
+	}
+	a {
+		@extend %navigation__link;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		padding-left: 0;
+		border-bottom: 1px solid $grey-2;
+		&:hover {
+			background: none;
+		}
+	}
+	.current {
+		border-bottom: 3px solid $alpha-colour;
+		font-weight: 700;
+		padding: .5em 0 0.25em 0;
+	}
+	@media(max-width: $breakpoint) {
+		&__item {
+			width: 100%;
+		}
+	}
+}
+
+/* 7.5 Vertical navigation
    ========================================================================== */
 
 .vertical-navigation {
@@ -768,7 +875,7 @@ select:focus {
 	}
 }
 
-/* 7.4 Pagination
+/* 7.6 Pagination
    ========================================================================== */
 
 .pagination {	
@@ -780,110 +887,30 @@ select:focus {
 }
 
 @media(max-width: 640px) {
-	a[rel="previous"],
-	a[rel="next"] {
+	a[rel="Previous"],
+	a[rel="Next"] {
 		display: none;
 	}
 }
 
-/* 7.5 Results settings
+/* 7.7 Results settings
    ========================================================================== */
 
 .results-settings {
 	float: left;
 	margin-bottom: 2em;
-	label {
-		@extend %paragraph--small;
+	&__list {
+		list-style: none;
+		float: left;
 	}
-	select {
-		margin: 0 .25em;
-	}
-}
-
-/* 7.6 Accordion
-   ========================================================================== */
-
-$summary-border: #cdd7dc;
-$summary-background: #e6eff5;
-
-.accordion {
-	@extend %navigation;
-	margin-bottom: 1.5em;
-	p {
-		@extend %paragraph--small;
-		margin-bottom: 0;
-	}
-	&__item {
-		position: relative;
-		overflow: auto;
-		padding: .75em 1em;
-		margin-bottom: 0;
-		border-bottom: 1px solid $summary-border;
-		background: $summary-background;
-	}
-	&__item__action {
-		@extend %paragraph--small;
-		position: absolute;
-		right: 1em;
-		top: .75em;	
+	p, &__item {
+		float: left;
+		margin-right: .5em;
+		clear: none;
 	}
 }
 
-/* 7.7 Progress
-   ========================================================================== */
-
-$progress-items: 7;
-
-.progress {
-	@extend %navigation;
-	border-top: 1px dotted $grey-2;
-	overflow: visible;
-	margin-top: 2em;
-	@media (max-width: 640px) {
-		border-top: none;
-		margin: 0;
-	}
-	&__item {
-		@extend %navigation__item;
-		text-align: center;
-		width: (100% - ($progress-items * 2))/$progress-items;
-		margin: -2em 1% 1.5em 1%;	
-		background: url('../images/progress.png') no-repeat 50% -140px;
-		@include device-pixel-ratio($ratio: 2) {
-			background: url('../images/progress-2x.png') no-repeat 50% -140px;
-			background-size: 52px 200px;
-		}
-		@media (max-width: 640px) {
-			background: none;
-			padding: 0;
-			margin: 0;
-			width: 100%;
-			text-align: left;
-		}
-	}
-	a, .current {
-		display: block;
-		padding-top: 3.75em;
-		@media (max-width: 640px) {
-			padding: .5em 0;
-			border-bottom: 1px solid $grey-2;
-		}
-	}
-	a:hover {
-		@media (max-width: 640px) {
-			background: $grey-4;
-		}
-	}
-	.current {
-		font-weight: 700;
-		background-position:50% 5px;
-		@media (max-width: 640px) {
-			border-bottom: 3px solid $black;
-		}
-	}
-}
-
-/* 7.8 Filter
+/* 7.8 Filters
    ========================================================================== */
 
 .filters {
@@ -897,37 +924,11 @@ $progress-items: 7;
 	&__item {
 		margin-bottom: .25em;
 	}
-}
-
-/* 7.9 Horizontal navigation
-   ========================================================================== */
-
-.horizontal-navigation {
-	@extend %navigation;
-	border-bottom: 1px solid $grey-3;
-	&__item {
-		@extend %navigation__item;
-	}
-	a {
-		@extend %navigation__link;
-		&:hover {
-			background: none;
-		}
-	}
-	.current {
-		@extend %navigation__link;	
-		border-bottom: 3px solid $alpha-colour;
-		font-weight: 600;
-		@media(max-width: 640px) {
-			border: none;
-			border-bottom: 3px solid $alpha-colour;
-		}	
-		&:hover {
-			background: none;
-			color: $black;
-		}
+	label {
+		@extend %paragraph--small;
 	}
 }
+
 
 /* ==========================================================================
    8. Tables
@@ -939,6 +940,12 @@ $progress-items: 7;
 	overflow: hidden;
 	h3 {
 		float: left;
+	}
+	span {
+		@extend %paragraph--large;
+		font-weight: 400;
+		color: $grey-1;
+		padding-left: .4em;
 	}
 	.actions-container {
 		float: right;
@@ -952,6 +959,12 @@ $progress-items: 7;
 .table__wrapper {
 	display: block;
 	width: 100%;
+	overflow: auto;
+}
+
+.table__footer {
+	width: 100%;
+	clear:right;
 	overflow: auto;
 }
 
@@ -1010,26 +1023,34 @@ tfoot {
 	}
 }
 
-
 .sortable {
-	cursor: pointer;
-	background: $grey-3 url('../images/down-arrow.png') no-repeat 95% 15px;
+	padding: 0;
+	background: $grey-3 url('../images/down-arrow.png') no-repeat right .6em top 14px;
 	@include device-pixel-ratio($ratio: 2) {
 		background-image: url('../images/down-arrow-2x.png');
-		background-size: 10px 45px;
+		background-size: 10px 130px;
+	}
+	a {
+		display: block;
+		padding: .5em .5em .4em .5em;
+		color: $black;
+		text-decoration: none;
+		&:active {
+			color: $grey-1;
+		}
 	}
 	&:hover {
 		background-color: #cccccc;
 	}
-	&:active {
-		color: $grey-1;
-	}
-	&.selected {
-		background: #cccccc url('../images/down-arrow.png') no-repeat 95% -22px;
+	&.ascending {
+		background: #cccccc url('../images/down-arrow.png') no-repeat right .6em top -108px;
 		@include device-pixel-ratio($ratio: 2) {
 			background-image: url('../images/down-arrow-2x.png');
-			background-size: 10px 45px;
+			background-size: 10px 130px;
 		}
+	}
+	&.descending {
+		background-color: #cccccc;
 	}
 }
 
@@ -1242,12 +1263,24 @@ tfoot {
 	form {
 		overflow: auto;
 		margin-bottom: 0;
-		padding-left: 1px;
-		padding-right: 2.5%;
+		padding: 0 2.5% 1.5em 1px;
 		width: 97.5%;
 	}
-	.actions-container {
-		margin-bottom: .25em;
+	table {
+		margin-bottom: 3.5em;
+	}
+	.actions-container {	
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		height: 2em;
+		padding: 1.5em 2.5% .5em 2.5%;
+		margin: 0;
+		text-align: right;
+		overflow: auto;
+		width: 95%;
+		border-top: 1px solid $grey-3;
+		background: $grey-4;
 	}
 }
 

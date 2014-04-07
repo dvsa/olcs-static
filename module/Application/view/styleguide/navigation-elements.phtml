@@ -1,9 +1,10 @@
 <?php echo $this->render('partials/page-header.phtml', array('pageTitle' => 'Navigation elements', 'pageSubTitle'=> 'Includes a standard set of vertical and horizontal navigation mechanisms')); ?>
 
 
-				<!-- Progress navigation -->
-
 				<div class="full-width">
+
+					<!-- Progress navigation -->
+
 					<h3>Progress navigation</h3>
 					<ul class="progress" role="navigation" >
 						<li class="progress__item"><a href=""><span>Type of licence</span></a></li>
@@ -11,36 +12,17 @@
 						<li class="progress__item"><a href=""><span>Operating centres</span></a></li>
 						<li class="progress__item"><a href=""><span>Transport managers</span></a></li>
 						<li class="progress__item"><a href=""><span>Vehicle and safety</span></a></li>
-						<li class="progress__item"><a href=""><span>Declaration</span></a></li>
-						<li class="progress__item"><a href=""><span>Payment</span></a></li>
+						<li class="progress__item"><a href=""><span>Previous history</span></a></li>
+						<li class="progress__item"><a href=""><span>Undertakings &amp; declarations</span></a></li>
+						<li class="progress__item"><a href=""><span>Payment details</span></a></li>
+						<li class="progress__item"><a href=""><span>Summary &amp; submission</span></a></li>
 					</ul><!-- end .progress -->
-				</div><!-- end .full-width -->
 
-	
-				<!-- Tabbed navigation -->
 
-				<div class="full-width">
-					<h3>Tabbed navigation</h3>
-					<ul class="tabs" role="navigation" >
-						<li class="tabs__item"><a href="">Item one</a></li>
-						<li class="tabs__item current">Item two</li>
-						<li class="tabs__item"><a href="">Item three</a></li>
-						<li class="tabs__item"><a href="">Item four</a></li>
-						<li class="tabs__item"><a href="">Item five</a></li>
-						<li class="tabs__item"><a href="">Item six</a></li>
-						<li class="tabs__item"><a href="">Item seven</a></li>
-					</ul><!-- end .tabs -->
-					<div class="tabs__content">
-						<p>This is the content, switchable by the tabs</p>
-					</div>
-				</div><!-- end .full-width -->
-				
+					<!-- Horizontal navigation -->
 
-				<!-- Horizontal-navigation -->
-
-				<div class="full-width">
 					<h3>Horizontal navigation</h3>
-					<ul class="horizontal-navigation" role="navigation" >
+					<ul class="horizontal-navigation" role="navigation">
 						<li class="horizontal-navigation__item"><a href="">Overview</a></li>
 						<li class="horizontal-navigation__item current">Convictions</li>
 						<li class="horizontal-navigation__item"><a href="">Prohibitions</a></li>
@@ -49,31 +31,46 @@
 						<li class="horizontal-navigation__item"><a href="">Complaints</a></li>
 						<li class="horizontal-navigation__item"><a href="">Documents</a></li>
 						<li class="horizontal-navigation__item"><a href="">Notes</a></li>
-					</ul><!-- end .horizontal-navigation -->
-				</div><!-- end .full-width -->
+					</ul>
+
+					<hr /><!-- hr Shouldn't be used in production -->
 
 
-				<!-- Accordion -->
+					<!-- Mega menu -->
 
-				<div class="full-width">
-					<h3>Accordion</h3>
-                    <ul class="accordion">
-                    	<li class="accordion__item">
-                    		<h4><a href="">This is a section title</a></h4>
-                    		<p>This is a helpful description about the sections</p>
-                    		<a class="accordion__item__action" href="">Edit</a>
-                    	</li>
-                    	<li class="accordion__item">
-                    		<h4><a href="">This is another section title</a></h4>
-                    		<p>This is a helpful description about the sections</p>
-                    		<a class="accordion__item__action" href="">Edit</a>
-                    	</li>                    	
-                    	<li class="accordion__item">
-                    		<h4><a href="">This is another section title</a></h4>
-                    		<p>This is a helpful description about the sections</p>
-                    		<a class="accordion__item__action" href="">Edit</a>
-                    	</li>
-                    </ul><!-- end .accordion -->
+					<?php $internAppItems = array(
+						'Summary view', 
+						'Type of licence', 
+						'Entity type', 
+						'Operating centres &amp; auth',
+						'Transport managers',
+						'Vehicles &amp; safety',
+						'Previous history',
+						'Undertakings &amp declaration',
+						'Payment details',
+						'Summary & submission',
+						'Oppositions',
+						'Publications',
+						'Conditions',
+						'Fees',
+						'App decisions',
+						'Documents');
+					?>
+
+					<h3>Mega menu</h3>
+					<ul class="mega-menu" role="navigation">
+					<?php foreach($internAppItems as $item) { ?>
+						<?php if ($item == 'Transport managers'){ ?>
+						<li class="mega-menu__item current">
+							<?php echo $item; ?>
+						</li>
+						<?php } else { ?>
+						<li class="mega-menu__item">
+							<a href=""><?php echo $item; ?></a>
+						</li>
+					<?php } } ?>
+					</ul><!-- end .mega-menu -->
+
 				</div><!-- end .full-width -->
 
 
@@ -102,9 +99,15 @@
 							<li class="filters__item"><a href="">Yorkshire</a></li>
 							<li class="filters__item"><a href="">East Midlands</a></li>
 							<li class="filters__item"><a href="">West Midlands</a></li>
-							<li class="filters__item"><input type="checkbox" name="area">East of England</input></li>
-							<li class="filters__item"><input type="checkbox" name="area">London</input></li>
-							<li class="filters__item"><input type="checkbox" name="area">South East</input></li>
+							<li class="filters__item">
+								<label for="east-of-england"><input type="checkbox" name="area" id="east-of-england">East of England</label>
+							</li>
+							<li class="filters__item">
+								<label for="london"><input type="checkbox" name="area" id="london">London</label>
+							</li>
+							<li class="filters__item">
+								<label for="south-east"><input type="checkbox" name="area" id="south-east">South East</label>
+							</li>
 						</ul><!-- end .filters__list -->
 						<ul class="filters__list">
 							<li class="filters__title">Gender</li>

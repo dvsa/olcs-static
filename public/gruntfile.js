@@ -4,7 +4,7 @@ module.exports = function(grunt) {
         sass: {
             dist: {
                 options: {
-                    style: 'expanded'
+                    style: 'expanded',
                 },
                 files: {
                     'static/stylesheets/main.css': 'stylesheets/main.scss'
@@ -12,14 +12,16 @@ module.exports = function(grunt) {
             }
         },
         watch: {
+            options: {
+                livereload: true,
+            },
             scripts: {
-                files: ['stylesheets/*.scss'],
+                files: ['stylesheets/main.scss','stylesheets/_compliance.scss'],
                 tasks: ['sass'],
                 options: {
                     spawn: false,
                 },
             },
-
         }
     });
 

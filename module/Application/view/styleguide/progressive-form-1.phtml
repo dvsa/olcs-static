@@ -1,0 +1,25 @@
+<?php echo $this->render('partials/page-header.phtml', array('pageTitle' => 'Progressive form 1')); ?>
+
+<div class="two-thirds">
+	<form>
+	
+		<fieldset id="personal-information">
+			<fieldset>
+				<legend class="legend">Gender</legend>
+				<div class="field--inline">
+					<label><input type="radio" name="gender">Male</label>
+				</div>
+				<div class="field--inline">
+					<label class="radio-female"><input type="radio" name="gender">Female</label>
+				</div>
+			</fieldset>
+		</fieldset><!-- end #personal-information -->
+
+		<div class="actions-container">
+			<input class="action--primary large" type="submit" value="Save">
+			<a href="">Back to whereever</a>
+		</div><!-- end .actions -->
+
+	</form>
+
+</div><!-- end .two-thirds -->
