@@ -1,4 +1,11 @@
-<?php echo $this->render('partials/page-header.phtml', array('pageTitle' => 'Typography', 'pageSubTitle'=> 'A typographic system based on the Alphagov toolkit')); ?>
+<?php 
+	echo $this->render('partials/page-header.phtml', 
+	array(
+		'pageTitle' => 'Typography', 
+		'pageSubTitle'=> 'A typographic system based on the Alphagov toolkit'
+		)
+	); 
+?>
 
 	<div class="one-quarter">
 	    <?php echo $this->render('partials/vertical-navigation.phtml', array('navItems' => array('The GovUK typeface', 'Using New Transport', 'Colour contrast', 'Type size', 'Services and information'))); ?>

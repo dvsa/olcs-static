@@ -1,23 +1,30 @@
-<?php echo $this->render('partials/page-header.phtml', array('pageTitle' => 'Navigation elements', 'pageSubTitle'=> 'Includes a standard set of vertical and horizontal navigation mechanisms')); ?>
-
+<?php 
+	echo $this->render('partials/page-header.phtml', 
+	array(
+		'pageTitle' => 'Navigation elements', 
+		'pageSubTitle'=> 'Includes a standard set of vertical and horizontal navigation mechanisms'
+		)
+	); 
+?>
 
 				<div class="full-width">
 
-					<!-- Progress navigation -->
+					<!-- Application navigation -->
 
-					<h3>Progress navigation</h3>
-					<ul class="progress" role="navigation" >
-						<li class="progress__item"><a href=""><span>Type of licence</span></a></li>
-						<li class="progress__item current"><span>Your business</span></li>
-						<li class="progress__item"><a href=""><span>Operating centres</span></a></li>
-						<li class="progress__item"><a href=""><span>Transport managers</span></a></li>
-						<li class="progress__item"><a href=""><span>Vehicle and safety</span></a></li>
-						<li class="progress__item"><a href=""><span>Previous history</span></a></li>
-						<li class="progress__item"><a href=""><span>Undertakings &amp; declarations</span></a></li>
-						<li class="progress__item"><a href=""><span>Payment details</span></a></li>
-						<li class="progress__item"><a href=""><span>Summary &amp; submission</span></a></li>
+					<h3>Application navigation</h3>
+					<ul class="application" role="navigation" >
+						<li class="application__item complete"><a href=""><span>Type of licence</span></a></li>
+						<li class="application__item current"><span>Your business</span></li>
+						<li class="application__item"><a href=""><span>Operating centres</span></a></li>
+						<li class="application__item"><a href=""><span>Transport managers</span></a></li>
+						<li class="application__item incomplete"><a href=""><span>Vehicle &amp; safety</span></a></li>
+						<li class="application__item"><a href=""><span>Previous history</span></a></li>
+						<li class="application__item"><a href=""><span>Declarations</span></a></li>
+						<li class="application__item"><a href=""><span>Payment details</span></a></li>
+						<li class="application__item"><a href=""><span>Summary</span></a></li>
 					</ul><!-- end .progress -->
 
+					<hr /><hr /><!-- hr Shouldn't be used in production -->
 
 					<!-- Horizontal navigation -->
 
@@ -33,7 +40,7 @@
 						<li class="horizontal-navigation__item"><a href="">Notes</a></li>
 					</ul>
 
-					<hr /><!-- hr Shouldn't be used in production -->
+					<hr /><hr /><!-- hr Shouldn't be used in production -->
 
 
 					<!-- Mega menu -->

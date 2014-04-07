@@ -722,13 +722,14 @@ select:focus {
 	}
 }
 
-/* 7.2 Progress
+/* 7.2 Application
    ========================================================================== */
 
 $progress-items: 9;
 $breakpoint: 840px;
+$statuses: (complete 10px 6px, incomplete -588px -596px, current -188px -194px);
 
-.progress {
+.application {
 	@extend %navigation;
 	border-top: 1px dotted $grey-2;
 	overflow: visible;
@@ -742,10 +743,10 @@ $breakpoint: 840px;
 		text-align: center;
 		width: (100% - ($progress-items * 2))/$progress-items;
 		margin: -2em 1% 1.5em 1%;	
-		background: url('../images/progress.png') no-repeat 50% -140px;
+		background: url('../images/application-navigation.png') no-repeat 50% -383px;
 		@include device-pixel-ratio($ratio: 2) {
-			background: url('../images/progress-2x.png') no-repeat 50% -140px;
-			background-size: 52px 200px;
+			background: url('../images/application-navigation-2x.png') no-repeat 50% -390px;
+			background-size: 50px 657px;
 		}
 	}
 	a, .current {
@@ -754,8 +755,15 @@ $breakpoint: 840px;
 		padding-top: 3.75em;
 	}
 	.current {
-		background-position:50% 5px;
 		font-weight: 700;
+	}
+	@each $status in $statuses {
+		.#{nth($status, 1)} {
+			background-position: 50% nth($status, 2);
+			@include device-pixel-ratio($ratio: 2) {
+				background-position: 50% nth($status, 3);
+			}
+		}
 	}
 	@media (max-width: $breakpoint) {
 		&__item {

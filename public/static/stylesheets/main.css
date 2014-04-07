@@ -682,18 +682,18 @@ select:focus {
 /* ==========================================================================
    7. Navigation
    ========================================================================== */
-.progress, .horizontal-navigation, .mega-menu, .vertical-navigation {
+.application, .horizontal-navigation, .mega-menu, .vertical-navigation {
   list-style: none;
   width: 100%;
   overflow: auto;
 }
 
-.progress__item, .horizontal-navigation__item, .mega-menu__item {
+.application__item, .horizontal-navigation__item, .mega-menu__item {
   float: left;
   margin-bottom: 0;
 }
 @media (max-width: 640px) {
-  .progress__item, .horizontal-navigation__item, .mega-menu__item {
+  .application__item, .horizontal-navigation__item, .mega-menu__item {
     width: 100%;
   }
 }
@@ -742,56 +742,79 @@ select:focus {
   background: none;
 }
 
-/* 7.2 Progress
+/* 7.2 Application
    ========================================================================== */
-.progress {
+.application {
   border-top: 1px dotted #bfc1c3;
   overflow: visible;
   margin-top: 2em;
 }
 @media (max-width: 840px) {
-  .progress {
+  .application {
     border-top: none;
     margin: 0;
   }
 }
-.progress__item {
+.application__item {
   text-align: center;
   width: 9.11111%;
   margin: -2em 1% 1.5em 1%;
-  background: url("../images/progress.png") no-repeat 50% -140px;
+  background: url("../images/application-navigation.png") no-repeat 50% -383px;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  .progress__item {
-    background: url("../images/progress-2x.png") no-repeat 50% -140px;
-    background-size: 52px 200px;
+  .application__item {
+    background: url("../images/application-navigation-2x.png") no-repeat 50% -390px;
+    background-size: 50px 657px;
   }
 }
-.progress a, .progress .current {
+.application a, .application .current {
   line-height: 1.2;
   display: block;
   padding-top: 3.75em;
 }
-.progress .current {
-  background-position: 50% 5px;
+.application .current {
   font-weight: 700;
 }
+.application .complete {
+  background-position: 50% 10px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .application .complete {
+    background-position: 50% 6px;
+  }
+}
+.application .incomplete {
+  background-position: 50% -588px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .application .incomplete {
+    background-position: 50% -596px;
+  }
+}
+.application .current {
+  background-position: 50% -188px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .application .current {
+    background-position: 50% -194px;
+  }
+}
 @media (max-width: 840px) {
-  .progress__item {
+  .application__item {
     background: none;
     padding: 0;
     margin: 0;
     width: 100%;
     text-align: left;
   }
-  .progress a:hover {
+  .application a:hover {
     background: #f8f8f8;
   }
-  .progress a, .progress .current {
+  .application a, .application .current {
     padding: .5em 0;
     border-bottom: 1px solid #bfc1c3;
   }
-  .progress .current {
+  .application .current {
     border-bottom: 3px solid #0b0c0c;
   }
 }
