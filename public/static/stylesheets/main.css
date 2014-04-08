@@ -749,12 +749,6 @@ select:focus {
   overflow: visible;
   margin-top: 2em;
 }
-@media (max-width: 840px) {
-  .application {
-    border-top: none;
-    margin: 0;
-  }
-}
 .application__item {
   text-align: center;
   width: 9.11111%;
@@ -800,6 +794,10 @@ select:focus {
   }
 }
 @media (max-width: 840px) {
+  .application {
+    border-top: none;
+    margin: 0;
+  }
   .application__item {
     background: none;
     padding: 0;
@@ -1329,12 +1327,16 @@ tfoot th {
 
 /* 10.2 Alerts
    ========================================================================== */
+.alert__wrapper {
+  z-index: 1;
+}
+
 .alert, .alert--warning {
   margin: 20% auto;
   width: 40%;
   max-width: 360px;
   min-width: 260px;
-  padding: 1em 1em .5em 1em;
+  padding: 1em 1em 1.25em 1em;
 }
 .alert .actions, .alert--warning .actions {
   text-align: center;

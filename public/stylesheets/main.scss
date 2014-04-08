@@ -734,10 +734,6 @@ $statuses: (complete 10px 6px, incomplete -588px -596px, current -188px -194px);
 	border-top: 1px dotted $grey-2;
 	overflow: visible;
 	margin-top: 2em;
-	@media (max-width: $breakpoint) {
-		border-top: none;
-		margin: 0;
-	}
 	&__item {
 		@extend %navigation__item;
 		text-align: center;
@@ -766,6 +762,8 @@ $statuses: (complete 10px 6px, incomplete -588px -596px, current -188px -194px);
 		}
 	}
 	@media (max-width: $breakpoint) {
+		border-top: none;
+		margin: 0;
 		&__item {
 			background: none;
 			padding: 0;
@@ -1294,6 +1292,9 @@ tfoot {
 
 /* 10.2 Alerts
    ========================================================================== */
+.alert__wrapper {
+	z-index: 1;
+}
 
 .alert, .alert--warning  {
 	@extend %overlay-box;
@@ -1301,7 +1302,7 @@ tfoot {
 	width: 40%;
 	max-width: 360px;
 	min-width: 260px;
-	padding: 1em 1em .5em 1em;
+	padding: 1em 1em 1.25em 1em;
 	&__wrapper {
 		@extend %fixed;
 	}
