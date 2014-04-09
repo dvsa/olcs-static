@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+
 	$('.row').css({'width':'100%','overflow':'auto', 'margin-bottom': '2.5em'});
 	var docUrl = document.location.href;
 
@@ -28,12 +30,11 @@ $(document).ready(function() {
 	else if (docUrl.indexOf('compliance') > -1) {
 		showHide('.case-summary__toggle','.case-summary__list');
 	}
-	else {
-		return;
+	else if (docUrl.indexOf('form-js') > -1) {
+		validation();
 	}
 
-	validation();
-
+	
 });
 
 
@@ -161,6 +162,7 @@ function modal($targetEl,$fragmentEl) {
 /*
  * Generic show & hide 
  */
+
 function showHide($target,$element) {
 	$($target).click(function(e) {
 		e.preventDefault();
@@ -169,26 +171,38 @@ function showHide($target,$element) {
 }
 
 
-
 /*
  * Validation
  */
 
 function validation() {
-	$('#form--sign-up').validate();
-	$('#address-line-two').rules( 'add', {
-		required: true,
-		minlength: 2,
+
+	$('#form--sign-up').validate({
+		debug: true,
+		errorLabelContainer: 'validation-wrapper',
+		wrapper: 'ul class="validation-wrapper__message"',
+		errorElement:'li',
+		errorPlacement: function(error, element) {
+			error.insertBefore(element.parent('.field'));
+			$('.validation-wrapper__message').next('.field').andSelf().wrapAll('<div class="validation-wrapper"/>');
+		},
+		rules: {
+			'address[line-1]': {
+				required: true,
+				minlength: 2,
+				maxlength: 5
+			},
+			'gender': {
+				required: true
+			}
+		},
 		messages: {
-			required: 'This is required',
-			minlength: jQuery.format('At least 2 characters please')
+			'address[line-1]': {
+				required: 'Please enter the first line in your address',
+			}
 		}
 	});
 }
-
-
-
-
 
 
 

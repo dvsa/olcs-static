@@ -654,6 +654,7 @@ select:focus {
 }
 
 .validation-summary {
+  display: none;
   border: 3px solid #df3034;
 }
 .validation-summary__list {

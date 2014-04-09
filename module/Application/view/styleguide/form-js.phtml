@@ -5,17 +5,28 @@
 </div><!-- end .one-quarter -->
 
 <div class="two-thirds">
+
 	<form id="form--sign-up">
+
+		<div class="validation-summary">
+			<h3>There was a problem submitting the form</h3>
+			<p>Please try the following:</p>
+			<ol class="validation-summary__list">
+<!-- 			<li class="validation-summary__item"><a href="#error1">Enter a town or city</a></li>
+				<li class="validation-summary__item"><a href="#error2">Enter a date of birth</a></li>
+				<li class="validation-summary__item"><a href="#error3">Enter a biography</a></li> -->
+			</ol><!-- end .validation-summary__list -->
+		</div><!-- end .validation-summary -->
 
 		<fieldset id="postal-address">
 			<legend>Postal address</legend>
 			<div class="field">
 				<label for="email">Email address</label>
-    			<input id="email" name="email" type="email" class="long">
+				<input id="email" name="email" type="email" class="long">
 			</div>
 			<div class="field">
-				<label for="address-line-two">Address line 2</label>
-    			<input id="address-line-two" name="address" type="text" class="long">
+				<label for="address-line-one">Address line 2</label>
+    			<input id="address-line-one" name="address[line-1]" type="text" class="long">
 			</div>
 			<div class="field">
 				<label for="town-city">Town/city</label>
@@ -46,7 +57,7 @@
 			<fieldset>
 				<legend class="legend">Gender</legend>
 				<div class="field--inline">
-					<label><input type="radio" name="gender" checked>Male</label>
+					<label><input type="radio" name="gender">Male</label>
 				</div>
 				<div class="field--inline">
 					<label><input type="radio" name="gender">Female</label>
