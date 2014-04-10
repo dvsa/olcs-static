@@ -146,7 +146,7 @@ function modal($targetEl,$fragmentEl) {
 })(jQuery);
 
 
-// function progDisclosure($triggerEl,url,$fragmentEl,$targetEl) {
+function progDisclosure($triggerEl,url,$fragmentEl,$targetEl) {
 // 	$($triggerEl).click(function() {
 // 		$.ajax({
 // 			url: url,
@@ -156,7 +156,7 @@ function modal($targetEl,$fragmentEl) {
 // 			}
 // 		});
 // 	});
-// }
+}
 
 
 /*

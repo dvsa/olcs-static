@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  *
  *  OPERATOR LICENCE & COMPLIANCE SYSTEM
@@ -322,6 +323,7 @@ fieldset .hint {
 
 #main {
   width: 100%;
+  min-height: 400px;
 }
 #main:focus {
   outline: 0;
@@ -1403,4 +1405,11 @@ tfoot th {
   list-style: none;
   padding: .75em 0 0 1.5%;
   overflow: auto;
+}
+
+/* ==========================================================================
+   Error messages — REMOVE
+   ========================================================================== */
+dl, dt, dd {
+  width: 100%;
 }
