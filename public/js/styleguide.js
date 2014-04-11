@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
 	$('.row').css({'width':'100%','overflow':'auto', 'margin-bottom': '2.5em'});
 	var docUrl = document.location.href;
 
@@ -24,9 +23,9 @@ $(document).ready(function() {
 	else if (docUrl.indexOf('operating-centres') > -1) {
 		modal('.modal','#main');
 	}
-	// else if (docUrl.indexOf('progressive-form') > -1) {
-	// 	$.fn.progressiveDisclosure.defaults;
-	// }
+	else if (docUrl.indexOf('progressive-form') > -1) {
+		progressiveDisclosure();
+	}
 	else if (docUrl.indexOf('compliance') > -1) {
 		showHide('.case-summary__toggle','.case-summary__list');
 	}
@@ -34,7 +33,6 @@ $(document).ready(function() {
 		validation();
 	}
 
-	
 });
 
 
@@ -120,42 +118,70 @@ function modal($targetEl,$fragmentEl) {
  * Progressively discloses page element
  */
 
-(function($) {
-	 $.fn.progressiveDisclosure = function(options) {
+// (function($) {
+// 	 $.fn.progressiveDisclosure = function(options) {
 
-		var opts = $.extend({}, $.fn.progressiveDisclosure.defaults, options);
+// 		var opts = $.extend({}, $.fn.progressiveDisclosure.defaults, options);
 
-		$(trigger).click(function() {
-			$.ajax({
-				url: url,
-				type: 'GET',
-				success: function(data) {
-					$(data).find(fragment).insertAfter(target);
-				}
-			});
-		});
-
-	    $.fn.progressiveDisclosure.defaults = {
-			trigger : '.radio-female',
-			url : 'progressive-form-2',
-	        fragment : '#another-fieldset',
-	        target : '#personal-information fieldset'
-	    };
-
-	 };
-})(jQuery);
-
-
-function progDisclosure($triggerEl,url,$fragmentEl,$targetEl) {
-// 	$($triggerEl).click(function() {
-// 		$.ajax({
-// 			url: url,
-// 			type: 'GET',
-// 			success: function(data) {
-// 				$(data).find($fragmentEl).insertAfter($targetEl);
-// 			}
+// 		$(trigger).click(function() {
+// 			$.ajax({
+// 				url: url,
+// 				type: 'GET',
+// 				success: function(data) {
+// 					$(data).find(fragment).insertAfter(target);
+// 				}
+// 			});
 // 		});
-// 	});
+
+// 	    $.fn.progressiveDisclosure.defaults = {
+// 			trigger : '.radio-female',
+// 			url : 'progressive-form-2',
+// 	        fragment : '#another-fieldset',
+// 	        target : '#personal-information fieldset'
+// 	    };
+
+// 	 };
+// })(jQuery);
+
+
+function progressiveDisclosure() {
+
+
+	// $($triggerEl).click(function() {
+	// 	$.ajax({
+	// 		url: url,
+	// 		type: 'GET',
+	// 		success: function(data) {
+	// 			$(data).find($fragmentEl).insertAfter($targetEl);
+	// 		}
+	// 	});
+	// });
+
+
+
+	var progDependancies = [
+		{
+			'triggerValue': 'Female',
+			'url' : 'progressive-form-2',
+			'fragment' : '#main',
+			'target' : 'fieldset or form'
+		},
+		{
+			'triggerValue': 'Green',
+			'url' : 'progressive-form-3',
+			'fragment' : '#main',
+			'target' : 'fieldset or form'
+		}
+	];
+
+	$('[value="' + progDependancies[1].triggerValue + '"]').click(function() {
+		alert('woop');
+	});
+
+	// for(var i = 0; i < progDependancies.length; i++) {
+	//     var obj = progDependancies[i];
+  
+	// }
 }
 
 
