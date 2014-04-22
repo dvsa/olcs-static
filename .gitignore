@@ -5,3 +5,4 @@ public/node_modules/
 vendor/
 composer.lock
 /nbproject/private/
+nbproject
