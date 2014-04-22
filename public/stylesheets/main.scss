@@ -194,7 +194,15 @@ textarea {
 .hint {
 	display: block;
 	color: $grey-1;
-	margin-top: .5em;
+	margin: .5em 0 .75em 0;
+	width: 90%;
+}
+
+.highlight-box {
+	background: $grey-4;
+	margin: 0 0 1.5em -1em;
+	padding: 1em 0 .5em 1em;
+	border-left: 3px solid $grey-3;
 }
 
 /* 2.1 Article styles
@@ -304,7 +312,8 @@ hr {
 }
 
 .inline {
-	display: inline;
+	float: left;
+	margin-right: .5em;
 }
 
 /* ==========================================================================
@@ -510,6 +519,9 @@ fieldset {
 	padding: 0;
 	border: 0;
 	clear: both;
+	float: left;
+	width: 100%;
+	clear: both;
 }
 
 .field { 
@@ -518,14 +530,7 @@ fieldset {
 		margin-bottom: .5em;
 	}
 	&.inline {
-		margin-right: .25em;
-		display: inline;
-		label {
-			@extend %paragraph--small;
-			display: inline;
-			margin-right: .25em;
-			padding-bottom: 1em;
-		}	
+		margin-right: .5em;
 	}
 }
 
@@ -539,12 +544,22 @@ legend {
 	padding: 0;
 	color: black;
 	font-weight: 700;
+	.highlight-box & {
+		float: left;
+		width: 100%;
+	}
 }
 
 label {
 	@extend %paragraph--large;
 	display: block;
 	margin: 0 .5em .25em 0;
+	.inline & {
+		@extend %paragraph--small;
+		display: inline;
+		margin-right: .25em;
+		padding-bottom: 1em;
+	}
 }
 
 /* Styling for nested fieldsets */
@@ -583,7 +598,7 @@ textarea {
 }
 
 select {
-	margin-right: 0.15em;
+	margin-right: .25em;
 }
 
 input:focus,
@@ -1066,6 +1081,10 @@ tfoot {
 /* Use these to wrap multiple actions */
 .actions-container {
 	padding-bottom: 2px;
+	margin-bottom: 1em;
+	float: left;
+	height: auto;
+	width: 100%;
 	&.right-aligned {
 		float: right;
 	}

@@ -188,11 +188,11 @@ h4, .global-header__title, .modal h1 {
   }
 }
 
-h5, p, .one-third p, .global-footer__copyright p, .field.inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .filters label, td, th, .action--primary, .action--secondary, .action--warning, .modal__close, .modal .subtitle, .alert p, .alert--warning p, .case-summary {
+h5, p, .one-third p, .global-footer__copyright p, .inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .filters label, td, th, .action--primary, .action--secondary, .action--warning, .modal__close, .modal .subtitle, .alert p, .alert--warning p, .case-summary {
   font-size: 16px;
 }
 @media (max-width: 640px) {
-  h5, p, .one-third p, .global-footer__copyright p, .field.inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .filters label, td, th, .action--primary, .action--secondary, .action--warning, .modal__close, .modal .subtitle, .alert p, .alert--warning p, .case-summary {
+  h5, p, .one-third p, .global-footer__copyright p, .inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .filters label, td, th, .action--primary, .action--secondary, .action--warning, .modal__close, .modal .subtitle, .alert p, .alert--warning p, .case-summary {
     font-size: 14px;
   }
 }
@@ -244,7 +244,15 @@ textarea {
 .hint {
   display: block;
   color: #6f777b;
-  margin-top: .5em;
+  margin: .5em 0 .75em 0;
+  width: 90%;
+}
+
+.highlight-box {
+  background: #f8f8f8;
+  margin: 0 0 1.5em -1em;
+  padding: 1em 0 .5em 1em;
+  border-left: 3px solid #dee0e2;
 }
 
 /* 2.1 Article styles
@@ -344,7 +352,8 @@ hr {
 }
 
 .inline {
-  display: inline;
+  float: left;
+  margin-right: .5em;
 }
 
 /* ==========================================================================
@@ -538,6 +547,9 @@ fieldset {
   padding: 0;
   border: 0;
   clear: both;
+  float: left;
+  width: 100%;
+  clear: both;
 }
 
 .field {
@@ -549,13 +561,7 @@ fieldset {
   }
 }
 .field.inline {
-  margin-right: .25em;
-  display: inline;
-}
-.field.inline label {
-  display: inline;
-  margin-right: .25em;
-  padding-bottom: 1em;
+  margin-right: .5em;
 }
 
 /* 6.2 Labelling
@@ -567,10 +573,19 @@ legend {
   color: black;
   font-weight: 700;
 }
+.highlight-box legend {
+  float: left;
+  width: 100%;
+}
 
 label {
   display: block;
   margin: 0 .5em .25em 0;
+}
+.inline label {
+  display: inline;
+  margin-right: .25em;
+  padding-bottom: 1em;
 }
 
 /* Styling for nested fieldsets */
@@ -599,7 +614,7 @@ textarea {
 }
 
 select {
-  margin-right: 0.15em;
+  margin-right: .25em;
 }
 
 input:focus,
@@ -1068,6 +1083,10 @@ tfoot th {
 /* Use these to wrap multiple actions */
 .actions-container {
   padding-bottom: 2px;
+  margin-bottom: 1em;
+  float: left;
+  height: auto;
+  width: 100%;
 }
 .actions-container.right-aligned {
   float: right;
