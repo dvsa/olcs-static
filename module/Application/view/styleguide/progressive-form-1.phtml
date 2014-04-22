@@ -12,12 +12,20 @@
 					<label class="radio-female"><input type="radio" name="gender" value="female">Female</label>
 				</div>
 			</fieldset>
-			<div class="field">
+			<div class="field" id="favourite-colour-field">
 				<label>What is your favourite colour?</label>
 				<select id="favourite-colour" name="favourite-colour">
 					<option value="red">Red</option>
 					<option value="blue">Blue</option>
 					<option value="green">Green</option>
+				</select>
+			</div>
+			<div class="field" id="favourite-month-field">
+				<label>What is your favourite month?</label>
+				<select id="favourite-month" name="favourite-month">
+					<option value="january">January</option>
+					<option value="february">February</option>
+					<option value="march">March</option>
 				</select>
 			</div>
 		</fieldset><!-- end #personal-information -->
@@ -30,3 +38,20 @@
 	</form>
 
 </div><!-- end .two-thirds -->
+
+<script id="inline-js" type="application/json">
+	{
+		"hiddenFieldsList": [
+		    {
+		        "fieldName": "gender",
+		        "fieldValue": "female",
+		        "hiddenElement": "#favourite-colour-field"
+		    },
+		    {
+		        "fieldName": "favourite-colour",
+		        "fieldValue": "green",
+		        "hiddenElement": "#favourite-month-field"
+		    }
+		]
+	}
+</script>

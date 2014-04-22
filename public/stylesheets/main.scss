@@ -195,9 +195,6 @@ textarea {
 	display: block;
 	color: $grey-1;
 	margin-top: .5em;
-	fieldset & {
-		margin-top: 0;
-	}
 }
 
 /* 2.1 Article styles
@@ -538,7 +535,7 @@ fieldset {
 legend {
 	@extend %h3;
 	*margin-left: -7px;
-	margin: .25em 0;
+	margin: .20em 0;
 	padding: 0;
 	color: black;
 	font-weight: 700;
@@ -969,6 +966,7 @@ $breakpoint: 640px;
 	width: 100%;
 	clear:right;
 	overflow: auto;
+	margin-top: .75em;
 }
 
 table { 

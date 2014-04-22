@@ -1,4 +1,8 @@
-	$(document).ready(function() {
+
+
+
+
+$( document ).ready(function() {
 
 		$('.row').css({'width':'100%','overflow':'auto', 'margin-bottom': '2.5em'});
 		var docUrl = document.location.href;
@@ -23,9 +27,9 @@
 		else if (docUrl.indexOf('operating-centres') > -1) {
 			modal('.modal','#main');
 		}
-		else if (docUrl.indexOf('progressive-form') > -1) {
-			progressiveDisclosure();
-		}
+		// else if (docUrl.indexOf('progressive-form') > -1) {
+		// 	progressiveDisclosure();
+		// }
 		else if (docUrl.indexOf('compliance') > -1) {
 			showHide('.case-summary__toggle','.case-summary__list');
 		}
@@ -33,7 +37,10 @@
 			validation();
 		}
 
-	});
+});
+
+
+
 
 
 
@@ -143,56 +150,21 @@
 	// 	 };
 	// })(jQuery);
 
+		// if (jsonArray.length > 0) {
+		// }
 
-	function progressiveDisclosure() {
+		// $.each(jsonArray, function() {
+		// 	var jsonName = this.name,
+		// 		jsonValue = this.value;
 
-
-		// $($triggerEl).click(function() {
-		// 	$.ajax({
-		// 		url: url,
-		// 		type: 'GET',
-		// 		success: function(data) {
-		// 			$(data).find($fragmentEl).insertAfter($targetEl);
+		// 	$('[name="' + this.name + '"]').change(function() {
+		// 		if ( $(this).val() === jsonValue ) {
+		// 			alert('hello');
 		// 		}
 		// 	});
 		// });
 
 
-		// Test JSON object
-		var progressiveField= [
-			{
-				'name' : 'gender',
-				'value': 'female',
-				'url' : 'progressive-form-2',
-				'fragment' : '#main',
-				'target' : 'fieldset or form'
-			},
-			{
-				'name' : 'favourite-colour',
-				'value': 'green',
-				'url' : 'progressive-form-3',
-				'fragment' : '#main',
-				'target' : 'fieldset or form'
-			}
-		];
-
-		// Loop over JSON objects, if the named input changes and
-		// the new value matches the json object, then fire an event
-
-		$.each(progressiveField, function() {
-			// Cache the variables
-			var jsonName = this.name,
-				jsonValue = this.value;
-
-			$('[name="' + this.name + '"]').change(function() {
-				if ( $(this).val() === jsonValue ) {
-					alert('hello');
-				}
-			});
-		});
-
-
-	}
 
 
 	/*
