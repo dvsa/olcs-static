@@ -598,6 +598,10 @@ textarea {
   vertical-align: top;
 }
 
+select {
+  margin-right: 0.15em;
+}
+
 input:focus,
 textarea:focus,
 select:focus {
