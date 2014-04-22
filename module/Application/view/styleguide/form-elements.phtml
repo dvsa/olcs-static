@@ -68,23 +68,55 @@
 				<label for="last-name">Last name</label>
     			<input id="last-name" name="name" type="text" class="long" />
 			</div>
-			<div class="validation-wrapper">
-				<ul>
-					<li id="error3">Please complete your biography</li>
-				</ul>
-				<div class="field">
-					<label>Date of birth</label>
-					<select id="day" name="date-of-birth">
-						<option value="Day">Day</option>
-					</select>
-					<select id="month" name="date-of-birth">
-						<option value="Month">Month</option>
-					</select>
-					<select id="year" name="date-of-birth">
-						<option value="Year">Year</option>
-					</select>
-				</div>
+			<div class="field">
+				<label>Date of birth</label>
+				<select id="day" name="date-of-birth">
+					<option value="Day">Day</option>
+				</select>
+				<select id="month" name="date-of-birth">
+					<option value="Month">Month</option>
+				</select>
+				<select id="year" name="date-of-birth">
+					<option value="Year">Year</option>
+				</select>
 			</div>
+			<div class="field">
+				<label for="dateofAppeaHearing">Date of appeal hearing</label>
+				<select name="details[dateofAppeaHearing][month]"><option value=""></option>
+					<option value="01">January</option>
+					<option value="02">February</option>
+					<option value="03">March</option>
+					<option value="10">October</option>
+					<option value="11">November</option>
+					<option value="12">December</option>
+				</select>
+				<select name="details[dateofAppeaHearing][day]">
+					<option value=""></option>
+					<option value="01">1</option>
+					<option value="02">2</option>
+					<option value="03">3</option>
+					<option value="04">4</option>
+					<option value="05">5</option>
+					<option value="06">6</option>
+					<option value="07">7</option>
+					<option value="27">27</option>
+					<option value="28">28</option>
+					<option value="29">29</option>
+					<option value="30">30</option>
+					<option value="31">31</option>
+				</select>
+				<select name="details[dateofAppeaHearing][year]">
+					<option value=""></option>
+					<option value="2014">2014</option>
+					<option value="2013">2013</option>
+					<option value="1959">1959</option>
+					<option value="1958">1958</option>
+					<option value="1957">1957</option>
+					<option value="1956">1956</option>
+					<option value="1914">1914</option>
+				</select>
+			</div>
+
 			<fieldset>
 				<legend class="legend">Gender</legend>
 				<div class="field--inline">
