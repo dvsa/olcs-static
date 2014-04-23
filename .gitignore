@@ -6,3 +6,6 @@ vendor/
 composer.lock
 /nbproject/private/
 nbproject
+public/test.html
+public/js/qunit.js
+public/js/tests

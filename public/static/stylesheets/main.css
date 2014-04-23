@@ -254,6 +254,9 @@ textarea {
   padding: 1em 0 .5em 1em;
   border-left: 3px solid #dee0e2;
 }
+.highlight-box .field.inline {
+  margin-bottom: 1em;
+}
 
 /* 2.1 Article styles
    ========================================================================== */
@@ -561,7 +564,7 @@ fieldset {
   }
 }
 .field.inline {
-  margin-right: .5em;
+  margin: 0 .5em 0 0;
 }
 
 /* 6.2 Labelling
@@ -584,8 +587,7 @@ label {
 }
 .inline label {
   display: inline;
-  margin-right: .25em;
-  padding-bottom: 1em;
+  margin: 0 .25em 0 0;
 }
 
 /* Styling for nested fieldsets */
@@ -1085,11 +1087,6 @@ tfoot th {
   padding-bottom: 2px;
   margin-bottom: 1em;
   float: left;
-  height: auto;
-  width: 100%;
-}
-.actions-container.right-aligned {
-  float: right;
 }
 
 .action--primary, .action--secondary, .action--warning {

@@ -203,6 +203,9 @@ textarea {
 	margin: 0 0 1.5em -1em;
 	padding: 1em 0 .5em 1em;
 	border-left: 3px solid $grey-3;
+	.field.inline {
+		margin-bottom: 1em;
+	}
 }
 
 /* 2.1 Article styles
@@ -530,7 +533,7 @@ fieldset {
 		margin-bottom: .5em;
 	}
 	&.inline {
-		margin-right: .5em;
+		margin: 0 .5em 0 0;
 	}
 }
 
@@ -557,8 +560,7 @@ label {
 	.inline & {
 		@extend %paragraph--small;
 		display: inline;
-		margin-right: .25em;
-		padding-bottom: 1em;
+		margin: 0 .25em 0 0;
 	}
 }
 
@@ -1083,11 +1085,6 @@ tfoot {
 	padding-bottom: 2px;
 	margin-bottom: 1em;
 	float: left;
-	height: auto;
-	width: 100%;
-	&.right-aligned {
-		float: right;
-	}
 }
 
 @mixin action-colour ($colour: $button-colour) {

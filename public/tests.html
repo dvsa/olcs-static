@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>QUnit</title>
+  <link rel="stylesheet" href="/stylesheets/qunit.css"> 
+  
+</head>
+<body>
+    <h1 id="qunit-header">QUnit Test Suite</h1>
+    <h2 id="qunit-banner"></h2>
+    <div id="qunit-fixtures">
+        <script id="inline-js" type="application/json">
+            {
+                "hiddenFieldsList": [
+                    {
+                        "fieldName": "gender",
+                        "fieldValue": "female",
+                        "hiddenElement": "#favourite-colour-field"
+                    },
+                    {
+                        "fieldName": "favourite-colour",
+                        "fieldValue": "green",
+                        "hiddenElement": "#favourite-month-field"
+                    }
+                ]
+            }
+        </script>
+    </div>
+    <div id="qunit-testrunner-toolbar"></div>
+    <h2 id="qunit-userAgent"></h2>
+    <ol id="qunit-tests"></ol>
+
+    <script src="/static/js/jquery.1.11.0.js"></script>
+    <script src="/js/progressive-disclosure.js"></script>
+    <script src="/js/qunit.js"></script>
+    <script src="/js/tests/progressive-disclosure-test.js"></script>
+</body>
+</html>
