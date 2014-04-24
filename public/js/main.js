@@ -1,9 +1,10 @@
+var OLCS = OLCS || {};
 
 /*
  * Progressively reveals elements based on form element change actions
  */
 
-var hiddenFields = (function () {
+OLCS.hiddenFields = (function () {
 		
 	var scriptTag = $('#inline-js');
 
@@ -58,31 +59,31 @@ var hiddenFields = (function () {
  * Removes string from form labels"
  */
 
-var removeString = (function () {
+// OLCS.removeString = (function () {
 
 
-	function checkForString () {
-		$('label, legend').each(function() {
-		  	var string = $(this).text();
-		    string = string.replace(/\(if applicable\)/, '');
-		    $(this).text(string);
-		});
-	}
+// 	function checkForString () {
+// 		$('label, legend').each(function() {
+// 		  	var string = $(this).text();
+// 		    string = string.replace(/\(if applicable\)/, '');
+// 		    $(this).text(string);
+// 		});
+// 	}
 
-	function init () {
-		checkForString();
-	}
+// 	function init () {
+// 		checkForString();
+// 	}
 
-    return {
-    	init: init,
-    	checkForString: checkForString
-    };
+//     return {
+//     	init: init,
+//     	checkForString: checkForString
+//     };
 
-})()
+// })()
 
 
 
 $(function(){
-	hiddenFields.init();
-	removeString.init();
+	OLCS.hiddenFields.init();
+	// removeString.init();
 });
