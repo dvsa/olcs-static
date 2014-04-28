@@ -912,6 +912,11 @@ select:focus {
   padding: .5em 0;
   border-bottom: 1px solid #bfc1c3;
 }
+.vertical-navigation .current {
+  border-bottom: 3px solid #0b0c0c;
+  font-weight: 700;
+  padding: .5em 0 0.25em 0;
+}
 
 /* 7.6 Pagination
    ========================================================================== */

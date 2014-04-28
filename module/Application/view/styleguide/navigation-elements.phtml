@@ -15,8 +15,8 @@
 					<ul class="application" role="navigation" >
 						<li class="application__item complete"><a href=""><span>Type of licence</span></a></li>
 						<li class="application__item complete"><a href=""><span>Your business</span></a></li>
-						<li class="application__item complete"><a href="d"><span>Operating centres</span></a></li>
-						<li class="application__item complete"><a href=""><span>Transport managers</span></a></li>
+						<li class="application__item complete"><a href=""><span>Operating centres</span></a></li>
+						<li class="application__item incomplete"><a href=""><span>Transport managers</span></a></li>
 						<li class="application__item current"><span>Vehicle &amp; safety</span></li>
 						<li class="application__item"><a href=""><span>Previous history</span></a></li>
 						<li class="application__item"><a href=""><span>Declarations</span></a></li>
@@ -87,7 +87,18 @@
 					<h3>Vertical navigation</h3>
 				</div>
 				<div class="one-quarter">
-	                <?php echo $this->render('partials/vertical-navigation.phtml', array('navItems' => array('Postal address', 'Personal information', 'About you'))); ?>
+
+					<h4>In this section</h4>
+					<ol class="vertical-navigation" role="navigation">
+						<li class="vertical-navigation__item">
+							<a href="">Subsection one</a>
+						</li>
+						<li class="vertical-navigation__item current">Subsection two</li>
+						<li class="vertical-navigation__item">
+							<a href="">Subsection three</a>
+						</li>
+					</ol><!-- end .vertical-navigation -->
+
                 </div><!-- end .one-quarter -->
 
 
