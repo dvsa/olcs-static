@@ -1387,9 +1387,6 @@ tfoot th {
   float: left;
   width: 23.125%;
   margin: 0 1.5% .75em 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 .summary__item b {
   display: block;
