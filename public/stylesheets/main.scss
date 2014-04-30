@@ -897,6 +897,14 @@ $breakpoint: 640px;
 		border-bottom: 3px solid $black;
 		font-weight: 700;
 		padding: .5em 0 0.25em 0;
+		a {
+			border-bottom: none;
+			padding-top: 0;
+			font-weight: normal;
+			&:hover {
+				background: none;
+			}
+		}
 	}
 }
 

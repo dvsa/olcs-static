@@ -917,6 +917,14 @@ select:focus {
   font-weight: 700;
   padding: .5em 0 0.25em 0;
 }
+.vertical-navigation .current a {
+  border-bottom: none;
+  padding-top: 0;
+  font-weight: normal;
+}
+.vertical-navigation .current a:hover {
+  background: none;
+}
 
 /* 7.6 Pagination
    ========================================================================== */
