@@ -920,7 +920,6 @@ select:focus {
 .vertical-navigation .current a {
   border-bottom: none;
   padding-top: 0;
-  font-weight: normal;
 }
 .vertical-navigation .current a:hover {
   background: none;
@@ -1428,6 +1427,21 @@ tfoot th {
   list-style: none;
   padding: .75em 0 0 1.5%;
   overflow: auto;
+}
+
+/* 11.2 Submission actions
+   ========================================================================== */
+.submission-actions {
+  list-style: none;
+}
+.submission-actions__item {
+  background: #f8f8f8;
+  border-left: 3px solid #dee0e2;
+  padding: 1.25em 1.5em .75em 1.5em;
+  margin-bottom: .5em;
+}
+.submission-actions p {
+  margin: .5em 0 1em 0;
 }
 
 /* ==========================================================================
