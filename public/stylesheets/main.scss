@@ -1223,7 +1223,7 @@ tfoot {
 
 
 /* ==========================================================================
-   10. Modals & alerts
+   10. Modals, alerts & notices
    ========================================================================== */
 
 %fixed {
@@ -1345,6 +1345,50 @@ tfoot {
 	background: $warning-background;
 	border: 3px solid $mellow-red;
 }
+
+
+/* 10.1 Notices
+   ========================================================================== */
+
+.notice-container {
+	margin-bottom: 1.5em;
+	overflow: auto;
+}
+
+@mixin notice($background,$border,$color) {
+	background: $background;
+	border-left: 3px solid $border; 
+	color: $color;
+	a {
+		color: $color;
+	}
+}
+
+.notice {
+	&--success {
+		@include notice(#dff0d8,#d6e9c6,#3c763d);
+	}
+	&--info {
+		@include notice(#d9edf7,#bce8f1,#31708f);
+	}
+	&--warning {
+		@include notice(#fcf8e3,#faebcc,#8a6d3b);
+	}
+	&--danger {
+		@include notice(#f2dede,#ebccd1,#a94442);
+	}
+}
+
+.notice--success, .notice--info, .notice--warning, .notice--danger {
+	padding: .5em;
+	margin-bottom: .25em;
+	p {
+		@extend %paragraph--small;
+		margin: 0;
+		padding: 0;
+	}
+}
+
 
 
 /* ==========================================================================
