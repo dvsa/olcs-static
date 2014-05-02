@@ -740,7 +740,7 @@ select:focus {
 /* 7.2 Application
    ========================================================================== */
 
-$progress-items: 9;
+$progress-items: 8;
 $breakpoint: 840px;
 $statuses: (complete 10px 6px, incomplete -588px -596px, current -188px -194px);
 
@@ -1396,6 +1396,83 @@ tfoot {
    ========================================================================== */
 
 @import '_compliance';
+
+
+/* ==========================================================================
+   12. Read only
+   ========================================================================== */
+
+
+
+
+   /*
+    *  R-E-F-A-C-T-O-R
+    */
+
+$color: #666;
+.read-only {
+	height: 400px;
+	width: 100%;
+	background: $grey-4;
+	border: 1px solid $grey-3;
+	display: block;
+	overflow: auto;
+	padding: 1.5em;
+	* {
+		color: $color;
+		font-family: arial, sans-serif;
+	}
+	h2 {
+		border-bottom: 3px solid #888;
+		margin-bottom: .5em;
+		padding-bottom: .25em;
+		font-size: 26px;
+	}
+	h3 {
+		border-bottom: 1px solid #d5d5d5;
+		padding-bottom: .25em;
+		margin-bottom: .5em;
+		font-size: 21px;
+	}
+	input {
+		border: none;
+		padding: 0;
+	}
+	label {
+		font-weight: 700;
+		margin-bottom: 0;
+		@extend %paragraph--small;
+	}
+	legend {
+		@extend %paragraph--large;
+		font-weight: 700;
+	}
+	.field {
+		margin-bottom: .5em;
+	}
+	fieldset fieldset {
+		margin-bottom: 0;
+
+	}
+	fieldset fieldset label {
+		font-weight: 400;
+		font-size: 16px;
+	}
+	fieldset fieldset legend {
+		font-weight: 600;
+		font-size: 16px;
+	}
+	.hint {
+		display: none;
+	}
+}
+
+
+   /*
+    *  R-E-F-A-C-T-O-R
+    */
+
+
 
 
 /* ==========================================================================

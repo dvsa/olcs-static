@@ -8,7 +8,7 @@
             "name": "olcs/OlcsCommon",
             "version": "dev-develop",
             "source": {
-                "url": "gitolite@git.clb.npm:olcs-common.git",
+                "url": "git@gitlab.clb.npm:/olcs/olcs-common.git",
                 "type": "git",
                 "reference": "origin/develop"
                 }
@@ -19,5 +19,10 @@
         "php": ">=5.4",
         "zendframework/zendframework": "2.2.*",
         "olcs/OlcsCommon": "dev-develop"
+    },
+    "autoload" : {
+        "psr-4": {
+            "Common\\": "vendor/olcs/OlcsCommon/Common/src/Common"
+        }
     }
 }
