@@ -27,16 +27,13 @@ $( document ).ready(function() {
 		else if (docUrl.indexOf('operating-centres') > -1) {
 			modal('.modal','#main');
 		}
-		// else if (docUrl.indexOf('progressive-form') > -1) {
-		// 	progressiveDisclosure();
-		// }
 		else if (docUrl.indexOf('compliance') > -1) {
 			showHide('.case-summary__toggle','.case-summary__list');
+			$('body').addClass('internal');
 		}
 		else if (docUrl.indexOf('form-js') > -1) {
 			validation();
 		}
-
 });
 
 

@@ -24,11 +24,10 @@
 /* Case summary */
 
 .case-summary {
-	@include border-radius(3px);
 	@extend %paragraph--small;
 	border: 3px solid $grey-2;
 	overflow: hidden;
-	margin: -1.8em 0 1.5em 0;
+	margin: -1.8em 0 .5em 0;
 	@media (max-width: 640px) {
 		display: none;
 	}
@@ -63,4 +62,9 @@
 		margin: .5em 0 1em 0;
 	}
 }
+
+
+
+
+
 

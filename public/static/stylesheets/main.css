@@ -177,22 +177,22 @@ h4, .global-header__title, .modal h1 {
 }
 
 .article ul, .article p, label, fieldset fieldset legend, .table__header span, .action--primary.large, .action--secondary.large,
-.action--warning.large {
+.action--warning.large, .read-only legend {
   font-size: 19px;
   font-weight: 400;
 }
 @media (max-width: 640px) {
   .article ul, .article p, label, fieldset fieldset legend, .table__header span, .action--primary.large, .action--secondary.large,
-  .action--warning.large {
+  .action--warning.large, .read-only legend {
     font-size: 16px;
   }
 }
 
-h5, p, .one-third p, .global-footer__copyright p, .inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .filters label, td, th, .action--primary, .action--secondary, .action--warning, .modal__close, .modal .subtitle, .alert p, .alert--warning p, .case-summary {
+h5, p, .one-third p, .global-footer__copyright p, .inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .filters label, td, th, .action--primary, .action--secondary, .action--warning, .modal__close, .modal .subtitle, .alert p, .alert--warning p, .notice--success p, .notice--info p, .notice--warning p, .notice--danger p, .case-summary, .read-only label {
   font-size: 16px;
 }
 @media (max-width: 640px) {
-  h5, p, .one-third p, .global-footer__copyright p, .inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .filters label, td, th, .action--primary, .action--secondary, .action--warning, .modal__close, .modal .subtitle, .alert p, .alert--warning p, .case-summary {
+  h5, p, .one-third p, .global-footer__copyright p, .inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .filters label, td, th, .action--primary, .action--secondary, .action--warning, .modal__close, .modal .subtitle, .alert p, .alert--warning p, .notice--success p, .notice--info p, .notice--warning p, .notice--danger p, .case-summary, .read-only label {
     font-size: 14px;
   }
 }
@@ -767,7 +767,7 @@ select:focus {
 }
 .application__item {
   text-align: center;
-  width: 9.11111%;
+  width: 10.5%;
   margin: -2em 1% 1.5em 1%;
   background: url("../images/application-navigation.png") no-repeat 50% -383px;
 }
@@ -1262,7 +1262,7 @@ tfoot th {
 }
 
 /* ==========================================================================
-   10. Modals & alerts
+   10. Modals, alerts & notices
    ========================================================================== */
 .overlay, .modal__wrapper, .alert__wrapper, .alert--warning__wrapper {
   position: fixed;
@@ -1378,6 +1378,55 @@ tfoot th {
   border: 3px solid #df3034;
 }
 
+/* 10.1 Notices
+   ========================================================================== */
+.notice-container {
+  margin-bottom: 1.5em;
+  overflow: auto;
+}
+
+.notice--success {
+  background: #dff0d8;
+  border-left: 3px solid #d6e9c6;
+  color: #3c763d;
+}
+.notice--success a {
+  color: #3c763d;
+}
+.notice--info {
+  background: #d9edf7;
+  border-left: 3px solid #bce8f1;
+  color: #31708f;
+}
+.notice--info a {
+  color: #31708f;
+}
+.notice--warning {
+  background: #fcf8e3;
+  border-left: 3px solid #faebcc;
+  color: #8a6d3b;
+}
+.notice--warning a {
+  color: #8a6d3b;
+}
+.notice--danger {
+  background: #f2dede;
+  border-left: 3px solid #ebccd1;
+  color: #a94442;
+}
+.notice--danger a {
+  color: #a94442;
+}
+
+.notice--success, .notice--info, .notice--warning, .notice--danger {
+  padding: .5em;
+  margin-bottom: .25em;
+}
+.notice--success p, .notice--info p, .notice--warning p, .notice--danger p {
+  margin: 0;
+  padding: 0;
+}
+
 /* ==========================================================================
    11. Compliance
    ========================================================================== */
@@ -1401,12 +1450,9 @@ tfoot th {
 
 /* Case summary */
 .case-summary {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
   border: 3px solid #bfc1c3;
   overflow: hidden;
-  margin: -1.8em 0 1.5em 0;
+  margin: -1.8em 0 .5em 0;
 }
 @media (max-width: 640px) {
   .case-summary {
@@ -1444,6 +1490,69 @@ tfoot th {
   margin: .5em 0 1em 0;
 }
 
+/* ==========================================================================
+   12. Read only
+   ========================================================================== */
+/*
+ *  R-E-F-A-C-T-O-R
+ */
+.read-only {
+  height: 400px;
+  width: 100%;
+  background: #f8f8f8;
+  border: 1px solid #dee0e2;
+  display: block;
+  overflow: auto;
+  padding: 1.5em;
+}
+.read-only * {
+  color: #666666;
+  font-family: arial, sans-serif;
+}
+.read-only h2 {
+  border-bottom: 3px solid #888;
+  margin-bottom: .5em;
+  padding-bottom: .25em;
+  font-size: 26px;
+}
+.read-only h3 {
+  border-bottom: 1px solid #d5d5d5;
+  padding-bottom: .25em;
+  margin-bottom: .5em;
+  font-size: 21px;
+}
+.read-only input {
+  border: none;
+  padding: 0;
+}
+.read-only label {
+  font-weight: 700;
+  margin-bottom: 0;
+}
+.read-only legend {
+  font-weight: 700;
+}
+.read-only .field {
+  margin-bottom: .5em;
+}
+.read-only fieldset fieldset {
+  margin-bottom: 0;
+}
+.read-only fieldset fieldset label {
+  font-weight: 400;
+  font-size: 16px;
+}
+.read-only fieldset fieldset legend {
+  font-weight: 600;
+  font-size: 16px;
+}
+.read-only .hint {
+  display: none;
+}
+
+/*
+ *  R-E-F-A-C-T-O-R
+ */
 /* ==========================================================================
    Error messages — REMOVE
    ========================================================================== */
