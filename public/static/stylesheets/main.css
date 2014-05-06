@@ -554,6 +554,9 @@ fieldset {
   width: 100%;
   clear: both;
 }
+fieldset fieldset {
+  margin-bottom: 0;
+}
 
 .field {
   margin: 0 0 1em 0;
@@ -1126,9 +1129,6 @@ tfoot th {
   margin-right: 0;
 }
 
-.action:after {
-  clear: both;
-}
 .action--primary {
   background: #00823b;
   -webkit-box-shadow: 0 2px 0 #003518;
@@ -1166,9 +1166,6 @@ tfoot th {
 }
 .action--primary:link, .action--primary:hover, .action--primary:focus, .action--primary:visited {
   color: white;
-}
-.action--primary.large {
-  margin-top: -0.5em;
 }
 .action--secondary {
   background: #dee0e2;
@@ -1208,9 +1205,6 @@ tfoot th {
 .action--secondary:link, .action--secondary:hover, .action--secondary:focus, .action--secondary:visited {
   color: #0b0c0c;
 }
-.action--secondary.large {
-  margin-top: -0.5em;
-}
 .action--warning {
   background: #b10e1e;
   -webkit-box-shadow: 0 2px 0 #6a0812;
@@ -1249,12 +1243,11 @@ tfoot th {
 .action--warning:link, .action--warning:hover, .action--warning:focus, .action--warning:visited {
   color: white;
 }
-
-.action--primary.large,
-.action--secondary.large,
-.action--warning.large {
-  margin-top: -0.5em;
+.action--tertiary {
+  padding: .25em;
+  line-height: 2.3;
 }
+
 .article .action--primary.large, .article
 .action--secondary.large, .article
 .action--warning.large {
@@ -1503,40 +1496,53 @@ tfoot th {
   border: 1px solid #dee0e2;
   display: block;
   overflow: auto;
-  padding: 1.5em;
+  padding: .25em 1.5em;
+  margin-bottom: 1.5em;
+  clear: both;
 }
 .read-only * {
-  color: #666666;
+  color: #6f777b;
   font-family: arial, sans-serif;
+  margin-bottom: 0;
 }
 .read-only h2 {
-  border-bottom: 3px solid #888;
-  margin-bottom: .5em;
-  padding-bottom: .25em;
+  border-bottom: 3px solid #bfc1c3;
   font-size: 26px;
+  line-height: 2;
+  margin-bottom: 0.5em;
 }
 .read-only h3 {
-  border-bottom: 1px solid #d5d5d5;
-  padding-bottom: .25em;
-  margin-bottom: .5em;
+  border-bottom: 1px solid #bfc1c3;
   font-size: 21px;
+  line-height: 2;
+  margin-bottom: #bfc1c3;
+}
+.read-only .field {
+  margin-bottom: #bfc1c3;
 }
 .read-only input {
   border: none;
   padding: 0;
+  margin-left: 2px;
+}
+.read-only input[type="text"] {
+  width: 100%;
+}
+.read-only select {
+  -webkit-appearance: none;
+  border: none;
+  border-radius: 0;
+  background: none;
 }
 .read-only label {
   font-weight: 700;
-  margin-bottom: 0;
 }
 .read-only legend {
   font-weight: 700;
+  line-height: 1.5;
 }
-.read-only .field {
-  margin-bottom: .5em;
-}
-.read-only fieldset fieldset {
-  margin-bottom: 0;
+.read-only fieldset {
+  margin-bottom: 0.5em;
 }
 .read-only fieldset fieldset label {
   font-weight: 400;
@@ -1550,9 +1556,6 @@ tfoot th {
   display: none;
 }
 
-/*
- *  R-E-F-A-C-T-O-R
- */
 /* ==========================================================================
    Error messages — REMOVE
    ========================================================================== */

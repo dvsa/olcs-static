@@ -393,6 +393,10 @@ hr {
 	margin-bottom: 1.5em;
 	border-bottom: 1px solid $grey-2;
 	padding-bottom: .5em;
+	.internal & {
+		
+
+	}
 }
 
 .page-header__subtitle {
@@ -525,6 +529,9 @@ fieldset {
 	float: left;
 	width: 100%;
 	clear: both;
+	fieldset {
+		margin-bottom: 0;
+	}
 }
 
 .field { 
@@ -1185,14 +1192,10 @@ tfoot {
 }
 
 .action {
-	&:after {
-		clear:both;
-	}
 	&--primary {
 		@include action-colour();
 		@extend %action-box;
 		&.large {
-			margin-top: -0.5em;
 			@extend %paragraph--large;
 		}
 	}
@@ -1200,7 +1203,6 @@ tfoot {
 		@include action-colour($grey-3);
 		@extend %action-box;
 		&.large {
-			margin-top: -0.5em;
 			@extend %paragraph--large;
 		}
 	}
@@ -1208,12 +1210,15 @@ tfoot {
 		@include action-colour($red);
 		@extend %action-box;
 	}
+	&--tertiary {
+		padding: .25em;
+		line-height: 2.3;
+	}
 }
 
 .action--primary.large,
 .action--secondary.large, 
 .action--warning.large {
-	margin-top: -0.5em;
 	@extend %paragraph--large;
 	.article & {
 		margin-top: 0.5em;
@@ -1403,74 +1408,79 @@ tfoot {
    ========================================================================== */
 
 
-
-
    /*
     *  R-E-F-A-C-T-O-R
     */
+    $ro-margin-bottom: .5em;
 
-$color: #666;
-.read-only {
-	height: 400px;
-	width: 100%;
-	background: $grey-4;
-	border: 1px solid $grey-3;
-	display: block;
-	overflow: auto;
-	padding: 1.5em;
-	* {
-		color: $color;
-		font-family: arial, sans-serif;
+	.read-only {
+		height: 400px;
+		width: 100%;
+		background: $grey-4;
+		border: 1px solid $grey-3;
+		display: block;
+		overflow: auto;
+		padding: .25em 1.5em;
+		margin-bottom: 1.5em;
+		clear: both;
+		* {
+			color: $grey-1;
+			font-family: arial, sans-serif;
+			margin-bottom: 0;
+		}
+		h2 {
+			border-bottom: 3px solid $grey-2;
+			font-size: 26px;
+			line-height: 2;
+			margin-bottom: $ro-margin-bottom;
+		}
+		h3 {
+			border-bottom: 1px solid $grey-2;
+			font-size: 21px;
+			line-height: 2;
+			margin-bottom: $grey-2;
+		}
+		.field {
+			margin-bottom: $grey-2;
+		}
+		input {
+			border: none;
+			padding: 0;
+			margin-left: 2px;
+			&[type="text"] {
+				width: 100%;
+			}
+		}
+		select {
+			-webkit-appearance: none;
+			border: none;
+			border-radius: 0;
+			background: none;
+		}
+		label {
+			@extend %paragraph--small;
+			font-weight: 700;
+		}
+		legend {
+			@extend %paragraph--large;
+			font-weight: 700;
+			line-height: 1.5;		
+		}
+		fieldset {
+			margin-bottom: $ro-margin-bottom;
+		}
+		fieldset fieldset label {
+			font-weight: 400;
+			font-size: 16px;
+		}
+		fieldset fieldset legend {
+			font-weight: 600;
+			font-size: 16px;
+		}
+		.hint {
+			display: none;
+		}
 	}
-	h2 {
-		border-bottom: 3px solid #888;
-		margin-bottom: .5em;
-		padding-bottom: .25em;
-		font-size: 26px;
-	}
-	h3 {
-		border-bottom: 1px solid #d5d5d5;
-		padding-bottom: .25em;
-		margin-bottom: .5em;
-		font-size: 21px;
-	}
-	input {
-		border: none;
-		padding: 0;
-	}
-	label {
-		font-weight: 700;
-		margin-bottom: 0;
-		@extend %paragraph--small;
-	}
-	legend {
-		@extend %paragraph--large;
-		font-weight: 700;
-	}
-	.field {
-		margin-bottom: .5em;
-	}
-	fieldset fieldset {
-		margin-bottom: 0;
-
-	}
-	fieldset fieldset label {
-		font-weight: 400;
-		font-size: 16px;
-	}
-	fieldset fieldset legend {
-		font-weight: 600;
-		font-size: 16px;
-	}
-	.hint {
-		display: none;
-	}
-}
-
-
-   /*
-    *  R-E-F-A-C-T-O-R
-    */
 
 
 
