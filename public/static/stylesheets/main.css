@@ -554,9 +554,6 @@ fieldset {
   width: 100%;
   clear: both;
 }
-fieldset fieldset {
-  margin-bottom: 0;
-}
 
 .field {
   margin: 0 0 1em 0;

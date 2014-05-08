@@ -18,10 +18,10 @@
 
 		<fieldset class="address">
 			<legend>Address</legend>
-			<fieldset >
+			<fieldset class="postcode-search">
 				<legend>Postcode</legend>
 				<div class="field inline">
-					<label for="postcode-search" class="visually-hidden">Postcode</label>
+					<label for="postcode-search" class="visually-hidden">Postcode search</label>
         			<input id="postcode-search" name="postcode" type="text" class="short">
 				</div>
 				<div class="field inline">
@@ -29,16 +29,20 @@
 				</div>
 			</fieldset>
 			<div class="field">
-				<label for="address-line-one">Street</label>
-    			<input id="address-line-one" name="address" type="text" class="long">
+				<label for="street-line-one">Street</label>
+    			<input id="street-line-one" name="address" type="text" class="long">
 			</div>
 			<div class="field">
-				<label for="address-line-two" class="visually-hidden">Address line 2</label>
-    			<input id="address-line-two" name="address" type="text" class="long">
+				<label for="street-line-two" class="visually-hidden">Street line 2</label>
+    			<input id="street-line-two" name="address" type="text" class="long">
 			</div>
 			<div class="field">
-				<label for="address-line-three" class="visually-hidden">Address line 3</label>
-    			<input id="address-line-three" name="address" type="text" class="long">
+				<label for="street-line-three" class="visually-hidden">Street line 3</label>
+    			<input id="street-line-three" name="address" type="text" class="long">
+			</div>
+			<div class="field">
+				<label for="street-line-four" class="visually-hidden">Street line 4</label>
+    			<input id="street-line-four" name="address" type="text" class="long">
 			</div>
 			<div class="validation-wrapper">
 				<ul>
@@ -61,7 +65,7 @@
 			</div>
 			<div class="field">
 				<label for="first-name">First name (if applicable)</label>
-    			<input id="first-name" name="name" type="file" class="long" multiple="multiple">
+    			<input id="first-name" name="name" class="long">
     			<p class="hint">This is your first christian name</p>
 			</div>
 			<div class="field">
@@ -124,6 +128,10 @@
 				</div>
 			</fieldset>
 		</fieldset><!-- end #confirmation -->
+
+		<fieldset id="file-uploader">
+			
+		</fieldset><!-- end #file-uploader -->
 
 		<h3>Summary</h3>
 		<div class="read-only">
@@ -335,7 +343,7 @@
 		                <input id="no-of-trailers" name="no-of-trailers" type="text" class="short" value="4" disabled="disabled">
 		            </div>
 		    </fieldset>
-		</div><!-- end .read-only -->
+		</div>
 
 		<div class="actions-container">
 			<input class="action--secondary large" type="submit" value="Previous">
