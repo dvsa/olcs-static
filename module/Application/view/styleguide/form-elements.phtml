@@ -129,9 +129,17 @@
 			</fieldset>
 		</fieldset><!-- end #confirmation -->
 
-		<fieldset id="file-uploader">
-			
-		</fieldset><!-- end #file-uploader -->
+		<fieldset class="file-upload">
+			<legend>File upload</legend>
+			<div class="field">
+				<p><a href="">council-tax-10-04-14.PDF</a> <span>(156KB)</span></p>
+				<input type="submit" value="remove" class="remove">
+			</div>
+			<div class="field">
+				<input type="file" multiple>
+				<input type="submit" value="Upload" class="action--primary">
+			</div>
+		</fieldset><!-- end #file-upload -->
 
 		<h3>Summary</h3>
 		<div class="read-only">
@@ -346,10 +354,9 @@
 		</div>
 
 		<div class="actions-container">
-			<input class="action--secondary large" type="submit" value="Previous">
-			<input class="action--primary large" type="submit" value="Next">
-			<input class="action--warning large" type="submit" value="Delete">
-			<a class="action--tertiary" href="/">Back to home</a>
+			<input class="action--primary large" type="submit" value="Continue">
+			<input class="action--secondary large" type="submit" value="Back">
+			<a class="action--tertiary" href="/">Do something else</a>
 		</div><!-- end .actions -->
 
 	</form>

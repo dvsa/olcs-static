@@ -208,6 +208,24 @@ textarea {
 	}
 }
 
+.close {
+	background: url('../images/close.png') no-repeat 0 0;
+	@include device-pixel-ratio($ratio: 2) {
+		background: url('../images/close-2x.png') no-repeat 0 0;
+		background-size: 61px 21px;
+	}
+	text-indent: -9999px;
+	height: 22px;
+	width: 22px;
+	&:hover {
+		background-position: -40px 0;
+	}
+}
+
+input[type="submit"].remove {
+	@extend .close;
+}
+
 /* 2.1 Article styles
    ========================================================================== */
 
@@ -596,6 +614,14 @@ input[type="checkbox"] {
 	border: none;
 }
 
+input[type="submit"] {
+	background: none;
+	border: none;
+	padding: 0;
+	text-decoration: underline;
+	color: $link-colour;
+}
+
 textarea {
 	min-height: 10em;
 	padding-top: .5em;
@@ -635,8 +661,42 @@ select:focus {
 	}
 }
 
+/* 6.3 File uplaod
+   ========================================================================== */
 
-/* 6.6 Validation
+.file-upload {
+	width: 100%;
+	input[type="submit"] {
+		float: right;
+	}
+	.field {
+		width: 95%;
+		background: $grey-4;
+		padding: 1em;
+		overflow: auto;
+		margin-bottom: .25em;
+	}
+	p {
+		font-weight: 700;
+		margin: 0;
+		width: 75%;
+		float: left;
+	}
+	span {
+		color: $grey-1;
+		font-weight: 400;
+	}
+}
+
+input[type="file"] {
+	width: 75%;
+	border: 0;
+	background: none;
+	padding: 0;
+	margin-top: .25em;
+}
+
+/* 6.5 Validation
    ========================================================================== */
 
 %validation-box {
@@ -1100,6 +1160,9 @@ tfoot {
 	padding-bottom: 2px;
 	margin-bottom: 1em;
 	float: left;
+	a, input, button {
+		margin-right: .25em !important;
+	}
 }
 
 @mixin action-colour ($colour: $button-colour) {
@@ -1160,7 +1223,7 @@ tfoot {
 	@include border-radius(3px);
 	@extend %paragraph--small;
 	border: none;
-	margin: 0 .25em 0 0;
+	margin: 0;
 	padding: .3em .5em .1em .5em;
 	padding : .3em .5em .4em .5em\9;
 	font-family: $NTA-Light;
@@ -1188,6 +1251,7 @@ tfoot {
 	}
 }
 
+input[type="submit"].action,
 .action {
 	&--primary {
 		@include action-colour();
@@ -1196,16 +1260,12 @@ tfoot {
 			@extend %paragraph--large;
 		}
 	}
-	&--secondary {
+	&--secondary, &--warning {
 		@include action-colour($grey-3);
 		@extend %action-box;
 		&.large {
 			@extend %paragraph--large;
 		}
-	}
-	&--warning {
-		@include action-colour($red);
-		@extend %action-box;
 	}
 	&--tertiary {
 		padding: .25em;
