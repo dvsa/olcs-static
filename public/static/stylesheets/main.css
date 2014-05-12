@@ -214,7 +214,7 @@ h1, h2, h3, h4, h5, p {
 }
 
 h1 {
-  font-size: 48px;
+  font-size: 42px;
   margin: 0;
 }
 @media (max-width: 640px) {
@@ -454,7 +454,7 @@ hr {
 .page-header {
   margin-bottom: 1.5em;
   border-bottom: 1px solid #bfc1c3;
-  padding-bottom: .5em;
+  padding-bottom: .75em;
 }
 
 .page-header__subtitle {
@@ -828,15 +828,15 @@ input[type="file"] {
 
 /* 7.2 Application
    ========================================================================== */
-.eight-items .app-navigation__item {
+.items-8 .app-navigation__item {
   width: 10.5%;
 }
 
-.seven-items .app-navigation__item {
+.items-7 .app-navigation__item {
   width: 12.28571%;
 }
 
-.five-items .app-navigation__item {
+.items-5 .app-navigation__item {
   width: 18%;
 }
 

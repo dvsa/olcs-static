@@ -156,7 +156,7 @@ h1, h2, h3, h4, h5, p {
 }
 
 h1 { 
-	@include font-size(48px,18pt,32px);
+	@include font-size(42px,18pt,32px);
 	margin: 0;
 }
 
@@ -410,9 +410,9 @@ hr {
 	@extend .full-width;
 	margin-bottom: 1.5em;
 	border-bottom: 1px solid $grey-2;
-	padding-bottom: .5em;
+	padding-bottom: .75em;
 	.internal & {
-		
+
 
 	}
 }
@@ -809,17 +809,17 @@ $statuses: (complete 10px 6px, incomplete -588px -596px, current -188px -194px);
 
 	// R-E-F-A-C-T-O-R
 
-	.eight-items .app-navigation__item {
+	.items-8 .app-navigation__item {
 		$navigation-items: 8;
 		width: (100% - ($navigation-items * 2))/$navigation-items;
 	}
 
-	.seven-items .app-navigation__item {
+	.items-7 .app-navigation__item {
 		$navigation-items: 7;
 		width: (100% - ($navigation-items * 2))/$navigation-items;
 	}
 
-	.five-items .app-navigation__item {
+	.items-5 .app-navigation__item {
 		$navigation-items: 5;
 		width: (100% - ($navigation-items * 2))/$navigation-items;
 	}
