@@ -2,33 +2,53 @@
 
 <div class="two-thirds">
 	<form> 
-		<fieldset id="personal-information">
+		<fieldset>
 			<fieldset>
-				<legend class="legend">Gender</legend>
+				<legend class="legend">What is your favourite sport?</legend>
 				<div class="field--inline">
-					<label><input type="radio" name="gender" value="male">Male</label>
+					<label><input type="radio" name="favourite-sport" value="football">Football</label>
 				</div>
 				<div class="field--inline">
-					<label class="radio-female"><input type="radio" name="gender" value="female">Female</label>
+					<label><input type="radio" name="favourite-sport" value="Rugby">Rugby</label>
 				</div>
 			</fieldset>
-			<div class="field" id="favourite-colour-field">
-				<label>What is your favourite colour?</label>
-				<select id="favourite-colour" name="favourite-colour">
-					<option value="red">Red</option>
-					<option value="blue">Blue</option>
-					<option value="green">Green</option>
+			<div class="field" id="favourite-team">
+				<label>Who do you support</label>
+				<select id="team" name="team">
+					<option value="">Please select</option>
+					<option value="arsenal">Arsenal</option>
+					<option value="bayern-munich">Bayern Munich</option>
+					<option value="shrewsbury-town">Shrewsbury Town</option>
 				</select>
 			</div>
-			<div class="field" id="favourite-month-field">
-				<label>What is your favourite month?</label>
-				<select id="favourite-month" name="favourite-month">
-					<option value="january">January</option>
-					<option value="february">February</option>
-					<option value="march">March</option>
+			<div class="field" id="favourite-arsenal-player">
+				<label>Who is your favourite player?</label>
+				<select id="arsenal-player" name="arsenal-player">
+					<option value="">Please select</option>
+					<option value="theo-walcott">Theo Walcott</option>
+					<option value="mesut-ozil">Mesut Ozil</option>
+					<option value="jack-wilshere">Jack Wilshire</option>
 				</select>
 			</div>
-		</fieldset><!-- end #personal-information -->
+			<fieldset id="favourite-bayern-player">
+				<legend class="legend">Who is your favourite player?</legend>
+				<select id="bayern-player" name="bayern-player">
+					<option value="">Please select</option>
+					<option value="thomas-muller">Thomas Muller</option>
+					<option value="frank-ribery">Frank Ribery</option>
+					<option value="ajern-robben">Ajern Robben</option>
+				</select>
+			</fieldset>
+			<fieldset id="retire-at-club">
+				<legend class="legend">Do you think he will retire at the club?</legend>
+				<div class="field--inline">
+					<label><input type="radio" name="retire" value="yes">Yes</label>
+				</div>
+				<div class="field--inline">
+					<label><input type="radio" name="retire" value="no">No</label>
+				</div>
+			</fieldset>
+		</fieldset>
 
 		<div class="actions-container">
 			<input class="action--primary large" type="submit" value="Save">
@@ -39,19 +59,24 @@
 
 </div><!-- end .two-thirds -->
 
-<!-- <script id="inline-js" type="application/json">
+<script id="inline-js" type="application/json">
 	{
 		"hiddenFieldsList": [
 		    {
-		        "fieldName": "gender",
-		        "fieldValue": "female",
-		        "hiddenElement": "#favourite-colour-field"
+		        "fieldName": "favourite-sport",
+		        "fieldValue": "football",
+		        "hiddenElement": "#favourite-team"
 		    },
 		    {
-		        "fieldName": "favourite-colour",
-		        "fieldValue": "green",
-		        "hiddenElement": "#favourite-month-field"
+		        "fieldName": "team",
+		        "fieldValue": "arsenal",
+		        "hiddenElement": "#favourite-arsenal-player"
+		    },
+		    {
+		        "fieldName": "team",
+		        "fieldValue": "bayern-munich",
+		        "hiddenElement": "#favourite-bayern-player"
 		    }
 		]
 	}
-</script> -->
+</script>

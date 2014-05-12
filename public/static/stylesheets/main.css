@@ -766,18 +766,18 @@ input[type="file"] {
 /* ==========================================================================
    7. Navigation
    ========================================================================== */
-.application, .horizontal-navigation, .mega-menu, .vertical-navigation {
+.app-navigation, .horizontal-navigation, .mega-menu, .vertical-navigation {
   list-style: none;
   width: 100%;
   overflow: auto;
 }
 
-.application__item, .horizontal-navigation__item, .mega-menu__item {
+.app-navigation__item, .horizontal-navigation__item, .mega-menu__item {
   float: left;
   margin-bottom: 0;
 }
 @media (max-width: 640px) {
-  .application__item, .horizontal-navigation__item, .mega-menu__item {
+  .app-navigation__item, .horizontal-navigation__item, .mega-menu__item {
     width: 100%;
   }
 }
@@ -828,75 +828,86 @@ input[type="file"] {
 
 /* 7.2 Application
    ========================================================================== */
-.application {
+.eight-items .app-navigation__item {
+  width: 10.5%;
+}
+
+.seven-items .app-navigation__item {
+  width: 12.28571%;
+}
+
+.five-items .app-navigation__item {
+  width: 18%;
+}
+
+.app-navigation {
   border-top: 1px dotted #bfc1c3;
   overflow: visible;
   margin-top: 2em;
 }
-.application__item {
+.app-navigation__item {
   text-align: center;
-  width: 10.5%;
   margin: -2em 1% 1.5em 1%;
   background: url("../images/application-navigation.png") no-repeat 50% -383px;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  .application__item {
+  .app-navigation__item {
     background: url("../images/application-navigation-2x.png") no-repeat 50% -390px;
     background-size: 50px 657px;
   }
 }
-.application a, .application .current {
+.app-navigation a, .app-navigation .current {
   line-height: 1.2;
   display: block;
   padding-top: 3.75em;
 }
-.application .current {
+.app-navigation .current {
   font-weight: 700;
 }
-.application .complete {
+.app-navigation .complete {
   background-position: 50% 10px;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  .application .complete {
+  .app-navigation .complete {
     background-position: 50% 6px;
   }
 }
-.application .incomplete {
+.app-navigation .incomplete {
   background-position: 50% -588px;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  .application .incomplete {
+  .app-navigation .incomplete {
     background-position: 50% -596px;
   }
 }
-.application .current {
+.app-navigation .current {
   background-position: 50% -188px;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  .application .current {
+  .app-navigation .current {
     background-position: 50% -194px;
   }
 }
 @media (max-width: 840px) {
-  .application {
+  .app-navigation {
     border-top: none;
     margin: 0;
   }
-  .application__item {
+  .app-navigation__item {
     background: none;
     padding: 0;
     margin: 0;
     width: 100%;
     text-align: left;
   }
-  .application a:hover {
+  .app-navigation a:hover {
     background: #f8f8f8;
   }
-  .application a, .application .current {
+  .app-navigation a, .app-navigation .current {
     padding: .5em 0;
     border-bottom: 1px solid #bfc1c3;
   }
-  .application .current {
+  .app-navigation .current {
     border-bottom: 3px solid #0b0c0c;
   }
 }
