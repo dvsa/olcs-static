@@ -1569,8 +1569,9 @@ input[type="submit"].action--tertiary,
   overflow: auto;
 }
 
-/* 11.2 Submission actions
+/* 11.2 Submission items
    ========================================================================== */
+/* Submission actions */
 .submission-actions {
   list-style: none;
 }
@@ -1584,12 +1585,38 @@ input[type="submit"].action--tertiary,
   margin: .5em 0 1em 0;
 }
 
+/* Submission note */
+.notes-container {
+  width: 75%;
+  margin: .5em 0 1.5em 0;
+  overflow: auto;
+}
+
+.note {
+  background: #e6eff5;
+  border: 1px solid #cdd7dc;
+  overflow: auto;
+  padding: .75em 1em .25em;
+  margin-bottom: .5em;
+}
+.note__meta {
+  width: 75%;
+  float: left;
+}
+.note__meta p {
+  float: left;
+  width: 50%;
+  clear: none;
+}
+.note__actions {
+  width: 25%;
+  float: right;
+  text-align: right;
+}
+
 /* ==========================================================================
    12. Read only
    ========================================================================== */
-/*
- *  R-E-F-A-C-T-O-R
- */
 .read-only {
   height: 400px;
   width: 100%;

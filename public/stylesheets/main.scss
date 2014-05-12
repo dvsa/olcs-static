@@ -804,28 +804,27 @@ input[type="file"] {
 /* 7.2 Application
    ========================================================================== */
 
-// .eight-items {
-// 	$progress-items: 8;
-// 	width: (100% - ($progress-items * 2))/$progress-items;
-// }
-
-.eight-items .app-navigation__item {
-	$navigation-items: 8;
-	width: (100% - ($navigation-items * 2))/$navigation-items;
-}
-
-.seven-items .app-navigation__item {
-	$navigation-items: 7;
-	width: (100% - ($navigation-items * 2))/$navigation-items;
-}
-
-.five-items .app-navigation__item {
-	$navigation-items: 5;
-	width: (100% - ($navigation-items * 2))/$navigation-items;
-}
-
 $breakpoint: 840px;
 $statuses: (complete 10px 6px, incomplete -588px -596px, current -188px -194px);
+
+	// R-E-F-A-C-T-O-R
+
+	.eight-items .app-navigation__item {
+		$navigation-items: 8;
+		width: (100% - ($navigation-items * 2))/$navigation-items;
+	}
+
+	.seven-items .app-navigation__item {
+		$navigation-items: 7;
+		width: (100% - ($navigation-items * 2))/$navigation-items;
+	}
+
+	.five-items .app-navigation__item {
+		$navigation-items: 5;
+		width: (100% - ($navigation-items * 2))/$navigation-items;
+	}
+
+	// R-E-F-A-C-T-O-R
 
 .app-navigation {
 	@extend %navigation;
@@ -1486,9 +1485,8 @@ input[type="submit"].action,
    ========================================================================== */
 
 
-   /*
-    *  R-E-F-A-C-T-O-R
-    */
+    // R-E-F-A-C-T-O-R
+
     $ro-margin-bottom: .5em;
 
 	.read-only {
@@ -1560,7 +1558,7 @@ input[type="submit"].action,
 		}
 	}
 
-
+	// R-E-F-A-C-T-O-R
 
 
 /* ==========================================================================
