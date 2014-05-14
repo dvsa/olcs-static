@@ -1551,6 +1551,7 @@ input[type="submit"].action--tertiary,
 }
 .tooltip__parent:hover {
   color: #6f777b;
+  background-position-y: -142px;
 }
 
 .tooltip {
