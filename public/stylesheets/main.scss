@@ -1162,7 +1162,7 @@ tfoot {
 
 .sortable {
 	padding: 0;
-	background: $grey-3 url('../images/down-arrow.png') no-repeat right .6em top 14px;
+	background: $grey-3 url('../images/down-arrow.png') no-repeat 95% 14px;
 	@include device-pixel-ratio($ratio: 2) {
 		background-image: url('../images/down-arrow-2x.png');
 		background-size: 10px 130px;
@@ -1180,7 +1180,7 @@ tfoot {
 		background-color: #cccccc;
 	}
 	&.ascending {
-		background: #cccccc url('../images/down-arrow.png') no-repeat right .6em top -108px;
+		background: #cccccc url('../images/down-arrow.png') no-repeat 95% -108px;
 		@include device-pixel-ratio($ratio: 2) {
 			background-image: url('../images/down-arrow-2x.png');
 			background-size: 10px 130px;
@@ -1496,13 +1496,13 @@ input[type="submit"].action,
 
 .tooltip__parent {
 	cursor: pointer;
-	background: url('../images/tooltip-icon.png') no-repeat right .6em top 7px;
+	background: url('../images/tooltip-icon.png') no-repeat 97.5% 7px;
 	@include device-pixel-ratio($ratio: 2) {
-		background: url('../images/tooltip-icon-2x.png') no-repeat right .6em top 7px;
+		background: url('../images/tooltip-icon-2x.png') no-repeat 97.5% 7px;
 		background-size: 19px 170px;
 	}
 	&:hover {
-		background-position-y: -142px;
+		color: $grey-1;
 	}
 }
 

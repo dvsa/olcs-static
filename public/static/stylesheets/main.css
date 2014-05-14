@@ -1153,7 +1153,7 @@ tfoot th {
 
 .sortable {
   padding: 0;
-  background: #dee0e2 url("../images/down-arrow.png") no-repeat right 0.6em top 14px;
+  background: #dee0e2 url("../images/down-arrow.png") no-repeat 95% 14px;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .sortable {
@@ -1174,7 +1174,7 @@ tfoot th {
   background-color: #cccccc;
 }
 .sortable.ascending {
-  background: #cccccc url("../images/down-arrow.png") no-repeat right 0.6em top -108px;
+  background: #cccccc url("../images/down-arrow.png") no-repeat 95% -108px;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .sortable.ascending {
@@ -1541,16 +1541,16 @@ input[type="submit"].action--tertiary,
    ========================================================================== */
 .tooltip__parent {
   cursor: pointer;
-  background: url("../images/tooltip-icon.png") no-repeat right 0.6em top 7px;
+  background: url("../images/tooltip-icon.png") no-repeat 97.5% 7px;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .tooltip__parent {
-    background: url("../images/tooltip-icon-2x.png") no-repeat right 0.6em top 7px;
+    background: url("../images/tooltip-icon-2x.png") no-repeat 97.5% 7px;
     background-size: 19px 170px;
   }
 }
 .tooltip__parent:hover {
-  background-position-y: -142px;
+  color: #6f777b;
 }
 
 .tooltip {
