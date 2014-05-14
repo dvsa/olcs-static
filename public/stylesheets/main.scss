@@ -32,7 +32,6 @@
 $summary-border: #cdd7dc;
 $summary-background: #e6eff5;
 
-
 /* ==========================================================================
    1. Base styles & resets
    ========================================================================== */
@@ -212,13 +211,13 @@ textarea {
 	background: url('../images/close.png') no-repeat 0 0;
 	@include device-pixel-ratio($ratio: 2) {
 		background: url('../images/close-2x.png') no-repeat 0 0;
-		background-size: 61px 21px;
+		background-size: 60px 22px;
 	}
 	text-indent: -9999px;
 	height: 22px;
 	width: 22px;
 	&:hover {
-		background-position: -40px 0;
+		background-position: -39px 0;
 	}
 }
 
@@ -249,7 +248,13 @@ input[type="submit"].remove {
    3. Layout
    ========================================================================== */
 
-%centered-wrapper {
+%external-wrapper {
+	max-width: 980px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+%internal-wrapper {
 	max-width: 980px;
 	margin: 0 auto;
 	overflow: hidden;
@@ -289,6 +294,20 @@ input[type="submit"].remove {
 	width: 95%;
 }
 
+/* Internal widescreen layout */
+
+.one-fifth {
+	@extend %container;
+	width: 12.5%;
+	margin-right: 0 !important;
+}
+
+.four-fifths {
+	@extend %container;
+	width: 81.25%;
+	margin-left: 1.25% !important;
+}
+
 %container {
 	float:left;
 	margin: 0 2.5% 1.5em 2.5%;
@@ -299,11 +318,14 @@ input[type="submit"].remove {
 }
 
 .page-wrapper {
-	@extend %centered-wrapper;
+	@extend %external-wrapper;
 	width: 100%;
 	position:relative;
 	clear:both;
 	overflow: hidden;
+	.internal & {
+		max-width: 100%;
+	}
 }
 
 #main {
@@ -348,9 +370,12 @@ hr {
 	background: $black;
 	color: $white;
 	&__wrapper {
-		@extend %centered-wrapper;
+		@extend %external-wrapper;
 		padding: .5em 0;
 		overflow: auto;
+		.internal & {
+			max-width: 100%;
+		}
 	}
 	&__logo {
 		clear: none;
@@ -410,11 +435,7 @@ hr {
 	@extend .full-width;
 	margin-bottom: 1.5em;
 	border-bottom: 1px solid $grey-2;
-	padding-bottom: .75em;
-	.internal & {
-
-
-	}
+	padding-bottom: .5em;
 }
 
 .page-header__subtitle {
@@ -436,7 +457,7 @@ hr {
 		color: #454a4c;
 	}
 	&__wrapper {
-		@extend %centered-wrapper;
+		@extend %external-wrapper;
 		padding: 2em 0 0 0;
 	}
 	&__links {
@@ -1032,7 +1053,7 @@ $breakpoint: 640px;
 .filters {
 	&__list {
 		list-style: none;
-		margin-top: .75em;
+		margin: .25em 0 .5em 0;
 	}
 	&__title {
 		font-weight: 700;
@@ -1082,7 +1103,6 @@ $breakpoint: 640px;
 	width: 100%;
 	clear:right;
 	overflow: auto;
-	margin-top: .75em;
 }
 
 table { 
@@ -1117,15 +1137,14 @@ th {
 }
 
 td {
-   	overflow: hidden;
+   	overflow: visible;
 	b { 
 		display: block;
 	}
 }
 
 tfoot {
-	tr,
-	tr:nth-child(even) { 
+	tr { 
 		border: 1px solid $summary-border;
 		background: $summary-background;
 	}
@@ -1133,6 +1152,7 @@ tfoot {
 	td {	
 		border: none;
 		overflow: hidden;
+		background: $summary-background;
 	}
 	th {
 		text-align: right;
@@ -1357,10 +1377,10 @@ input[type="submit"].action,
 		left: 0;
 	}
 	&__close {
-		@extend %paragraph--small;
+		@extend .close;
 		position: absolute;
-		right: 1.25em;
-		top: .7em;
+		right: .75em;
+		top: .6em;
 	}
 	/* Ajaxed content overides*/
 	.page-header {
@@ -1388,10 +1408,10 @@ input[type="submit"].action,
 		bottom: 0;
 		right: 0;
 		height: 2em;
-		padding: 1.5em 2.5% .5em 2.5%;
+		padding: 1em 2.5% 1.25em 2.5%;
 		margin: 0;
 		text-align: right;
-		overflow: auto;
+		overflow: visible;
 		width: 95%;
 		border-top: 1px solid $grey-3;
 		background: $grey-4;
@@ -1471,6 +1491,48 @@ input[type="submit"].action,
 	}
 }
 
+/* 10.1 Tooltips
+   ========================================================================== */
+
+.tooltip__parent {
+	cursor: pointer;
+	background: url('../images/tooltip-icon.png') no-repeat right .6em top 7px;
+	@include device-pixel-ratio($ratio: 2) {
+		background: url('../images/tooltip-icon-2x.png') no-repeat right .6em top 7px;
+		background-size: 19px 170px;
+	}
+	&:hover {
+		background-position-y: -142px;
+	}
+}
+
+.tooltip {
+  display: none;
+  position: fixed;
+  opacity: 0.9; /* IE :after bug prevents using opacity mixin */
+  @include border-radius(2px);
+  width: 200px;
+  padding: .75em;
+  font-size: 0.9em;
+  line-height: 1.2;
+  color: white;
+  background: $black;
+  &.visible {
+  	display: block;
+  }
+  &:after {
+  	content:'';
+  	position:absolute;
+    display:block;
+    width:0;
+    height:0;
+    border-left: 9px solid transparent;
+    border-top: 10px solid black;
+    border-right: 9px solid transparent;
+    left:40px;
+    bottom:-9px;
+  }
+}
 
 
 /* ==========================================================================

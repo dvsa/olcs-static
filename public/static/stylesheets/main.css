@@ -195,14 +195,14 @@ h4, .global-header__title, .modal h1 {
 h5, p, .one-third p, .global-footer__copyright p, .inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .filters label, td, th, input[type="submit"].action--primary,
 .action--primary, input[type="submit"].action--secondary, input[type="submit"].action--warning,
 .action--secondary,
-.action--warning, .modal__close, .modal .subtitle, .alert p, .alert--warning p, .notice--success p, .notice--info p, .notice--warning p, .notice--danger p, .case-summary, .read-only label {
+.action--warning, .modal .subtitle, .alert p, .alert--warning p, .notice--success p, .notice--info p, .notice--warning p, .notice--danger p, .case-summary, .read-only label {
   font-size: 16px;
 }
 @media (max-width: 640px) {
   h5, p, .one-third p, .global-footer__copyright p, .inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .filters label, td, th, input[type="submit"].action--primary,
   .action--primary, input[type="submit"].action--secondary, input[type="submit"].action--warning,
   .action--secondary,
-  .action--warning, .modal__close, .modal .subtitle, .alert p, .alert--warning p, .notice--success p, .notice--info p, .notice--warning p, .notice--danger p, .case-summary, .read-only label {
+  .action--warning, .modal .subtitle, .alert p, .alert--warning p, .notice--success p, .notice--info p, .notice--warning p, .notice--danger p, .case-summary, .read-only label {
     font-size: 14px;
   }
 }
@@ -268,20 +268,20 @@ textarea {
   margin-bottom: 1em;
 }
 
-.close, input[type="submit"].remove {
+.close, input[type="submit"].remove, .modal__close {
   background: url("../images/close.png") no-repeat 0 0;
   text-indent: -9999px;
   height: 22px;
   width: 22px;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  .close, input[type="submit"].remove {
+  .close, input[type="submit"].remove, .modal__close {
     background: url("../images/close-2x.png") no-repeat 0 0;
-    background-size: 61px 21px;
+    background-size: 60px 22px;
   }
 }
-.close:hover, input[type="submit"].remove:hover {
-  background-position: -40px 0;
+.close:hover, input[type="submit"].remove:hover, .modal__close:hover {
+  background-position: -39px 0;
 }
 
 /* 2.1 Article styles
@@ -337,12 +337,23 @@ textarea {
   width: 95%;
 }
 
-.one-third, .global-footer__copyright, .one-quarter, .one-half, .two-thirds, .global-footer__links, .three-quarters, .full-width, .page-header, .global-breadcrumbs {
+/* Internal widescreen layout */
+.one-fifth {
+  width: 12.5%;
+  margin-right: 0 !important;
+}
+
+.four-fifths {
+  width: 81.25%;
+  margin-left: 1.25% !important;
+}
+
+.one-third, .global-footer__copyright, .one-quarter, .one-half, .two-thirds, .global-footer__links, .three-quarters, .full-width, .page-header, .global-breadcrumbs, .one-fifth, .four-fifths {
   float: left;
   margin: 0 2.5% 1.5em 2.5%;
 }
 @media (max-width: 640px) {
-  .one-third, .global-footer__copyright, .one-quarter, .one-half, .two-thirds, .global-footer__links, .three-quarters, .full-width, .page-header, .global-breadcrumbs {
+  .one-third, .global-footer__copyright, .one-quarter, .one-half, .two-thirds, .global-footer__links, .three-quarters, .full-width, .page-header, .global-breadcrumbs, .one-fifth, .four-fifths {
     width: 92%;
     margin: 0 4% 1.5em 4%;
   }
@@ -353,6 +364,9 @@ textarea {
   position: relative;
   clear: both;
   overflow: hidden;
+}
+.internal .page-wrapper {
+  max-width: 100%;
 }
 
 #main {
@@ -397,6 +411,9 @@ hr {
 .global-header__wrapper {
   padding: .5em 0;
   overflow: auto;
+}
+.internal .global-header__wrapper {
+  max-width: 100%;
 }
 .global-header__logo {
   clear: none;
@@ -454,7 +471,7 @@ hr {
 .page-header {
   margin-bottom: 1.5em;
   border-bottom: 1px solid #bfc1c3;
-  padding-bottom: .75em;
+  padding-bottom: .5em;
 }
 
 .page-header__subtitle {
@@ -1037,7 +1054,7 @@ input[type="file"] {
    ========================================================================== */
 .filters__list {
   list-style: none;
-  margin-top: .75em;
+  margin: .25em 0 .5em 0;
 }
 .filters__title {
   font-weight: 700;
@@ -1080,7 +1097,6 @@ input[type="file"] {
   width: 100%;
   clear: right;
   overflow: auto;
-  margin-top: .75em;
 }
 
 table {
@@ -1114,14 +1130,13 @@ th {
 }
 
 td {
-  overflow: hidden;
+  overflow: visible;
 }
 td b {
   display: block;
 }
 
-tfoot tr,
-tfoot tr:nth-child(even) {
+tfoot tr {
   border: 1px solid #cdd7dc;
   background: #e6eff5;
 }
@@ -1129,6 +1144,7 @@ tfoot th,
 tfoot td {
   border: none;
   overflow: hidden;
+  background: #e6eff5;
 }
 tfoot th {
   text-align: right;
@@ -1416,8 +1432,8 @@ input[type="submit"].action--tertiary,
 }
 .modal__close {
   position: absolute;
-  right: 1.25em;
-  top: .7em;
+  right: .75em;
+  top: .6em;
 }
 .modal .page-header {
   background: #dee0e2;
@@ -1438,10 +1454,10 @@ input[type="submit"].action--tertiary,
   bottom: 0;
   right: 0;
   height: 2em;
-  padding: 1.5em 2.5% .5em 2.5%;
+  padding: 1em 2.5% 1.25em 2.5%;
   margin: 0;
   text-align: right;
-  overflow: auto;
+  overflow: visible;
   width: 95%;
   border-top: 1px solid #dee0e2;
   background: #f8f8f8;
@@ -1521,10 +1537,57 @@ input[type="submit"].action--tertiary,
   padding: 0;
 }
 
+/* 10.1 Tooltips
+   ========================================================================== */
+.tooltip__parent {
+  cursor: pointer;
+  background: url("../images/tooltip-icon.png") no-repeat right 0.6em top 7px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .tooltip__parent {
+    background: url("../images/tooltip-icon-2x.png") no-repeat right 0.6em top 7px;
+    background-size: 19px 170px;
+  }
+}
+.tooltip__parent:hover {
+  background-position-y: -142px;
+}
+
+.tooltip {
+  display: none;
+  position: fixed;
+  opacity: 0.9;
+  /* IE :after bug prevents using opacity mixin */
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  width: 200px;
+  padding: .75em;
+  font-size: 0.9em;
+  line-height: 1.2;
+  color: white;
+  background: #0b0c0c;
+}
+.tooltip.visible {
+  display: block;
+}
+.tooltip:after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 9px solid transparent;
+  border-top: 10px solid black;
+  border-right: 9px solid transparent;
+  left: 40px;
+  bottom: -9px;
+}
+
 /* ==========================================================================
    11. Compliance
    ========================================================================== */
-/* 11.1 Summary lists
+/* 11.2 Summary lists
    ========================================================================== */
 .summary {
   margin-bottom: 1.5em;
@@ -1569,7 +1632,7 @@ input[type="submit"].action--tertiary,
   overflow: auto;
 }
 
-/* 11.2 Submission items
+/* 11.3 Submission items
    ========================================================================== */
 /* Submission actions */
 .submission-actions {
