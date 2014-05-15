@@ -5,6 +5,7 @@ $(function(){
 	OLCS.hiddenFields.init();
 	OLCS.ajaxModal.init();
 	OLCS.tooltips.init();
+	OLCS.alertBox.showOverlay('#launch-warning-alert');
 	OLCS.alertBox.showOverlay('#launch-alert');
 });
 
@@ -174,6 +175,10 @@ OLCS.tooltips = (function () {
 
 /**
  *  Show and hide alert
+ * 
+ *	Todo: 
+ *  • Intercept from actions
+ *	
  */
 
 OLCS.alertBox = (function () {
