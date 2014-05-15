@@ -5,7 +5,7 @@ $(function(){
 	OLCS.hiddenFields.init();
 	OLCS.ajaxModal.init();
 	OLCS.tooltips.init();
-	OLCS.alertBox.init('.delete');
+	OLCS.alertBox.showOverlay('#launch-alert');
 });
 
 
@@ -178,13 +178,6 @@ OLCS.tooltips = (function () {
 
 OLCS.alertBox = (function () {
 
-	function showOverlay(trigger) {
-		var alertTrigger = $(''+trigger+'');
-		alertTrigger.click(function(e) {
-			e.preventDefault();
-			$('.overlay, .modal__wrapper, .alert__wrapper').show();
-		});
-	}
 
 	function closeOverlay() {
 		$('.alert__wrapper .action--secondary').click(function(e) {
@@ -193,13 +186,16 @@ OLCS.alertBox = (function () {
 		});
 	}
 
-	function init () {
+	function showOverlay(trigger) {
 		closeOverlay();
-		showOverlay();
+		$(''+trigger+'').click(function(e) {
+			e.preventDefault();
+			$('.overlay, .modal__wrapper, .alert__wrapper').show();
+		});
 	}
 
 	return {
-		init: init
+		showOverlay: showOverlay
 	};
 
 })()
