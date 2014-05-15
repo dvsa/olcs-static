@@ -179,7 +179,8 @@ h4, .global-header__title, .modal h1 {
 .article ul, .article p, label, fieldset fieldset legend, .table__header span, input[type="submit"].action--primary.large,
 .action--primary.large, input[type="submit"].action--secondary.large, input[type="submit"].action--warning.large,
 .action--secondary.large,
-.action--warning.large, .read-only legend {
+.action--warning.large, input[type="submit"].action--delete.large,
+.action--delete.large, .read-only legend {
   font-size: 19px;
   font-weight: 400;
 }
@@ -187,7 +188,8 @@ h4, .global-header__title, .modal h1 {
   .article ul, .article p, label, fieldset fieldset legend, .table__header span, input[type="submit"].action--primary.large,
   .action--primary.large, input[type="submit"].action--secondary.large, input[type="submit"].action--warning.large,
   .action--secondary.large,
-  .action--warning.large, .read-only legend {
+  .action--warning.large, input[type="submit"].action--delete.large,
+  .action--delete.large, .read-only legend {
     font-size: 16px;
   }
 }
@@ -195,14 +197,16 @@ h4, .global-header__title, .modal h1 {
 h5, p, .one-third p, .global-footer__copyright p, .inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .filters label, td, th, input[type="submit"].action--primary,
 .action--primary, input[type="submit"].action--secondary, input[type="submit"].action--warning,
 .action--secondary,
-.action--warning, .modal .subtitle, .alert p, .alert--warning p, .notice--success p, .notice--info p, .notice--warning p, .notice--danger p, .case-summary, .read-only label {
+.action--warning, input[type="submit"].action--delete,
+.action--delete, .modal .subtitle, .alert p, .alert--warning p, .notice--success p, .notice--info p, .notice--warning p, .notice--danger p, .case-summary, .read-only label {
   font-size: 16px;
 }
 @media (max-width: 640px) {
   h5, p, .one-third p, .global-footer__copyright p, .inline label, fieldset fieldset label, .validation-wrapper li, .global-breadcrumbs, .pagination__item, .filters label, td, th, input[type="submit"].action--primary,
   .action--primary, input[type="submit"].action--secondary, input[type="submit"].action--warning,
   .action--secondary,
-  .action--warning, .modal .subtitle, .alert p, .alert--warning p, .notice--success p, .notice--info p, .notice--warning p, .notice--danger p, .case-summary, .read-only label {
+  .action--warning, input[type="submit"].action--delete,
+  .action--delete, .modal .subtitle, .alert p, .alert--warning p, .notice--success p, .notice--info p, .notice--warning p, .notice--danger p, .case-summary, .read-only label {
     font-size: 14px;
   }
 }
@@ -306,7 +310,13 @@ textarea {
    3. Layout
    ========================================================================== */
 .page-wrapper, .global-header__wrapper, .global-footer__wrapper {
-  max-width: 980px;
+  max-width: 1080px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.internal .page-wrapper, .internal .global-header__wrapper, .internal .global-footer__wrapper {
+  max-width: 1200px;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -339,13 +349,13 @@ textarea {
 
 /* Internal widescreen layout */
 .one-fifth {
-  width: 12.5%;
-  margin-right: 0 !important;
+  width: 15.5%;
+  margin-right: .5em !important;
 }
 
 .four-fifths {
-  width: 81.25%;
-  margin-left: 1.25% !important;
+  width: 78%;
+  margin-left: .5em !important;
 }
 
 .one-third, .global-footer__copyright, .one-quarter, .one-half, .two-thirds, .global-footer__links, .three-quarters, .full-width, .page-header, .global-breadcrumbs, .one-fifth, .four-fifths {
@@ -364,9 +374,6 @@ textarea {
   position: relative;
   clear: both;
   overflow: hidden;
-}
-.internal .page-wrapper {
-  max-width: 100%;
 }
 
 #main {
@@ -411,9 +418,6 @@ hr {
 .global-header__wrapper {
   padding: .5em 0;
   overflow: auto;
-}
-.internal .global-header__wrapper {
-  max-width: 100%;
 }
 .global-header__logo {
   clear: none;
@@ -634,6 +638,10 @@ label {
 }
 
 /* Styling for nested fieldsets */
+fieldset fieldset legend {
+  display: block;
+}
+
 /* 6.3 Inputs
    ========================================================================== */
 input,
@@ -1202,7 +1210,8 @@ tfoot th {
 input[type="submit"].action--primary,
 .action--primary, input[type="submit"].action--secondary, input[type="submit"].action--warning,
 .action--secondary,
-.action--warning {
+.action--warning, input[type="submit"].action--delete,
+.action--delete {
   display: -moz-inline-stack;
   display: inline-block;
   -webkit-border-radius: 3px;
@@ -1222,7 +1231,8 @@ input[type="submit"].action--primary,
 }
 [rel="external"].action--primary:after,
 [rel="external"].action--secondary:after,
-[rel="external"].action--warning:after {
+[rel="external"].action--warning:after,
+[rel="external"].action--delete:after {
   display: none;
   content: none;
   margin-left: 0;
@@ -1364,6 +1374,63 @@ input[type="submit"].action--tertiary,
   padding: .25em;
   line-height: 2.3;
 }
+input[type="submit"].action--delete,
+.action--delete {
+  background: #b10e1e;
+  -webkit-box-shadow: 0 2px 0 #6a0812;
+  -moz-box-shadow: 0 2px 0 #6a0812;
+  box-shadow: 0 2px 0 #6a0812;
+  color: white;
+  color: white;
+}
+input[type="submit"].action--delete:visited,
+.action--delete:visited {
+  background-color: #b10e1e;
+}
+input[type="submit"].action--delete:hover, input[type="submit"].action--delete:focus,
+.action--delete:hover,
+.action--delete:focus {
+  text-decoration: none;
+  background-color: #990c1a;
+}
+input[type="submit"].action--delete:active,
+.action--delete:active {
+  top: 2px;
+  -webkit-box-shadow: 0 0 0 #b10e1e;
+  -moz-box-shadow: 0 0 0 #b10e1e;
+  box-shadow: 0 0 0 #b10e1e;
+}
+input[type="submit"].action--delete.disabled, input[type="submit"].action--delete[disabled="disabled"], input[type="submit"].action--delete[disabled],
+.action--delete.disabled,
+.action--delete[disabled="disabled"],
+.action--delete[disabled] {
+  zoom: 1;
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+}
+input[type="submit"].action--delete.disabled:hover, input[type="submit"].action--delete[disabled="disabled"]:hover, input[type="submit"].action--delete[disabled]:hover,
+.action--delete.disabled:hover,
+.action--delete[disabled="disabled"]:hover,
+.action--delete[disabled]:hover {
+  cursor: default;
+  background-color: #b10e1e;
+}
+input[type="submit"].action--delete.disabled:active, input[type="submit"].action--delete[disabled="disabled"]:active, input[type="submit"].action--delete[disabled]:active,
+.action--delete.disabled:active,
+.action--delete[disabled="disabled"]:active,
+.action--delete[disabled]:active {
+  top: 0;
+  -webkit-box-shadow: 0 2px 0 #6a0812;
+  -moz-box-shadow: 0 2px 0 #6a0812;
+  box-shadow: 0 2px 0 #6a0812;
+}
+input[type="submit"].action--delete:link, input[type="submit"].action--delete:hover, input[type="submit"].action--delete:focus, input[type="submit"].action--delete:visited,
+.action--delete:link,
+.action--delete:hover,
+.action--delete:focus,
+.action--delete:visited {
+  color: white;
+}
 
 .article .action--primary.large, .article
 .action--secondary.large, .article
@@ -1467,6 +1534,7 @@ input[type="submit"].action--tertiary,
    ========================================================================== */
 .alert__wrapper {
   z-index: 1;
+  display: none;
 }
 
 .alert, .alert--warning {
@@ -1476,8 +1544,11 @@ input[type="submit"].action--tertiary,
   min-width: 260px;
   padding: 1em 1em 1.25em 1em;
 }
-.alert .actions, .alert--warning .actions {
+.alert .actions-container, .alert--warning .actions-container {
   text-align: center;
+  display: block;
+  margin-bottom: 0;
+  float: none;
 }
 .alert p, .alert--warning p {
   margin-bottom: 1em;
@@ -1488,7 +1559,7 @@ input[type="submit"].action--tertiary,
   border: 3px solid #df3034;
 }
 
-/* 10.1 Notices
+/* 10.3 Notices
    ========================================================================== */
 .notice-container {
   margin-bottom: 1.5em;
@@ -1537,7 +1608,7 @@ input[type="submit"].action--tertiary,
   padding: 0;
 }
 
-/* 10.1 Tooltips
+/* 10.4 Tooltips
    ========================================================================== */
 .tooltip__parent {
   cursor: pointer;

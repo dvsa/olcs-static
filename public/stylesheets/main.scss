@@ -249,13 +249,13 @@ input[type="submit"].remove {
    ========================================================================== */
 
 %external-wrapper {
-	max-width: 980px;
+	max-width: 1080px;
 	margin: 0 auto;
 	overflow: hidden;
 }
 
 %internal-wrapper {
-	max-width: 980px;
+	max-width: 1200px;
 	margin: 0 auto;
 	overflow: hidden;
 }
@@ -298,14 +298,14 @@ input[type="submit"].remove {
 
 .one-fifth {
 	@extend %container;
-	width: 12.5%;
-	margin-right: 0 !important;
+	width: 15.5%;
+	margin-right: .5em !important;
 }
 
 .four-fifths {
 	@extend %container;
-	width: 81.25%;
-	margin-left: 1.25% !important;
+	width: 78%;
+	margin-left: .5em !important;
 }
 
 %container {
@@ -324,7 +324,7 @@ input[type="submit"].remove {
 	clear:both;
 	overflow: hidden;
 	.internal & {
-		max-width: 100%;
+		@extend %internal-wrapper;
 	}
 }
 
@@ -374,7 +374,7 @@ hr {
 		padding: .5em 0;
 		overflow: auto;
 		.internal & {
-			max-width: 100%;
+			@extend %internal-wrapper;
 		}
 	}
 	&__logo {
@@ -459,6 +459,9 @@ hr {
 	&__wrapper {
 		@extend %external-wrapper;
 		padding: 2em 0 0 0;
+		.internal & {
+			@extend %internal-wrapper;
+		}
 	}
 	&__links {
 		@extend .two-thirds;
@@ -611,6 +614,7 @@ label {
 
 fieldset fieldset legend {
 	@extend %paragraph--large;
+	display: block;
 }
 
 fieldset fieldset label {
@@ -1311,6 +1315,14 @@ input[type="submit"].action,
 		padding: .25em;
 		line-height: 2.3;
 	}
+	&--delete {
+		@include action-colour($red);
+		@extend %action-box;
+		color: $white;
+		&.large {
+			@extend %paragraph--large;
+		}
+	}
 }
 
 .action--primary.large,
@@ -1422,6 +1434,7 @@ input[type="submit"].action,
    ========================================================================== */
 .alert__wrapper {
 	z-index: 1;
+	display: none;
 }
 
 .alert, .alert--warning  {
@@ -1434,8 +1447,11 @@ input[type="submit"].action,
 	&__wrapper {
 		@extend %fixed;
 	}
-	.actions {
+	.actions-container {
 		text-align: center;
+		display: block;
+		margin-bottom: 0;
+		float: none;
 	}
 	p {
 		@extend %paragraph--small;
@@ -1449,7 +1465,7 @@ input[type="submit"].action,
 }
 
 
-/* 10.1 Notices
+/* 10.3 Notices
    ========================================================================== */
 
 .notice-container {
@@ -1491,7 +1507,7 @@ input[type="submit"].action,
 	}
 }
 
-/* 10.1 Tooltips
+/* 10.4 Tooltips
    ========================================================================== */
 
 .tooltip__parent {

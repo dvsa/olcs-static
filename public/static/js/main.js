@@ -1,10 +1,13 @@
+
 var OLCS = OLCS || {};
 
 $(function(){
 	OLCS.hiddenFields.init();
-	OLCS.ajaxModal.init('.modal','#main');
+	OLCS.ajaxModal.init();
 	OLCS.tooltips.init();
+	OLCS.alertBox.init('.delete');
 });
+
 
 /** 
  *  Reveal form elements based on variable from inputs
@@ -83,7 +86,6 @@ OLCS.hiddenFields = (function () {
  *
  */
 
-
 OLCS.ajaxModal = (function () {
 
 	function hideModal () {
@@ -122,6 +124,8 @@ OLCS.ajaxModal = (function () {
 
 })()
 
+
+
 /**
  * 
  *  Show and hide tooltips
@@ -131,7 +135,6 @@ OLCS.ajaxModal = (function () {
  *  • Abstract selectors into paramaters/conif
  *
  */
-
 
 OLCS.tooltips = (function () {
 
@@ -165,5 +168,41 @@ OLCS.tooltips = (function () {
     };
 
 })()
+
+
+
+
+/**
+ *  Show and hide alert
+ */
+
+OLCS.alertBox = (function () {
+
+	function showOverlay(trigger) {
+		var alertTrigger = $(''+trigger+'');
+		alertTrigger.click(function(e) {
+			e.preventDefault();
+			$('.overlay, .modal__wrapper, .alert__wrapper').show();
+		});
+	}
+
+	function closeOverlay() {
+		$('.alert__wrapper .action--secondary').click(function(e) {
+			e.preventDefault();
+			$('.overlay, .modal__wrapper, .alert__wrapper').hide();
+		});
+	}
+
+	function init () {
+		closeOverlay();
+		showOverlay();
+	}
+
+	return {
+		init: init
+	};
+
+})()
+
 
 
