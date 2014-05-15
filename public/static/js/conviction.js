@@ -1,19 +1,115 @@
 /**
  * Javascript for convictions page.
  *  Author: Mike Cooper
+ *  Author: Ian Lindsay
  */
+
 jQuery(function () 
 {
-    showDependantTypeFields($('#defType'));
-    
-    $('body').on("change","#defType", function(e) {
+    $( document ).ready(function() {
+        showDependantTypeFields($('#defType'));
+        checkCategories();               
+        
+        $('body').on("change","#defType", function(e) {
             showDependantTypeFields(this);
+        });
+
+        $('body').on("change","#parentCategory", function(e) {
+                getSubCategory($('#parentCategory').val());
+        });
+
+        $('body').on("change", "#category", function(e) {
+                getDescription();
+        });
+        
+        $('body').on("click", "#conviction", function(e) {
+                $('#categoryText').prop('disabled', false);
+        });
     });
+    
+    
 });
+
+function checkCategories() {
+    var parentCategory = $('#parentCategory').val();
+    var category = $('#category').val();
+
+    if (parseInt(parentCategory) && parseInt(category)) {  
+        current_data = {};
+        getDataCategories($('#parentCategory').val()).success(function (data) {
+            $.each(data.categories,function(key, value) 
+            {
+                current_data[value.id] = value.description;
+            });
+        });
+    }
+    else if (parseInt(parentCategory)) {
+        getSubCategory(parentCategory);
+    }
+    
+    if (category !== 168) {
+        $('#categoryText').prop('disabled','disabled');
+    }
+}
+
+function getSubCategory(parentCategory){
+    $select = $('#category');
+    $textarea = $('#categoryText');
+    $textarea.val('');
+    $textarea.prop('disabled','disabled');
+    $select.find('option').remove();
+    $select.append('<option value="">Loading...</option>');
+    $select.prop('disabled','disabled');
+    current_data = {};
+
+    if(!parseInt(parentCategory)){
+        $select.find('option').remove();
+        $select.append('<option value="">Please Select</option>');
+    } else { 
+        getDataCategories(parentCategory).success(function (data) {
+            $select.find('option').remove();
+            $select.append('<option value="">Please Select</option>');
+            $.each(data.categories,function(key, value) 
+            {
+                $select.append('<option value=' + value.id + '>' + value.description.substring(0,73) + '</option>');
+                current_data[value.id] = value.description;
+            });
+
+            $select.prop('disabled',false);
+        });
+    }
+}
+
+function getDescription(){
+    subCategory = $('#category').val()
+    $textarea = $('#categoryText');
+    $textarea.prop('disabled','disabled');
+    
+    if (subCategory == '') {
+        $textarea.val('');
+    } else if (subCategory == 168) {
+        $textarea.prop('disabled',false);
+        $textarea.val('User defined: ');
+        var strLength= $textarea.val().length;
+        $textarea.focus();
+        $textarea[0].setSelectionRange(strLength, strLength);
+    } else { 
+        $textarea.val(current_data[subCategory]);
+    }
+    
+}
+
+function getDataCategories(parentCategory){
+    return $.ajax({
+        type:"POST",
+        url:"/ajax/convictions/categories",
+        dataType: 'json',
+        data: {parent:parentCategory},
+    });
+}
 
 function showDependantTypeFields(dependant) 
 {
-    //console.log($(dependant).val());
     if ($(dependant).val() == 'defendant_type.operator') {
         $('#personFirstname, #personLastname').val('');
         $('#personFirstname, #personLastname').parent().addClass('visually-hidden');
@@ -26,5 +122,3 @@ function showDependantTypeFields(dependant)
         $("[name='defendant-details[dateOfBirth][month]']").parent().removeClass('visually-hidden');
     }
 }
-
-
