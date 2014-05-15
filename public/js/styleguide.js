@@ -88,77 +88,35 @@ define([], function () { /*some email validator function*/ });
 // 	}
 
 
-// 	/*
-// 	 * Generic Ajax overlay function
-// 	 */
+	/*
+	 * Generic Ajax overlay function
+	 */
 
-// 	function modal($targetEl,$fragmentEl) {
-// 		// Hide the overlay on load
-// 		$('.overlay, .modal__wrapper').hide();
+	function modal($targetEl,$fragmentEl) {
+		// Hide the overlay on load
+		$('.overlay, .modal__wrapper').hide();
 
-// 		$('.js-modal').click(function(e){
-// 			e.preventDefault();
+		$('.js-modal').click(function(e){
+			e.preventDefault();
 
-// 			// Ajax request
-// 			$.ajax({
-// 				url: $(this).attr('href'),
-// 				type: 'GET',
-// 				success: function(data) {
-// 					$($targetEl).append($(data).find($fragmentEl));
-// 					$('.overlay, .modal__wrapper').show();
-// 				}
-// 			});
-// 		});
+			// Ajax request
+			$.ajax({
+				url: $(this).attr('href'),
+				type: 'GET',
+				success: function(data) {
+					$($targetEl).append($(data).find($fragmentEl));
+					$('.overlay, .modal__wrapper').show();
+				}
+			});
+		});
 
-// 		// Close the modal
-// 		$('.modal__close').click(function(){
-// 			$('.overlay, .modal__wrapper').hide();
-// 		});
-// 	}
+		// Close the modal
+		$('.modal__close').click(function(){
+			$('.overlay, .modal__wrapper').hide();
+		});
+	}
 
 
-// 	/*
-// 	 * Progressively discloses page element
-// 	 */
-
-// 	// (function($) {
-// 	// 	 $.fn.progressiveDisclosure = function(options) {
-
-// 	// 		var opts = $.extend({}, $.fn.progressiveDisclosure.defaults, options);
-
-// 	// 		$(trigger).click(function() {
-// 	// 			$.ajax({
-// 	// 				url: url,
-// 	// 				type: 'GET',
-// 	// 				success: function(data) {
-// 	// 					$(data).find(fragment).insertAfter(target);
-// 	// 				}
-// 	// 			});
-// 	// 		});
-
-// 	// 	    $.fn.progressiveDisclosure.defaults = {
-// 	// 			trigger : '.radio-female',
-// 	// 			url : 'progressive-form-2',
-// 	// 	        fragment : '#another-fieldset',
-// 	// 	        target : '#personal-information fieldset'
-// 	// 	    };
-
-// 	// 	 };
-// 	// })(jQuery);
-
-// 		// if (jsonArray.length > 0) {
-// 		// }
-
-// 		// $.each(jsonArray, function() {
-// 		// 	var jsonName = this.name,
-// 		// 		jsonValue = this.value;
-
-// 		// 	$('[name="' + this.name + '"]').change(function() {
-// 		// 		if ( $(this).val() === jsonValue ) {
-// 		// 			alert('hello');
-// 		// 		}
-// 		// 	});
-// 		// });
 
 
 
