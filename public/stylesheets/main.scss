@@ -593,6 +593,8 @@ legend {
 	padding: 0;
 	color: black;
 	font-weight: 700;
+	display: block;
+	width: 90%;
 	.highlight-box & {
 		float: left;
 		width: 100%;
@@ -614,7 +616,6 @@ label {
 
 fieldset fieldset legend {
 	@extend %paragraph--large;
-	display: block;
 }
 
 fieldset fieldset label {

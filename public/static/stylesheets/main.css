@@ -622,6 +622,8 @@ legend {
   padding: 0;
   color: black;
   font-weight: 700;
+  display: block;
+  width: 90%;
 }
 .highlight-box legend {
   float: left;
@@ -638,10 +640,6 @@ label {
 }
 
 /* Styling for nested fieldsets */
-fieldset fieldset legend {
-  display: block;
-}
-
 /* 6.3 Inputs
    ========================================================================== */
 input,
