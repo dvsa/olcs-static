@@ -1113,9 +1113,6 @@ table input[type="checkbox"],
 table input[type="radio"] {
   margin-right: 0;
 }
-form table {
-  margin-bottom: 0;
-}
 
 tr:nth-child(even) {
   background: #f8f8f8;
