@@ -1614,6 +1614,9 @@ input[type="submit"].action--delete:link, input[type="submit"].action--delete:ho
     background-size: 19px 170px;
   }
 }
+.internal .tooltip__parent {
+  background-position: 50% 7px;
+}
 .tooltip__parent:hover {
   color: #6f777b;
   background-position-y: -142px;
@@ -1646,7 +1649,7 @@ input[type="submit"].action--delete:link, input[type="submit"].action--delete:ho
   border-left: 9px solid transparent;
   border-top: 10px solid black;
   border-right: 9px solid transparent;
-  left: 40px;
+  left: 35px;
   bottom: -9px;
 }
 

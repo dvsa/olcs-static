@@ -1514,6 +1514,9 @@ input[type="submit"].action,
 		background: url('../images/tooltip-icon-2x.png') no-repeat 97.5% 7px;
 		background-size: 19px 170px;
 	}
+	.internal & {
+		background-position: 50% 7px;
+	}
 	&:hover {
 		color: $grey-1;
 		background-position-y: -142px;
@@ -1543,7 +1546,7 @@ input[type="submit"].action,
     border-left: 9px solid transparent;
     border-top: 10px solid black;
     border-right: 9px solid transparent;
-    left:40px;
+    left:35px;
     bottom:-9px;
   }
 }
