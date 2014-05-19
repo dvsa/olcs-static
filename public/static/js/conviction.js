@@ -15,15 +15,15 @@ jQuery(function ()
         });
 
         $('body').on("change","#parentCategory", function(e) {
-                getSubCategory($('#parentCategory').val());
+            getSubCategory($('#parentCategory').val());
         });
 
         $('body').on("change", "#category", function(e) {
-                getDescription();
+            getDescription();
         });
         
         $('body').on("click", "#conviction", function(e) {
-                $('#categoryText').prop('disabled', false);
+            $('#categoryText').prop('disabled', false);
         });
     });
     
@@ -32,22 +32,21 @@ jQuery(function ()
 
 function checkCategories() {
     var parentCategory = $('#parentCategory').val();
-    var category = $('#category').val();
-
-    if (parseInt(parentCategory) && parseInt(category)) {  
+    var subCategory = $('#category').val();
+    
+    
+    
+    if (parseInt(parentCategory)) {
         current_data = {};
-        getDataCategories($('#parentCategory').val()).success(function (data) {
-            $.each(data.categories,function(key, value) 
-            {
+    
+        getDataCategories(parentCategory).success(function (data) {
+            $.each(data.categories,function(key, value) {
                 current_data[value.id] = value.description;
             });
         });
     }
-    else if (parseInt(parentCategory)) {
-        getSubCategory(parentCategory);
-    }
     
-    if (category !== 168) {
+    if (subCategory !== 168) {
         $('#categoryText').prop('disabled','disabled');
     }
 }
@@ -74,7 +73,7 @@ function getSubCategory(parentCategory){
                 $select.append('<option value=' + value.id + '>' + value.description.substring(0,73) + '</option>');
                 current_data[value.id] = value.description;
             });
-
+            
             $select.prop('disabled',false);
         });
     }
