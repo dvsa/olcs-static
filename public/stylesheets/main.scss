@@ -1117,9 +1117,6 @@ table {
 	input[type="radio"] {
 		margin-right: 0;
 	}
-	form & {
-		margin-bottom: 0;
-	}
 }
 
 tr:nth-child(even) { 
@@ -1517,6 +1514,9 @@ input[type="submit"].action,
 		background: url('../images/tooltip-icon-2x.png') no-repeat 97.5% 7px;
 		background-size: 19px 170px;
 	}
+	.internal & {
+		background-position: 50% 7px;
+	}
 	&:hover {
 		color: $grey-1;
 		background-position-y: -142px;
@@ -1528,7 +1528,7 @@ input[type="submit"].action,
   position: fixed;
   opacity: 0.9; /* IE :after bug prevents using opacity mixin */
   @include border-radius(2px);
-  width: 200px;
+  max-width: 200px;
   padding: .75em;
   font-size: 0.9em;
   line-height: 1.2;
@@ -1546,7 +1546,7 @@ input[type="submit"].action,
     border-left: 9px solid transparent;
     border-top: 10px solid black;
     border-right: 9px solid transparent;
-    left:40px;
+    left:35px;
     bottom:-9px;
   }
 }
