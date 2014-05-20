@@ -32,9 +32,7 @@ jQuery(function ()
 
 function checkCategories() {
     var parentCategory = $('#parentCategory').val();
-    var subCategory = $('#category').val();
-    
-    
+    var subCategory = $('#category').val();    
     
     if (parseInt(parentCategory)) {
         current_data = {};
@@ -46,7 +44,9 @@ function checkCategories() {
         });
     }
     
-    if (subCategory !== 168) {
+    if (subCategory === 168) {
+        $('#categoryText').prop('disabled',false);
+    } else {
         $('#categoryText').prop('disabled','disabled');
     }
 }
