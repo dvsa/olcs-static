@@ -658,6 +658,10 @@ select {
 	margin-right: .25em;
 }
 
+select[multiple] {
+	min-width: $one-third;
+}
+
 input:focus,
 textarea:focus,
 select:focus {
@@ -890,7 +894,7 @@ $statuses: (complete 10px 6px, incomplete -588px -596px, current -188px -194px);
 			background: none;
 			padding: 0;
 			margin: 0;
-			width: 100%;
+			width: 100% !important;
 			text-align: left;
 		}
 		a:hover {

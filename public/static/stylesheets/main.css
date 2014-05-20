@@ -675,6 +675,10 @@ select {
   margin-right: .25em;
 }
 
+select[multiple] {
+  min-width: 33.33333%;
+}
+
 input:focus,
 textarea:focus,
 select:focus {
@@ -919,7 +923,7 @@ input[type="file"] {
     background: none;
     padding: 0;
     margin: 0;
-    width: 100%;
+    width: 100% !important;
     text-align: left;
   }
   .app-navigation a:hover {
