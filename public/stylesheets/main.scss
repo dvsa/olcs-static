@@ -568,9 +568,7 @@ fieldset {
 	padding: 0;
 	border: 0;
 	clear: both;
-	float: left;
 	width: 100%;
-	clear: both;
 }
 
 .field { 
@@ -1006,9 +1004,8 @@ $breakpoint: 640px;
 		padding: .5em 0;
 		border-bottom: 1px solid $grey-2;	
 	}
-	.current {
-		border-bottom: 3px solid $black;
-		font-weight: 700;
+	.current, .disabled {
+
 		padding: .5em 0 0.25em 0;
 		a {
 			border-bottom: none;
@@ -1017,6 +1014,14 @@ $breakpoint: 640px;
 				background: none;
 			}
 		}
+	}
+	.current {
+		border-bottom: 3px solid $black;
+		font-weight: 700;
+	}
+	.disabled {
+		color: $grey-1;
+		border-bottom: 1px solid $grey-2;
 	}
 }
 
