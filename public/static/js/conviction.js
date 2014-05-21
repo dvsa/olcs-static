@@ -44,7 +44,7 @@ function checkCategories() {
         });
     }
     
-    if (subCategory === 168) {
+    if (subCategory == 168) {
         $('#categoryText').prop('disabled',false);
     } else {
         $('#categoryText').prop('disabled','disabled');
