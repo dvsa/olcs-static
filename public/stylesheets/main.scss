@@ -647,6 +647,14 @@ input[type="submit"] {
     padding: 0;
     text-decoration: underline;
     color: $link-colour;
+    font-family: $NTA-Light;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    &:hover {
+        text-decoration: none;
+        color: $link-active-colour;
+    }
 }
 
 textarea {
@@ -1319,8 +1327,10 @@ input[type="submit"].action,
         }
     }
     &--tertiary {
-        padding: .25em;
-        line-height: 2.3;
+        .actions-container & {
+            padding: .25em;
+            line-height: 2.3;
+        }
     }
     &--delete {
         @include action-colour($red);

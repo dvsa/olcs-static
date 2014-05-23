@@ -663,6 +663,14 @@ input[type="submit"] {
   padding: 0;
   text-decoration: underline;
   color: #005ea5;
+  font-family: "nta", Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+input[type="submit"]:hover {
+  text-decoration: none;
+  color: #2e8aca;
 }
 
 textarea {
@@ -1371,7 +1379,7 @@ input[type="submit"].action--secondary:link, input[type="submit"].action--second
 .action--warning:visited {
   color: #0b0c0c;
 }
-input[type="submit"].action--tertiary,
+.actions-container input[type="submit"].action--tertiary, .actions-container
 .action--tertiary {
   padding: .25em;
   line-height: 2.3;
