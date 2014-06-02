@@ -1,17 +1,32 @@
 /**
  * Javascript for impoundings page.
- *  Author: Ian Lindsay
+ * Author: Ian Lindsay
  */
 
 jQuery(function () 
 {
     $( document ).ready(function() {
-        checkImpoundingType();              
+        checkImpoundingType(); 
+        checkVenueOther();
         
         $('body').on("change", "#impoundingType", function() {
             checkImpoundingType();
         });
+        
+        $('body').on("change", "#piVenue", function() {
+            checkVenueOther();
+        });
     });
+    
+    function checkVenueOther() {
+        var venue = $('#piVenue').val();
+
+        if(venue === '' || venue > 0) {
+            toggleVenueOther('hide');
+        } else {
+            toggleVenueOther('show');
+        }
+    }
     
     function checkImpoundingType() {
         var impoundingType = $('#impoundingType').val();
@@ -20,9 +35,21 @@ jQuery(function ()
             case 'impounding_type.1':
                 toggleHearingFieldset('show');
                 break;
-            case 'impounding_type.2':
+            default:
                 toggleHearingFieldset('hide');
                 break;
+        }
+    }
+    
+    function toggleVenueOther(action) {
+        if(action === 'show'){
+            $('#piVenueOther').show();
+            $('label[for="piVenueOther"]').show();
+        }
+        else{
+            $('#piVenueOther').val('');
+            $('#piVenueOther').hide();
+            $('label[for="piVenueOther"]').hide();
         }
     }
     

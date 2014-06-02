@@ -26,8 +26,6 @@ jQuery(function ()
             $('#categoryText').prop('disabled', false);
         });
     });
-    
-    
 });
 
 function checkCategories() {
