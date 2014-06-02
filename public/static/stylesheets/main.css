@@ -4,7 +4,7 @@
  *  OPERATOR LICENCE & COMPLIANCE SYSTEM
  *  @version: 1.0
  *  @author: Valtech Ltd
- *	
+ *  
  *  1. Base styles & resets
  *  2. Typography
  *  3. Layout
@@ -599,6 +599,9 @@ fieldset {
   clear: both;
   width: 100%;
 }
+fieldset .field fieldset {
+  margin-bottom: 0;
+}
 
 .field {
   margin: 0 0 1em 0;
@@ -660,6 +663,14 @@ input[type="submit"] {
   padding: 0;
   text-decoration: underline;
   color: #005ea5;
+  font-family: "nta", Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+input[type="submit"]:hover {
+  text-decoration: none;
+  color: #2e8aca;
 }
 
 textarea {
@@ -880,7 +891,7 @@ input[type="file"] {
     background-size: 50px 657px;
   }
 }
-.app-navigation a, .app-navigation .current {
+.app-navigation a, .app-navigation .current, .app-navigation .disabled {
   line-height: 1.2;
   display: block;
   padding-top: 3.75em;
@@ -924,10 +935,7 @@ input[type="file"] {
     width: 100% !important;
     text-align: left;
   }
-  .app-navigation a:hover {
-    background: #f8f8f8;
-  }
-  .app-navigation a, .app-navigation .current {
+  .app-navigation a, .app-navigation .current, .app-navigation .disabled {
     padding: .5em 0;
     border-bottom: 1px solid #bfc1c3;
   }
@@ -1371,7 +1379,7 @@ input[type="submit"].action--secondary:link, input[type="submit"].action--second
 .action--warning:visited {
   color: #0b0c0c;
 }
-input[type="submit"].action--tertiary,
+.actions-container input[type="submit"].action--tertiary, .actions-container
 .action--tertiary {
   padding: .25em;
   line-height: 2.3;
