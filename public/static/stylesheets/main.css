@@ -1,9 +1,8 @@
-@charset "UTF-8";
 /**
  *
- *  OPERATOR LICENCE & COMPLIANCE SYSTEM
+ *  DVSA - OPERATOR LICENCE & COMPLIANCE SYSTEM
  *  @version: 1.0
- *  @author: Valtech Ltd
+ *  @author: sam.quayle@valtech.co.uk, Valtech Ltd
  *  
  *  1. Base styles & resets
  *  2. Typography
@@ -13,7 +12,7 @@
  *  6. Forms
  *  7. Navigation
  *  8. Tables
- *  9. Actions
+ *  9. Actions & buttons
  * 10. Modals & alerts
  * 11. Compliance 
  *
@@ -120,6 +119,23 @@ dd {
   margin: 0 0 1em 0;
   float: left;
   width: 30%;
+}
+
+.hint {
+  display: block;
+  color: #6f777b;
+  margin: .5em 0 .75em 0;
+  width: 90%;
+}
+
+.highlight-box {
+  background: #f8f8f8;
+  margin: 0 0 1.5em -1em;
+  padding: 1em 0 .5em 1em;
+  border-left: 3px solid #dee0e2;
+}
+.highlight-box .field.inline {
+  margin-bottom: 1em;
 }
 
 /* 1.1 Links
@@ -255,39 +271,6 @@ textarea {
   font-family: sans-serif;
 }
 
-.hint {
-  display: block;
-  color: #6f777b;
-  margin: .5em 0 .75em 0;
-  width: 90%;
-}
-
-.highlight-box {
-  background: #f8f8f8;
-  margin: 0 0 1.5em -1em;
-  padding: 1em 0 .5em 1em;
-  border-left: 3px solid #dee0e2;
-}
-.highlight-box .field.inline {
-  margin-bottom: 1em;
-}
-
-.close, input[type="submit"].remove, .modal__close {
-  background: url("../images/close.png") no-repeat 0 0;
-  text-indent: -9999px;
-  height: 22px;
-  width: 22px;
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  .close, input[type="submit"].remove, .modal__close {
-    background: url("../images/close-2x.png") no-repeat 0 0;
-    background-size: 60px 22px;
-  }
-}
-.close:hover, input[type="submit"].remove:hover, .modal__close:hover {
-  background-position: -39px 0;
-}
-
 /* 2.1 Article styles
    ========================================================================== */
 .article h2 {
@@ -321,6 +304,26 @@ textarea {
   overflow: hidden;
 }
 
+.page-wrapper {
+  width: 100%;
+  position: relative;
+  clear: both;
+  overflow: hidden;
+}
+
+#main {
+  width: 100%;
+  min-height: 400px;
+}
+#main:focus {
+  outline: 0;
+}
+
+.one-fifth {
+  width: 15.5%;
+  margin-right: .5em !important;
+}
+
 .one-third, .global-footer__copyright {
   width: 28.3333333333%;
   width: 27.4% \9;
@@ -343,52 +346,24 @@ textarea {
   width: 70%;
 }
 
-.full-width, .page-header, .global-breadcrumbs {
-  width: 95%;
-}
-
-/* Internal widescreen layout */
-.one-fifth {
-  width: 15.5%;
-  margin-right: .5em !important;
-}
-
 .four-fifths {
   width: 78%;
   margin-left: .5em !important;
 }
 
-.one-third, .global-footer__copyright, .one-quarter, .one-half, .two-thirds, .global-footer__links, .three-quarters, .full-width, .page-header, .global-breadcrumbs, .one-fifth, .four-fifths {
+.full-width, .page-header, .global-breadcrumbs {
+  width: 95%;
+}
+
+.one-fifth, .one-third, .global-footer__copyright, .one-quarter, .one-half, .two-thirds, .global-footer__links, .three-quarters, .four-fifths, .full-width, .page-header, .global-breadcrumbs {
   float: left;
   margin: 0 2.5% 1.5em 2.5%;
 }
 @media (max-width: 640px) {
-  .one-third, .global-footer__copyright, .one-quarter, .one-half, .two-thirds, .global-footer__links, .three-quarters, .full-width, .page-header, .global-breadcrumbs, .one-fifth, .four-fifths {
+  .one-fifth, .one-third, .global-footer__copyright, .one-quarter, .one-half, .two-thirds, .global-footer__links, .three-quarters, .four-fifths, .full-width, .page-header, .global-breadcrumbs {
     width: 92%;
     margin: 0 4% 1.5em 4%;
   }
-}
-
-.page-wrapper {
-  width: 100%;
-  position: relative;
-  clear: both;
-  overflow: hidden;
-}
-
-#main {
-  width: 100%;
-  min-height: 400px;
-}
-#main:focus {
-  outline: 0;
-}
-
-hr {
-  width: 100%;
-  height: 0.25em;
-  display: block;
-  border: 0;
 }
 
 /* Helpers */
@@ -406,6 +381,13 @@ hr {
   margin-right: .5em;
 }
 
+hr {
+  width: 100%;
+  height: 0.25em;
+  display: block;
+  border: 0;
+}
+
 /* ==========================================================================
    4. Headers
    ========================================================================== */
@@ -420,14 +402,12 @@ hr {
   overflow: auto;
 }
 .global-header__logo {
-  clear: none;
   float: left;
   margin-left: 2.5%;
   padding: 6px 0 1px 0;
   overflow: visible;
   color: white;
-  font-family: "nta", Arial, sans-serif;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 30px;
   line-height: 1;
   text-decoration: none;
@@ -536,11 +516,6 @@ hr {
 /* 6.1 Resets
    ========================================================================== */
 button,
-select {
-  text-transform: none;
-}
-
-button,
 input,
 select,
 textarea {
@@ -548,6 +523,7 @@ textarea {
   margin: 0;
   vertical-align: baseline;
   *vertical-align: middle;
+  text-transform: none;
 }
 
 button,
@@ -863,16 +839,16 @@ input[type="file"] {
 
 /* 7.2 Application
    ========================================================================== */
-.items-8 .app-navigation__item {
-  width: 10.5%;
+.items-5 .app-navigation__item {
+  width: 18%;
 }
 
 .items-7 .app-navigation__item {
   width: 12.28571%;
 }
 
-.items-5 .app-navigation__item {
-  width: 18%;
+.items-8 .app-navigation__item {
+  width: 10.5%;
 }
 
 .app-navigation {
@@ -1205,7 +1181,9 @@ tfoot th {
 }
 
 /* ==========================================================================
-   9. Actions
+   9. Actions & buttons
+   ========================================================================== */
+/* 9.1 Actions
    ========================================================================== */
 /* Use these to wrap multiple actions */
 .actions-container {
@@ -1446,6 +1424,24 @@ input[type="submit"].action--delete:link, input[type="submit"].action--delete:ho
 .action--secondary.large, .article
 .action--warning.large {
   margin-top: 0.5em;
+}
+
+/* 9.2 Close buttons
+   ========================================================================== */
+.close, input[type="submit"].remove, .modal__close {
+  background: url("../images/close.png") no-repeat 0 0;
+  text-indent: -9999px;
+  height: 22px;
+  width: 22px;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .close, input[type="submit"].remove, .modal__close {
+    background: url("../images/close-2x.png") no-repeat 0 0;
+    background-size: 60px 22px;
+  }
+}
+.close:hover, input[type="submit"].remove:hover, .modal__close:hover {
+  background-position: -39px 0;
 }
 
 /* ==========================================================================
@@ -1833,7 +1829,7 @@ input[type="submit"].action--delete:link, input[type="submit"].action--delete:ho
 }
 
 /* ==========================================================================
-   Error messages — REMOVE
+   Definition lists
    ========================================================================== */
 dl, dt, dd {
   width: 100%;

@@ -1,8 +1,8 @@
 /**
  *
- *  OPERATOR LICENCE & COMPLIANCE SYSTEM
+ *  DVSA - OPERATOR LICENCE & COMPLIANCE SYSTEM
  *  @version: 1.0
- *  @author: Valtech Ltd
+ *  @author: sam.quayle@valtech.co.uk, Valtech Ltd
  *  
  *  1. Base styles & resets
  *  2. Typography
@@ -12,7 +12,7 @@
  *  6. Forms
  *  7. Navigation
  *  8. Tables
- *  9. Actions
+ *  9. Actions & buttons
  * 10. Modals & alerts
  * 11. Compliance 
  *
@@ -89,6 +89,23 @@ dd {
     margin: 0 0 1em 0;
     float: left;
     width: 30%;
+}
+
+.hint {
+    display: block;
+    color: $grey-1;
+    margin: .5em 0 .75em 0;
+    width: 90%;
+}
+
+.highlight-box {
+    background: $grey-4;
+    margin: 0 0 1.5em -1em;
+    padding: 1em 0 .5em 1em;
+    border-left: 3px solid $grey-3;
+    .field.inline {
+        margin-bottom: 1em;
+    }
 }
 
 /* 1.1 Links
@@ -190,41 +207,6 @@ textarea {
     font-family: sans-serif;
 }
 
-.hint {
-    display: block;
-    color: $grey-1;
-    margin: .5em 0 .75em 0;
-    width: 90%;
-}
-
-.highlight-box {
-    background: $grey-4;
-    margin: 0 0 1.5em -1em;
-    padding: 1em 0 .5em 1em;
-    border-left: 3px solid $grey-3;
-    .field.inline {
-        margin-bottom: 1em;
-    }
-}
-
-.close {
-    background: url('../images/close.png') no-repeat 0 0;
-    @include device-pixel-ratio($ratio: 2) {
-        background: url('../images/close-2x.png') no-repeat 0 0;
-        background-size: 60px 22px;
-    }
-    text-indent: -9999px;
-    height: 22px;
-    width: 22px;
-    &:hover {
-        background-position: -39px 0;
-    }
-}
-
-input[type="submit"].remove {
-    @extend .close;
-}
-
 /* 2.1 Article styles
    ========================================================================== */
 
@@ -260,6 +242,31 @@ input[type="submit"].remove {
     overflow: hidden;
 }
 
+.page-wrapper {
+    @extend %external-wrapper;
+    width: 100%;
+    position:relative;
+    clear:both;
+    overflow: hidden;
+    .internal & {
+        @extend %internal-wrapper;
+    }
+}
+
+#main {
+    width: 100%;
+    min-height: 400px;
+    &:focus {
+        outline: 0;
+    }
+}
+
+.one-fifth {
+    @extend %container;
+    width: 15.5%;
+    margin-right: .5em !important;
+}
+
 .one-third {
     @extend %container;
     width: 28.3333333333%;
@@ -289,23 +296,15 @@ input[type="submit"].remove {
     width: 70%; 
 }
 
-.full-width {
-    @extend %container;
-    width: 95%;
-}
-
-/* Internal widescreen layout */
-
-.one-fifth {
-    @extend %container;
-    width: 15.5%;
-    margin-right: .5em !important;
-}
-
 .four-fifths {
     @extend %container;
     width: 78%;
     margin-left: .5em !important;
+}
+
+.full-width {
+    @extend %container;
+    width: 95%;
 }
 
 %container {
@@ -315,32 +314,6 @@ input[type="submit"].remove {
         width: 92%;
         margin: 0 4% 1.5em 4%;
     }
-}
-
-.page-wrapper {
-    @extend %external-wrapper;
-    width: 100%;
-    position:relative;
-    clear:both;
-    overflow: hidden;
-    .internal & {
-        @extend %internal-wrapper;
-    }
-}
-
-#main {
-    width: 100%;
-    min-height: 400px;
-    &:focus {
-        outline: 0;
-    }
-}
-
-hr {
-    width: 100%;
-    height: 0.25em;
-    display: block;
-    border: 0;
 }
 
 /* Helpers */
@@ -358,6 +331,14 @@ hr {
     float: left;
     margin-right: .5em;
 }
+
+hr {
+    width: 100%;
+    height: 0.25em;
+    display: block;
+    border: 0;
+}
+
 
 /* ==========================================================================
    4. Headers
@@ -378,14 +359,12 @@ hr {
         }
     }
     &__logo {
-        clear: none;
         float: left;
         margin-left: 2.5%;
         padding: 6px 0 1px 0;
         overflow: visible;
         color: white;
-        font-family: $NTA-Light;
-        font-weight: bold;
+        font-weight: 700;
         font-size: 30px;
         line-height: 1;
         text-decoration: none;  
@@ -506,11 +485,6 @@ hr {
 $warning-background: #fef7f7;
 
 button,
-select {
-    text-transform: none;
-}
-
-button,
 input,
 select,
 textarea {
@@ -518,6 +492,7 @@ textarea {
     margin: 0;
     vertical-align: baseline;
     *vertical-align: middle;
+    text-transform: none;
 }
 
 button,
@@ -846,24 +821,19 @@ input[type="file"] {
 $breakpoint: 840px;
 $statuses: (complete 10px 6px, incomplete -588px -596px, current -188px -194px);
 
-    // R-E-F-A-C-T-O-R
 
-    .items-8 .app-navigation__item {
-        $navigation-items: 8;
-        width: (100% - ($navigation-items * 2))/$navigation-items;
-    }
+.items-5 .app-navigation__item {
+    width: (100% - (5 * 2))/5;
+}
 
-    .items-7 .app-navigation__item {
-        $navigation-items: 7;
-        width: (100% - ($navigation-items * 2))/$navigation-items;
-    }
+.items-7 .app-navigation__item {
+    width: (100% - (7 * 2))/7;
+}
 
-    .items-5 .app-navigation__item {
-        $navigation-items: 5;
-        width: (100% - ($navigation-items * 2))/$navigation-items;
-    }
+.items-8 .app-navigation__item {
+    width: (100% - (8 * 2))/8;
+}
 
-    // R-E-F-A-C-T-O-R
 
 .app-navigation {
     @extend %navigation;
@@ -1211,7 +1181,10 @@ tfoot {
 }
 
 /* ==========================================================================
-   9. Actions
+   9. Actions & buttons
+   ========================================================================== */
+
+/* 9.1 Actions
    ========================================================================== */
 
 /* Use these to wrap multiple actions */
@@ -1349,6 +1322,27 @@ input[type="submit"].action,
     .article & {
         margin-top: 0.5em;
     }
+}
+
+/* 9.2 Close buttons
+   ========================================================================== */
+
+.close {
+    background: url('../images/close.png') no-repeat 0 0;
+    @include device-pixel-ratio($ratio: 2) {
+        background: url('../images/close-2x.png') no-repeat 0 0;
+        background-size: 60px 22px;
+    }
+    text-indent: -9999px;
+    height: 22px;
+    width: 22px;
+    &:hover {
+        background-position: -39px 0;
+    }
+}
+
+input[type="submit"].remove {
+    @extend .close;
 }
 
 
@@ -1661,7 +1655,7 @@ input[type="submit"].action,
 
 
 /* ==========================================================================
-   Error messages — REMOVE
+   Definition lists
    ========================================================================== */
 
 dl, dt, dd {
