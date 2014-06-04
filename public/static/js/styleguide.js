@@ -3,10 +3,14 @@ var OLCS = OLCS || {};
 
 $(function(){
   OLCS.hiddenFields.init();
-  //OLCS.ajaxModal.init();
   OLCS.tooltips.init();
   OLCS.alertBox.showOverlay('#launch-warning-alert');
   OLCS.alertBox.showOverlay('#launch-alert');
+  OLCS.modal.init({
+    trigger: '.js-modal',
+    selector: '.modal',
+    content: '#main'
+  });
 });
 
 
