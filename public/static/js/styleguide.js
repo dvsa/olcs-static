@@ -3,7 +3,7 @@ var OLCS = OLCS || {};
 
 $(function(){
 	OLCS.hiddenFields.init();
-	OLCS.ajaxModal.init();
+	//OLCS.ajaxModal.init();
 	OLCS.tooltips.init();
 	OLCS.alertBox.showOverlay('#launch-warning-alert');
 	OLCS.alertBox.showOverlay('#launch-alert');
@@ -74,57 +74,6 @@ OLCS.hiddenFields = (function () {
     };
 
 })()
-
-
-
-/**
- * 
- *  Ajax content into a modal window
- *
- *  Todo: 
- *  • Add proper toggling without ajax request if content is present
- *  • Abstract selectors into paramaters/conif
- *
- */
-
-OLCS.ajaxModal = (function () {
-
-	function hideModal () {
-		$('.overlay, .modal__wrapper').hide();
-	}
-
-	function ajaxModalContent () {
-		$('.js-modal').click(function(e){
-			e.preventDefault();
-			$.ajax({
-				url: $(this).attr('href'),
-				type: 'GET',
-				success: function(data) {
-					$('.modal').append($(data).find('#main'));
-					$('.overlay, .modal__wrapper').show();
-				}
-			});
-		});
-	}
-
-	function closeModal () {
-		$('.modal__close').click(function(){
-			$('.overlay, .modal__wrapper').hide();
-		});
-	}
-
-	function init () {
-		hideModal();
-		ajaxModalContent();
-		closeModal();
-	}
-
-    return {
-        init: init
-    };
-
-})()
-
 
 
 /**
