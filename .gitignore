@@ -10,3 +10,6 @@ public/test.html
 public/js/qunit.js
 public/js/tests/
 public/js/tests/tests.js
+*.sw?
+node_modules
+public/static/js/*.map
