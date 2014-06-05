@@ -10,13 +10,20 @@
 
 	&__item {
 		float: left;
-		width: 23.125%;
+		width: 47%;
 		margin: 0 1.5% .75em 0;
+		.case-summary & {
+			width: 23.5%;
+		}
+		&.full-width {
+			width: 100%;
+		}
 		// white-space: nowrap;
 		// overflow: hidden;
 		// text-overflow: ellipsis;
-		b { 
-			display: block; 
+		span, b { 
+			font-weight: 700;
+			display: block;
 		}
 	}
 }
