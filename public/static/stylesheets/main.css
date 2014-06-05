@@ -1679,10 +1679,17 @@ input[type="submit"].action--delete:link, input[type="submit"].action--delete:ho
 }
 .summary__item {
   float: left;
-  width: 23.125%;
+  width: 47%;
   margin: 0 1.5% .75em 0;
 }
-.summary__item b {
+.case-summary .summary__item {
+  width: 23.5%;
+}
+.summary__item.full-width, .summary__item.page-header, .summary__item.global-breadcrumbs {
+  width: 100%;
+}
+.summary__item span, .summary__item b {
+  font-weight: 700;
   display: block;
 }
 
