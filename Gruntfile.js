@@ -40,17 +40,35 @@ module.exports = function(grunt) {
         browsers: ["PhantomJS"]
       }
     },
+    sass: {
+      dist: {
+        options: {
+          style: "expanded",
+        },
+        files: {
+          "public/static/stylesheets/main.css": "../olcs-common/Common/assets/scss/src/main.scss"
+        }
+      }
+    },
 
     watch: {
+      options: {
+          livereload: true
+      },
       scripts: {
         files: sourcePaths,
         tasks: ["uglify:build"]
+      },
+      styles: {
+        files: ["../olcs-common/Common/assets/scss/**/*.scss"],
+        tasks: ["sass:dist"]
       }
     }
   });
 
   grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-jshint");
+  grunt.loadNpmTasks("grunt-contrib-sass");
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-karma");
 

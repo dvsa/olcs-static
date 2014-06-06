@@ -372,6 +372,10 @@ textarea {
   left: -9999em;
 }
 
+.hidden {
+  display: none;
+}
+
 .right-aligned {
   float: right;
 }
@@ -1840,19 +1844,4 @@ input[type="submit"].action--delete:link, input[type="submit"].action--delete:ho
    ========================================================================== */
 dl, dt, dd {
   width: 100%;
-}
-
-/**
- * NP proof of concept; ditch
- */
-.hidden {
-    display: none;
-}
-
-.js-enabled .js-hidden {
-    display: none;
-}
-
-.js-enabled .js-shown {
-    display: inherit;
 }

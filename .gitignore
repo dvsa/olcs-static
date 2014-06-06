@@ -1,5 +1,5 @@
 .DS_Store
-public/.sass-cache
+.sass-cache
 public/package.json
 public/node_modules/
 vendor/
