@@ -98,4 +98,5 @@ return array(
             ),
         ),
     ),
+    'application-name' => 'styleguide'
 );
