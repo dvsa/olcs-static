@@ -125,6 +125,14 @@ module.exports = (grunt) ->
             "assets/_js/selfserve/*.js"
           ]
 
+    jshint:
+      options:
+        jshintrc: ".jshintrc"
+      all: [
+        "assets/_js/**/*.js"
+        "!assets/_js/**/vendor/*"
+      ]
+
   require('matchdep').filterDev([
     'grunt-*'
     'assemble'
