@@ -1,17 +1,11 @@
 module.exports = (grunt) ->
-  'use strict'
-  
-  require('matchdep').filterDev([
-    'grunt-*',
-    'assemble'
-  ]).forEach grunt.loadNpmTasks
+
+  #src paths
+  srcAssets = 'assets/_styles'
+  pubStyles = 'public/styles'
 
   grunt.initConfig
 
-    #src paths
-    srcAssets: 'assets/_styles'
-    pubStyles: 'public/styles'
-    
     # grunt-contrib-sass
     sass:
       dev:
@@ -67,7 +61,6 @@ module.exports = (grunt) ->
         expand: true
         src: '**/*.hbs'
 
-            
     # grunt-contrib-watch
     watch:
       options:
@@ -84,6 +77,9 @@ module.exports = (grunt) ->
           'styleguides/pages/selfserve/{,*/}*.hbs'
         ]
         tasks: ['assemble']
+      scripts:
+        files: ['assets/_js/**/*.js']
+        tasks: ['uglify:build']
 
     # grunt-contrib-connect
     connect:
@@ -113,21 +109,41 @@ module.exports = (grunt) ->
         server:
           baseDir: "./"
 
-    grunt.registerTask 'compile', [
-      'sass:dev',
-      'assemble'
-    ]
+    uglify:
+      options:
+        sourceMap: true
+      build:
+        files:
+          "public/js/internal.js": [
+            "assets/_js/common/vendor/**/*.js"
+            "assets/_js/common/*.js"
+            "assets/_js/internal/*.js"
+          ]
+          "public/js/selfserve.js": [
+            "assets/_js/common/vendor/**/*.js"
+            "assets/_js/common/*.js"
+            "assets/_js/selfserve/*.js"
+          ]
 
-    grunt.registerTask 'clean', [
-      'coffeelint',
-      'prettify'
-    ]
+  require('matchdep').filterDev([
+    'grunt-*'
+    'assemble'
+  ]).forEach grunt.loadNpmTasks
 
-    grunt.registerTask 'serve', [
-      'compile',
-      'clean',
-      'connect',
-      'browserSync',
-      'watch'
-    ]
+  grunt.registerTask 'compile', [
+    'sass:dev'
+    'assemble'
+  ]
 
+  grunt.registerTask 'clean', [
+    'coffeelint'
+    'prettify'
+  ]
+
+  grunt.registerTask 'serve', [
+    'compile'
+    'clean'
+    'connect'
+    'browserSync'
+    'watch'
+  ]
