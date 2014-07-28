@@ -9,23 +9,21 @@ module.exports = function(config) {
       "node_modules/sinon/lib/sinon/**/*.js",
 
       // common dependencies
-      "../olcs-common/Common/assets/js/vendor/**/*.js",
+      "assets/_js/common/vendor/**/*.js",
 
       // source files...
-      "../olcs-common/Common/assets/js/src/**/*.js",
-      "../olcs-selfserve/module/SelfServe/assets/js/src/**/*.js",
-      "../olcs-internal/module/Olcs/assets/js/src/**/*.js",
+      "assets/_js/common/*.js",
+      "assets/_js/internal/*.js",
+      // "assets/_js/selfserve/*.js", <-- none yet, triggers a warning
 
       // test files
-      "../olcs-common/test/js/**/*.test.js",
-      "../olcs-selfserve/test/js/**/*.test.js",
-      "../olcs-internal/test/js/**/*.test.js"
+      "test/js/**/*.test.js"
     ],
     exclude: [],
     preprocessors: {
-      "../olcs-common/Common/assets/js/src/**/*.js": ["coverage"],
-      "../olcs-selfserve/module/SelfServe/assets/js/src/**/*.js": ["coverage"],
-      "../olcs-internal/module/Olcs/assets/js/src/**/*.js": ["coverage"]
+      "assets/_js/common/*.js": ["coverage"],
+      "assets/_js/internal/*.js": ["coverage"],
+      "assets/_js/selfserve/*.js": ["coverage"]
     },
     reporters: ["mocha", "coverage", "junit"],
     port: 9876,

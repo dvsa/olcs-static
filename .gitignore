@@ -3,3 +3,5 @@
 node_modules/
 editorconfig.org
 public/styles/*.map
+test/js/coverage
+test/js/reports

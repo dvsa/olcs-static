@@ -133,6 +133,12 @@ module.exports = (grunt) ->
         "!assets/_js/**/vendor/*"
       ]
 
+    karma:
+      unit:
+        configFile: "karma.conf.js",
+        singleRun: true,
+        browsers: ["PhantomJS"]
+
   require('matchdep').filterDev([
     'grunt-*'
     'assemble'

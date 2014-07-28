@@ -19,6 +19,16 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-open": "^0.2.3",
     "grunt-prettify": "^0.3.5",
-    "matchdep": "^0.3.0"
+    "matchdep": "^0.3.0",
+    "karma": "~0.12.16",
+    "sinon": "~1.10.0",
+    "mocha": "~1.18.2",
+    "karma-coverage": "~0.2.1",
+    "grunt-karma": "~0.8.3",
+    "karma-junit-reporter": "~0.2.2",
+    "karma-mocha": "~0.1.3",
+    "karma-phantomjs-launcher": "~0.1.4",
+    "karma-mocha-reporter": "~0.2.5",
+    "karma-expect": "~1.1.0"
   }
 }
