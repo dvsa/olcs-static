@@ -1,0 +1,20 @@
+.filters {
+    h4 {
+        padding-bottom: .5em;
+    }
+    &__list {
+        list-style: none;
+        border-top: 1px solid $grey-2;
+        padding: .6em 0;
+    }
+    &__title {
+        font-weight: 700;
+        margin-bottom: .35em;
+    }
+    &__item {
+        margin-bottom: .25em;
+    }
+    label {
+        @extend %paragraph--small;
+    }
+}

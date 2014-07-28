@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en-GB" class="no-js not-ie8">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tables</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/public/styles/selfserve.css" media="all" rel="stylesheet" type="text/css">
+  </head>
+  <body class="selfserve">
+
+    <div role="banner" class="global-header">
+  <div class="global-header__wrapper">
+    <a href="/styleguides/dist/selfserve/" title="Go to the OLCS Selfserve styleguide homepage" class="global-header__logo">
+      <img src="/public/images/gov.uk_logotype_crown.png" alt="GOV.UK logo">GOV.UK
+    </a>
+    <h2 class="global-header__title">Operator Licensing<span class="global-header__phase-tag">alpha</span></h2>
+  </div><!-- end .global-header__wrapper -->
+</div><!-- end .global-header --> 
+    
+    <div class="page-wrapper">
+      <ol class="global-breadcrumbs">
+        <li class="global-breadcrumbs__item current"><a href="/styleguides/dist/selfserve/">Home</a></li>
+      </ol>
+      <div id="main" role="main">
+        <div class="page-header">
+          <div class="page-header__wrapper">
+              <h1>Tables</h1>
+              <h3 class="page-header__subtitle">Standard styling for a range of complex tables and surrounding elements</h3>
+          </div><!-- end .page-header__wrapper -->
+        </div><!-- end .page-header -->
+
+        
+
+    <div class="full-width">
+
+      <!-- CRUD table -->
+
+      <form>
+        
+        <div class="table__header">
+          <h3>CRUD table</h3>
+          <!-- Tables should be wrapped in a <div clas=".table__wrapper">... 
+             element to allow them to overflow correctly  -->
+          <div class="actions-container">
+            <input class="action--primary" type="submit" value="Add">
+            <input class="action--secondary" type="submit" value="Edit">
+            <input class="action--warning" type="submit" value="Delete">
+          </div><!-- end .actions-container -->
+        </div><!-- end .table__header -->
+
+        <div class="table__wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Licence no.</th>
+                <th>Trading name</th>
+                <th>Postcode</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>D.O.B</th>
+                <th>Conv.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input name="row" type="radio"></td>
+                <td><input class="action--tertiary" type="submit" href="" value="7616525252"/></td>
+                <td>Jim Jefferey's Haulage LTD</td>
+                <td>LS7 4QP</td>
+                <td>James</td>
+                <td>Jefferey</td>
+                <td>07/02/1963</td>
+                <td>14</td>
+              </tr>
+              <tr>
+                <td><input name="row" type="radio"></td>
+                <td><a href="">36233242279</a></td>
+                <td>Amber Taxis</td>
+                <td>LS3 2PS</td>
+                <td>Mohammed</td>
+                <td>Ali</td>
+                <td>23/11/1943</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td><input name="row" type="radio"></td>
+                <td><a href="">86173252712</a></td>
+                <td>Jim Jefferey's Haulage LTD</td>
+                <td>LS7 4QP</td>
+                <td>James</td>
+                <td>Jefferey</td>
+                <td>07/02/1963</td>
+                <td>14</td>
+              </tr>
+              <tr>
+                <td><input name="row" type="radio"></td>
+                <td><a href="">8272632422</a></td>
+                <td>Amber Taxis</td>
+                <td>LS3 2PS</td>
+                <td>Mohammed</td>
+                <td>Ali</td>
+                <td>23/11/1943</td>
+                <td>5</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th colspan="7">Totals</th>
+                <td>477</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div><!-- end .table__wrapper -->
+      </form>
+
+
+      <!-- Read only table -->
+
+      <div class="table__header">
+        <h3>"Sortable"<span>102 results</span></h3>
+      </div><!-- end .table__header -->
+      <div class="table__wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Licence no.</th>
+              <th class="sortable descending"><a href="#">Trading name</a></th>
+              <th class="sortable ascending"><a href="">First name</a></th>
+              <th class="sortable"><a href="">Last name</a></th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="">76163222712</a></td>
+              <td>Jim Jefferey's Haulage LTD</td>
+              <td>James</td>
+              <td>Jefferey</td>
+              <td>Lorem ipsum sit amet...</td>
+            </tr>
+            <tr>
+              <td><a href="">36233242279</a></td>
+              <td>Amber Taxis</td>
+              <td>Mohammed</td>
+              <td>Ali</td>
+              <td>Lorem ipsum sit amet...
+                <span class="tooltip">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</span>
+              </td>
+            </tr>
+            <tr>
+              <td><a href="">86173252712</a></td>
+              <td>Jim Jefferey's Haulage LTD</td>
+              <td>James</td>
+              <td>Jefferey</td>
+              <td>Lorem ipsum sit amet...</td>
+            </tr>
+            <tr>
+              <td><a href="">8272632422</a></td>
+              <td>Amber Taxis</td>
+              <td>Mohammed</td>
+              <td>Ali</td>
+              <td>Lorem ipsum sit amet...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div><!-- end .table__wrapper -->
+      <div class="table__footer">
+        <div class="results-settings">
+            <p>Show:</p>
+            <ul class="results-settings__list">
+                <li class="results-settings__item current">10</li>
+                <li class="results-settings__item"><a href="">25</a></li>
+                <li class="results-settings__item"><a href="">50</a></li>
+            </ul><!-- end .results-settings__list -->
+            <p>results per page</p>
+        </div><!-- end .results-settings -->
+
+        <ul class="pagination right-aligned" role="navigation">
+            <li class="pagination__item"><a href="" rel="previous">Previous</a></li>
+            <li class="pagination__item"><a href="">1</a></li>
+            <li class="pagination__item"><a href="">2</a></li>
+            <li class="pagination__item current">3</li>
+            <li class="pagination__item"><a href="">4</a></li>
+            <li class="pagination__item"><a href="">5</a></li>
+            <li class="pagination__item">...</li>
+            <li class="pagination__item"><a href="">14</a></li>
+            <li class="pagination__item"><a href="" rel="next">Next</a></li>
+        </ul><!-- end .pagination.right-aligned -->
+      </div>
+
+
+      <!-- Multi-action CRUD table -->
+
+      <form>
+        <div class="table__header">
+          <h3>Multi-action CRUD table</h3>
+          <div class="actions-container">
+            <select id="table-actions" name="table-actions">
+              <option value="" disabled="disabled" selected>Select actions</option>
+              <option value="Add">Add</option>
+              <option value="Edit">Edit</option>
+              <option value="Delete">Delete</option>
+              <option value="Redirect">Redirect</option>
+              <option value="Close">Close</option>
+            </select>
+            <input class="action--primary" type="submit" value="Submit">
+          </div><!-- end .actions-container -->
+        </div><!-- end .table__header -->
+        <div class="table__wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Licence no.</th>
+                <th>Trading name</th>
+                <th>Postcode</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>D.O.B</th>
+                <th>Conv.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><input name="row" type="radio"></td>
+                <td><a href="">76163222712</a></td>
+                <td>Jim Jefferey's Haulage LTD</td>
+                <td>LS7 4QP</td>
+                <td>James</td>
+                <td>Jefferey</td>
+                <td>07/02/1963</td>
+                <td>14</td>
+              </tr>
+              <tr>
+                <td><input name="row" type="radio"></td>
+                <td><a href="">36233242279</a></td>
+                <td>Amber Taxis</td>
+                <td>LS3 2PS</td>
+                <td>Mohammed</td>
+                <td>Ali</td>
+                <td>23/11/1943</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td><input name="row" type="radio"></td>
+                <td><a href="">86173252712</a></td>
+                <td>Jim Jefferey's Haulage LTD</td>
+                <td>LS7 4QP</td>
+                <td>James</td>
+                <td>Jefferey</td>
+                <td>07/02/1963</td>
+                <td>14</td>
+              </tr>
+              <tr>
+                <td><input name="row" type="radio"></td>
+                <td><a href="">8272632422</a></td>
+                <td>Amber Taxis</td>
+                <td>LS3 2PS</td>
+                <td>Mohammed</td>
+                <td>Ali</td>
+                <td>23/11/1943</td>
+                <td>5</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th colspan="7">Totals</th>
+                <td>477</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div><!-- end .table__wrapper -->
+      </form>
+
+    </div><!-- end .full-width -->
+
+
+        
+      </div><!-- end .main -->
+
+    </div><!-- end .page-wrapper-->
+
+    <div class="global-footer">
+	<div class="global-footer__wrapper">
+		<ul class="global-footer__links">
+			<li class="global-footer__link"><a href="">Helpdesk</a></li>
+			<li class="global-footer__link"><a href="">Privacy &amp; cookies</a></li>
+			<li class="global-footer__link">Built by <a href="https://www.gov.uk/government/organisations/driver-and-vehicle-standards-agency">Driver &amp; Vehicle Standards Agency</a></li>
+		</ul>
+		<div class="global-footer__copyright">
+			<a href="">&copy; Crown copyright</a>
+		</div>
+    </div><!-- end global-wrapper -->
+</div><!-- end global-footer -->
+
+  </body>
+</html>

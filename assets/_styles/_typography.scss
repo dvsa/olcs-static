@@ -1,0 +1,103 @@
+@mixin font-size($font-size, $print-font-size, $font-size-640) {
+    @if $is-print == false {
+        font-size: $font-size;
+    } @else {
+        font-size: $print-font-size;
+    }
+    @media (max-width: 640px) {
+        font-size: $font-size-640;
+    }
+}
+
+%h2 { 
+    @include font-size(36px,18pt,24px); 
+
+}
+
+%h3 { @include font-size(24px,16pt,20px); }
+
+%h4 { 
+    @include font-size(19px,14pt,16px); 
+    margin: 0;
+}
+
+%paragraph--large {
+    @include font-size(19px,14pt,16px);
+    font-weight: 400;
+}
+
+%paragraph--small { 
+    @include font-size(16px,12pt,14px);
+}
+
+%paragraph--tiny { 
+    @include font-size(14px,10pt,12px);
+}
+
+h1, h2, h3, h4, h5, p {
+    clear: both;
+    margin: 0 0 $gutter-one-quarter 0;
+    font-weight: 700;
+}
+
+h1 { 
+    @if $app == 'selfserve' {
+      @include font-size(42px,18pt,32px);  
+    } @else {
+      @include font-size(28px,15pt,24px);
+      display: inline;
+      padding-right: .25em; 
+    }   
+    margin: 0 0 .15em 0;
+    line-height: 1.1;
+}
+
+h2 { @extend %h2; }
+
+h3 { @extend %h3; }
+
+h4 { 
+    @extend %h4; 
+    margin-bottom: 0;
+}
+
+h5 { 
+    @extend %paragraph--small;
+    margin-bottom: 0;
+}
+
+p { 
+    @extend %paragraph--small;
+    font-weight: 400;
+}
+
+b, strong { font-weight: 700; }
+
+small { font-size: 80%; }
+
+html,
+button,
+input,
+select,
+textarea {
+    font-family: sans-serif;
+}
+
+/* 2.1 Article styles
+   ========================================================================== */
+
+.article {
+    h2 { margin-bottom: .25em;}
+    h3,h4 { margin-bottom: .5em; }
+    ul { 
+        @extend %paragraph--large; 
+        margin-bottom: 1em;
+    }
+    li {
+        margin-bottom: 0.25em;
+    }
+    p { 
+        @extend %paragraph--large;
+        margin-bottom: .75em; 
+    }
+}

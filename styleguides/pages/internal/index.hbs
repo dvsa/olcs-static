@@ -1,0 +1,39 @@
+---
+title: Internal styleguide
+subtitle: OLCS internal app
+horizontalNavItems: 
+  - Applications
+  - Cases
+  - Bus registrations
+  - Addresses
+  - People
+  - Historical TMs
+  - Vehciles
+filterList:
+  - header: App status
+    type: checkboxes
+    filters:
+      - New
+      - Valid
+      - Invalid
+  - header: Traffic area
+    type: dropdown
+    filters:
+      - West of England
+      - North east of England
+      - North west of England
+      - West Midlands and Wales
+      - East of England
+      - London and the south east
+      - Scotland
+---
+
+<div class="full-width">
+  {{> _horizontal-navigation }}
+</div>
+
+<div class="one-quarter">
+  {{> _filters }}
+</div><!-- end .one-quarter -->
+
+

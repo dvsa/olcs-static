@@ -1,0 +1,13 @@
+.results-settings {
+    float: left;
+    margin-bottom: 2em;
+    &__list {
+        list-style: none;
+        float: left;
+    }
+    p, &__item {
+        float: left;
+        margin-right: .5em;
+        clear: none;
+    }
+}

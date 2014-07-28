@@ -1,0 +1,25 @@
+<div class="filters">
+  <h4>Filter by</h4>
+  {{#each filterList }}
+  <ul class="filters__list">
+    <li class="filters__title">{{this.header}}</li>
+
+    {{#is this.type 'checkboxes'}}
+      {{#each this.filters }}
+      <li class="filters__item">
+        <label for="f-{{ . }}"><input type="checkbox" name="area" id="f-{{ . }}">{{ . }}</label>
+      </li>
+      {{/each }}
+    {{/is}}
+
+    {{#is this.type 'dropdown'}}
+      <select id="{{ . }}" name="">
+      {{#each this.filters }}
+        <option value="{{ . }}">{{ . }}</option>
+      {{/each }}
+      </select>
+    {{/is}}
+    
+  </ul><!-- end .filters__list -->
+  {{/each }}
+</div>
