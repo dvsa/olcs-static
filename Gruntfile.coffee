@@ -79,7 +79,7 @@ module.exports = (grunt) ->
         tasks: ['assemble']
       scripts:
         files: ['assets/_js/**/*.js']
-        tasks: ['uglify:build']
+        tasks: ['uglify:dev']
 
     # grunt-contrib-connect
     connect:
@@ -112,7 +112,7 @@ module.exports = (grunt) ->
     uglify:
       options:
         sourceMap: true
-      build:
+      dev:
         files:
           "public/js/internal.js": [
             "assets/_js/common/vendor/**/*.js"
@@ -146,6 +146,7 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'compile', [
     'sass:dev'
+    'uglify:dev'
     'assemble'
   ]
 
@@ -161,3 +162,5 @@ module.exports = (grunt) ->
     'browserSync'
     'watch'
   ]
+
+  grunt.registerTask 'test', ['karma']
