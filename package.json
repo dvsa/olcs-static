@@ -1,5 +1,5 @@
 {
-  "name": "Grunt",
+  "name": "olcs-frontend",
   "version": "0.0.1",
   "author": "Sam Quayle <samuelcharlesquayle@gmail.com>",
   "devDependencies": {
