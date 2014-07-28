@@ -7,6 +7,10 @@ $summary-background: #e6eff5;
     overflow: hidden;
     h3 {
         float: left;
+        @if ($app == 'internal') {
+            @extend %paragraph--large;
+            margin-top: .1em;
+        }
     }
     span {
         @extend %paragraph--large;
@@ -17,6 +21,9 @@ $summary-background: #e6eff5;
     .actions-container {
         float: right;
         margin: 0 -0.25em 0 0;
+        @if ($app == 'internal') {
+            margin-bottom: .5em;
+        }
         select {
             margin: 3px 3px 0 0;
         }
@@ -52,6 +59,10 @@ tr:nth-child(even) {
 td, th { 
     @extend %paragraph--small;
     padding: .5em .5em .4em .5em;
+    @if ($app == 'internal') {
+        @extend %paragraph--tiny; 
+        padding: .6em .5em .6em .5em;
+    }
     border: 1px dotted $grey-2; 
     text-align: left; 
     vertical-align: top;

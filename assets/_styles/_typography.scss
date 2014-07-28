@@ -68,6 +68,9 @@ h5 {
 
 p { 
     @extend %paragraph--small;
+    @if ($app == internal) {
+        @extend %paragraph--tiny;
+    }
     font-weight: 400;
 }
 

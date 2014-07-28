@@ -1,6 +1,6 @@
 .filters {
     h4 {
-        padding-bottom: .5em;
+        padding-bottom: .4em;
     }
     &__list {
         list-style: none;
@@ -16,5 +16,8 @@
     }
     label {
         @extend %paragraph--small;
+        @if ($app == 'internal') {
+            @extend %paragraph--tiny;
+        }
     }
 }
