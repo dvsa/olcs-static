@@ -2,7 +2,7 @@
 
 %wrapper {
     @if $app == 'selfserve' {
-        max-width: 1200px;
+        max-width: 1080px;
     } @else {
         max-width: none;
     }
