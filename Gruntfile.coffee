@@ -106,7 +106,8 @@ module.exports = (grunt) ->
           forms: true
         watchTask: true
         server:
-          baseDir: "./public"
+          baseDir: './public'
+        tunnel: 'olcsfrontend'
 
     uglify:
       dev:
