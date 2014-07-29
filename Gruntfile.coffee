@@ -1,6 +1,5 @@
 module.exports = (grunt) ->
 
-  #src paths
   srcAssets = 'assets/_styles'
   pubStyles = 'public/styles'
 
@@ -19,10 +18,10 @@ module.exports = (grunt) ->
       "assets/_js/common/*.js"
       "assets/_js/selfserve/*.js"
     ]
+    
 
   grunt.initConfig
 
-    # grunt-contrib-sass
     sass:
       dev:
         options:
@@ -35,14 +34,12 @@ module.exports = (grunt) ->
           sourcemap: false
         files: styles
 
-    # grunt-coffee-lint
     coffeelint:
       app: 'Gruntfile.coffee'
       options:
         'no_trailing_whitespace':
           'level': 'error'
 
-    # grunt-prettify
     prettify:
       options:
         indent: 2
@@ -57,7 +54,6 @@ module.exports = (grunt) ->
           ext: '.html'
         ]
 
-    #assemble
     assemble:
       internal:
         options:
@@ -78,7 +74,6 @@ module.exports = (grunt) ->
         expand: true
         src: '**/*.hbs'
 
-    # grunt-contrib-watch
     watch:
       options:
         livereload: true
@@ -95,7 +90,6 @@ module.exports = (grunt) ->
         files: ['assets/_js/**/*.js']
         tasks: ['uglify:dev']
 
-    # grunt-browser-sync
     browserSync:
       bsFiles:
         src: [
@@ -138,10 +132,12 @@ module.exports = (grunt) ->
         singleRun: true,
         browsers: ["PhantomJS"]
 
+
   require('matchdep').filterDev([
     'grunt-*'
     'assemble'
   ]).forEach grunt.loadNpmTasks
+
 
   grunt.registerTask 'compile:dev', [
     'lint'
@@ -168,13 +164,11 @@ module.exports = (grunt) ->
     'watch'
   ]
 
-  # simple alias...
   grunt.registerTask 'test', ['karma']
 
   grunt.registerTask 'lint', [
     'coffeelint'
     # jshint to come...
-    # ... and possibly CSS
   ]
 
   grunt.registerTask 'assemble:pretty', [
