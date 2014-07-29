@@ -6,3 +6,4 @@ public/styles/*.map
 public/js/*.map
 test/js/coverage
 test/js/reports
+public/styleguides

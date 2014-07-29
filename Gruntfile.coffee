@@ -4,6 +4,22 @@ module.exports = (grunt) ->
   srcAssets = 'assets/_styles'
   pubStyles = 'public/styles'
 
+  styles =
+    'public/styles/selfserve.css':'assets/_styles/selfserve.scss'
+    'public/styles/internal.css':'assets/_styles/internal.scss'
+
+  scripts =
+    "public/js/internal.js": [
+      "assets/_js/common/vendor/**/*.js"
+      "assets/_js/common/*.js"
+      "assets/_js/internal/*.js"
+    ]
+    "public/js/selfserve.js": [
+      "assets/_js/common/vendor/**/*.js"
+      "assets/_js/common/*.js"
+      "assets/_js/selfserve/*.js"
+    ]
+
   grunt.initConfig
 
     # grunt-contrib-sass
@@ -12,9 +28,12 @@ module.exports = (grunt) ->
         options:
           style: 'expanded'
           sourcemap: true
-        files:
-          'public/styles/selfserve.css':'assets/_styles/selfserve.scss'
-          'public/styles/internal.css':'assets/_styles/internal.scss'
+        files: styles
+      prod:
+        options:
+          style: 'compressed'
+          sourcemap: false
+        files: styles
 
     # grunt-coffee-lint
     coffeelint:
@@ -32,9 +51,9 @@ module.exports = (grunt) ->
       dist:
         files: [
           expand: true
-          cwd: 'styleguides'
+          cwd: 'public/styleguides'
           src: '*.html'
-          dest: 'styleguides'
+          dest: 'public/styleguides'
           ext: '.html'
         ]
 
@@ -42,22 +61,20 @@ module.exports = (grunt) ->
     assemble:
       internal:
         options:
-          assets:'public'
           layout: 'internal_base.hbs'
           layoutdir: 'styleguides/layouts'
           partials: 'styleguides/partials/*.hbs'
         cwd: 'styleguides/pages/internal'
-        dest: 'styleguides/dist/internal'
+        dest: 'public/styleguides/internal'
         expand: true
         src: '**/*.hbs'
       selfserve:
         options:
-          assets:'public'
           layout: 'selfserve_base.hbs'
           layoutdir: 'styleguides/layouts'
           partials: 'styleguides/partials/*.hbs'
         cwd: 'styleguides/pages/selfserve'
-        dest: 'styleguides/dist/selfserve'
+        dest: 'public/styleguides/selfserve'
         expand: true
         src: '**/*.hbs'
 
@@ -67,35 +84,23 @@ module.exports = (grunt) ->
         livereload: true
         spawn: false
       styles:
-        files: ['assets/_styles/{,*/}*.scss']
+        files: ['assets/_styles/**/*.scss']
         tasks: ['sass:dev']
       hbs:
         files: [
-          'styleguides/partials/{,*/}*.hbs',
-          'styleguides/layouts/{,*/}*.hbs',
-          'styleguides/pages/internal/{,*/}*.hbs',
-          'styleguides/pages/selfserve/{,*/}*.hbs'
+          'styleguides/**/*.hbs'
         ]
         tasks: ['assemble']
       scripts:
         files: ['assets/_js/**/*.js']
         tasks: ['uglify:dev']
 
-    # grunt-contrib-connect
-    connect:
-      server:
-        options:
-          port: 7000
-          base: './ '
-          livereload: true
-          hostname: 'localhost'
-
     # grunt-browser-sync
     browserSync:
       bsFiles:
         src: [
-          'public/styles/*.css',
-          'styleguides/{,*/}*.hbs'
+          'public/**/*.css',
+          'public/**/*.html'
         ]
       options:
         port: 7001
@@ -107,23 +112,17 @@ module.exports = (grunt) ->
           forms: true
         watchTask: true
         server:
-          baseDir: "./"
+          baseDir: "./public"
 
     uglify:
-      options:
-        sourceMap: true
       dev:
-        files:
-          "public/js/internal.js": [
-            "assets/_js/common/vendor/**/*.js"
-            "assets/_js/common/*.js"
-            "assets/_js/internal/*.js"
-          ]
-          "public/js/selfserve.js": [
-            "assets/_js/common/vendor/**/*.js"
-            "assets/_js/common/*.js"
-            "assets/_js/selfserve/*.js"
-          ]
+        options:
+          sourceMap: true
+        files: scripts
+      prod:
+        options:
+          sourceMap: false
+        files: scripts
 
     jshint:
       options:
@@ -144,23 +143,41 @@ module.exports = (grunt) ->
     'assemble'
   ]).forEach grunt.loadNpmTasks
 
-  grunt.registerTask 'compile', [
+  grunt.registerTask 'compile:dev', [
+    'lint'
     'sass:dev'
     'uglify:dev'
-    'assemble'
+    'assemble:pretty'
   ]
 
-  grunt.registerTask 'clean', [
-    'coffeelint'
-    'prettify'
+  grunt.registerTask 'compile:staging', [
+    'lint'
+    'sass:prod'
+    'uglify:prod'
+    'assemble:pretty'
+  ]
+
+  grunt.registerTask 'compile:live', [
+    'sass:prod'
+    'uglify:prod'
   ]
 
   grunt.registerTask 'serve', [
-    'compile'
-    'clean'
-    'connect'
+    'compile:dev'
     'browserSync'
     'watch'
   ]
 
+  # simple alias...
   grunt.registerTask 'test', ['karma']
+
+  grunt.registerTask 'lint', [
+    'coffeelint'
+    # jshint to come...
+    # ... and possibly CSS
+  ]
+
+  grunt.registerTask 'assemble:pretty', [
+    'assemble'
+    'prettify'
+  ]
