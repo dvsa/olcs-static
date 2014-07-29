@@ -34,7 +34,7 @@ $assetPath : "../images/";
 '_fonts',
 '_base-styles';
 
-$primaryColour: $alpha-colour;
+$primaryColour: $department-for-transport;;
 
 /* 1.1 Links
    ========================================================================== */
@@ -106,26 +106,57 @@ $primaryColour: $alpha-colour;
             display: none;
         }
     }
-    &__phase-tag {
-        background: $alpha-colour;
-        width: auto;
-        margin-left: $gutter-half;
-        letter-spacing: .2em;
-        font-weight: 700;
-        font-size: .75em;
-        text-transform: uppercase;
-        padding: .5em;
-        position: relative;
-    }
+
 }
 
-/* 4.2 Page header
+/* 4.2 Secondary header
+   ========================================================================== */
+
+.secondary-header {
+  @extend .full-width;
+  border-top: 8px solid $primaryColour;
+  border-bottom: 1px solid $grey-2;
+  padding: .75em 0 .4em 0;
+  p {
+    float: left;
+  }
+}
+
+.user-menu {
+  float: right;
+  &__item {
+    @extend %paragraph--small;
+    display: inline;
+    margin-left: .5em;
+  }
+}
+
+.phase {
+  &__tag {
+    background: $alpha-colour;
+    width: auto;
+    color: $white;
+    letter-spacing: .2em;
+    font-weight: 700;
+    font-size: .75em;
+    text-transform: uppercase;
+    padding: .4em .6em;
+    margin-right: 1em;
+    position: relative;
+  }
+  &__message {
+    @media (max-width: 780px){
+      display: none;
+    }
+  }
+}
+
+/* 4.3 Page header
    ========================================================================== */
 
 .page-header {
     @extend .full-width;
-    margin-bottom: 1.5em;
-    border-bottom: 1px solid $grey-2;
+    margin: 2em 2.5% 1.5em 2.5%;
     padding-bottom: .5em;
 }
 
@@ -144,6 +175,7 @@ $primaryColour: $alpha-colour;
     background: $grey-3;
     color: #454a4c;
     clear: both;
+    margin-top: 1.5em;
     a {
         color: #454a4c;
     }
