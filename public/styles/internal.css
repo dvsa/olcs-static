@@ -194,7 +194,7 @@ h4, .modal h1 {
   }
 }
 
-.article ul, .article p, label, fieldset fieldset legend, .read-only legend, .table__header h3, .table__header span, input[type="submit"].action--primary.large,
+.article ul, .article p, label, fieldset fieldset legend, .read-only legend, .table__header, .table__header h3, .table__header span, input[type="submit"].action--primary.large,
 .action--primary.large, input[type="submit"].action--secondary.large, input[type="submit"].action--warning.large,
 .action--secondary.large,
 .action--warning.large, input[type="submit"].action--delete.large,
@@ -203,7 +203,7 @@ h4, .modal h1 {
   font-weight: 400;
 }
 @media (max-width: 640px) {
-  .article ul, .article p, label, fieldset fieldset legend, .read-only legend, .table__header h3, .table__header span, input[type="submit"].action--primary.large,
+  .article ul, .article p, label, fieldset fieldset legend, .read-only legend, .table__header, .table__header h3, .table__header span, input[type="submit"].action--primary.large,
   .action--primary.large, input[type="submit"].action--secondary.large, input[type="submit"].action--warning.large,
   .action--secondary.large,
   .action--warning.large, input[type="submit"].action--delete.large,
@@ -359,19 +359,20 @@ textarea {
 }
 
 .four-fifths {
-  width: 78%;
+  width: 77.5%;
+  float: left;
 }
 
 .full-width, .global-header__wrapper, .page-header__wrapper {
   width: 95%;
 }
 
-.one-fifth, .one-third, .global-footer__copyright, .one-quarter, .one-half, .two-thirds, .global-footer__links, .three-quarters, .four-fifths, .full-width, .global-header__wrapper, .page-header__wrapper {
+.one-fifth, .one-third, .global-footer__copyright, .one-quarter, .one-half, .two-thirds, .global-footer__links, .three-quarters, .full-width, .global-header__wrapper, .page-header__wrapper {
   float: left;
   margin: 0 2.5% 1em 2.5%;
 }
 @media (max-width: 640px) {
-  .one-fifth, .one-third, .global-footer__copyright, .one-quarter, .one-half, .two-thirds, .global-footer__links, .three-quarters, .four-fifths, .full-width, .global-header__wrapper, .page-header__wrapper {
+  .one-fifth, .one-third, .global-footer__copyright, .one-quarter, .one-half, .two-thirds, .global-footer__links, .three-quarters, .full-width, .global-header__wrapper, .page-header__wrapper {
     width: 92%;
     margin: 0 4% 1.5em 4%;
   }
@@ -1258,6 +1259,7 @@ input[type="file"] {
   display: block;
   width: 100%;
   overflow: hidden;
+  margin-top: -.25em;
 }
 .table__header h3 {
   float: left;
@@ -1276,13 +1278,11 @@ input[type="file"] {
 .table__header .actions-container select {
   margin: 3px 3px 0 0;
 }
-
 .table__wrapper {
   display: block;
   width: 100%;
   overflow: auto;
 }
-
 .table__footer {
   width: 100%;
   clear: right;

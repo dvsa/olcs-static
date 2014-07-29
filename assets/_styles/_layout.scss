@@ -66,8 +66,8 @@
 }
 
 .four-fifths {
-    @extend %container;
-    width: 78%;
+    width: 77.5%;
+    float: left;
 }
 
 .full-width {

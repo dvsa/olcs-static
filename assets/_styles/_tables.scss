@@ -1,130 +1,134 @@
 $summary-border: #cdd7dc;
 $summary-background: #e6eff5;
 
-.table__header {
+.table {
+  &__header {
     display: block;
     width: 100%;
     overflow: hidden;
+    @if ($app == 'internal') {
+      @extend %paragraph--large;
+      margin-top: -.25em;
+    }
     h3 {
-        float: left;
-        @if ($app == 'internal') {
-            @extend %paragraph--large;
-            margin-top: .1em;
-        }
+      float: left;
+      @if ($app == 'internal') {
+        @extend %paragraph--large;
+        margin-top: .1em;
+      }
     }
     span {
-        @extend %paragraph--large;
-        font-weight: 400;
-        color: $grey-1;
-        padding-left: .4em;
+      @extend %paragraph--large;
+      font-weight: 400;
+      color: $grey-1;
+      padding-left: .4em;
     }
     .actions-container {
-        float: right;
-        margin: 0 -0.25em 0 0;
-        @if ($app == 'internal') {
-            margin-bottom: .5em;
-        }
-        select {
-            margin: 3px 3px 0 0;
-        }
+      float: right;
+      margin: 0 -0.25em 0 0;
+      @if ($app == 'internal') {
+        margin-bottom: .5em;
+      }
+      select {
+        margin: 3px 3px 0 0;
+      }
     }
-}
-
-.table__wrapper {
+  }
+  &__wrapper {
     display: block;
     width: 100%;
     overflow: auto;
-}
-
-.table__footer {
+  }
+  &__footer {
     width: 100%;
     clear:right;
     overflow: auto;
+  }
 }
 
 table { 
-    width: 100%;
-    border-collapse: collapse; 
-    margin-bottom: .75em;
-    input[type="checkbox"],
-    input[type="radio"] {
-        margin-right: 0;
-    }
+  width: 100%;
+  border-collapse: collapse; 
+  margin-bottom: .75em;
+  input[type="checkbox"],
+  input[type="radio"] {
+    margin-right: 0;
+  }
 }
 
 tr:nth-child(even) { 
-    background: $grey-4; 
+  background: $grey-4; 
 }
 
 td, th { 
-    @extend %paragraph--small;
-    padding: .5em .5em .4em .5em;
-    @if ($app == 'internal') {
-        @extend %paragraph--tiny; 
-        padding: .6em .5em .6em .5em;
-    }
-    border: 1px dotted $grey-2; 
-    text-align: left; 
-    vertical-align: top;
+  @extend %paragraph--small;
+  padding: .5em .5em .4em .5em;
+  @if ($app == 'internal') {
+    @extend %paragraph--tiny; 
+    padding: .6em .5em .6em .5em;
+  }
+  border: 1px dotted $grey-2; 
+  text-align: left; 
+  vertical-align: top;
 }
 
 th { 
-    font-weight: 600;
-    background: $grey-3; 
-    border: 1px solid $grey-2; 
+  font-weight: 600;
+  background: $grey-3; 
+  border: 1px solid $grey-2; 
 }
 
 td {
-    overflow: visible;
-    b { 
-        display: block;
-    }
+  overflow: visible;
+  b { 
+    display: block;
+  }
 }
 
 tfoot {
-    tr { 
-        border: 1px solid $summary-border;
-        background: $summary-background;
-    }
-    th, 
-    td {    
-        border: none;
-        overflow: hidden;
-        background: $summary-background;
-    }
-    th {
-        text-align: right;
-        background: $summary-background;
-    }
+  tr { 
+    border: 1px solid $summary-border;
+    background: $summary-background;
+  }
+  th, 
+  td {    
+    border: none;
+    overflow: hidden;
+    background: $summary-background;
+  }
+  th {
+    text-align: right;
+    background: $summary-background;
+  }
 }
 
 .sortable {
-    padding: 0;
-    background: $grey-3 url('../images/down-arrow.png') no-repeat 95% 14px;
+  padding: 0;
+  background: $grey-3 url('../images/down-arrow.png') no-repeat 95% 14px;
+  @include device-pixel-ratio($ratio: 2) {
+    background-image: url('../images/down-arrow-2x.png');
+    background-size: 10px 130px;
+  }
+  a {
+    display: block;
+    padding: .5em .5em .4em .5em;
+    color: $black;
+    text-decoration: none;
+    &:active {
+        color: $grey-1;
+    }
+  }
+  &:hover {
+    background-color: #cccccc;
+  }
+  &.ascending {
+    background: #cccccc url('../images/down-arrow.png') no-repeat 95% -108px;
     @include device-pixel-ratio($ratio: 2) {
         background-image: url('../images/down-arrow-2x.png');
         background-size: 10px 130px;
     }
-    a {
-        display: block;
-        padding: .5em .5em .4em .5em;
-        color: $black;
-        text-decoration: none;
-        &:active {
-            color: $grey-1;
-        }
-    }
-    &:hover {
-        background-color: #cccccc;
-    }
-    &.ascending {
-        background: #cccccc url('../images/down-arrow.png') no-repeat 95% -108px;
-        @include device-pixel-ratio($ratio: 2) {
-            background-image: url('../images/down-arrow-2x.png');
-            background-size: 10px 130px;
-        }
-    }
-    &.descending {
-        background-color: #cccccc;
-    }
+  }
+  &.descending {
+    background-color: #cccccc;
+  }
 }
