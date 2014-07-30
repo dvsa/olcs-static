@@ -1,6 +1,5 @@
 {
     "maxerr": 100,
-
     "strict": true,
     "trailing": true,
     "undef": true,

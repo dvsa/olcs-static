@@ -37,7 +37,11 @@ module.exports = (grunt) ->
       app: 'Gruntfile.coffee'
       options:
         'no_trailing_whitespace':
-          'level': 'error'
+          'level': 'warn'
+        max_line_length:
+          value: 80
+          level: "warn"
+
 
     prettify:
       options:
@@ -90,9 +94,7 @@ module.exports = (grunt) ->
         files: ['assets/_styles/**/*.scss']
         tasks: ['sass:dev']
       hbs:
-        files: [
-          'styleguides/**/*.hbs'
-        ]
+        files: ['styleguides/**/*.hbs']
         tasks: ['assemble']
       scripts:
         files: ['assets/_js/**/*.js']
@@ -100,6 +102,10 @@ module.exports = (grunt) ->
       images:
         files: ['assets/_images/**/*.{png,jpg,gif}']
         tasks: ['newer:imagemin']
+      htmllint:
+        files: ['public/styleguides/**/*.html']
+        tasks: ['newer:htmllint']
+
 
     browserSync:
       bsFiles:
@@ -119,6 +125,14 @@ module.exports = (grunt) ->
         server:
           baseDir: './public'
         tunnel: 'olcsfrontend'
+
+    htmllint: {
+      all: ["public/styleguides/**/*.html"]
+      opiton:
+        ignore: [
+          'Bad value “X-UA-Compatible” for attribute “http-equiv” on XHTML element “meta”.'
+        ]
+    }
 
     open:
       selfserve:
@@ -191,7 +205,6 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'lint', [
     'coffeelint'
-    # jshint to come...
   ]
 
   grunt.registerTask 'assemble:pretty', [

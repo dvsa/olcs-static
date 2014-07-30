@@ -26,6 +26,7 @@
     "karma-mocha-reporter": "~0.2.5",
     "karma-expect": "~1.1.0",
     "grunt-contrib-imagemin": "^0.7.1",
-    "grunt-newer": "^0.7.0"
+    "grunt-newer": "^0.7.0",
+    "grunt-html": "^1.4.0"
   }
 }
