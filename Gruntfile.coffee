@@ -18,7 +18,6 @@ module.exports = (grunt) ->
       "assets/_js/common/*.js"
       "assets/_js/selfserve/*.js"
     ]
-    
 
   grunt.initConfig
 
@@ -74,6 +73,15 @@ module.exports = (grunt) ->
         expand: true
         src: '**/*.hbs'
 
+    imagemin:
+      options:
+        optimizationLevel: 3
+      files:
+        expand: true
+        cwd: 'assets/_images/'
+        src: ['**/*.{png,jpg,gif}']
+        dest: 'public/images/'
+
     watch:
       options:
         livereload: true
@@ -89,6 +97,9 @@ module.exports = (grunt) ->
       scripts:
         files: ['assets/_js/**/*.js']
         tasks: ['uglify:dev']
+      images:
+        files: ['assets/_images/**/*.{png,jpg,gif}']
+        tasks: ['newer:imagemin']
 
     browserSync:
       bsFiles:
@@ -98,7 +109,7 @@ module.exports = (grunt) ->
         ]
       options:
         port: 7001
-        open: true
+        open: false
         ghostMode:
           clicks: true
           scroll: true
@@ -108,6 +119,14 @@ module.exports = (grunt) ->
         server:
           baseDir: './public'
         tunnel: 'olcsfrontend'
+
+    open:
+      selfserve:
+        path: 'http://localhost:7001/styleguides/selfserve'
+        app: 'Google Chrome'
+      internal:
+        path: 'http://localhost:7001/styleguides/internal'
+        app: 'Google Chrome'
 
     uglify:
       dev:
@@ -162,8 +181,11 @@ module.exports = (grunt) ->
   grunt.registerTask 'serve', [
     'compile:dev'
     'browserSync'
+    'open'
     'watch'
   ]
+
+  grunt.registerTask 'images', ['imagemin']
 
   grunt.registerTask 'test', ['karma']
 
