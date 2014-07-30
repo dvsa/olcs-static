@@ -1,10 +1,9 @@
-
-  <h4>In this section</h4>
-  <ol class="vertical-navigation" role="navigation">
-    {{#each verticalNavItems }}
-    <li class="vertical-navigation__item">
-      <a href="#{{ . }}">{{ . }}</a>
-    </li>
-    {{/each}}
-  </ol><!-- end .vertical-navigation -->
+<h4>In this section</h4>
+<ol class="vertical-navigation" role="menu">
+{{#each verticalNavItems }}
+<li class="vertical-navigation__item">
+  <a href="">{{ this }}</a>
+</li>
+{{/each}}
+</ol><!-- end .vertical-navigation -->
 

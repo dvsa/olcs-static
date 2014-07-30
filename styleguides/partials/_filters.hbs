@@ -13,7 +13,7 @@
     {{/is}}
 
     {{#is this.type 'dropdown'}}
-      <select id="{{ . }}" name="">
+      <select name="">
       {{#each this.filters }}
         <option value="{{ . }}">{{ . }}</option>
       {{/each }}
