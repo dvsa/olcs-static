@@ -137,10 +137,8 @@ module.exports = (grunt) ->
     open:
       selfserve:
         path: 'http://localhost:7001/styleguides/selfserve'
-        app: 'Google Chrome'
       internal:
         path: 'http://localhost:7001/styleguides/internal'
-        app: 'Google Chrome'
 
     uglify:
       dev:
