@@ -1,5 +1,3 @@
-
-
 %wrapper {
     @if $app == 'selfserve' {
         max-width: 1080px;
@@ -110,4 +108,10 @@ hr {
     display: block;
     border: 0;
     clear: both;
+}
+
+.js-enabled {
+  .js-hidden {
+    display: none;
+  }
 }
