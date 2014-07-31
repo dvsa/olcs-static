@@ -1,0 +1,70 @@
+.user-header {
+  width: 100%;
+  overflow: auto;
+  border-top: 8px solid $primaryColour;
+  padding: .75em 0 .4em 0;
+  margin-bottom: .5em;
+  @if $app == 'selfserve' {
+      @extend .full-width;
+      border-bottom: 1px solid $grey-2;
+      padding: .75em 0 .4em 0;
+  }
+  @if $app == 'selfserve' {
+     @extend %paragraph--small;
+  } @else {
+      @extend %paragraph--tiny;
+  }
+} 
+
+.phase {
+  float: left;
+  &__tag {
+    background: $alpha-colour;
+    color: $white;
+    letter-spacing: .2em;
+    font-weight: 700;
+    font-size: .75em;
+    text-transform: uppercase;
+    padding: .4em .6em;
+    margin-right: 1em;
+    position: relative;
+  }
+  &__message {
+    @media (max-width: 780px){
+      display: none;
+    }
+  }
+}
+
+.breadcrumbs {
+  width: 50%;
+  margin-bottom: 0;
+  overflow: auto;
+  list-style: none;
+  float: left;
+  &__item {
+    float: left;
+    padding-right: 1em;
+    margin-right: .5em;
+    color: $black;
+    background: url('{$assetPath}/breadcrumb-arrow.png') no-repeat 100% 70%;
+    @include device-pixel-ratio($ratio: 2) {
+      background: url('{$assetPath}/breadcrumb-arrow-2x.png') no-repeat 100% 40%;
+      background-size: 6px 11px;
+    }
+  }
+  a {
+    color: $grey-1;
+  }
+  .current {
+    background: none;
+  }
+}
+
+.user-menu {
+  float: right;
+  &__item {
+    display: inline;
+    margin-left: .5em;
+  }
+}

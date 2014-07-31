@@ -1,87 +1,79 @@
 
-
-%wrapper {
-    @if $app == 'selfserve' {
-        max-width: 1080px;
-    } @else {
-        max-width: none;
-    }
-    margin: 0 auto;
-    overflow: hidden;
-}
-
 .page-wrapper {
-    @extend %wrapper;
-    width: 100%;
-    position:relative;
-    clear:both;
-    overflow: hidden;
+  @if $app == 'selfserve' { max-width: 1080px; }
+  margin: 0 auto;
+  overflow: hidden;
+  width: 100% - ($gutter*2);
+  padding: 0 $gutter;
+  clear: both;
+  overflow: hidden;
 }
 
 #main {
-    width: 100%;
-    min-height: 400px;
-    &:focus {
-        outline: 0;
-    }
-}
-
-.one-fifth {
-    @extend %container;
-    width: 15%;
+  width: 100%;
+  &:focus { outline: 0; }
 }
 
 .one-third {
-    @extend %container;
-    width: 28.3333333333%;
-    width : 27.4%\9; /* lt IE9  */
-    p {
-        @extend %paragraph--small;
-    }
+  @extend %container;
+  width: 28.3333333333%;
+  width : 27.4%\9; /* lt IE9  */
+  p { @extend %paragraph--small; }
 }
 
 .one-quarter { 
-    @extend %container;
-    width: 20%;
+  @extend %container;
+  width: 20%;
 }
 
 .one-half {
-    @extend %container;
-    width: 45%;
-}
-
-.three-fifths { 
-    width: 60%; 
-    float: left;
+  @extend %container;
+  width: 45%;
 }
 
 .two-thirds {
-    @extend %container;
-    width: 61.6666666667%;
+  @extend %container;
+  width: 61.6666666667%;
 }
 
 .three-quarters { 
-    @extend %container;
-    width: 70%; 
+  @extend %container;
+  width: 70%; 
+}
+
+.one-fifth {
+  @extend %container;
+  width: (100% / 5) - ($gutter*2);
+  .four-fifths & {
+    margin: 1em $gutter 0 0;
+  }
+}
+
+.three-fifths { 
+  @extend %container;
+  width: (100% / 5)*3 - ($gutter*2); 
+  .four-fifths & {
+    margin: 1em 0 0 $gutter;
+  }
 }
 
 .four-fifths {
-    width: 77.5%;
-    float: left;
+  @extend %container;
+  width: (100% / 5)*4 - ($gutter*2);
 }
 
 .full-width {
-    @extend %container;
-    width: 95%;
+  @extend %container;
+  width: 100% - ($gutter*2);
 }
 
 %container {
-    float:left;
-    margin: 0 2.5% 1em 2.5%;
-    @media (max-width: 640px){
-        width: 92%;
-        margin: 0 4% 1.5em 4%;
-    }
+  float:left; 
+  margin: 0 $gutter 1em $gutter;
+  @media (max-width: 640px){
+    width: 92%;
+    margin: 0 4% 1.5em 4%;
+  }
 }
 
 /* Helpers */

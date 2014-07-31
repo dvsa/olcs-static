@@ -1,6 +1,7 @@
 <ul class="horizontal-navigation" role="tablist">
-	<li class="horizontal-navigation__item current">Licences</li>
-	{{#each horizontalNavItems }}
-	  <li class="horizontal-navigation__item"><a href="">{{ . }}</a></li>
-	{{/each}}
+    {{#each horizontalNavItems }}
+    <li class="horizontal-navigation__item {{this.state}}">
+      {{#isnt this.state "current" }}<a href="">{{ this.label }}</a>{{else }}{{ this.label }}{{/isnt}}
+    </li>
+    {{/each}}
 </ul>
