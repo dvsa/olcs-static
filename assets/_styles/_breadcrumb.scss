@@ -1,0 +1,20 @@
+.breadcrumbs {
+  width: 40%;
+  margin-bottom: 0;
+  overflow: auto;
+  list-style: none;
+  float: left;
+  &__item {
+    float: left;
+    padding-right: 1em;
+    margin-right: .5em;
+    color: $black;
+    background: url('{$assetPath}/breadcrumb-arrow.png') no-repeat 100% 70%;
+    @include device-pixel-ratio($ratio: 2) {
+      background: url('{$assetPath}/breadcrumb-arrow-2x.png') no-repeat 100% 40%;
+      background-size: 6px 11px;
+    }
+  }
+  a { color: $grey-1; }
+  .current { background: none;}
+}
