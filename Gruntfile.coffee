@@ -12,11 +12,13 @@ module.exports = (grunt) ->
       "assets/_js/common/vendor/**/*.js"
       "assets/_js/common/*.js"
       "assets/_js/internal/*.js"
+      "assets/_js/common/init/*.js"
     ]
     "public/js/selfserve.js": [
       "assets/_js/common/vendor/**/*.js"
       "assets/_js/common/*.js"
       "assets/_js/selfserve/*.js"
+      "assets/_js/common/init/*.js"
     ]
 
   grunt.initConfig
