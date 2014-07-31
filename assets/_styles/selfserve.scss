@@ -64,49 +64,48 @@ $gutter: 2.5%;
    ========================================================================== */
 
 .global-header {
-    background: $black;
-    color: $white;    
-    &__wrapper {
-        @extend .page-wrapper;
-        margin: 0 auto;
-        padding: .5em;        
-        overflow: auto;
+  background: $black;
+  color: $white;    
+  &__wrapper {
+    @extend .page-wrapper;
+    margin: 0 auto;
+    padding: .5em;        
+    overflow: auto;
+  }
+  &__logo {
+    float: left;
+    padding-top: 6px;
+    color: white;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1;
+    text-decoration: none;
+    margin-left: $gutter;
+    img {
+      margin-top: -3px;
+      width: 35px;
+      height: 31px;
+      padding-right: 6px;
+      float: left;
     }
-    &__logo {
-        float: left;
-        padding-top: 6px;
-        color: white;
-        font-weight: 700;
-        font-size: 30px;
-        line-height: 1;
-        text-decoration: none;
-        margin-left: $gutter;
-        img {
-            margin-top: -3px;
-            width: 35px;
-            height: 31px;
-            padding-right: 6px;
-            float: left;
-        }
-        &:hover {
-            text-decoration: none;
-            border-bottom: 1px solid #FFF;
-            margin-bottom: -1px;
-            color: #FFF;
-        }
+    &:hover {
+      text-decoration: none;
+      border-bottom: 1px solid #FFF;
+      margin-bottom: -1px;
+      color: #FFF;
     }
-    &__title {
-        @extend %h4;
-        clear: none;
-        overflow: hidden;
-        text-align: right;
-        margin: .25em $gutter 0 0;
-        display: block;
-        @media (max-width: 640px){
-            display: none;
-        }
+  }
+  &__title {
+    @extend %h4;
+    clear: none;
+    overflow: hidden;
+    text-align: right;
+    margin: .25em $gutter 0 0;
+    display: block;
+    @media (max-width: 640px){
+      display: none;
     }
-
+  }
 }
 
 /* 4.2 User header
@@ -138,18 +137,18 @@ $gutter: 2.5%;
    ========================================================================== */
 
 .page-header {
-    @extend .full-width;
-    margin-top: 2em;
-    margin-bottom: 2em;
-    @media (max-width: 640px){
-      margin-top: 1em;
-      margin-bottom: .5em;
-    }
+  @extend .full-width;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  @media (max-width: 640px){
+    margin-top: 1em;
+    margin-bottom: .5em;
+  }
 }
 
 .page-header__subtitle {
-    color: $grey-1;
-    font-weight: 400;
+  color: $grey-1;
+  font-weight: 400;
 }
 
 
@@ -158,54 +157,51 @@ $gutter: 2.5%;
    ========================================================================== */
 
 .global-footer {
-    border-top: 1px solid $grey-2;
-    background: $grey-3;
+  border-top: 1px solid $grey-2;
+  background: $grey-3;
+  color: #454a4c;
+  clear: both;
+  margin-top: 1.5em;
+  a {
     color: #454a4c;
-    clear: both;
-    margin-top: 1.5em;
+  }
+  &__wrapper {
+    @extend .page-wrapper;
+    padding: 2em 0 0 0;
+  }
+  &__links {
+    @extend .two-thirds;
+    padding-top: 7em;
+    list-style: none;
+    @media (max-width: 640px){
+      padding: 0 5% 1.5em 5%;
+    }
+  }
+  &__link {
+    float: left;
+    margin-right: $gutter-half;
+    @media (max-width: 640px){
+      display: block;
+      text-align: center; 
+      width: 90%;
+    }
+  }
+  &__copyright {
+    @extend .one-third;
+    height: 150px;  
+    float: right;
+    display: block;
+    background: url('#{$assetPath}/footer-crest.png') no-repeat 50% 0 ;
+    @include device-pixel-ratio($ratio: 2) {
+      background: url('#{$assetPath}/footer-crest-2x.png') no-repeat 50% 0;
+      background-size: 125px 102px;
+    }
     a {
-        color: #454a4c;
+      text-align: center;
+      display: block;
+      padding-top: 7em;
     }
-    &__wrapper {
-        @extend .page-wrapper;
-        padding: 2em 0 0 0;
-    }
-    &__links {
-        @extend .two-thirds;
-        padding-top: 7em;
-        list-style: none;
-        @media (max-width: 640px){
-            padding: 0 5% 1.5em 5%;
-        }
-
-    }
-    &__link {
-        float: left;
-        margin-right: $gutter-half;
-        @media (max-width: 640px){
-            display: block;
-            text-align: center; 
-            width: 90%;
-        }
-
-    }
-    &__copyright {
-        @extend .one-third;
-        height: 150px;  
-        float: right;
-        display: block;
-        background: url('#{$assetPath}/footer-crest.png') no-repeat 50% 0 ;
-        @include device-pixel-ratio($ratio: 2) {
-            background: url('#{$assetPath}/footer-crest-2x.png') no-repeat 50% 0;
-            background-size: 125px 102px;
-        }
-        a {
-            text-align: center;
-            display: block;
-            padding-top: 7em;
-        }
-    }
-
+  }
 }
 
 

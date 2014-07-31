@@ -1,6 +1,7 @@
 ---
 title: OB1625270
 subtitle: Goods vehcile, resticted
+status: Curtailed
 horizontalNavItems:
   - label: Overview
     state: current
@@ -23,7 +24,18 @@ verticalNavItems:
   - Decisions
   - Tasks
   - Notes
-
+recordActions:
+  - title: Quick actions
+    actions:
+      - Create case
+      - Create variation
+      - Print licence
+  - title: Decisions
+    actions:
+      - Surrender
+      - Curtail
+      - Terminate
+      - Revoke
 
 ---
 
@@ -38,9 +50,15 @@ verticalNavItems:
 
 
   <div class="one-fifth">
-    <div class="ui-box">
-      <h4>UI Box</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p>
+    <div class="record-actions">
+      {{#each recordActions }}
+      <h5>{{ this.title }}</h5> 
+      <ul class="record-actions__group">
+        {{#each this.actions }} 
+        <li class="record-actions__item"><a href="">{{ this }}</a></li>
+        {{/each }}
+      </ul>
+      {{/each }}
     </div>
   </div><!-- end .one-fifth -->
 

@@ -62,8 +62,8 @@ module.exports = (grunt) ->
     assemble:
       internal:
         options:
-          layout: 'internal_base.hbs'
-          layoutdir: 'styleguides/layouts'
+          layout: 'base.hbs'
+          layoutdir: 'styleguides/layouts/internal/'
           partials: 'styleguides/partials/*.hbs'
         cwd: 'styleguides/pages/internal'
         dest: 'public/styleguides/internal'
@@ -71,8 +71,8 @@ module.exports = (grunt) ->
         src: '**/*.hbs'
       selfserve:
         options:
-          layout: 'selfserve_base.hbs'
-          layoutdir: 'styleguides/layouts'
+          layout: 'base.hbs'
+          layoutdir: 'styleguides/layouts/selfserve/'
           partials: 'styleguides/partials/*.hbs'
         cwd: 'styleguides/pages/selfserve'
         dest: 'public/styleguides/selfserve'
