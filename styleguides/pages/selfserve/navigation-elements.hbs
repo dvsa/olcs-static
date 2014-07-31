@@ -1,13 +1,40 @@
 ---
 title: Navigation elements
-subtitle: Includes a standard set of vertical and horizontal navigation mechanisms  
+subtitle: Includes a standard set of vertical and horizontal navigation mechanisms
+horizontalNavItems:
+  - Type of licence
+  - Your business
+  - Operating centres
+  - Transport managers
+  - Vehicles &amp; Safety
+verticalNavItems:
+  - Business details
+  - Licence type
+  - Operating centres
+  - Transport managers
+filterList:
+  - header: App status
+    type: checkboxes
+    filters:
+      - New
+      - Valid
+      - Invalid
+  - header: Traffic area
+    type: dropdown
+    filters:
+      - West of England
+      - North east of England
+      - North west of England
+      - West Midlands and Wales
+      - East of England
+      - London and the south east
+      - Scotland
 ---
 
+  <!-- Application navigation -->
   <div class="full-width">
-
-    <!-- Application navigation -->
     <h3>Application navigation</h3>
-    <ul class="app-navigation items-8" role="navigation" >
+    <ul class="app-navigation items-8" role="menubar">
       <li class="app-navigation__item complete"><a href=""><span>Type of licence</span></a></li>
       <li class="app-navigation__item complete"><a href=""><span>Your business</span></a></li>
       <li class="app-navigation__item complete"><a href=""><span>Operating centres</span></a></li>
@@ -17,83 +44,27 @@ subtitle: Includes a standard set of vertical and horizontal navigation mechanis
       <li class="app-navigation__item"><a href=""><span>Review &amp; Declarations</span></a></li>
       <li class="app-navigation__item"><a href=""><span>Payment &amp; Submission</span></a></li>
     </ul><!-- end .progress -->
-
-    <hr /><hr /><!-- hr Shouldn't be used in production -->
-
-    <!-- Horizontal navigation -->
-    <h3>Horizontal navigation</h3>
-    <ul class="horizontal-navigation" role="navigation">
-      <li class="horizontal-navigation__item"><a hsef="">Overview</a></li>
-      <li class="horizontal-navigation__item current">Convictions</li>
-      <li class="horizontal-navigation__item"><a href="">Prohibitions</a></li>
-      <li class="horizontal-navigation__item"><a href="">Penalties</a></li>
-      <li class="horizontal-navigation__item"><a href="">Statements</a></li>
-      <li class="horizontal-navigation__item"><a href="">Complaints</a></li>
-      <li class="horizontal-navigation__item"><a href="">Documents</a></li>
-      <li class="horizontal-navigation__item"><a href="">Notes</a></li>
-    </ul>
-
   </div><!-- end .full-width -->
 
 
+  <!-- Horizontal navigation -->
+  <div class="full-width" style="margin-bottom: 3.5em">
+    <h3>Horizontal navigation</h3>
+    {{> _horizontal-navigation }}
+   </div><!-- end .full-width -->
+
+
   <!-- Vertical navigation-->
-
-  <div class="full-width" style="margin-bottom: .5em;">
+  <div class="one-quarter" style="margin-bottom: 3.5em;">
     <h3>Vertical navigation</h3>
-  </div>
-  <div class="one-quarter">
-    <h4>In this section</h4>
-    <ol class="vertical-navigation" role="navigation">
-      <li class="vertical-navigation__item">
-        <a href="">Subsection one</a>
-      </li>
-      <li class="vertical-navigation__item current">Subsection two</li>
-      <li class="vertical-navigation__item">
-        <a href="">Subsection three</a>
-      </li>
-      <li class="vertical-navigation__item">
-        <a href="">Subsection four</a>
-      </li>
-      <li class="vertical-navigation__item">
-        <a href="">Subsection five</a>
-      </li>
-      <li class="vertical-navigation__item">
-        <a href="">Subsection six</a>
-      </li>
-      <li class="vertical-navigation__item disabled">
-        Subsection seven
-      </li>
-      <li class="vertical-navigation__item current">
-        <a href="">Subsection eight</a> 
-        <ul>
-          <li>Add operating centre</li>
-        </ul>
-      </li>
-    </ol><!-- end .vertical-navigation -->
+    {{> _vertical-navigation }}
   </div><!-- end .one-quarter -->
-
+  
 
   <!-- Filters-->
-
-  <div class="full-width"s>
+  <div class="full-width">  
     <h3>Filters</h3>
   </div>
   <div class="two-thirds">
-    <div class="filters">
-      <h4>Filter by</h4>
-      <ul class="filters__list">
-        <li class="filters__title">Licence type</li>
-        <li class="filters__item">
-          <label for="lt-goods"><input type="checkbox" name="area" id="lt-goods">Goods</label>
-        </li>
-        <li class="filters__item">
-          <label for="lt-psv"><input type="checkbox" name="area" id="lt-psv">PSV</label>
-        </li>
-      </ul><!-- end .filters__list -->
-      <ul class="filters__list">
-        <li class="filters__title">Gender</li>
-        <li class="filters__item"><a href="">Male</a></li>
-        <li class="filters__item"><a href="">Female</a></li>
-      </ul><!-- end .filters__list -->
-    </div>
+    {{> _filters }}
   </div><!-- end .two-thirds -->
