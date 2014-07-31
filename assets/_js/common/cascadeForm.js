@@ -136,9 +136,6 @@ OLCS.cascadeForm = (function(document, $, undefined) {
       form.on("submit", onSubmit.bind(form));
     }
 
-    // always append a hidden element to the form so we know it's a JS submission
-    form.append("<input type='hidden' name='js-submit' value='1' />");
-
     checkForm();
 
     $(document).on("change", form, checkForm);
