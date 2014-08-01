@@ -9,91 +9,74 @@
         <thead>
           <tr>
             {{#each table.headers }}
-            <th>{{ . }}</th>
-            {{/each}}
-            <th></th>
+              {{#contains this.class "sortable" }}      
+              <th class="{{ this.class }}"><a href="">{{{ this.label }}}</a></th>
+              {{else }}
+              <th>{{{ this.label }}}</th>
+              {{/contains }}
+            {{/each }}
           </tr>
         </thead>
         <tbody>
           <tr>
-            {{#each table.columns }}<td>{{{ . }}}</td>{{/each}}
-            <td><input name="row" type="checkbox"></td>
+            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ . }}}</td>{{/each}}
-            <td><input name="row" type="checkbox"></td>
+            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ . }}}</td>{{/each}}
-            <td><input name="row" type="checkbox"></td>
+            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ . }}}</td>{{/each}}
-            <td><input name="row" type="checkbox"></td>
+            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ . }}}</td>{{/each}}
-            <td><input name="row" type="checkbox"></td>
+            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ . }}}</td>{{/each}}
-            <td><input name="row" type="checkbox"></td>
+            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ . }}}</td>{{/each}}
-            <td><input name="row" type="checkbox"></td>
+            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ . }}}</td>{{/each}}
-            <td><input name="row" type="checkbox"></td>
+            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ . }}}</td>{{/each}}
-            <td><input name="row" type="checkbox"></td>
+            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ . }}}</td>{{/each}}
-            <td><input name="row" type="checkbox"></td>
+            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ . }}}</td>{{/each}}
-            <td><input name="row" type="checkbox"></td>
+            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ . }}}</td>{{/each}}
-            <td><input name="row" type="checkbox"></td>
+            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ . }}}</td>{{/each}}
-            <td><input name="row" type="checkbox"></td>
+            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ . }}}</td>{{/each}}
-            <td><input name="row" type="checkbox"></td>
+            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ . }}}</td>{{/each}}
-            <td><input name="row" type="checkbox"></td>
+            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ . }}}</td>{{/each}}
-            <td><input name="row" type="checkbox"></td>
+            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ . }}}</td>{{/each}}
-            <td><input name="row" type="checkbox"></td>
+            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ . }}}</td>{{/each}}
-            <td><input name="row" type="checkbox"></td>
+            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ . }}}</td>{{/each}}
-            <td><input name="row" type="checkbox"></td>
+            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ . }}}</td>{{/each}}
-            <td><input name="row" type="checkbox"></td>
+            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
       </table>
     </div><!-- end .table__wrapper -->

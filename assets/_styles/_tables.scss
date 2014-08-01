@@ -52,7 +52,8 @@ table {
   margin-bottom: .75em;
   input[type="checkbox"],
   input[type="radio"] {
-    margin-right: 0;
+    margin: .2em auto;
+    display: block;
   }
 }
 
@@ -104,16 +105,17 @@ tfoot {
 
 .sortable {
   padding: 0;
-  background: $grey-3 url('../images/down-arrow.png') no-repeat 95% 14px;
-  @include device-pixel-ratio($ratio: 2) {
-    background-image: url('../images/down-arrow-2x.png');
-    background-size: 10px 130px;
-  }
+  background: $grey-3;
   a {
     display: block;
-    padding: .5em .5em .4em .5em;
+    margin: .5em .75em .4em .5em;
     color: $black;
     text-decoration: none;
+    background: url('../images/down-arrow.png') no-repeat 100% 7px;
+      @include device-pixel-ratio($ratio: 2) {
+      background-image: url('../images/down-arrow-2x.png');
+      background-size: 10px 130px;
+    }
     &:active {
         color: $grey-1;
     }
