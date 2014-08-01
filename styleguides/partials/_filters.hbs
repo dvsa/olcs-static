@@ -7,7 +7,7 @@
     {{#is this.type 'checkboxes'}}
       {{#each this.filters }}
       <div class="filter-group__item">
-        <label for="f-{{ . }}"><input type="checkbox" name="area" id="f-{{ . }}">{{ . }}</label>
+        <label for="f-{{hyphenate this }}"><input type="checkbox" name="" id="f-{{hyphenate this }}">{{ this }}</label>
       </div>
       {{/each }}
     {{/is}}

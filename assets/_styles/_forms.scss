@@ -160,6 +160,9 @@ textarea {
 
 select {
     margin-right: .25em;
+    .filters & {
+        width: 100%;
+    }
 }
 
 select[multiple] {

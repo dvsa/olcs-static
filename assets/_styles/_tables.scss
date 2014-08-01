@@ -8,13 +8,13 @@ $summary-background: #e6eff5;
     overflow: hidden;
     @if ($app == 'internal') {
       @extend %paragraph--large;
-      margin-top: -.25em;
+      margin-top: -.5em;
     }
     h3 {
       float: left;
       @if ($app == 'internal') {
         @extend %paragraph--large;
-        margin-top: .1em;
+        margin-top: .5em;
       }
     }
     span {
@@ -25,7 +25,7 @@ $summary-background: #e6eff5;
     }
     .actions-container {
       float: right;
-      margin: 0 -0.25em 0 0;
+      margin: .15em -.25em 0 0;
       @if ($app == 'internal') {
         margin-bottom: .5em;
       }

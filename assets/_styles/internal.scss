@@ -468,10 +468,8 @@ $statuses: (complete 10px 6px, incomplete -588px -596px, current -188px -194px);
 @import '_actions-buttons';
 
 .record-actions {
-  margin-top: 2.5em;
+  margin-top: .75em;
   display: block;
-  background: $grey-4;
-  padding: 1em;
   &__group {
     list-style: none;
     margin: .5em 0 1em 0;

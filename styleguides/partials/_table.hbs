@@ -1,11 +1,7 @@
 <form>  
     <div class="table__header">
       <h3>{{{table.title}}}</h3>
-      <div class="actions-container">
-        <input class="action--primary" type="submit" value="Add">
-        <input class="action--secondary" type="submit" value="Edit">
-        <input class="action--warning" type="submit" value="Delete">
-      </div><!-- end .actions-container -->
+      {{> _actions }}
     </div><!-- end .table__header -->
 
     <div class="table__wrapper">
