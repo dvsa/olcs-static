@@ -174,6 +174,7 @@ module.exports = (grunt) ->
     'lint'
     'sass:dev'
     'uglify:dev'
+    'images'
     'assemble:pretty'
   ]
 
@@ -181,12 +182,14 @@ module.exports = (grunt) ->
     'lint'
     'sass:prod'
     'uglify:prod'
+    'images'
     'assemble:pretty'
   ]
 
   grunt.registerTask 'compile:live', [
     'sass:prod'
     'uglify:prod'
+    'images'
   ]
 
   grunt.registerTask 'serve', [
