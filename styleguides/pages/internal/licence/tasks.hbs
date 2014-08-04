@@ -1,11 +1,5 @@
 ---
-title: Home
-subtitle:
-horizontalNavItems:
-  - label: Open tasks
-    state: current
-  - label: Closed tasks
-    state:
+layout: licence.hbs
 filterList:
   - header: Team
     type: dropdown
@@ -43,8 +37,10 @@ filterList:
     filters:
       - Urgent only
 actions:
+  - label: New task
+    class: primary
   - label: Edit
-    class: secondary
+    class: secondary disabled
   - label: Close
     class: secondary disabled
   - label: Reassign
@@ -52,8 +48,6 @@ actions:
 table:
   title: <strong>89</strong> Tasks
   headers:
-    - label: Link
-      class: sortable
     - label: Category
       class: sortable descending
     - label: Sub category
@@ -64,34 +58,23 @@ table:
       class: sortable
     - label: Owner
       class: sortable
-    - label: Name
-      class: sortable
     - label: <input name="row" type="checkbox">
       class: non-sortable
   columns:
-    - <strong><a href="licence/">OB0016152</a></strong> (MLH)
     - Application
     - Address change assisted digital
     - <a href="">Address change</a>
     - 12/3/13
     - Gillian Fox
-    - Don Tarmacadam
     - <input name="row" type="checkbox">
 ---
 
-<div class="full-width">
-  {{> _horizontal-navigation }}
-</div>
-
 <div class="one-fifth">
-  {{> _filters }}
-</div><!-- end .one-quarter -->
+  {{> _filters}}
+</div><!-- end .one-fifth -->
 
-<div class="four-fifths">
-  {{> _table }}
+<div class="three-fifths" style="width: 80%;">
+  {{> _table}}
 </div>
-
-
-
 
 

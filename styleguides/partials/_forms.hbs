@@ -1,0 +1,39 @@
+{{#each form }}
+<form>
+  {{#each fieldsets }}
+    <fieldset>
+      {{#each fields }}    
+          <div class="field">
+            <label>{{ label }}</label>
+
+            {{#is type "select" }}
+            <select id="{{ this }}" name="{{ this }}">
+              {{#each options }}
+              <option value="{{ this }}">{{ this }}</option>
+              {{/each }}
+            </select>
+            {{/is }}
+
+            {{#is type "textarea" }}
+            <textarea class="{{ class }}" placeholder="Enter text here"></textarea>
+            {{/is }}
+
+            {{#is type "date" }}
+            <select id="day" name="date-of-birth">
+              <option value="Day">Day</option>
+            </select>
+            <select id="month" name="date-of-birth">
+              <option value="Month">Month</option>
+            </select>
+            <select id="year" name="date-of-birth">
+              <option value="Year">Year</option>
+            </select>
+            {{/is }}
+
+
+          </div>
+      {{/each }}
+    </fieldset>
+  {{/each }}
+</form>
+{{/each }}

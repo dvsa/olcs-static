@@ -1,0 +1,75 @@
+---
+layout: licence.hbs
+sectionName: Docs & attachments
+recordActions:
+  - title: Quick actions
+    actions:
+      - Create case
+      - Create variation
+      - Print licence
+  - title: Decisions
+    actions:
+      - Surrender
+      - Curtail
+      - Terminate
+      - Revoke
+filterList:
+  - header: Category
+    type: dropdown
+    filters:
+      - All
+  - header: Sub-category
+    type: dropdown
+    filters:
+      - All
+  - header: Format
+    type: dropdown
+    filters:
+      - All
+  - header:
+    type: checkboxes
+    filters:
+      - Digital only
+table:
+  title: <strong>89</strong> Docs and attachments
+  headers:
+    - label: Description
+      class: sortable descending
+    - label: Category
+      class: sortable
+    - label: Sub-category
+      class: sortable
+    - label: Format
+      class: sortable
+    - label: Date
+      class: sortable
+    - label: <input type="checkbox">
+      class: not-sortable
+  columns:
+    - <a href="">December-accounts.PDF</a>
+    - Bus registration
+    - Sub category (digital)
+    - PDF
+    - 13/3/13 14:02
+    - <input type="checkbox">
+actions:
+  - label: Upload
+    class: primary
+  - label: Edit
+    class: secondary disabled
+  - label: Delete
+    class: secondary disabled
+
+---
+
+<div class="one-fifth">
+  {{> _filters}}
+</div><!-- end .one-fifth -->
+
+<div class="three-fifths" style="width: 80%;">
+  {{> _table}}
+</div>
+
+
+
+

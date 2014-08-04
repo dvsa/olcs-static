@@ -72,6 +72,10 @@
     margin: 0;
     padding: .3em .5em .1em .5em;
     padding : .3em .5em .4em .5em\9;
+    @if ($app == 'internal') {
+      @include border-radius(2px);
+      padding: .3em .5em .2em .5em;
+    }
     font-family: $NTA-Light;
     text-decoration: none;
     text-rendering: optimizeLegibility;

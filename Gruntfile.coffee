@@ -104,9 +104,9 @@ module.exports = (grunt) ->
       images:
         files: ['assets/_images/**/*.{png,jpg,gif}']
         tasks: ['newer:imagemin']
-      htmllint:
-        files: ['public/styleguides/**/*.html']
-        tasks: ['newer:htmllint']
+      # htmllint:
+      #   files: ['public/styleguides/**/*.html']
+      #   tasks: ['newer:htmllint']
 
 
     browserSync:
