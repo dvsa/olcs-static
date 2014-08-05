@@ -3,27 +3,18 @@ title: Home
 subtitle:
 horizontalNavItems:
   - label: Open tasks
-    state: current
+    link:  index.html
   - label: Closed tasks
-    state:
+    link:  closed-tasks.html
 filterList:
   - header: Team
     type: dropdown
     filters:
       - Licensing team 1
-      - Valid
-      - Invalid
   - header: Owner
     type: dropdown
     filters:
-      - Gillian Fox
-      - North east of England
-      - North west of England
-      - West Midlands and Wales
-      - East of England
-      - London and the south east
-      - Scotland
-  - header: Category
+      - Terry Fox
     type: dropdown
     filters:
       - Application
@@ -38,6 +29,12 @@ filterList:
       - This week
       - This month
       - All dates
+  - header: Status
+    type: dropdown
+    filters:
+      - All
+      - Open
+      - Closed
   - header: 
     type: checkboxes
     filters:
@@ -79,11 +76,8 @@ table:
     - <input name="row" type="checkbox">
 ---
 
-<div class="full-width">
-  {{> _horizontal-navigation }}
-</div>
-
 <div class="one-fifth">
+  <h4>Filter by:</h4>
   {{> _filters }}
 </div><!-- end .one-quarter -->
 

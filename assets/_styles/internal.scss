@@ -229,10 +229,10 @@ $gutter: 1.25%;
 
 .page-header {
   width: 100%;
-  margin-bottom: .3em;
   border-bottom: 1px solid $grey-2;
   background: $grey-4;
   overflow: hidden;
+  margin-bottom: .75em;
   &__wrapper {
     @extend .page-wrapper;
     margin: 0 $gutter .75em $gutter;
@@ -474,13 +474,11 @@ $statuses: (complete 10px 6px, incomplete -588px -596px, current -188px -194px);
     margin: .5em 0 1em 0;
   }
   &__item {
-    border: 1px solid $grey-3;
+    @extend .action--secondary;
     @include border-radius(3px);
-    width: 90%;
+    width: 90% !important;
     padding: .5em 5%;
     margin-bottom: .5em;
-    font-weight: 600;
-    background: $grey-3;
   }
   a {
     color: $black;

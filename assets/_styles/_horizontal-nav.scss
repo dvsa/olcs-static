@@ -1,42 +1,42 @@
 $breakpoint: 880px;
 
 .horizontal-navigation {
-    @extend %navigation;
-    border-bottom: 1px solid $grey-2;
-    &__item {
-        @extend %navigation__item;
+  @extend %navigation;
+  border-bottom: 1px solid $grey-2;
+  &__item {
+    @extend %navigation__item;
+  }
+  a {
+    @extend %navigation__link;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-top: 0;
+    &:hover {
+      background: none;
     }
-    a {
-        @extend %navigation__link;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        color: $grey-1;
-        &:hover {
-            background: none;
-        }
-    }
-    .current {
-        @extend %navigation__link;  
-        border-bottom: 3px solid $primaryColour;
-        font-weight: 700;
-        @media(max-width: $breakpoint) {
-            border: none;
-            border-bottom: 3px solid $primaryColour;
-        }   
-        &:hover {
-            background: none;
-            color: $black;
-        }
-    }
+  }
+  .current {
+    @extend %navigation__link;  
+    color: $black;
+    border-bottom: 3px solid $primaryColour;
+    padding: 0 .75em .55em .75em;
     @media(max-width: $breakpoint) {
-        border-bottom: none;
-        &__item {
-            width: 100%;
-            border-bottom: 1px solid $grey-3;
-        }
-        a, .current {
-            padding: .5em 0;
-        }
+      border: none;
+      border-bottom: 3px solid $primaryColour;
+    }   
+    &:hover {
+      background: none;
     }
+  }
+  @media(max-width: $breakpoint) {
+    border-bottom: none;
+    &__item {
+      width: 100%;
+      border-bottom: 1px solid $grey-3;
+    }
+    a, .current {
+      padding: .5em 0;
+    }
+  }
 }

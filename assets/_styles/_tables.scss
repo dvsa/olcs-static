@@ -8,13 +8,12 @@ $summary-background: #e6eff5;
     overflow: hidden;
     @if ($app == 'internal') {
       @extend %paragraph--large;
-      margin-top: -.5em;
     }
     h3 {
       float: left;
+      margin: .15em 0 0 0;
       @if ($app == 'internal') {
         @extend %paragraph--large;
-        margin-top: .5em;
       }
     }
     span {
@@ -25,7 +24,7 @@ $summary-background: #e6eff5;
     }
     .actions-container {
       float: right;
-      margin: .15em -.25em 0 0;
+      margin-right: -.25em;
       @if ($app == 'internal') {
         margin-bottom: .5em;
       }
@@ -57,8 +56,13 @@ table {
   }
 }
 
-tr:nth-child(even) { 
-  background: $grey-4; 
+tr {
+  &:nth-child(even) { 
+    background: $grey-4;
+  }
+  &.urgent {
+    border-left: 5px solid $mellow-red;
+  }
 }
 
 td, th { 

@@ -44,7 +44,7 @@
   @extend %container;
   width: (100% / 5) - ($gutter*2);
   .four-fifths & {
-    margin: 1em $gutter 0 0;
+    margin: 1.175em $gutter 0 0;
   }
 }
 

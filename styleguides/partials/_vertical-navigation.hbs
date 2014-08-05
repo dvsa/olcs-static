@@ -1,9 +1,16 @@
-<h4>In this section</h4>
+<h4>Processing</h4>
 <ol class="vertical-navigation" role="menu">
 {{#each verticalNavItems }}
-<li class="vertical-navigation__item">
-  <a href="#{{hyphenate this }}">{{ this }}</a>
-</li>
+  {{#ifeq label compare=../subSectionTitle }}
+  <li class="vertical-navigation__item current">
+    {{ label }}
+    {{> _filters }}
+
+  </li>
+  {{else }}
+  <li class="vertical-navigation__item">
+    <a href="#{{ link }}">{{ label }}</a>
+  </li>
+  {{/ifeq }}
 {{/each}}
 </ol><!-- end .vertical-navigation -->
-

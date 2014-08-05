@@ -36,11 +36,8 @@ recordActions:
 
   <div class="four-fifths">
     {{> _horizontal-navigation }}
-
-    {{> body }}
-    
+    {{> body }}  
   </div>
-
 
   <div class="one-fifth">
     <div class="record-actions">
@@ -48,7 +45,7 @@ recordActions:
       <h5>{{ this.title }}</h5> 
       <ul class="record-actions__group">
         {{#each this.actions }} 
-        <li class="record-actions__item"><a href="">{{ this }}</a></li>
+        <li class="record-actions__item actions--secondary"><a href="">{{ this }}</a></li>
         {{/each }}
       </ul>
       {{/each }}
