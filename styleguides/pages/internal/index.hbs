@@ -1,6 +1,7 @@
 ---
 title: Home
 subtitle:
+columns: two-col
 horizontalNavItems:
   - label: Open tasks
     link:  index.html
@@ -15,6 +16,7 @@ filterList:
     type: dropdown
     filters:
       - Terry Fox
+  - header: Category
     type: dropdown
     filters:
       - Application
@@ -41,7 +43,7 @@ filterList:
       - Urgent only
 actions:
   - label: Edit
-    class: secondary
+    class: secondary disabled
   - label: Close
     class: secondary disabled
   - label: Reassign
@@ -76,13 +78,14 @@ table:
     - <input name="row" type="checkbox">
 ---
 
-<div class="one-fifth">
+
+<div class="four-fifths--right">
+  {{> _table }}
+</div>
+
+<div class="one-fifth--left">
   <h4>Filter by:</h4>
   {{> _filters }}
-</div><!-- end .one-quarter -->
-
-<div class="four-fifths">
-  {{> _table }}
 </div>
 
 

@@ -34,22 +34,22 @@ recordActions:
       - Revoke
 ---
 
-  <div class="four-fifths">
-    {{> _horizontal-navigation }}
-    {{> body }}  
-  </div>
+<div class="four-fifths--left">
+  {{> _horizontal-navigation}}
+</div>
 
-  <div class="one-fifth">
-    <div class="record-actions">
-      {{#each recordActions }}
-      <h5>{{ this.title }}</h5> 
-      <ul class="record-actions__group">
-        {{#each this.actions }} 
-        <li class="record-actions__item actions--secondary"><a href="">{{ this }}</a></li>
-        {{/each }}
-      </ul>
+{{> body }}  
+
+<div class="one-fifth--right">
+  <div class="record-actions">
+    {{#each recordActions }}
+    <h5>{{ this.title }}</h5> 
+    <ul class="record-actions__group">
+      {{#each this.actions }} 
+      <li class="record-actions__item actions--secondary"><a href="">{{ this }}</a></li>
       {{/each }}
-    </div>
-  </div><!-- end .one-fifth -->
-
+    </ul>
+    {{/each }}
+  </div>
+</div>
 

@@ -1,10 +1,9 @@
 ---
-layout: licence.hbs
 sectionTitle: Processing
 subSectionTitle: Tasks
+layout: licence.hbs
+columns: three-col
 actions:
-  - label: New task
-    class: primary
   - label: Edit
     class: secondary disabled
   - label: Close
@@ -44,19 +43,19 @@ verticalNavItems:
     - header: Team
       type: dropdown
       filters:
-        - Licensing team 1
+        - All
     - header: Owner
       type: dropdown
       filters:
-        - Gillian Fox
+        - All
     - header: Category
       type: dropdown
       filters:
-        - Application
-    - header: Sub category
+        - All
+    - header: All
       type: dropdown
       filters:
-        - Goods app
+        - All
     - header: Date
       type: dropdown
       filters:
@@ -64,20 +63,27 @@ verticalNavItems:
         - This week
         - This month
         - All dates
+    - header: Status
+      type: dropdown
+      filters:
+        - All
+        - Open
+        - Closed
     - header: 
       type: checkboxes
       filters:
-        - Urgent only  
+        - Urgent only
   - label: Notes
     link:
 ---
 
-<div class="one-fifth">
-  {{> _vertical-navigation }}
-</div><!-- end .one-fifth -->
-
-<div class="three-fifths" style="width: 80%;">
+<div class="three-fifths">
   {{> _table}}
 </div>
+
+<div class="one-fifth--left">
+  {{> _vertical-navigation }}
+</div>
+
 
 

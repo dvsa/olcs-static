@@ -54,6 +54,60 @@ $gutter: 1.25%;
 
 @import '_layout';
 
+#main {
+  &.three-col {
+    padding: 0 220px 0 200px;
+    margin: 0 1.25%;
+  }
+  &.two-col {
+    padding: 0 0 0 200px;
+    margin: 0 1.25%;
+
+  }
+}
+
+.one-fifth {
+  &--left {
+    @extend %container;
+    width: 200px;
+    right: 200px;
+    margin: .175em 0 0 -100%;
+  }
+  &--right {
+    @extend %container;
+    width: 220px;
+    margin: -2.75em -220px 0 0;
+  }
+}
+
+.three-fifths {
+  @extend %container;
+  width: 95%;
+  margin: 0 2.5%;
+}
+
+.four-fifths {
+  &--left {
+    margin: 0 2.5% 0 -200px;
+    padding-right: 0;
+  }
+  &--right {
+    @extend %container;
+
+    padding-left: 2.5%;
+    width: 97.5%;
+  }
+}
+
+%container {
+  position: relative;
+  float: left;
+  @media (max-width: 640px){
+    width: 92%;
+    margin: 0 4% 1.5em 4%;
+  }
+}
+
 .ui-box {
   width: 100%;
   margin-top: .525em;
@@ -283,60 +337,6 @@ $gutter: 1.25%;
 }
 
 
-
-/* ==========================================================================
-   5. Global footer
-   ========================================================================== */
-
-.global-footer {
-    border-top: 1px solid $grey-2;
-    background: $grey-3;
-    color: #454a4c;
-    clear: both;
-    a {
-        color: #454a4c;
-    }
-    &__wrapper {
-        @extend .page-wrapper;
-        padding: 2em 0 0 0;
-    }
-    &__links {
-        @extend .two-thirds;
-        padding-top: 7em;
-        list-style: none;
-        @media (max-width: 640px){
-            padding: 0 5% 1.5em 5%;
-        }
-
-    }
-    &__link {
-        float: left;
-        margin-right: $gutter-half;
-        @media (max-width: 640px){
-            display: block;
-            text-align: center; 
-            width: 90%;
-        }
-
-    }
-    &__copyright {
-        @extend .one-third;
-        height: 150px;  
-        float: right;
-        display: block;
-        background: url('#{$assetPath}/footer-crest.png') no-repeat 50% 0 ;
-        @include device-pixel-ratio($ratio: 2) {
-            background: url('#{$assetPath}/footer-crest-2x.png') no-repeat 50% 0;
-            background-size: 125px 102px;
-        }
-        a {
-            text-align: center;
-            display: block;
-            padding-top: 7em;
-        }
-    }
-
-}
 
 
 /* ==========================================================================
