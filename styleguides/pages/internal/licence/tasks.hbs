@@ -2,7 +2,6 @@
 sectionTitle: Processing
 subSectionTitle: Tasks
 layout: licence.hbs
-columns: three-col
 actions:
   - label: Edit
     class: secondary disabled
@@ -77,13 +76,18 @@ verticalNavItems:
     link:
 ---
 
-<div class="three-fifths">
-  {{> _table}}
-</div>
 
-<div class="one-fifth--left">
-  {{> _vertical-navigation }}
-</div>
 
+<div class="temp">
+
+  <div class="one-fifth--left">
+    {{> _vertical-navigation }}
+  </div>
+
+  <div class="three-fifths">
+    {{> _table}}
+  </div>
+
+</div>
 
 

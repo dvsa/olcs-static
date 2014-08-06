@@ -18,7 +18,6 @@
  **/
 
 $app: internal;
-$assetPath : "../images";
 
 /* ==========================================================================
    1. Base styles
@@ -33,6 +32,7 @@ $assetPath : "../images";
 'vendor/govuk_toolkit/design-patterns/_buttons',
 '_base-styles';
 
+$assetPath: "../images";
 $primaryColour: $department-for-transport;
 $gutter: 1.25%;
 
@@ -55,48 +55,49 @@ $gutter: 1.25%;
 @import '_layout';
 
 #main {
-  &.three-col {
-    padding: 0 220px 0 200px;
-    margin: 0 1.25%;
-  }
-  &.two-col {
-    padding: 0 0 0 200px;
-    margin: 0 1.25%;
-
-  }
+  display: table;
+  width: 97.5%;
+  margin: 0 1.25%;
 }
+
+.temp {
+  width: 100%;
+  display: table;
+}
+
 
 .one-fifth {
   &--left {
-    @extend %container;
+    display: table-cell;
     width: 200px;
-    right: 200px;
-    margin: .175em 0 0 -100%;
+    vertical-align: top;
+    padding-right: 20px;
+
   }
   &--right {
-    @extend %container;
+    display: table-cell;
     width: 220px;
-    margin: -2.75em -220px 0 0;
+    vertical-align: top;
+    padding-left: 20px;
   }
 }
 
 .three-fifths {
-  @extend %container;
-  width: 95%;
-  margin: 0 2.5%;
+  display: table-cell;
 }
 
 .four-fifths {
   &--left {
-    margin: 0 2.5% 0 -200px;
-    padding-right: 0;
+    display: table-cell;
   }
   &--right {
-    @extend %container;
-
-    padding-left: 2.5%;
-    width: 97.5%;
+    display: table-cell;
   }
+}
+
+.full-width {
+   display: table;
+   width: 100%;
 }
 
 %container {

@@ -63,12 +63,15 @@ table:
   {{> _horizontal-navigation }}
 </div>
 
-<div class="one-fifth">
-  {{> _filters }}
-</div><!-- end .one-quarter -->
+<div class="temp">
+  <div class="one-fifth--left">
+    <h4>Filter by:</h4>
+    {{> _filters }}
+  </div><!-- end .one-quarter -->
 
-<div class="four-fifths">
-  {{> _table }}
+  <div class="four-fifths--right">
+    {{> _table }}
+  </div>
 </div>
 
 
