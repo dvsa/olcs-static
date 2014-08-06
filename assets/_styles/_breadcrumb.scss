@@ -6,15 +6,20 @@
   float: left;
   &__item {
     float: left;
-    padding-right: 1em;
     margin-right: .5em;
     color: $black;
-    background: url('{$assetPath}/breadcrumb-arrow.png') no-repeat 100% 70%;
+  }
+  a { 
+    color: $grey-1; 
+    padding-right: 1em;
+    background: url('#{$assetPath}/breadcrumb-arrow.png') no-repeat 100% 70%;
     @include device-pixel-ratio($ratio: 2) {
-      background: url('{$assetPath}/breadcrumb-arrow-2x.png') no-repeat 100% 40%;
+      background: url('#{$assetPath}/breadcrumb-arrow-2x.png') no-repeat 100% 40%;
       background-size: 6px 11px;
     }
   }
-  a { color: $grey-1; }
-  .current { background: none;}
+  .current { 
+    background: none;
+    color: $grey-1;
+  }
 }

@@ -22,7 +22,7 @@
           <div class="search">
             <div class="search__wrapper">
               <input class="search__input" type="text" placeholder="Search">
-              <input class="search__button" type="submit">
+              <input class="search__button" type="submit" onclick="window.location = 'http://localhost:7001/styleguides/internal/search/applications.html';return false;">
             </div>
             <a href="" class="search__advanced">Advanced</a>
           </div><!-- end search --> 
@@ -53,9 +53,12 @@
       <div class="page-header__wrapper">
           
           <div class="user-header">
+          {{#isnt title "Home" }}
             <ol class="breadcrumbs">
-              <li class="breadcrumbs__item current"><a href="/styleguides/dist/internal/">Home</a></li>
+              <li class="breadcrumbs__item"><a href="/">Home</a></li>
+              <li class="breadcrumbs__item current">{{ breadcrumb }}</li>
             </ol>
+            {{/isnt }}
             <ul class="user-menu">
               <li class="user-menu__item">Sam Quayle:</li>
               <li class="user-menu__item"><a href="/styleguides/selfserve/">My settings</a></li>
@@ -64,8 +67,8 @@
           </div><!-- user-header -->
 
           <h1>{{{ title }}}</h1>
-          <h3 class="page-header__subtitle">{{ subtitle }}</h3>
-          {{#if status }}<span class="page-header__status {{lowercase status }}">{{ status }}</span>{{/if }}
+          <h3 class="page-header__subtitle">{{{ subtitle }}}</h3>
+          
       </div><!-- end .page-header__wrapper-->
     </div><!-- end .page-header-->
 

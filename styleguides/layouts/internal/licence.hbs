@@ -1,15 +1,14 @@
 ---
 layout: base.hbs
 title: OB1625270
-subtitle: Goods vehcile, resticted
+breadcrumb: Licence
+subtitle: Goods vehcile, resticted <span class="page-header__status revoked">Revoked</span>
 status: Suspended
 horizontalNavItems:
-  - label: Overview
+  - label: Licence details
     link:  index.html
-  - label: Licence
-    link:  licence.html
-  - label: Bus registration
-    link:  bus-registration.html
+  - label: Bus registrations
+    link:  bus-registrations.html
   - label: Cases
     link:  cases.html
   - label: Environmental
@@ -36,7 +35,9 @@ recordActions:
 
 <div class="four-fifths--left">
   {{> _horizontal-navigation}}
+  <div class="content">
   {{> body }}  
+  </div>
 </div>
 
 <div class="one-fifth--right">
