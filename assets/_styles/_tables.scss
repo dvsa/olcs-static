@@ -11,7 +11,7 @@ $summary-background: #e6eff5;
     }
     h3 {
       float: left;
-      margin: .15em 0 0 0;
+      margin: 0 0 .4em 0;
       @if ($app == 'internal') {
         @extend %paragraph--large;
       }
@@ -26,7 +26,7 @@ $summary-background: #e6eff5;
       float: right;
       margin-right: -.25em;
       @if ($app == 'internal') {
-        margin-bottom: .5em;
+        margin-bottom: 0;
       }
       select {
         margin: 3px 3px 0 0;

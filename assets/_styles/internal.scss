@@ -60,54 +60,38 @@ $gutter: 1.25%;
   margin: 0 1.25%;
 }
 
-.temp {
-  width: 100%;
+.content {
   display: table;
+  width: 100%;
 }
 
+%table-cell {
+  display: table-cell;
+  vertical-align: top;
+}
 
 .one-fifth {
   &--left {
-    display: table-cell;
+    @extend %table-cell;
     width: 200px;
-    vertical-align: top;
     padding-right: 20px;
-
   }
   &--right {
-    display: table-cell;
+    @extend %table-cell;
     width: 220px;
-    vertical-align: top;
     padding-left: 20px;
   }
 }
 
-.three-fifths {
-  display: table-cell;
-}
+.three-fifths { @extend %table-cell; }
 
 .four-fifths {
-  &--left {
-    display: table-cell;
-  }
-  &--right {
-    display: table-cell;
-  }
+  &--left { @extend %table-cell; }
+  &--right { @extend %table-cell; }
 }
 
-.full-width {
-   display: table;
-   width: 100%;
-}
+.full-width { @extend .content; }
 
-%container {
-  position: relative;
-  float: left;
-  @media (max-width: 640px){
-    width: 92%;
-    margin: 0 4% 1.5em 4%;
-  }
-}
 
 .ui-box {
   width: 100%;
