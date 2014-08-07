@@ -162,14 +162,12 @@ module.exports = (grunt) ->
 
     karma:
       options:
-        singleRun: true
         browsers: ["PhantomJS"]
         configFile: "karma.conf.js"
+        singleRun: true
       test:
         reporters: ["mocha", "coverage", "junit"]
-        colors: true
       ci:
-        reporters: ["dots", "coverage", "junit"]
         colors: false
 
 
@@ -223,4 +221,12 @@ module.exports = (grunt) ->
     'prettify'
   ]
 
+  ###
+  # Define a single Jenkins build task here for any relevant environments
+  #
+  # Generally these will be simple wrappers around other tasks. The main
+  # point is that we only ever want jenkins to have to run *one* Grunt task
+  # so we don't have to update each job's configuration just to build some
+  # new stuff; instead we just add it to this task and we're done
+  ###
   grunt.registerTask 'build:staging', ['test:ci', 'compile:staging']
