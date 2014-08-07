@@ -44,7 +44,6 @@ module.exports = (grunt) ->
           value: 80
           level: "warn"
 
-
     prettify:
       options:
         indent: 2
@@ -107,7 +106,6 @@ module.exports = (grunt) ->
       # htmllint:
       #   files: ['public/styleguides/**/*.html']
       #   tasks: ['newer:htmllint']
-
 
     browserSync:
       bsFiles:
