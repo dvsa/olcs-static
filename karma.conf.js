@@ -33,13 +33,8 @@ module.exports = function(config) {
     captureTimeout: 60000,
 
     coverageReporter: {
-      reporters: [{
-        type: "lcov",
-        dir: "test/js/coverage"
-      }, {
-        type: "cobertura",
-        dir: "test/js/coverage-xml"
-      }]
+      type: "cobertura",
+      dir: "test/js/coverage-xml"
     },
 
     junitReporter: {
