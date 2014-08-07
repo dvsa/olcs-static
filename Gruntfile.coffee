@@ -131,7 +131,10 @@ module.exports = (grunt) ->
     htmllint:
       all: ['public/styleguides/**/*.html']
       options:
-        ignore: ['Bad value “X-UA-Compatible” for attribute “http-equiv” on XHTML element “meta”.']
+        ignore: [
+          'Bad value “X-UA-Compatible” for attribute ' +
+          '“http-equiv” on XHTML element “meta”.'
+        ]
 
     open:
       selfserve:
@@ -158,10 +161,16 @@ module.exports = (grunt) ->
       ]
 
     karma:
-      unit:
-        configFile: "karma.conf.js",
-        singleRun: true,
+      options:
+        singleRun: true
         browsers: ["PhantomJS"]
+        configFile: "karma.conf.js"
+      test:
+        reporters: ["mocha", "coverage", "junit"]
+        colors: true
+      ci:
+        reporters: ["dots", "coverage", "junit"]
+        colors: false
 
 
   require('matchdep').filterDev([
@@ -174,6 +183,7 @@ module.exports = (grunt) ->
     'lint'
     'sass:dev'
     'uglify:dev'
+    'images'
     'assemble:pretty'
   ]
 
@@ -181,12 +191,14 @@ module.exports = (grunt) ->
     'lint'
     'sass:prod'
     'uglify:prod'
+    'images'
     'assemble:pretty'
   ]
 
   grunt.registerTask 'compile:live', [
     'sass:prod'
     'uglify:prod'
+    'images'
   ]
 
   grunt.registerTask 'serve', [
@@ -198,13 +210,17 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'images', ['imagemin']
 
-  grunt.registerTask 'test', ['karma']
+  grunt.registerTask 'test', ['karma:test']
+  grunt.registerTask 'test:ci', ['karma:ci']
 
   grunt.registerTask 'lint', [
     'coffeelint'
+    # 'jshint' FIXME: this *must* be reinstated when the js is fit for purpose
   ]
 
   grunt.registerTask 'assemble:pretty', [
     'assemble'
     'prettify'
   ]
+
+  grunt.registerTask 'build:staging', ['test:ci', 'compile:staging']
