@@ -1,41 +1,7 @@
 ---
+sectionTitle: Processing
+subSectionTitle: Tasks
 layout: licence.hbs
-filterList:
-  - header: Team
-    type: dropdown
-    filters:
-      - Licensing team 1
-      - Valid
-      - Invalid
-  - header: Owner
-    type: dropdown
-    filters:
-      - Gillian Fox
-      - North east of England
-      - North west of England
-      - West Midlands and Wales
-      - East of England
-      - London and the south east
-      - Scotland
-  - header: Category
-    type: dropdown
-    filters:
-      - Application
-  - header: Sub category
-    type: dropdown
-    filters:
-      - Goods app
-  - header: Date
-    type: dropdown
-    filters:
-      - Today
-      - This week
-      - This month
-      - All dates
-  - header: 
-    type: checkboxes
-    filters:
-      - Urgent only
 actions:
   - label: New task
     class: primary
@@ -67,14 +33,59 @@ table:
     - 12/3/13
     - Gillian Fox
     - <input name="row" type="checkbox">
+verticalNavItems:
+  - label: Decisions
+    link:  
+  - label: History
+    link:  
+  - label: Tasks
+    link:
+    filterList:
+    - header: Team
+      type: dropdown
+      filters:
+        - All
+    - header: Owner
+      type: dropdown
+      filters:
+        - All
+    - header: Category
+      type: dropdown
+      filters:
+        - All
+    - header: All
+      type: dropdown
+      filters:
+        - All
+    - header: Date
+      type: dropdown
+      filters:
+        - Today
+        - This week
+        - This month
+        - All dates
+    - header: Status
+      type: dropdown
+      filters:
+        - All
+        - Open
+        - Closed
+    - header: 
+      type: checkboxes
+      filters:
+        - Urgent only
+  - label: Notes
+    link:
 ---
 
-<div class="one-fifth">
-  {{> _filters}}
-</div><!-- end .one-fifth -->
+<div class="one-fifth--left">
+  <h4>Processing</h4>
+  {{> _vertical-navigation }}
+</div>
 
-<div class="three-fifths" style="width: 80%;">
+<div class="three-fifths">
   {{> _table}}
 </div>
+
 
 

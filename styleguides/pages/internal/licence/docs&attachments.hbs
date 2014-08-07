@@ -1,18 +1,6 @@
 ---
 layout: licence.hbs
-sectionName: Docs & attachments
-recordActions:
-  - title: Quick actions
-    actions:
-      - Create case
-      - Create variation
-      - Print licence
-  - title: Decisions
-    actions:
-      - Surrender
-      - Curtail
-      - Terminate
-      - Revoke
+sectionTitle: Docs & attachments
 filterList:
   - header: Category
     type: dropdown
@@ -62,13 +50,14 @@ actions:
 
 ---
 
-<div class="one-fifth">
-  {{> _filters}}
-</div><!-- end .one-fifth -->
+  <div class="one-fifth--left">
+    <h4>Filter by:</h4>
+    {{> _filters}}
+  </div>
 
-<div class="three-fifths" style="width: 80%;">
-  {{> _table}}
-</div>
+  <div class="three-fifths">
+    {{> _table}}
+  </div>
 
 
 

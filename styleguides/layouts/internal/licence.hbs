@@ -1,15 +1,14 @@
 ---
 layout: base.hbs
 title: OB1625270
-subtitle: Goods vehcile, resticted
+breadcrumb: Licence
+subtitle: Goods vehcile, resticted <span class="page-header__status revoked">Revoked</span>
 status: Suspended
 horizontalNavItems:
-  - label: Overview
+  - label: Licence details
     link:  index.html
-  - label: Licence
-    link:  licence.html
-  - label: Bus registration
-    link:  bus-registration.html
+  - label: Bus registrations
+    link:  bus-registrations.html
   - label: Cases
     link:  cases.html
   - label: Environmental
@@ -34,25 +33,23 @@ recordActions:
       - Revoke
 ---
 
-  <div class="four-fifths">
-    {{> _horizontal-navigation }}
-
-    {{> body }}
-    
+<div class="four-fifths--left">
+  {{> _horizontal-navigation}}
+  <div class="content">
+  {{> body }}  
   </div>
+</div>
 
-
-  <div class="one-fifth">
-    <div class="record-actions">
-      {{#each recordActions }}
-      <h5>{{ this.title }}</h5> 
-      <ul class="record-actions__group">
-        {{#each this.actions }} 
-        <li class="record-actions__item"><a href="">{{ this }}</a></li>
-        {{/each }}
-      </ul>
+<div class="one-fifth--right">
+  <div class="record-actions">
+    {{#each recordActions }}
+    <h5>{{ this.title }}</h5> 
+    <ul class="record-actions__group">
+      {{#each this.actions }} 
+      <li class="record-actions__item actions--secondary"><a href="">{{ this }}</a></li>
       {{/each }}
-    </div>
-  </div><!-- end .one-fifth -->
-
+    </ul>
+    {{/each }}
+  </div>
+</div>
 

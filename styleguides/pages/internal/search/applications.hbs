@@ -1,23 +1,7 @@
 ---
-title: "&#8220Don Tarmacadam&#8221;"
-subtitle: 218 Results
-horizontalNavItems:
-  - label: Licences
-    state: current
-  - label: Applications
-    state:
-  - label: Cases
-    state:
-  - label: Bus registrations
-    state:
-  - label: Addresses
-    state:
-  - label: People
-    state:
-  - label: Historical TMs
-    state:
-  - label: Vehciles
-    state:
+layout_script: false
+layout: search-results.hbs
+sectionTitle: Applications
 filterList:
   - header: App status
     type: checkboxes
@@ -36,7 +20,7 @@ filterList:
       - London and the south east
       - Scotland
 table:
-  title: <strong>89</strong> Application results
+  title: <strong>24</strong> Application results
   headers:
     - label: Licence
       class: sortable descending
@@ -59,17 +43,16 @@ table:
     - 0
 ---
 
-<div class="full-width">
-  {{> _horizontal-navigation }}
-</div>
 
-<div class="one-fifth">
+<div class="one-fifth--left">
+  <h4>Filter by:</h4>
   {{> _filters }}
-</div><!-- end .one-quarter -->
+</div><!-- end .one-fifth-left -->
 
-<div class="four-fifths">
+<div class="four-fifths--right">
   {{> _table }}
-</div>
+</div><!-- end .four-fifths-right -->
+
 
 
 

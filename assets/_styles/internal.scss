@@ -18,7 +18,6 @@
  **/
 
 $app: internal;
-$assetPath : "../images";
 
 /* ==========================================================================
    1. Base styles
@@ -33,6 +32,7 @@ $assetPath : "../images";
 'vendor/govuk_toolkit/design-patterns/_buttons',
 '_base-styles';
 
+$assetPath: "../images";
 $primaryColour: $department-for-transport;
 $gutter: 1.25%;
 
@@ -53,6 +53,44 @@ $gutter: 1.25%;
    ========================================================================== */
 
 @import '_layout';
+
+#main {
+  display: table;
+  width: 97.5%;
+  margin: 0 1.25%;
+}
+
+.content {
+  display: table;
+  width: 100%;
+}
+
+%table-cell {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.one-fifth {
+  &--left {
+    @extend %table-cell;
+    width: 200px;
+    padding-right: 20px;
+  }
+  &--right {
+    @extend %table-cell;
+    width: 220px;
+    padding-left: 20px;
+  }
+}
+
+.three-fifths { @extend %table-cell; }
+
+.four-fifths {
+  &--left { @extend %table-cell; }
+  &--right { @extend %table-cell; }
+}
+
+.full-width { @extend .content; }
 
 .ui-box {
   width: 100%;
@@ -229,10 +267,10 @@ $gutter: 1.25%;
 
 .page-header {
   width: 100%;
-  margin-bottom: .3em;
   border-bottom: 1px solid $grey-2;
   background: $grey-4;
   overflow: hidden;
+  margin-bottom: .75em;
   &__wrapper {
     @extend .page-wrapper;
     margin: 0 $gutter .75em $gutter;
@@ -283,60 +321,6 @@ $gutter: 1.25%;
 }
 
 
-
-/* ==========================================================================
-   5. Global footer
-   ========================================================================== */
-
-.global-footer {
-    border-top: 1px solid $grey-2;
-    background: $grey-3;
-    color: #454a4c;
-    clear: both;
-    a {
-        color: #454a4c;
-    }
-    &__wrapper {
-        @extend .page-wrapper;
-        padding: 2em 0 0 0;
-    }
-    &__links {
-        @extend .two-thirds;
-        padding-top: 7em;
-        list-style: none;
-        @media (max-width: 640px){
-            padding: 0 5% 1.5em 5%;
-        }
-
-    }
-    &__link {
-        float: left;
-        margin-right: $gutter-half;
-        @media (max-width: 640px){
-            display: block;
-            text-align: center; 
-            width: 90%;
-        }
-
-    }
-    &__copyright {
-        @extend .one-third;
-        height: 150px;  
-        float: right;
-        display: block;
-        background: url('#{$assetPath}/footer-crest.png') no-repeat 50% 0 ;
-        @include device-pixel-ratio($ratio: 2) {
-            background: url('#{$assetPath}/footer-crest-2x.png') no-repeat 50% 0;
-            background-size: 125px 102px;
-        }
-        a {
-            text-align: center;
-            display: block;
-            padding-top: 7em;
-        }
-    }
-
-}
 
 
 /* ==========================================================================
@@ -474,13 +458,11 @@ $statuses: (complete 10px 6px, incomplete -588px -596px, current -188px -194px);
     margin: .5em 0 1em 0;
   }
   &__item {
-    border: 1px solid $grey-3;
+    @extend .action--secondary;
     @include border-radius(3px);
-    width: 90%;
+    width: 90% !important;
     padding: .5em 5%;
     margin-bottom: .5em;
-    font-weight: 600;
-    background: $grey-3;
   }
   a {
     color: $black;

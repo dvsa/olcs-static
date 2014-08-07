@@ -161,7 +161,9 @@ textarea {
 select {
     margin-right: .25em;
     .filters & {
-        width: 100%;
+        width: 99%;
+        margin: 0 0 0 1px;
+
     }
 }
 
