@@ -215,9 +215,12 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'lint', [
     'coffeelint'
+    # 'jshint' FIXME: this *must* be reinstated when the js is fit for purpose
   ]
 
   grunt.registerTask 'assemble:pretty', [
     'assemble'
     'prettify'
   ]
+
+  grunt.registerTask 'build:staging', ['test:ci', 'compile:staging']
