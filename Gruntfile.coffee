@@ -158,10 +158,16 @@ module.exports = (grunt) ->
       ]
 
     karma:
-      unit:
-        configFile: "karma.conf.js",
-        singleRun: true,
+      options:
+        singleRun: true
         browsers: ["PhantomJS"]
+        configFile: "karma.conf.js"
+      test:
+        reporters: ["mocha", "coverage", "junit"]
+        colors: true
+      ci:
+        reporters: ["dots", "coverage", "junit"]
+        colors: false
 
 
   require('matchdep').filterDev([
@@ -201,7 +207,8 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'images', ['imagemin']
 
-  grunt.registerTask 'test', ['karma']
+  grunt.registerTask 'test', ['karma:test']
+  grunt.registerTask 'test:ci', ['karma:ci']
 
   grunt.registerTask 'lint', [
     'coffeelint'

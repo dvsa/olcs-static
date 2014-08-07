@@ -25,9 +25,9 @@ module.exports = function(config) {
       "assets/_js/internal/*.js": ["coverage"],
       "assets/_js/selfserve/*.js": ["coverage"]
     },
-    reporters: ["mocha", "coverage", "junit"],
+    //reporters: ["mocha", "coverage", "junit"],
     port: 9876,
-    colors: true,
+    //colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
     captureTimeout: 60000,
