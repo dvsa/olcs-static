@@ -131,7 +131,10 @@ module.exports = (grunt) ->
     htmllint:
       all: ['public/styleguides/**/*.html']
       options:
-        ignore: ['Bad value “X-UA-Compatible” for attribute “http-equiv” on XHTML element “meta”.']
+        ignore: [
+          'Bad value “X-UA-Compatible” for attribute ' +
+          '“http-equiv” on XHTML element “meta”.'
+        ]
 
     open:
       selfserve:
