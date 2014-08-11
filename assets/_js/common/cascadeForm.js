@@ -3,7 +3,7 @@ var OLCS = OLCS || {};
 /**
  * Cascade Form
  *
- * This component should be bound to a form in which it each section
+ * This component should be bound to a form in which each section
  * (usually defined by a top-level fieldset) relates to the one which
  * follows it; that is the content of the following fieldset is affected
  * in some way by the input received in the current one.
@@ -46,8 +46,9 @@ OLCS.cascadeForm = (function(document, $, undefined) {
     }
 
     /**
-     * iterate over the form, checking the relevant rulesets
-     * we generally expect each ruleset to apply to a fieldset
+     * Iterate over the form, checking the relevant rulesets.
+     *
+     * We generally expect each ruleset to apply to a fieldset
      * but allow for exceptions. Once we've found a fieldset or
      * element, we invoke its predicate which can either be a
      * bool or function
@@ -103,7 +104,7 @@ OLCS.cascadeForm = (function(document, $, undefined) {
       }
 
       // the only other selector we support for now is a name=value pair,
-      // e.g. "get me element X with value Y. This is *very* specifically
+      // e.g. "get me element X with value Y". This is *very* specifically
       // for the first use case of this component; add to it as necessary
       if (selector.search("-") !== -1) {
         var parts = selector.split("=");
