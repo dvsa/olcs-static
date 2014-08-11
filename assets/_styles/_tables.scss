@@ -11,7 +11,7 @@ $summary-background: #e6eff5;
     }
     h3 {
       float: left;
-      margin: 0 0 .4em 0;
+      margin: 0 0 .5em 0;
       @if ($app == 'internal') {
         @extend %paragraph--large;
       }

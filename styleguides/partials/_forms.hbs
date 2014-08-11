@@ -1,7 +1,9 @@
 {{#each form }}
+<h4>{{ title }}</h4>
 <form>
   {{#each fieldsets }}
     <fieldset>
+      <legend>{{ legend }}</legend>
       {{#each fields }}    
           <div class="field">
             <label>{{ label }}</label>

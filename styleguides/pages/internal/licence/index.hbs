@@ -12,8 +12,9 @@ verticalNavItems:
   - label: Addresses
     link:
 form: 
-  - fieldsets:
-    - name: Edit task
+  - title: Edit task
+    fieldsets:
+    - legend:
       fields:
         - label: Category
           type: select
@@ -40,11 +41,10 @@ form:
 
 
 <div class="one-fifth--left">
-<h4>Licence details</h4>
-{{> _vertical-navigation }}
+  <h4>Licence details</h4>
+  {{> _vertical-navigation }}
 </div>
 
 <div class="three-fifths">
-<h3>Overview</h3>
-{{> _forms }}
+  {{> _forms }}
 </div>
