@@ -15,6 +15,7 @@ OLCS.formAjax = (function(document, $, undefined) {
     error = error || function(jqXHR, status, err) {
       // no-op
     };
+
     return $.ajax({
       url: form.attr("action"),
       method: form.attr("method"),
