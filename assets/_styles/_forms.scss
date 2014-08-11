@@ -114,7 +114,12 @@ label {
 /* Styling for nested fieldsets */
 
 fieldset fieldset legend {
-  @extend %paragraph--large;
+  @if ($app == internal) {
+    @extend %paragraph--small;
+    font-weight: 400;
+  } @else {
+    @extend %paragraph--large;
+  }
 }
 
 fieldset fieldset label {

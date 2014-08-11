@@ -1,15 +1,13 @@
 .filters {
   margin-top: .5em;
-  .vertical-navigation & {
-    border-top: 3px solid $primaryColour;
-    margin-bottom: -.75em;
-  }
+
 }
 
 .filter-group {
   list-style: none;
-  border-top: 1px solid $grey-2;
-  padding: .5em 0 .8em 0;
+  border-bottom: 1px solid $grey-2;
+  padding: 0 0 .8em 0;
+  margin-bottom: .7em;
   &__title {
     font-weight: 700;
     margin-bottom: .35em;
@@ -24,4 +22,10 @@
       @extend %paragraph--tiny;
     }
   }
+}
+
+.vertical-navigation .filters {
+  border-top: 3px solid $primaryColour;
+  margin-bottom: -1.5em;
+  padding-top: .5em;
 }
