@@ -1,4 +1,4 @@
-describe.skip("OLCS.formHelper", function() {
+describe("OLCS.formHelper", function() {
   "use strict";
 
   beforeEach(function() {
@@ -20,7 +20,7 @@ describe.skip("OLCS.formHelper", function() {
 
   describe("Given a stubbed jQuery object", function() {
     beforeEach(function() {
-      this.find = sinon.stub($, "find").returns("result");
+      this.find = sinon.stub($.fn, "find").returns("result");
     });
 
     afterEach(function() {
@@ -33,7 +33,7 @@ describe.skip("OLCS.formHelper", function() {
       });
 
       it("invokes the expected jQuery selector", function() {
-        expect(this.find.firstCall.args[0]).to.equal("fieldset[data-group='foo']");
+        expect(this.find.secondCall.args[0]).to.equal("fieldset[data-group='foo']");
       });
 
       it("returns the result from $.find", function() {
@@ -47,7 +47,7 @@ describe.skip("OLCS.formHelper", function() {
       });
 
       it("invokes the expected jQuery selector", function() {
-        expect(this.find.firstCall.args[0]).to.equal("[name=foo\\[bar\\]]");
+        expect(this.find.secondCall.args[0]).to.equal("[name=foo\\[bar\\]]");
       });
 
       it("returns the result from $.find", function() {
