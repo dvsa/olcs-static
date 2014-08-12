@@ -23,11 +23,11 @@ OLCS.formHelper = (function(document, $, undefined) {
    * public interface
    */
   exports.fieldset = function(selector) {
-    return $("fieldset[data-group='" + selector + "']");
+    return $.find("fieldset[data-group='" + selector + "']");
   };
 
   exports.input = function(fieldset, name) {
-    return $("[name=" + fieldset + "\\[" + name + "\\]]");
+    return $.find("[name=" + fieldset + "\\[" + name + "\\]]");
   };
 
   return exports;
