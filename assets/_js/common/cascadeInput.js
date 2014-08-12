@@ -1,5 +1,16 @@
 var OLCS = OLCS || {};
 
+/**
+ * Cascade Input
+ *
+ * Given a source and destination input, and a process callback
+ * invoked when the source value changes, apply those changes
+ * to the destination input.
+ *
+ * Currently assumes destination is a select (which obviously
+ * won't be true once this component is adopted a bit more).
+ */
+
 OLCS.cascadeInput = (function(document, $, undefined) {
 
   "use strict";
