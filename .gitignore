@@ -5,3 +5,5 @@ editorconfig.org
 test/js/coverage
 test/js/coverage-xml
 test/js/reports
+vendor/*
+composer.lock

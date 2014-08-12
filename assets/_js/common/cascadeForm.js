@@ -106,7 +106,7 @@ OLCS.cascadeForm = (function(document, $, undefined) {
       // the only other selector we support for now is a name=value pair,
       // e.g. "get me element X with value Y". This is *very* specifically
       // for the first use case of this component; add to it as necessary
-      if (selector.search("-") !== -1) {
+      if (selector.search("=") !== -1) {
         var parts = selector.split("=");
         var str = "[name=" + group + "\\[" + parts[0] + "\\]][value=" + parts[1] + "]";
         return form.find(str).parents("label:last");
