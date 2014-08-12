@@ -35,7 +35,7 @@ module.exports = function(config) {
     captureTimeout: 60000,
 
     coverageReporter: {
-      dir: "test/js/coverage",
+      dir: "test/js/reports",
       reporters: [
         {type: "lcov"},
         {type: "cobertura"}
