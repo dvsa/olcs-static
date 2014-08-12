@@ -1,5 +1,5 @@
 <ul class="horizontal-navigation" role="tablist">
-  <li>{{#each horizontalNavItems }}</li>
+  {{#each horizontalNavItems }}
   {{#ifeq label compare=../sectionTitle }}
   <li class="horizontal-navigation__item current">{{ label }}</li>
   {{else}}
