@@ -1,24 +1,33 @@
 {{#each form }}
+<h4>{{ title }}</h4>
 <form>
   {{#each fieldsets }}
     <fieldset>
-      {{#each fields }}    
+      <legend>{{ legend }}</legend>
+
+      {{#each fields }}
+          
+          {{#is type "select" }}    
           <div class="field">
             <label>{{ label }}</label>
-
-            {{#is type "select" }}
             <select id="{{ this }}" name="{{ this }}">
               {{#each options }}
               <option value="{{ this }}">{{ this }}</option>
               {{/each }}
             </select>
-            {{/is }}
+          </div>
+          {{/is }}
 
-            {{#is type "textarea" }}
+          {{#is type "textarea" }}
+          <div class="field">
+            <label>{{ label }}</label>
             <textarea class="{{ class }}" placeholder="Enter text here"></textarea>
-            {{/is }}
+          </div>  
+          {{/is }}
 
-            {{#is type "date" }}
+
+          {{#is type "date" }}
+          <div class="field">
             <select id="day" name="date-of-birth">
               <option value="Day">Day</option>
             </select>
@@ -28,12 +37,37 @@
             <select id="year" name="date-of-birth">
               <option value="Year">Year</option>
             </select>
-            {{/is }}
-
-
           </div>
+          {{/is }}
+
+          {{#is type "radios" }}
+          <fieldset>
+            <legend class="legend">{{ label }}</legend>
+            {{#each options }}
+            <div class="field inline">
+              <label><input type="radio" name="{{ this }}">{{ this }}</label>
+            </div>
+            {{/each }}
+          </fieldset>
+          {{/is }}
+
+          {{#is type "checkboxes" }}
+          <fieldset>
+            <legend class="legend">Gender</legend>
+            {{#each options }}
+            <div class="field--list">
+              <label for="{{ this }}"><input type="checkbox" id="{{ this }}">{{ this }}</label>
+            </div>
+            {{/each }}
+          </fieldset>
+          {{/is }}
+
       {{/each }}
+
     </fieldset>
   {{/each }}
+
+  {{#if actions }}{{> _actions}}{{/if }}
+
 </form>
 {{/each }}

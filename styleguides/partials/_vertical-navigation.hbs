@@ -3,8 +3,7 @@
   {{#ifeq label compare=../subSectionTitle }}
   <li class="vertical-navigation__item current">
     {{ label }}
-    {{> _filters }}
-
+    {{#if filterList }}{{> _filters }}{{/if}}
   </li>
   {{else }}
   <li class="vertical-navigation__item">

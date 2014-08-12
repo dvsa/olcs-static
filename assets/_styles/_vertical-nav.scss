@@ -1,7 +1,5 @@
 .vertical-navigation {
   @extend %navigation;
-  border-top: 1px solid $grey-2;   
-  margin-top: .6em;
   &__title {
     margin-bottom: 0;
   }
