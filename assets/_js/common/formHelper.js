@@ -2,7 +2,7 @@ var OLCS = OLCS || {};
 
 OLCS.formHelper = (function(document, $, undefined) {
 
-  'use strict';
+  "use strict";
 
   /**
    * Expose a jQuery-esque function which tries to work
