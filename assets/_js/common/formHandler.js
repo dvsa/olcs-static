@@ -22,7 +22,7 @@ OLCS.formHandler = (function(document, $, undefined) {
 
   return function init(options) {
     var form = $(options.form);
-    var onChange = options.onChange || function(e) {
+    var onChange = options.onChange || function() {
       form.submit();
     };
     var submitButton = options.submit || form.find("[type=submit]");
@@ -34,18 +34,18 @@ OLCS.formHandler = (function(document, $, undefined) {
     //form.on("change", onChange.bind(form));
     // .bind is much neater but not supported by
     // PhantomJS, which is frustrating...
-    form.on("change", function(e) {
+    $(document).on("change", form, function(e) {
       onChange.call(form, e);
     });
 
-    form.on("submit", function(e) {
+    $(document).on("submit", form, function(e) {
       e.preventDefault();
 
       OLCS.formAjax(form, function(response) {
         if (options.filter) {
           response = $(response)
             .find(options.filter)
-            .html()
+            .html();
         }
 
         $(options.container).html(response);

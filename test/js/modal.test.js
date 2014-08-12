@@ -39,7 +39,7 @@ describe("OLCS.modal", function() {
 
     afterEach(function() {
       this.on.restore();
-      this.body.remove("#stub");
+      $("#stub").remove();
     });
 
     describe("when initialised with valid options", function() {
