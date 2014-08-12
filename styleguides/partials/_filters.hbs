@@ -1,0 +1,24 @@
+<div class="filters">
+  {{#each filterList }}
+  <div class="filter-group">
+    <h5 class="filter-group__title">{{this.header}}</h5>
+
+    {{#is this.type 'checkboxes'}}
+      {{#each this.filters }}
+      <div class="filter-group__item">
+        <label for="f-{{hyphenate this }}"><input type="checkbox" name="" id="f-{{hyphenate this }}">{{ this }}</label>
+      </div>
+      {{/each }}
+    {{/is}}
+
+    {{#is this.type 'dropdown'}}
+      <select name="">
+      {{#each this.filters }}
+        <option value="{{ . }}">{{ . }}</option>
+      {{/each }}
+      </select>
+    {{/is}}
+    
+  </div><!-- end .filter-group -->
+  {{/each }}
+</div>

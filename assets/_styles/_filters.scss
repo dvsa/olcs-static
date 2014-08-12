@@ -1,0 +1,31 @@
+.filters {
+  margin-top: .5em;
+
+}
+
+.filter-group {
+  list-style: none;
+  border-bottom: 1px solid $grey-2;
+  padding: 0 0 .8em 0;
+  margin-bottom: .7em;
+  &__title {
+    font-weight: 700;
+    margin-bottom: .35em;
+    @extend %paragraph--tiny;
+  }
+  &__item {
+    margin-bottom: .25em;
+  }
+  label {
+    @extend %paragraph--small;
+    @if ($app == 'internal') {
+      @extend %paragraph--tiny;
+    }
+  }
+}
+
+.vertical-navigation .filters {
+  border-top: 3px solid $primaryColour;
+  margin-bottom: -1.5em;
+  padding-top: .5em;
+}

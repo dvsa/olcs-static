@@ -1,0 +1,78 @@
+html {
+    background: $grey-3;
+    font-size: 100%; 
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+body {
+    margin: 0;
+    background: #FFF;
+    font-size: 100%;
+    @if $app == 'selfserve' {
+        font-family: $NTA-Light;   
+    } @else {
+        font-family: Arial, sans-serif;
+    }
+    font-weight: 400;
+    color: $black;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.31579;
+    text-transform: none;
+    vertical-align: baseline;
+}
+
+pre {
+    overflow: auto;
+}
+
+menu, ol, ul {
+    padding: 0;
+    margin: 0;
+}
+
+ul {
+    list-style: circle;
+    list-style-position: inside;
+    h1, h2, h3, h4, h5 {
+        display: inline;
+    }
+}
+
+img {
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+}
+
+dl, dt, dd {
+    width: 100%;
+}
+
+dt {
+    font-weight: 700;
+}
+
+dd {
+    margin: 0 0 1em 0;
+    float: left;
+}
+
+.hint {
+    display: block;
+    color: $grey-1;
+    margin: .5em 0 .75em 0;
+    width: 90%;
+}
+
+.highlight-box {
+    background: $grey-4;
+    margin: 0 0 1.5em -1em;
+    padding: 1em 0 .5em 1em;
+    border-left: 3px solid $grey-3;
+    .field.inline {
+        margin-bottom: 1em;
+    }
+}

@@ -1,0 +1,168 @@
+/* 9.1 Actions
+   ========================================================================== */
+
+/* Use these to wrap multiple actions */
+.actions-container {
+  padding-bottom: 2px;
+  margin-bottom: 1em;
+  float: left;
+  a, input, button {
+    margin-right: .25em !important;
+  }
+}
+
+@mixin action-colour ($colour: $button-colour) {
+  background: $colour;
+  @include box-shadow(0 2px 0 darken($colour, 15%));
+  @include ie-lte(8) {
+    border-bottom: 2px solid darken($colour, 15%);
+  }
+  &:visited{
+    background-color: $colour;
+  }
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    background-color: darken($colour, 5%);
+  }
+  &:active {
+    top: 2px;
+    @include box-shadow(0 0 0 $colour);
+  }
+  &.disabled,
+  &[disabled="disabled"],
+  &[disabled] {
+    @include opacity(.5);
+    &:hover{
+      cursor: default;
+      background-color: $colour;
+    }
+    &:active {
+      top: 0;
+      @include box-shadow(0 2px 0 darken($colour, 15%));
+      @include ie-lte(8) {
+        border-bottom: 2px solid darken($colour, 15%);
+      }
+    }
+  }
+  @if lightness($colour) < 50% {
+    color: $white;
+    &:link,
+    &:hover,
+    &:focus,
+    &:visited{
+      color: $white;
+    }
+  } @else {
+    color: $text-colour;
+    &:link,
+    &:hover,
+    &:focus,
+    &:visited{
+      color: $text-colour;
+    }
+  }
+}
+
+%action-box {
+  @include inline-block;
+  @include border-radius(3px);
+  @extend %paragraph--small;
+  border: none;
+  margin: 0;
+  padding: .3em .5em .1em .5em;
+  padding : .3em .5em .4em .5em\9;
+  @if ($app == 'internal') {
+    @include border-radius(2px);
+    padding: .3em .5em .2em .5em;
+  }
+  font-family: $NTA-Light;
+  text-decoration: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  vertical-align: top;
+  -webkit-appearance: none;
+  cursor: pointer;
+  &[rel="external"]:after {
+    display: none;
+    content: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  @include ie-lte(8) {
+    &[type="submit"],
+    &[type="reset"],
+    &[type="button"] {
+      filter:chroma(color=#000000);
+    }
+    &[type=submit].button {
+      filter: none;
+    }
+  }
+}
+
+input[type="submit"].action,
+.action {
+  &--primary {
+    @include action-colour();
+    @extend %action-box;
+    &.large {
+      @extend %paragraph--large;
+    }
+  }
+  &--secondary, &--warning {
+    @include action-colour($grey-3);
+    @extend %action-box;
+    &.large {
+      @extend %paragraph--large;
+    }
+  }
+  &--tertiary {
+    .actions-container & {
+      padding: .25em;
+      @if ($app == internal) {
+        line-height: 1.8;
+      } @else {
+        line-height: 2.3; 
+      } 
+    }
+  }
+  &--delete {
+    @include action-colour($red);
+    @extend %action-box;
+    color: $white;
+    &.large {
+      @extend %paragraph--large;
+    }
+  }
+}
+
+.action--primary.large,
+.action--secondary.large, 
+.action--warning.large {
+  @extend %paragraph--large;
+  .article & {
+    margin-top: 0.5em;
+  }
+}
+
+/* 9.2 Close buttons
+   ========================================================================== */
+
+.close {
+  background: url('../images/close.png') no-repeat 0 0;
+  @include device-pixel-ratio($ratio: 2) {
+    background: url('../images/close-2x.png') no-repeat 0 0;
+    background-size: 60px 22px;
+  }
+  text-indent: -9999px;
+  height: 22px;
+  width: 22px;
+  &:hover {
+    background-position: -39px 0;
+  }
+}
+
+input[type="submit"].remove {
+  @extend .close;
+}

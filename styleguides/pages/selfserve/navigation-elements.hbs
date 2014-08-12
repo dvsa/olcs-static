@@ -1,0 +1,87 @@
+---
+title: Navigation elements
+subtitle: Includes a standard set of vertical and horizontal navigation mechanisms
+sectionTitle: 1. Your business
+subSectionTitle: Open tasks
+horizontalNavItems:
+  - label: 1. Your business
+    state: current
+  - label: 2. Operating centres
+    state:
+  - label: 3. Transport managers
+    state:
+  - label: 4. Vehicles & Safety
+    state:
+  - label: 5. Previous history
+    state:
+  - label: 6. Review
+    state:
+  - label: 7. Pay & submit
+    state:
+verticalNavItems:
+  - label: Decisions
+    link:  
+  - label: History
+    link:  
+  - label: Open tasks
+    link:  
+  - label: Closed tasks
+    link:  
+  - label: Notes
+    link:
+filterList:
+  - header: App status
+    type: checkboxes
+    filters:
+      - New
+      - Valid
+      - Invalid
+  - header: Traffic area
+    type: dropdown
+    filters:
+      - West of England
+      - North east of England
+      - North west of England
+      - West Midlands and Wales
+      - East of England
+      - London and the south east
+      - Scotland
+---
+
+  <!-- Application navigation -->
+  <div class="full-width">
+    <h3>Application navigation</h3>
+    <ul class="app-navigation items-8" role="menubar">
+      <li class="app-navigation__item complete"><a href=""><span>Type of licence</span></a></li>
+      <li class="app-navigation__item complete"><a href=""><span>Your business</span></a></li>
+      <li class="app-navigation__item complete"><a href=""><span>Operating centres</span></a></li>
+      <li class="app-navigation__item incomplete"><a href=""><span>Transport managers</span></a></li>
+      <li class="app-navigation__item current"><span>Vehicles &amp; Safety</span></li>
+      <li class="app-navigation__item disabled"><span>Previous history</span></li>
+      <li class="app-navigation__item"><a href=""><span>Review &amp; Declarations</span></a></li>
+      <li class="app-navigation__item"><a href=""><span>Payment &amp; Submission</span></a></li>
+    </ul><!-- end .progress -->
+  </div><!-- end .full-width -->
+
+
+  <!-- Horizontal navigation -->
+  <div class="full-width" style="margin-bottom: 3.5em">
+    <h3>Horizontal navigation</h3>
+    {{> _horizontal-navigation }}
+   </div><!-- end .full-width -->
+
+
+  <!-- Vertical navigation-->
+  <div class="one-quarter" style="margin-bottom: 3.5em;">
+    <h3>Vertical navigation</h3>
+    {{> _vertical-navigation }}
+  </div><!-- end .one-quarter -->
+  
+
+  <!-- Filters-->
+  <div class="full-width">  
+    <h3>Filters</h3>
+  </div>
+  <div class="two-thirds">
+    {{> _filters }}
+  </div><!-- end .two-thirds -->

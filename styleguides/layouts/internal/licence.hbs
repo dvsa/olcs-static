@@ -1,0 +1,55 @@
+---
+layout: base.hbs
+title: OB1625270
+breadcrumb: Licence
+subtitle: Goods vehcile, resticted <span class="page-header__status revoked">Revoked</span>
+status: Suspended
+horizontalNavItems:
+  - label: Licence details
+    link:  index.html
+  - label: Bus registrations
+    link:  bus-registrations.html
+  - label: Cases
+    link:  cases.html
+  - label: Environmental
+    link:  environmental.html
+  - label: Docs & attachments
+    link:  docs&attachments.html
+  - label: Processing
+    link:  tasks.html
+  - label: Fees
+    link:  fees.html
+recordActions:
+  - title: Quick actions
+    actions:
+      - Create case
+      - Create variation
+      - Print licence
+  - title: Decisions
+    actions:
+      - Surrender
+      - Curtail
+      - Terminate
+      - Revoke
+---
+
+<div class="four-fifths--left">
+  {{> _horizontal-navigation}}
+  <div class="content">
+  {{> body }}  
+  </div>
+</div>
+
+<div class="one-fifth--right">
+  <div class="record-actions">
+    {{#each recordActions }}
+    <h5>{{ this.title }}</h5> 
+    <ul class="record-actions__group">
+      {{#each this.actions }} 
+      <li class="record-actions__item actions--secondary"><a href="">{{ this }}</a></li>
+      {{/each }}
+    </ul>
+    {{/each }}
+  </div>
+</div>
+

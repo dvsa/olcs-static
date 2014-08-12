@@ -1,24 +1,24 @@
 {
   "name": "olcs-frontend",
   "private": true,
-  "version": "0.0.0",
-  "description": "OLCS Frontend",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
+  "version": "0.0.1",
+  "author": "Sam Quayle sam.quayle@valtech.co.uk",
   "devDependencies": {
-    "grunt": "~0.4.5",
+    "assemble": "^0.4.41",
+    "grunt": "^0.4.5",
+    "grunt-browser-sync": "1.2.1",
+    "grunt-coffeelint": "0.0.10",
+    "grunt-contrib-coffee": "^0.10.1",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-sass": "^0.7.3",
+    "grunt-contrib-uglify": "^0.5.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-open": "^0.2.3",
+    "grunt-prettify": "^0.3.5",
+    "matchdep": "^0.3.0",
     "karma": "~0.12.16",
     "sinon": "~1.10.0",
     "mocha": "~1.18.2",
-    "grunt-contrib-jshint": "~0.10.0",
-    "grunt-contrib-uglify": "~0.4.0",
-    "grunt-contrib-watch": "~0.6.1",
     "karma-coverage": "~0.2.1",
     "grunt-karma": "~0.8.3",
     "karma-junit-reporter": "~0.2.2",
@@ -26,6 +26,8 @@
     "karma-phantomjs-launcher": "~0.1.4",
     "karma-mocha-reporter": "~0.2.5",
     "karma-expect": "~1.1.0",
-    "grunt-contrib-sass": "~0.7.3"
+    "grunt-contrib-imagemin": "^0.7.1",
+    "grunt-newer": "^0.7.0",
+    "grunt-html": "^1.4.0"
   }
 }

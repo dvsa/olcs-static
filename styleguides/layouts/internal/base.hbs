@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en-GB" class="no-js not-ie8">
+<!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{ title }}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/styles/internal.css" media="all" rel="stylesheet" type="text/css">
+  </head>
+
+  <body class="internal">
+    
+    <div role="banner" class="global-header">
+      <div class="global-header__wrapper">
+          <h2 class="global-header__title"><a href="/styleguides/internal/">OLCS</a></h2>
+          <div class="search">
+            <div class="search__wrapper">
+              <input class="search__input" type="text" placeholder="Search">
+              <input class="search__button" type="submit" onclick="window.location = 'http://localhost:7001/styleguides/internal/search/applications.html';return false;">
+            </div>
+            <a href="" class="search__advanced">Advanced</a>
+          </div><!-- end search --> 
+          <ul class="admin">
+            <li class="admin__title">Admin
+              <div class="admin__menu">
+                <ul class="admin__submenu">
+                  <li class="admin__item"><a href="">Scanning</a></li>
+                  <li class="admin__item"><a href="">Printing</a></li>
+                  <li class="admin__item"><a href="">Publications</a></li>
+                  <li class="admin__item"><a href="">Continuations</a></li>
+                  <li class="admin__item"><a href="">Reports</a></li>
+                  <li class="admin__item"><a href="">User management</a></li>
+                </ul>
+                <ul class="admin__submenu">
+                  <li class="admin__item">System settings</li>
+                  <li class="admin__item"><a href="">Financial standing rates</a></li>
+                  <li class="admin__item"><a href="">Public holidays</a></li>
+                  <li class="admin__item"><a href="">System messages</a></li>
+                </ul><!-- admin__submenu -->
+              </div><!-- admin__menu -->
+            </li>
+          </ul><!-- admin -->
+      </div><!-- end global-header__wrapper -->
+    </div><!-- end global-header -->
+
+    <div class="page-header">
+      <div class="page-header__wrapper">
+          
+          <div class="user-header">
+          {{#isnt title "Home" }}
+            <ol class="breadcrumbs">
+              <li class="breadcrumbs__item"><a href="/">Home</a></li>
+              <li class="breadcrumbs__item current">{{ breadcrumb }}</li>
+            </ol>
+            {{/isnt }}
+            <ul class="user-menu">
+              <li class="user-menu__item">Sam Quayle:</li>
+              <li class="user-menu__item"><a href="/styleguides/selfserve/">My settings</a></li>
+              <li class="user-menu__item"><a href="">Sign out</a></li>
+            </ul>
+          </div><!-- user-header -->
+
+          <h1>{{{ title }}}</h1>
+          <h3 class="page-header__subtitle">{{{ subtitle }}}</h3>
+          
+      </div><!-- end .page-header__wrapper-->
+    </div><!-- end .page-header-->
+
+    <div class="page-wrapper">
+      <div id="main" role="main">
+        {{> body }}
+      </div><!-- end .main -->
+    </div><!-- end .page-wrapper-->
+
+  </body>
+</html>

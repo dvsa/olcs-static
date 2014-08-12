@@ -1,0 +1,73 @@
+{{#each form }}
+<h4>{{ title }}</h4>
+<form>
+  {{#each fieldsets }}
+    <fieldset>
+      <legend>{{ legend }}</legend>
+
+      {{#each fields }}
+          
+          {{#is type "select" }}    
+          <div class="field">
+            <label>{{ label }}</label>
+            <select id="{{ this }}" name="{{ this }}">
+              {{#each options }}
+              <option value="{{ this }}">{{ this }}</option>
+              {{/each }}
+            </select>
+          </div>
+          {{/is }}
+
+          {{#is type "textarea" }}
+          <div class="field">
+            <label>{{ label }}</label>
+            <textarea class="{{ class }}" placeholder="Enter text here"></textarea>
+          </div>  
+          {{/is }}
+
+
+          {{#is type "date" }}
+          <div class="field">
+            <select id="day" name="date-of-birth">
+              <option value="Day">Day</option>
+            </select>
+            <select id="month" name="date-of-birth">
+              <option value="Month">Month</option>
+            </select>
+            <select id="year" name="date-of-birth">
+              <option value="Year">Year</option>
+            </select>
+          </div>
+          {{/is }}
+
+          {{#is type "radios" }}
+          <fieldset>
+            <legend class="legend">{{ label }}</legend>
+            {{#each options }}
+            <div class="field inline">
+              <label><input type="radio" name="{{ this }}">{{ this }}</label>
+            </div>
+            {{/each }}
+          </fieldset>
+          {{/is }}
+
+          {{#is type "checkboxes" }}
+          <fieldset>
+            <legend class="legend">Gender</legend>
+            {{#each options }}
+            <div class="field--list">
+              <label for="{{ this }}"><input type="checkbox" id="{{ this }}">{{ this }}</label>
+            </div>
+            {{/each }}
+          </fieldset>
+          {{/is }}
+
+      {{/each }}
+
+    </fieldset>
+  {{/each }}
+
+  {{#if actions }}{{> _actions}}{{/if }}
+
+</form>
+{{/each }}

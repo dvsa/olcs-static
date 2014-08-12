@@ -1,0 +1,68 @@
+---
+layout: licence.hbs
+sectionTitle: Licence details
+subSectionTitle: Overview
+verticalNavItems:
+  - label: Overview
+    link:  
+  - label: Type of licence
+    link:  
+  - label: Business details
+    link:  
+  - label: Addresses
+    link:
+form: 
+  - title: Edit task
+    fieldsets:
+    - legend:
+      fields:
+        - label: Category
+          type: select
+          options:      
+            - Applications
+          class:
+        - label: Sub-category
+          type: select
+          options: 
+            - Goods app
+          class: 
+        - label: Description
+          type: textarea
+          options: 
+            - Goods app
+          class: long
+        - label: Description
+          type: date
+          options: 
+            - Goods app
+          class: long
+        - label: Something else
+          type: radios
+          options: 
+            - Option 1
+            - Option 2
+        - label: Other things
+          type: checkboxes
+          options: 
+            - Option 1
+            - Option 2
+            - Option 3
+    actions:
+      - label: Save
+        class: primary large
+      - label: Cancel
+        class: secondary large
+      - label: Back to home
+        class: tertiary large
+
+---
+
+
+<div class="one-fifth--left">
+  <h4>Licence details</h4>
+  {{> _vertical-navigation }}
+</div>
+
+<div class="three-fifths">
+  {{> _forms }}
+</div>
