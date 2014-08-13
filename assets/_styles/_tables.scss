@@ -12,9 +12,6 @@ $summary-background: #e6eff5;
     h3 {
       float: left;
       margin: 0 0 .5em 0;
-      @if ($app == 'internal') {
-        @extend %paragraph--large;
-      }
     }
     span {
       @extend %paragraph--large;
@@ -55,34 +52,22 @@ table {
   }
   input[type="checkbox"],
   input[type="radio"] {
-    margin: .2em auto 0 auto;
+    margin: 0 .25em 0 auto;
     display: block;
-  }
-}
-
-tr {
-  &.urgent {
-    border-left: 5px solid $mellow-red;
   }
 }
 
 td, th { 
   @extend %paragraph--small;
   padding: .5em 0;
-  @if ($app == 'internal') {
-    @extend %paragraph--tiny; 
-    padding: .6em .5em .6em .5em;
-  }
   text-align: left; 
-  vertical-align: top;
+  vertical-align: middle;
 }
 
 th {
   font-weight: 600;
-  @if($app == internal) {
-    background: $grey-3; 
-    border: 1px solid $grey-2; 
-  }  
+  border-top: 1px solid $grey-2; 
+  height: 1.4em;
   &[scope="row"] {
     border-top: 1px solid $grey-2; 
     font-weight: 400;
@@ -117,13 +102,11 @@ tfoot {
 
 .sortable {
   padding: 0;
-  background: $grey-3;
   a {
-    display: block;
-    margin: .5em .75em .4em .5em;
+    padding-right: 1em;
     color: $black;
     text-decoration: none;
-    background: url('../images/down-arrow.png') no-repeat 100% 6px;
+    background: url('../images/down-arrow.png') no-repeat 100% 7px;
       @include device-pixel-ratio($ratio: 2) {
       background-image: url('../images/down-arrow-2x.png');
       background-size: 10px 130px;
@@ -133,10 +116,10 @@ tfoot {
     }
   }
   &:hover {
-    background-color: #cccccc;
+
   }
   &.ascending {
-    background: #cccccc;
+
   }
   &.ascending a {
     background: url('../images/down-arrow.png') no-repeat 100% -117px;
@@ -146,6 +129,5 @@ tfoot {
     }
   }
   &.descending {
-    background-color: #cccccc;
   }
 }

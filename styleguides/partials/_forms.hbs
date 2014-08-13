@@ -18,6 +18,13 @@
           </div>
           {{/is }}
 
+          {{#is type "text" }}
+          <div class="field">
+            <label>{{ label }}</label>
+            <input type="text" class="{{ class }}" placeholder="">
+          </div>  
+          {{/is }}
+
           {{#is type "textarea" }}
           <div class="field">
             <label>{{ label }}</label>
