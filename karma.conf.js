@@ -1,5 +1,7 @@
 module.exports = function(config) {
 
+  "use strict";
+
   config.set({
     frameworks: ["mocha", "expect"],
     files: [
@@ -33,8 +35,11 @@ module.exports = function(config) {
     captureTimeout: 60000,
 
     coverageReporter: {
-      type: "cobertura",
-      dir: "test/js/coverage-xml"
+      dir: "test/js/reports/coverage",
+      reporters: [
+        {type: "lcov"},
+        {type: "cobertura"}
+      ]
     },
 
     junitReporter: {
