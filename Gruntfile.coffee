@@ -174,7 +174,7 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks "grunt-contrib-uglify"
     grunt.loadNpmTasks "grunt-contrib-imagemin"
   else
-    require('matchdep').filterDev([
+    require('matchdep').filterAll([
       'grunt-*'
       'assemble'
     ]).forEach grunt.loadNpmTasks
