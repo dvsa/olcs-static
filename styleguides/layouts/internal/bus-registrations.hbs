@@ -1,0 +1,46 @@
+---
+layout: base.hbs
+title: PC1057277/3
+breadcrumb: Bus registration 
+subtitle: John Smith LTD, Variation 0 <span class="page-header__status new">New</span>
+status: Suspended
+horizontalNavItems:
+  - label: Service details
+    link:  index.html
+  - label: Short notice
+    link:  bus-registrations.html
+  - label: Timetables & Routes
+    link:  cases.html
+  - label: TRCs & Conditions
+    link:  environmental.html
+  - label: Docs & attachments
+    link:  docs&attachments.html
+  - label: Processing
+    link:  history.html
+  - label: Fees
+    link:  fees.html
+recordActions:
+  - title: Quick actions
+    actions:
+      - Create case
+      - Create variation
+      - Print licence
+  - title: Decisions
+    actions:
+      - Surrender
+      - Curtail
+      - Terminate
+      - Revoke
+---
+
+<div class="four-fifths--left">
+  {{> _horizontal-navigation}}
+  <div class="content">
+  {{> body }}  
+  </div>
+</div>
+
+<div class="one-fifth--right">
+
+</div>
+

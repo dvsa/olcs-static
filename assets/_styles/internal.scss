@@ -79,11 +79,14 @@ $gutter: 1.25%;
   &--right {
     @extend %table-cell;
     width: 220px;
-    padding-left: 20px;
+    padding-left: 30px;
   }
 }
 
-.three-fifths { @extend %table-cell; }
+.three-fifths { 
+  @extend %table-cell; 
+  padding-left: 10px;
+}
 
 .four-fifths {
   &--left { @extend %table-cell; }
@@ -478,7 +481,6 @@ td {
     background-color: #cccccc;
   }
 }
-
 
 
 /* ==========================================================================
