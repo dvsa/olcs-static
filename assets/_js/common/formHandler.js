@@ -41,15 +41,7 @@ OLCS.formHandler = (function(document, $, undefined) {
     $(document).on("submit", form, function(e) {
       e.preventDefault();
 
-      OLCS.formAjax(form, function(response) {
-        if (options.filter) {
-          response = $(response)
-            .find(options.filter)
-            .html();
-        }
-
-        $(options.container).html(response);
-      });
+      OLCS.formAjax(form, OLCS.responseFilter(options.filter, options.container));
     });
   };
 
