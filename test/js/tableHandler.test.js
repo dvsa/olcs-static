@@ -52,6 +52,31 @@ describe("OLCS.tableHandler", function() {
         expect(this.on.firstCall.args[0]).to.equal('click');
         expect(this.on.firstCall.args[1]).to.equal(str);
       });
+
+      describe("Given a stubbed ajax mechanism", function() {
+        beforeEach(function() {
+          this.ajax = sinon.stub($, "get");
+        });
+
+        afterEach(function() {
+          this.ajax.restore();
+        });
+
+        describe("When clicking a relevant link", function() {
+          beforeEach(function() {
+            $("#stub a").click();
+          });
+
+          it("invokes the expected method", function() {
+            expect(this.ajax.calledOnce).to.equal(true);
+          });
+
+          it("with the expected arguments", function() {
+            expect(this.ajax.firstCall.args[0]).to.equal("/foo");
+            expect(this.ajax.firstCall.args[1]).to.be.a("function");
+          });
+        });
+      });
     });
   });
 });
