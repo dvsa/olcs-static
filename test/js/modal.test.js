@@ -1,4 +1,3 @@
-
 describe("OLCS.modal", function() {
   "use strict";
 

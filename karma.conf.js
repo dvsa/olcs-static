@@ -9,6 +9,7 @@ module.exports = function(config) {
       "node_modules/sinon/lib/sinon.js",
       "node_modules/sinon/lib/sinon/spy.js",
       "node_modules/sinon/lib/sinon/**/*.js",
+      "test/js/setup.js",
 
       // common dependencies
       "assets/_js/common/vendor/**/*.js",
