@@ -97,5 +97,45 @@ describe("OLCS.cascadeInput", function() {
         });
       });
     });
+
+    describe("When initialised with a URL option", function() {
+      beforeEach(function() {
+        this.spy = sinon.spy();
+        this.component({
+          source: ".source",
+          dest: ".dest",
+          trap: true,
+          url: "/foo"
+        });
+      });
+
+      afterEach(function() {
+        $(document).off("change");
+      });
+
+      describe("Given a stubbed ajax mechanism", function() {
+        beforeEach(function() {
+          this.get = sinon.stub($, "get");
+        });
+
+        afterEach(function() {
+          this.get.restore();
+        });
+
+        describe("When the source value changes", function() {
+          beforeEach(function() {
+            $(".source").val("test123").change();
+          });
+
+          it("invokes jQuery.get", function() {
+            expect(this.get.callCount).to.equal(1);
+          });
+
+          it("with the correct arguments", function() {
+            expect(this.get.firstCall.args[0]).to.equal("/foo/test123");
+          });
+        });
+      });
+    });
   });
 });
