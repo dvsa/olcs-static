@@ -57,7 +57,7 @@ $gutter: 1.25%;
 #main {
   display: table;
   width: 97.5%;
-  margin: 0 1.25%;
+  margin: 0 1.25% 4em 1.25%;
 }
 
 .content {
@@ -79,11 +79,14 @@ $gutter: 1.25%;
   &--right {
     @extend %table-cell;
     width: 220px;
-    padding-left: 20px;
+    padding-left: 30px;
   }
 }
 
-.three-fifths { @extend %table-cell; }
+.three-fifths { 
+  @extend %table-cell; 
+  padding-left: 10px;
+}
 
 .four-fifths {
   &--left { @extend %table-cell; }
@@ -442,6 +445,42 @@ $statuses: (complete 10px 6px, incomplete -588px -596px, current -188px -194px);
    ========================================================================== */
 
 @import '_tables';
+
+.table__header {
+  h3 { @extend %paragraph--large; }
+  .actions-container { margin-bottom: 0;}
+}
+
+table { border: 1px solid $grey-2; }
+
+tr.urgent { border-left: 5px solid $mellow-red; }
+
+th, 
+td {
+  @extend %paragraph--tiny; 
+  padding: .6em .5em .6em .5em;
+}
+
+th {
+  background: $grey-3; 
+  border: 1px solid $grey-2;
+  padding: .5em;
+  a { display: block; }
+}  
+
+td {
+  border-top: 1px solid $grey-2; 
+  border-right: 1px dotted $grey-2;
+}
+.sortable {
+  padding: 0 .75em;
+  background: $grey-3;
+  &:hover, 
+  &.ascending, 
+  &.descening {
+    background-color: #cccccc;
+  }
+}
 
 
 /* ==========================================================================

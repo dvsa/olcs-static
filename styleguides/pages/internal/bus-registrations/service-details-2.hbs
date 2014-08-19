@@ -1,0 +1,64 @@
+---
+layout: bus-registrations.hbs
+sectionTitle: Service details
+subSectionTitle: Stops, manouevers & subsidies
+verticalNavItems:
+  - label: Service no. & type
+    link:  /styleguides/internal/bus-registrations/
+  - label: Stops, manouevers & subsidies
+    link:  /styleguides/internal/bus-registrations/service-details-2.html
+  - label: TA's and authorities
+    link:  /styleguides/internal/bus-registrations/service-details-3.html
+  - label: Quality schemes
+    link:  /styleguides/internal/bus-registrations/quality-schemes.html
+form: 
+  - title: Service details 2
+    fieldsets:
+    - legend:
+      fields:
+        - label: Use all bus stops?
+          type: radios inline
+          values: 
+            - No
+            - Yes
+        - label: Manoueuvres?
+          type: radios inline
+          values: 
+            - No
+            - Yes        
+        - label: Need new bus stops?
+          type: radios inline
+          values: 
+            - No
+            - Yes
+        - label: No fixed stopping points?
+          type: radios inline
+          values: 
+            - No
+            - Yes
+        - label: Supported by subsidies?
+          type: radios
+          values: 
+            - No
+            - Yes
+            - In part
+        - label: Further information (if applicable)
+          type: textarea
+          class: long
+    actions:
+      - label: Save
+        class: primary large
+      - label: Cancel
+        class: secondary large
+
+---
+
+
+<div class="one-fifth--left">
+  <h4>Service details</h4>
+  {{> _vertical-navigation }}
+</div>
+
+<div class="three-fifths">
+  {{> _forms }}
+</div>

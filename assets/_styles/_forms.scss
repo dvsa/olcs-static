@@ -63,8 +63,12 @@ fieldset {
   border: 0;
   clear: both;
   width: 100%;
-  fieldset .field & {
-    margin-bottom: 0;
+  &.multiple {
+    a {
+      margin: -.75em 0 0 0;
+      display: block;
+        @extend %paragraph--tiny;
+    }
   }
 }
 
@@ -177,7 +181,12 @@ select {
 }
 
 select[multiple] {
-  min-width: $one-third;
+  @extend %paragraph--tiny;
+  min-width: 200px;
+  width: $one-quarter;
+  padding: .25em;
+  display: block;
+  background-color: #f9f9f9;
 }
 
 input:focus,
@@ -190,7 +199,13 @@ select:focus {
 
 .long { width: $two-thirds; }
 
-.medium { width: $half; }
+.medium { 
+  width: $half; 
+  @if ($app == internal) {
+    min-width: 300px;
+    max-width: 450px;
+  }
+}
 
 .short { 
   width: $one-quarter; 
