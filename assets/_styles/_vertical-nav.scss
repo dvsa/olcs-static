@@ -1,5 +1,7 @@
 .vertical-navigation {
   @extend %navigation;
+  overflow: hidden;
+  padding-bottom: 2px;
   &__title {
     margin-bottom: 0;
   }
