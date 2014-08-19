@@ -1,4 +1,6 @@
 $(function() {
+  "use strict";
+
   // always append a hidden element to all forms so we know they were submitted
   // with a JS enabled browser. The backend can then optionally look for this
   // known value and potentially react accordingly

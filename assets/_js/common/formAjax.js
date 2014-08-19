@@ -12,7 +12,7 @@ OLCS.formAjax = (function(document, $, undefined) {
   "use strict";
 
   return function submit(form, success, error) {
-    error = error || function(jqXHR, status, err) {
+    error = error || function(/*jqXHR, status, err*/) {
       // no-op
     };
 
