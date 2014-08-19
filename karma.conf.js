@@ -1,5 +1,7 @@
 module.exports = function(config) {
 
+  "use strict";
+
   config.set({
     frameworks: ["mocha", "expect"],
     files: [
@@ -7,6 +9,7 @@ module.exports = function(config) {
       "node_modules/sinon/lib/sinon.js",
       "node_modules/sinon/lib/sinon/spy.js",
       "node_modules/sinon/lib/sinon/**/*.js",
+      "test/js/setup.js",
 
       // common dependencies
       "assets/_js/common/vendor/**/*.js",
@@ -33,8 +36,11 @@ module.exports = function(config) {
     captureTimeout: 60000,
 
     coverageReporter: {
-      type: "cobertura",
-      dir: "test/js/coverage-xml"
+      dir: "test/js/reports/coverage",
+      reporters: [
+        {type: "lcov"},
+        {type: "cobertura"}
+      ]
     },
 
     junitReporter: {

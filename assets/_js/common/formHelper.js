@@ -2,7 +2,7 @@ var OLCS = OLCS || {};
 
 OLCS.formHelper = (function(document, $, undefined) {
 
-  'use strict';
+  "use strict";
 
   /**
    * Expose a jQuery-esque function which tries to work
@@ -23,11 +23,11 @@ OLCS.formHelper = (function(document, $, undefined) {
    * public interface
    */
   exports.fieldset = function(selector) {
-    return $("fieldset[data-group='" + selector + "']");
+    return $("html").find("fieldset[data-group='" + selector + "']");
   };
 
   exports.input = function(fieldset, name) {
-    return $("[name=" + fieldset + "\\[" + name + "\\]]");
+    return $("html").find("[name=" + fieldset + "\\[" + name + "\\]]");
   };
 
   return exports;

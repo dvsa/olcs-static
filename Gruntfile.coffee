@@ -169,10 +169,15 @@ module.exports = (grunt) ->
         colors: false
 
 
-  require('matchdep').filterDev([
-    'grunt-*'
-    'assemble'
-  ]).forEach grunt.loadNpmTasks
+  if grunt.option("production")
+    grunt.loadNpmTasks "grunt-contrib-sass"
+    grunt.loadNpmTasks "grunt-contrib-uglify"
+    grunt.loadNpmTasks "grunt-contrib-imagemin"
+  else
+    require('matchdep').filterAll([
+      'grunt-*'
+      'assemble'
+    ]).forEach grunt.loadNpmTasks
 
 
   grunt.registerTask 'compile:dev', [

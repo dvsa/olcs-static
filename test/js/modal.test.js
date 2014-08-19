@@ -1,4 +1,3 @@
-
 describe("OLCS.modal", function() {
   "use strict";
 
@@ -70,11 +69,7 @@ describe("OLCS.modal", function() {
 
       describe("Given a stubbed ajax mechanism", function() {
         beforeEach(function() {
-          var self = this;
-
-          this.ajax = sinon.stub($, "ajax", function(args) {
-            self.args = args;
-          });
+          this.ajax = sinon.stub($, "ajax");
         });
 
         afterEach(function() {
@@ -103,7 +98,7 @@ describe("OLCS.modal", function() {
 
             describe("with no content fragment identifier", function() {
               beforeEach(function() {
-                this.args.success("dummy response data");
+                this.ajax.yieldTo("success", "dummy response data");
               });
 
               it("appends the response data correctly", function() {
@@ -163,7 +158,7 @@ describe("OLCS.modal", function() {
                 // we get away with setting the content option so late here by virtue
                 // of the fact it's an object so any changes are applied by reference
                 this.options.content = "#main";
-                this.args.success("<div>foo bar <div id='main'>dummy</div> response data</div>");
+                this.ajax.yieldTo("success", "<div>foo bar <div id='main'>dummy</div> response data</div>");
               });
 
               it("appends the response data correctly", function() {

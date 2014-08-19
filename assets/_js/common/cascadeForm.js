@@ -57,11 +57,15 @@ OLCS.cascadeForm = (function(document, $, undefined) {
       for (var fieldset in options.rulesets) {
         var ruleset = options.rulesets[fieldset];
 
+        // if the rule value is a string, basically. I know
+        // having an inverted test for an object is a bit confusing...
         if (!$.isPlainObject(ruleset)) {
           triggerRule(fieldset, "*", ruleset);
           continue;
         }
 
+        // if the value was an object, iterate its key/vals and trigger
+        // a rule on each of them, bound to the outer fieldset
         for (var selector in ruleset) {
           var rule = ruleset[selector];
           triggerRule(fieldset, selector, rule);
