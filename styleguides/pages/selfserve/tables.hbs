@@ -1,86 +1,38 @@
 ---
 title: Tables
 subtitle: Styleguide
+
+table:
+  title: <strong>5</strong> Operating centres
+  headers:
+    - label: Operating centre address
+      class: sortable
+    - label: Vehicles
+      class: sortable descending
+    - label: Trailers
+      class: sortable
+    - label: Permission
+      class: sortable
+    - label: Advertised 
+      class: sortable
+    - label: <input name="row" type="checkbox">
+      class: non-sortable
+  columns:
+    - <a href="licence/">Unit 5, 12 Albert Street, Westpoint, Leeds</a>
+    - 34
+    - 23
+    - Y
+    - N
+    - <input name="row" type="checkbox">
 ---
 
     <div class="full-width">
 
       <!-- CRUD table -->
 
-      <form>
+        {{> _table}}
         
-        <div class="table__header">
-          <h3>Read only table</h3>
-          <div class="actions-container">
-            <a class="action--tertiary">Edit this section</a>
-          </div><!-- end .actions-container -->
-        </div><!-- end .table__header -->
-
-        <div class="table__wrapper">
-          <table>
-            <thead>
-              <tr>        
-                <th>Licence no.</th>
-                <th>Trading name</th>
-                <th>Postcode</th>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>D.O.B</th>
-                <th>Conv.</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>     
-                <td><input class="action--tertiary" type="submit" value="7616525252"></td>
-                <td>Jim Jefferey's Haulage LTD</td>
-                <td>LS7 4QP</td>
-                <td>James</td>
-                <td>Jefferey</td>
-                <td>07/02/1963</td>
-                <td>14</td>
-                <td><input name="row" type="radio"></td>
-              </tr>
-              <tr>   
-                <td><a href="">36233242279</a></td>
-                <td>Amber Taxis</td>
-                <td>LS3 2PS</td>
-                <td>Mohammed</td>
-                <td>Ali</td>
-                <td>23/11/1943</td>
-                <td>5</td>
-                <td><input name="row" type="radio"></td>
-              </tr>
-              <tr>   
-                <td><a href="">86173252712</a></td>
-                <td>Jim Jefferey's Haulage LTD</td>
-                <td>LS7 4QP</td>
-                <td>James</td>
-                <td>Jefferey</td>
-                <td>07/02/1963</td>
-                <td>14</td>
-                <td><input name="row" type="radio"></td>
-              </tr>
-              <tr> 
-                <td><a href="">8272632422</a></td>
-                <td>Amber Taxis</td>
-                <td>LS3 2PS</td>
-                <td>Mohammed</td>
-                <td>Ali</td>
-                <td>23/11/1943</td>
-                <td>5</td>
-                <td><input name="row" type="radio"></td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr>
-                <th colspan="7">Totals</th>
-                <td>477</td>
-              </tr>
-            </tfoot>
-          </table>
-        </div><!-- end .table__wrapper -->
-      </form>
+      
 
 
       <!-- Read only table -->

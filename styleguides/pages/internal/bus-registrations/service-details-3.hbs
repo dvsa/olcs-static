@@ -1,0 +1,49 @@
+---
+layout: bus-registrations.hbs
+sectionTitle: Service details
+subSectionTitle: TA's and authorities
+verticalNavItems:
+  - label: Service no. & type
+    link:  /styleguides/internal/bus-registrations/
+  - label: Stops, manouevers & subsidies
+    link:  /styleguides/internal/bus-registrations/service-details-2.html
+  - label: TA's and authorities
+    link:  /styleguides/internal/bus-registrations/service-details-3.html
+  - label: Quality schemes
+    link:  /styleguides/internal/bus-registrations/quality-schemes.html
+form: 
+  - title: Service details 3
+    fieldsets:
+    - legend:
+      fields:
+        - label: TAOs covered by route
+          type: multi select
+          values: 
+            - North East England
+            - North West England
+            - South East England
+            - East Midlands
+        - label: Local authorities covered by route
+          type: multi select
+          values: 
+            - Shropshire County Council
+            - Leeds City Council
+            - Durham City Council
+            - Derby City Council
+    actions:
+      - label: Save
+        class: primary large
+      - label: Cancel
+        class: secondary large
+
+---
+
+
+<div class="one-fifth--left">
+  <h4>Service details</h4>
+  {{> _vertical-navigation }}
+</div>
+
+<div class="three-fifths">
+  {{> _forms }}
+</div>
