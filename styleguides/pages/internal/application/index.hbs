@@ -1,0 +1,61 @@
+---
+layout: application.hbs
+sectionTitle: Application details
+subSectionTitle: Overview
+verticalNavItems:
+  - label: Overview
+    link:  
+  - label: Type of licence
+    link:  
+  - label: Business details
+    link:  
+  - label: Addresses
+    link:
+  - label: People
+    link:
+  - label: Operating centres & authorisation
+    link:
+  - label: Transport managers
+    link:
+  - label: Vehicles
+    link:
+  - label: Safety
+    link:
+  - label: Convictions & penalties
+    link:
+  - label: Delarations
+    link:
+form: 
+  - title: Overview
+    fieldsets:
+    - legend:
+      fields:
+        - label: App recieved
+          type: date
+        - label: Target completion date
+          type: date
+        - label: 
+          type: checkboxes
+          values:
+            - Override completion date
+            - Change of entity
+            
+    actions:
+      - label: Save
+        class: primary large
+      - label: Cancel
+        class: secondary large
+      - label: Back to home
+        class: tertiary large
+
+---
+
+
+<div class="one-fifth--left">
+  <h4>Application details</h4>
+  {{> _vertical-navigation }}
+</div>
+
+<div class="three-fifths">
+  {{> _forms }}
+</div>
