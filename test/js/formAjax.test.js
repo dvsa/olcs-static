@@ -33,7 +33,13 @@ describe("OLCS.formAjax", function() {
 
         var form = {
           attr: attr,
-          serialize: serialize
+          serialize: serialize,
+          find: function() {
+            return {
+              attr: sinon.spy(),
+              removeAttr: sinon.spy()
+            };
+          }
         };
         this.success = function() {};
 
@@ -62,7 +68,13 @@ describe("OLCS.formAjax", function() {
 
         var form = {
           attr: attr,
-          serialize: serialize
+          serialize: serialize,
+          find: function() {
+            return {
+              attr: sinon.spy(),
+              removeAttr: sinon.spy()
+            };
+          }
         };
         this.success = function() {};
         this.error = function() {};
