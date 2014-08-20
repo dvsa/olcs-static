@@ -31,14 +31,9 @@ OLCS.formHandler = (function(document, $, undefined) {
       $(submitButton).hide();
     }
 
-    //form.on("change", onChange.bind(form));
-    // .bind is much neater but not supported by
-    // PhantomJS, which is frustrating...
-    $(document).on("change", form, function(e) {
-      onChange.call(form, e);
-    });
+    $(document).on("change", options.form, onChange.bind(form));
 
-    $(document).on("submit", form, function(e) {
+    $(document).on("submit", options.form, function(e) {
       e.preventDefault();
 
       OLCS.formAjax(form, OLCS.responseFilter(options.filter, options.container));
