@@ -16,12 +16,24 @@ OLCS.formAjax = (function(document, $, undefined) {
       // no-op
     };
 
+    // cache the form data before we disable it, otherwise
+    // we'll serialize nothing
+    var data = form.serialize();
+
+    // @TODO: make this an input param
+    form.find(":input").attr("disabled", true);
+
+    function complete() {
+      form.find(":input").removeAttr("disabled");
+    }
+
     return $.ajax({
       url: form.attr("action"),
       method: form.attr("method"),
-      data: form.serialize(),
+      data: data,
       success: success,
-      error: error
+      error: error,
+      complete: complete
     });
   };
 

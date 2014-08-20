@@ -18,6 +18,8 @@ OLCS.cascadeInput = (function(document, $, undefined) {
   return function init(options) {
     var destination = $(options.dest);
     var trap = options.trap === undefined ? true : options.trap;
+    var disableDestination = options.disableDestination === undefined ? true : options.disableDestination;
+    var loadingText = options.loadingText || "Loading&hellip;";
     var process = options.process;
 
     // allow a quick shortcut; if the user passed in `url`, then
@@ -57,12 +59,21 @@ OLCS.cascadeInput = (function(document, $, undefined) {
 
         destination.html(str);
 
+        if (disableDestination) {
+          destination.removeAttr("disabled");
+        }
+
         // we assume that if we trapped the earlier change event, we want to
         // trigger one now. Note that the event is triggered on a different element
         // (dest rather than src); if this matters by all means tweak the component
         if (trap) {
           destination.change();
         }
+      }
+
+      if (disableDestination) {
+        destination.html("<option>" + loadingText + "</option>");
+        destination.attr("disabled", true);
       }
 
       process.call(this, $(this).val(), done);
