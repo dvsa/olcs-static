@@ -22,7 +22,7 @@ OLCS.formHandler = (function(document, $, undefined) {
 
   return function init(options) {
     var form = $(options.form);
-    var onChange = options.onChange || function() {
+    var onChange = options.onChange !== undefined ? options.onChange : function() {
       form.submit();
     };
     var submitButton = options.submit || form.find("[type=submit]");
@@ -31,7 +31,9 @@ OLCS.formHandler = (function(document, $, undefined) {
       $(submitButton).hide();
     }
 
-    $(document).on("change", options.form, onChange.bind(form));
+    if (onChange) {
+      $(document).on("change", options.form, onChange.bind(form));
+    }
 
     $(document).on("submit", options.form, function(e) {
       e.preventDefault();
