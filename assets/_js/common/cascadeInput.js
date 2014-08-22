@@ -20,6 +20,7 @@ OLCS.cascadeInput = (function(document, $, undefined) {
     var trap = options.trap === undefined ? true : options.trap;
     var disableDestination = options.disableDestination === undefined ? true : options.disableDestination;
     var loadingText = options.loadingText || "Loading&hellip;";
+    var emptyLabel = options.emptyLabel || null;
     var process = options.process;
 
     // allow a quick shortcut; if the user passed in `url`, then
@@ -52,10 +53,12 @@ OLCS.cascadeInput = (function(document, $, undefined) {
         // 3) We expect the first value, which will be selected, to be 'current'
         // As and when this component is expanded, obviously we'll need to change this!
         var str = "";
-        for (var i = 0, j = result.length; i < j; i++) {
-          var r = result[i];
+        $.each(result, function(i, r) {
+          if (r.value === "" && emptyLabel) {
+            r.label = emptyLabel;
+          }
           str += "<option value='" + r.value + "'>" + r.label + "</option>";
-        }
+        });
 
         destination.html(str);
 
