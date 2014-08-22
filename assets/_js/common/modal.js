@@ -1,13 +1,5 @@
 var OLCS = OLCS || {};
 
-/*
-OLCS.modal.init({
-  trigger: '.js-modal',
-  selector: '.modal',
-  content: '#main'
-});
-*/
-
 OLCS.modal = (function(document, $, undefined) {
 
   'use strict';
@@ -21,54 +13,49 @@ OLCS.modal = (function(document, $, undefined) {
   /**
    * private interface
    */
-  function hide(selector) {
-    $(selector).hide();
-    $(selector).prev().hide();
-  }
+  var selector = '.modal';
+  var wrapper  = '.modal__wrapper';
+  var header   = '.modal__title';
+  var content  = '.modal__content';
 
-  function show(data, wrapper, selector, content) {
-    if (content) {
-      data = $(data).find(content).html();
-    }
-    $(selector).append(data);
-
-    $(wrapper).prev().show();
-    $(wrapper).show();
-  }
+  var template = [
+    '<div class="overlay  js-hidden"></div>',
+    '<div class="modal__wrapper js-hidden">',
+      '<div class="modal">',
+        '<div class="modal__header">',
+          '<h2 class="modal__title"></h2>',
+          '<a href="" class="modal__close">Close</a>',
+        '</div>',
+        '<div class="modal__content"></div>',
+      '</div>',
+    '</div>'
+  ].join('\n');
 
   /**
    * public interface
    */
-  exports.init = function(options) {
-    var trigger  = options.trigger;
-    var selector = options.selector;
-    var wrapper  = options.wrapper || options.selector + '__wrapper';
-    var cache    = {};
+  exports.show = function(body, title) {
+    var closeSelectors = selector + '__close, ' + content + ' #cancel';
 
-    hide(wrapper);
+    if ($('body').find(wrapper).length === 0) {
+      $('body').prepend(template);
+    }
 
-    $(document).on('click', trigger, function(e) {
+    $(header).html(title || '');
+    $(content).html(body);
+    $(wrapper).prev().show();
+    $(wrapper).show();
+
+    $(document).on('click', closeSelectors, function(e) {
       e.preventDefault();
-
-      var key = $(this).attr('href');
-
-      if (cache[key]) {
-        return show(cache[key], wrapper, selector, options.content);
-      }
-
-      $.ajax({
-        url: key,
-        success: function(data) {
-          cache[key] = data;
-          show(data, wrapper, selector, options.content);
-        }
-      });
+      exports.hide();
     });
+  };
 
-    $(document).on('click', selector + '__close', function(e) {
-      e.preventDefault();
-      hide(wrapper);
-    });
+  exports.hide = function() {
+    $(document).off('click', selector + '__close');
+    $(wrapper).hide();
+    $(wrapper).prev().hide();
   };
 
   return exports;
