@@ -46,16 +46,22 @@ OLCS.modal = (function(document, $, undefined) {
     $(wrapper).prev().show();
     $(wrapper).show();
 
+    var modal = {
+      hide: function() {
+        $(document).off('click', selector + '__close');
+        $(wrapper).hide();
+        $(wrapper).prev().hide();
+        modal.onHide();
+      },
+      onHide: $.noop
+    };
+
     $(document).on('click', closeSelectors, function(e) {
       e.preventDefault();
-      exports.hide();
+      modal.hide();
     });
-  };
 
-  exports.hide = function() {
-    $(document).off('click', selector + '__close');
-    $(wrapper).hide();
-    $(wrapper).prev().hide();
+    return modal;
   };
 
   return exports;

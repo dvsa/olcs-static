@@ -45,6 +45,15 @@ OLCS.formHandler = (function(document, $, undefined) {
 
       OLCS.formAjax(form, OLCS.responseFilter(options.filter, options.container));
     });
+
+    return {
+      off: function() {
+        $(document).off("submit", selector);
+        if (onChange) {
+          $(document).off("change", selector);
+        }
+      }
+    };
   };
 
 }(document, window.jQuery));

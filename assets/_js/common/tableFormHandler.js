@@ -25,13 +25,17 @@ OLCS.tableFormHandler = (function(document, $, undefined) {
       // submit the *table* form
       OLCS.formAjax(form, OLCS.normaliseResponse(function(data) {
 
-        OLCS.modal.show(data.body, data.title);
+        var modal = OLCS.modal.show(data.body, data.title);
 
-        OLCS.formHandler({
+        var handler = OLCS.formHandler({
           form: ".modal__content form",
           container: ".modal__content",
           onChange: false
         });
+
+        modal.onHide = function() {
+          handler.off();
+        };
       }));
     });
   };
