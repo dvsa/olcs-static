@@ -34,8 +34,16 @@ hr {
     clear: both;
 }
 
+// This may seem counter-intuitive, but it is correct
+.js-visible {
+  display: none;
+}
+
 .js-enabled {
   .js-hidden {
     display: none;
+  }
+  .js-visible {
+    display: block;
   }
 }
