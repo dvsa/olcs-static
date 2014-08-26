@@ -1,5 +1,4 @@
 {{#each form }}
-<h4>{{ title }}</h4>
 <form>
   {{#each fieldsets }}
     <fieldset>
@@ -81,7 +80,7 @@
           {{/is }}
 
           {{#is type "radios" }}
-          <fieldset>
+          <fieldset class="{{ type }}">
             <legend class="legend">{{ label }}</legend>
             {{#each values }}
             <div class="field--list">
@@ -92,11 +91,11 @@
           {{/is }}
 
           {{#is type "checkboxes" }}
-          <fieldset>
-            <legend class="legend"></legend>
+          <fieldset class="{{ type }}">
+            <legend class="legend">{{ label }}</legend>
             {{#each values }}
             <div class="field--list">
-              <label for="{{ this }}"><input type="checkbox" id="{{ this }}">{{ this }}</label>
+              <label for=""><input type="checkbox" id="{{ this }}">{{ this }}</label>
             </div>
             {{/each }}
           </fieldset>
