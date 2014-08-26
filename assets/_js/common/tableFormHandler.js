@@ -1,6 +1,5 @@
 var OLCS = OLCS || {};
 
-// @TODO merge with tableHandler?
 OLCS.tableFormHandler = (function(document, $, undefined) {
 
   "use strict";

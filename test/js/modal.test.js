@@ -1,4 +1,4 @@
-describe("OLCS.modal", function() {
+describe.skip("OLCS.modal", function() {
   "use strict";
 
   beforeEach(function() {
