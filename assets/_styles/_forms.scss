@@ -129,6 +129,7 @@ fieldset fieldset legend {
 fieldset fieldset label { 
   @if ($app == internal) {
     @extend %paragraph--tiny;
+    font-weight: 400;
   } @else {
     @extend %paragraph--small;
   }
@@ -312,7 +313,7 @@ input[type="file"] {
 
   $ro-margin-bottom: .5em;
 
-  .read-only {
+  form.read-only {
     height: 400px;
     width: 100%;
     background: $grey-4;

@@ -1,0 +1,22 @@
+dl.read-only {
+  border-bottom: 1px solid $grey-2;
+  width: 100%;
+  float: left;
+  margin: 0 0 .6em 0;
+  dt, dd {
+    float: left;
+    width: 25%;
+    padding: 0 0 .6em 0;
+    margin: 0;
+  }
+  dt {
+    font-weight: 400;
+  }
+  dd {
+    font-weight: 600;
+  }
+  a {
+    @extend %paragraph--tiny;
+    font-weight: 400;
+  }
+}

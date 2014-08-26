@@ -63,6 +63,13 @@ $gutter: 1.25%;
 .content {
   display: table;
   width: 100%;
+  h3 {
+    @extend %paragraph--large;
+    border-bottom: 1px solid $grey-2;
+    padding-bottom: .5em;
+    font-weight: 600;
+    margin-bottom: .5em;
+  }
 }
 
 %table-cell {
@@ -515,3 +522,11 @@ td {
    ========================================================================== */
 
 @import '_modals-messaging';
+
+
+/* ==========================================================================
+   11. Read only
+   ========================================================================== */
+
+@import '_read-only';
+

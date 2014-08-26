@@ -1,0 +1,8 @@
+{{#each read-only }}
+  <dl class="read-only">
+    {{#each group }}
+    <dt>{{{ this.name }}}</dt>
+    <dd>{{{ this.value }}}</dd>
+    {{/each }}
+  </dl>
+{{/each }}
