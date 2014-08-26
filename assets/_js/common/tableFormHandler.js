@@ -20,6 +20,8 @@ OLCS.tableFormHandler = (function(document, $, undefined) {
 
       // submit the *table* form
       OLCS.formAjax(form, function(data) {
+
+        // we take the value of the action to be the modal's title
         OLCS.modal.show(data, actionValue);
 
         // @NOTE this only works once as the formHandler
