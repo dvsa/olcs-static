@@ -16,29 +16,23 @@ OLCS.tableFormHandler = (function(document, $, undefined) {
       var form = $(this).parents("form");
       var actionValue = $(this).val();
 
-      form.prepend("<input type=hidden name=action value='" + actionValue + "' />");
+      if (form.find(".form__action").length === 0) {
+        form.prepend("<input class=form__action type=hidden name=action />");
+      }
+
+      form.find(".form__action").val(actionValue);
 
       // submit the *table* form
-      OLCS.formAjax(form, function(data) {
+      OLCS.formAjax(form, OLCS.normaliseResponse(function(data) {
 
-        // we take the value of the action to be the modal's title
-        OLCS.modal.show(data, actionValue);
+        OLCS.modal.show(data.body, data.title);
 
-        // @NOTE this only works once as the formHandler
-        // binds a reference to the form on initialisation.
-        // As such, when it gets replaced by the result from
-        // the response, the variable refers to the old form
-        // (I think...)
-        //
-        // @TODO this inner form might be the result of a
-        // direct response (with errors) or a PRG
-        // (i.e a success). We need to detect the latter...
         OLCS.formHandler({
           form: ".modal__content form",
           container: ".modal__content",
           onChange: false
         });
-      });
+      }));
     });
   };
 

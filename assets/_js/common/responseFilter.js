@@ -6,7 +6,7 @@ OLCS.responseFilter = (function(document, $, undefined) {
 
   return function init(filter, container) {
     return OLCS.normaliseResponse(function(response) {
-      var content = response.html;
+      var content = response.body;
 
       if (filter) {
         content = $(content)

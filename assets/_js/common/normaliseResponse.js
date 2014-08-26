@@ -17,10 +17,23 @@ OLCS.normaliseResponse = (function(window, undefined) {
     // by an AJAX request or similar
     return function onResponse(response) {
       if (typeof response === "string") {
+        var title = $(response).find(".js-title");
+        var body  = $(response).find(".js-body");
+
         response = {
           status: 200,
-          html: response
+          title: "",
+          body: response
         };
+
+        if (title.length) {
+          response.title = title.html();
+        }
+
+        if (body.length) {
+          response.body = body.html();
+        }
+
       }
 
       // we won't invoke the callback if the status
