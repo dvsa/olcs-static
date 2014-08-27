@@ -55,7 +55,10 @@ OLCS.formHandler = (function(document, $, undefined) {
 
       var form = $(selector);
 
-      OLCS.formAjax(form, OLCS.responseFilter(options.filter, options.container));
+      OLCS.formAjax({
+        form: form,
+        success: OLCS.responseFilter(options.filter, options.container)
+      });
     });
 
     // @TODO validate, is this right?

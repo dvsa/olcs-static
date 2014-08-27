@@ -11,8 +11,10 @@ OLCS.formAjax = (function(document, $, undefined) {
 
   "use strict";
 
-  return function submit(form, success, error) {
-    error = error || function(/*jqXHR, status, err*/) {
+  return function submit(options) {
+    var form = options.form;
+    var success = options.success;
+    var error = options.error || function(/*jqXHR, status, err*/) {
       // no-op
     };
 

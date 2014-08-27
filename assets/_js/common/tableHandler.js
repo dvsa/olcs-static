@@ -58,28 +58,30 @@ OLCS.tableHandler = (function(document, $, undefined) {
       form.find(".form__action").val(actionValue);
 
       // submit the *table* form...
-      OLCS.formAjax(form, OLCS.normaliseResponse(function(data) {
+      OLCS.formAjax({
+        form: form,
+        success: OLCS.normaliseResponse(function(data) {
+          // ... assume that the response we get back should be shown in
+          // a modal
+          OLCS.modal.show(data.body, data.title);
 
-        // ... assume that the response we get back should be shown in
-        // a modal
-        OLCS.modal.show(data.body, data.title);
+          // also assume that we've got a form within the rendered modal
+          // and bind a form handler to it
+          var handler = OLCS.formHandler({
+            form: ".modal__content form",
+            container: ".modal__content",
+            onChange: false
+          });
 
-        // also assume that we've got a form within the rendered modal
-        // and bind a form handler to it
-        var handler = OLCS.formHandler({
-          form: ".modal__content form",
-          container: ".modal__content",
-          onChange: false
-        });
-
-        // because handler uses event delegation, the listeners it sets
-        // up will keep hanging around after the modal is closed, which
-        // means if it's re-opened they'll rebind and trip each other up
-        // As such, we need to manually unbind them each time.
-        OLCS.modal.on("hide", function() {
-          handler.off();
-        });
-      }));
+          // because handler uses event delegation, the listeners it sets
+          // up will keep hanging around after the modal is closed, which
+          // means if it's re-opened they'll rebind and trip each other up
+          // As such, we need to manually unbind them each time.
+          OLCS.modal.on("hide", function() {
+            handler.off();
+          });
+        })
+      });
     });
   };
 
