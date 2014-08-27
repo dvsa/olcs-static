@@ -1,5 +1,14 @@
 var OLCS = OLCS || {};
 
+/**
+ * EventEmitter mixin
+ *
+ * For now, don't use this component directly. Use it as a mixin
+ * instead. E.g.
+ *
+ * OLCS.utils.extend(myObject, OLCS.eventEmitter);
+ */
+
 OLCS.eventEmitter = (function(document, $, undefined) {
 
   "use strict";

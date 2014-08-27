@@ -1,5 +1,15 @@
 var OLCS = OLCS || {};
 
+/**
+ * Table Handler
+ *
+ * Binds listeners to intercept various link clicks (pagination,
+ * sort ordering etc) and action button clicks.
+ *
+ * This makes various assumptions about what we expect back after
+ * submitting a table form; as such this may need adapting in future
+ */
+
 OLCS.tableHandler = (function(document, $, undefined) {
 
   "use strict";
@@ -37,24 +47,35 @@ OLCS.tableHandler = (function(document, $, undefined) {
       var form = $(this).parents("form");
       var actionValue = $(this).val();
 
+      // our backend logic relies on receiving the the value of the action
+      // button which was clicked in order to determine what to do.
+      // Unfortunately a JS click event + submit combo won't include
+      // that info, so we have to manually inject it into the form
       if (form.find(".form__action").length === 0) {
         form.prepend("<input class=form__action type=hidden name=action />");
       }
 
       form.find(".form__action").val(actionValue);
 
-      // submit the *table* form
+      // submit the *table* form...
       OLCS.formAjax(form, OLCS.normaliseResponse(function(data) {
 
+        // ... assume that the response we get back should be shown in
+        // a modal
         OLCS.modal.show(data.body, data.title);
 
+        // also assume that we've got a form within the rendered modal
+        // and bind a form handler to it
         var handler = OLCS.formHandler({
           form: ".modal__content form",
           container: ".modal__content",
           onChange: false
         });
 
-        // @TODO EventEmitter?
+        // because handler uses event delegation, the listeners it sets
+        // up will keep hanging around after the modal is closed, which
+        // means if it's re-opened they'll rebind and trip each other up
+        // As such, we need to manually unbind them each time.
         OLCS.modal.on("hide", function() {
           handler.off();
         });

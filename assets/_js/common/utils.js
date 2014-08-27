@@ -1,5 +1,10 @@
 var OLCS = OLCS || {};
 
+/**
+ * Small utility belt. To be honest, we might be better off
+ * just using something like lodash if this grows too big.
+ */
+
 OLCS.utils = (function(document, $, undefined) {
 
   "use strict";

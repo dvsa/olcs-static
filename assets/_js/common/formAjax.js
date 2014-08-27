@@ -22,7 +22,7 @@ OLCS.formAjax = (function(document, $, undefined) {
 
     // @TODO: make this an input param
     form.find(":input").attr("disabled", true);
-
+    // @TODO and this too
     function complete() {
       form.find(":input").removeAttr("disabled");
     }

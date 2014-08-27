@@ -1,5 +1,13 @@
 var OLCS = OLCS || {};
 
+/**
+ * Modal
+ *
+ * Must be provided with content and an optional title.
+ * Currently only allows for one modal to be displayed at
+ * a time (may need addressing in future).
+ */
+
 OLCS.modal = (function(document, $, undefined) {
 
   'use strict';
@@ -8,9 +16,7 @@ OLCS.modal = (function(document, $, undefined) {
    * local variable declarations
    * and public export
    */
-  var exports = {};
-
-  OLCS.utils.extend(exports, OLCS.eventEmitter);
+  var exports = OLCS.utils.extend({}, OLCS.eventEmitter);
 
   /**
    * private interface
@@ -45,6 +51,7 @@ OLCS.modal = (function(document, $, undefined) {
 
     $(header).html(title || '');
     $(content).html(body);
+
     $(wrapper).prev().show();
     $(wrapper).show();
 
