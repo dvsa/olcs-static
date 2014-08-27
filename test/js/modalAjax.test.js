@@ -1,8 +1,8 @@
-describe.skip("OLCS.modal", function() {
+describe.skip("OLCS.modalAjax", function() {
   "use strict";
 
   beforeEach(function() {
-    this.component = OLCS.modal;
+    this.component = OLCS.modalAjax;
   });
 
   it("should be defined", function() {
