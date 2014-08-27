@@ -1,0 +1,21 @@
+<ol class="app-navigation" role="menu">
+  <ul class="app-navigation" role="menubar">
+    {{#each appNavItems }}
+      {{#ifeq label compare=../subSectionTitle }}
+      <li class="app-navigation__item current">
+        <span>{{ label }}</span>
+      </li>
+      {{else }}
+        {{#is status "disabled" }}
+          <li class="app-navigation__item {{ status }}">
+            <span>{{ label }}</span> 
+          </li>
+        {{else }}
+          <li class="app-navigation__item {{ status }}">
+            <a href="{{ link }}"><span>{{ label }}</span></a>
+          </li>
+        {{/is }}
+      {{/ifeq }}
+    {{/each }}
+  </ul><!-- end .progress -->
+</ol><!-- end .vertical-navigation -->

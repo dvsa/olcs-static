@@ -2,29 +2,39 @@
 layout: application.hbs
 sectionTitle: Application details
 subSectionTitle: Overview
-verticalNavItems:
+appNavItems:
   - label: Overview
-    link:  
+    link:
   - label: Type of licence
     link:  
+    status: complete
   - label: Business details
     link:  
+    status: complete
   - label: Addresses
     link:
+    status: complete
   - label: People
     link:
+    status: incomplete
   - label: Operating centres & authorisation
     link:
+    status: incomplete
   - label: Transport managers
     link:
+    status: incomplete
   - label: Vehicles
     link:
+    status: disabled
   - label: Safety
     link:
+    status:
   - label: Convictions & penalties
     link:
+    status: disabled
   - label: Delarations
     link:
+    status: disabled
 form: 
   - title: Overview
     fieldsets:
@@ -45,7 +55,6 @@ form:
             - Accepted
             - Not accepted
             - N/A
-
     actions:
       - label: Save
         class: primary large
@@ -59,7 +68,7 @@ form:
 
 <div class="one-fifth--left">
   <h4>Application details</h4>
-  {{> _vertical-navigation }}
+  {{> _application-navigation }}
 </div>
 
 <div class="three-fifths">
