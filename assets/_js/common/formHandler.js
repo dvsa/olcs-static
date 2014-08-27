@@ -20,6 +20,18 @@ OLCS.formHandler = (function(document, $, undefined) {
 
   "use strict";
 
+  function Handler(selector, onChange) {
+    this.selector = selector;
+    this.onChange = onChange;
+  }
+
+  Handler.prototype.off = function() {
+    $(document).off("submit", this.selector);
+    if (this.onChange) {
+      $(document).off("change", this.selector);
+    }
+  };
+
   return function init(options) {
     var selector = options.form;
     var onChange = options.onChange !== undefined ? options.onChange : function() {
@@ -46,14 +58,8 @@ OLCS.formHandler = (function(document, $, undefined) {
       OLCS.formAjax(form, OLCS.responseFilter(options.filter, options.container));
     });
 
-    return {
-      off: function() {
-        $(document).off("submit", selector);
-        if (onChange) {
-          $(document).off("change", selector);
-        }
-      }
-    };
+    // @TODO validate, is this right?
+    return new Handler(selector, onChange);
   };
 
 }(document, window.jQuery));

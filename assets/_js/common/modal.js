@@ -10,6 +10,8 @@ OLCS.modal = (function(document, $, undefined) {
    */
   var exports = {};
 
+  OLCS.utils.extend(exports, OLCS.eventEmitter);
+
   /**
    * private interface
    */
@@ -46,22 +48,17 @@ OLCS.modal = (function(document, $, undefined) {
     $(wrapper).prev().show();
     $(wrapper).show();
 
-    var modal = {
-      hide: function() {
-        $(document).off('click', selector + '__close');
-        $(wrapper).hide();
-        $(wrapper).prev().hide();
-        modal.onHide();
-      },
-      onHide: $.noop
-    };
-
     $(document).on('click', closeSelectors, function(e) {
       e.preventDefault();
-      modal.hide();
+      exports.hide();
     });
+  };
 
-    return modal;
+  exports.hide = function() {
+    $(document).off('click', selector + '__close');
+    $(wrapper).hide();
+    $(wrapper).prev().hide();
+    exports.emit('hide');
   };
 
   return exports;
