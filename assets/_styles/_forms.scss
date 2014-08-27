@@ -80,6 +80,10 @@ fieldset {
   &.inline {
     margin: 0 .5em 0 0;
   }
+  &--two-col {
+    width: 50%;
+    float: left;
+  }
 
 }
 

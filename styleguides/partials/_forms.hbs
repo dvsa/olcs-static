@@ -101,6 +101,17 @@
           </fieldset>
           {{/is }}
 
+          {{#is type "checkboxes two-col" }}
+          <fieldset class="{{ type }}">
+            <legend class="legend">{{ label }}</legend>
+            {{#each values }}
+            <div class="field--two-col">
+              <label for=""><input type="checkbox" id="{{ this }}">{{ this }}</label>
+            </div>
+            {{/each }}
+          </fieldset>
+          {{/is }}
+
           {{#is type "multiple" }}
           <fieldset class="multiple">
             <legend>{{ label }}</legend>

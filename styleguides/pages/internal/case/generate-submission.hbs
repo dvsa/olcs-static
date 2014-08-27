@@ -5,27 +5,62 @@ form:
   - fieldsets:
     - legend:
       fields:
-        - label: Category
+        - label: Submission type
           type: select
           values:      
-            - Something or other
+            - CLO(PSV)
+            - TM Only
           class:
-        - label: Sub-category
-          type: select
-          values: 
-            - Something or other
-          class:
-    - legend: Content
+    - legend: Sections
       fields:
-        - label: Select which sections you would like to include in the submission
-          type: checkboxes
+        - label:
+          type: checkboxes two-col
           values:      
-            - Lorem ipsum dolor sit amet, consectetur adipiscing elit
-            - Lorem ipsum dolor sit amet, consectetur adipiscing elit
-            - Lorem ipsum dolor sit amet, consectetur adipiscing elit
-            - Lorem ipsum dolor sit amet, consectetur adipiscing elit
-            - Lorem ipsum dolor sit amet, consectetur adipiscing elit
-            - Lorem ipsum dolor sit amet, consectetur adipiscing elit
+          - Case details
+          - Most serious incident
+          - Persons
+          - Operating centres
+          - Operating centre history
+          - Conditions and undertakings
+          - Intelligence unit check
+          - Interim 
+          - Advertisement
+          - Linked licences & application numbers
+          - All Auths
+          - Lead TC area
+          - Current submissions
+          - Authorisation requested applied for
+          - Transport managers
+          - Continuous and effective control
+          - Fitness & repute
+          - Previous history
+          - Bus registration application details
+          - Transport authority comments
+          - Total bus registrations
+          - Local licence history
+          - Linked MLH history
+          - Registration details
+          - Maintenance / Tachographs / Drivers hours
+          - Prohibition history
+          - Conviction / FPN / Offence history
+          - Annual test history
+          - Penalties
+          - Other isssues / misc
+          - TE reports
+          - Site plans
+          - Planning permission
+          - Applicants comments
+          - Visibility/ access egress size
+          - Case complaints
+          - Environmental complaints
+          - Representations
+          - Objections
+          - Previous history
+          - Financial information
+          - Maps
+          - Waive fee / Late fee
+          - Surrender
+          - Annex
     actions:
       - label: Generate
         class: primary large

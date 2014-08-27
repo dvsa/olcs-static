@@ -83,6 +83,7 @@ $gutter: 1.25%;
   }
 }
 
+//Needs refactoring
 .three-fifths { 
   @extend %table-cell; 
   padding-left: 10px;
@@ -111,6 +112,25 @@ $gutter: 1.25%;
     margin-bottom: .5em;
    
   }
+}
+
+//Needs refactoring
+.section-header {
+    border-bottom: 1px solid $grey-2;
+    padding-bottom: 0;
+    font-weight: 600;
+    margin-bottom: 0;
+    width: 100%;
+    float: left;
+    h3 {
+      @extend %paragraph--large;
+      font-weight: 600;
+      float: left;
+    }
+    .action--secondary {
+      float: right;
+      margin-top: -5px;
+    }
 }
 
 
@@ -414,6 +434,7 @@ td {
   border-top: 1px solid $grey-2; 
   border-right: 1px dotted $grey-2;
 }
+
 .sortable {
   padding: 0 .75em;
   background: $grey-3;
