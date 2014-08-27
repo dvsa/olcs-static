@@ -55,7 +55,7 @@ describe("OLCS.tableHandler", function() {
 
       describe("Given a stubbed ajax mechanism", function() {
         beforeEach(function() {
-          this.ajax = sinon.stub($, "get");
+          this.ajax = sinon.stub($, "ajax");
         });
 
         afterEach(function() {
@@ -71,9 +71,11 @@ describe("OLCS.tableHandler", function() {
             expect(this.ajax.calledOnce).to.equal(true);
           });
 
-          it("with the expected arguments", function() {
-            expect(this.ajax.firstCall.args[0]).to.equal("/foo");
-            expect(this.ajax.firstCall.args[1]).to.be.a("function");
+          it("with the expected object", function() {
+            var args = this.ajax.firstCall.args[0];
+            expect(args.url).to.equal("/foo");
+            expect(args.success).to.be.a("function");
+            expect(args.complete).to.be.a("function");
           });
         });
       });
