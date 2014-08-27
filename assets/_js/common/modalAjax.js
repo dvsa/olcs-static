@@ -22,13 +22,11 @@ OLCS.modalAjax = (function(document, $, undefined) {
    * private interface
    */
 
-  var cache = {};
-
   function show(data, content) {
     if (content) {
       data = $(data).find(content).html();
     }
-    OLCS.modal(data);
+    OLCS.modal.show(data);
   }
 
   /**
@@ -36,6 +34,8 @@ OLCS.modalAjax = (function(document, $, undefined) {
    */
   exports.init = function(options) {
     var trigger = options.trigger;
+
+    var cache = {};
 
     $(document).on('click', trigger, function(e) {
       e.preventDefault();

@@ -1,4 +1,4 @@
-describe.skip("OLCS.modalAjax", function() {
+describe("OLCS.modalAjax", function() {
   "use strict";
 
   beforeEach(function() {
@@ -17,12 +17,6 @@ describe.skip("OLCS.modalAjax", function() {
     beforeEach(function() {
       var template = [
         '<div id="stub">',
-          '<div class="overlay"></div>',
-          '<div class="modal__wrapper">',
-            '<div class="modal">',
-              '<a href="" class="modal__close">Close</a>',
-            '</div>',
-          '</div>',
           '<a href="/foo" class="js-modal one">foo</a>',
           '<a href="/foo" class="js-modal two"></a>',
           '<a href="/bar" class="js-modal three"></a>',
@@ -44,8 +38,7 @@ describe.skip("OLCS.modalAjax", function() {
     describe("when initialised with valid options", function() {
       beforeEach(function() {
         this.options = {
-          trigger: ".js-modal",
-          selector: ".modal"
+          trigger: ".js-modal"
         };
         this.component.init(this.options);
       });
@@ -55,16 +48,10 @@ describe.skip("OLCS.modalAjax", function() {
         $(document).off("click");
       });
 
-      it("binds the correct show listener", function() {
+      it("binds the correct click listener", function() {
         var call = this.on.getCall(0);
         expect(call.args[0]).to.equal("click");
         expect(call.args[1]).to.equal(".js-modal");
-      });
-
-      it("binds the correct hide listener", function() {
-        var call = this.on.getCall(1);
-        expect(call.args[0]).to.equal("click");
-        expect(call.args[1]).to.equal(".modal__close");
       });
 
       describe("Given a stubbed ajax mechanism", function() {
@@ -85,15 +72,17 @@ describe.skip("OLCS.modalAjax", function() {
             expect(this.ajax.calledOnce).to.equal(true);
           });
 
+          it("with the correct URL", function() {
+            expect(this.ajax.firstCall.args[0].url).to.equal("/foo");
+          });
+
           describe("Given the request returns successfully", function() {
             beforeEach(function() {
-              this.append = sinon.stub($.prototype, "append");
-              this.show = sinon.stub($.prototype, "show");
+              this.spy = sinon.stub(OLCS.modal, "show");
             });
 
             afterEach(function() {
-              this.append.restore();
-              this.show.restore();
+              this.spy.restore();
             });
 
             describe("with no content fragment identifier", function() {
@@ -101,68 +90,32 @@ describe.skip("OLCS.modalAjax", function() {
                 this.ajax.yieldTo("success", "dummy response data");
               });
 
-              it("appends the response data correctly", function() {
-                expect(this.append.calledWith("dummy response data")).to.be(true);
+              it("shows the modal", function() {
+                expect(this.spy.called).to.be(true);
               });
 
-              it("shows the modal wrapper", function() {
-                expect(this.show.called).to.be(true);
-              });
-
-              describe("when dismissing the modal", function() {
+              describe("when showing another modal with the same href", function() {
                 beforeEach(function() {
-                  this.hide = sinon.stub($.prototype, "hide");
-                  $(".modal__close").click();
+                  $(".js-modal:eq(1)").click();
                 });
 
-                afterEach(function() {
-                  this.hide.restore();
+                it("does not make a new ajax request", function() {
+                  expect(this.ajax.calledOnce).to.be(true);
                 });
 
-                it("hides the modal wrapper", function() {
-                  expect(this.hide.called).to.be(true);
-                });
-
-                describe("when showing another modal with the same href", function() {
-                  beforeEach(function() {
-                    $(".js-modal:eq(1)").click();
-                  });
-
-                  it("does not make a new ajax request", function() {
-                    expect(this.ajax.calledOnce).to.be(true);
-                  });
-
-                  it("appends the response data correctly", function() {
-                    expect(this.append.calledWith("dummy response data")).to.be(true);
-                  });
-
-                  it("shows the modal wrapper", function() {
-                    expect(this.show.called).to.be(true);
-                  });
-                });
-
-                describe("when showing another modal with a different href", function() {
-                  beforeEach(function() {
-                    $(".js-modal:eq(2)").click();
-                  });
-
-                  it("makes a new ajax request", function() {
-                    expect(this.ajax.calledTwice).to.be(true);
-                  });
+                it("shows the modal wrapper", function() {
+                  expect(this.spy.called).to.be(true);
                 });
               });
-            });
 
-            describe("with a content fragement identifier", function() {
-              beforeEach(function() {
-                // we get away with setting the content option so late here by virtue
-                // of the fact it's an object so any changes are applied by reference
-                this.options.content = "#main";
-                this.ajax.yieldTo("success", "<div>foo bar <div id='main'>dummy</div> response data</div>");
-              });
+              describe("when showing another modal with a different href", function() {
+                beforeEach(function() {
+                  $(".js-modal:eq(2)").click();
+                });
 
-              it("appends the response data correctly", function() {
-                expect(this.append.calledWith("dummy")).to.be(true);
+                it("makes a new ajax request", function() {
+                  expect(this.ajax.calledTwice).to.be(true);
+                });
               });
             });
           });
