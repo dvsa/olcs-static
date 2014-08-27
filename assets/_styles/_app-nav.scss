@@ -1,5 +1,18 @@
 $breakpoint: 840px;
 
+.items-5 .app-navigation__item {
+    width: (100% - (5 * 2))/5;
+}
+
+.items-7 .app-navigation__item {
+    width: (100% - (7 * 2))/7;
+}
+
+.items-8 .app-navigation__item {
+    width: (100% - (8 * 2))/8;
+}
+
+
 $statuses: (
   complete 10px 6px,
   incomplete -588px -596px, 

@@ -273,18 +273,6 @@ $gutter: 2.5%;
 /* 7.2 Application nav
    ========================================================================== */
 
-.items-5 .app-navigation__item {
-    width: (100% - (5 * 2))/5;
-}
-
-.items-7 .app-navigation__item {
-    width: (100% - (7 * 2))/7;
-}
-
-.items-8 .app-navigation__item {
-    width: (100% - (8 * 2))/8;
-}
-
 @import '_app-nav';
 
 /* 7.3 Horizontal navigation

@@ -1,0 +1,52 @@
+---
+layout: case.hbs
+sectionTitle: Submissions
+form: 
+  - fieldsets:
+    - legend:
+      fields:
+        - label: Category
+          type: select
+          values:      
+            - Something or other
+          class:
+        - label: Sub-category
+          type: select
+          values: 
+            - Something or other
+          class:
+    - legend: Content
+      fields:
+        - label: Select which sections you would like to include in the submission
+          type: checkboxes
+          values:      
+            - Lorem ipsum dolor sit amet, consectetur adipiscing elit
+            - Lorem ipsum dolor sit amet, consectetur adipiscing elit
+            - Lorem ipsum dolor sit amet, consectetur adipiscing elit
+            - Lorem ipsum dolor sit amet, consectetur adipiscing elit
+            - Lorem ipsum dolor sit amet, consectetur adipiscing elit
+            - Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    actions:
+      - label: Generate
+        class: primary large
+      - label: Cancel
+        class: secondary large
+
+---
+
+  <div class="overlay  js-hidden"></div>
+  <div class="modal__wrapper js-hidden">
+    <div class="modal">
+      <div class="modal__header"> 
+        <h2 class="modal__title">Generate submission</h2>
+        <a href="" class="modal__close">Close</a>
+      </div>
+      <div class="modal__content">
+        {{> _forms }}
+      </div>
+    </div>
+  </div>
+
+
+
+
