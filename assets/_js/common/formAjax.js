@@ -17,16 +17,20 @@ OLCS.formAjax = (function(document, $, undefined) {
     var error = options.error || function(/*jqXHR, status, err*/) {
       // no-op
     };
+    var disableOnSubmit = options.disable !== undefined ? options.disable : true;
 
     // cache the form data before we disable it, otherwise
     // we'll serialize nothing
     var data = form.serialize();
 
-    // @TODO: make this an input param
-    form.find(":input").attr("disabled", true);
-    // @TODO and this too
+    if (disableOnSubmit) {
+      form.find(":input").attr("disabled", true);
+    }
+
     function complete() {
-      form.find(":input").removeAttr("disabled");
+      if (disableOnSubmit) {
+        form.find(":input").removeAttr("disabled");
+      }
     }
 
     return $.ajax({
