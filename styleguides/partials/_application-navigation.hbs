@@ -2,7 +2,7 @@
   <ul class="app-navigation" role="menubar">
     {{#each appNavItems }}
       {{#ifeq label compare=../subSectionTitle }}
-      <li class="app-navigation__item current">
+      <li class="app-navigation__item {{ status }}">
         <span>{{ label }}</span>
       </li>
       {{else }}
