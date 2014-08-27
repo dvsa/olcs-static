@@ -16,11 +16,17 @@ describe("OLCS.tableHandler", function() {
   describe("Given a stubbed DOM", function() {
     beforeEach(function() {
       var template = [
-        '<div id="stub">',
-          '<div class="results-settings">',
-            '<a href=/foo>bar</a>',
+        '<form id="stub" method="post" action="/baz">',
+          '<div class=table__header>',
+            '<input name=action value=Action1 />',
+            '<input name=action value=Action2 />',
           '</div>',
-        '</div>'
+          '<div class=table__wrapper>',
+            '<div class="results-settings">',
+              '<a href=/foo>bar</a>',
+            '</div>',
+          '</div>',
+        '</form>'
       ].join("\n");
 
       this.body = $("body");
@@ -38,7 +44,8 @@ describe("OLCS.tableHandler", function() {
     describe("when initialised with valid options", function() {
       beforeEach(function() {
         this.options = {
-          table: "#stub"
+          table: "#stub",
+          container: "#stub"
         };
         this.component(this.options);
       });
@@ -76,6 +83,61 @@ describe("OLCS.tableHandler", function() {
             expect(args.url).to.equal("/foo");
             expect(args.success).to.be.a("function");
             expect(args.complete).to.be.a("function");
+          });
+
+          describe("When triggering the ajax complete handler", function() {
+            beforeEach(function() {
+              this.eventSpy = sinon.spy(OLCS.eventEmitter, "emit");
+              this.ajax.yieldTo("complete");
+            });
+
+            afterEach(function() {
+              this.eventSpy.restore();
+            });
+
+            it("emits the correct update event", function() {
+              expect(this.eventSpy.firstCall.args[0]).to.equal("update:#stub");
+            });
+          });
+        });
+      });
+
+      describe("Given a stubbed OLCS.formAjax component", function() {
+        beforeEach(function() {
+          this.formAjax = sinon.stub(OLCS, "formAjax");
+        });
+
+        afterEach(function() {
+          this.formAjax.restore();
+        });
+
+        describe("When clicking a relevant action button", function() {
+          beforeEach(function() {
+            $(".table__header input:first").click();
+          });
+
+          it("invokes OLCS.formAjax", function() {
+            expect(this.formAjax.calledOnce).to.equal(true);
+          });
+
+          describe("When the ajax call returns successfully", function() {
+            beforeEach(function() {
+              this.modal = sinon.stub(OLCS.modal, "show");
+              var data = {
+                body: "foo",
+                title: "bar"
+              };
+              this.formAjax.yieldTo("success", data);
+            });
+
+            afterEach(function() {
+              this.modal.restore();
+            });
+
+            it("shows a modal", function() {
+              expect(this.modal.firstCall.args[0]).to.equal("foo");
+              expect(this.modal.firstCall.args[1]).to.equal("bar");
+            });
           });
         });
       });

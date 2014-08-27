@@ -59,8 +59,6 @@ describe("OLCS.formHandler", function() {
 
         describe("Given a stubbed OLCS.formAjax component", function() {
           beforeEach(function() {
-            var self = this;
-
             this.ajax = sinon.stub(OLCS, "formAjax");
           });
 

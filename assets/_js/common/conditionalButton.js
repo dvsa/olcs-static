@@ -20,6 +20,7 @@ OLCS.conditionalButton = (function(document, $, undefined) {
       if (editButton.length) {
         var checkedInputs = $(selector).find(":checked");
 
+        // @TODO respect the predicate method!!
         if (checkedInputs.length !== 1) {
           editButton.attr("disabled", true);
         } else {
