@@ -20,24 +20,21 @@ OLCS.formHandler = (function(document, $, undefined) {
 
   "use strict";
 
-  function Handler(selector, onChange) {
-    this.selector = selector;
-    this.onChange = onChange;
-  }
-
-  Handler.prototype.off = function() {
-    $(document).off("submit", this.selector);
-    if (this.onChange) {
-      $(document).off("change", this.selector);
-    }
-  };
-
   return function init(options) {
     var selector = options.form;
     var onChange = options.onChange !== undefined ? options.onChange : function() {
       $(this).submit();
     };
     var submitButton = options.submit || $(selector).find("[type=submit]");
+
+    var handler = {
+      unbind: function() {
+        $(document).off("submit", selector);
+        if (onChange) {
+          $(document).off("change", selector);
+        }
+      }
+    };
 
     if (options.hideSubmit) {
       $(submitButton).hide();
@@ -57,12 +54,15 @@ OLCS.formHandler = (function(document, $, undefined) {
 
       OLCS.formAjax({
         form: form,
-        success: OLCS.responseFilter(options.filter, options.container)
+        success: OLCS.responseFilter(options.filter, options.container),
+        complete: function() {
+          OLCS.eventEmitter.emit("update:" + options.container);
+        }
       });
+
     });
 
-    // @TODO validate, is this right?
-    return new Handler(selector, onChange);
+    return handler;
   };
 
 }(document, window.jQuery));

@@ -7,7 +7,10 @@ var OLCS = OLCS || {};
  * sort ordering etc) and action button clicks.
  *
  * This makes various assumptions about what we expect back after
- * submitting a table form; as such this may need adapting in future
+ * submitting a table form; as such this may need adapting in future.
+ *
+ * It's also a bit big compared to other components. It might make
+ * sense to split this into smaller ones which this just opts into
  */
 
 OLCS.tableHandler = (function(document, $, undefined) {
@@ -32,10 +35,13 @@ OLCS.tableHandler = (function(document, $, undefined) {
     $(document).on("click", linkSelector, function clickHandler(e) {
       e.preventDefault();
 
-      $.get(
-        $(this).attr("href"),
-        OLCS.responseFilter(filter, container)
-      );
+      $.ajax({
+        url: $(this).attr("href"),
+        success: OLCS.responseFilter(filter, container),
+        complete: function() {
+          OLCS.eventEmitter.emit("update:" + container);
+        }
+      });
     });
 
     /**
@@ -77,11 +83,35 @@ OLCS.tableHandler = (function(document, $, undefined) {
           // up will keep hanging around after the modal is closed, which
           // means if it's re-opened they'll rebind and trip each other up
           // As such, we need to manually unbind them each time.
-          OLCS.modal.on("hide", function() {
-            handler.off();
+          OLCS.eventEmitter.once("hide:modal", function() {
+            handler.unbind();
           });
         })
       });
+    });
+
+    /**
+     * Controls within the table form
+     */
+
+    // for now we assume two things:
+    // 1) The edit button is always called 'Edit'
+    // 2) We always want to disable mutliple edits
+    //
+    // Neither of the above may always be true. As soon as they're
+    // not, please modify this component to look for more generic
+    // attributes, and modify the table builder backend logic so
+    // we can opt-in to this behaviour easily
+    var buttonHandler = OLCS.conditionalButton({
+      form: ".table__form",
+      label: "Edit",
+      predicate: function(length) {
+        return length !== 1;
+      }
+    });
+
+    OLCS.eventEmitter.on("update:" + container , function() {
+      buttonHandler.check();
     });
   };
 

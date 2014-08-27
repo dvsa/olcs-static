@@ -65,7 +65,8 @@ OLCS.modal = (function(document, $, undefined) {
     $(document).off('click', selector + '__close');
     $(wrapper).hide();
     $(wrapper).prev().hide();
-    exports.emit('hide');
+
+    OLCS.eventEmitter.emit('hide:modal');
   };
 
   return exports;

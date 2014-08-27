@@ -31,6 +31,10 @@ OLCS.formAjax = (function(document, $, undefined) {
       if (disableOnSubmit) {
         form.find(":input").removeAttr("disabled");
       }
+
+      if (options.complete) {
+        options.complete();
+      }
     }
 
     return $.ajax({
