@@ -89,10 +89,14 @@ describe("OLCS.cascadeInput", function() {
           });
 
           it("updates the destination options", function() {
-            expect($(".dest").html()).to.equal(
-              "<option value=\"1\">One</option>" +
-              "<option value=\"2\">Two</option>"
-            );
+            var options = $(".dest option");
+            expect(options.length).to.equal(2);
+
+            expect(options.eq(0).val()).to.equal("1");
+            expect(options.eq(1).val()).to.equal("2");
+
+            expect(options.eq(0).html()).to.equal("One");
+            expect(options.eq(1).html()).to.equal("Two");
           });
         });
       });

@@ -138,7 +138,10 @@ OLCS.cascadeForm = (function(document, $, undefined) {
     }
 
     if (onSubmit) {
-      form.on("submit", onSubmit.bind(form));
+      // we'd like to use bind, but IE8 won't let us
+      form.on("submit", function(e) {
+        onSubmit.call(form, e);
+      });
     }
 
     checkForm();

@@ -81,7 +81,7 @@ describe("OLCS.formHandler", function() {
               });
 
               it("inserts the response into the correct container", function() {
-                expect($("#stub .container").html()).to.equal("<div class=\"response\">I am a response</div>");
+                expect($("#stub .container .response").html()).to.equal("I am a response");
               });
             });
           });

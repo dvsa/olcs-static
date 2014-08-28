@@ -74,7 +74,8 @@ describe("OLCS.cascadeForm", function() {
 
       it("should bind the correct change listener to the form", function() {
         expect(this.on.getCall(3).args[0]).to.equal("change");
-        expect(this.on.getCall(3).args[2].name).to.equal("checkForm");
+        // NO: function.name not supported in IE8
+        //expect(this.on.getCall(3).args[2].name).to.equal("checkForm");
       });
 
       it("should show the first fieldset", function() {
