@@ -7,6 +7,7 @@ Installation
 ------------
 Requires Node.js. Once installed, change into olcs-static directory and run:
 ~ npm install
+~ gem install sass (need v3.3.x or later)
 ~ [sudo] npm install -g grunt-cli
 ~ grunt compile:dev
 
