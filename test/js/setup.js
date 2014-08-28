@@ -1,6 +1,7 @@
 /**
  * Polyfill for PhantomJS
  */
+/*
 (function() {
 
   "use strict";
@@ -30,3 +31,4 @@
     };
   }
 }());
+*/

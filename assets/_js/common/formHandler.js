@@ -31,7 +31,9 @@ OLCS.formHandler = (function(document, $, undefined) {
       $(submitButton).hide();
     }
 
-    $(document).on("change", options.form, onChange.bind(form));
+    $(document).on("change", options.form, function(e) {
+      onChange.call(form, e);
+    });
 
     $(document).on("submit", options.form, function(e) {
       e.preventDefault();
