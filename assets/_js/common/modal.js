@@ -27,8 +27,8 @@ OLCS.modal = (function(document, $, undefined) {
   var content  = '.modal__content';
 
   var template = [
-    '<div class="overlay  js-hidden"></div>',
-    '<div class="modal__wrapper js-hidden">',
+    '<div class="overlay" style="display:none;"></div>',
+    '<div class="modal__wrapper" style="display:none;">',
       '<div class="modal">',
         '<div class="modal__header">',
           '<h2 class="modal__title"></h2>',
