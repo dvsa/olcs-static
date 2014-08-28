@@ -29,6 +29,8 @@ OLCS.tableHandler = (function(document, $, undefined) {
       table + " .sortable a, " +
       table + " .pagination a";
 
+    var buttonHandler;
+
     /**
      * Pagination and sorting links
      */
@@ -85,6 +87,7 @@ OLCS.tableHandler = (function(document, $, undefined) {
           // As such, we need to manually unbind them each time.
           OLCS.eventEmitter.once("hide:modal", function() {
             handler.unbind();
+            buttonHandler.check();
           });
         })
       });
@@ -102,7 +105,7 @@ OLCS.tableHandler = (function(document, $, undefined) {
     // not, please modify this component to look for more generic
     // attributes, and modify the table builder backend logic so
     // we can opt-in to this behaviour easily
-    var buttonHandler = OLCS.conditionalButton({
+    buttonHandler = OLCS.conditionalButton({
       form: ".table__form",
       label: "Edit",
       predicate: function(length, callback) {
