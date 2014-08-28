@@ -10,8 +10,9 @@ OLCS.conditionalButton = (function(document, $, undefined) {
   "use strict";
 
   return function init(options) {
-    var selector = options.form;
-    var label    = options.label;
+    var selector  = options.form;
+    var label     = options.label;
+    var predicate = options.predicate;
 
     var actionSelector = selector + " .table__header [name=action]";
 
@@ -20,12 +21,13 @@ OLCS.conditionalButton = (function(document, $, undefined) {
       if (editButton.length) {
         var checkedInputs = $(selector).find(":checked");
 
-        // @TODO respect the predicate method!!
-        if (checkedInputs.length !== 1) {
-          editButton.attr("disabled", true);
-        } else {
-          editButton.removeAttr("disabled");
-        }
+        predicate(checkedInputs.length, function(enabled) {
+          if (enabled) {
+            editButton.attr("disabled", true);
+          } else {
+            editButton.removeAttr("disabled");
+          }
+        });
       }
     }
 

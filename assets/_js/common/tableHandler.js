@@ -105,8 +105,8 @@ OLCS.tableHandler = (function(document, $, undefined) {
     var buttonHandler = OLCS.conditionalButton({
       form: ".table__form",
       label: "Edit",
-      predicate: function(length) {
-        return length !== 1;
+      predicate: function(length, callback) {
+        callback(length !== 1);
       }
     });
 
