@@ -41,7 +41,7 @@ hr {
 
 .js-enabled {
   .js-hidden {
-    display: none;
+    display: none !important;
   }
   .js-visible {
     display: block;

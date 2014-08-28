@@ -1,0 +1,112 @@
+$breakpoint: 840px;
+
+.items-5 .app-navigation__item {
+    width: (100% - (5 * 2))/5;
+}
+
+.items-7 .app-navigation__item {
+    width: (100% - (7 * 2))/7;
+}
+
+.items-8 .app-navigation__item {
+    width: (100% - (8 * 2))/8;
+}
+
+
+$statuses: (
+  complete 10px 6px,
+  incomplete -588px -596px, 
+  current -188px -194px
+);
+
+$mobile-statuses: (
+  complete 5px 4px, 
+  incomplete -297px -297px, 
+  current -95px -95px
+);
+
+
+.app-navigation {
+  @extend %navigation;
+  border-top: 1px dotted $grey-2;
+  overflow: visible;
+  margin-top: 2em;
+  &__item {
+    @extend %navigation__item;
+    text-align: center;
+    margin: -2em 1% 1.5em 1%;   
+    background: url('#{$assetPath}/application-navigation.png') no-repeat 50% -383px;
+    @include device-pixel-ratio($ratio: 2) {
+      background: url('#{$assetPath}/application-navigation-2x.png') no-repeat 50% -390px;
+      background-size: 50px 657px;
+    }
+  }
+  a, .current, .disabled {
+    display: block;
+    line-height: 1.2;
+    padding-top: 3.75em;
+  }
+  .current {
+    font-weight: 700;
+    &.no-background {
+      background: none;
+    }
+  }
+  @each $status in $statuses {
+    .#{nth($status, 1)} {
+      background-position: 50% nth($status, 2);
+      @include device-pixel-ratio($ratio: 2) {
+          background-position: 50% nth($status, 3);
+      }
+    }
+  }
+
+}
+
+@mixin mobile-app-navigation {
+  border-top: none;
+  margin: 0;
+  a, 
+  .current,
+  .disabled {
+    padding: .5em 0;
+    border-bottom: 1px solid $grey-2;
+  }
+  .current { border-bottom: 3px solid $black; }
+  @each $status in $mobile-statuses {
+    .#{nth($status, 1)} {
+      background-position: 100% nth($status, 2);
+      @include device-pixel-ratio($ratio: 2) {
+          background-position: 100% nth($status, 3);
+      }
+    }
+  }
+}
+
+@mixin mobile-app-navigation__item {
+  padding: 0;
+  margin: 0;
+  width: 100% !important;
+  text-align: left;
+  background-size: 25px 329px;
+}
+
+@if ($app == internal) {
+  .app-navigation {
+    @include mobile-app-navigation; 
+    &__item {
+       @include mobile-app-navigation__item;
+       background-position: 100% -194px;
+    }
+  } 
+}
+
+@media(max-width: 640px) {
+  .app-navigation {
+    @include mobile-app-navigation; 
+    &__item {
+       @include mobile-app-navigation__item;
+       background-position: 100% -194px;
+    }
+  } 
+}

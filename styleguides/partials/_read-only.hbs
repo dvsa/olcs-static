@@ -1,0 +1,22 @@
+{{#each read-only }}
+  <div class="read-only">
+    <div class="read-only__header">
+      <h4 class="read-only__title">{{ title }}</h4>
+      {{#is editable true}}
+      <div class="actions-container">
+        <input class="action--secondary" type="submit" value="Edit">
+      </div>
+      {{/is}}
+    </div><!-- read-only__header -->
+
+    {{#each groups }}
+    <dl>
+      {{#each group }}
+      <dt>{{{ this.name }}}</dt>
+      <dd>{{{ this.value }}}</dd>
+      {{/each }}
+    </dl>
+    {{/each }}
+  
+  </div><!-- read-only -->
+{{/each }}

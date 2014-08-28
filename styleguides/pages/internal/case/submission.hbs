@@ -1,0 +1,74 @@
+---
+layout: case.hbs
+sectionTitle: Submissions
+read-only:
+  - title: Case details
+    editable: false
+    type: fields
+    groups: 
+      - group:
+        - name: Operator name
+          value: Don Tarmacadam Limited (MLH)
+        - name: Enitity
+          value: Limited company
+        - name: Business type
+          value: Rice importer
+        - name: ECMS
+          value: 1634536
+      - group: 
+        - name: Licence number
+          value: OB1265270
+        - name: Licence start date
+          value: 16 Aug 2012
+        - name: Licence type
+          value: R
+        - name: Service standard date
+          value: 31 July 2017
+        - name: Licence status
+          value: Valid
+      - group: 
+        - name: Total vehicle authorisation
+          value: 4
+        - name: Vehicles in possession
+          value: 2    
+        - name: Trailer authorisation
+          value: 2
+        - name: Trailers in possession
+          value: 0
+---
+
+
+<div class="three-fifths">
+  <div class="section-header">
+    <h3>Submission No. 4</h3><a class="action--secondary" href="">Edit sections</a>
+  </div>
+  {{> _read-only }}
+  <div class="read-only">
+    <div class="read-only__header">
+      <h4>Operating centres</h4>
+      <input class="action--secondary" type="submit" value="Edit">
+    </div>
+    <div class="table__wrapper">
+      <table>
+        <thead>
+          <tr>    
+            <th>Operating centre address</th>
+            <th>Vehicles</th>   
+            <th>Trailers</th>
+            <th>Permission</th>
+            <th>Advertised</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Unit 5, 12 Albert Street, Westpoint, Leeds</td>
+            <td>34</td>
+            <td>23</td>
+            <td>Y</td>
+            <td>N</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
