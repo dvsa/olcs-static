@@ -9,164 +9,69 @@ describe("OLCS.modal", function() {
     expect(this.component).to.exist;
   });
 
-  it("should declare the correct public interface", function() {
-    expect(this.component.init).to.be.a("function");
+  it("should expose the correct public interface", function() {
+    expect(this.component.show).to.be.a("function");
+    expect(this.component.hide).to.be.a("function");
+    expect(this.component.off).to.be.a("function");
+    expect(this.component.emit).to.be.a("function");
   });
 
-  describe("Given a stubbed DOM", function() {
+  describe("show", function() {
     beforeEach(function() {
-      var template = [
-        '<div id="stub">',
-          '<div class="overlay"></div>',
-          '<div class="modal__wrapper">',
-            '<div class="modal">',
-              '<a href="" class="modal__close">Close</a>',
-            '</div>',
-          '</div>',
-          '<a href="/foo" class="js-modal one">foo</a>',
-          '<a href="/foo" class="js-modal two"></a>',
-          '<a href="/bar" class="js-modal three"></a>',
-        '</div>'
-      ].join("\n");
-
-      this.body = $("body");
-
-      this.body.append(template);
-
-      this.on = sinon.spy($.prototype, "on");
+      this.component.show("body here", "title here");
     });
 
-    afterEach(function() {
-      this.on.restore();
-      $("#stub").remove();
+    it("shows the modal overlay", function() {
+      expect($(".overlay").is(":visible")).to.be(true);
     });
 
-    describe("when initialised with valid options", function() {
+    it("shows the modal wrapper", function() {
+      expect($(".modal__wrapper").is(":visible")).to.be(true);
+    });
+
+    it("applies the correct title", function() {
+      expect($(".modal__title").text()).to.equal("title here");
+    });
+
+    it("applies the correct body", function() {
+      expect($(".modal__content").text()).to.equal("body here");
+    });
+
+    describe("hide", function() {
       beforeEach(function() {
-        this.options = {
-          trigger: ".js-modal",
-          selector: ".modal"
-        };
-        this.component.init(this.options);
+        this.eventSpy = sinon.spy(OLCS.eventEmitter, "emit");
+        this.component.hide();
       });
 
       afterEach(function() {
-        // have to clean up our event handlers otherwise they'll stack up
-        $(document).off("click");
+        this.eventSpy.restore();
       });
 
-      it("binds the correct show listener", function() {
-        var call = this.on.getCall(0);
-        expect(call.args[0]).to.equal("click");
-        expect(call.args[1]).to.equal(".js-modal");
+      it("hides the modal overlay", function() {
+        expect($(".overlay").is(":visible")).to.be(false);
       });
 
-      it("binds the correct hide listener", function() {
-        var call = this.on.getCall(1);
-        expect(call.args[0]).to.equal("click");
-        expect(call.args[1]).to.equal(".modal__close");
+      it("hides the modal wrapper", function() {
+        expect($(".modal__wrapper").is(":visible")).to.be(false);
       });
 
-      describe("Given a stubbed ajax mechanism", function() {
-        beforeEach(function() {
-          this.ajax = sinon.stub($, "ajax");
-        });
+      it("emits the correct event", function() {
+        expect(this.eventSpy.firstCall.args[0]).to.equal("hide:modal");
+      });
+    });
 
-        afterEach(function() {
-          this.ajax.restore();
-        });
+    describe("When clicking the modal close button", function() {
+      beforeEach(function() {
+        this.spy = sinon.stub(this.component, "hide");
+        $(".modal__close").click();
+      });
 
-        describe("when triggering a modal", function() {
-          beforeEach(function() {
-            $(".js-modal:eq(0)").click();
-          });
+      afterEach(function() {
+        this.spy.restore();
+      });
 
-          it("makes an ajax request", function() {
-            expect(this.ajax.calledOnce).to.equal(true);
-          });
-
-          describe("Given the request returns successfully", function() {
-            beforeEach(function() {
-              this.append = sinon.stub($.prototype, "append");
-              this.show = sinon.stub($.prototype, "show");
-            });
-
-            afterEach(function() {
-              this.append.restore();
-              this.show.restore();
-            });
-
-            describe("with no content fragment identifier", function() {
-              beforeEach(function() {
-                this.ajax.yieldTo("success", "dummy response data");
-              });
-
-              it("appends the response data correctly", function() {
-                expect(this.append.calledWith("dummy response data")).to.be(true);
-              });
-
-              it("shows the modal wrapper", function() {
-                expect(this.show.called).to.be(true);
-              });
-
-              describe("when dismissing the modal", function() {
-                beforeEach(function() {
-                  this.hide = sinon.stub($.prototype, "hide");
-                  $(".modal__close").click();
-                });
-
-                afterEach(function() {
-                  this.hide.restore();
-                });
-
-                it("hides the modal wrapper", function() {
-                  expect(this.hide.called).to.be(true);
-                });
-
-                describe("when showing another modal with the same href", function() {
-                  beforeEach(function() {
-                    $(".js-modal:eq(1)").click();
-                  });
-
-                  it("does not make a new ajax request", function() {
-                    expect(this.ajax.calledOnce).to.be(true);
-                  });
-
-                  it("appends the response data correctly", function() {
-                    expect(this.append.calledWith("dummy response data")).to.be(true);
-                  });
-
-                  it("shows the modal wrapper", function() {
-                    expect(this.show.called).to.be(true);
-                  });
-                });
-
-                describe("when showing another modal with a different href", function() {
-                  beforeEach(function() {
-                    $(".js-modal:eq(2)").click();
-                  });
-
-                  it("makes a new ajax request", function() {
-                    expect(this.ajax.calledTwice).to.be(true);
-                  });
-                });
-              });
-            });
-
-            describe("with a content fragement identifier", function() {
-              beforeEach(function() {
-                // we get away with setting the content option so late here by virtue
-                // of the fact it's an object so any changes are applied by reference
-                this.options.content = "#main";
-                this.ajax.yieldTo("success", "<div>foo bar <div id='main'>dummy</div> response data</div>");
-              });
-
-              it("appends the response data correctly", function() {
-                expect(this.append.calledWith("dummy")).to.be(true);
-              });
-            });
-          });
-        });
+      it("invokes the modal's hide method", function() {
+        expect(this.spy.called).to.be(true);
       });
     });
   });

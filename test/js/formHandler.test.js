@@ -59,11 +59,7 @@ describe("OLCS.formHandler", function() {
 
         describe("Given a stubbed OLCS.formAjax component", function() {
           beforeEach(function() {
-            var self = this;
-
-            this.ajax = sinon.stub(OLCS, "formAjax", function(form, success) {
-              self.successStub = success;
-            });
+            this.ajax = sinon.stub(OLCS, "formAjax");
           });
 
           afterEach(function() {
@@ -81,7 +77,7 @@ describe("OLCS.formHandler", function() {
 
             describe("Given the request returns successfully", function() {
               beforeEach(function() {
-                this.successStub("<div class=response>I am a response</div>");
+                this.ajax.yieldTo("success", "<div class=response>I am a response</div>");
               });
 
               it("inserts the response into the correct container", function() {
@@ -122,9 +118,7 @@ describe("OLCS.formHandler", function() {
           beforeEach(function() {
             var self = this;
 
-            this.ajax = sinon.stub(OLCS, "formAjax", function(form, success) {
-              self.successStub = success;
-            });
+            this.ajax = sinon.stub(OLCS, "formAjax");
           });
 
           afterEach(function() {
@@ -138,7 +132,7 @@ describe("OLCS.formHandler", function() {
 
             describe("Given the request returns successfully", function() {
               beforeEach(function() {
-                this.successStub("<div class=outer><div class=response>I am a response</div></div>");
+                this.ajax.yieldTo("success", "<div class=outer><div class=response>I am a response</div></div>");
               });
 
               it("inserts the response into the correct container", function() {

@@ -22,7 +22,7 @@ describe("OLCS.formAjax", function() {
       this.ajax.restore();
     });
 
-    describe("When invoked with two arguments", function() {
+    describe("When invoked with a form and success callback", function() {
       beforeEach(function() {
         var attr = sinon.stub();
         attr.onCall(0).returns("/foo");
@@ -43,7 +43,10 @@ describe("OLCS.formAjax", function() {
         };
         this.success = function() {};
 
-        this.component(form, this.success);
+        this.component({
+          form: form,
+          success: this.success
+        });
       });
 
       it("invokes $.ajax with the expected parameters", function() {
@@ -57,7 +60,7 @@ describe("OLCS.formAjax", function() {
       });
     });
 
-    describe("When invoked with three arguments", function() {
+    describe("When invoked with an extra error callback", function() {
       beforeEach(function() {
         var attr = sinon.stub();
         attr.onCall(0).returns("/foo");
@@ -79,7 +82,11 @@ describe("OLCS.formAjax", function() {
         this.success = function() {};
         this.error = function() {};
 
-        this.component(form, this.success, this.error);
+        this.component({
+          form: form,
+          success: this.success,
+          error: this.error
+        });
       });
 
       it("invokes $.ajax with the expected parameters", function() {

@@ -7,19 +7,18 @@ module.exports = (grunt) ->
     'public/styles/selfserve.css':'assets/_styles/selfserve.scss'
     'public/styles/internal.css':'assets/_styles/internal.scss'
 
+  scriptPaths = (path) ->
+    paths = [
+      "assets/_js/common/vendor/**/*.js"
+      "assets/_js/common/utils.js"
+      "assets/_js/common/*.js"
+      "assets/_js/#{path}/*.js"
+      "assets/_js/common/init/*.js"
+    ]
+
   scripts =
-    "public/js/internal.js": [
-      "assets/_js/common/vendor/**/*.js"
-      "assets/_js/common/*.js"
-      "assets/_js/internal/*.js"
-      "assets/_js/common/init/*.js"
-    ]
-    "public/js/selfserve.js": [
-      "assets/_js/common/vendor/**/*.js"
-      "assets/_js/common/*.js"
-      "assets/_js/selfserve/*.js"
-      "assets/_js/common/init/*.js"
-    ]
+    "public/js/internal.js": scriptPaths "internal"
+    "public/js/selfserve.js": scriptPaths "selfserve"
 
   grunt.initConfig
 

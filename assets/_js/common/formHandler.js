@@ -21,25 +21,48 @@ OLCS.formHandler = (function(document, $, undefined) {
   "use strict";
 
   return function init(options) {
-    var form = $(options.form);
-    var onChange = options.onChange || function() {
-      form.submit();
+    var selector = options.form;
+    var onChange = options.onChange !== undefined ? options.onChange : function() {
+      $(this).submit();
     };
-    var submitButton = options.submit || form.find("[type=submit]");
+    var submitButton = options.submit || $(selector).find("[type=submit]");
+
+    var handler = {
+      unbind: function() {
+        $(document).off("submit", selector);
+        if (onChange) {
+          $(document).off("change", selector);
+        }
+      }
+    };
 
     if (options.hideSubmit) {
       $(submitButton).hide();
     }
 
-    $(document).on("change", options.form, function(e) {
-      onChange.call(form, e);
-    });
+    if (onChange) {
+      $(document).on("change", selector, function(e) {
+        var form = $(selector);
+        onChange.call(form, e);
+      });
+    }
 
-    $(document).on("submit", options.form, function(e) {
+    $(document).on("submit", selector, function(e) {
       e.preventDefault();
 
-      OLCS.formAjax(form, OLCS.responseFilter(options.filter, options.container));
+      var form = $(selector);
+
+      OLCS.formAjax({
+        form: form,
+        success: OLCS.responseFilter(options.filter, options.container),
+        complete: function() {
+          OLCS.eventEmitter.emit("update:" + options.container);
+        }
+      });
+
     });
+
+    return handler;
   };
 
 }(document, window.jQuery));

@@ -5,15 +5,17 @@ OLCS.responseFilter = (function(document, $, undefined) {
   "use strict";
 
   return function init(filter, container) {
-    return function(response) {
+    return OLCS.normaliseResponse(function(response) {
+      var content = response.body;
+
       if (filter) {
-        response = $(response)
+        content = $(content)
           .find(filter)
           .html();
       }
 
-      $(container).html(response);
-    };
+      $(container).html(content);
+    });
   };
 
 }(document, window.jQuery));
