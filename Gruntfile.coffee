@@ -171,7 +171,7 @@ module.exports = (grunt) ->
   if grunt.option("production")
     grunt.loadNpmTasks "grunt-contrib-sass"
     grunt.loadNpmTasks "grunt-contrib-uglify"
-    grunt.loadNpmTasks "grunt-contrib-imagemin"
+    #grunt.loadNpmTasks "grunt-contrib-imagemin"
   else
     require('matchdep').filterAll([
       'grunt-*'
@@ -183,7 +183,7 @@ module.exports = (grunt) ->
     'lint'
     'sass:dev'
     'uglify:dev'
-    'images'
+    #'images'
     'assemble:pretty'
   ]
 
@@ -191,14 +191,14 @@ module.exports = (grunt) ->
     'lint'
     'sass:prod'
     'uglify:prod'
-    'images'
+    #'images'
     'assemble:pretty'
   ]
 
   grunt.registerTask 'compile:live', [
     'sass:prod'
     'uglify:prod'
-    'images'
+    #'images'
   ]
 
   grunt.registerTask 'serve', [
