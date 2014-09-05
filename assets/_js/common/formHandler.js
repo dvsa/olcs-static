@@ -48,6 +48,9 @@ OLCS.formHandler = (function(document, $, undefined) {
     }
 
     $(document).on("submit", selector, function(e) {
+      if ($(this).attr("enctype") === "multipart/form-data") {
+        return;
+      }
       e.preventDefault();
 
       var form = $(selector);
