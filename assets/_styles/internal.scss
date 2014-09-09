@@ -145,8 +145,6 @@ $gutter: 1.25%;
   background: $black;
   color: $white;
   overflow: hidden;
-  position: relative;
-  z-index: 5;
   &__wrapper {
     @extend .page-wrapper;
     margin: 0 $gutter .75em;
@@ -303,8 +301,6 @@ $gutter: 1.25%;
   background: $grey-4;
   overflow: hidden;
   margin-bottom: .75em;
-  position: relative;
-  z-index: 5;
   &__wrapper {
     @extend .page-wrapper;
     margin: 0 $gutter .75em $gutter;
