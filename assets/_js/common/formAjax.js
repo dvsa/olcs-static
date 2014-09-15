@@ -23,6 +23,13 @@ OLCS.formAjax = (function(document, $, undefined) {
     // we'll serialize nothing
     var data = form.serialize();
 
+    // we might have more than one submit button in form so
+    // we need to send button name to the server
+    var buttonClicked = $("button[type=submit][clicked=true]").attr('name');
+    if (buttonClicked != undefined) {
+        data += '&buttonClicked=' + buttonClicked;
+    }
+
     if (disableOnSubmit) {
       form.find(":input").attr("disabled", true);
     }

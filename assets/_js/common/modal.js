@@ -55,6 +55,12 @@ OLCS.modal = (function(document, $, undefined) {
     $(wrapper).prev().show();
     $(wrapper).show();
 
+    // adding attribute to the button so later we can find which submit button was clicked
+    $(":button").click(function() {
+        $("button[type=submit]").removeAttr("clicked");
+        $(this).attr("clicked", "true");
+    });
+
     $(document).on('click', closeSelectors, function(e) {
       e.preventDefault();
       exports.hide();
