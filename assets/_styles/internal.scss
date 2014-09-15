@@ -512,7 +512,7 @@ input[type="submit"].action--primary {
   @include action($white, $green, #0E7C5A, $primaryColour, #115B46);
 }
 
-.action--primary:disabled:hover
+.action--primary:disabled:hover,
 input[type="submit"].action--primary:disabled:hover {
   background-color: $primaryColour;
   background-image: -moz-linear-gradient(#0E7C5A, $primaryColour);
