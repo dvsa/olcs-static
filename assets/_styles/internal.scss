@@ -507,13 +507,15 @@ input[type="submit"]:focus {
 }
 
 .action--primary,
-input[type="submit"].action--primary {
+input[type="submit"].action--primary,
+button.action--primary {
   @extend %action;
   @include action($white, $green, #0E7C5A, $primaryColour, #115B46);
 }
 
 .action--primary:disabled:hover,
-input[type="submit"].action--primary:disabled:hover {
+input[type="submit"].action--primary:disabled:hover,
+button.action--primary:disabled:hover {
   background-color: $primaryColour;
   background-image: -moz-linear-gradient(#0E7C5A, $primaryColour);
   background-image: -webkit-linear-gradient(#0E7C5A, $primaryColour);
@@ -521,13 +523,15 @@ input[type="submit"].action--primary:disabled:hover {
 }
 
 .action--secondary,
-input[type="submit"].action--secondary {
+input[type="submit"].action--secondary,
+button.action--secondary {
   @extend %action;
   @include action(#222, $grey-2, #FCFCFC, #EEE, $grey-3);
 }
 
 .action--secondary:disabled:hover,
-input[type="submit"].action--secondary:disabled:hover {
+input[type="submit"].action--secondary:disabled:hover,
+button.action--secondary:disabled:hover {
   background-color: #FCFCFC;
   background-image: -moz-linear-gradient(#FCFCFC, #EEE);
   background-image: -webkit-linear-gradient(#FCFCFC, #EEE);
