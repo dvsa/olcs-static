@@ -378,10 +378,25 @@ $gutter: 1.25%;
 
 @import '_horizontal-nav';
 
+.horizontal-navigation__item a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 /* 7.4 Vertical navigation
    ========================================================================== */
 
 @import '_vertical-nav';
+
+.vertical-navigation__item a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 
 /* 7.5 Pagination
    ========================================================================== */
