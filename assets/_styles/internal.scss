@@ -145,6 +145,8 @@ $gutter: 1.25%;
   background: $black;
   color: $white;
   overflow: hidden;
+  position: relative;
+  z-index: 5;
   &__wrapper {
     @extend .page-wrapper;
     margin: 0 $gutter .75em;
@@ -301,6 +303,8 @@ $gutter: 1.25%;
   background: $grey-4;
   overflow: hidden;
   margin-bottom: .75em;
+  position: relative;
+  z-index: 5;
   &__wrapper {
     @extend .page-wrapper;
     margin: 0 $gutter .75em $gutter;
@@ -333,7 +337,7 @@ $gutter: 1.25%;
     &.withdrawn,
     &.refused,
     &.ntu,
-    &.nterminated {
+    &.terminated {
       background: $red;
     }
     &.unlicenced,
@@ -478,6 +482,32 @@ td {
    ========================================================================== */
 
 @import '_modals-messaging';
+
+.preloader {
+  @include opacity(.8);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: -144px;
+  background: #FFF;
+  z-index: 2;
+  &__icon {
+    height: 30px;
+    width: 30px;
+    position: fixed;
+    left: 49%;
+    top: 52%;
+    z-index: 3;
+    background: url('../images/preloader.gif') no-repeat 0 0;
+    @include device-pixel-ratio($ratio: 2) {
+      background-image: url('../images/preloader-2x.gif');
+      background-size: 30px 30px;
+    }
+  }
+  
+}
 
 
 /* ==========================================================================
