@@ -512,7 +512,9 @@ input[type="submit"].action--primary {
   @include action($white, $green, #0E7C5A, $primaryColour, #115B46);
 }
 
+.action--primary:disabled:hover
 input[type="submit"].action--primary:disabled:hover {
+  background-color: $primaryColour;
   background-image: -moz-linear-gradient(#0E7C5A, $primaryColour);
   background-image: -webkit-linear-gradient(#0E7C5A, $primaryColour);
   background-image: linear-gradient(#0E7C5A, $primaryColour);
@@ -524,7 +526,9 @@ input[type="submit"].action--secondary {
   @include action(#222, $grey-2, #FCFCFC, #EEE, $grey-3);
 }
 
+.action--secondary:disabled:hover,
 input[type="submit"].action--secondary:disabled:hover {
+  background-color: #FCFCFC;
   background-image: -moz-linear-gradient(#FCFCFC, #EEE);
   background-image: -webkit-linear-gradient(#FCFCFC, #EEE);
   background-image: linear-gradient(#FCFCFC, #EEE);
