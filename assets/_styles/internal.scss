@@ -54,6 +54,10 @@ $gutter: 1.25%;
 
 @import '_layout';
 
+.page-wrapper {
+  overflow: visible;
+}
+
 #main {
   display: table;
   width: 97.5%;
@@ -109,21 +113,21 @@ $gutter: 1.25%;
 
 //Needs refactoring
 .section-header {
-    border-bottom: 1px solid $grey-2;
-    padding-bottom: 0;
+  border-bottom: 1px solid $grey-2;
+  padding-bottom: 0;
+  font-weight: 600;
+  margin-bottom: 0;
+  width: 100%;
+  float: left;
+  h3 {
+    @extend %paragraph--large;
     font-weight: 600;
-    margin-bottom: 0;
-    width: 100%;
     float: left;
-    h3 {
-      @extend %paragraph--large;
-      font-weight: 600;
-      float: left;
-    }
-    .action--secondary {
-      float: right;
-      margin-top: -5px;
-    }
+  }
+  .action--secondary {
+    float: right;
+    margin-top: -5px;
+  }
 }
 
 
@@ -477,6 +481,10 @@ input[type="submit"]:focus {
   &:hover {
     background: $hover-bg;
   }
+}
+
+.actions-container {
+  overflow: visible;
 }
 
 .action--primary,
