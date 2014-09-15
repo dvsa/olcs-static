@@ -32,7 +32,7 @@
 .modal__wrapper {
     @extend %fixed;
     overflow: auto;
-    z-index: 1;
+    z-index: 6;
 }
 .modal {
     @extend %overlay-box;
@@ -87,6 +87,24 @@
         border-top: 1px solid $grey-3;
         background: $grey-4;
     }
+}
+
+.close {
+  background: url('../images/close.png') no-repeat 0 0;
+  @include device-pixel-ratio($ratio: 2) {
+    background: url('../images/close-2x.png') no-repeat 0 0;
+    background-size: 60px 22px;
+  }
+  text-indent: -9999px;
+  height: 22px;
+  width: 22px;
+  &:hover {
+    background-position: -39px 0;
+  }
+}
+
+input[type="submit"].remove {
+  @extend .close;
 }
 
 /* 10.2 Alerts

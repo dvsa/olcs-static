@@ -87,13 +87,6 @@ $gutter: 1.25%;
 .three-fifths { 
   @extend %table-cell; 
   padding-left: 10px;
-  >h3 {
-    @extend %paragraph--large;
-    border-bottom: 1px solid $grey-2;
-    padding-bottom: .5em;
-    font-weight: 600;
-    margin-bottom: .5em;
-  }
 }
 
 .four-fifths {
@@ -409,8 +402,9 @@ $gutter: 1.25%;
 @import '_tables';
 
 .table__header {
+  overflow: visible;
   h3 { @extend %paragraph--large; }
-  .actions-container { margin-bottom: 0;}
+  .actions-container { margin: -5px -5px 0 0;}
 }
 
 table { border: 1px solid $grey-2; }
@@ -450,7 +444,52 @@ td {
    9. Actions & buttons
    ========================================================================== */
 
-@import '_actions-buttons';
+%action {
+  @include border-radius(2px);
+  padding: .3em .5em .45em .5em;
+  text-align: center;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 15px;
+  margin-right: .25em;
+  &:hover {
+    cursor: pointer;
+  }
+  &.large {
+    padding: .4em 1em;
+    font-weight: 600;
+    font-size: 18px;
+  }
+}
+
+input[type="submit"]:focus {
+  outline: none;
+}
+
+@mixin action($color,$border-colour,$grad-light,$grad-dark,$hover-bg) {
+  color: $color;
+  border: 1px solid $border-colour;
+  background-color: $grad-dark;
+  background-image: -moz-linear-gradient($grad-light, $grad-dark);
+  background-image: -webkit-linear-gradient($grad-light, $grad-dark);
+  background-image: linear-gradient($grad-light, $grad-dark);
+
+  &:hover {
+    background: $hover-bg;
+  }
+}
+
+.action--primary,
+input[type="submit"].action--primary {
+  @extend %action;
+  @include action($white, $green, #0E7C5A, $primaryColour, #115B46);
+}
+
+.action--secondary,
+input[type="submit"].action--secondary {
+  @extend %action;
+  @include action(#222, $grey-2, #FCFCFC, #EEE, $grey-3);
+}
 
 .record-actions {
   margin-top: .75em;
@@ -463,7 +502,6 @@ td {
     @extend .action--secondary;
     @include border-radius(3px);
     width: 90% !important;
-    padding: .5em 5%;
     margin-bottom: .5em;
   }
   a {
@@ -512,3 +550,31 @@ td {
 
 @import '_read-only';
 
+
+/* ==========================================================================
+   12. Right hand column
+   ========================================================================== */
+
+.small-module {
+  margin-bottom: 1.5em;
+  &__title {
+    @extend %paragraph--small;
+    border-bottom: 1px solid $grey-2;
+    padding-bottom: .5em;
+    margin: .25em 0 .5em 0;
+  }
+}
+
+.latest-note {
+  &__details {
+    @include border-radius(3px);
+    padding: .6em 1em .75em 1em;
+    background: $yellow-25;
+    border: 1px solid $yellow-50;
+  }
+  &__link {
+    @extend %paragraph--tiny;
+    text-align: right;
+    display: block;
+  }
+}
