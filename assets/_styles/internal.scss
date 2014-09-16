@@ -54,10 +54,6 @@ $gutter: 1.25%;
 
 @import '_layout';
 
-.page-wrapper {
-  overflow: visible;
-}
-
 #main {
   display: table;
   width: 97.5%;
@@ -78,7 +74,7 @@ $gutter: 1.25%;
   &--left {
     @extend %table-cell;
     width: 200px;
-    padding-right: 20px;
+    padding: 8px 20px 0 0;
   }
   &--right {
     @extend %table-cell;
@@ -421,9 +417,12 @@ $gutter: 1.25%;
 @import '_tables';
 
 .table__header {
-  overflow: visible;
-  h3 { @extend %paragraph--large; }
-  .actions-container { margin: -5px -5px 0 0;}
+  // overflow: visible;
+  h3 { 
+    @extend %paragraph--large;
+    margin-top: 5px; 
+}
+  .actions-container { margin: 0 -4px 10px 0;}
 }
 
 table { border: 1px solid $grey-2; }

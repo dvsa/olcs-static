@@ -2,7 +2,7 @@ $breakpoint: 880px;
 
 .horizontal-navigation {
   @extend %navigation;
-  margin-bottom: 1em;
+  margin-bottom: .5em;
   border-bottom: 1px solid $grey-2;
   &__item {
     @extend %navigation__item;
