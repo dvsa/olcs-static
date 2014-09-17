@@ -17,6 +17,10 @@ form:
           values: 
             - No
             - Yes        
+        - label:
+          type: textarea 
+          values: 
+            - Please provide details here       
         - label: Timetable change (<10minutes +/- originally registered service)
           type: radios inline
           values: 
@@ -77,6 +81,7 @@ form:
 
 ---
 
-<div class="three-fifths">
+<div class="four-fifths">
+  <h3>Short notice</h3>
   {{> _forms }}
 </div>

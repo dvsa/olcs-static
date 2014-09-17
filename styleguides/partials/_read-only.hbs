@@ -1,5 +1,6 @@
 {{#each read-only }}
   <div class="read-only">
+    {{#if title}}
     <div class="read-only__header">
       <h4 class="read-only__title">{{ title }}</h4>
       {{#is editable true}}
@@ -8,6 +9,7 @@
       </div>
       {{/is}}
     </div><!-- read-only__header -->
+    {{/if }}
 
     {{#each groups }}
     <dl>

@@ -7,6 +7,8 @@ status: Open
 horizontalNavItems:
   - label: Case details
     link:  index.html
+  - label: Opposition
+    link:  
   - label: Submissions
     link:  
   - label: Hearings & appeals
@@ -18,15 +20,14 @@ horizontalNavItems:
 recordActions:
   - title: Quick actions
     actions:
-      - Create case
-      - Create variation
-      - Print licence
+      - Create submission
+      - Generate statement
   - title: Decisions
     actions:
-      - Surrender
+      - Suspend
       - Curtail
-      - Terminate
       - Revoke
+
 ---
 
 <div class="four-fifths--left">
@@ -37,15 +38,29 @@ recordActions:
 </div>
 
 <div class="one-fifth--right">
-  <div class="record-actions">
-    {{#each recordActions }}
-    <h5>{{ this.title }}</h5> 
-    <ul class="record-actions__group">
-      {{#each this.actions }} 
-      <li class="record-actions__item actions--secondary"><a href="">{{ this }}</a></li>
-      {{/each }}
-    </ul>
-    {{/each }}
-  </div>
+
+  <div class="small-module">
+    <h4 class="small-module__title">Operator details</h4>
+    <p class="small-module__details">
+      <a href="">Don Tarmacadam Ltd</a><br />
+      Limited Company<br />
+      North East England</p>
+  </div><!-- end .small-details -->
+
+  <div class="small-module">
+    <h4 class="small-module__title">Licence details</h4>
+    <p class="small-module__details">
+      <a href="">OB1625270</a><br />
+      Standard National<br />
+      Valid</p>
+  </div><!-- end .small-details -->
+
+  {{> _record-actions }}
+
+  <div class="latest-note">
+    <p class="latest-note__details">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid...</p>
+    <a class="latest-note__link">View all 13 notes</a>
+  </div><!-- end .small-details -->
+  
 </div>
 

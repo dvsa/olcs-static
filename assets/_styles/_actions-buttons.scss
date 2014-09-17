@@ -145,24 +145,3 @@ input[type="submit"].action,
     margin-top: 0.5em;
   }
 }
-
-/* 9.2 Close buttons
-   ========================================================================== */
-
-.close {
-  background: url('../images/close.png') no-repeat 0 0;
-  @include device-pixel-ratio($ratio: 2) {
-    background: url('../images/close-2x.png') no-repeat 0 0;
-    background-size: 60px 22px;
-  }
-  text-indent: -9999px;
-  height: 22px;
-  width: 22px;
-  &:hover {
-    background-position: -39px 0;
-  }
-}
-
-input[type="submit"].remove {
-  @extend .close;
-}

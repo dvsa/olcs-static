@@ -66,5 +66,9 @@
   }
   dd {
     font-weight: 600;
+    &.three-quarters {
+      width: 72.5%;
+      padding-right: 2.5%;
+    }
   }
 }
