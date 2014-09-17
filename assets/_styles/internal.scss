@@ -29,7 +29,6 @@ $app: internal;
 'vendor/govuk_toolkit/_css3',
 'vendor/govuk_toolkit/_colours',
 'vendor/govuk_toolkit/_typography',
-'vendor/govuk_toolkit/design-patterns/_buttons',
 '_base-styles';
 
 $assetPath: "../images";
@@ -418,12 +417,15 @@ $gutter: 1.25%;
 @import '_tables';
 
 .table__header {
-  // overflow: visible;
   h3 { 
     @extend %paragraph--large;
     margin-top: 5px; 
-}
+  }
   .actions-container { margin: 0 -3px 10px 0;}
+  .three-fifths &, 
+  .four-fifths & {
+    margin-top: -7px;
+  }
 }
 
 table { border: 1px solid $grey-2; }
