@@ -22,11 +22,15 @@ OLCS.cascadeInput = (function(document, $, undefined) {
     var loadingText = options.loadingText || "Loading&hellip;";
     var emptyLabel = options.emptyLabel || null;
     var process = options.process;
+    var clearWhenEmpty = options.clearWhenEmpty || false;
 
     // allow a quick shortcut; if the user passed in `url`, then
     // assume they want process to be a simple async GET
     if (options.url) {
       process = function(value, callback) {
+        if (value === "" && clearWhenEmpty) {
+          return callback([{value: ""}]);
+        }
         $.get(options.url + "/" + value, callback);
       };
     }
