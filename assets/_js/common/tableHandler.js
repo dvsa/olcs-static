@@ -54,15 +54,16 @@ OLCS.tableHandler = (function(document, $, undefined) {
 
       var form = $(this).parents("form");
       var actionValue = $(this).val();
+      var actionName  = $(this).attr("name");
 
       // our backend logic relies on receiving the the value of the action
       // button which was clicked in order to determine what to do.
       // Unfortunately a JS click event + submit combo won't include
       // that info, so we have to manually inject it into the form
-      if (form.find(".form__action").length === 0) {
-        form.prepend("<input class=form__action type=hidden name=action />");
-      }
 
+      // @TODO de-dup with formHandler
+      form.find(".form__action").remove();
+      form.prepend("<input class=form__action type=hidden name='" + actionName + "' />");
       form.find(".form__action").val(actionValue);
 
       // submit the *table* form...

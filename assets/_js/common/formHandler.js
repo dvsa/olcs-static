@@ -26,6 +26,7 @@ OLCS.formHandler = (function(document, $, undefined) {
       $(this).submit();
     };
     var submitButton = options.submit || $(selector).find("[type=submit]");
+    var actionSelector = selector + " " + "button[type=submit]";
 
     var handler = {
       unbind: function() {
@@ -47,21 +48,37 @@ OLCS.formHandler = (function(document, $, undefined) {
       });
     }
 
-    $(document).on("submit", selector, function(e) {
-      if ($(this).attr("enctype") === "multipart/form-data") {
-        return;
-      }
+    $(document).on("click", actionSelector, function(e) {
       e.preventDefault();
 
       var form = $(selector);
+      var actionValue = $(this).val();
+      var actionName  = $(this).attr("name");
 
-      OLCS.formAjax({
-        form: form,
-        success: OLCS.responseFilter(options.filter, options.container),
-        complete: function() {
-          OLCS.eventEmitter.emit("update:" + options.container);
-        }
-      });
+      // @TODO de-dup with tableHandler
+      // perhaps F.pressButton(form, this); ?
+      form.find(".form__action").remove();
+      form.prepend("<input class=form__action type=hidden name='" + actionName + "' />");
+      form.find(".form__action").val(actionValue);
+
+      // don't interfere with a normal submit on a multipart form
+      // @TODO neater way of getting action name
+      // perhaps F.buttonPressed(form, "string"); ?
+      if (actionName.indexOf("[submit]") !== -1 && form.attr("enctype") === "multipart/form-data") {
+        // @TODO not actually submitting. FIX ASAP
+        form.submit();
+        return;
+      }
+
+      if (actionName.indexOf("[cancel]") === -1) {
+        OLCS.formAjax({
+          form: form,
+          success: OLCS.responseFilter(options.filter, options.container),
+          complete: function() {
+            OLCS.eventEmitter.emit("update:" + options.container);
+          }
+        });
+      }
 
     });
 
