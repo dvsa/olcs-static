@@ -123,8 +123,7 @@ module.exports = (grunt) ->
         watchTask: true
         server:
           baseDir: './public'
-        tunnel: 'olcsfrontend'
-
+          
     htmllint:
       all: ['public/styleguides/**/*.html']
       options:
