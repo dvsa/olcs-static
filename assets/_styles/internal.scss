@@ -196,7 +196,7 @@ $gutter: 1.25%;
     padding: 0 0 0 3%;
     border: 0;
     color: $grey-1 !important;
-    behavior: url(../../../htc/PIE.htc);
+    behavior: url(/htc/PIE.htc);
   }
   input[type="submit"] {
     @include border-radius(0 2px 2px 0);
@@ -206,7 +206,7 @@ $gutter: 1.25%;
     height: 32px;
     width: 38px;
     text-indent: -9999px;
-    behavior: url(../../../htc/PIE.htc);
+    behavior: url(/htc/PIE.htc);
     background: $primaryColour url('#{$assetPath}/search.png') no-repeat 50% 45%;
     @include device-pixel-ratio($ratio: 2) {
       background: $primaryColour url('#{$assetPath}/search-2x.png') no-repeat 50% 45%;
@@ -483,7 +483,7 @@ input.action--secondary {
   font-weight: 600;
   text-decoration: none;
   font-size: 15px;
-  behavior: url(../../../htc/PIE.htc);
+  behavior: url(/htc/PIE.htc);
   &.large {
     font-weight: 600; 
     font-size: 17px;
