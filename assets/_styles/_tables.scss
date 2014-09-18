@@ -1,6 +1,16 @@
 $summary-border: #cdd7dc;
 $summary-background: #e6eff5;
 
+.table__empty {
+  width: 100%;
+  max-width: 600px;
+  background: $grey-4;
+  overflow: auto;
+  padding: .75em 1em 1.25em 1em;
+  display: block;
+  border-left: 4px solid $grey-2;
+}
+
 .table {
   &__header {
     display: block;
