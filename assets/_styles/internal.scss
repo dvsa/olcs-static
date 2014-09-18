@@ -54,10 +54,6 @@ $gutter: 1.25%;
 
 @import '_layout';
 
-.page-wrapper {
-  overflow: visible;
-}
-
 #main {
   display: table;
   width: 97.5%;
@@ -78,7 +74,8 @@ $gutter: 1.25%;
   &--left {
     @extend %table-cell;
     width: 200px;
-    padding-right: 20px;
+    padding: 7px 20px 0 0;
+
   }
   &--right {
     @extend %table-cell;
@@ -90,7 +87,7 @@ $gutter: 1.25%;
 //Needs refactoring
 .three-fifths { 
   @extend %table-cell; 
-  padding-left: 10px;
+  padding: 7px 0 0 10px;
 }
 
 .four-fifths {
@@ -175,55 +172,57 @@ $gutter: 1.25%;
    ========================================================================== */
 
 .search {
+  float: left;
+  width: 400px;
+  @media(max-width: 640px) {
+    width: 100%;
+  }  
+  &__wrapper {
     float: left;
-    width: 400px;
+    position: relative;
+    height: 32px;
+    width: 65%;
     @media(max-width: 640px) {
         width: 100%;
     }  
-    &__wrapper {
-        float: left;
-        position: relative;
-        height: 32px;
-        width: 65%;
-        @media(max-width: 640px) {
-            width: 100%;
-        }  
+  }
+  &__input {
+    @extend %paragraph--small;
+    @include border-radius(2px); 
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 97%;
+    padding: 0 0 0 3%;
+    border: 0;
+    color: $grey-1 !important;
+    behavior: url(../../htc/PIE.htc);
+  }
+  input[type="submit"] {
+    @include border-radius(0 2px 2px 0);
+    position: absolute;
+    right: 0;
+    border: 0;
+    height: 32px;
+    width: 38px;
+    text-indent: -9999px;
+    behavior: url(../../htc/PIE.htc);
+    background: $primaryColour url('#{$assetPath}/search.png') no-repeat 50% 45%;
+    @include device-pixel-ratio($ratio: 2) {
+      background: $primaryColour url('#{$assetPath}/search-2x.png') no-repeat 50% 45%;
+      background-size: 17px 17px;
     }
-    &__input {
-        @extend %paragraph--small;
-        @include border-radius(2px); 
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 100%;
-        width: 97%;
-        padding: 0 0 0 3%;
-        border: 0;
-        color: $grey-1 !important;
-    }
-    input[type="submit"] {
-        @include border-radius(0 2px 2px 0);
-        position: absolute;
-        right: 0;
-        border: 0;
-        height: 32px;
-        width: 38px;
-        text-indent: -9999px;
-        background: $primaryColour url('#{$assetPath}/search.png') no-repeat 50% 45%;
-        @include device-pixel-ratio($ratio: 2) {
-            background: $primaryColour url('#{$assetPath}/search-2x.png') no-repeat 50% 45%;
-            background-size: 17px 17px;
-        }
-    }
-    &__advanced {
-        font-size: 14px;
-        color: $white;
-        margin: .5em 1em;
-        float: left;
-        @media(max-width: 640px) {
-            display: none;
-        }  
-    }
+  }
+  &__advanced {
+    font-size: 14px;
+    color: $white;
+    margin: .5em 1em;
+    float: left;
+    @media(max-width: 640px) {
+      display: none;
+    }  
+  }
 }
 
 /* 4.3 Admin menu
@@ -297,7 +296,7 @@ $gutter: 1.25%;
   border-bottom: 1px solid $grey-2;
   background: $grey-4;
   overflow: hidden;
-  margin-bottom: .75em;
+  margin-bottom: 10px;
   &__wrapper {
     @extend .page-wrapper;
     margin: 0 $gutter .75em $gutter;
@@ -421,9 +420,12 @@ $gutter: 1.25%;
 @import '_tables';
 
 .table__header {
-  overflow: visible;
-  h3 { @extend %paragraph--large; }
-  .actions-container { margin: -5px -5px 0 0;}
+  // overflow: visible;
+  h3 { 
+    @extend %paragraph--large;
+    margin-top: 5px; 
+}
+  .actions-container { margin: 0 -3px 10px 0;}
 }
 
 table { border: 1px solid $grey-2; }
@@ -463,79 +465,85 @@ td {
    9. Actions & buttons
    ========================================================================== */
 
-%action {
+.action--primary,
+input.action--primary,
+.action--secondary,
+input.action--secondary {
   @include border-radius(2px);
-  padding: .3em .5em .45em .5em;
+  width: auto;
+  overflow: visible;
+  position: relative;
+  vertical-align: middle;
+  margin-right: .25em;
+  padding: .4em .75em;
+  line-height: 1.2;
   text-align: center;
   font-weight: 600;
   text-decoration: none;
   font-size: 15px;
-  margin-right: .25em;
-  &:hover {
-    cursor: pointer;
-  }
+  behavior: url(../../htc/PIE.htc);
   &.large {
-    padding: .4em 1em;
-    font-weight: 600;
-    font-size: 18px;
-  }
-  &:disabled {
-    @include opacity(0.5);
-    cursor: default;
+    font-weight: 600; 
+    font-size: 17px;
   }
 }
 
+@mixin actionColour (
+  $color,
+  $border-colour,
+  $grad-light,
+  $grad-dark, 
+  $hover-bg,
+  $disabled-text-color,
+  $disabled-bg,
+  $disabled-border ) {
+  color: $color;
+  border: 1px solid $border-colour;
+  background: $grad-light;
+  background: -webkit-gradient(linear, 0 0, 0 bottom, from($grad-light), to($grad-dark));
+  background: -webkit-linear-gradient($grad-light, $grad-dark);
+  background: -moz-linear-gradient($grad-light, $grad-dark);
+  background: -ms-linear-gradient($grad-light, $grad-dark);
+  background: -o-linear-gradient($grad-light, $grad-dark);
+  background: linear-gradient($grad-light, $grad-dark); 
+  &:hover {
+    cursor: pointer;
+    color: $color;
+    background: $hover-bg;
+  }
+  &.disabled,
+  &[disabled],
+  &[disabled="disabled"] {
+    cursor: default;
+    border: 1px solid $disabled-border;
+    background: $disabled-bg;
+    color: $disabled-text-color;
+    &:hover {
+      background: $disabled-bg;
+    }
+  }
+}
+
+button {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button:focus,
 input[type="submit"]:focus {
   outline: none;
 }
 
-@mixin action($color,$border-colour,$grad-light,$grad-dark,$hover-bg) {
-  color: $color;
-  border: 1px solid $border-colour;
-  background-color: $grad-dark;
-  background-image: -moz-linear-gradient($grad-light, $grad-dark);
-  background-image: -webkit-linear-gradient($grad-light, $grad-dark);
-  background-image: linear-gradient($grad-light, $grad-dark);
-
-  &:hover {
-    background: $hover-bg;
-  }
-}
-
-.actions-container {
-  overflow: visible;
-}
 
 .action--primary,
-input[type="submit"].action--primary,
-button.action--primary {
-  @extend %action;
-  @include action($white, $green, #0E7C5A, $primaryColour, #115B46);
-}
-
-.action--primary:disabled:hover,
-input[type="submit"].action--primary:disabled:hover,
-button.action--primary:disabled:hover {
-  background-color: $primaryColour;
-  background-image: -moz-linear-gradient(#0E7C5A, $primaryColour);
-  background-image: -webkit-linear-gradient(#0E7C5A, $primaryColour);
-  background-image: linear-gradient(#0E7C5A, $primaryColour);
+input.action--primary {
+  @include actionColour(#FFF, #10654E, #178B6C, $primaryColour, #146C55, #FFF, #8BB5AA, #8BB5AA);
 }
 
 .action--secondary,
-input[type="submit"].action--secondary,
-button.action--secondary {
-  @extend %action;
-  @include action(#222, $grey-2, #FCFCFC, #EEE, $grey-3);
-}
-
-.action--secondary:disabled:hover,
-input[type="submit"].action--secondary:disabled:hover,
-button.action--secondary:disabled:hover {
-  background-color: #FCFCFC;
-  background-image: -moz-linear-gradient(#FCFCFC, #EEE);
-  background-image: -webkit-linear-gradient(#FCFCFC, #EEE);
-  background-image: linear-gradient(#FCFCFC, #EEE);
+input.action--secondary {
+  @include actionColour(#222, $grey-2, #FCFCFC, #EEE, $grey-3, $grey-2, #FCFCFC, $grey-3);
 }
 
 .record-actions {
@@ -545,15 +553,11 @@ button.action--secondary:disabled:hover {
     list-style: none;
     margin: .5em 0 1em 0;
   }
-  &__item {
-    @extend .action--secondary;
-    @include border-radius(3px);
-    width: 90% !important;
-    margin-bottom: .5em;
-  }
+  &__item { margin-bottom: .5em; }
   a {
     color: $black;
     text-decoration: none;
+    display: block;
   }
 }
 
