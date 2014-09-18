@@ -37,6 +37,8 @@ OLCS.formHandler = (function(document, $, undefined) {
       }
     };
 
+    var F = OLCS.formHelper;
+
     if (options.hideSubmit) {
       $(submitButton).hide();
     }
@@ -50,20 +52,13 @@ OLCS.formHandler = (function(document, $, undefined) {
 
     $(document).on("click", actionSelector, function(e) {
 
-      var form = $(selector);
-      var actionValue = $(this).val();
-      var actionName  = $(this).attr("name");
+      var form   = $(selector);
+      var button = $(this);
 
-      // @TODO de-dup with tableHandler
-      // perhaps F.pressButton(form, this); ?
-      form.find(".form__action").remove();
-      form.prepend("<input class=form__action type=hidden name='" + actionName + "' />");
-      form.find(".form__action").val(actionValue);
+      F.pressButton(form, button);
 
       // don't interfere with a normal submit on a multipart form
-      // @TODO neater way of getting action name
-      // perhaps F.buttonPressed(form, "string"); ?
-      if (actionName.indexOf("[submit]") !== -1 && form.attr("enctype") === "multipart/form-data") {
+      if (F.buttonPressed(form, "[submit]") && form.attr("enctype") === "multipart/form-data") {
         // remove the submit handler and let the click event happen normally
         $(document).off("submit", selector);
         return;
@@ -72,7 +67,7 @@ OLCS.formHandler = (function(document, $, undefined) {
       e.preventDefault();
 
       // make sure we don't try and submit cancel buttons
-      if (actionName.indexOf("[cancel]") === -1) {
+      if (!F.buttonPressed(form, "[cancel]")) {
         form.submit();
       }
     });
