@@ -49,7 +49,6 @@ OLCS.formHandler = (function(document, $, undefined) {
     }
 
     $(document).on("click", actionSelector, function(e) {
-      e.preventDefault();
 
       var form = $(selector);
       var actionValue = $(this).val();
@@ -65,21 +64,31 @@ OLCS.formHandler = (function(document, $, undefined) {
       // @TODO neater way of getting action name
       // perhaps F.buttonPressed(form, "string"); ?
       if (actionName.indexOf("[submit]") !== -1 && form.attr("enctype") === "multipart/form-data") {
-        // @TODO not actually submitting. FIX ASAP
-        form.submit();
+        // remove the submit handler and let the click event happen normally
+        $(document).off("submit", selector);
         return;
       }
 
-      if (actionName.indexOf("[cancel]") === -1) {
-        OLCS.formAjax({
-          form: form,
-          success: OLCS.responseFilter(options.filter, options.container),
-          complete: function() {
-            OLCS.eventEmitter.emit("update:" + options.container);
-          }
-        });
-      }
+      e.preventDefault();
 
+      // make sure we don't try and submit cancel buttons
+      if (actionName.indexOf("[cancel]") === -1) {
+        form.submit();
+      }
+    });
+
+    $(document).on("submit", selector, function(e) {
+      e.preventDefault();
+
+      var form = $(selector);
+
+      OLCS.formAjax({
+        form: form,
+        success: OLCS.responseFilter(options.filter, options.container),
+        complete: function() {
+          OLCS.eventEmitter.emit("update:" + options.container);
+        }
+      });
     });
 
     return handler;
