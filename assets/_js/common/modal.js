@@ -57,7 +57,8 @@ OLCS.modal = (function(document, $, undefined) {
 
     // adding attribute to the button so later we can find which submit button was clicked
     // @TODO rework, don't want to add arbitrary attributes; instead this should be
-    // injecting a param into the form; see tableHandler
+    // injecting a param into the form; see tableHandler and formHandler for
+    // examples
     $(":button").click(function() {
         $("button[type=submit]").removeAttr("clicked");
         $(this).attr("clicked", "true");
