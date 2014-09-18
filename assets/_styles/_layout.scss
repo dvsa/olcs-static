@@ -36,7 +36,7 @@ hr {
 
 // This may seem counter-intuitive, but it is correct
 .js-visible {
-  display: none;
+  display: none !important;
 }
 
 .js-enabled {
@@ -44,6 +44,6 @@ hr {
     display: none !important;
   }
   .js-visible {
-    display: block;
+    display: block !important;
   }
 }
