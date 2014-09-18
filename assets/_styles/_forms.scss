@@ -199,7 +199,16 @@ select[multiple] {
     height: 10em;
   }
   &.extra-long {
-    width: 97%;
+    @extend .extra-long;
+  }
+  &.long { 
+    @extend .long;
+  }
+  &.medium {
+    @extend .medium;
+  }
+  &.short {
+    @extend .short;
   }
 }
 
