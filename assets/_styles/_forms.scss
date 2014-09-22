@@ -195,6 +195,21 @@ select[multiple] {
   padding: .25em;
   display: block;
   background-color: #f9f9f9;
+  &.tall {
+    height: 10em;
+  }
+  &.extra-long {
+    @extend .extra-long;
+  }
+  &.long { 
+    @extend .long;
+  }
+  &.medium {
+    @extend .medium;
+  }
+  &.short {
+    @extend .short;
+  }
 }
 
 input:focus,

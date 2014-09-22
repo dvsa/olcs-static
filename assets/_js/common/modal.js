@@ -16,7 +16,7 @@ OLCS.modal = (function(document, $, undefined) {
    * local variable declarations
    * and public export
    */
-  var exports = OLCS.utils.extend({}, OLCS.eventEmitter);
+  var exports = {};
 
   /**
    * private interface

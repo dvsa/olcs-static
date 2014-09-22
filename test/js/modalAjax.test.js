@@ -9,8 +9,8 @@ describe("OLCS.modalAjax", function() {
     expect(this.component).to.exist;
   });
 
-  it("should declare the correct public interface", function() {
-    expect(this.component.init).to.be.a("function");
+  it("should be a function", function() {
+    expect(this.component).to.be.a("function");
   });
 
   describe("Given a stubbed DOM", function() {
@@ -40,7 +40,7 @@ describe("OLCS.modalAjax", function() {
         this.options = {
           trigger: ".js-modal"
         };
-        this.component.init(this.options);
+        this.component(this.options);
       });
 
       afterEach(function() {
@@ -78,7 +78,7 @@ describe("OLCS.modalAjax", function() {
 
           describe("Given the request returns successfully", function() {
             beforeEach(function() {
-              this.spy = sinon.stub(OLCS.modal, "show");
+              this.spy = sinon.stub(OLCS, "formModal");
             });
 
             afterEach(function() {
@@ -90,22 +90,8 @@ describe("OLCS.modalAjax", function() {
                 this.ajax.yieldTo("success", "dummy response data");
               });
 
-              it("shows the modal", function() {
+              it("shows a form modal", function() {
                 expect(this.spy.called).to.be(true);
-              });
-
-              describe("when showing another modal with the same href", function() {
-                beforeEach(function() {
-                  $(".js-modal:eq(1)").click();
-                });
-
-                it("does not make a new ajax request", function() {
-                  expect(this.ajax.calledOnce).to.be(true);
-                });
-
-                it("shows the modal wrapper", function() {
-                  expect(this.spy.called).to.be(true);
-                });
               });
 
               describe("when showing another modal with a different href", function() {

@@ -16,7 +16,11 @@
         "describe": true,
         "before": true,
         "beforeEach": true,
+        "afterEach": true,
         "it": true,
-        "$": true
+        "expect": true,
+        "$": true,
+        "OLCS": true,
+        "sinon": true
     }
 }

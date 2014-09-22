@@ -67,26 +67,10 @@ OLCS.tableHandler = (function(document, $, undefined) {
       OLCS.formAjax({
         form: form,
         success: OLCS.normaliseResponse(function(data) {
-          // ... assume that the response we get back should be shown in
-          // a modal
-          OLCS.modal.show(data.body, data.title);
-
-          // also assume that we've got a form within the rendered modal
-          // and bind a form handler to it
-          var handler = OLCS.formHandler({
-            form: ".modal__content form",
-            container: ".modal__content",
-            onChange: false
-          });
-
-          // because handler uses event delegation, the listeners it sets
-          // up will keep hanging around after the modal is closed, which
-          // means if it's re-opened they'll rebind and trip each other up
-          // As such, we need to manually unbind them each time.
-          OLCS.eventEmitter.once("hide:modal", function() {
-            handler.unbind();
-            buttonHandler.check();
-          });
+          // assume that the the modal we get back has a form,
+          // so invoke a wrapper component to bind a formHandler
+          // and show the modal at the same time
+          OLCS.formModal(data);
         })
       });
     });
