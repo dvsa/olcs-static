@@ -33,7 +33,13 @@ OLCS.eventEmitter = (function(document, $, undefined) {
       if (exports.listeners[event]) {
         for (var i = 0, j = exports.listeners[event].length; i < j; i++) {
           var handler = exports.listeners[event][i];
-          handler.apply(exports, args || []);
+
+          // we might have > 1 listeners but they might have called
+          // 'off' which will truncate the array, so allow for handler
+          // no longer existing
+          if (handler) {
+            handler.apply(exports, args || []);
+          }
         }
       }
     }

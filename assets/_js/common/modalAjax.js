@@ -1,61 +1,31 @@
 var OLCS = OLCS || {};
 
-/*
-OLCS.modal.init({
-  trigger: '.js-modal',
-  selector: '.modal',
-  content: '#main'
-});
-*/
-
 OLCS.modalAjax = (function(document, $, undefined) {
 
   'use strict';
 
-  /**
-   * local variable declarations
-   * and public export
-   */
-  var exports = {};
-
-  /**
-   * private interface
-   */
-
-  function show(data, content) {
-    if (content) {
-      data = $(data).find(content).html();
-    }
-    OLCS.modal.show(data);
-  }
-
-  /**
-   * public interface
-   */
-  exports.init = function(options) {
+  return function init(options) {
     var trigger = options.trigger;
-
-    var cache = {};
 
     $(document).on('click', trigger, function(e) {
       e.preventDefault();
 
       var key = $(this).attr('href');
 
-      if (cache[key]) {
-        return show(cache[key], options.content);
-      }
-
       $.ajax({
         url: key,
-        success: function(data) {
-          cache[key] = data;
-          show(data, options.content);
-        }
+        success: OLCS.normaliseResponse(function(data) {
+          // assume that the the modal we get back has a form,
+          // so invoke a wrapper component to bind a formHandler
+          // and show the modal at the same time.
+
+          // this is safe to do because binding a form handler on
+          // the modal's content won't trigger unless there
+          // is in fact a form to submit
+          OLCS.formModal(data);
+        })
       });
     });
   };
-
-  return exports;
 
 }(document, window.jQuery));
