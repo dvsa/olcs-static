@@ -409,10 +409,14 @@ input[type="file"] {
    /* This is used to indidcate that a field or fieldset cannot be updated
       without creating a variation or new application */
 
-  .locked-icon {
-    background: url('../images/lock.png') no-repeat 0 11px;
+  .locked-icon { 
     margin-left: 5px;
     height: 24px;
     width: 12px;
     display: inline-block;
+    background: url('#{$assetPath}/lock.png') no-repeat 0 11px;
+    @include device-pixel-ratio($ratio: 2) {
+      background: url('#{$assetPath}/lock-2x.png') no-repeat 0 11px;
+      background-size: 10px 13px;
+    }
   }
