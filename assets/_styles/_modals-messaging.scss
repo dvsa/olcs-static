@@ -187,35 +187,41 @@ input[type="submit"].remove {
 /* 10.4 Tooltips
    ========================================================================== */
 
-.tooltip__parent {
-    cursor: pointer;
-    background: url('../images/tooltip-icon.png') no-repeat 97.5% 7px;
-    @include device-pixel-ratio($ratio: 2) {
-        background: url('../images/tooltip-icon-2x.png') no-repeat 97.5% 7px;
-        background-size: 19px 170px;
+.tooltip-grandparent {
+  cursor: pointer;
+  &:hover {
+     .tooltip {
+        display: block;
+     }
+  }
+}
+
+.tooltip-parent {
+  cursor: pointer;
+  position: relative;
+  overflow: visible;
+  &:hover {
+    .tooltip {
+      display: block;
     }
-    .internal & {
-        background-position: 50% 7px;
-    }
-    &:hover {
-        color: $grey-1;
-        background-position-y: -142px;
-    }
+  }
 }
 
 .tooltip {
   display: none;
-  position: fixed;
+  position: absolute;
+  bottom: 20px;
+  left: -38px;
   opacity: 0.9; /* IE :after bug prevents using opacity mixin */
   @include border-radius(2px);
-  max-width: 200px;
   padding: .75em;
-  font-size: 0.9em;
+  font-size: 0.8em;
   line-height: 1.2;
+  width: 200px;
   color: white;
   background: $black;
-  &.visible {
-    display: block;
+  &:hover {
+    cursor: default;
   }
   &:after {
     content:'';
@@ -230,3 +236,4 @@ input[type="submit"].remove {
     bottom:-9px;
   }
 }
+

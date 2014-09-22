@@ -52,8 +52,8 @@ table {
   .summary & { margin-bottom: 2.5em; }
   input[type="checkbox"],
   input[type="radio"] {
-    margin: 0 .25em 0 auto;
-    display: block;
+    margin: 0;
+    text-align: right;
   }
 }
 
@@ -73,6 +73,9 @@ th {
     border-top: 1px solid $grey-2; 
     font-weight: 400;
     padding-right: 2em;
+  }
+  &.selectable {
+    text-align: centre;
   }
 }
 
