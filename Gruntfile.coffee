@@ -10,7 +10,6 @@ module.exports = (grunt) ->
   scriptPaths = (path) ->
     paths = [
       "assets/_js/common/vendor/**/*.js"
-      "assets/_js/common/utils.js"
       "assets/_js/common/*.js"
       "assets/_js/#{path}/*.js"
       "assets/_js/common/init/*.js"
