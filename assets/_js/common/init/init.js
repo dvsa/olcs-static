@@ -8,4 +8,12 @@ $(function() {
   // we don't really like having initialisation logic in common but this is so
   // minor anything else would feel a bit overblown. Can refactor if needed.
   $("form").append("<input type='hidden' name='js-submit' value='1' />");
+
+  // allow any links to opt-in to ajax modals
+  OLCS.modalAjax({
+    trigger: ".js-modal-ajax"
+  });
+
+  // initialise any check-all table checkboxes
+  OLCS.tableCheckAll();
 });
