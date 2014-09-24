@@ -68,9 +68,9 @@
     }
     form {
         overflow: auto;
-        margin: 0 1em 2em 1em;
+        margin: 0 2.5% 2em 2.5%;
         padding: 0 2.5% 2em 1px;
-        width: 97.5%;
+        width: 95%;
     }
     table {
         margin-bottom: 3.5em;
@@ -158,7 +158,7 @@ input[type="submit"].remove {
     border-left: 3px solid $border; 
     color: $color;
     a {
-        color: $color;
+      color: $color;
     }
 }
 

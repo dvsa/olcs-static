@@ -1,0 +1,41 @@
+---
+layout: case.hbs
+sectionTitle: Submissions
+table:
+  title: <strong>History</strong>
+  headers:
+    - label: Licence
+      class: sortable descending
+    - label: Operator
+      class: sortable
+    - label: Specified
+      class: sortable
+    - label: Removed
+      class: sortable
+    - label: Disc no.
+      class: sortable
+  columns:
+    - OB122883
+    - Don Tarmacadam Ltd
+    - 12/3/13
+    - 12/3/14
+    - 6252627
+
+---
+
+  <div class="overlay  js-hidden"></div>
+  <div class="modal__wrapper js-hidden">
+    <div class="modal">
+      <div class="modal__header"> 
+        <h2 class="modal__title">LL06 URE</h2>
+        <a href="" class="modal__close">Close</a>
+      </div>
+      <div class="modal__content">
+        {{> _table }}
+      </div>
+    </div>
+  </div>
+
+
+
+
