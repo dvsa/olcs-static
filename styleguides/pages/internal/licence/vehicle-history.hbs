@@ -20,6 +20,30 @@ table:
     - 12/3/13
     - 12/3/14
     - 6252627
+form: 
+  - title: Business details
+    fieldsets:
+    - legend: Vehicle details
+      fields:
+        - label: Registration mark
+          type: text
+          class: medium
+        - label: Plated weight (kg)
+          type: text
+          class: short
+        - label: Disc no.
+          type: text
+          class: medium
+        - label: Specified
+          type: date
+        - label: Ceased
+          type: date
+actions:
+  - label: Save
+    class: primary large
+  - label: Cancel
+    class: secondary large
+
 
 ---
 
@@ -27,11 +51,15 @@ table:
   <div class="modal__wrapper js-hidden">
     <div class="modal">
       <div class="modal__header"> 
-        <h2 class="modal__title">LL06 URE</h2>
+        <h2 class="modal__title">Edit vehicle</h2>
         <a href="" class="modal__close">Close</a>
       </div>
       <div class="modal__content">
-        {{> _table }}
+        {{> _forms }}
+        {{> _table }} 
+        <div class="actions-container">
+        {{> _actions }}
+        </div>  
       </div>
     </div>
   </div>

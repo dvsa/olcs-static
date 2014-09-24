@@ -72,8 +72,18 @@
         padding: 0 2.5% 2em 1px;
         width: 95%;
     }
+    form + form {
+      margin-top: -4em;
+    }
     table {
-        margin-bottom: 3.5em;
+        margin-bottom: 1.5em;
+    }
+    legend {
+      font-size: 19px;
+      margin-bottom: .25em;
+    }
+    fieldset fieldset legend {
+      font-size: 16px;
     }
     .actions-container {    
         position: absolute;
