@@ -148,6 +148,9 @@ input[type="submit"].remove {
 .notice-container {
     margin-bottom: 1.5em;
     overflow: auto;
+    .one-fifth--right & {
+      margin: 1em 0;
+    }
 }
 
 @mixin notice($background,$border,$color) {
@@ -167,7 +170,7 @@ input[type="submit"].remove {
         @include notice(#d9edf7,#bce8f1,#31708f);
     }
     &--warning {
-        @include notice(#fcf8e3,#faebcc,#8a6d3b);
+        @include notice($yellow-25,$yellow-50,#8a6d3b);
     }
     &--danger {
         @include notice(#f2dede,#ebccd1,#a94442);

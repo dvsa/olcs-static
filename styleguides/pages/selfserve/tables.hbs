@@ -139,14 +139,10 @@ table:
         <div class="table__header">
           <h3>Multi-action CRUD table</h3>
           <div class="actions-container">
-            <select id="table-actions" name="table-actions">
-              <option value="" disabled="disabled" selected>Select actions</option>
-              <option value="Add">Add</option>
-              <option value="Edit">Edit</option>
-              <option value="Delete">Delete</option>
-              <option value="Redirect">Redirect</option>
-              <option value="Close">Close</option>
-            </select>
+            <a class="action--primary" href="">Add</a>
+            <a class="action--secondary disabled" href="">Edit</a>
+            <a class="action--secondary disabled" href="">Reinstate</a>
+            <a class="action--secondary disabled" href="">Delete</a>
             <input class="action--primary" type="submit" value="Submit">
           </div><!-- end .actions-container -->
         </div><!-- end .table__header -->
