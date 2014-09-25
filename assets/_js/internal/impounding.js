@@ -17,7 +17,7 @@ function checkImpoundingType() {
     var impoundingType = $('#impoundingType').val();
     
     switch(impoundingType){
-        case 'impounding_type.1':
+        case 'impt_hearing':
             toggleHearingFieldset('show');
             break;
         default:
