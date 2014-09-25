@@ -331,6 +331,13 @@ input[type="file"] {
 
   $ro-margin-bottom: .5em;
 
+  .field.read-only {
+    margin-bottom: .5em;
+    p {
+      @extend %paragraph--small;
+    }
+  }
+
   form.read-only {
     height: 400px;
     width: 100%;
@@ -399,6 +406,8 @@ input[type="file"] {
       display: none;
     }
   }
+
+
 
   // R-E-F-A-C-T-O-R
 

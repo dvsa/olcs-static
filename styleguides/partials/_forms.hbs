@@ -7,10 +7,11 @@
       {{#each fields }}
 
           {{#is type "read only" }}
-          <div class="field">
-            <p>{{ label }}</p>
-            {{#each values }}
-            <p>{{ this }}</p>
+          <div class="field read-only">
+            <p>{{ label }}
+            {{#each values }}<br />
+            <b>{{ this }}</b>
+            </p>
             {{/each }}
           </div>
           {{/is}}  
