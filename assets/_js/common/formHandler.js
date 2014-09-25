@@ -26,7 +26,7 @@ OLCS.formHandler = (function(document, $, undefined) {
       $(this).submit();
     };
     var submitButton = options.submit || $(selector).find("[type=submit]");
-    var actionSelector = selector + " " + "button[type=submit]";
+    var actionSelector = selector + " button[type=submit]";
 
     // we'll return this so consumers can unbind listeners if they want to
     var handler = {
