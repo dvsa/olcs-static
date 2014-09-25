@@ -22,17 +22,28 @@ OLCS.cascadeInput = (function(document, $, undefined) {
     var loadingText = options.loadingText || "Loading&hellip;";
     var emptyLabel = options.emptyLabel || null;
     var process = options.process;
+    var clearWhenEmpty = options.clearWhenEmpty || false;
 
     // allow a quick shortcut; if the user passed in `url`, then
     // assume they want process to be a simple async GET
     if (options.url) {
       process = function(value, callback) {
+
+        // @NOTE this is an assumption which is valid for now but might
+        // not always be so feel free to change it. Essentially if the
+        // component asks to clear the select values when the empty value is
+        // chosen we short-circuit the AJAX request and invoke the callback
+        // with one empty value instead
+        if (value === "" && clearWhenEmpty) {
+          return callback([{value: ""}]);
+        }
+
         $.get(options.url + "/" + value, callback);
       };
     }
 
     if (!$.isFunction(process)) {
-      throw new Error("Please provide a process option");
+      throw new Error("Please provide a 'process' function or 'url' string");
     }
 
     $(document).on("change", options.source, function(e) {

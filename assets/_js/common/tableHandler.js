@@ -31,6 +31,8 @@ OLCS.tableHandler = (function(document, $, undefined) {
 
     var buttonHandler;
 
+    var F = OLCS.formHelper;
+
     /**
      * Pagination and sorting links
      */
@@ -52,18 +54,14 @@ OLCS.tableHandler = (function(document, $, undefined) {
     $(document).on("click", actionSelector, function(e) {
       e.preventDefault();
 
-      var form = $(this).parents("form");
-      var actionValue = $(this).val();
+      var form   = $(this).parents("form");
+      var button = $(this);
 
       // our backend logic relies on receiving the the value of the action
       // button which was clicked in order to determine what to do.
       // Unfortunately a JS click event + submit combo won't include
       // that info, so we have to manually inject it into the form
-      if (form.find(".form__action").length === 0) {
-        form.prepend("<input class=form__action type=hidden name=action />");
-      }
-
-      form.find(".form__action").val(actionValue);
+      F.pressButton(form, button);
 
       // submit the *table* form...
       OLCS.formAjax({

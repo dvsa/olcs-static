@@ -51,7 +51,7 @@ describe("OLCS.cascadeInput", function() {
       });
 
       it("throws the correct error", function() {
-        expect(this.error.message).to.equal("Please provide a process option");
+        expect(this.error.message).to.equal("Please provide a 'process' function or 'url' string");
       });
     });
 
