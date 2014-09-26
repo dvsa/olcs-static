@@ -1,0 +1,82 @@
+---
+layout: licence.hbs
+sectionTitle: Licence details
+subSectionTitle: Overview
+verticalNavItems:
+  - label: Overview
+    link:  index.html
+  - label: Type of licence
+    link:  
+  - label: Business details
+    link:  business-details.html
+  - label: Addresses
+    link:
+  - label: People
+    link:
+  - label: Operating centres & authorisation
+    link: operating-centres.html
+  - label: Transport managers
+    link:
+  - label: Vehicles
+    link:
+  - label: Safety
+    link:
+  - label: Convictions & penalties
+    link:
+  - label: Delarations
+    link:
+read-only:
+  - title:
+    editable: false
+    type: fields
+    groups: 
+    - group:
+      - name: Operator name
+        value: Don Tarmacadam Limited
+    - group: 
+      - name: No of licences
+        value: 4 <a href="">View licences</a>
+      - name: Lead TC
+        value: Paul Rooney
+    - group: 
+      - name: Licence number
+        value: OB1265270
+      - name: Licence start date
+        value: 16 Aug 2012
+      - name: Licence type
+        value: R
+      - name: Continuation date
+        value: 31 July 2017
+      - name: Licence status
+        value: Valid
+    - group: 
+      - name: No. of operating centres
+        value: 1
+      - name: Total vehicle authorisation
+        value: 4
+      - name: Vehicles in possession
+        value: 2    
+      - name: Trailer authorisation
+        value: 2
+      - name: Trailers in possession
+        value: 0
+    - group: 
+      - name: Current review complaints
+        value: None
+      - name: No of case
+        value: 3 <a href="">View cases</a>
+      - name: Next review date
+        value: 12 May 2018   
+
+---
+
+
+<div class="one-fifth--left">
+  <h4>Licence details</h4>
+  {{> _vertical-navigation }}
+</div>
+
+<div class="three-fifths">
+  <h3>Overview</h3>
+  {{> _read-only }}
+</div>
