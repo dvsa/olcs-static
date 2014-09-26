@@ -1,42 +1,38 @@
 ---
 layout: organisation.hbs
 sectionTitle: Licence details
-subSectionTitle: Business details
+subSectionTitle: People
 verticalNavItems:
   - label: Business details
     link:  index.html
   - label: People
     link:  index.html
-  - label: Licence & applications
+  - label: Licences
     link:  index.html
-form: 
-  - title: Business details
-    fieldsets:
-    - legend:
-      fields:
-        - label: Business type
-          type: select
-          values:      
-            - Limited company
-          class:
-        - label: Registered company number
-          type: text
-          class: medium
-        - label: Operator name
-          type: text
-          class: medium
-        - label: Nature of business
-          type: text
-          class: medium
-    - legend: Registed address
-      fields:
-        - type: address
-    actions:
-      - label: Save
-        class: primary large
-      - label: Cancel
-        class: secondary large
-
+  - label: Applications & variations
+    link:  index.html
+table:
+  - title: <strong>89</strong> Docs and attachments
+    headers:
+      - label: Description
+        class: sortable descending
+      - label: Category
+        class: sortable
+      - label: Sub-category
+        class: sortable
+      - label: Format
+        class: sortable
+      - label: Date
+        class: sortable
+      - label: <input type="checkbox">
+        class: not-sortable
+    columns:
+      - <a href="">December-accounts.PDF</a>
+      - Bus registration
+      - Sub category (digital)
+      - PDF
+      - 13/3/13 14:02
+      - <input type="checkbox">
 ---
 
 
@@ -47,5 +43,5 @@ form:
 
 <div class="three-fifths">
   <h3>Business details</h3>
-  {{#each form }}{{> _forms }}{{/each }}
+
 </div>
