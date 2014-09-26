@@ -16,17 +16,4 @@ $(function() {
 
   // initialise any check-all table checkboxes
   OLCS.tableCheckAll();
-
-  // @TODO componentise!
-  var searchStr = "(if applicable)";
-
-  $("h3").each(function(i, e) {
-    e = $(e);
-    var html = e.html();
-    if (html.search(searchStr) !== -1) {
-      e.html(
-        html.replace(searchStr, "<span class='js-if-applicable js-hidden'>" + searchStr + "</span>")
-      );
-    }
-  });
 });
