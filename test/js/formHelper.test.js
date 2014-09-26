@@ -87,4 +87,96 @@ describe("OLCS.formHelper", function() {
       });
     });
   });
+
+  describe("Given a stubbed DOM", function() {
+    beforeEach(function() {
+      var template = [
+        '<div id="stub">',
+          '<form class="stub-form" action=/foo method=post>',
+            '<fieldset class=f1 data-group=baz>',
+              '<label class=l1>',
+                '<input type="radio" name="baz[test]" value="Y" checked="" />',
+              '</label>',
+              '<label class=l2>',
+                '<input type="radio" name="baz[test]" value="N" />',
+              '</label>',
+            '</fieldset>',
+            '<button type=submit name=save>Save</button>',
+            '<button type=submit name=cancel>Cancel</button>',
+          '</form>',
+        '</div>'
+      ].join("\n");
+
+      this.body = $("body");
+
+      this.body.append(template);
+    });
+
+    afterEach(function() {
+      $("#stub").remove();
+    });
+
+    describe("pressButton", function() {
+      beforeEach(function() {
+        this.component.pressButton(
+          $(".stub-form"),
+          $(".stub-form button:first")
+        );
+      });
+
+      it("adds a hidden input with the value of the button", function() {
+        expect($(".form__action").attr("name")).to.equal("save");
+      });
+
+      describe("buttonPressed", function() {
+        describe("When invoked on the button which has been pressed", function() {
+          beforeEach(function() {
+            this.result = this.component.buttonPressed(
+              $(".stub-form"),
+              "save"
+            );
+          });
+
+          it("returns the correct result", function() {
+            expect(this.result).to.equal(true);
+          });
+        });
+
+        describe("When invoked on a button which has not been pressed", function() {
+          beforeEach(function() {
+            this.result = this.component.buttonPressed(
+              $(".stub-form"),
+              "cancel"
+            );
+          });
+
+          it("returns the correct result", function() {
+            expect(this.result).to.equal(false);
+          });
+        });
+      });
+    });
+
+    describe("isChecked", function() {
+      describe("When invoked on a radio button which is checked", function() {
+        beforeEach(function() {
+          this.result = this.component.isChecked("baz", "test");
+        });
+
+        it("returns the correct result", function() {
+          expect(this.result).to.equal(true);
+        });
+      });
+
+      describe("When invoked on a radio button which does not exist", function() {
+        beforeEach(function() {
+          this.result = this.component.isChecked("baz", "fake");
+        });
+
+        it("returns the correct result", function() {
+          expect(this.result).to.equal(false);
+        });
+      });
+    });
+  });
 });

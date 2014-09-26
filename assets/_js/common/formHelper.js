@@ -51,6 +51,16 @@ OLCS.formHelper = (function(document, $, undefined) {
     return (typeof actionName === "string" && actionName.indexOf(name) !== -1);
   };
 
+  exports.isChecked = function(fieldset, name, value) {
+    if (value === undefined) {
+      value = "Y";
+    }
+
+    return exports.input(fieldset, name)
+    .filter(":checked")
+    .val() === value;
+  };
+
   return exports;
 
 }(document, window.jQuery));

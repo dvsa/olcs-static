@@ -14,11 +14,11 @@ OLCS.cascadeForm = (function(document, $, undefined) {
   "use strict";
 
   return function init(options) {
-    var form = $(options.form);
+    var selector = options.form || "form";
+    var form = $(selector);
     var previousFieldset;
-    var cascade = options.cascade || true;
+    var cascade = options.cascade !== undefined ? options.cascade : true;
     var onSubmit = options.submit;
-    //var ignoreElements = options.ignoreElements || ["id", "version"];
 
     /**
      * by using a closure we ensure this function is safe
@@ -29,7 +29,7 @@ OLCS.cascadeForm = (function(document, $, undefined) {
        * the actual event handler simply finds all inputs in the
        * target fieldset and clears them out
        *
-       * @TODO only checkboxes are supported at the moment, easy to
+       * @TODO only checkboxes and radios are supported at the moment, easy to
        * change though
        */
       return function clear() {
@@ -57,8 +57,8 @@ OLCS.cascadeForm = (function(document, $, undefined) {
       for (var fieldset in options.rulesets) {
         var ruleset = options.rulesets[fieldset];
 
-        // if the rule value is a string, basically. I know
-        // having an inverted test for an object is a bit confusing...
+        // if the rule value is a string or a function then assume
+        // it applies to the fieldset as a whole
         if (!$.isPlainObject(ruleset)) {
           triggerRule(fieldset, "*", ruleset);
           continue;
@@ -104,19 +104,41 @@ OLCS.cascadeForm = (function(document, $, undefined) {
      */
     function findContainer(group, selector) {
       if (selector === "*") {
-        return form.find("[name^="+group+"]").parents("fieldset:last");
+        return OLCS.formHelper(group);
       }
 
-      // the only other selector we support for now is a name=value pair,
-      // e.g. "get me element X with value Y". This is *very* specifically
-      // for the first use case of this component; add to it as necessary
+      var parts;
+
       if (selector.search("=") !== -1) {
-        var parts = selector.split("=");
-        var str = "[name=" + group + "\\[" + parts[0] + "\\]][value=" + parts[1] + "]";
-        return form.find(str).parents("label:last");
+
+        // assume a name=value pair specifies a radio button with a given value
+        parts = selector.split("=");
+
+        return OLCS.formHelper(group, parts[0])
+        .filter("[value=" + parts[1] + "]")
+        // radios are always wrapped inside a label
+        .parents("label:last");
+
       }
 
-      throw new Error("Unsupported selector: '" + selector + "'");
+      if (selector.search(":") !== -1) {
+
+        parts = selector.split(":");
+        switch (parts[0]) {
+          case "label":
+            // @NOTE: we make some assumptions about the markup surrounding labels
+            // feel free to update as and when
+            return form.find("label[for=" + parts[1] + "]").parents(".field");
+          case "selector":
+            return form.find(parts[1]);
+          default:
+            throw new Error("Unsupported left-hand selector: " + parts[0]);
+        }
+      }
+
+      // otherwise assume a straight input name which we assume is inside a field container
+      return OLCS.formHelper(group, selector).parents(".field");
+
     }
 
     /*

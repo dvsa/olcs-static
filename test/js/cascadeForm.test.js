@@ -18,13 +18,13 @@ describe("OLCS.cascadeForm", function() {
       var template = [
         '<div id="stub">',
           '<form class="stub-form" action=/foo method=post>',
-            '<fieldset class=f1>',
+            '<fieldset class=f1 data-group=foo>',
               '<input class="i1" name="foo[bar]" value="" />',
             '</fieldset>',
-            '<fieldset class=f2>',
+            '<fieldset class=f2 data-group=bar>',
               '<input class="i2" name="bar[text]" value="bar-f2" />',
             '</fieldset>',
-            '<fieldset class=f3>',
+            '<fieldset class=f3 data-group=baz>',
               '<input name="baz[foo]" value="" />',
               '<label class=l1>',
                 '<input type="radio" name="baz[test]" value="on" />',
@@ -52,9 +52,11 @@ describe("OLCS.cascadeForm", function() {
 
     describe("When initialised with valid options", function() {
       beforeEach(function() {
+        this.submitSpy = sinon.spy();
+
         this.component({
           form: ".stub-form",
-          submit: sinon.spy(),
+          submit: this.submitSpy,
           rulesets: {
             "foo": true,
             "bar": function() {
@@ -158,6 +160,39 @@ describe("OLCS.cascadeForm", function() {
             });
           });
         });
+      });
+
+      describe.skip("When submitting the form", function() {
+        beforeEach(function() {
+          // fails, submits the form
+          $(".stub-form").submit();
+        });
+
+        it("should invoke the supplied submit handler", function() {
+          expect(this.submitSpy.callCount).to.equal(1);
+        });
+      });
+    });
+
+    describe("When initialised with an invalid ruleset selector", function() {
+      beforeEach(function() {
+        try {
+          this.component({
+            form: ".stub-form",
+            rulesets: {
+              "foo": {
+                "*": true,
+                "invalid:selector": true
+              }
+            }
+          });
+        } catch (e) {
+          this.e = e;
+        }
+      });
+
+      it("should throw the correct error", function() {
+        expect(this.e.message).to.equal("Unsupported left-hand selector: invalid");
       });
     });
   });
