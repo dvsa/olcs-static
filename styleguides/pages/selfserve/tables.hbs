@@ -3,46 +3,75 @@ title: Tables
 subtitle: Styleguide
 
 table:
-  title: <strong>5</strong> Operating centres
-  headers:
-    - label: Operating centre address
-      class: sortable
-    - label: Vehicles
-      class: sortable descending
-    - label: Trailers
-      class: sortable
-    - label: Permission
-      class: sortable
-    - label: Advertised 
-      class: sortable
-    - label: <input name="row" type="checkbox">
-      class: non-sortable
-  columns:
-    - <a href="licence/">Unit 5, 12 Albert Street, Westpoint, Leeds</a>
-    - 34
-    - 23
-    - Y
-    - N
-    - <input name="row" type="checkbox">
+  - title: <strong>5</strong> Operating centres
+    headers:
+      - label: Operating centre address
+        class: sortable
+      - label: Vehicles
+        class: sortable descending
+      - label: Trailers
+        class: sortable
+      - label: Permission
+        class: sortable
+      - label: Advertised 
+        class: sortable
+      - label: <input name="row" type="checkbox">
+        class: non-sortable
+    columns:
+      - <a href="licence/">Unit 5, 12 Albert Street, Westpoint, Leeds</a>
+      - 34
+      - 23
+      - Y
+      - N
+      - <input name="row" type="checkbox">
+    actions:
+      - label: Add
+        class: primary
+      - label: Edit
+        class: secondary disabled
+      - label: Delete
+        class: secondary disabled
 ---
 
     <div class="full-width">
 
+      <h3>Operating centres</h3>
+      <div class="table__empty">
+        <p>Please add your first operating centre</p>
+        <a class="action--primary" href="">Add operating centre</a>
+      </div>
 
-    <h3>Operating centres</h3>
-    <div class="table__empty">
-      <p>Please add your first operating centre</p>
-      <a class="action--primary" href="">Add operating centre</a>
-    </div>
+      <hr />
 
-    <hr />
-    <hr />
+      <!-- CRUD table -->
+      {{#each table}}
+        {{#is @index 0 }} 
+          {{> _table }}
+        {{/is }} 
+      {{/each}}
+      <div class="table__footer">
+        <div class="results-settings">
+            <p>Show:</p>
+            <ul class="results-settings__list">
+                <li class="results-settings__item current">10</li>
+                <li class="results-settings__item"><a href="">25</a></li>
+                <li class="results-settings__item"><a href="">50</a></li>
+            </ul><!-- end .results-settings__list -->
+            <p>results per page</p>
+        </div><!-- end .results-settings -->
 
-    <!-- CRUD table -->
-    {{> _table}}
-        
-
-      <!-- Read only table -->
+        <ul class="pagination right-aligned" role="menu">
+            <li class="pagination__item"><a href="" rel="previous">Previous</a></li>
+            <li class="pagination__item"><a href="">1</a></li>
+            <li class="pagination__item"><a href="">2</a></li>
+            <li class="pagination__item current">3</li>
+            <li class="pagination__item"><a href="">4</a></li>
+            <li class="pagination__item"><a href="">5</a></li>
+            <li class="pagination__item">...</li>
+            <li class="pagination__item"><a href="">14</a></li>
+            <li class="pagination__item"><a href="" rel="next">Next</a></li>
+        </ul><!-- end .pagination.right-aligned -->
+      </div>
 
       <div class="table__header">
         <h3>Licences</h3>
@@ -77,6 +106,7 @@ table:
         </table>
       </div><!-- end .table__wrapper -->
 
+      <hr />
 
       <div class="table__header">
         <h3>Variations</h3>
@@ -103,114 +133,6 @@ table:
           </tbody>
         </table>
       </div><!-- end .table__wrapper -->
-
-
-
-
-
-      <div class="table__footer">
-        <div class="results-settings">
-            <p>Show:</p>
-            <ul class="results-settings__list">
-                <li class="results-settings__item current">10</li>
-                <li class="results-settings__item"><a href="">25</a></li>
-                <li class="results-settings__item"><a href="">50</a></li>
-            </ul><!-- end .results-settings__list -->
-            <p>results per page</p>
-        </div><!-- end .results-settings -->
-
-        <ul class="pagination right-aligned" role="menu">
-            <li class="pagination__item"><a href="" rel="previous">Previous</a></li>
-            <li class="pagination__item"><a href="">1</a></li>
-            <li class="pagination__item"><a href="">2</a></li>
-            <li class="pagination__item current">3</li>
-            <li class="pagination__item"><a href="">4</a></li>
-            <li class="pagination__item"><a href="">5</a></li>
-            <li class="pagination__item">...</li>
-            <li class="pagination__item"><a href="">14</a></li>
-            <li class="pagination__item"><a href="" rel="next">Next</a></li>
-        </ul><!-- end .pagination.right-aligned -->
-      </div>
-
-
-      <!-- Multi-action CRUD table -->
-
-      <form>
-        <div class="table__header">
-          <h3>Multi-action CRUD table</h3>
-          <div class="actions-container">
-            <a class="action--primary" href="">Add</a>
-            <a class="action--secondary disabled" href="">Edit</a>
-            <a class="action--secondary disabled" href="">Reinstate</a>
-            <a class="action--secondary disabled" href="">Delete</a>
-            <input class="action--primary" type="submit" value="Submit">
-          </div><!-- end .actions-container -->
-        </div><!-- end .table__header -->
-        <div class="table__wrapper">
-          <table>
-            <thead>
-              <tr>
-                <th></th>
-                <th>Licence no.</th>
-                <th>Trading name</th>
-                <th>Postcode</th>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>D.O.B</th>
-                <th>Conv.</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><input name="row" type="radio"></td>
-                <td><a href="">76163222712</a></td>
-                <td>Jim Jefferey's Haulage LTD</td>
-                <td>LS7 4QP</td>
-                <td>James</td>
-                <td>Jefferey</td>
-                <td>07/02/1963</td>
-                <td>14</td>
-              </tr>
-              <tr>
-                <td><input name="row" type="radio"></td>
-                <td><a href="">36233242279</a></td>
-                <td>Amber Taxis</td>
-                <td>LS3 2PS</td>
-                <td>Mohammed</td>
-                <td>Ali</td>
-                <td>23/11/1943</td>
-                <td>5</td>
-              </tr>
-              <tr>
-                <td><input name="row" type="radio"></td>
-                <td><a href="">86173252712</a></td>
-                <td>Jim Jefferey's Haulage LTD</td>
-                <td>LS7 4QP</td>
-                <td>James</td>
-                <td>Jefferey</td>
-                <td>07/02/1963</td>
-                <td>14</td>
-              </tr>
-              <tr>
-                <td><input name="row" type="radio"></td>
-                <td><a href="">8272632422</a></td>
-                <td>Amber Taxis</td>
-                <td>LS3 2PS</td>
-                <td>Mohammed</td>
-                <td>Ali</td>
-                <td>23/11/1943</td>
-                <td>5</td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr>
-                <th colspan="7">Totals</th>
-                <td>477</td>
-              </tr>
-            </tfoot>
-          </table>
-        </div><!-- end .table__wrapper -->
-      </form>
 
     </div><!-- end .full-width -->
 

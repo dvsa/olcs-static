@@ -9,10 +9,8 @@ horizontalNavItems:
     link:  index.html
   - label: Short notice
     link:  bus-registrations.html
-  - label: Timetables & Routes
-    link:  cases.html
-  - label: TRCs & Conditions
-    link:  environmental.html
+  - label: Register service
+    link:  register-service.html
   - label: Docs & attachments
     link:  docs&attachments.html
   - label: Processing
@@ -22,15 +20,7 @@ horizontalNavItems:
 recordActions:
   - title: Quick actions
     actions:
-      - Create case
-      - Create variation
-      - Print licence
-  - title: Decisions
-    actions:
-      - Surrender
-      - Curtail
-      - Terminate
-      - Revoke
+      - Request new route map
 ---
 
 <div class="four-fifths--left">
@@ -58,6 +48,8 @@ recordActions:
       Standard National<br />
       Valid</p>
   </div><!-- end .small-details -->
+
+  {{> _record-actions }}
 
   <div class="latest-note">
     <p class="latest-note__details">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidid...</p>

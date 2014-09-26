@@ -1,6 +1,6 @@
 <form>  
     <div class="table__header">
-      <h3>{{{table.title}}}</h3>
+      <h3>{{{title}}}</h3>
       {{> _actions }}
     </div><!-- end .table__header -->
 
@@ -8,7 +8,7 @@
       <table>
         <thead>
           <tr>
-            {{#each table.headers }}
+            {{#each headers }}
               {{#contains this.class "sortable" }}      
               <th class="{{ this.class }}"><a href="">{{{ this.label }}}</a></th>
               {{else }}
@@ -19,64 +19,52 @@
         </thead>
         <tbody>
           <tr>
-            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
+            {{#each columns }}<td>{{{ this }}}</td>{{/each}}
+          </tr>
+           <tr>
+            {{#each columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
+            {{#each columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
+            {{#each columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
+            {{#each columns }}<td>{{{ this }}}</td>{{/each}}
+          </tr>
+           <tr>
+            {{#each columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
+            {{#each columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
+            {{#each columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
+            {{#each columns }}<td>{{{ this }}}</td>{{/each}}
+          </tr>
+           <tr>
+            {{#each columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
+            {{#each columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
+            {{#each columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
+            {{#each columns }}<td>{{{ this }}}</td>{{/each}}
+          </tr>
+           <tr>
+            {{#each columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
+            {{#each columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
           <tr>
-            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
-          </tr>
-          <tr>
-            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
-          </tr>
-          <tr>
-            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
-          </tr>
-          <tr>
-            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
-          </tr>
-          <tr>
-            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
-          </tr>
-          <tr>
-            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
-          </tr>
-          <tr>
-            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
-          </tr>
-          <tr>
-            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
-          </tr>
-          <tr>
-            {{#each table.columns }}<td>{{{ this }}}</td>{{/each}}
+            {{#each columns }}<td>{{{ this }}}</td>{{/each}}
           </tr>
       </table>
     </div><!-- end .table__wrapper -->

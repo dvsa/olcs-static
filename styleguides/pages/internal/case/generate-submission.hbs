@@ -77,7 +77,7 @@ form:
         <a href="" class="modal__close">Close</a>
       </div>
       <div class="modal__content">
-        {{> _forms }}
+        {{#each form }}{{> _forms }}{{/each }}
       </div>
     </div>
   </div>
