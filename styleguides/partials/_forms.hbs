@@ -144,7 +144,43 @@
           </fieldset>
           {{/is }}
 
+          {{#is type "address" }}
+          <fieldset class="postcode-search">
+            <legend>Postcode</legend>
+            <div class="field inline">
+              <label for="postcode-search" class="visually-hidden">Postcode search</label>
+                  <input id="postcode-search" name="postcode" type="text" class="short">
+            </div>
+            <div class="field inline">
+              <input class="action--secondary large" type="submit" value="Find address">
+            </div>
+          </fieldset>
+          <div class="field">
+            <label for="street-line-one">Street</label>
+            <input id="street-line-one" name="address" type="text" class="long">
+          </div>
+          <div class="field">
+            <label for="street-line-two" class="visually-hidden">Street line 2</label>
+              <input id="street-line-two" name="address" type="text" class="long">
+          </div>
+          <div class="field">
+            <label for="street-line-three" class="visually-hidden">Street line 3</label>
+              <input id="street-line-three" name="address" type="text" class="long">
+          </div>
+          <div class="field">
+            <label for="street-line-four" class="visually-hidden">Street line 4</label>
+              <input id="street-line-four" name="address" type="text" class="long">
+          </div>
+          <div class="field">
+            <label for="town-city">Town/city</label>
+              <input id="town-city" name="town-city" type="text" class="long">
+          </div>
+          {{/is }}
+
+
       {{/each }}
+
+
 
     </fieldset>
   {{/each }}
