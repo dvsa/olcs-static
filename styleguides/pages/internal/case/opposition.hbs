@@ -43,5 +43,9 @@ table:
 ---
 
 <div class="four-fifths">
-{{> _table }}
+  {{#each table}}
+    {{#is @index 0 }} 
+      {{> _table }}
+    {{/is }} 
+  {{/each}}
 </div>

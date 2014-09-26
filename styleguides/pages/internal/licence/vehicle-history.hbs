@@ -34,8 +34,11 @@ form:
         - label: Disc no.
           type: read only
           values:
-            - 027253
-          class: medium
+            - 027253        
+        - label: Received
+          type: read only
+          values:
+            - 08 Aug 2011
         - label: Specified
           type: read only
           values:
@@ -61,8 +64,14 @@ actions:
         <a href="" class="modal__close">Close</a>
       </div>
       <div class="modal__content">
-        {{> _forms }}
-        {{> _table }} 
+        {{#each form }}
+          {{> _forms }}
+        {{/each }}
+        {{#each table}}
+          {{#is @index 0 }} 
+            {{> _table }}
+          {{/is }} 
+        {{/each}} 
         <div class="actions-container">
         {{> _actions }}
         </div>  

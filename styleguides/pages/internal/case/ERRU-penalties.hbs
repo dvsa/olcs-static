@@ -1,0 +1,200 @@
+---
+layout: case.hbs
+sectionTitle: Case details
+subSectionTitle: ERRU penalties
+verticalNavItems:
+  - label: Service no. & type
+    link:  /styleguides/internal/bus-registrations/
+  - label: Stops, manouevers & subsidies
+    link:  /styleguides/internal/bus-registrations/stops-manouevers-&-subsidies.html
+  - label: TA's and authorities
+    link:  /styleguides/internal/bus-registrations/tas-&-authorities.html
+  - label: Quality schemes
+    link:  /styleguides/internal/bus-registrations/quality-schemes.html
+form: 
+  - fieldsets:
+    - legend:
+      fields:
+        - label: Infringement ID
+          type: read only three-col
+          values:
+            - 124253
+        - label: Notification number
+          type: read only three-col
+          values:
+            - 0272728
+        - label: Category
+          type: read only three-col
+          values:
+            - Lorem ipsum
+        - label: Type
+          type: read only three-col
+          values:
+            - Lorem ipsum
+        - label: Date of infringement
+          type: read only three-col
+          values:
+            - 12 May 2012
+        - label: Date of check
+          type: read only three-col
+          values:
+            - 12 May 2012
+        - label: Member state
+          type: read only three-col
+          values:
+            - Poland
+        - label: Originating authority
+          type: read only three-col
+          values:
+            - Polish Transport Authority
+        - label: VRM
+          type: read only three-col
+          values:
+            - LL08 URE
+  - fieldsets:
+    - legend:
+      fields:
+        - label: Conditions satisfactory?
+          type: radios inline
+          values: 
+            - Yes
+            - No
+        - label: Notes
+          type: textarea
+          values: 
+            - Please enter an explaniation of why the conditions were unsatisfactory
+    - legend: Register service
+      fields:
+        - label: Application copied to LA /PTE
+          type: radios inline
+          values: 
+            - Yes
+            - No
+        - label: LA/PTE support short notice
+          type: radios inline
+          values: 
+            - Yes
+            - No
+        - label: Application signed
+          type: radios inline
+          values: 
+            - Yes
+            - No
+        - label: Variation details
+          type: read only
+          values: 
+            - Lorem ipsum
+        - label: Correspondence address
+          type: select
+          values: 
+            - 24 Eleanor Court Road, Oswestry
+        - label: Completed
+          type: date
+    actions:
+      - label: Save
+        class: primary large
+      - label: Request a new route map
+        class: secondary large
+      - label: Cancel
+        class: secondary large
+table:
+  - title: <strong>Imposed penalties</strong><br /><span>For this infringment, the originating state has imposed the following penalties:</span>
+    headers:
+      - label: Final decision date
+        class: sortable descending
+      - label: Penalty type
+        class: sortable
+      - label: Start date
+        class: sortable
+      - label: End date
+        class: sortable
+      - label: Excused?
+        class: sortable
+    columns:
+      - 12 May 2014
+      - Lorem ipsum
+      - 12 April 2014
+      - 12 April 2015
+      - Yes
+  - title: <strong>Requested penalties</strong><br /><span>The originating state has requested the following penalties be applied:</span>
+    headers:
+      - label: Penalty type
+        class: sortable descending
+      - label: Duration
+        class: sortable
+    columns:
+      - Lorem ipsum sit dolor amet
+      - Duration
+  - title: <b>Applied penalties</b>
+    headers:
+      - label: Penalty type
+        class: sortable descending
+      - label: Duration
+        class: sortable
+      - label: <input type="checkbox">
+        class: not-sortable
+    columns:
+      - Lorem ipsum sit dolor amet
+      - Duration
+      - <input type="checkbox">
+    actions:
+      - label: Add
+        class: primary
+      - label: Edit
+        class: secondary disabled
+      - label: Delete
+        class: secondary disabled
+verticalNavItems:
+  - label: Overview
+    link:  
+  - label: Convictions
+    link:  
+  - label: Prohibitions
+    link:  
+  - label: ERRU penalties
+    link:
+  - label: Statements
+    link:
+  - label: Complaints
+    link:
+  - label: Conditions & undertakings
+    link:
+  - label: Impoundings
+    link:
+
+---
+
+<div class="one-fifth--left">
+  <h4>Case details</h4>
+  {{> _vertical-navigation }}
+</div>
+
+<div class="three-fifths">
+  <h3>ERRU penalties</h3>
+
+  {{#each form}}
+    {{#is @index 0 }} 
+      {{> _forms }}
+    {{/is }} 
+  {{/each}}
+
+  {{#each table}}
+    {{#is @index 0 }} 
+      {{> _table }}
+    {{/is }} 
+  {{/each}}
+
+  {{#each table}}
+    {{#is @index 1 }} 
+      {{> _table }}
+    {{/is }} 
+  {{/each}}
+
+  {{#each table}}
+    {{#is @index 2 }} 
+      {{> _table }}
+    {{/is }} 
+  {{/each}}
+
+
+</div>

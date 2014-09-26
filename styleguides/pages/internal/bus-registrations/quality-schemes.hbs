@@ -34,8 +34,6 @@ form:
           values: 
             - No
             - Yes
-
-
     actions:
       - label: Save
         class: primary large
@@ -52,5 +50,5 @@ form:
 
 <div class="three-fifths">
   <h3>Quality schemes</h3>
-  {{> _forms }}
+  {{#each form }}{{> _forms }}{{/each }}
 </div>
