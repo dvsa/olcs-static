@@ -95,7 +95,7 @@ OLCS.tableHandler = (function(document, $, undefined) {
       }
     });
 
-    OLCS.eventEmitter.on("update:" + container , function() {
+    OLCS.eventEmitter.on("update:" + container, function() {
       buttonHandler.check();
     });
   };
