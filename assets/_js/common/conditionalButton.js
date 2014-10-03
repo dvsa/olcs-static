@@ -14,7 +14,7 @@ OLCS.conditionalButton = (function(document, $, undefined) {
     var label     = options.label;
     var predicate = options.predicate;
 
-    var actionSelector = selector + " .table__header [name=action]";
+    var actionSelector = selector + " .actions-container button";
 
     function checkButton() {
       var editButton = $(actionSelector).filter("[value='" + label + "']");
