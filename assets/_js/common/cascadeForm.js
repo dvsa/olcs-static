@@ -109,18 +109,6 @@ OLCS.cascadeForm = (function(document, $, undefined) {
 
       var parts;
 
-      if (selector.search("=") !== -1) {
-
-        // assume a name=value pair specifies a radio button with a given value
-        parts = selector.split("=");
-
-        return OLCS.formHelper(group, parts[0])
-        .filter("[value=" + parts[1] + "]")
-        // radios are always wrapped inside a label
-        .parents("label:last");
-
-      }
-
       if (selector.search(":") !== -1) {
 
         parts = selector.split(":");
@@ -131,9 +119,23 @@ OLCS.cascadeForm = (function(document, $, undefined) {
             return form.find("label[for=" + parts[1] + "]").parents(".field");
           case "selector":
             return form.find(parts[1]);
+          case "date":
+            return form.find("[name*=" + parts[1] + "]").parents(".field");
           default:
             throw new Error("Unsupported left-hand selector: " + parts[0]);
         }
+      }
+
+      if (selector.search("=") !== -1) {
+
+        // assume a name=value pair specifies a radio button with a given value
+        parts = selector.split("=");
+
+        return OLCS.formHelper(group, parts[0])
+        .filter("[value=" + parts[1] + "]")
+        // radios are always wrapped inside a label
+        .parents("label:last");
+
       }
 
       // otherwise assume a straight input name which we assume is inside a field container
