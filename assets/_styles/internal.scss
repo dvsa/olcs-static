@@ -315,37 +315,7 @@ $gutter: 1.25%;
       margin: 5px 0 0 0;
     }
   }
-  &__status {
-    @extend %paragraph--tiny;
-    @include border-radius(2px);
-    margin-left: 5px;
-    padding: 3px 6px;
-    color: $white;
-    font-weight: 600;
-    &.revoked,
-    &.cns,
-    &.surrendered,
-    &.withdrawn,
-    &.refused,
-    &.ntu,
-    &.terminated {
-      background: $red;
-    }
-    &.unlicenced,
-    &.not-submitted,
-    &.curtailed,
-    &.suspended {
-      background: $orange;
-    }
-    &.new,
-    &.granted,
-    &.valid {
-      background: $green;
-    }
-  }
 }
-
-
 
 
 /* ==========================================================================
@@ -632,3 +602,12 @@ input.action--secondary {
     display: block;
   }
 }
+
+/* ==========================================================================
+   13. Statuses
+   ========================================================================== */
+
+@import '_statuses';
+
+
+
