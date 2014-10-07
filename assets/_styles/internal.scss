@@ -17,19 +17,20 @@
  *
  **/
 
-$app: internal;
 
 /* ==========================================================================
    1. Base styles
    ========================================================================== */
 
- @import 
-'vendor/govuk_toolkit/_device-pixels',
-'vendor/govuk_toolkit/_measurements', 
-'vendor/govuk_toolkit/_css3',
-'vendor/govuk_toolkit/_colours',
-'vendor/govuk_toolkit/_typography',
-'_base-styles';
+$app: internal;
+
+@import 
+  'vendor/govuk_toolkit/_device-pixels',
+  'vendor/govuk_toolkit/_measurements', 
+  'vendor/govuk_toolkit/_css3',
+  'vendor/govuk_toolkit/_colours',
+  'vendor/govuk_toolkit/_typography',
+  '_base-styles';
 
 $assetPath: "../images";
 $primaryColour: $department-for-transport;

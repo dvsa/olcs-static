@@ -12,12 +12,14 @@
     {{/if }}
 
     {{#each groups }}
-    <dl>
+    <ul class="definition-list">
       {{#each group }}
-      <dt>{{{ this.name }}}</dt>
-      <dd class="{{ this.class }}">{{{ this.value }}}</dd>
+      <li class="definition-list__item {{ this.class }}">
+        <dt>{{{ this.name }}}</dt>
+        <dd>{{{ this.value }}}</dd>
+      </li>
       {{/each }}
-    </dl>
+    </ul><!-- .definition-lis -->
     {{/each }}
   
   </div><!-- read-only -->
