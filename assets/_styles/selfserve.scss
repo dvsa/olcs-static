@@ -14,25 +14,27 @@
  *  8. Tables
  *  9. Actions & buttons
  * 10. Modals & messaging
+ * 11. Read only lists
+ * 12. Statuses
  *
  **/
-
-$app: selfserve;
-$assetPath : "../images/";
 
 /* ==========================================================================
    1. Base styles
    ========================================================================== */
 
- @import 
-'vendor/govuk_toolkit/_device-pixels',
-'vendor/govuk_toolkit/_measurements', 
-'vendor/govuk_toolkit/_css3',
-'vendor/govuk_toolkit/_colours',
-'vendor/govuk_toolkit/_typography',
-'vendor/govuk_toolkit/design-patterns/_buttons',
-'_fonts',
-'_base-styles';
+$app: selfserve;
+$assetPath : "../images/";
+
+@import 
+  'vendor/govuk_toolkit/_device-pixels',
+  'vendor/govuk_toolkit/_measurements', 
+  'vendor/govuk_toolkit/_css3',
+  'vendor/govuk_toolkit/_colours',
+  'vendor/govuk_toolkit/_typography',
+  'vendor/govuk_toolkit/design-patterns/_buttons',
+  '_fonts',
+  '_base-styles';
 
 $primaryColour: $department-for-transport;
 $gutter: 2.5%;
@@ -41,6 +43,7 @@ $gutter: 2.5%;
    ========================================================================== */
 
 @import '_links';
+
 
 /* ==========================================================================
    2. Typography
@@ -340,9 +343,8 @@ dt, dd {
 }
 
 dt {
-   width: 40%;
-   font-weight: 400;
-
+  width: 40%;
+  font-weight: 400;
 }
 
 dd {
@@ -350,15 +352,11 @@ dd {
   font-weight: 700;
 }
 
-
 /* ==========================================================================
-   11. Status
+   12. Status
    ========================================================================== */
 
-.status {
-  float: left;
-}
-
+@import '_statuses';
 
 
 
