@@ -16,21 +16,25 @@ form:
       fields:
         - label: Business type
           type: select
-          values:      
+          values:
             - Limited company
           class:
         - label: Registered company number
-          type: text
+          type: inline-search
           class: medium
+          values:
+            - Find company
+          hint: If you don't have your company number to hand, or are having problems retrieving your company details, please enter them manually below. 
         - label: Operator name
           type: text
           class: medium
-        - label: Nature of business
+        - label: Nature of business (SIC)
           type: text
           class: medium
+          hint: Please use a SIC approved business type. You can find a list of approved business types <a href="">here</a>
     - legend: Registed address
       fields:
-        - type: address
+        - type: registered-address
     actions:
       - label: Save
         class: primary large
