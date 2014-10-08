@@ -93,8 +93,8 @@ OLCS.cascadeForm = (function(document, $, undefined) {
 
       // are we currently sat inside a validation error wrapper? If
       // so that becomes the top-level element
-      if (elem.parents(errorWrapper).length) {
-        elem = elem.parents(errorWrapper);
+      if (elem.parent(errorWrapper).length) {
+        elem = elem.parent(errorWrapper);
       }
 
       if (show) {
