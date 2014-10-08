@@ -19,6 +19,7 @@ OLCS.cascadeForm = (function(document, $, undefined) {
     var previousFieldset;
     var cascade = options.cascade !== undefined ? options.cascade : true;
     var onSubmit = options.submit;
+    var errorWrapper = options.errorWrapper || ".validation-wrapper";
 
     /**
      * by using a closure we ensure this function is safe
@@ -89,6 +90,12 @@ OLCS.cascadeForm = (function(document, $, undefined) {
       }
 
       elem = findContainer(group, selector);
+
+      // are we currently sat inside a validation error wrapper? If
+      // so that becomes the top-level element
+      if (elem.parents(errorWrapper).length) {
+        elem = elem.parents(errorWrapper);
+      }
 
       if (show) {
         elem.show();
