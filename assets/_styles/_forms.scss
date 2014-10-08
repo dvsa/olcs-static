@@ -81,8 +81,12 @@ fieldset {
     margin: .3em .5em .3em 0;
   }
   &--two-col {
-    width: 50%;
+    width: 47.5%;
     float: left;
+    margin-right: 2.5%;
+    &.pre-selected {
+      background: $grey-3;
+    }
   }
   &.two-col {
     width: 50%;
