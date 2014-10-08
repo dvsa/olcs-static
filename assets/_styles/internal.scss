@@ -459,6 +459,10 @@ input.action--secondary {
   &.large {
     font-weight: 600; 
     font-size: 17px;
+    .inline & {
+      font-size: 15px;
+      padding: 8px 12px;
+    }
   }
 }
 

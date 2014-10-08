@@ -62,6 +62,7 @@
           <div class="field">
             <label>{{ label }}</label>
             <input type="text" class="{{ class }}" placeholder="{{#each values }}{{ this }}{{/each }}">
+            <p class="hint">{{{ hint }}}</hint>
           </div>  
           {{/is }}
 
@@ -178,9 +179,46 @@
           {{/is }}
 
 
+          {{#is type "registered-address" }}
+          <div class="field">
+            <label for="street-line-one" class="visually-hidden">Street</label>
+            <input id="street-line-one" name="address" type="text" class="long">
+          </div>
+          <div class="field">
+            <label for="street-line-two" class="visually-hidden">Street line 2</label>
+              <input id="street-line-two" name="address" type="text" class="long">
+          </div>
+          <div class="field">
+            <label for="street-line-three" class="visually-hidden">Street line 3</label>
+              <input id="street-line-three" name="address" type="text" class="long">
+          </div>
+          <div class="field">
+            <label for="street-line-four" class="visually-hidden">Street line 4</label>
+              <input id="street-line-four" name="address" type="text" class="long">
+          </div>
+            <div class="field">
+              <label for="postcode">Postcode</label>
+              <input id="postcode" name="postcode" type="text" class="short">
+            </div>
+          {{/is }}
+
+
+          {{#is type "inline-search" }}
+          <fieldset class="inline-search">
+            <legend>{{ label }}</legend>
+            <div class="field inline">
+              <label for="{{ label }}" class="visually-hidden">{{ label }}</label>
+              <input id="{{ label }}" name="{{ label }}" type="text" class="{{ label }}">
+            </div>
+            <div class="field inline">
+              <input class="action--secondary large" type="submit" value="{{#each values }}{{ this }}{{/each }}">
+            </div>
+            <p class="hint">{{ hint }}</p>
+          </fieldset>
+          {{/is }}
+
+
       {{/each }}
-
-
 
     </fieldset>
   {{/each }}
