@@ -37,6 +37,12 @@ OLCS.formHelper = (function(document, $, undefined) {
     return $("html").find("[name=" + fieldset + "\\[" + name + "\\]]");
   };
 
+  exports.findInput = function(fieldset, name) {
+    return exports
+    .fieldset(fieldset)
+    .find("[name*=\\[" + name + "\\]]");
+  };
+
   exports.pressButton = function(form, button) {
     var actionValue = button.val();
     var actionName  = button.attr("name");

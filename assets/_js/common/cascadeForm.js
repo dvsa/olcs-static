@@ -112,6 +112,7 @@ OLCS.cascadeForm = (function(document, $, undefined) {
       if (selector.search(":") !== -1) {
 
         parts = selector.split(":");
+
         switch (parts[0]) {
           case "label":
             // @NOTE: we make some assumptions about the markup surrounding labels
@@ -131,7 +132,9 @@ OLCS.cascadeForm = (function(document, $, undefined) {
         // assume a name=value pair specifies a radio button with a given value
         parts = selector.split("=");
 
-        return OLCS.formHelper(group, parts[0])
+        // @TODO `group` isn't always right here; it can be an arbitrary selector
+        // not just a data-group=xxx name. This needs fixing at some point
+        return OLCS.formHelper.findInput(group, parts[0])
         .filter("[value=" + parts[1] + "]")
         // radios are always wrapped inside a label
         .parents("label:last");
