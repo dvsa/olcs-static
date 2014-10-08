@@ -21,4 +21,8 @@
     border: 1px solid $primaryColour;
     color: $primaryColour;
   }
+  &.grey {
+    border: 1px solid $grey-1;
+    color: $grey-1;
+  }
 }

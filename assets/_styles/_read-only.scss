@@ -5,14 +5,14 @@
   float: left;
   width: 100%;
   &__title {
-    margin-top: 1em;
+    margin: 0;
     display: block;
   }
   &__header {
     width: 100%;
     border-bottom: 1px solid $grey-2;;
     float: left;
-    margin-bottom: .5em;
+    margin-bottom: .55em;
     h4 {
       border: 0;
       float: left;
@@ -21,7 +21,7 @@
     }
     .action--secondary {
       float: right;
-      margin-top: -5px !important;
+      margin: -5px 0 0 0 !important;
     }
   }
   table {
