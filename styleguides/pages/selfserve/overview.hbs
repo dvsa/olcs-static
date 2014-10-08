@@ -1,0 +1,67 @@
+---
+title: Application no.1280887
+subtitle: Applciation overview
+overview-items:
+  - name: Licence type
+    status: Complete
+    edit-link: Edit licence type
+  - name: Business details
+    status: Complete
+    edit-link: Edit business details
+  - name: Addresses
+    status: Incomplete
+    edit-link: Edit addresses
+  - name: Directors
+    status: Incomplete
+    edit-link: Edit directors
+  - name: Operating centres
+    status: Incomplete
+    edit-link: Edit operating centres
+  - name: Authorisation
+    status: Incomplete
+    edit-link: Edit authorisation
+  - name: Transport managers
+    status: Not started
+    edit-link: Add transport managers
+  - name: Vehicles
+    status: Not started
+    edit-link: Add vehicles
+  - name: Saftey information
+    status: Not started
+    edit-link: Add safety information
+  - name: Financial history
+    status: Not started
+    edit-link: Add financial history
+  - name: Licence history
+    status: Not started
+    edit-link: Add licence history
+  - name: Convictions & penalties
+    status: Not started
+    edit link: Add convictions & penalties
+  - name: Undertakings
+    status: Disabled
+    edit-link:
+---
+
+  <div class="two-thirds">
+    <ul class="overview-navigation">
+
+    {{#each overview-items }}
+      <li class="overview-navigation__item">
+        <a href="" class="overview-navigation__expand">
+          <span class="accordion-arrow">▶</span>
+          <h4>{{ name }}</h4>
+        </a>
+        <span class="status {{#is status "Complete" }}green{{/is}}{{#is status "Incomplete" }}orange{{/is}}{{#is status "Not started" }}grey{{/is}}">{{ status }}</span>
+        <a href="" class="overview-navigation__edit">{{ edit-link }}</a>
+      </li>
+    {{/each }} 
+
+    </ul><!-- .overview-navigation -->
+  </div><!-- .one-third -->
+
+  <div class="one-third">
+    <h4><a href="form-elements.html">Form elements</a></h4>
+    <p>Includes form wrapper elements, labelling, inputs and actions</p>
+  </div><!-- .one-third -->
+  <hr />

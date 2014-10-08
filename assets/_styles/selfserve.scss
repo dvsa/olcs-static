@@ -303,6 +303,38 @@ $gutter: 2.5%;
 
 @import '_filters';
 
+/* 7.8 Overview navigation
+   ========================================================================== */
+
+.overview-navigation {
+  list-style: none;
+  .accordion-arrow {
+    font-size: 10px;
+    float: left;
+    margin: 5px 5px 0 0;
+  }
+  &__expand {
+    text-decoration: none;
+    color: $black;
+    float: left;
+    display: block;
+    width: 40%;
+    h4 {
+      float: left;
+      clear: none;
+    }
+  }
+  &__item {
+    border-bottom: 1px solid $grey-3;
+    padding: .6em .25em .75em .25em;
+  }
+  &__edit {
+    float: right;
+  }
+}
+
+
+
 
 /* ==========================================================================
    8. Tables
