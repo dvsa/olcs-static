@@ -1,6 +1,6 @@
 ---
-title: Application no.1280887
-subtitle: Applciation overview
+title: Application overview 
+subtitle: Application no.1280887
 overview-items:
   - name: Licence type
     status: Complete
@@ -8,6 +8,7 @@ overview-items:
   - name: Business details
     status: Complete
     edit-link: Edit business details
+    open: true
   - name: Addresses
     status: Incomplete
     edit-link: Edit addresses
@@ -45,16 +46,87 @@ overview-items:
 
   <div class="two-thirds">
     <ul class="overview-navigation">
-
+   
     {{#each overview-items }}
-      <li class="overview-navigation__item">
-        <a href="" class="overview-navigation__expand">
-          <span class="accordion-arrow">▶</span>
-          <h4>{{ name }}</h4>
-        </a>
-        <span class="status {{#is status "Complete" }}green{{/is}}{{#is status "Incomplete" }}orange{{/is}}{{#is status "Not started" }}grey{{/is}}">{{ status }}</span>
-        <a href="" class="overview-navigation__edit">{{ edit-link }}</a>
+
+      {{#is status "Complete"}}
+      <li class="overview-item {{#is open true }}expanded{{/is}}">
+        <div class="overview-item__header">
+          <a href="" class="overview-item__control">
+            <span class="accordion-arrow">{{#is open true }}&#9660;{{else}}&#9654;{{/is}}</span>
+            <h4>{{ name }}</h4>
+          </a>
+            <span class="status green">{{ status }}</span>
+          <a href="" class="overview-item__edit">{{ edit-link }}</a>
+        </div> 
+        {{#is open true }}
+        <div class="overview-item__content summary">
+         
+          <table>
+            <tr>
+              <th scope="row" width="40%">What type of business are you?</th>
+              <td>Limited company</td>
+            </tr>
+            <tr>
+              <th scope="row" width="40%">Registered company number</th>
+              <td>1234567</td>
+            </tr>
+            <tr>
+              <th scope="row" width="40%">Company name</th>
+              <td>John Smith Haulage Ltd</td>
+            </tr>
+            <tr>
+              <th scope="row" width="40%">Trading names</th>
+              <td>John Smith<br/>John Smith Halauge<br />John Smith Transport</td>
+            </tr>
+          </table>
+
+        </div>
+        {{/is}}
       </li>
+      {{/is}}
+
+      {{#is status "Incomplete"}}
+      <li class="overview-item {{#is expnaded true }}expanded{{/is}}">
+        <div class="overview-item__header">
+          <a href="" class="overview-item__control">
+            <span class="accordion-arrow">{{#is open true }}&#9660;{{else}}&#9654;{{/is}}</span>
+            <h4>{{ name }}</h4>
+          </a>
+            <span class="status orange">{{ status }}</span>
+          <a href="" class="overview-item__edit">{{ edit-link }}</a>
+        </div> 
+        {{#is open true }}
+        <div class="overview-item__content">
+          <p>This is the content</p>
+        </div>
+        {{/is}}
+      </li>
+      {{/is}}
+
+      {{#is status "Not started" }}
+      <li class="overview-item not-started">
+        <div class="overview-item__header">
+          <div class="overview-item__control">
+            <h4>{{ name }}</h4>
+          </div>
+            <span class="status {{#is status "Not started" }}grey{{/is}}">{{ status }}</span>
+            <a href="" class="overview-item__edit">{{ edit-link }}</a>
+        </div> 
+      </li>
+      {{/is}}
+
+     {{#is status "Disabled" }}
+      <li class="overview-item disabled">
+        <div class="overview-item__header">
+          <div class="overview-item__control">
+            <h4>{{ name }}</h4>
+          </div>
+        </div> 
+      </li>
+      {{/is}}
+
+
     {{/each }} 
 
     </ul><!-- .overview-navigation -->
