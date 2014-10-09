@@ -308,28 +308,53 @@ $gutter: 2.5%;
 
 .overview-navigation {
   list-style: none;
+}
+.overview-item {
+  border-bottom: 1px solid $grey-2;
+  overflow: auto;
+  padding-bottom: .75em;
+  &__header {
+     padding: .8em 1em 0 .5em;
+  }  
   .accordion-arrow {
     font-size: 10px;
     float: left;
     margin: 5px 5px 0 0;
   }
-  &__expand {
+  &__control {
     text-decoration: none;
     color: $black;
+    .disabled & {
+      color: $grey-2;
+    }
     float: left;
     display: block;
     width: 40%;
     h4 {
       float: left;
       clear: none;
+
     }
-  }
-  &__item {
-    border-bottom: 1px solid $grey-3;
-    padding: .6em .25em .75em .25em;
   }
   &__edit {
     float: right;
+  }
+  &__content {
+    padding: .8em 1em 0 1em;
+  }
+  &.expanded {
+    background: $grey-4;
+  }
+  &.disabled {
+    padding-bottom: .75em;
+  }
+  &.not-started {
+    .accordion-arrow {
+      display: none;
+    }
+  }
+  table {
+    border: none;
   }
 }
 

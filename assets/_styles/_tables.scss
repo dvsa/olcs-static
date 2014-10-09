@@ -48,7 +48,7 @@ table {
   border-collapse: collapse; 
   margin-bottom: .75em;
   border-bottom: 1px solid $grey-2;
-  .summary & { margin-bottom: 2.5em; }
+  .summary & { margin-bottom: 0; }
   input[type="checkbox"],
   input[type="radio"] {
     margin: 0;
@@ -61,14 +61,13 @@ th {
   @extend %paragraph--small;
   padding: .5em 0;
   text-align: left; 
-  
 }
 
 th {
   font-weight: 600;
   border-top: 1px solid $grey-2; 
   height: 1.4em;
-  vertical-align: middle;
+  vertical-align: top;
   &[scope="row"] {
     border-top: 1px solid $grey-2; 
     font-weight: 400;
@@ -87,7 +86,7 @@ td {
 
 tfoot {
   background: $summary-background;
-  tr {  border: 1px solid $summary-border; }
+  tr { border: 1px solid $summary-border; }
   th, 
   td {    
     border: none;
