@@ -334,15 +334,29 @@ $gutter: 2.5%;
   border-bottom: 1px solid $grey-2;
   overflow: auto;
   padding-bottom: .75em;
-  &.expanded { background: $grey-4; }
+  &.expanded { 
+    background: $grey-4; 
+    .accordion-arrow {
+      background-position: 100% 7px;
+    }
+  }
   &.disabled { padding-bottom: .75em;}
   &__header {
      padding: .8em 1em 0 .5em;
   }  
   .accordion-arrow {
-    font-size: 10px;
-    float: left;
-    margin: 5px 5px 0 0;
+    float:left;
+    height: 20px;
+    width: 10px;
+    margin-right: 5px;
+    background: url('../images/down-arrow.png') no-repeat;
+    background-position: 100% -273px;
+    @include device-pixel-ratio($ratio: 2) {
+      background-image: url('../images/down-arrow-2x.png');
+      background-size: 10px 268px;
+       background-position: 100% -253px;
+    }
+
     .not-started & {
       display: none;
     }
@@ -421,7 +435,7 @@ dd {
 
 
 /* ==========================================================================
-   13. Status
+   13. Right hand column
    ========================================================================== */
 
 .sidebar {
