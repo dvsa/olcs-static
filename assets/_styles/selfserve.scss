@@ -16,6 +16,7 @@
  * 10. Modals & messaging
  * 11. Read only lists
  * 12. Statuses
+ * 13. Right hand column
  *
  **/
 
@@ -188,19 +189,36 @@ $gutter: 2.5%;
 
 .page-header {
   @extend .full-width;
+  position: relative;
+  &.two-thirds {
+    @extend .two-thirds;
+    border-bottom: 1px solid $grey-2;
+    margin-top: 3em;
+    padding-bottom: 2em;
+  }
   margin-top: 2em;
   margin-bottom: 2em;
   @media (max-width: 640px){
     margin-top: 1em;
     margin-bottom: .5em;
   }
+  &__subtitle {
+    color: $grey-1;
+    font-weight: 400;
+  }
+  &__actions {
+    position: absolute;
+    right: 0;
+    top: 40px;
+    list-style: none;
+    width: 30%;
+  }
+  &__action {
+    @extend %h4;
+    text-decoration: none;
+    font-weight: 600;
+  }
 }
-
-.page-header__subtitle {
-  color: $grey-1;
-  font-weight: 400;
-}
-
 
 /* ==========================================================================
    5. Global footer
@@ -308,11 +326,16 @@ $gutter: 2.5%;
 
 .overview-navigation {
   list-style: none;
+  border-top: 1px solid $grey-2;
+  padding-top: .6em;
 }
+
 .overview-item {
   border-bottom: 1px solid $grey-2;
   overflow: auto;
   padding-bottom: .75em;
+  &.expanded { background: $grey-4; }
+  &.disabled { padding-bottom: .75em;}
   &__header {
      padding: .8em 1em 0 .5em;
   }  
@@ -320,45 +343,26 @@ $gutter: 2.5%;
     font-size: 10px;
     float: left;
     margin: 5px 5px 0 0;
+    .not-started & {
+      display: none;
+    }
   }
   &__control {
     text-decoration: none;
     color: $black;
-    .disabled & {
-      color: $grey-2;
-    }
+    .disabled & { color: $grey-2; }
     float: left;
     display: block;
     width: 40%;
     h4 {
       float: left;
       clear: none;
-
     }
   }
-  &__edit {
-    float: right;
-  }
-  &__content {
-    padding: .8em 1em 0 1em;
-  }
-  &.expanded {
-    background: $grey-4;
-  }
-  &.disabled {
-    padding-bottom: .75em;
-  }
-  &.not-started {
-    .accordion-arrow {
-      display: none;
-    }
-  }
-  table {
-    border: none;
-  }
+  table { border: none; }
+  &__edit { float: right; }
+  &__content { padding: 1em 1em 0 1em;}
 }
-
-
 
 
 /* ==========================================================================
@@ -416,4 +420,38 @@ dd {
 @import '_statuses';
 
 
+/* ==========================================================================
+   13. Status
+   ========================================================================== */
 
+.sidebar {
+  border-top: 6px solid $primaryColour;
+}
+
+.meta {
+  border: none;
+  margin: 1em 0;
+  dt, dd {
+    border: none;
+    display: block;
+    width: 100%;
+    padding: 0;
+  }
+  dd {
+    @extend %h4;
+    padding: 0 0 .5em 0;
+  }
+}
+
+.links {
+  border-top: 1px solid $grey-2;
+  padding-top: 1em;
+}
+
+.links-list {
+  margin-top: 1.25em;
+  list-style: none;
+  &__item {
+    margin-bottom: .5em;
+  }
+}
