@@ -47,7 +47,7 @@ describe("OLCS.ready", function() {
 
       /**
        * the below doesn't work; because we set up and tear down our stubs
-       * each time out stub count is back to zero, but our *cache* has
+       * each time our stub count is back to zero, but our *cache* has
        * persisted...
        */
       describe.skip("When invoked again with the same function", function() {
