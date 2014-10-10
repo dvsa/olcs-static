@@ -2,46 +2,39 @@
 layout: case.hbs
 sectionTitle: Case details
 subSectionTitle: ERRU penalties
-form: 
-  - fieldsets:
-    - legend:
-      fields:
-        - label: Infringement ID
-          type: read only three-col
-          values:
-            - 124253
-        - label: Notification number
-          type: read only three-col
-          values:
-            - 0272728
-        - label: Category
-          type: read only three-col
-          values:
-            - Lorem ipsum
-        - label: Type
-          type: read only three-col
-          values:
-            - Lorem ipsum
-        - label: Date of infringement
-          type: read only three-col
-          values:
-            - 12 May 2012
-        - label: Date of check
-          type: read only three-col
-          values:
-            - 12 May 2012
-        - label: Member state
-          type: read only three-col
-          values:
-            - Poland
-        - label: Originating authority
-          type: read only three-col
-          values:
-            - Polish Transport Authority
-        - label: VRM
-          type: read only three-col
-          values:
-            - LL08 URE
+
+read-only:
+  - title:
+    editable: false
+    type: fields
+    groups: 
+    - group: 
+      - name: VRM
+        value: LL08 URE
+    - group:
+      - name: Infringement ID
+        value: 124253
+      - name: Notification number
+        value: 01828
+    - group: 
+      - name: Category
+        value: Lore ipsum
+      - name: Type
+        value: Lorem ipsum
+      - name: Date of infringement
+        value: 16 Aug 2012
+      - name: Date of check
+        value: 16 Sep 2012
+    - group: 
+      - name: Transport undertaking name
+        value: Polish Transport Authority
+        class: full-width
+      - name: Member state
+        value: Poland
+        class: full-width
+      - name: Originating authority
+        value: Polish Transport Authority
+        class: full-width
   - fieldsets:
     - legend:
       fields:
@@ -118,15 +111,24 @@ table:
       - Duration
   - title: <b>Applied penalties</b>
     headers:
-      - label: Penalty type
+      - label: Penalty ID
         class: sortable descending
-      - label: Duration
+      - label: Penalty type
+        class: sortable
+      - label: Start date
+        class: sortable descending
+      - label: End date
+        class: sortable
+      - label: Imposed
         class: sortable
       - label: <input type="checkbox">
         class: not-sortable
     columns:
-      - Lorem ipsum sit dolor amet
-      - Duration
+      - <a href="">127262</a>
+      - Lorem ipsum
+      - 12 Aug 2013
+      - 15 Aug 2013
+      - Yes
       - <input type="checkbox">
     actions:
       - label: Add
@@ -163,11 +165,7 @@ verticalNavItems:
 <div class="three-fifths">
   <h3>ERRU penalties</h3>
 
-  {{#each form}}
-    {{#is @index 0 }} 
-      {{> _forms }}
-    {{/is }} 
-  {{/each}}
+  {{> _read-only }}
 
   {{#each table}}
     {{#is @index 0 }} 

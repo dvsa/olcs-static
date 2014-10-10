@@ -14,22 +14,26 @@
  *  8. Tables
  *  9. Actions & buttons
  * 10. Modals & messaging
+ * 11. Read only
+ * 12. Right hand column 
+ * 13. Statuses
  *
  **/
 
-$app: internal;
 
 /* ==========================================================================
    1. Base styles
    ========================================================================== */
 
- @import 
-'vendor/govuk_toolkit/_device-pixels',
-'vendor/govuk_toolkit/_measurements', 
-'vendor/govuk_toolkit/_css3',
-'vendor/govuk_toolkit/_colours',
-'vendor/govuk_toolkit/_typography',
-'_base-styles';
+$app: internal;
+
+@import 
+  'vendor/govuk_toolkit/_device-pixels',
+  'vendor/govuk_toolkit/_measurements', 
+  'vendor/govuk_toolkit/_css3',
+  'vendor/govuk_toolkit/_colours',
+  'vendor/govuk_toolkit/_typography',
+  '_base-styles';
 
 $assetPath: "../images";
 $primaryColour: $department-for-transport;
@@ -315,37 +319,7 @@ $gutter: 1.25%;
       margin: 5px 0 0 0;
     }
   }
-  &__status {
-    @extend %paragraph--tiny;
-    @include border-radius(2px);
-    margin-left: 5px;
-    padding: 3px 6px;
-    color: $white;
-    font-weight: 600;
-    &.revoked,
-    &.cns,
-    &.surrendered,
-    &.withdrawn,
-    &.refused,
-    &.ntu,
-    &.terminated {
-      background: $red;
-    }
-    &.unlicenced,
-    &.not-submitted,
-    &.curtailed,
-    &.suspended {
-      background: $orange;
-    }
-    &.new,
-    &.granted,
-    &.valid {
-      background: $green;
-    }
-  }
 }
-
-
 
 
 /* ==========================================================================
@@ -445,7 +419,6 @@ th {
   border: 1px solid $grey-2;
   padding: 0 .5em;
   a { display: block; }
-  height: 32px;
 }  
 
 td {
@@ -454,8 +427,11 @@ td {
 }
 
 .sortable {
-  padding: 0 .75em;
+  padding: .5em .75em .5em .75em;
   background: $grey-3;
+  a {
+    padding: 0;
+  }
   &:hover, 
   &.ascending, 
   &.descening {
@@ -463,6 +439,9 @@ td {
   }
 }
 
+.non-sortable {
+  padding: .5em;
+}
 
 /* ==========================================================================
    9. Actions & buttons
@@ -488,6 +467,10 @@ input.action--secondary {
   &.large {
     font-weight: 600; 
     font-size: 17px;
+    .inline & {
+      font-size: 15px;
+      padding: 8px 12px;
+    }
   }
 }
 
@@ -632,3 +615,12 @@ input.action--secondary {
     display: block;
   }
 }
+
+/* ==========================================================================
+   13. Statuses
+   ========================================================================== */
+
+@import '_statuses';
+
+
+

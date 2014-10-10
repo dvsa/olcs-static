@@ -1,0 +1,80 @@
+---
+layout: case.hbs
+sectionTitle: Hearings &amp; appeals
+subSectionTitle: Public inquiry
+
+read-only:
+  - title: Service level agreement
+    editable: true
+    type: fields
+    groups: 
+    - group:
+      - name: Call up letter issued
+        value: 16 Aug 2012 <span class="status green">Pass</span>
+      - name: Target date
+        value: 24 Aug 2012 
+    - group: 
+      - name: Brief to TC
+        value: 16 Aug 2012 <span class="status red">Fail</span>
+      - name: Target date
+        value: 24 Aug 2012 
+    - group: 
+      - name: Written outcome
+        value: Written reason lorem ipsum sit dolor amet
+        class: full-width
+    - group:
+      - name: Date of written reason
+        value: 16 Aug 2012 
+      - name: Target date
+        value: 24 Aug 2012 
+    - group:  
+      - name: Date of TC's written reason
+        value: 16 Aug 2012 <span class="status orange">Warning</span>
+      - name: Target date
+        value: 24 Aug 2012 
+    - group:
+      - name: Written reason letter sent
+        value: 16 Aug 2012 <span class="status grey">Inactive</span>
+      - name: Target date
+        value: 24 Aug 2012 
+    - group:
+      - name: Decision letter sent after written decision date
+        value: 16 Sep 2012
+      - name: Target date
+        value: 24 Aug 2012 
+verticalNavItems:
+  - label: Appeals & stays
+    link: index.html
+  - label: Public inquiry
+    link:  
+---
+
+<div class="one-fifth--left">
+  <h4>Hearings &amp; appeals</h4>
+  {{> _vertical-navigation }}
+</div>
+
+<div class="three-fifths">
+
+  {{> _read-only }}
+
+  {{#each table}}
+    {{#is @index 0 }} 
+      {{> _table }}
+    {{/is }} 
+  {{/each}}
+
+  {{#each table}}
+    {{#is @index 1 }} 
+      {{> _table }}
+    {{/is }} 
+  {{/each}}
+
+  {{#each table}}
+    {{#is @index 2 }} 
+      {{> _table }}
+    {{/is }} 
+  {{/each}}
+
+
+</div>

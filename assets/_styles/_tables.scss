@@ -48,7 +48,7 @@ table {
   border-collapse: collapse; 
   margin-bottom: .75em;
   border-bottom: 1px solid $grey-2;
-  .summary & { margin-bottom: 2.5em; }
+  .summary & { margin-bottom: 0; }
   input[type="checkbox"],
   input[type="radio"] {
     margin: 0;
@@ -61,13 +61,13 @@ th {
   @extend %paragraph--small;
   padding: .5em 0;
   text-align: left; 
-  vertical-align: middle;
 }
 
 th {
   font-weight: 600;
   border-top: 1px solid $grey-2; 
   height: 1.4em;
+  vertical-align: top;
   &[scope="row"] {
     border-top: 1px solid $grey-2; 
     font-weight: 400;
@@ -81,12 +81,12 @@ th {
 td {
   overflow: visible;
   border-top: 1px solid $grey-2; 
-  b { display: block; }
+  vertical-align: top;
 }
 
 tfoot {
   background: $summary-background;
-  tr {  border: 1px solid $summary-border; }
+  tr { border: 1px solid $summary-border; }
   th, 
   td {    
     border: none;
@@ -96,7 +96,7 @@ tfoot {
 }
 
 .sortable {
-  padding: 0;
+  padding: .5em 0;
   a {
     padding-right: 1em;
     color: $black;
@@ -104,7 +104,7 @@ tfoot {
     background: url('../images/down-arrow.png') no-repeat 100% 7px;
       @include device-pixel-ratio($ratio: 2) {
       background-image: url('../images/down-arrow-2x.png');
-      background-size: 10px 130px;
+      background-size: 10px 268px;
     }
     &:active { color: $grey-1; }
   }
@@ -116,7 +116,7 @@ tfoot {
     background: url('../images/down-arrow.png') no-repeat 100% -117px;
     @include device-pixel-ratio($ratio: 2) {
       background-image: url('../images/down-arrow-2x.png');
-      background-size: 10px 130px;
+       background-size: 10px 268px;
     }
   }
 
