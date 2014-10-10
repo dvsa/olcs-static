@@ -35,40 +35,83 @@ read-only:
           value: 2
         - name: Trailers in possession
           value: 0
+  - title: Penalties
+    editable: true
+    type: textarea
+    value: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+
 ---
 
 
 <div class="three-fifths">
-  <div class="section-header">
-    <h3>Submission No. 4</h3><a class="action--secondary" href="">Edit sections</a>
-  </div>
-  {{> _read-only }}
-  <div class="read-only">
-    <div class="read-only__header">
-      <h4>Operating centres</h4>
-      <input class="action--secondary" type="submit" value="Edit">
+  <form>
+    <div class="section-header">
+      <h3>Submission No. 4</h3><a class="action--secondary" href="">Edit sections</a>
     </div>
-    <div class="table__wrapper">
-      <table>
-        <thead>
-          <tr>    
-            <th>Operating centre address</th>
-            <th>Vehicles</th>   
-            <th>Trailers</th>
-            <th>Permission</th>
-            <th>Advertised</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Unit 5, 12 Albert Street, Westpoint, Leeds</td>
-            <td>34</td>
-            <td>23</td>
-            <td>Y</td>
-            <td>N</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+    {{#each read-only}}
+      {{#is @index 0 }} 
+        {{> _read-only }}
+      {{/is }} 
+    {{/each}}
+    <div class="read-only">
+      <div class="read-only__header">
+        <h4>Operating centres</h4>
+        <input class="action--secondary" type="submit" value="Remove">
+        <input class="action--secondary" type="submit" value="Update">
+      </div>
+      <div class="table__wrapper">
+        <table>
+          <thead>
+            <tr>    
+              <th>Operating centre address</th>
+              <th>Vehicles</th>   
+              <th>Trailers</th>
+              <th>Permission</th>
+              <th>Advertised</th>
+              <th><input type="checkbox"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Unit 5, 12 Albert Street, Westpoint, Leeds</td>
+              <td>34</td>
+              <td>23</td>
+              <td>Y</td>
+              <td>N</td>
+              <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+              <td>Unit 4, 12 Albert Street, Westpoint, Leeds</td>
+              <td>34</td>
+              <td>23</td>
+              <td>Y</td>
+              <td>N</td>
+              <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+              <td>Unit 3, 12 Albert Street, Westpoint, Leeds</td>
+              <td>34</td>
+              <td>23</td>
+              <td>Y</td>
+              <td>N</td>
+              <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+              <td>Unit 2, 12 Albert Street, Westpoint, Leeds</td>
+              <td>34</td>
+              <td>23</td>
+              <td>Y</td>
+              <td>N</td>
+              <td><input type="checkbox"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div><!-- .table__wrapper -->
+    </div><!-- .read-only -->
+    {{#each read-only}}
+      {{#is @index 1 }} 
+        {{> _read-only }}
+      {{/is }} 
+    {{/each}}
+  </form>
 </div>

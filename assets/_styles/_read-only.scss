@@ -1,6 +1,5 @@
 
 .read-only {
-  margin-bottom: .5em;
   display: block;
   float: left;
   width: 100%;
@@ -12,7 +11,7 @@
     width: 100%;
     border-bottom: 1px solid $grey-2;;
     float: left;
-    margin-bottom: .55em;
+    margin: 1.75em 0 .5em 0;
     h4 {
       border: 0;
       float: left;
@@ -21,7 +20,7 @@
     }
     .action--secondary {
       float: right;
-      margin: -5px 0 0 0 !important;
+      margin: -6px 0 0 6px !important;
     }
   }
   table {
@@ -42,6 +41,14 @@
     border: 0;
     border-top: 1px solid $grey-2; 
     padding: .5em 0;
+  }
+}
+
+.text-area {
+  width: 70%;
+  min-width: 400px;
+  p {
+    @extend %paragraph--small;
   }
 }
 
