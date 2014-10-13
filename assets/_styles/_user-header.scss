@@ -4,6 +4,7 @@
   border-top: 8px solid $primaryColour;
   padding: .75em 0 .4em 0;
   margin-bottom: .5em;
+  position: relative;
   @if $app == 'selfserve' {
       @extend .full-width;   
       @extend %paragraph--small;
@@ -11,10 +12,15 @@
   } @else {
       @extend %paragraph--tiny;
   }
+  @media (max-width: 640px){
+    width: 92%;
+    margin: 0 4% .4em 4%;
+  }
 }
 
 .user-menu {
-  float: right;
+  position: absolute;
+  right: 0;
   &__item {
     display: inline;
     margin-left: .5em;
