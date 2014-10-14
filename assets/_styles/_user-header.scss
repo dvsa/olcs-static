@@ -4,7 +4,6 @@
   border-top: 8px solid $primaryColour;
   padding: .75em 0 .4em 0;
   margin-bottom: .5em;
-  position: relative;
   @if $app == 'selfserve' {
       @extend .full-width;   
       @extend %paragraph--small;
@@ -19,11 +18,9 @@
 }
 
 .user-menu {
-  position: absolute;
-  right: 0;
+  float: right;
   &__item {
     display: inline;
     margin-left: .5em;
   }
 }
-
