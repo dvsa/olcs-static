@@ -523,7 +523,6 @@ input[type="submit"]:focus {
   outline: none;
 }
 
-
 .action--primary,
 input.action--primary {
   @include actionColour(#FFF, #10654E, #178B6C, $primaryColour, #146C55, #FFF, #8BB5AA, #8BB5AA);
@@ -624,5 +623,34 @@ input.action--secondary {
 
 @import '_statuses';
 
+/* ==========================================================================
+   14. Notes
+   ========================================================================== */
 
-
+.comment {
+  width: 63.5%;
+  min-width: 500px;
+  margin: .5em 0 1.5em 0;
+  background: $summary-background;
+  border-left: 3px solid $summary-border;
+  padding: 1em 5% .75em 1em;
+  margin-bottom: .5em;
+  position: relative;
+  &__edit {
+    position: absolute;
+    right: 1em;
+    top: .5em;
+  }
+  p {
+    @extend %paragraph--small;
+  }
+  ul {
+    margin: 0 0 .5em 0;
+    list-style: disc;
+    list-style-position: inside;
+  }
+  ol {
+    list-style-position: inside;
+    margin: 0 0 .5em 0;
+  } 
+}

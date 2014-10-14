@@ -74,32 +74,7 @@
 }
 
 /* Submission note */
-.notes-container {
-  width: 75%;
-  margin: .5em 0 1.5em 0;
-  overflow: auto;
-}
-.note {
-  background: $summary-background;
-  border: 1px solid $summary-border;
-  overflow: auto;
-  padding: .75em 1em .25em;
-  margin-bottom: .5em;
-  &__meta {
-    width: 75%;
-    float: left;
-    p {
-      float: left;
-      width: 50%;
-      clear: none;
-    }
-  }
-  &__actions {
-    width: 25%;
-    float: right;
-    text-align: right;
-  }
-}
+
 
 
 
