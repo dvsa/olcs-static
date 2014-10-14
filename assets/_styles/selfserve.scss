@@ -392,11 +392,11 @@ $gutter: 2.5%;
   width: 10px;
   margin-right: 5px;
   background: url('../images/down-arrow.png') no-repeat;
-  background-position: 100% -273px;
+  background-position: 100% -116px;
+  background-size: 11px 136px;
   @include device-pixel-ratio($ratio: 2) {
     background-image: url('../images/down-arrow-2x.png');
-    background-size: 10px 268px;
-    background-position: 100% -253px;
+    background-size: 11px 136px;
   }
   .not-started & { display: none;  }
   .expanded & { background-position: 100% 7px; }

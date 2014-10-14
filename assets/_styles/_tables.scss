@@ -51,8 +51,9 @@ table {
   .summary & { margin-bottom: 0; }
   input[type="checkbox"],
   input[type="radio"] {
-    margin: 0;
-    text-align: right;
+    margin: .25em auto 0 auto;
+    text-align: center;
+    display: block;
   }
 }
 

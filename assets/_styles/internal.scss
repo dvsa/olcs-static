@@ -59,8 +59,8 @@ $gutter: 1.25%;
 
 #main {
   display: table;
-  width: 97.5%;
-  margin: 0 1.25% 4em 1.25%;
+  width: 100%;
+  margin: 0 0 4em 0;
 }
 
 .content {
@@ -177,6 +177,7 @@ $gutter: 1.25%;
 .search {
   float: left;
   width: 400px;
+  margin-top: 2px;
   @media(max-width: 640px) {
     width: 100%;
   }  
