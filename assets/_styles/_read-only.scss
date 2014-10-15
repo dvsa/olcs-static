@@ -3,7 +3,7 @@
   display: block;
   width: 100%;
   padding: 1em 0 .75em 0;
-  overflow: auto;
+  overflow: hidden;
   &__title {
     margin: 0;
     display: block;
@@ -46,8 +46,8 @@
 }
 
 .text-area {
-  width: 70%;
-  min-width: 400px;
+  width: 100%;
+  max-width: 800px;
   p {
     @extend %paragraph--small;
   }

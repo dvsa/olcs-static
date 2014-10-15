@@ -628,29 +628,38 @@ input.action--secondary {
    ========================================================================== */
 
 .comment {
-  width: 63.5%;
-  min-width: 500px;
+  float: left;
+  width: 100%;
+  max-width: 800px;
   margin: .5em 0 1.5em 0;
-  background: $summary-background;
-  border-left: 3px solid $summary-border;
-  padding: 1em 5% .75em 1em;
+  background: $grey-4;
+  border-left: 3px solid $grey-3;
+  padding: 1em 0 .75em 0;
   margin-bottom: .5em;
   position: relative;
+  > * {
+    margin: 0 3em 0 1em;
+  }
   &__edit {
     position: absolute;
     right: 1em;
+    margin-right: 0;
     top: .5em;
+  }
+  .text-area {
+    width: 100%;
   }
   p {
     @extend %paragraph--small;
+    margin-bottom: 1em;
   }
   ul {
-    margin: 0 0 .5em 0;
+    margin: 0 0 .5em 1em;
     list-style: disc;
     list-style-position: inside;
   }
   ol {
     list-style-position: inside;
-    margin: 0 0 .5em 0;
+    margin: 0 0 .5em 1em;
   } 
 }

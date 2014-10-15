@@ -165,6 +165,14 @@ module.exports = (grunt) ->
       ci:
         colors: false
 
+    photobox:
+      internal:
+        options:
+          indexPath: 'test/visual',
+          highlightColor : '#0000ff',
+          screenSizes: [ '1400' ],
+          template: 'magic',
+          urls: [ 'http://localhost:7001/styleguides/internal/index.html' ]
 
   if grunt.option("production")
     grunt.loadNpmTasks "grunt-contrib-sass"
