@@ -2,10 +2,14 @@
   @if $app == 'selfserve' { max-width: 1080px; }
   margin: 0 auto;
   overflow: hidden;
-  width: 100% - ($gutter*2);
+  width: 95%;
   padding: 0 $gutter;
   clear: both;
   overflow: hidden;
+  @media (max-width: 640px){
+    padding: 0;
+    width: 100%;
+  }
 }
 
 .visually-hidden {

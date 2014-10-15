@@ -14,25 +14,28 @@
  *  8. Tables
  *  9. Actions & buttons
  * 10. Modals & messaging
+ * 11. Read only lists
+ * 12. Statuses
+ * 13. Right hand column
  *
  **/
-
-$app: selfserve;
-$assetPath : "../images/";
 
 /* ==========================================================================
    1. Base styles
    ========================================================================== */
 
- @import 
-'vendor/govuk_toolkit/_device-pixels',
-'vendor/govuk_toolkit/_measurements', 
-'vendor/govuk_toolkit/_css3',
-'vendor/govuk_toolkit/_colours',
-'vendor/govuk_toolkit/_typography',
-'vendor/govuk_toolkit/design-patterns/_buttons',
-'_fonts',
-'_base-styles';
+$app: selfserve;
+$assetPath : "../images/";
+
+@import 
+  'vendor/govuk_toolkit/_device-pixels',
+  'vendor/govuk_toolkit/_measurements', 
+  'vendor/govuk_toolkit/_css3',
+  'vendor/govuk_toolkit/_colours',
+  'vendor/govuk_toolkit/_typography',
+  'vendor/govuk_toolkit/design-patterns/_buttons',
+  '_fonts',
+  '_base-styles';
 
 $primaryColour: $department-for-transport;
 $gutter: 2.5%;
@@ -41,6 +44,7 @@ $gutter: 2.5%;
    ========================================================================== */
 
 @import '_links';
+
 
 /* ==========================================================================
    2. Typography
@@ -155,6 +159,52 @@ $gutter: 2.5%;
   }
 }
 
+.proposition {
+  float: left;
+  margin-left: 200px;
+  &__title {
+    float: left;
+    font-size: 24px;
+    display: block;
+    margin: 4px 0 2px 0;
+  }
+}
+.proposition-nav {
+  list-style: none;
+  &__item {
+    float: left;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 .5em 4px 0;
+  }
+  a {
+    color: #FFF;
+    text-decoration: none;  
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+@media (max-width: 640px){
+  .proposition {
+    width: 100%;
+    margin: .5em 0 .25em 5%;
+  }
+  .proposition__title {
+    display: none;
+  }
+  .proposition-nav {
+    float: left;
+    width: 100%;
+    display: block;
+    &__item {
+      float: none;
+      display: inline;
+    }
+  }
+}
+
 /* 4.2 User header
    ========================================================================== */
 
@@ -185,19 +235,43 @@ $gutter: 2.5%;
 
 .page-header {
   @extend .full-width;
+  position: relative;
   margin-top: 2em;
   margin-bottom: 2em;
   @media (max-width: 640px){
     margin-top: 1em;
     margin-bottom: .5em;
   }
+  &.two-thirds {
+    @extend .two-thirds;
+    border-bottom: 1px solid $grey-2;
+    margin-top: 3em;
+    padding-bottom: 2em;
+  }
+  &__subtitle {
+    color: $grey-1;
+    font-weight: 400;
+  }
+  &__actions {
+    position: absolute;
+    right: 0;
+    top: 40px;
+    list-style: none;
+    width: 30%;
+    @media (max-width: 640px){
+      position: relative;
+      float: left;
+      top: 0;
+      margin: 1em 0;
+      width: 100%;
+    }
+  }
+  &__action {
+    @extend %h4;
+    text-decoration: none;
+    font-weight: 600;
+  }
 }
-
-.page-header__subtitle {
-  color: $grey-1;
-  font-weight: 400;
-}
-
 
 /* ==========================================================================
    5. Global footer
@@ -270,10 +344,63 @@ $gutter: 2.5%;
 
 @import '_breadcrumb';
 
-/* 7.2 Application nav
+/* 7.2 Overview nav
    ========================================================================== */
 
-@import '_app-nav';
+.overview-navigation {
+  list-style: none;
+  border-top: 1px solid $grey-2;
+  padding-top: .6em;
+}
+
+.overview-item {
+  border-bottom: 1px solid $grey-2;
+  overflow: auto;
+  padding-bottom: .75em;
+  &.expanded { background: $grey-4; }
+  &.disabled { padding-bottom: .75em; }
+  &__header {
+     padding: .8em 1em 0 .5em;
+     overflow: auto;
+  }
+  &__control {
+    text-decoration: none;
+    color: $black;
+    float: left;
+    display: block;
+    width: 40%;
+    .disabled & { 
+      color: $grey-2; 
+    }
+  }
+  &__edit { 
+    float: right;
+    @media (max-width: 640px){ 
+      font-size: 14px;
+    }
+  }
+  &__content {  padding: .8em 1em 0 1em; }
+  table { border: none; }
+  @media (max-width: 640px){ 
+    .status { display: none; }
+  }
+}
+
+.accordion-arrow {
+  float:left;
+  height: 20px;
+  width: 10px;
+  margin-right: 5px;
+  background: url('../images/down-arrow.png') no-repeat;
+  background-position: 100% -116px;
+  background-size: 11px 136px;
+  @include device-pixel-ratio($ratio: 2) {
+    background-image: url('../images/down-arrow-2x.png');
+  }
+  .not-started & { display: none;  }
+  .expanded & { background-position: 100% 7px; }
+}
+
 
 /* 7.3 Horizontal navigation
    ========================================================================== */
@@ -299,6 +426,11 @@ $gutter: 2.5%;
    ========================================================================== */
 
 @import '_filters';
+
+/* 7.8 Application nav
+   ========================================================================== */
+
+@import '_app-nav';
 
 
 /* ==========================================================================
@@ -340,9 +472,8 @@ dt, dd {
 }
 
 dt {
-   width: 40%;
-   font-weight: 400;
-
+  width: 40%;
+  font-weight: 400;
 }
 
 dd {
@@ -350,15 +481,45 @@ dd {
   font-weight: 700;
 }
 
-
 /* ==========================================================================
-   11. Status
+   12. Status
    ========================================================================== */
 
-.status {
-  float: left;
+@import '_statuses';
+
+
+/* ==========================================================================
+   13. Right hand column
+   ========================================================================== */
+
+.sidebar {
+  border-top: 6px solid $primaryColour;
 }
 
+.meta {
+  border: none;
+  margin: 1em 0;
+  dt, dd {
+    border: none;
+    display: block;
+    width: 100%;
+    padding: 0;
+  }
+  dd {
+    @extend %h4;
+    padding: 0 0 .5em 0;
+  }
+}
 
+.links {
+  border-top: 1px solid $grey-2;
+  padding-top: 1em;
+}
 
-
+.links-list {
+  margin-top: 1.25em;
+  list-style: none;
+  &__item {
+    margin-bottom: .5em;
+  }
+}

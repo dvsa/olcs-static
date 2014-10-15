@@ -165,7 +165,6 @@ module.exports = (grunt) ->
       ci:
         colors: false
 
-
   if grunt.option("production")
     grunt.loadNpmTasks "grunt-contrib-sass"
     grunt.loadNpmTasks "grunt-contrib-uglify"

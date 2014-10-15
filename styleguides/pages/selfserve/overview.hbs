@@ -1,0 +1,161 @@
+---
+layout: two-thirds.hbs
+title: Application overview 
+subtitle: Application no.1280887
+overview-items:
+  - name: Licence type
+    status: Complete
+    edit-link: Edit licence type
+  - name: Business details
+    status: Complete
+    edit-link: Edit business details
+    open: true
+  - name: Addresses
+    status: Incomplete
+    edit-link: Edit addresses
+  - name: Directors
+    status: Incomplete
+    edit-link: Edit directors
+  - name: Operating centres
+    status: Incomplete
+    edit-link: Edit operating centres
+  - name: Authorisation
+    status: Incomplete
+    edit-link: Edit authorisation
+  - name: Transport managers
+    status: Not started
+    edit-link: Add transport managers
+  - name: Vehicles
+    status: Not started
+    edit-link: Add vehicles
+  - name: Saftey information
+    status: Not started
+    edit-link: Add safety information
+  - name: Financial history
+    status: Not started
+    edit-link: Add financial history
+  - name: Licence history
+    status: Not started
+    edit-link: Add licence history
+  - name: Convictions & penalties
+    status: Not started
+    edit link: Add convictions & penalties
+  - name: Undertakings
+    status: Disabled
+    edit-link:
+---
+
+
+
+
+  <div class="two-thirds">
+    <ul class="overview-navigation">
+   
+    {{#each overview-items }}
+
+      {{#is status "Complete"}}
+      <li class="overview-item {{#is open true }}expanded{{/is}}">
+        <div class="overview-item__header">
+          <a href="" class="overview-item__control">
+            <span class="accordion-arrow"></span>
+            <h4>{{ name }}</h4>
+          </a>
+            <span class="status green">{{ status }}</span>
+          <a href="" class="overview-item__edit">{{ edit-link }}</a>
+        </div> 
+        {{#is open true }}
+        <div class="overview-item__content summary">
+         
+          <table>
+            <tr>
+              <th scope="row" width="40%">What type of business are you?</th>
+              <td>Limited company</td>
+            </tr>
+            <tr>
+              <th scope="row" width="40%">Registered company number</th>
+              <td>1234567</td>
+            </tr>
+            <tr>
+              <th scope="row" width="40%">Company name</th>
+              <td>John Smith Haulage Ltd</td>
+            </tr>
+            <tr>
+              <th scope="row" width="40%">Trading names</th>
+              <td>John Smith<br/>John Smith Halauge<br />John Smith Transport</td>
+            </tr>
+          </table>
+
+        </div>
+        {{/is}}
+      </li>
+      {{/is}}
+
+      {{#is status "Incomplete"}}
+      <li class="overview-item {{#is expnaded true }}expanded{{/is}}">
+        <div class="overview-item__header">
+          <a href="" class="overview-item__control">
+            <span class="accordion-arrow"></span>
+            <h4>{{ name }}</h4>
+          </a>
+            <span class="status orange">{{ status }}</span>
+          <a href="" class="overview-item__edit">{{ edit-link }}</a>
+        </div> 
+        {{#is open true }}
+        <div class="overview-item__content">
+          <p>This is the content</p>
+        </div>
+        {{/is}}
+      </li>
+      {{/is}}
+
+      {{#is status "Not started" }}
+      <li class="overview-item not-started">
+        <div class="overview-item__header">
+          <div class="overview-item__control">
+            <h4>{{ name }}</h4>
+          </div>
+            <span class="status {{#is status "Not started" }}grey{{/is}}">{{ status }}</span>
+            <a href="" class="overview-item__edit">{{ edit-link }}</a>
+        </div> 
+      </li>
+      {{/is}}
+
+     {{#is status "Disabled" }}
+      <li class="overview-item disabled">
+        <div class="overview-item__header">
+          <div class="overview-item__control">
+            <h4>{{ name }}</h4>
+          </div>
+        </div> 
+      </li>
+      {{/is}}
+
+    {{/each }} 
+
+    </ul><!-- .overview-navigation -->
+  </div><!-- .two-thirds -->
+
+
+  <div class="one-third sidebar">
+
+    <dl class="meta">
+      <dt>Created</dt>
+      <dd>14 September 2014</dd>
+      <dt>Progress</dt>
+      <dd>2 of 13 sections complete</dd>
+      <dt>Status</dt>
+      <dd>Incomplete</dd>
+    </dl><!-- .meta -->
+
+    <div class="links">
+      <h3>Applying for a new licence</h3>
+      <ul class="links-list">
+        <li class="links-list__item"><a href="">Complete your applications for a goods vehicle operator's licence</a></li>
+        <li class="links-list__item"><a href="">Advertise your application for a licence</a></li>
+        <li class="links-list__item"><a href="">Financial information</a></li>
+        <li class="links-list__item"><a href="">A guide to operator fees</a></li>
+        <li class="links-list__item"><a href="">How to draw up a maintenance contract</a></li>
+      </ul>
+    </div><!-- .links -->
+
+  </div>

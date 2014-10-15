@@ -1,0 +1,65 @@
+---
+layout: licence.hbs
+sectionTitle: Processing
+read-only:
+  - title:
+    editable: false
+    type: fields
+    groups: 
+      - group:
+        - name: Invoice No.
+          value: 5141426
+          class: full-width
+        - name: Amount
+          value: £256.00
+          class: full-width
+        - name: Description
+          value: GV/SI Variation Fee for application 1234
+          class: full-width
+      - group: 
+        - name: Invoiced
+          value: 12 May 2014
+          class: full-width
+        - name: Paid
+          value: 13 May 2014
+          class: full-width
+        - name: Receipt No.
+          value: 716762836
+          class: full-width
+form: 
+  - fieldsets:
+    - legend:
+      fields:
+        - label: Waive fee?
+          type: select
+          values: 
+            - No
+            - Yes, reason for waiver 
+    actions:
+      - label: Approve waiver
+        class: primary large
+      - label: Reject waiver
+        class: secondary large
+      - label: Cancel
+        class: secondary large
+
+
+---
+
+  <div class="overlay  js-hidden"></div>
+  <div class="modal__wrapper js-hidden">
+    <div class="modal">
+      <div class="modal__header"> 
+        <h2 class="modal__title">Invoice #152424</h2>
+        <a href="" class="modal__close">Close</a>
+      </div>
+      <div class="modal__content">
+        {{#each read-only }}{{> _read-only }}{{/each }}
+        {{#each form }}{{> _forms }}{{/each }}
+      </div>
+    </div>
+  </div>
+
+
+
+

@@ -11,6 +11,10 @@
   } @else {
       @extend %paragraph--tiny;
   }
+  @media (max-width: 640px){
+    width: 92%;
+    margin: 0 4% .4em 4%;
+  }
 }
 
 .user-menu {
@@ -20,4 +24,3 @@
     margin-left: .5em;
   }
 }
-

@@ -14,22 +14,26 @@
  *  8. Tables
  *  9. Actions & buttons
  * 10. Modals & messaging
+ * 11. Read only
+ * 12. Right hand column 
+ * 13. Statuses
  *
  **/
 
-$app: internal;
 
 /* ==========================================================================
    1. Base styles
    ========================================================================== */
 
- @import 
-'vendor/govuk_toolkit/_device-pixels',
-'vendor/govuk_toolkit/_measurements', 
-'vendor/govuk_toolkit/_css3',
-'vendor/govuk_toolkit/_colours',
-'vendor/govuk_toolkit/_typography',
-'_base-styles';
+$app: internal;
+
+@import 
+  'vendor/govuk_toolkit/_device-pixels',
+  'vendor/govuk_toolkit/_measurements', 
+  'vendor/govuk_toolkit/_css3',
+  'vendor/govuk_toolkit/_colours',
+  'vendor/govuk_toolkit/_typography',
+  '_base-styles';
 
 $assetPath: "../images";
 $primaryColour: $department-for-transport;
@@ -55,8 +59,8 @@ $gutter: 1.25%;
 
 #main {
   display: table;
-  width: 97.5%;
-  margin: 0 1.25% 4em 1.25%;
+  width: 100%;
+  margin: 0 0 4em 0;
 }
 
 .content {
@@ -173,6 +177,7 @@ $gutter: 1.25%;
 .search {
   float: left;
   width: 400px;
+  margin-top: 2px;
   @media(max-width: 640px) {
     width: 100%;
   }  
@@ -194,6 +199,7 @@ $gutter: 1.25%;
     height: 100%;
     width: 97%;
     padding: 0 0 0 3%;
+    line-height: 32px;
     border: 0;
     color: $grey-1 !important;
     behavior: url(/htc/PIE.htc);
@@ -315,37 +321,7 @@ $gutter: 1.25%;
       margin: 5px 0 0 0;
     }
   }
-  &__status {
-    @extend %paragraph--tiny;
-    @include border-radius(2px);
-    margin-left: 5px;
-    padding: 3px 6px;
-    color: $white;
-    font-weight: 600;
-    &.revoked,
-    &.cns,
-    &.surrendered,
-    &.withdrawn,
-    &.refused,
-    &.ntu,
-    &.terminated {
-      background: $red;
-    }
-    &.unlicenced,
-    &.not-submitted,
-    &.curtailed,
-    &.suspended {
-      background: $orange;
-    }
-    &.new,
-    &.granted,
-    &.valid {
-      background: $green;
-    }
-  }
 }
-
-
 
 
 /* ==========================================================================
@@ -445,7 +421,6 @@ th {
   border: 1px solid $grey-2;
   padding: 0 .5em;
   a { display: block; }
-  height: 32px;
 }  
 
 td {
@@ -454,8 +429,11 @@ td {
 }
 
 .sortable {
-  padding: 0 .75em;
+  padding: .5em .75em .5em .75em;
   background: $grey-3;
+  a {
+    padding: 0;
+  }
   &:hover, 
   &.ascending, 
   &.descening {
@@ -463,6 +441,9 @@ td {
   }
 }
 
+.non-sortable {
+  padding: .5em;
+}
 
 /* ==========================================================================
    9. Actions & buttons
@@ -488,6 +469,10 @@ input.action--secondary {
   &.large {
     font-weight: 600; 
     font-size: 17px;
+    .inline & {
+      font-size: 15px;
+      padding: 8px 12px;
+    }
   }
 }
 
@@ -537,7 +522,6 @@ button:focus,
 input[type="submit"]:focus {
   outline: none;
 }
-
 
 .action--primary,
 input.action--primary {
@@ -631,4 +615,51 @@ input.action--secondary {
     text-align: right;
     display: block;
   }
+}
+
+/* ==========================================================================
+   13. Statuses
+   ========================================================================== */
+
+@import '_statuses';
+
+/* ==========================================================================
+   14. Notes
+   ========================================================================== */
+
+.comment {
+  float: left;
+  width: 100%;
+  max-width: 800px;
+  margin: .5em 0 1.5em 0;
+  background: $grey-4;
+  border-left: 3px solid $grey-3;
+  padding: 1em 0 .75em 0;
+  margin-bottom: .5em;
+  position: relative;
+  > * {
+    margin: 0 3em 0 1em;
+  }
+  &__edit {
+    position: absolute;
+    right: 1em;
+    margin-right: 0;
+    top: .5em;
+  }
+  .text-area {
+    width: 100%;
+  }
+  p {
+    @extend %paragraph--small;
+    margin-bottom: 1em;
+  }
+  ul {
+    margin: 0 0 .5em 1em;
+    list-style: disc;
+    list-style-position: inside;
+  }
+  ol {
+    list-style-position: inside;
+    margin: 0 0 .5em 1em;
+  } 
 }

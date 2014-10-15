@@ -1,4 +1,19 @@
-{{#each read-only }}
+{{#is type "textarea" }}
+
+  <div class="read-only text-area">
+    <div class="read-only__header">
+      <h4 class="read-only__title">{{ title }}</h4>
+      {{#is editable true}}
+      <div class="actions-container">
+        <input class="action--secondary" type="submit" value="Edit">
+      </div>
+      {{/is}}
+    </div><!-- read-only__header -->
+    <p>{{{ this.value }}}</p>
+  </div><!-- read-only -->
+
+{{else }}
+
   <div class="read-only">
     {{#if title}}
     <div class="read-only__header">
@@ -12,13 +27,15 @@
     {{/if }}
 
     {{#each groups }}
-    <dl>
+    <ul class="definition-list">
       {{#each group }}
-      <dt>{{{ this.name }}}</dt>
-      <dd>{{{ this.value }}}</dd>
+      <li class="definition-list__item {{ this.class }}">
+        <dt>{{{ this.name }}}</dt>
+        <dd>{{{ this.value }}}</dd>
+      </li>
       {{/each }}
-    </dl>
+    </ul><!-- .definition-lis -->
     {{/each }}
-  
   </div><!-- read-only -->
-{{/each }}
+
+{{/is }}

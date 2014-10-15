@@ -1,0 +1,45 @@
+---
+title: Transport managers
+subtitle: Prototype
+
+table:
+  - title: 4 Transport managers
+    headers:
+      - label: Name
+        class: sortable
+      - label: Internal
+        class: sortable descending
+      - label: Operating centre
+        class: sortable
+      - label: CPC
+        class: sortable
+      - label: <input name="row" type="checkbox">
+        class: non-sortable
+    columns:
+      - <a href="licence/">Jeff Hill</a><span class="status not-submitted">Incomplete</span>
+      - No
+      - 124 Woodthorpe Road, Nottingham
+      - Yes
+      - <input name="row" type="checkbox">
+    actions:
+      - label: Add transport manager
+        class: primary
+      - label: Edit
+        class: secondary disabled
+      - label: Delete
+        class: secondary disabled
+---
+
+    <div class="full-width">
+
+    
+
+      <!-- CRUD table -->
+      {{#each table}}
+        {{#is @index 0 }} 
+          {{> _table }}
+        {{/is }} 
+      {{/each}}
+    
+    </div><!-- end .full-width -->
+
