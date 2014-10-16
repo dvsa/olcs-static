@@ -16,15 +16,27 @@ read-only:
         - name: Description
           value: GV/SI Variation Fee for application 1234
           class: full-width
-      - group: 
-        - name: Invoiced
+        - name: Invoice sent
           value: 12 May 2014
           class: full-width
-        - name: Paid
-          value: 13 May 2014
+        - name: Status
+          value: Waiver recommended
           class: full-width
+      - group: 
         - name: Receipt No.
-          value: 716762836
+          value: N/A
+          class: full-width
+        - name: Amount paid
+          value: N/A
+          class: full-width
+        - name: Payment recieved
+          value: N/A
+          class: full-width
+        - name: Payment method
+          value: N/A
+          class: full-width
+        - name: Paid by
+          value: N/A
           class: full-width
 form: 
   - fieldsets:
@@ -33,13 +45,13 @@ form:
         - label: Waive fee?
           type: select
           values: 
-            - No
-            - Yes, reason for waiver 
+            - Yes - Traffic area discression
+        - label: Please provide additional information
+          type: text
+          class: extra-long
     actions:
-      - label: Approve waiver
+      - label: Recommend waiver
         class: primary large
-      - label: Reject waiver
-        class: secondary large
       - label: Cancel
         class: secondary large
 
