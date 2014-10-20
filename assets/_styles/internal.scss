@@ -17,6 +17,7 @@
  * 11. Read only
  * 12. Right hand column 
  * 13. Statuses
+ * 14. Comments
  *
  **/
 
@@ -176,18 +177,18 @@ $gutter: 1.25%;
 
 .search {
   float: left;
-  width: 400px;
+  width: 450px;
   margin-top: 2px;
-  @media(max-width: 640px) {
+  @media (max-width: 640px) {
     width: 100%;
   }  
   &__wrapper {
     float: left;
     position: relative;
     height: 32px;
-    width: 65%;
-    @media(max-width: 640px) {
-        width: 100%;
+    width: 75%;
+    @media (max-width: 640px) {
+      width: 100%;
     }  
   }
   &__input {
@@ -227,6 +228,11 @@ $gutter: 1.25%;
     @media(max-width: 640px) {
       display: none;
     }  
+  }
+  select {
+    position: absolute;
+    right: 40px !important;
+    top: 5px; 
   }
 }
 
@@ -617,96 +623,85 @@ input.action--secondary {
   }
 }
 
-/* ==========================================================================
-   13. Statuses
-   ========================================================================== */
+  /* ==========================================================================
+     13. Statuses
+     ========================================================================== */
 
-@import '_statuses';
+  @import '_statuses';
 
-/* ==========================================================================
-   14. Comments
-   ========================================================================== */
+  /* ==========================================================================
+     14. Comments
+     ========================================================================== */
 
-.comment {
-  float: left;
-  width: 100%;
-  max-width: 800px;
-  margin: .5em 0 1.5em 0;
-  background: $grey-4;
-  border-left: 3px solid $grey-3;
-  padding: 1em 0 .75em 0;
-  margin-bottom: .5em;
-  position: relative;
-  > * {
-    margin: 0 3em 0 1em;
-  }
-  &__edit {
-    position: absolute;
-    right: 1em;
-    margin-right: 0;
-    top: .5em;
-  }
-  .text-area {
+  %comment {
+    float: left;
     width: 100%;
+    max-width: 800px;
+    position: relative;
+    margin: .5em 0 1.5em 0;
+    padding: 1em 0 .25em 0;
+    margin-bottom: .5em;
+    > * {
+      margin: 0 45px 0 15px;
+    }
+    > p {
+      @extend %paragraph--small;
+      margin-bottom: 1em;
+    }
+    ul, ol {
+      list-style-position: inside;
+      margin: 0 0 1em 1em;
+    }
+    ul {
+      list-style-type: disc;
+    }
   }
-  p {
-    @extend %paragraph--small;
-    margin-bottom: 1em;
-  }
-  ul {
-    margin: 0 0 .5em 1em;
-    list-style: disc;
-    list-style-position: inside;
-  }
-  ol {
-    list-style-position: inside;
-    margin: 0 0 .5em 1em;
-  } 
+
+%edit-link {
+  position: absolute;
+  right: 1em;
+  margin-right: 0;
+  top: .5em;
 }
 
-
-/* ==========================================================================
-   14. Comments
-   ========================================================================== */
-
+.comment {
+  @extend %comment;
+  background: $grey-4;
+  border-left: 3px solid $grey-3;
+  &__edit {
+    @extend %edit-link;
+  }
+}
 
 .submission-actions {
   float: left;
-  width: 100%;
-  max-width: 800px;
   list-style: none;
 }
+
 .submission-item {
-  position: relative;
-  margin: 1em 0;
-  border-left: 3px solid $light-blue-50;
-  padding: 1em 2em .75em 1em;
+  @extend %comment;
   background: $light-blue-25;
-  overflow: auto;
+  border-left: 3px solid $light-blue-50;   
   h4 {
     border-bottom: 0;
     padding-bottom: 0;
     display: block;
   }
-  > p {
-    @extend %paragraph--small;
-  }
   &__edit {
-    position: absolute;
-    right: 1em;
-    margin-right: 0;
-    top: .5em;
+    @extend %edit-link;
   }
   &__meta {
     width: 100%;
     float: left;
-    margin-top: .5em;
+    margin: 0 0 .5em 1em;
     p {
       float: left;
-      width: 25%;
-      display: block;
+      width: 20%;
+      margin-right: 5%;
       clear: none;
     }
-    b {  display: block;}
+    b { 
+      display: block;
+    }
   }
 }
