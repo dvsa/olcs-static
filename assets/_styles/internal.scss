@@ -59,8 +59,8 @@ $gutter: 1.25%;
 
 #main {
   display: table;
-  width: 97.5%;
-  margin: 0 1.25% 4em 1.25%;
+  width: 100%;
+  margin: 0 0 4em 0;
 }
 
 .content {
@@ -177,6 +177,7 @@ $gutter: 1.25%;
 .search {
   float: left;
   width: 400px;
+  margin-top: 2px;
   @media(max-width: 640px) {
     width: 100%;
   }  
@@ -198,6 +199,7 @@ $gutter: 1.25%;
     height: 100%;
     width: 97%;
     padding: 0 0 0 3%;
+    line-height: 32px;
     border: 0;
     color: $grey-1 !important;
     behavior: url(/htc/PIE.htc);
@@ -521,7 +523,6 @@ input[type="submit"]:focus {
   outline: none;
 }
 
-
 .action--primary,
 input.action--primary {
   @include actionColour(#FFF, #10654E, #178B6C, $primaryColour, #146C55, #FFF, #8BB5AA, #8BB5AA);
@@ -622,5 +623,43 @@ input.action--secondary {
 
 @import '_statuses';
 
+/* ==========================================================================
+   14. Notes
+   ========================================================================== */
 
-
+.comment {
+  float: left;
+  width: 100%;
+  max-width: 800px;
+  margin: .5em 0 1.5em 0;
+  background: $grey-4;
+  border-left: 3px solid $grey-3;
+  padding: 1em 0 .75em 0;
+  margin-bottom: .5em;
+  position: relative;
+  > * {
+    margin: 0 3em 0 1em;
+  }
+  &__edit {
+    position: absolute;
+    right: 1em;
+    margin-right: 0;
+    top: .5em;
+  }
+  .text-area {
+    width: 100%;
+  }
+  p {
+    @extend %paragraph--small;
+    margin-bottom: 1em;
+  }
+  ul {
+    margin: 0 0 .5em 1em;
+    list-style: disc;
+    list-style-position: inside;
+  }
+  ol {
+    list-style-position: inside;
+    margin: 0 0 .5em 1em;
+  } 
+}

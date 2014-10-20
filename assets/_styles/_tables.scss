@@ -51,8 +51,9 @@ table {
   .summary & { margin-bottom: 0; }
   input[type="checkbox"],
   input[type="radio"] {
-    margin: 0;
-    text-align: right;
+    margin: .25em auto 0 auto;
+    text-align: center;
+    display: block;
   }
 }
 
@@ -101,10 +102,10 @@ tfoot {
     padding-right: 1em;
     color: $black;
     text-decoration: none;
-    background: url('../images/down-arrow.png') no-repeat 100% 7px;
+    background: url('../images/down-arrow.png') no-repeat 100% 5px;
       @include device-pixel-ratio($ratio: 2) {
       background-image: url('../images/down-arrow-2x.png');
-      background-size: 10px 268px;
+      background-size: 11px 136px;
     }
     &:active { color: $grey-1; }
   }

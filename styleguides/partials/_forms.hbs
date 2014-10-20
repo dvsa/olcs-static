@@ -50,7 +50,7 @@
           {{#is type "multi select" }}    
           <div class="field">
             <label>{{ label }}</label>
-            <select id="{{ this }}" name="{{ this }}" multiple>
+            <select multiple class="{{ class }}">
               {{#each values }}
               <option value="{{ this }}">{{ this }}</option>
               {{/each }}
@@ -87,6 +87,7 @@
                 <option value="Year">Year</option>
               </select>
             </div>
+            <p class="hint">{{{ hint }}}</hint>
           </fieldset>
           {{/is }}
 
@@ -155,27 +156,9 @@
             <div class="field inline">
               <input class="action--secondary large" type="submit" value="Find address">
             </div>
+            <p class="hint"><a href="">Enter address manually</a></p>
           </fieldset>
-          <div class="field">
-            <label for="street-line-one">Street</label>
-            <input id="street-line-one" name="address" type="text" class="long">
-          </div>
-          <div class="field">
-            <label for="street-line-two" class="visually-hidden">Street line 2</label>
-              <input id="street-line-two" name="address" type="text" class="long">
-          </div>
-          <div class="field">
-            <label for="street-line-three" class="visually-hidden">Street line 3</label>
-              <input id="street-line-three" name="address" type="text" class="long">
-          </div>
-          <div class="field">
-            <label for="street-line-four" class="visually-hidden">Street line 4</label>
-              <input id="street-line-four" name="address" type="text" class="long">
-          </div>
-          <div class="field">
-            <label for="town-city">Town/city</label>
-              <input id="town-city" name="town-city" type="text" class="long">
-          </div>
+        
           {{/is }}
 
 
