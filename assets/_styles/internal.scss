@@ -238,7 +238,7 @@ $gutter: 1.25%;
 }
 
 .search__select {
-  width: 120px;
+  width: 105px;
   overflow: hidden;
   position: absolute;
   right: 34px;
@@ -249,12 +249,13 @@ $gutter: 1.25%;
   }
   select {
     background: transparent;
-    width: 140px;
-    font-size: 15px;
+    width: 120px;
+    font-size: 14px;
     border: 0;
     border-radius: 0;
-    padding: 6px 0 0 0;
+    padding: 5px 0 0 0;
     -webkit-appearance: none;
+    line-height: 1.6;
     color: $grey-1;
     &:focus {
       outline: none;
