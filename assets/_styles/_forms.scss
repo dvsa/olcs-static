@@ -84,9 +84,6 @@ fieldset {
     width: 47.5%;
     float: left;
     margin-right: 2.5%;
-    &.pre-selected {
-      background: $grey-3;
-    }
   }
   &.two-col {
     width: 50%;
@@ -96,6 +93,10 @@ fieldset {
     width: 33.3%;
     float: left;
   }
+}
+
+.pre-selected {
+  background: $grey-3;
 }
 
 /* 6.2 Labelling
