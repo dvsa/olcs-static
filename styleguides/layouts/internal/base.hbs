@@ -22,11 +22,18 @@
           <div class="search">
             <div class="search__wrapper">
               <input class="search__input" type="text" placeholder="Search">
-              <select class="search__select">
-                <option value="licence">Licence</option>
-                <option value="applications">Applications</option>
-                <option value="cases">Cases</option>
-              </select>
+              <div class="search__select">
+                <select>
+                  <optgroup label="Search for:">
+                    <option value="licence">Licences</option>
+                    <option value="applications">Applications</option>
+                    <option value="cases">Cases</option>
+                    <option value="cases">Bus regs</option>
+                    <option value="cases">Addresses</option>
+                    <option value="cases">Vehicles</option>
+                  </optgroup> 
+                </select>
+              </div><!-- .search__select -->
               <input class="search__button" type="submit" onclick="window.location = 'http://localhost:7001/styleguides/internal/search/applications.html';return false;">
             </div>
             <a href="" class="search__advanced">Advanced</a>

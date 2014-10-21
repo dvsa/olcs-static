@@ -187,6 +187,8 @@ $gutter: 1.25%;
     position: relative;
     height: 32px;
     width: 75%;
+    background: $grey-4;
+    @include border-radius(2px); 
     @media (max-width: 640px) {
       width: 100%;
     }  
@@ -195,20 +197,24 @@ $gutter: 1.25%;
     @extend %paragraph--small;
     @include border-radius(2px); 
     position: absolute;
+    display: table-cell;
+    vertical-align: middle;
     left: 0;
     top: 0;
-    height: 100%;
-    width: 97%;
-    padding: 0 0 0 3%;
-    line-height: 32px;
+    width: 165px;
+    padding: 6px 0 7px 3%;
     border: 0;
-    color: $grey-1 !important;
+    color: $black;
+    vertical-align: middle;
     behavior: url(/htc/PIE.htc);
+    &:focus {
+      outline: none;
+    }
   }
   input[type="submit"] {
     @include border-radius(0 2px 2px 0);
     position: absolute;
-    right: 0;
+    right: -3px;
     border: 0;
     height: 32px;
     width: 38px;
@@ -229,10 +235,30 @@ $gutter: 1.25%;
       display: none;
     }  
   }
+}
+
+.search__select {
+  width: 120px;
+  overflow: hidden;
+  position: absolute;
+  right: 34px;
+  background: url('../images/down-arrow.png') no-repeat 88% 11px;
+  @include device-pixel-ratio($ratio: 2) {
+    background-image: url('../images/down-arrow-2x.png');
+    background-size: 0 0;
+  }
   select {
-    position: absolute;
-    right: 40px !important;
-    top: 5px; 
+    background: transparent;
+    width: 140px;
+    font-size: 15px;
+    border: 0;
+    border-radius: 0;
+    padding: 6px 0 0 0;
+    -webkit-appearance: none;
+    color: $grey-1;
+    &:focus {
+      outline: none;
+    }
   }
 }
 
