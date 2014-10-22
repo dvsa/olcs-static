@@ -125,9 +125,9 @@ $gutter: 1.25%;
     font-weight: 600;
     float: left;
   }
-  .action--secondary {
+  a {
     float: right;
-    margin: -8px 0 0 0;
+    margin: -8px 0 0 6px;
   }
 }
 
@@ -245,7 +245,7 @@ $gutter: 1.25%;
   background: url('../images/down-arrow.png') no-repeat 88% 11px;
   @include device-pixel-ratio($ratio: 2) {
     background-image: url('../images/down-arrow-2x.png');
-    background-size: 0 0;
+    background-size: 10px 130px;
   }
   select {
     background: transparent;
@@ -446,13 +446,13 @@ tr.urgent { border-left: 5px solid $mellow-red; }
 th, 
 td {
   @extend %paragraph--tiny; 
-  padding: .6em .5em .6em .5em;
+  padding: .5em .75em .5em .75em;
 }
 
 th {
   background: $grey-3; 
   border: 1px solid $grey-2;
-  padding: 0 .5em;
+  padding: .5em .75em .5em .75em;
   a { display: block; }
 }  
 
@@ -474,8 +474,8 @@ td {
   }
 }
 
-.non-sortable {
-  padding: .5em;
+.not-sortable {
+  padding: .5em .75em .5em .75em;
 }
 
 /* ==========================================================================
