@@ -50,7 +50,7 @@
           {{#is type "multi select" }}    
           <div class="field">
             <label>{{ label }}</label>
-            <select multiple class="{{ class }}">
+            <select multiple class="chosen-select-medium" data-placeholder="{{ placeholder }}">
               {{#each values }}
               <option value="{{ this }}">{{ this }}</option>
               {{/each }}

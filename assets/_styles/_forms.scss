@@ -230,6 +230,9 @@ select[multiple] {
   }
 }
 
+/* Chosen */
+@import 'vendor/chosen';
+
 input:focus,
 textarea:focus,
 select:focus {
