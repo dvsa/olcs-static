@@ -93,14 +93,16 @@ td {
 }
 
 tfoot {
-  background: $summary-background;
-  tr { border: 1px solid $summary-border; }
+  tr { 
+    border-top: 1px solid $grey-2; 
+    border-bottom: 0;
+  }
   th, 
   td {    
     border: none;
     overflow: hidden;
+    font-weight: 600;
   }
-  th { text-align: right; }
 }
 
 .sortable {
