@@ -1,20 +1,18 @@
 ---
 layout: transport-manager.hbs
 sectionTitle: TM details
-subSectionTitle: Details & addresses
+subSectionTitle: Details
 verticalNavItems:
-  - label: Details & addresses
+  - label: Details
     link:  index.html
-  - label: Responsibilities & competences
+  - label: Qualification
+    link:
+  - label: Convictions & penalties
     link:
 form: 
   - fieldsets:
     - legend:
       fields:
-        - label: Title
-          type: select
-          value:
-            - Mr
         - label: First name
           type: text
           class: long 
@@ -33,11 +31,7 @@ form:
     - legend: Home address
       fields:
         - label: Title
-          type: address
-    - legend: Work address
-      fields:
-        - label: Title
-          type: address
+          type: full-address
     actions:
       - label: Save
         class: primary large
