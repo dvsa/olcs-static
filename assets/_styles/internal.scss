@@ -519,7 +519,7 @@ input.action--secondary {
   $disabled-border ) {
   color: $color;
   border: 1px solid $border-colour;
-  background: $grad-light;
+  background: $grad-dark;
   background: -webkit-gradient(linear, 0 0, 0 bottom, from($grad-light), to($grad-dark));
   background: -webkit-linear-gradient($grad-light, $grad-dark);
   background: -moz-linear-gradient($grad-light, $grad-dark);
