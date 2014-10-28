@@ -88,15 +88,19 @@ $mobile-statuses: (
   margin: 0;
   width: 100% !important;
   text-align: left;
-  background-size: 25px 329px;
+  background-size: 13px 165px;
 }
 
 @if ($app == internal) {
   .app-navigation {
     @include mobile-app-navigation; 
     &__item {
-       @include mobile-app-navigation__item;
-       background-position: 100% -194px;
+      @include mobile-app-navigation__item;
+      background: url('#{$assetPath}/application-navigation-small.png') no-repeat 100% -190px;
+      @include device-pixel-ratio($ratio: 2) {
+        background: url('#{$assetPath}/application-navigation.png') no-repeat 100% -194px;
+        background-size: 25px 329px;
+      }
     }
   } 
 }

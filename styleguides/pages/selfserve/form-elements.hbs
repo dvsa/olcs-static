@@ -79,8 +79,17 @@ verticalNavItems:
       </div>
     </fieldset><!-- end #address -->
 
+    <h3>Your business</h3>
     <fieldset>
-      <legend>Your business</legend>
+      <div class="field ">
+        <label for="title">What type of business are you?</label>
+        <select id="title" name="title" disabled="disabled">
+          <option value="Please select">Limited company</option>
+        </select>
+        <p class="hint"><a href="">Change business type</a></p>
+      </div>
+    </fieldset>
+    <fieldset>
       <div class="field">
         <label for="trading-name-1">Trading names</label>
         <input id="trading-name-1" name="address" type="text" class="long">
@@ -90,9 +99,7 @@ verticalNavItems:
         <input id="trading-name-2" name="address" type="text" class="long">
         <p class="hint"><a href="">Add another</a></p>
       </div>
-      
     </fieldset>
-
 
     <fieldset id="personal-information">
       <legend>Personal information (if applicable)</legend>
