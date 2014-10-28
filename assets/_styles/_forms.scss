@@ -293,6 +293,10 @@ select:focus {
     color: $grey-1;
     font-weight: 400;
   }
+  p {
+    float: left;
+    margin-bottom: 0;
+  }
 }
 
 input[type="file"] {
