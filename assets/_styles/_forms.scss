@@ -149,6 +149,8 @@ fieldset fieldset legend {
   } @else {
     @extend %paragraph--large;
   }
+  clear: both;
+  width: 100%;
 }
 
 fieldset fieldset label { 
