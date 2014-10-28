@@ -118,16 +118,5 @@ tfoot {
     }
     &:active { color: $grey-1; }
   }
-  &:hover,
-  &.ascending,
-  &.descending {
-  }
-  &.ascending a {
-    background: url('../images/down-arrow.png') no-repeat 100% -117px;
-    @include device-pixel-ratio($ratio: 2) {
-      background-image: url('../images/down-arrow-2x.png');
-       background-size: 10px 268px;
-    }
-  }
 
 }
