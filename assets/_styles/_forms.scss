@@ -129,7 +129,11 @@ label {
   display: block;
   margin: 0 .5em .25em 0;
   .inline & {
-    @extend %paragraph--tiny;
+    @if ($app == selfserve) {
+      @extend %paragraph--small;
+    } @else {
+      @extend %paragraph--tiny;
+    }
     display: inline;
     margin: 0 .25em 0 0;
   }
