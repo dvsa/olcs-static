@@ -29,8 +29,10 @@ verticalNavItems:
       </ol><!-- end .validation-summary__list -->
     </div><!-- end .validation-summary -->
 
+
+
     <fieldset class="address">
-      <legend>Address</legend>
+
       <fieldset class="postcode-search">
         <legend class="tooltip-grandparent">Postcode
           <div class="locked-icon tooltip-parent">
@@ -39,7 +41,8 @@ verticalNavItems:
         </legend>
         <div class="field inline">
           <label for="postcode-search" class="visually-hidden">Postcode search</label>
-              <input id="postcode-search" name="postcode" type="text" class="short">
+          <input id="postcode-search" name="postcode" type="text" class="short">
+          <p class="hint"><a href="">Enter manually</a></p>
         </div>
         <div class="field inline">
           <input class="action--secondary large" type="submit" value="Find address">
@@ -55,7 +58,7 @@ verticalNavItems:
       </div>
       <div class="field">
         <label for="street-line-two" class="visually-hidden">Street line 2</label>
-          <input id="street-line-two" name="address" type="text" class="long">
+        <input id="street-line-two" name="address" type="text" class="long">
       </div>
       <div class="field">
         <label for="street-line-three" class="visually-hidden">Street line 3</label>
@@ -75,6 +78,28 @@ verticalNavItems:
         </div>
       </div>
     </fieldset><!-- end #address -->
+
+    <h3>Your business</h3>
+    <fieldset>
+      <div class="field ">
+        <label for="title">What type of business are you?</label>
+        <select id="title" name="title" disabled="disabled">
+          <option value="Please select">Limited company</option>
+        </select>
+        <p class="hint"><a href="">Change business type</a></p>
+      </div>
+    </fieldset>
+    <fieldset>
+      <div class="field">
+        <label for="trading-name-1">Trading names</label>
+        <input id="trading-name-1" name="address" type="text" class="long">
+      </div>
+      <div class="field">
+        <label for="trading-name-2" class="visually-hidden">Trading name 2</label>
+        <input id="trading-name-2" name="address" type="text" class="long">
+        <p class="hint"><a href="">Add another</a></p>
+      </div>
+    </fieldset>
 
     <fieldset id="personal-information">
       <legend>Personal information (if applicable)</legend>
@@ -116,7 +141,7 @@ verticalNavItems:
       </fieldset>
       <div class="field">
         <label>Interests</label>
-        <select multiple>
+        <select multiple class="chosen-select-medium">
           <option value="golf">Golf</option>
           <option value="football">Football</option>
           <option value="tennis">Tennis</option>

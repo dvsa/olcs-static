@@ -1,0 +1,52 @@
+---
+sectionTitle: Processing
+subSectionTitle: History
+layout: licence.hbs
+actions:
+  - label: New task
+    class: primary
+  - label: Edit
+    class: secondary disabled
+  - label: Close
+    class: secondary disabled
+  - label: Reassign
+    class: secondary disabled
+table:
+  - title: <strong>64</strong> Actions
+    headers:
+      - label: Actions
+        class: sortable descending
+      - label: Date
+        class: sortable
+      - label: By
+        class: sortable
+    columns:
+      - Ammended business details
+      - 13:01 12/03/13
+      - Gillian Fogal
+verticalNavItems:
+  - label: Decisions
+    link:  decisions.html
+  - label: History
+    link:  history.html
+  - label: Tasks
+    link:  tasks.html
+  - label: Notes
+    link:  notes.html
+---
+
+<div class="one-fifth--left">
+  <h4>Processing</h4>
+  {{> _vertical-navigation }}
+</div>
+
+<div class="three-fifths">
+  {{#each table}}
+    {{#is @index 0 }} 
+      {{> _table }}
+    {{/is }} 
+  {{/each}}
+</div>
+
+
+

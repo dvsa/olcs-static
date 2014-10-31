@@ -17,6 +17,7 @@
  * 11. Read only
  * 12. Right hand column 
  * 13. Statuses
+ * 14. Comments
  *
  **/
 
@@ -124,9 +125,9 @@ $gutter: 1.25%;
     font-weight: 600;
     float: left;
   }
-  .action--secondary {
+  a {
     float: right;
-    margin: -8px 0 0 0;
+    margin: -8px 0 0 6px;
   }
 }
 
@@ -176,38 +177,44 @@ $gutter: 1.25%;
 
 .search {
   float: left;
-  width: 400px;
+  width: 450px;
   margin-top: 2px;
-  @media(max-width: 640px) {
+  @media (max-width: 640px) {
     width: 100%;
   }  
   &__wrapper {
     float: left;
     position: relative;
     height: 32px;
-    width: 65%;
-    @media(max-width: 640px) {
-        width: 100%;
+    width: 75%;
+    background: $grey-4;
+    @include border-radius(2px); 
+    @media (max-width: 640px) {
+      width: 100%;
     }  
   }
   &__input {
     @extend %paragraph--small;
     @include border-radius(2px); 
     position: absolute;
+    display: table-cell;
+    vertical-align: middle;
     left: 0;
     top: 0;
-    height: 100%;
-    width: 97%;
-    padding: 0 0 0 3%;
-    line-height: 32px;
+    width: 165px;
+    padding: 6px 0 7px 3%;
     border: 0;
-    color: $grey-1 !important;
+    color: $black;
+    vertical-align: middle;
     behavior: url(/htc/PIE.htc);
+    &:focus {
+      outline: none;
+    }
   }
   input[type="submit"] {
     @include border-radius(0 2px 2px 0);
     position: absolute;
-    right: 0;
+    right: -3px;
     border: 0;
     height: 32px;
     width: 38px;
@@ -227,6 +234,32 @@ $gutter: 1.25%;
     @media(max-width: 640px) {
       display: none;
     }  
+  }
+}
+
+.search__select {
+  width: 105px;
+  overflow: hidden;
+  position: absolute;
+  right: 34px;
+  background: url('../images/down-arrow.png') no-repeat 88% 11px;
+  @include device-pixel-ratio($ratio: 2) {
+    background-image: url('../images/down-arrow-2x.png');
+    background-size: 10px 130px;
+  }
+  select {
+    background: transparent;
+    width: 120px;
+    font-size: 14px;
+    border: 0;
+    border-radius: 0;
+    padding: 5px 0 0 0;
+    -webkit-appearance: none;
+    line-height: 1.6;
+    color: $grey-1;
+    &:focus {
+      outline: none;
+    }
   }
 }
 
@@ -330,7 +363,6 @@ $gutter: 1.25%;
 
 @import '_forms';
 
-
 /* ==========================================================================
    7. Navigation
    ========================================================================== */
@@ -399,7 +431,7 @@ $gutter: 1.25%;
     @extend %paragraph--large;
     margin-top: 5px; 
   }
-  .actions-container { margin: 0 -3px 10px 0;}
+  .actions-container { margin: 0 -3px 8px 0;}
   .three-fifths &, 
   .four-fifths & {
     margin-top: -7px;
@@ -413,13 +445,13 @@ tr.urgent { border-left: 5px solid $mellow-red; }
 th, 
 td {
   @extend %paragraph--tiny; 
-  padding: .6em .5em .6em .5em;
+  padding: .5em .75em .5em .75em; 
 }
 
 th {
   background: $grey-3; 
   border: 1px solid $grey-2;
-  padding: 0 .5em;
+  padding: .5em .75em .5em .75em;
   a { display: block; }
 }  
 
@@ -441,8 +473,8 @@ td {
   }
 }
 
-.non-sortable {
-  padding: .5em;
+.not-sortable {
+  padding: .5em .75em .5em .75em;
 }
 
 /* ==========================================================================
@@ -487,7 +519,7 @@ input.action--secondary {
   $disabled-border ) {
   color: $color;
   border: 1px solid $border-colour;
-  background: $grad-light;
+  background: $grad-dark;
   background: -webkit-gradient(linear, 0 0, 0 bottom, from($grad-light), to($grad-dark));
   background: -webkit-linear-gradient($grad-light, $grad-dark);
   background: -moz-linear-gradient($grad-light, $grad-dark);
@@ -538,7 +570,7 @@ input.action--secondary {
   display: block;
   &__group {
     list-style: none;
-    margin: .5em 0 1em 0;
+    margin: .5em 0 1.1em 0;
   }
   &__item { margin-bottom: .5em; }
   a {
@@ -599,7 +631,7 @@ input.action--secondary {
     @extend %paragraph--small;
     border-bottom: 1px solid $grey-2;
     padding-bottom: .5em;
-    margin: .25em 0 .5em 0;
+    margin: .4em 0 .5em 0;
   }
 }
 
@@ -617,49 +649,85 @@ input.action--secondary {
   }
 }
 
-/* ==========================================================================
-   13. Statuses
-   ========================================================================== */
+  /* ==========================================================================
+     13. Statuses
+     ========================================================================== */
 
-@import '_statuses';
+  @import '_statuses';
 
-/* ==========================================================================
-   14. Notes
-   ========================================================================== */
+  /* ==========================================================================
+     14. Comments
+     ========================================================================== */
+
+  %comment {
+    float: left;
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+    margin: .5em 0 1.5em 0;
+    padding: 1em 0 .25em 0;
+    margin-bottom: .5em;
+    > * {
+      margin: 0 45px 0 15px;
+    }
+    > p {
+      @extend %paragraph--small;
+      margin-bottom: 1em;
+    }
+    ul, ol {
+      list-style-position: inside;
+      margin: 0 0 1em 1em;
+    }
+    ul {
+      list-style-type: disc;
+    }
+  }
+
+%edit-link {
+  position: absolute;
+  right: 1em;
+  margin-right: 0;
+  top: .5em;
+}
 
 .comment {
-  float: left;
-  width: 100%;
-  max-width: 800px;
-  margin: .5em 0 1.5em 0;
+  @extend %comment;
   background: $grey-4;
   border-left: 3px solid $grey-3;
-  padding: 1em 0 .75em 0;
-  margin-bottom: .5em;
-  position: relative;
-  > * {
-    margin: 0 3em 0 1em;
+  &__edit {
+    @extend %edit-link;
+  }
+}
+
+.submission-actions {
+  float: left;
+  list-style: none;
+}
+
+.submission-item {
+  @extend %comment;
+  background: $light-blue-25;
+  border-left: 3px solid $light-blue-50;   
+  h4 {
+    border-bottom: 0;
+    padding-bottom: 0;
+    display: block;
   }
   &__edit {
-    position: absolute;
-    right: 1em;
-    margin-right: 0;
-    top: .5em;
+    @extend %edit-link;
   }
-  .text-area {
+  &__meta {
     width: 100%;
-  }
-  p {
-    @extend %paragraph--small;
-    margin-bottom: 1em;
-  }
-  ul {
+    float: left;
     margin: 0 0 .5em 1em;
-    list-style: disc;
-    list-style-position: inside;
+    p {
+      float: left;
+      width: 20%;
+      margin-right: 5%;
+      clear: none;
+    }
+    b { 
+      display: block;
+    }
   }
-  ol {
-    list-style-position: inside;
-    margin: 0 0 .5em 1em;
-  } 
 }

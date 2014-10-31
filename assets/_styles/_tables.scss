@@ -1,14 +1,18 @@
 $summary-border: #cdd7dc;
 $summary-background: #e6eff5;
 
-.table__empty {
+.empty {
   width: 100%;
-  max-width: 600px;
+  max-width: 800px;
   background: $grey-4;
   overflow: auto;
-  padding: .75em 1em 1.25em 1em;
+  padding: .75em 1em 1.5em 1em;
   display: block;
   border-left: 4px solid $grey-2;
+  margin-bottom: 1.5em;
+  p {
+    margin-bottom: .75em;
+  }
 }
 
 .table {
@@ -35,6 +39,9 @@ $summary-background: #e6eff5;
     display: block;
     width: 100%;
     overflow: auto;
+    & + .table__header {
+      margin-top: 2em;
+    }
   }
   &__footer {
     width: 100%;
@@ -86,14 +93,16 @@ td {
 }
 
 tfoot {
-  background: $summary-background;
-  tr { border: 1px solid $summary-border; }
+  tr { 
+    border-top: 1px solid $grey-2; 
+    border-bottom: 0;
+  }
   th, 
   td {    
     border: none;
     overflow: hidden;
+    font-weight: 600;
   }
-  th { text-align: right; }
 }
 
 .sortable {
@@ -108,17 +117,6 @@ tfoot {
       background-size: 11px 136px;
     }
     &:active { color: $grey-1; }
-  }
-  &:hover,
-  &.ascending,
-  &.descending {
-  }
-  &.ascending a {
-    background: url('../images/down-arrow.png') no-repeat 100% -117px;
-    @include device-pixel-ratio($ratio: 2) {
-      background-image: url('../images/down-arrow-2x.png');
-       background-size: 10px 268px;
-    }
   }
 
 }

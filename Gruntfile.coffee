@@ -9,6 +9,7 @@ module.exports = (grunt) ->
 
   scriptPaths = (path) ->
     paths = [
+      "assets/_js/common/vendor/jquery.1.11.0.js"
       "assets/_js/common/vendor/**/*.js"
       "assets/_js/common/*.js"
       "assets/_js/#{path}/*.js"
