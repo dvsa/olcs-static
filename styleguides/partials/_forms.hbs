@@ -50,7 +50,7 @@
           {{#is type "multi select" }}    
           <div class="field">
             <label>{{ label }}</label>
-            <select multiple class="{{ class }}">
+            <select multiple class="chosen-select-medium" data-placeholder="{{ placeholder }}">
               {{#each values }}
               <option value="{{ this }}">{{ this }}</option>
               {{/each }}
@@ -162,7 +162,7 @@
           {{/is }}
 
 
-          {{#is type "registered-address" }}
+          {{#is type "full-address" }}
           <div class="field">
             <label for="street-line-one" class="visually-hidden">Street</label>
             <input id="street-line-one" name="address" type="text" class="long">
@@ -177,6 +177,10 @@
           </div>
           <div class="field">
             <label for="street-line-four" class="visually-hidden">Street line 4</label>
+              <input id="street-line-four" name="address" type="text" class="long">
+          </div>
+          <div class="field">
+            <label for="street-line-four">Town/city</label>
               <input id="street-line-four" name="address" type="text" class="long">
           </div>
             <div class="field">
@@ -197,6 +201,16 @@
               <input class="action--secondary large" type="submit" value="{{#each values }}{{ this }}{{/each }}">
             </div>
             <p class="hint">{{ hint }}</p>
+          </fieldset>
+          {{/is }}
+
+
+          {{#is type "file-upload" }}
+          <fieldset class="file-upload">
+            <p class="hint">{{ label }}</p>
+            <div class="field">
+              <input type="file" multiple="">
+            </div>
           </fieldset>
           {{/is }}
 

@@ -16,4 +16,9 @@ $(function() {
 
   // initialise any check-all table checkboxes
   OLCS.tableCheckAll();
+
+  // initialise Chosen
+  $(".chosen-select-medium").chosen({width: "53%"});
+  $(".chosen-select-large").chosen({width: "97%"});
+
 });
