@@ -129,6 +129,8 @@ OLCS.cascadeForm = (function(document, $, undefined) {
             return form.find(parts[1]);
           case "date":
             return form.find("[name*=" + parts[1] + "]").parents(".field");
+          case "parent":
+            return form.find(parts[1]).parent();
           default:
             throw new Error("Unsupported left-hand selector: " + parts[0]);
         }
