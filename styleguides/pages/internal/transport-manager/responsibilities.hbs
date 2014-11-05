@@ -1,0 +1,55 @@
+---
+layout: transport-manager.hbs
+sectionTitle: TM details
+subSectionTitle: Details
+verticalNavItems:
+  - label: Details
+    link:  index.html
+  - label: Responsibilities
+    link:
+  - label: Convictions & penalties
+    link:
+  - label: Applications & licences
+    link:  index.html
+form: 
+  - fieldsets:
+    - legend:
+      fields:
+        - label: First name
+          type: text
+          class: long 
+        - label: Last name
+          type: text
+          class: long 
+        - label: Email address
+          type: text
+          class: extra-long
+        - label: Date of birth
+          type: date
+        - label:  Place of birth
+          type: text
+          class: long 
+  - fieldsets:
+    - legend: Home address
+      fields:
+        - label: Title
+          type: full-address
+    actions:
+      - label: Save
+        class: primary large
+      - label: Cancel
+        class: secondary large
+          
+
+
+---
+
+<div class="one-fifth--left">
+  <h4>TM details</h4>
+  {{> _vertical-navigation }}
+</div>
+
+<div class="three-fifths">
+  <h3>Details &amp; addresses</h3>
+  {{#each form }}{{> _forms }}{{/each }}
+</div>

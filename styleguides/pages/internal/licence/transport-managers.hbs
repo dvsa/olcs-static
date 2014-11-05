@@ -1,0 +1,66 @@
+---
+layout: licence.hbs
+sectionTitle: Licence details
+subSectionTitle: Transport managers
+verticalNavItems:
+  - label: Overview
+    link:  index.html
+  - label: Type of licence
+    link:  
+  - label: Business details
+    link:  business-details.html
+  - label: Addresses
+    link:
+  - label: People
+    link:
+  - label: Operating centres & authorisation
+    link: operating-centres.html
+  - label: Transport managers
+    link:
+  - label: Vehicles
+    link:
+  - label: Safety
+    link:
+  - label: Convictions & penalties
+    link:
+  - label: Delarations
+    link:
+table:
+  - title: <strong>29</strong> Transport Managers
+    headers:
+      - label: Name
+        class: sortable descending
+      - label: Email
+        class: sortable
+      - label: DOB
+        class: sortable
+      - label: <input type="checkbox">
+        class: non-sortable
+    columns:
+      - <a href="">David Walker</a> <span class="status green">Approved</span>
+      - David.walker@gmail.com
+      - 13/2/58
+      - <input type="checkbox">
+    actions:
+      - label: Add
+        class: primary
+      - label: Edit
+        class: secondary disabled
+      - label: Remove
+        class: secondary disabled
+
+---
+
+
+<div class="one-fifth--left">
+  <h4>Licence details</h4>
+  {{> _vertical-navigation }}
+</div>
+
+<div class="three-fifths">
+    {{#each table}}
+      {{#is @index 0 }} 
+        {{> _table }}
+      {{/is }} 
+    {{/each}}
+</div>
