@@ -19,6 +19,7 @@ OLCS.cascadeForm = (function(document, $, undefined) {
     var previousFieldset;
     var cascade = options.cascade !== undefined ? options.cascade : true;
     var onSubmit = options.submit;
+    var errorWrapper = options.errorWrapper || ".validation-wrapper";
 
     /**
      * by using a closure we ensure this function is safe
@@ -90,6 +91,12 @@ OLCS.cascadeForm = (function(document, $, undefined) {
 
       elem = findContainer(group, selector);
 
+      // are we currently sat inside a validation error wrapper? If
+      // so that becomes the top-level element
+      if (elem.parent(errorWrapper).length) {
+        elem = elem.parent(errorWrapper);
+      }
+
       if (show) {
         elem.show();
       } else {
@@ -112,6 +119,7 @@ OLCS.cascadeForm = (function(document, $, undefined) {
       if (selector.search(":") !== -1) {
 
         parts = selector.split(":");
+
         switch (parts[0]) {
           case "label":
             // @NOTE: we make some assumptions about the markup surrounding labels
@@ -121,6 +129,8 @@ OLCS.cascadeForm = (function(document, $, undefined) {
             return form.find(parts[1]);
           case "date":
             return form.find("[name*=" + parts[1] + "]").parents(".field");
+          case "parent":
+            return form.find(parts[1]).parent();
           default:
             throw new Error("Unsupported left-hand selector: " + parts[0]);
         }
@@ -131,7 +141,9 @@ OLCS.cascadeForm = (function(document, $, undefined) {
         // assume a name=value pair specifies a radio button with a given value
         parts = selector.split("=");
 
-        return OLCS.formHelper(group, parts[0])
+        // @TODO `group` isn't always right here; it can be an arbitrary selector
+        // not just a data-group=xxx name. This needs fixing at some point
+        return OLCS.formHelper.findInput(group, parts[0])
         .filter("[value=" + parts[1] + "]")
         // radios are always wrapped inside a label
         .parents("label:last");

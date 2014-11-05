@@ -33,6 +33,17 @@ describe("OLCS.cascadeForm", function() {
                 '<input type="radio" name="baz[test]" value="off" />',
               '</label>',
             '</fieldset>',
+            '<fieldset class=f4 data-group=bez>',
+              '<div class=validation-wrapper>',
+                '<ul><li>Error here</li></ul>',
+                // @NOTE: the component assumes fields all live in a "field" wrapper...
+                // but that's not always the case in reality. Lots more edge cases
+                // to catch here...
+                '<div class=field>',
+                  '<input class="i4" name="bez[input]" value="bez-f4" />',
+                '</div>',
+              '</div>',
+            '</fieldset>',
             '<input type="submit" />',
           '</form>',
         '</div>'
@@ -69,13 +80,19 @@ describe("OLCS.cascadeForm", function() {
               "test=off": function() {
                 return $(".i1").val() === "off";
               }
+            },
+            "bez": {
+              "*": true,
+              "input": function() {
+                return $(".i1").val() !== "";
+              }
             }
           }
         });
       });
 
       it("should bind the correct change listener to the form", function() {
-        expect(this.on.getCall(3).args[0]).to.equal("change");
+        expect(this.on.getCall(4).args[0]).to.equal("change");
         // NO: function.name not supported in IE8
         //expect(this.on.getCall(3).args[2].name).to.equal("checkForm");
       });
@@ -90,6 +107,18 @@ describe("OLCS.cascadeForm", function() {
 
       it("should hide the third fieldset", function() {
         expect($(".f3").is(":visible")).to.equal(false);
+      });
+
+      it("should show the fourth fieldset", function() {
+        expect($(".f4").is(":visible")).to.equal(true);
+      });
+
+      it("should hide the fourth input", function() {
+        expect($(".i4").is(":visible")).to.equal(false);
+      });
+
+      it("should hide the fourth input's validation wrapper", function() {
+        expect($(".validation-wrapper").is(":visible")).to.equal(false);
       });
 
       describe("When giving the first input a value", function() {
@@ -107,6 +136,14 @@ describe("OLCS.cascadeForm", function() {
 
         it("should hide the third fieldset", function() {
           expect($(".f3").is(":visible")).to.equal(false);
+        });
+
+        it("should show the fourth input", function() {
+          expect($(".i4").is(":visible")).to.equal(true);
+        });
+
+        it("should show the fourth input's validation wrapper", function() {
+          expect($(".validation-wrapper").is(":visible")).to.equal(true);
         });
 
         describe("When giving the second input a specific value", function() {
