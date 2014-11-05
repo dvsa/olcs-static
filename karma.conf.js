@@ -11,7 +11,8 @@ module.exports = function(config) {
       "node_modules/sinon/lib/sinon/**/*.js",
       "test/js/setup.js",
 
-      // common dependencies
+      // common dependencies, jQuery always first
+      "assets/_js/common/vendor/jquery.1.11.0.js",
       "assets/_js/common/vendor/**/*.js",
 
       // source files...

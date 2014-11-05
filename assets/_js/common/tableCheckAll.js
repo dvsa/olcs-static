@@ -4,7 +4,7 @@ OLCS.tableCheckAll = (function(document, $, undefined) {
   return function init(options) {
 
     var defaultOptions = {
-      'selector': 'input[name="checkall"]'
+      selector: 'input[name="checkall"]'
     };
 
     options = $.extend(defaultOptions, options);
