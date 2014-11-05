@@ -1,5 +1,5 @@
 ---
-layout: two-thirds.hbs
+layout: two-thirds--app-overview.hbs
 title: Application overview 
 subtitle: Application no.1280887
 overview-items:
@@ -54,17 +54,17 @@ overview-items:
     {{#each overview-items }}
 
       {{#is status "Complete"}}
-      <li class="overview-item {{#is open true }}expanded{{/is}}">
+      <li class="overview-item">
         <div class="overview-item__header">
           <a href="" class="overview-item__control">
             <span class="accordion-arrow"></span>
             <h4>{{ name }}</h4>
           </a>
-            <span class="status green">{{ status }}</span>
-          <a href="" class="overview-item__edit">{{ edit-link }}</a>
+          <span class="status green">{{ status }}</span>
+          <a href="/styleguides/selfserve/operating-centres.html" class="overview-item__edit">{{ edit-link }}</a>
         </div> 
         {{#is open true }}
-        <div class="overview-item__content summary">
+        <div class="overview-item__content summary" style="display:none;">
          
           <table>
             <tr>
@@ -98,7 +98,7 @@ overview-items:
             <h4>{{ name }}</h4>
           </a>
             <span class="status orange">{{ status }}</span>
-          <a href="" class="overview-item__edit">{{ edit-link }}</a>
+          <a href="/styleguides/selfserve/operating-centres.html" class="overview-item__edit">{{ edit-link }}</a>
         </div> 
         {{#is open true }}
         <div class="overview-item__content">
@@ -115,7 +115,7 @@ overview-items:
             <h4>{{ name }}</h4>
           </div>
             <span class="status {{#is status "Not started" }}grey{{/is}}">{{ status }}</span>
-            <a href="" class="overview-item__edit">{{ edit-link }}</a>
+            <a href="/styleguides/selfserve/operating-centres.html" class="overview-item__edit">{{ edit-link }}</a>
         </div> 
       </li>
       {{/is}}
@@ -133,6 +133,10 @@ overview-items:
     {{/each }} 
 
     </ul><!-- .overview-navigation -->
+
+    <p style="margin-top: 2em;">Application fee</p>
+    <h2>£257.00</h2>
+    <a href="" class="action--primary large disabled">Submit &amp; pay</a>
   </div><!-- .two-thirds -->
 
 
@@ -159,3 +163,4 @@ overview-items:
     </div><!-- .links -->
 
   </div>
+

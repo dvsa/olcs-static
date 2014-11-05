@@ -1,20 +1,26 @@
 .breadcrumbs {
-  width: 40%;
+  width: 70%;
   margin-bottom: 0;
   overflow: auto;
   list-style: none;
   float: left;
+  @if $app == 'selfserve' {
+    margin-top: -3em;
+  }
   &__item {
     float: left;
     margin-right: .5em;
     color: $black;
+    &:last-child a {
+      background: none;
+    }
   }
   a { 
     color: $grey-1; 
     padding-right: 1em;
     background: url('#{$assetPath}/breadcrumb-arrow.png') no-repeat 100% 70%;
     @include device-pixel-ratio($ratio: 2) {
-      background: url('#{$assetPath}/breadcrumb-arrow-2x.png') no-repeat 100% 40%;
+      background: url('#{$assetPath}/breadcrumb-arrow-2x.png') no-repeat 95% 45%;
       background-size: 6px 11px;
     }
   }
