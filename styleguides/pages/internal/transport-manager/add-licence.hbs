@@ -1,0 +1,122 @@
+---
+layout: transport-manager.hbs
+sectionTitle: TM details
+subSectionTitle: Licences & applications
+verticalNavItems:
+  - label: Details
+    link:  index.html
+  - label: Licences & applications
+    link: licences-applications.html  
+  - label: Other employment
+    link: other-employment.html
+  - label: Convictions & penalties
+    link: convictions-penalties.html
+
+table:
+  - title: <strong>Licences & applications</strong>
+    headers:
+      - label: Licence No.
+        class: sortable
+      - label: No. of operating centres
+        class: sortable
+      - label: Manager type
+        class: sortable
+      - label: Hours per week
+        class: sortable
+      - label: <input type="checkbox">
+        class: non-sortable
+    columns:
+      - <a href="">OB1242325</a>
+      - 2
+      - Internal
+      - 12
+      - <input type="checkbox">
+    rows: 10
+    actions:
+      - label: Add
+        class: primary
+      - label: Edit
+        class: secondary
+      - label: Remove
+        class: secondary
+form: 
+  - fieldsets:
+    - legend:
+      fields:
+        - label: Licence search
+          type: inline-search
+          values: 
+            - Find licence
+          class: medium
+        - label: Which operating centre(s) will you be responsible for?
+          type: multi select
+          placholder: Choose operating centre(s)
+          values:
+            - 124 Eleanor Grove, Baschurch
+            - Unit 4, Battelfields Industrial Estate, Shrewsbury
+            - 240 Timmuses Drive, Yeaton   
+        - label: Is the address of your work place listed above?
+          type: radios inline
+          values:
+            - Yes
+            - No 
+        - label: What type of manager will you be for this licence?
+          type: radios inline
+          values:
+            - Internal 
+            - External 
+        - label: How many hours a week will you spend on your Transport Manager duties?
+          type: text
+          class: short
+    - legend: Additional information
+      fields:
+        - label: Please provide any additional information explaining how you will manage your managerial responsibilities
+          type: textarea
+
+
+
+
+
+
+    actions:
+      - label: Save
+        class: primary large
+      - label: Cancel
+        class: secondary large
+
+
+---
+
+<div class="overlay  js-hidden"></div>
+<div class="modal__wrapper js-hidden">
+  <div class="modal">
+    <div class="modal__header"> 
+      <h2 class="modal__title">Add licence & responsibilities</h2>
+      <a href="" class="modal__close">Close</a>
+    </div>
+    <div class="modal__content">
+      {{#each form }}{{> _forms }}{{/each }}
+    </div>
+  </div>
+</div>
+
+
+<div class="one-fifth--left">
+  <h4>TM details</h4>
+  {{> _vertical-navigation }}
+</div>
+
+<div class="three-fifths">
+  {{#each table}}
+    {{#is @index 0 }} 
+      {{> _table }}
+    {{/is }} 
+  {{/each}}
+
+</div>
+
+
+
+
+
+

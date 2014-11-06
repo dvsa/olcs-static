@@ -1,47 +1,44 @@
 ---
 layout: transport-manager.hbs
 sectionTitle: TM details
-subSectionTitle: Details
+subSectionTitle: Licences & applications
 verticalNavItems:
   - label: Details
     link:  index.html
   - label: Licences & applications
-    link:
+    link: licences-applications.html  
+  - label: Other employment
+    link: other-employment.html
   - label: Convictions & penalties
-    link:
-  - label: Applications & licences
-    link:  index.html
+    link: convictions-penalties.html
 table:
   - title: <strong>Licences & applications</strong>
     headers:
-      - label: Description
-        class: sortable descending
-      - label: Category
+      - label: Licence No.
         class: sortable
-      - label: Sub-category
+      - label: No. of operating centres
         class: sortable
-      - label: Format
+      - label: Manager type
         class: sortable
-      - label: Date
+      - label: Hours per week
         class: sortable
       - label: <input type="checkbox">
         class: non-sortable
     columns:
-      - <a href="">December-accounts.PDF</a>
-      - Bus registration
-      - Sub category (digital)
-      - PDF
-      - 13/3/13 14:02
+      - <a href="">OB1242325</a>
+      - 2
+      - Internal
+      - 12
       - <input type="checkbox">
     rows: 10
     actions:
       - label: Add
         class: primary
+        link: add-licence.html
       - label: Edit
         class: secondary
       - label: Remove
         class: secondary
-
 
 ---
 

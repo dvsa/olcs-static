@@ -486,6 +486,7 @@ input.action--primary,
 .action--secondary,
 input.action--secondary {
   @include border-radius(2px);
+  display: inline-block;
   width: auto;
   overflow: visible;
   position: relative;
