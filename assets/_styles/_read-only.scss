@@ -2,7 +2,7 @@
 .read-only {
   display: block;
   width: 100%;
-  padding: 1em 0 1em 0;
+  padding: 1em 0 1.5em 0;
   overflow: hidden;
   float: left;
   &__title {
@@ -47,6 +47,9 @@
   .modal & {
    width: 95%;
    margin: -.75em 2.5% -1em 2.5%;
+  }
+  .action--secondary {
+    margin-bottom: 1em;
   }
 }
 

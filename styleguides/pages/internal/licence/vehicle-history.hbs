@@ -2,24 +2,25 @@
 layout: case.hbs
 sectionTitle: Submissions
 table:
-  title: <strong>History</strong>
-  headers:
-    - label: Licence
-      class: sortable descending
-    - label: Operator
-      class: sortable
-    - label: Specified
-      class: sortable
-    - label: Removed
-      class: sortable
-    - label: Disc no.
-      class: sortable
-  columns:
-    - OB122883
-    - Don Tarmacadam Ltd
-    - 12/3/13
-    - 12/3/14
-    - 6252627
+  - title: <strong>History</strong>
+    headers:
+      - label: Licence
+        class: sortable descending
+      - label: Operator
+        class: sortable
+      - label: Specified
+        class: sortable
+      - label: Removed
+        class: sortable
+      - label: Disc no.
+        class: sortable
+    columns:
+      - OB122883
+      - Don Tarmacadam Ltd
+      - 12/3/13
+      - 12/3/14
+      - 6252627
+    rows: 5
 form: 
   - title: Business details
     fieldsets:
@@ -31,22 +32,24 @@ form:
         - label: Plated weight (kg)
           type: text
           class: short
-        - label: Disc no.
-          type: read only
-          values:
-            - 027253        
-        - label: Received
-          type: read only
-          values:
-            - 08 Aug 2011
-        - label: Specified
-          type: read only
-          values:
-            - 12 Aug 2011
-        - label: Ceased
-          type: read only
-          values:
-            - 12 Aug 2015
+read-only:
+  - title:
+    editable: false
+    type: fields
+    groups: 
+    - group: 
+      - name: Disc no.
+        value: 027253 
+    - group: 
+      - name: Received
+        value: 08 Aug 2011
+        class: full-width
+      - name: Specified
+        value: 12 Aug 2011
+        class: full-width
+      - name: Ceased
+        value: 12 Aug 2011
+        class: full-width
 actions:
   - label: Save
     class: primary large
@@ -66,7 +69,12 @@ actions:
       <div class="modal__content">
         {{#each form }}
           {{> _forms }}
-        {{/each }}
+        {{/each }}  
+        {{#each read-only}}
+          {{#is @index 0 }} 
+            {{> _read-only }}
+          {{/is }} 
+        {{/each}}
         {{#each table}}
           {{#is @index 0 }} 
             {{> _table }}
