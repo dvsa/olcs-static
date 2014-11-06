@@ -21,10 +21,4 @@ $(function() {
   $(".chosen-select-medium").chosen({width: "53%"});
   $(".chosen-select-large").chosen({width: "97%"});
 
-  $(".overview-item__control").click(function(e) {
-    e.preventDefault();
-    $(this).parents("li").toggleClass("expanded");
-    $(".overview-item__content.summary").toggle();
-  });
-
 });
