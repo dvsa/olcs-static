@@ -434,7 +434,10 @@ $gutter: 1.25%;
   .actions-container { margin: 0 -3px 8px 0;}
   .three-fifths &, 
   .four-fifths & {
-    margin-top: -7px;
+    margin-top: -5px;
+  }
+  h3 + form & {
+    margin-top: .2em !important;
   }
 }
 

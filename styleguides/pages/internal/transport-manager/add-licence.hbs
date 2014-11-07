@@ -5,13 +5,12 @@ subSectionTitle: Licences & applications
 verticalNavItems:
   - label: Details
     link:  index.html
-  - label: Licences & applications
-    link: licences-applications.html  
-  - label: Other employment
-    link: other-employment.html
+  - label: Responsibilities
+    link: responsibilities.html  
   - label: Convictions & penalties
     link: convictions-penalties.html
-
+  - label: Competence
+    link: competence.html
 table:
   - title: <strong>Licences & applications</strong>
     headers:
@@ -55,29 +54,19 @@ form:
             - 124 Eleanor Grove, Baschurch
             - Unit 4, Battelfields Industrial Estate, Shrewsbury
             - 240 Timmuses Drive, Yeaton   
-        - label: Is the address of your work place listed above?
-          type: radios inline
-          values:
-            - Yes
-            - No 
         - label: What type of manager will you be for this licence?
           type: radios inline
           values:
             - Internal 
             - External 
-        - label: How many hours a week will you spend on your Transport Manager duties?
-          type: text
-          class: short
+    - legend: Hours per week
+      fields: 
+        - label: How many houurs will you spend on your Transport Manager duties?
+          type: hours-per-week
     - legend: Additional information
-      fields:
-        - label: Please provide any additional information explaining how you will manage your managerial responsibilities
+      fields: 
+        - label: Please provide any additional information that could support your applicationas a transport manager 
           type: textarea
-
-
-
-
-
-
     actions:
       - label: Save
         class: primary large

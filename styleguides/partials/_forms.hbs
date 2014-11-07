@@ -91,6 +91,41 @@
           </fieldset>
           {{/is }}
 
+
+          {{#is type "hours-per-week" }}
+          <fieldset>
+            <legend>{{ label }}</legend>
+            <div class="field inline-text">
+              <label>Mon</label>
+              <input type="text" class="" placeholder="">
+            </div>  
+            <div class="field inline-text">
+              <label>Tue</label>
+              <input type="text" class="" placeholder="">
+            </div>
+            <div class="field inline-text">
+              <label>Wed</label>
+              <input type="text" class="" placeholder="">
+            </div> 
+            <div class="field inline-text">
+              <label>Thu</label>
+              <input type="text" class="" placeholder="">
+            </div>  
+            <div class="field inline-text">
+              <label>Fri</label>
+              <input type="text" class="" placeholder="">
+            </div>
+            <div class="field inline-text">
+              <label>Sat</label>
+              <input type="text" class="" placeholder="">
+            </div> 
+            <div class="field inline-text">
+              <label>Sun</label>
+              <input type="text" class="" placeholder="">
+            </div>    
+          </fieldset>
+          {{/is }}
+
           {{#is type "radios inline" }}
           <fieldset>
             <legend class="legend">{{ label }}</legend>
