@@ -120,6 +120,7 @@ $gutter: 1.25%;
   margin-bottom: 0;
   width: 100%;
   float: left;
+  margin-bottom: .5em;
   h3 {
     @extend %paragraph--large;
     font-weight: 600;
@@ -668,7 +669,7 @@ input.action--secondary {
     width: 100%;
     max-width: 800px;
     position: relative;
-    margin: .5em 0 1.5em 0;
+    margin: 0 0 1.5em 0;
     padding: 1em 0 .25em 0;
     margin-bottom: .5em;
     > * {
