@@ -1,39 +1,13 @@
 $summary-border: #cdd7dc;
 $summary-background: #e6eff5;
 
-.empty {
-  max-width: 800px;
-  background: $grey-4;
-  overflow: auto;
-  padding: .75em 1em 1.5em 1em;
-  display: block;
-  border-left: 4px solid $grey-2;
-  margin-bottom: 2.5em;
-  clear: left;
-  p {
-    margin-bottom: .75em;
-  }
-}
-
 .table {
   &__header {
-    display: block;
-    width: 100%;
-    overflow: hidden;
-    h3 {
-      float: left;
-      margin: 0 0 .5em 0;
-      font-weight: 600;
-    }
+    @extend %header-with-actions;
     span {
       @extend %paragraph--large;
       font-weight: 400;
       color: $grey-1;
-    }
-    .actions-container {
-      float: right;
-      margin-right: -.25em;
-      select { margin: 3px 3px 0 0; }
     }
   }
   &__wrapper {
@@ -54,8 +28,8 @@ $summary-background: #e6eff5;
 table { 
   width: 100%;
   border-collapse: collapse; 
-  margin-bottom: .75em;
   border-bottom: 1px solid $grey-2;
+  margin-bottom: .75em;
   .summary & { margin-bottom: 0; }
   input[type="checkbox"],
   input[type="radio"] {

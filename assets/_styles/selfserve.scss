@@ -17,6 +17,7 @@
  * 11. Read only lists
  * 12. Statuses
  * 13. Right hand column
+ * 14. Empty state
  *
  **/
 
@@ -439,6 +440,10 @@ $gutter: 2.5%;
 
 @import '_tables';
 
+.table__header .actions-container {
+  padding: .5em 0 0 0;
+}
+
 
 /* ==========================================================================
    9. Actions & buttons
@@ -529,3 +534,10 @@ dd {
     margin-bottom: .5em;
   }
 }
+
+
+/* ==========================================================================
+   14. Empty state
+   ========================================================================== */
+
+@import '_empty-state';

@@ -2,11 +2,11 @@
 .read-only {
   display: block;
   width: 100%;
-  padding: 0 0 1.5em 0;
   overflow: visible;
   float: left;
+  margin-bottom: 2em;
   &__title {
-    margin: 0;
+    margin-bottom: .5em;
     display: block;
   }
   &__header {
@@ -47,9 +47,6 @@
   .modal & {
    width: 95%;
    margin: -.75em 2.5% -1em 2.5%;
-  }
-  .action--secondary {
-    margin-bottom: 1em;
   }
 }
 

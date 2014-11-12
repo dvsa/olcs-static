@@ -20,16 +20,14 @@ verticalNavItems:
 <div class="two-thirds">
     <form>
       <div class="validation-summary">
-      <h3>There was a problem submitting the form</h3>
-      <p>Please try the following:</p>
-      <ol class="validation-summary__list">
-        <li class="validation-summary__item"><a href="#error1">Enter a town or city</a></li>
-        <li class="validation-summary__item"><a href="#error2">Enter a date of birth</a></li>
-        <li class="validation-summary__item"><a href="#error3">Enter a biography</a></li>
-      </ol><!-- end .validation-summary__list -->
-    </div><!-- end .validation-summary -->
-
-
+        <h3>There was a problem submitting the form</h3>
+        <p>Please try the following:</p>
+        <ol class="validation-summary__list">
+          <li class="validation-summary__item"><a href="#error1">Enter a town or city</a></li>
+          <li class="validation-summary__item"><a href="#error2">Enter a date of birth</a></li>
+          <li class="validation-summary__item"><a href="#error3">Enter a biography</a></li>
+        </ol><!-- end .validation-summary__list -->
+      </div><!-- end .validation-summary -->
 
     <fieldset class="address">
 
@@ -48,6 +46,7 @@ verticalNavItems:
           <input class="action--secondary large" type="submit" value="Find address">
         </div>
       </fieldset>
+
       <div class="field">
         <label for="street-line-one">Street
           <div class="locked-icon tooltip-parent">
@@ -77,10 +76,12 @@ verticalNavItems:
             <input id="town-city" name="town-city" type="text" class="long">
         </div>
       </div>
+
     </fieldset><!-- end #address -->
 
-    <h3>Your business</h3>
     <fieldset>
+
+      <legend>Business details</legend>
       <div class="field ">
         <label for="title">What type of business are you?</label>
         <select id="title" name="title" disabled="disabled">
@@ -88,8 +89,7 @@ verticalNavItems:
         </select>
         <p class="hint"><a href="">Change business type</a></p>
       </div>
-    </fieldset>
-    <fieldset>
+    
       <div class="field">
         <label for="trading-name-1">Trading names</label>
         <input id="trading-name-1" name="address" type="text" class="long">

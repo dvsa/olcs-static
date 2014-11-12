@@ -38,6 +38,28 @@ hr {
     clear: both;
 }
 
+%header-with-actions {
+  float: left;
+  width: 100%;
+  padding-bottom: .25em;
+  h3,
+  h4 {
+    float: left;
+    display: block;
+    margin: .5em 0 .25em 0;
+  }
+  .actions-container {
+    float: right;
+    select { margin: 3px 3px 0 0; }
+  }
+  .action--primary,
+  .action--secondary {
+    float: left;
+    display: inline-block;
+    margin: 0 0 0 .25em;
+  }
+}
+
 // This may seem counter-intuitive, but it is correct
 .js-visible {
   display: none;
