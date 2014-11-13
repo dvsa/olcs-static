@@ -1,18 +1,47 @@
 ---
 layout: transport-manager.hbs
 sectionTitle: TM details
-subSectionTitle: Responsibilities
+subSectionTitle: Applications & licences
 verticalNavItems:
   - label: Details
     link:  index.html
-  - label: Responsibilities
-    link: responsibilities.html  
+  - label: Applications & licences
+    link: applications-licences.html  
+  - label: Other employment
+    link: other-employment.html
   - label: Convictions & penalties
     link: convictions-penalties.html
-  - label: Qualifications
-    link: qualifications.html
+  - label: Competence
+    link: competence.html
 table:
-  - title: <strong>Licences</strong>
+  - title: <strong>2 Applications</strong>
+    headers:
+      - label: Application ID.
+        class: sortable
+      - label: No. of operating centres
+        class: sortable
+      - label: Manager type
+        class: sortable
+      - label: Hours per week
+        class: sortable
+      - label: <input type="checkbox">
+        class: non-sortable
+    columns:
+      - <a href="">1625272</a>
+      - 2
+      - Internal
+      - 12
+      - <input type="checkbox">
+    rows: 2
+    actions:
+      - label: Add
+        class: primary
+        link: add-licence.html
+      - label: Edit
+        class: secondary
+      - label: Remove
+        class: secondary
+  - title: <strong>5 Licences</strong>
     headers:
       - label: Licence No.
         class: sortable
@@ -28,44 +57,15 @@ table:
       - <a href="">OB1242325</a>
       - 2
       - Internal
-      - 12
+      - 5
       - <input type="checkbox">
     rows: 10
     actions:
-      - label: Add
-        class: primary
-        link: add-licence.html
       - label: Edit
         class: secondary
       - label: Remove
         class: secondary
-  - title: <strong>Other employment</strong>
-    headers:
-      - label: Name
-        class: sortable
-      - label: Address
-        class: sortable
-      - label: Position held
-        class: sortable
-      - label: Hours per week
-        class: sortable
-      - label: <input type="checkbox">
-        class: non-sortable
-    columns:
-      - <a href="">Sainsbury's</a>
-      - 104 Meole Brace Retail Park, Shrewsbsury
-      - Retail manager
-      - 10
-      - <input type="checkbox">
-    rows: 2
-    actions:
-      - label: Add
-        class: primary
-        link: add-licence.html
-      - label: Edit
-        class: secondary
-      - label: Remove
-        class: secondary
+
 
 ---
 
@@ -75,9 +75,6 @@ table:
 </div>
 
 <div class="three-fifths">
-  <div class="content__header">
-    <h3>Responsibilities</h3>
-  </div>
   {{#each table}}
     {{#is @index 0 }} 
       {{> _table }}

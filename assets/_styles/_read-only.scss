@@ -5,19 +5,10 @@
   overflow: visible;
   float: left;
   margin-bottom: 2em;
-  &__title {
-    margin-bottom: .5em;
-    display: block;
-  }
   &__header {
-    width: 100%;
-    border-bottom: 1px solid $grey-2;;
-    float: left;
-    margin: 0 0 .5em 0;
-    .action--secondary {
-      float: right;
-      margin: -6px 0 0 6px !important;
-    }
+    @extend %header-with-actions;
+    border-bottom: 1px solid $grey-2;
+    margin-bottom: 1em;
   }
   h4 {
     border: 0;
@@ -86,6 +77,7 @@
   dd { font-weight: 600; }
   .full-width {
     width: 100%;
+    padding-top: 0;
     dt { width: 22.5%; }
     dd { width: 72.5%; } 
   }
