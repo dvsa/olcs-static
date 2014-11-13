@@ -71,6 +71,9 @@ fieldset {
         @extend %paragraph--tiny;
     }
   }
+  &.subquestion {
+    margin: 0 0 0 1em;
+  }
 }
 
 .field { 

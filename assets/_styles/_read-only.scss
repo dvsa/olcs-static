@@ -79,7 +79,10 @@
     padding: 0 2.5% .6em 0;
     width: 47.5%;
   }
-  dt { font-weight: 400; }
+  dt { 
+    font-weight: 400; 
+    color: #222;
+  }
   dd { font-weight: 600; }
   .full-width {
     width: 100%;

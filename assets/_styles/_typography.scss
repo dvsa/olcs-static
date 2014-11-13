@@ -53,7 +53,10 @@ h3 {
   }
 }
 
-h4 { @extend %h4; }
+h4 { 
+  @extend %h4; 
+  margin-bottom: .5em;
+}
 
 h5 { @extend %paragraph--small; }
 

@@ -85,6 +85,10 @@ $gutter: 2.5%;
 .two-thirds {
   @extend %container;
   width: 61.6666666667%;
+  &.dashboard {
+    border-top: 1px solid $grey-2;
+    padding-top: 1.25em;
+  }
 }
 
 .three-quarters { 
@@ -238,7 +242,7 @@ $gutter: 2.5%;
   @extend .full-width;
   position: relative;
   margin-top: 3em;
-  margin-bottom: 2em;
+  margin-bottom: 2.5em;
   @media (max-width: 640px){
     margin-top: 1em;
     margin-bottom: .5em;
@@ -256,7 +260,7 @@ $gutter: 2.5%;
   &__actions {
     position: absolute;
     right: 0;
-    top: 40px;
+    bottom:9px;
     list-style: none;
     width: 30%;
     @media (max-width: 640px){
@@ -350,18 +354,17 @@ $gutter: 2.5%;
 
 .overview-navigation {
   list-style: none;
-  border-top: 1px solid $grey-2;
-  padding-top: .6em;
+  margin-bottom: 2em;
 }
 
 .overview-item {
-  border-bottom: 1px solid $grey-2;
+  border-top: 1px solid $grey-2;
   overflow: auto;
   padding-bottom: .75em;
   &.expanded { background: $grey-4; }
   &.disabled { padding-bottom: .75em; }
   &__header {
-     padding: .8em 1em 0 .5em;
+     padding: .8em 0 0 0;
      overflow: auto;
   }
   &__control {
@@ -439,11 +442,6 @@ $gutter: 2.5%;
    ========================================================================== */
 
 @import '_tables';
-
-.table__header .actions-container {
-  padding: .5em 0 0 0;
-}
-
 
 /* ==========================================================================
    9. Actions & buttons
