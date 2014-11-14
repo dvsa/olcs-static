@@ -3,44 +3,44 @@ layout: two-thirds--app-overview.hbs
 title: Application overview 
 subtitle: Application no.1280887
 overview-items:
-  - name: 1. Licence type
+  - name: Licence type
     status: Complete
     edit-link: Edit licence type
-  - name: 2. Business details
+  - name: Business details
     status: Complete
     edit-link: Edit business details
     open: true
-  - name: 3. Addresses
+  - name: Addresses
     status: Incomplete
     edit-link: Edit addresses
-  - name: 4. Directors
+  - name: Directors
     status: Incomplete
     edit-link: Edit directors
-  - name: 5. Operating centres
+  - name: Operating centres
     status: Incomplete
     edit-link: Edit operating centres
-  - name: 6. Authorisation
+  - name: Authorisation
     status: Incomplete
     edit-link: Edit authorisation
-  - name: 7. Transport managers
+  - name: Transport managers
     status: Not started
     edit-link: Add transport managers
-  - name: 8. Vehicles
+  - name: Vehicles
     status: Not started
     edit-link: Add vehicles
-  - name: 10. Saftey information
+  - name: Saftey information
     status: Not started
     edit-link: Add safety information
-  - name: 11. Financial history
+  - name: Financial history
     status: Not started
     edit-link: Add financial history
-  - name: 12. Licence history
+  - name: Licence history
     status: Not started
     edit-link: Add licence history
-  - name: 13. Convictions & penalties
+  - name: Convictions & penalties
     status: Not started
     edit link: Add convictions & penalties
-  - name: 14. Undertakings
+  - name: Undertakings
     status: Disabled
     edit-link:
 ---
@@ -57,6 +57,7 @@ overview-items:
       <li class="overview-item">
         <div class="overview-item__header">
           <a href="" class="overview-item__control">
+            <span class="accordion-arrow"></span>
             <h4>{{ name }}</h4>
           </a>
           <span class="status green">{{ status }}</span>
@@ -93,6 +94,7 @@ overview-items:
       <li class="overview-item {{#is expnaded true }}expanded{{/is}}">
         <div class="overview-item__header">
           <a href="" class="overview-item__control">
+            <span class="accordion-arrow"></span>
             <h4>{{ name }}</h4>
           </a>
             <span class="status orange">{{ status }}</span>
@@ -132,7 +134,7 @@ overview-items:
 
     </ul><!-- .overview-navigation -->
 
-    <p>Application fee</p>
+    <p style="margin-top: 2em;">Application fee</p>
     <h2>£257.00</h2>
     <a href="" class="action--primary large disabled">Submit &amp; pay</a>
   </div><!-- .two-thirds -->

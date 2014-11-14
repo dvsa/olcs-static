@@ -39,7 +39,7 @@
     position: absolute;
     left: 50%;
     margin: 5% 0 5% -320px;
-    padding: 0 0 0 0;
+    padding: 0 0 3.5em 0;
     width: 640px;
     @media(max-width: 640px) {
         margin: 46px 0 5% 0;
@@ -68,8 +68,8 @@
     }
     form {
         overflow: auto;
-        margin: 0 2.5% 2em 2.5%;
-        padding: 0 2.5% 2em 1px;
+        margin: 0 2.5% 1em 2.5%;
+        padding: 0 2.5% 0 1px;
         width: 95%;
     }
     form + form {
@@ -84,6 +84,7 @@
     }
     fieldset fieldset legend {
       font-size: 16px;
+      margin-bottom: 0;
     }
     .actions-container {    
         position: absolute;

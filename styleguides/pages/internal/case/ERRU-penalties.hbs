@@ -100,6 +100,7 @@ table:
       - 12 April 2014
       - 12 April 2015
       - Yes
+    rows: 2
   - title: <strong>Requested penalties</strong><br /><span>The originating state has requested the following penalties be applied:</span>
     headers:
       - label: Penalty type
@@ -109,6 +110,7 @@ table:
     columns:
       - Lorem ipsum sit dolor amet
       - Duration
+    rows: 2
   - title: <b>Applied penalties</b>
     headers:
       - label: Penalty ID
@@ -130,6 +132,7 @@ table:
       - 15 Aug 2013
       - Yes
       - <input type="checkbox">
+    rows: 2
     actions:
       - label: Add
         class: primary
@@ -165,7 +168,18 @@ verticalNavItems:
 <div class="three-fifths">
   <h3>ERRU penalties</h3>
 
-  {{> _read-only }}
+
+  {{#each read-only}}
+    {{#is @index 0 }} 
+      {{> _read-only }}
+    {{/is }} 
+  {{/each}}
+
+  {{#each read-only}}
+    {{#is @index 1 }} 
+      {{> _read-only }}
+    {{/is }} 
+  {{/each}}
 
   {{#each table}}
     {{#is @index 0 }} 

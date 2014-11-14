@@ -1,0 +1,19 @@
+.empty {
+  background: $grey-4;
+  overflow: auto;
+  padding: .75em 1em 1.5em 1em;
+  display: block;
+  border-left: 4px solid $grey-2;
+  clear: left;
+  margin-bottom: 2em;
+  &__wrapper {
+    max-width: 800px;
+  }
+  &__title {
+    padding: 0;
+  }
+  p {
+    @extend %paragraph--small;
+    margin-bottom: .75em;
+  }
+}

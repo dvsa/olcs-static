@@ -9,35 +9,26 @@
   }
 }
 
-%h2 { 
-  @include font-size(36px,18pt,24px); 
-
-}
+%h2 { @include font-size(36px,18pt,24px); }
 
 %h3 { @include font-size(24px,16pt,20px); }
 
-%h4 { 
-  @include font-size(19px,14pt,16px); 
-  margin: 0;
-}
+%h4 { @include font-size(19px,14pt,16px); }
 
 %paragraph--large {
   @include font-size(19px,14pt,16px);
   font-weight: 400;
 }
 
-%paragraph--small { 
-  @include font-size(16px,12pt,14px);
-}
+%paragraph--small { @include font-size(16px,12pt,14px); }
 
-%paragraph--tiny { 
-  @include font-size(14px,10pt,12px);
-}
+%paragraph--tiny { @include font-size(14px,10pt,12px); }
 
 h1, h2, h3, h4, h5, p {
   clear: both;
-  margin: 0 0 $gutter-one-quarter 0;
+  margin: 0;
   font-weight: 700;
+  margin-bottom: .25em;
 }
 
 h1 { 
@@ -55,33 +46,19 @@ h1 {
 h2 { @extend %h2; }
 
 h3 { 
-  @extend %h3;
-  .three-fifths > &,
-  .four-fifths > &,
-   {
-    @extend %paragraph--large;
-    border-bottom: 1px solid $grey-2;
-    padding-bottom: .5em;
-    font-weight: 600;
+  @if ($app == internal) {
+    @extend %h4;
+  } @else {
+    @extend %h3; 
   }
 }
 
 h4 { 
   @extend %h4; 
-  margin-bottom: 0;
-  .content & {
-    padding-bottom: 10px;
-    border-bottom: 1px solid $grey-2;
-  }
-  .three-fifths & {
-    margin-bottom: .5em;
-  }
+  margin-bottom: .5em;
 }
 
-h5 { 
-  @extend %paragraph--small;
-  margin-bottom: 0;
-}
+h5 { @extend %paragraph--small; }
 
 p { 
   @extend %paragraph--small;

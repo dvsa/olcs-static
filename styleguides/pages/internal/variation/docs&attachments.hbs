@@ -19,34 +19,37 @@ filterList:
     filters:
       - Digital only
 table:
-  title: <strong>89</strong> Docs and attachments
-  headers:
-    - label: Description
-      class: sortable descending
-    - label: Category
-      class: sortable
-    - label: Sub-category
-      class: sortable
-    - label: Format
-      class: sortable
-    - label: Date
-      class: sortable
-    - label: <input type="checkbox">
-      class: not-sortable
-  columns:
-    - <a href="">December-accounts.PDF</a>
-    - Bus registration
-    - Sub category (digital)
-    - PDF
-    - 13/3/13 14:02
-    - <input type="checkbox">
-actions:
-  - label: Upload
-    class: primary
-  - label: Edit
-    class: secondary disabled
-  - label: Delete
-    class: secondary disabled
+  - title: <strong>10</strong> Docs and attachments
+    headers:
+      - label: Description
+        class: sortable descending
+      - label: Category
+        class: sortable
+      - label: Sub-category
+        class: sortable
+      - label: Format
+        class: sortable
+      - label: Date
+        class: sortable
+      - label: <input type="checkbox">
+        class: non-sortable
+    columns:
+      - <a href="">December-accounts.PDF</a>
+      - Bus registration
+      - Sub category (digital)
+      - PDF
+      - 13/3/13 14:02
+      - <input type="checkbox">
+    rows: 10
+    actions:
+      - label: Generate
+        class: primary
+      - label: Upload
+        class: secondary
+      - label: Edit
+        class: secondary disabled
+      - label: Delete
+        class: secondary disabled
 
 ---
 
@@ -56,7 +59,11 @@ actions:
   </div>
 
   <div class="three-fifths">
-    {{> _table}}
+    {{#each table}}
+      {{#is @index 0 }} 
+        {{> _table }}
+      {{/is }} 
+    {{/each}}
   </div>
 
 

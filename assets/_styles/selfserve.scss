@@ -17,6 +17,7 @@
  * 11. Read only lists
  * 12. Statuses
  * 13. Right hand column
+ * 14. Empty state
  *
  **/
 
@@ -84,6 +85,10 @@ $gutter: 2.5%;
 .two-thirds {
   @extend %container;
   width: 61.6666666667%;
+  &.dashboard {
+    border-top: 1px solid $grey-2;
+    padding-top: 1.25em;
+  }
 }
 
 .three-quarters { 
@@ -236,8 +241,8 @@ $gutter: 2.5%;
 .page-header {
   @extend .full-width;
   position: relative;
-  margin-top: 2em;
-  margin-bottom: 2em;
+  margin-top: 3em;
+  margin-bottom: 2.5em;
   @media (max-width: 640px){
     margin-top: 1em;
     margin-bottom: .5em;
@@ -255,7 +260,7 @@ $gutter: 2.5%;
   &__actions {
     position: absolute;
     right: 0;
-    top: 40px;
+    bottom:9px;
     list-style: none;
     width: 30%;
     @media (max-width: 640px){
@@ -349,18 +354,17 @@ $gutter: 2.5%;
 
 .overview-navigation {
   list-style: none;
-  border-top: 1px solid $grey-2;
-  padding-top: .6em;
+  margin-bottom: 2em;
 }
 
 .overview-item {
-  border-bottom: 1px solid $grey-2;
+  border-top: 1px solid $grey-2;
   overflow: auto;
   padding-bottom: .75em;
   &.expanded { background: $grey-4; }
   &.disabled { padding-bottom: .75em; }
   &__header {
-     padding: .8em 1em 0 .5em;
+     padding: .8em 0 0 0;
      overflow: auto;
   }
   &__control {
@@ -439,7 +443,6 @@ $gutter: 2.5%;
 
 @import '_tables';
 
-
 /* ==========================================================================
    9. Actions & buttons
    ========================================================================== */
@@ -499,6 +502,8 @@ dd {
 .meta {
   border: none;
   margin: 1em 0;
+  padding-bottom: 1em;
+  border-bottom: 1px solid $grey-2;
   dt, dd {
     border: none;
     display: block;
@@ -512,8 +517,12 @@ dd {
 }
 
 .links {
+  padding: 1em 0 2em 0;
+}
+
+.support {
   border-top: 1px solid $grey-2;
-  padding-top: 1em;
+  padding-top: 1em
 }
 
 .links-list {
@@ -523,3 +532,10 @@ dd {
     margin-bottom: .5em;
   }
 }
+
+
+/* ==========================================================================
+   14. Empty state
+   ========================================================================== */
+
+@import '_empty-state';

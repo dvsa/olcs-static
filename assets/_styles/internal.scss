@@ -18,6 +18,7 @@
  * 12. Right hand column 
  * 13. Statuses
  * 14. Comments
+ * 15. Empty
  *
  **/
 
@@ -52,6 +53,9 @@ $gutter: 1.25%;
 @import '_typography';
 
 
+
+
+
 /* ==========================================================================
    3. Layout
    ========================================================================== */
@@ -67,6 +71,12 @@ $gutter: 1.25%;
 .content {
   display: table;
   width: 100%;
+  padding-top: 5px;
+  &__header {
+    @extend %header-with-actions;
+    border-bottom: 1px solid $grey-2;
+    margin-bottom: 1em;
+  }
 }
 
 %table-cell {
@@ -78,8 +88,12 @@ $gutter: 1.25%;
   &--left {
     @extend %table-cell;
     width: 200px;
-    padding: 7px 30px 0 0;
-
+    padding: 0 30px 0 0;
+    h4 {
+      border-bottom: 1px solid $grey-2;
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+    }
   }
   &--right {
     @extend %table-cell;
@@ -91,7 +105,6 @@ $gutter: 1.25%;
 //Needs refactoring
 .three-fifths { 
   @extend %table-cell; 
-  padding: 7px 0 0 0;
 }
 
 .four-fifths {
@@ -112,24 +125,6 @@ $gutter: 1.25%;
   }
 }
 
-//Needs refactoring
-.section-header {
-  border-bottom: 1px solid $grey-2;
-  padding-bottom: 0;
-  font-weight: 600;
-  margin-bottom: 0;
-  width: 100%;
-  float: left;
-  h3 {
-    @extend %paragraph--large;
-    font-weight: 600;
-    float: left;
-  }
-  a {
-    float: right;
-    margin: -8px 0 0 6px;
-  }
-}
 
 
 /* ==========================================================================
@@ -427,18 +422,18 @@ $gutter: 1.25%;
 @import '_tables';
 
 .table__header {
-  h3 { 
-    @extend %paragraph--large;
-    margin-top: 5px; 
-  }
-  .actions-container { margin: 0 -3px 8px 0;}
-  .three-fifths &, 
-  .four-fifths & {
-    margin-top: -7px;
+  @extend %header-with-actions;
+  margin-bottom: 0;
+  h3 + form & {
+    margin-top: .2em !important;
   }
 }
 
 table { border: 1px solid $grey-2; }
+
+tfoot {
+  background: $grey-4;
+}
 
 tr.urgent { border-left: 5px solid $mellow-red; }
 
@@ -486,6 +481,7 @@ input.action--primary,
 .action--secondary,
 input.action--secondary {
   @include border-radius(2px);
+  display: inline-block;
   width: auto;
   overflow: visible;
   position: relative;
@@ -664,9 +660,8 @@ input.action--secondary {
     width: 100%;
     max-width: 800px;
     position: relative;
-    margin: .5em 0 1.5em 0;
     padding: 1em 0 .25em 0;
-    margin-bottom: .5em;
+    margin-bottom: 2em;
     > * {
       margin: 0 45px 0 15px;
     }
@@ -680,6 +675,9 @@ input.action--secondary {
     }
     ul {
       list-style-type: disc;
+    }
+    form & {
+      margin-bottom: 0;
     }
   }
 
@@ -707,7 +705,8 @@ input.action--secondary {
 .submission-item {
   @extend %comment;
   background: $light-blue-25;
-  border-left: 3px solid $light-blue-50;   
+  border-left: 3px solid $light-blue-50;  
+  margin-bottom: .5em;
   h4 {
     border-bottom: 0;
     padding-bottom: 0;
@@ -731,3 +730,9 @@ input.action--secondary {
     }
   }
 }
+
+/* ==========================================================================
+   15. Empty state
+   ========================================================================== */
+
+@import '_empty-state';

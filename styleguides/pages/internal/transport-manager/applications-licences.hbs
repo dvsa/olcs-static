@@ -1,0 +1,88 @@
+---
+layout: transport-manager.hbs
+sectionTitle: TM details
+subSectionTitle: Applications & licences
+verticalNavItems:
+  - label: Details
+    link:  index.html
+  - label: Applications & licences
+    link: applications-licences.html  
+  - label: Other employment
+    link: other-employment.html
+  - label: Convictions & penalties
+    link: convictions-penalties.html
+  - label: Competence
+    link: competence.html
+table:
+  - title: <strong>2 Applications</strong>
+    headers:
+      - label: Application ID.
+        class: sortable
+      - label: No. of operating centres
+        class: sortable
+      - label: Manager type
+        class: sortable
+      - label: Hours per week
+        class: sortable
+      - label: <input type="checkbox">
+        class: non-sortable
+    columns:
+      - <a href="">1625272</a>
+      - 2
+      - Internal
+      - 12
+      - <input type="checkbox">
+    rows: 2
+    actions:
+      - label: Add
+        class: primary
+        link: add-licence.html
+      - label: Edit
+        class: secondary
+      - label: Remove
+        class: secondary
+  - title: <strong>5 Licences</strong>
+    headers:
+      - label: Licence No.
+        class: sortable
+      - label: No. of operating centres
+        class: sortable
+      - label: Manager type
+        class: sortable
+      - label: Hours per week
+        class: sortable
+      - label: <input type="checkbox">
+        class: non-sortable
+    columns:
+      - <a href="">OB1242325</a>
+      - 2
+      - Internal
+      - 5
+      - <input type="checkbox">
+    rows: 10
+    actions:
+      - label: Edit
+        class: secondary
+      - label: Remove
+        class: secondary
+
+
+---
+
+<div class="one-fifth--left">
+  <h4>TM details</h4>
+  {{> _vertical-navigation }}
+</div>
+
+<div class="three-fifths">
+  {{#each table}}
+    {{#is @index 0 }} 
+      {{> _table }}
+    {{/is }}
+    {{#is @index 1 }} 
+      {{> _table }}
+    {{/is }} 
+  {{/each}}
+  {{#each form }}{{> _forms }}{{/each }}
+
+</div>
