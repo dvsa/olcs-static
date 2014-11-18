@@ -33,7 +33,8 @@ OLCS.formHandler = (function(document, $, undefined) {
       unbind: function() {
         /**
          * @NOTE: it is crucial that *all* listeners are unbound here, so
-         * if add any `on` calls, make sure you add the corresponding `off` too
+         * when adding any `on` calls, make sure you add the
+         * corresponding `off` too
          */
         $(document).off("submit", selector);
 
