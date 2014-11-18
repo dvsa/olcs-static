@@ -13,7 +13,8 @@ module.exports = (grunt) ->
       "assets/_js/common/vendor/**/*.js"
       "assets/_js/common/*.js"
       "assets/_js/#{path}/*.js"
-      "assets/_js/common/init/*.js"
+      "assets/_js/init/common.js"
+      "assets/_js/init/#{path}.js"
     ]
 
   scripts =

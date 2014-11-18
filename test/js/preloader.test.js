@@ -14,55 +14,61 @@ describe("OLCS.preloader", function() {
     expect(this.component.hide).to.be.a("function");
   });
 
-  describe("show", function() {
+  describe("Given a stubbed empty DOM", function() {
     beforeEach(function() {
-      this.component.show();
+      $(".preloader__wrapper").remove();
     });
 
-    it("shows the preloader wrapper", function() {
-      expect($(".preloader__wrapper").is(":visible")).to.be(true);
-    });
-
-    it("shows the preloader", function() {
-      expect($(".preloader").is(":visible")).to.be(true);
-    });
-
-    it("shows the preloader icon", function() {
-      expect($(".preloader__icon").is(":visible")).to.be(true);
-    });
-
-    describe("When called again", function() {
+    describe("show", function() {
       beforeEach(function() {
         this.component.show();
       });
-    });
 
-    it("still shows the preloader wrapper", function() {
-      expect($(".preloader__wrapper").is(":visible")).to.be(true);
-    });
-
-    describe("When calling hide", function() {
-      beforeEach(function() {
-        this.fadeOut = sinon.spy($.fn, "fadeOut");
-
-        this.component.hide();
+      it("shows the preloader wrapper", function() {
+        expect($(".preloader__wrapper").is(":visible")).to.be(true);
       });
 
-      afterEach(function() {
-        this.fadeOut.restore();
+      it("shows the preloader", function() {
+        expect($(".preloader").is(":visible")).to.be(true);
       });
 
-      it("does not hide the preloader", function() {
-        expect(this.fadeOut.callCount).to.eql(0);
+      it("shows the preloader icon", function() {
+        expect($(".preloader__icon").is(":visible")).to.be(true);
       });
 
-      describe("When calling hide again", function() {
+      describe("When called again", function() {
         beforeEach(function() {
-          this.component.hide();
+          this.component.show();
         });
 
-        it("hides the preloader", function() {
-          expect(this.fadeOut.callCount).to.eql(1);
+        it("still shows the preloader wrapper", function() {
+          expect($(".preloader__wrapper").is(":visible")).to.be(true);
+        });
+
+        describe("When calling hide", function() {
+          beforeEach(function() {
+            this.fadeOut = sinon.spy($.fn, "fadeOut");
+
+            this.component.hide();
+          });
+
+          afterEach(function() {
+            this.fadeOut.restore();
+          });
+
+          it("does not hide the preloader", function() {
+            expect(this.fadeOut.callCount).to.eql(0);
+          });
+
+          describe("When calling hide again", function() {
+            beforeEach(function() {
+              this.component.hide();
+            });
+
+            it("hides the preloader", function() {
+              expect(this.fadeOut.callCount).to.eql(1);
+            });
+          });
         });
       });
     });

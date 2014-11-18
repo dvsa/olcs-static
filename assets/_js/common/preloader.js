@@ -30,6 +30,7 @@ OLCS.preloader = (function(document, $, undefined) {
   exports.show = function() {
     if ($('body').find(wrapper).length === 0) {
       $('body').prepend(template);
+      showStack = 0;
     }
 
     showStack ++;
@@ -45,6 +46,7 @@ OLCS.preloader = (function(document, $, undefined) {
     // outstanding to show the preloader. As such, only the last one
     // to ask for hide wins
     if (--showStack === 0) {
+
       // @NOTE: in time we might want an options.instant boolean or
       // similar
       $(wrapper).fadeOut(options.fadeTime || fadeTime);
