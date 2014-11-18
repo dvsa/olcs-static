@@ -1,5 +1,15 @@
 var OLCS = OLCS || {};
 
+/**
+ * Modal (AJAX)
+ *
+ * Triggers an AJAX request, the response from which is
+ * used to populate a modal
+ *
+ * Typically invoked by binding a listener on links which
+ * want to open in a modal
+ */
+
 OLCS.modalAjax = (function(document, $, undefined) {
 
   'use strict';

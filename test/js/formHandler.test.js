@@ -143,5 +143,28 @@ describe("OLCS.formHandler", function() {
         });
       });
     });
+
+    describe("unbind", function() {
+      describe("Given an initialised component", function() {
+        beforeEach(function() {
+          this.off = sinon.spy($.prototype, "off");
+          this.handler = this.component({
+            form: ".js-form",
+            hideSubmit: true,
+            container: ".container"
+          });
+        });
+
+        describe("When the handler is unbound", function() {
+          beforeEach(function() {
+            this.handler.unbind();
+          });
+
+          it("unbinds all listeners", function() {
+            expect(this.off.callCount).to.eql(this.on.callCount);
+          });
+        });
+      });
+    });
   });
 });
