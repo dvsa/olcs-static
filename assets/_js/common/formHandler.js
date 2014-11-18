@@ -31,7 +31,14 @@ OLCS.formHandler = (function(document, $, undefined) {
     // we'll return this so consumers can unbind listeners if they want to
     var handler = {
       unbind: function() {
+        /**
+         * @NOTE: it is crucial that *all* listeners are unbound here, so
+         * if add any `on` calls, make sure you add the corresponding `off` too
+         */
         $(document).off("submit", selector);
+
+        $(document).off("click", actionSelector);
+
         if (onChange) {
           $(document).off("change", selector);
         }
