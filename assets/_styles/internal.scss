@@ -584,7 +584,7 @@ input.action--secondary {
 @import '_modals-messaging';
 
 .preloader {
-  @include opacity(.8);
+  @include opacity(.5);
   position: fixed;
   left: 0;
   top: 0;
