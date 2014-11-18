@@ -16,7 +16,6 @@ OLCS.cascadeInput = (function(document, $, undefined) {
   "use strict";
 
   return function init(options) {
-    var destination = $(options.dest);
     var trap = options.trap === undefined ? true : options.trap;
     var disableDestination = options.disableDestination === undefined ? true : options.disableDestination;
     var loadingText = options.loadingText || "Loading&hellip;";
@@ -47,6 +46,7 @@ OLCS.cascadeInput = (function(document, $, undefined) {
     }
 
     $(document).on("change", options.source, function(e) {
+      var destination = $(options.dest);
       e.preventDefault();
 
       // make sure the event doesn't bubble up if we've askesd for it to be
