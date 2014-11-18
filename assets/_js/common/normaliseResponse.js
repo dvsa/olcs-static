@@ -39,6 +39,9 @@ OLCS.normaliseResponse = (function(window, undefined) {
       // we won't invoke the callback if the status
       // is a straightforward redirect
       if (response.status === 302) {
+        // manually invoke a preloader; just to make sure that while the page physically
+        // performs the navigation we show it as 'loading'
+        OLCS.preloader.show();
         window.location.href = response.location;
         return;
       }
