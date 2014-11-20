@@ -59,7 +59,11 @@ form {
 }
 
 fieldset {
-  margin: 0 0 1em 0;
+  @if ($app == internal) {
+    margin: 0 0 1em 0;
+  } @else {
+    margin: 0 0 2em 0;
+  }
   padding: 0;
   border: 0;
   clear: both;
@@ -72,7 +76,10 @@ fieldset {
     }
   }
   &.subquestion {
-    margin: 0 0 0 1em;
+    margin: 0 0 1em 1em;
+  }
+  fieldset {
+    margin-bottom: 1em;
   }
 }
 
@@ -181,10 +188,10 @@ fieldset fieldset label {
 
 input,
 textarea {
-  padding: .5em;
+  padding: .5em .75em;
   background-color: #f9f9f9;
   border: 1px solid #A2A2A2;
-  max-width: 500px;
+  max-width: 560px;
 }
 
 input[type="radio"],
@@ -259,7 +266,7 @@ select:focus {
   outline: 3px solid #ffbf47; 
 }
 
-.extra-long { width: 97%; }
+.extra-long { width: 100%; }
 
 .long { width: $two-thirds; }
 
@@ -283,7 +290,7 @@ select:focus {
   .extra-long,
   .long,
   .medium {
-    width: 97%;
+    width: 100%;
   }
 }
 
@@ -292,22 +299,15 @@ select:focus {
 
 .file-upload {
   width: 100%;
-  max-width: 600px;
+  max-width: 560px;
+  background: $grey-4;
+  border-left: 4px solid $grey-3;
+  padding: 1em 0;
+  overflow: auto;
+  margin-bottom: .25em;
+  padding: 1em .75em;
   input[type="submit"] {
     float: right;
-  }
-  .field {
-    width: 95%;
-    background: $grey-4;
-    border-left: 4px solid $grey-3;
-    padding: 1em;
-    overflow: auto;
-    margin-bottom: .25em;
-  }
-  .hint {
-    margin: 0 0 .5em 0;
-    width: 100%;
-    float: left;
   }
   span {
     color: $grey-1;
@@ -315,12 +315,10 @@ select:focus {
   }
   p {
     float: left;
-    margin-bottom: 0;
   }
 }
 
 input[type="file"] {
-  width: 100%;
   border: 0;
   background: none;
   padding: 0;
