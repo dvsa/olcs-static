@@ -365,7 +365,7 @@ $gutter: 2.5%;
   &.disabled { padding-bottom: .75em; }
   &__header {
      padding: .8em 0 0 0;
-     overflow: auto;
+     overflow: hidden;
   }
   &__control {
     text-decoration: none;
