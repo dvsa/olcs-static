@@ -74,7 +74,6 @@ fieldset.actions-container {
   @include inline-block;
   @include border-radius(3px);
   @extend %paragraph--small;
-  float: left;
   border: none;
   margin: 0 .3em 0 0;
   padding: .3em .5em .1em .5em;
