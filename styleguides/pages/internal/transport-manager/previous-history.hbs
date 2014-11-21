@@ -1,16 +1,16 @@
 ---
 layout: transport-manager.hbs
 sectionTitle: TM details
-subSectionTitle: Convictions & penalties
+subSectionTitle: Previous history
 verticalNavItems:
   - label: Details
     link:  index.html
-  - label: Applications & licences
-    link: applications-licences.html  
+  - label: Responsibilities
+    link: responsibilities.html  
   - label: Other employment
     link: other-employment.html
-  - label: Convictions & penalties
-    link: convictions-penalties.html
+  - label: Previous history
+    link: previous-history.html
   - label: Competence
     link: competence.html
 table:
@@ -74,6 +74,9 @@ table:
 </div>
 
 <div class="three-fifths">
+  <div class="content__header">
+    <h3>Previous history</h3>
+  </div>
   {{#each table}}
     {{#is @index 0 }} 
       {{> _table }}

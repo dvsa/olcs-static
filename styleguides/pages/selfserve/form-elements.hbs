@@ -166,16 +166,33 @@ verticalNavItems:
           <label for="business"><input type="checkbox" id="business">Business opportunities</label>
         </div>
       </fieldset>
-    </fieldset><!-- end #about-you -->
+    </fieldset><!-- #about-you -->
 
-    <fieldset id="additional-information" class="highlight-box">
+    <fieldset id="additional-information">
       <legend>Additional information</legend>
-      <div class="field">
-        <p class="hint">Please provide additional information relating to any prior insolvency proceedings. You may also upload evidence such as legal documents.</p>
+      <p class="hint">Please provide additional information relating to any prior insolvency proceedings. You may also upload evidence such as legal documents.</p>
+      <div class="field">  
         <label for="additional-info" class="visually-hidden">Additional information</label>
         <textarea id="additional-info" class="extra-long" placeholder="Enter text here"></textarea>
       </div>
-    </fieldset>
+      <div class="field file-upload">
+        <input type="file" multiple>
+        <input type="submit" value="Upload" class="action--primary">
+      </div>
+    </fieldset><!-- .additional-information -->
+
+    <fieldset id="file-upload">
+      <legend>File upload</legend>
+      <p class="hint">Please upload any files which you feel may hep aid your application.</p>
+      <div class="field file-upload">
+        <p><a href="">council-tax-10-04-14.PDF</a> <span>(156KB)</span></p>
+        <input type="submit" value="remove" class="remove">
+      </div>
+      <div class="field file-upload">
+        <input type="file" multiple>
+        <input type="submit" value="Upload" class="action--primary">
+      </div>
+    </fieldset><!-- #file-upload -->
 
     <fieldset id="confirmation">
       <fieldset>
@@ -185,18 +202,6 @@ verticalNavItems:
         </div>
       </fieldset>
     </fieldset><!-- end #confirmation -->
-
-    <fieldset class="file-upload">
-      <legend>File upload</legend>
-      <div class="field">
-        <p><a href="">council-tax-10-04-14.PDF</a> <span>(156KB)</span></p>
-        <input type="submit" value="remove" class="remove">
-      </div>
-      <div class="field">
-        <input type="file" multiple>
-        <input type="submit" value="Upload" class="action--primary">
-      </div>
-    </fieldset><!-- end #file-upload -->
 
     <div class="actions-container">
       <input class="action--primary large" type="submit" value="Continue">

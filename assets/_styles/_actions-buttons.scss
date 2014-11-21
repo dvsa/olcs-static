@@ -9,8 +9,12 @@
   a, 
   input, 
   button {
-    margin-right: .25em;
+    margin-right: .3em;
   }
+}
+
+fieldset.actions-container {
+  margin-top: .5em;
 }
 
 @mixin action-colour ($colour: $button-colour) {
@@ -71,7 +75,7 @@
   @include border-radius(3px);
   @extend %paragraph--small;
   border: none;
-  margin: 0;
+  margin: 0 .3em 0 0;
   padding: .3em .5em .1em .5em;
   padding : .3em .5em .4em .5em\9;
   @if ($app == 'internal') {
@@ -104,7 +108,8 @@
 }
 
 input[type="submit"].action,
-.action {
+.action,
+.button.action {
   &--primary {
     @include action-colour();
     @extend %action-box;
@@ -120,8 +125,17 @@ input[type="submit"].action,
     }
   }
   &--tertiary {
+    background: none;
+    border: 0;
+    font-family: $NTA-Light;
+    font-size: 16px;
+    @extend a;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
     .actions-container & {
-      padding: .25em;
+      padding: 0 .25em;
       @if ($app == internal) {
         line-height: 1.8;
       } @else {
@@ -144,6 +158,8 @@ input[type="submit"].action,
 .action--warning.large {
   @extend %paragraph--large;
   .article & {
-    margin-top: 0.5em;
+    margin-top: .5em;
   }
 }
+
+
