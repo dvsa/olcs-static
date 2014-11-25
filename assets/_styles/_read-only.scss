@@ -4,7 +4,7 @@
   width: 100%;
   overflow: visible;
   float: left;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
   &__header {
     @extend %header-with-actions;
     border-bottom: 1px solid $grey-2;
@@ -71,10 +71,10 @@
     width: 47.5%;
   }
   dt { 
-    font-weight: 400; 
+    font-weight: 600; 
     color: #222;
   }
-  dd { font-weight: 600; }
+  dd { font-weight: 400; }
   .full-width {
     width: 100%;
     padding-top: 0;
