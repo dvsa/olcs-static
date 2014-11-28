@@ -19,34 +19,13 @@ OLCS.tableHandler = (function(document, $, undefined) {
 
   return function init(options) {
     var table = options.table;
-    var filter = options.filter || null;
     var container = options.container;
 
     var actionSelector = table + " .table__header [name=action]";
 
-    var linkSelector =
-      table + " .results-settings a, " +
-      table + " .sortable a, " +
-      table + " .pagination a";
-
     var buttonHandler;
 
     var F = OLCS.formHelper;
-
-    /**
-     * Pagination and sorting links
-     */
-    $(document).on("click", linkSelector, function clickHandler(e) {
-      e.preventDefault();
-
-      $.ajax({
-        url: $(this).attr("href"),
-        success: OLCS.responseFilter(filter, container),
-        complete: function() {
-          OLCS.eventEmitter.emit("update:" + container);
-        }
-      });
-    });
 
     /**
      * Form action links
