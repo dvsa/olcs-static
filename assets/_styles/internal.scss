@@ -476,7 +476,9 @@ td {
 .action--primary,
 input.action--primary,
 .action--secondary,
-input.action--secondary {
+input.action--secondary,
+.action--delete,
+input.action--delete {
   @include border-radius(2px);
   display: inline-block;
   width: auto;
@@ -556,6 +558,11 @@ input.action--primary {
 .action--secondary,
 input.action--secondary {
   @include actionColour(#222, $grey-2, #FCFCFC, #EEE, $grey-3, $grey-2, #FCFCFC, $grey-3);
+}
+
+.action--delete,
+input.action--delete {
+  @include actionColour($white, #990917, $red, #990917, #87000D, $red, #FCFCFC, $red);
 }
 
 .record-actions {
