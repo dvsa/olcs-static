@@ -31,12 +31,7 @@ OLCS.normaliseResponse = (function(window, undefined) {
         }
 
         if (body.length) {
-          var inner = body.find(".js-content--main");
-          if (inner.length) {
-            response.body = inner.html();
-          } else {
-            response.body = body.html();
-          }
+          response.body = body.html();
         }
 
       }

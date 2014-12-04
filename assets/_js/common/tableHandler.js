@@ -46,6 +46,13 @@ OLCS.tableHandler = (function(document, $, undefined) {
       OLCS.formAjax({
         form: form,
         success: OLCS.normaliseResponse(function(data) {
+
+          if (options.formFilter) {
+            data.body = $(data.body)
+              .find(options.formFilter)
+              .html();
+          }
+
           // assume that the the modal we get back has a form,
           // so invoke a wrapper component to bind a formHandler
           // and show the modal at the same time
