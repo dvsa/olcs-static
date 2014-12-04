@@ -14,6 +14,7 @@ $summary-background: #e6eff5;
     display: block;
     width: 100%;
     overflow: auto;
+    float: left;
     & + .table__header {
       margin-top: 2em;
     }

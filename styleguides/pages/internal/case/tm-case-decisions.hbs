@@ -1,16 +1,7 @@
 ---
+layout: tm-case.hbs
 sectionTitle: Processing
 subSectionTitle: Decisions
-layout: licence.hbs
-actions:
-  - label: New task
-    class: primary
-  - label: Edit
-    class: secondary disabled
-  - label: Close
-    class: secondary disabled
-  - label: Reassign
-    class: secondary disabled
 table:
   - title: <strong>4</strong> Decisions
     headers:
@@ -29,19 +20,53 @@ table:
       - Gillian Fogal
     rows: 4
     actions:
-    - label: Surrender
+    - label: Repute not lost
       class: secondary
-    - label: Curtail
+    - label: Declare unfit
       class: secondary
 verticalNavItems:
   - label: Decisions
-    link:  decisions.html
+    link:  
   - label: History
-    link:  history.html
+    link:  
   - label: Tasks
-    link:  tasks.html
+    link:
+    filterList:
+    - header: Team
+      type: dropdown
+      filters:
+        - All
+    - header: Owner
+      type: dropdown
+      filters:
+        - All
+    - header: Category
+      type: dropdown
+      filters:
+        - All
+    - header: All
+      type: dropdown
+      filters:
+        - All
+    - header: Date
+      type: dropdown
+      filters:
+        - Today
+        - This week
+        - This month
+        - All dates
+    - header: Status
+      type: dropdown
+      filters:
+        - All
+        - Open
+        - Closed
+    - header: 
+      type: checkboxes
+      filters:
+        - Urgent only
   - label: Notes
-    link:  notes.html
+    link: notes.html
 ---
 
 <div class="one-fifth--left">
@@ -56,6 +81,3 @@ verticalNavItems:
     {{/is }} 
   {{/each}}
 </div>
-
-
-

@@ -40,6 +40,7 @@ $app: internal;
 $assetPath: "../images";
 $primaryColour: $department-for-transport;
 $gutter: 1.25%;
+$grey-2: #D3D3D3;
 
 /* 1.1 Links
    ========================================================================== */
@@ -61,6 +62,7 @@ $gutter: 1.25%;
 
 #main {
   display: table;
+  position: relative;
   width: 100%;
   margin: 0 0 4em 0;
 }
@@ -586,6 +588,7 @@ input.action--delete {
    ========================================================================== */
 
 @import '_modals-messaging';
+
 
 .preloader {
   @include opacity(.5);
