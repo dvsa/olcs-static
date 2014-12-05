@@ -428,7 +428,9 @@ $grey-2: #CCC;
   }
 }
 
-table { border: 1px solid $grey-2; }
+table { 
+  border: 1px solid $grey-2; 
+}
 
 tfoot {
   background: $grey-4;
@@ -477,9 +479,7 @@ td {
 
 
 .actions-container {
-    select {
-      float: left;
-    }
+  select { float: left; }
 }
 
 .action--primary,
@@ -505,11 +505,21 @@ input.action--delete {
   &.large {
     font-weight: 600; 
     font-size: 17px;
+    padding: .5em .75em;
     .inline & {
       font-size: 15px;
       padding: 8px 12px;
     }
   }
+}
+
+.action--tertiary {
+  @extend a;
+  background: none;
+  border: 0;
+  font-family: $NTA-Light;
+  font-size: 16px; 
+  text-decoration: underline;
 }
 
 @mixin actionColour (

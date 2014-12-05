@@ -126,11 +126,11 @@ input[type="submit"].action,
     }
   }
   &--tertiary {
+    @extend a;
     background: none;
     border: 0;
     font-family: $NTA-Light;
-    font-size: 16px;
-    @extend a;
+    font-size: 16px; 
     text-decoration: underline;
     &:hover {
       text-decoration: none;
