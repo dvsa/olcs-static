@@ -43,6 +43,11 @@ input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
+input[type="hidden"] {
+  display: none;
+  height: 0;
+}
+
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
