@@ -1,0 +1,63 @@
+---
+sectionTitle: Processing
+subSectionTitle: Publications
+layout: case.hbs
+table:
+  - title: <strong>4</strong> Publications
+    headers:
+      - label: Publication No.
+        class: sortable descending
+      - label: Type
+        class: sortable
+      - label: Created
+        class: sortable descending
+      - label: Published
+        class: sortable descending
+      - label: Section
+        class: sortable
+      - label: Text
+        class: sortable
+      - label: <input type="checkbox">
+        class: not-sortable
+    columns:
+      - <a href="">2152</a><span class="status green">Status</span>
+      - Lorem ipsum
+      - 12/1/14
+      - 23/3/14
+      - Lorem ipsum
+      - Lorem ipsum sit dolor amet
+      - <input type="checkbox">
+    rows: 4
+    actions:
+    - label: Edit
+      class: secondary disabled
+    - label: Delete
+      class: secondary disabled
+verticalNavItems:
+  - label: Decisions
+    link:  decisions.html
+  - label: History
+    link:  history.html
+  - label: Publications
+    link:  history.html
+  - label: Tasks
+    link:  tasks.html
+  - label: Notes
+    link:  notes.html
+---
+
+<div class="one-fifth--left">
+  <h4>Processing</h4>
+  {{> _vertical-navigation }}
+</div>
+
+<div class="three-fifths">
+  {{#each table}}
+    {{#is @index 0 }} 
+      {{> _table }}
+    {{/is }} 
+  {{/each}}
+</div>
+
+
+

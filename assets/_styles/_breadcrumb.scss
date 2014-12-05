@@ -1,11 +1,14 @@
 .breadcrumbs {
   width: 70%;
   margin-bottom: 0;
-  overflow: auto;
+  overflow: visible;
   list-style: none;
   float: left;
   @if $app == 'selfserve' {
     margin: -2.5em 0 2.5em 0;
+    @media(max-width: 640px) {
+      margin-top: 0;
+    }
   }
   &__item {
     float: left;

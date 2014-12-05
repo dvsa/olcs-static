@@ -329,9 +329,9 @@ input[type="file"] {
    ========================================================================== */
 
 %validation-box {
-  padding: 1em 1em 0 1em;
+  padding: 1em 1em .5em 1em;
   margin: 0 0 1em -1em;
-  overflow: hidden;
+  overflow: visible;
   background: $warning-background;
   @media (max-width: 640px){
     margin-left: -1em;
@@ -357,6 +357,9 @@ input[type="file"] {
 .validation-wrapper {
   @extend %validation-box;
   border-left: 3px solid $mellow-red;
+  fieldset {
+    margin-bottom: 0;
+  }
   ul {
     list-style: none;
   }
@@ -365,6 +368,9 @@ input[type="file"] {
     display: block;
     margin-bottom: .5em;
     color: $mellow-red;
+  }
+  .active-result {
+    color: $black;
   }
 }
 

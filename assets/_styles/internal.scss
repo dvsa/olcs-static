@@ -40,6 +40,7 @@ $app: internal;
 $assetPath: "../images";
 $primaryColour: $department-for-transport;
 $gutter: 1.25%;
+$grey-2: #CCC;
 
 /* 1.1 Links
    ========================================================================== */
@@ -61,6 +62,7 @@ $gutter: 1.25%;
 
 #main {
   display: table;
+  position: relative;
   width: 100%;
   margin: 0 0 4em 0;
 }
@@ -426,7 +428,9 @@ $gutter: 1.25%;
   }
 }
 
-table { border: 1px solid $grey-2; }
+table { 
+  border: 1px solid $grey-2; 
+}
 
 tfoot {
   background: $grey-4;
@@ -473,10 +477,17 @@ td {
    9. Actions & buttons
    ========================================================================== */
 
+
+.actions-container {
+  select { float: left; }
+}
+
 .action--primary,
 input.action--primary,
 .action--secondary,
-input.action--secondary {
+input.action--secondary,
+.action--delete,
+input.action--delete {
   @include border-radius(2px);
   display: inline-block;
   width: auto;
@@ -494,11 +505,21 @@ input.action--secondary {
   &.large {
     font-weight: 600; 
     font-size: 17px;
+    padding: .5em .75em;
     .inline & {
       font-size: 15px;
       padding: 8px 12px;
     }
   }
+}
+
+.action--tertiary {
+  @extend a;
+  background: none;
+  border: 0;
+  font-family: $NTA-Light;
+  font-size: 16px; 
+  text-decoration: underline;
 }
 
 @mixin actionColour (
@@ -558,6 +579,11 @@ input.action--secondary {
   @include actionColour(#222, $grey-2, #FCFCFC, #EEE, $grey-3, $grey-2, #FCFCFC, $grey-3);
 }
 
+.action--delete,
+input.action--delete {
+  @include actionColour($white, #990917, $red, #990917, #87000D, $red, #FCFCFC, $red);
+}
+
 .record-actions {
   margin-top: .75em;
   display: block;
@@ -579,6 +605,7 @@ input.action--secondary {
    ========================================================================== */
 
 @import '_modals-messaging';
+
 
 .preloader {
   @include opacity(.5);
