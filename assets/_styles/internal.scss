@@ -40,7 +40,7 @@ $app: internal;
 $assetPath: "../images";
 $primaryColour: $department-for-transport;
 $gutter: 1.25%;
-$grey-2: #D3D3D3;
+$grey-2: #CCC;
 
 /* 1.1 Links
    ========================================================================== */
@@ -474,6 +474,13 @@ td {
 /* ==========================================================================
    9. Actions & buttons
    ========================================================================== */
+
+
+.actions-container {
+    select {
+      float: left;
+    }
+}
 
 .action--primary,
 input.action--primary,
