@@ -30,10 +30,7 @@ table {
   width: 100%;
   border-collapse: collapse; 
   border-bottom: 1px solid $grey-2;
-  margin-bottom: .75em;
-  fieldset & {
-    margin-bottom: 0;
-  }
+  margin-bottom: 1em;
   .summary & { margin-bottom: 0; }
   input[type="checkbox"],
   input[type="radio"] {

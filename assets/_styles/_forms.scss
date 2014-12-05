@@ -357,6 +357,9 @@ input[type="file"] {
 .validation-wrapper {
   @extend %validation-box;
   border-left: 3px solid $mellow-red;
+  fieldset {
+    margin-bottom: 0;
+  }
   ul {
     list-style: none;
   }
