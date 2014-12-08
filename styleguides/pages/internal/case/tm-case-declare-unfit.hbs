@@ -2,29 +2,31 @@
 layout: tm-case.hbs
 sectionTitle: Processing
 subSectionTitle: Decisions
-table:
-  - title: <strong>4</strong> Decisions
-    headers:
-      - label: Decision
-        class: sortable descending
-      - label: Reason
-        class: sortable descending
-      - label: Date
-        class: sortable
-      - label: Made by
-        class: sortable
-      - label: <input type="checkbox">
-        class: not-sortable
-    columns:
-      - Suspend licence
-      - Lorem ipsum sit dolor amet
-      - 15:27 04/06/13
-      - Gillian Fogal
-      - <input type="checkbox">
-    rows: 4
-    actions:
-    - label: Repute not lost
-      class: secondary
+read-only:
+  - title: Declare unfit
+    editable: true
+    type: fields
+    groups: 
+      - group:
+        - name: MSI
+          value: Yes
+        - name: Date of decision
+          value: 12/11/14
+        - name: Date of notification (to TM)
+          value: 12/11/14
+      - group: 
+        - name: Unfitness start date
+          value: 12/11/14
+        - name: Unfitness end date
+          value: 12/11/14
+      - group:
+        - name: Reason for unfitness
+          value: Lorem ipsum sit dolor amet, sit amet dolor ipsum, darem olr sit amet
+          class: full-width
+      - group:
+        - name: Rehabilitation measure
+          value: Lorem ipsum sit dolor amet, sit amet dolor ipsum, darem olr sit amet
+          class: full-width
 verticalNavItems:
   - label: Decisions
     link:  
@@ -76,12 +78,12 @@ verticalNavItems:
 </div>
 
 <div class="three-fifths">
-  <div class="empty__wrapper">
-    <h4 class="empty__title">Decisions</h4>
-    <div class="empty">
-      <p>This are currently no decisions against this case</p>
-      <a class="action--primary" href="">Repute not lost</a>
-      <a class="action--primary" href="">Declare unfit</a>
-    </div><!-- empty -->
-  </div><!-- empty__wrapper -->
+  <div class="content__header">
+    <h3>Decisions</h3>
+  </div>
+  {{#each read-only}}
+    {{#is @index 0 }} 
+      {{> _read-only }}
+    {{/is }} 
+  {{/each}}
 </div>
