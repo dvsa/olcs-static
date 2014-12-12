@@ -17,6 +17,7 @@ OLCS.normaliseResponse = (function(window, undefined) {
     // by an AJAX request or similar
     return function onResponse(response) {
       if (typeof response === "string") {
+
         var title = $(response).find(".js-title");
         var body  = $(response).find(".js-body");
 
@@ -31,7 +32,7 @@ OLCS.normaliseResponse = (function(window, undefined) {
         }
 
         if (body.length) {
-          var inner = body.find(".js-content--main");
+          var inner = body.find(".js-body__main");
           if (inner.length) {
             response.body = inner.html();
           } else {
