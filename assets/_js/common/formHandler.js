@@ -21,7 +21,13 @@ OLCS.formHandler = (function(document, $, undefined) {
   "use strict";
 
   return function init(options) {
+
     var selector = options.form;
+    var isModal = options.isModal || false;
+    var success = options.success || function() {
+      return OLCS.responseFilter(options.filter, options.container);
+    };
+
     var onChange = options.onChange !== undefined ? options.onChange : function() {
       $(this).submit();
     };
@@ -69,7 +75,7 @@ OLCS.formHandler = (function(document, $, undefined) {
 
       var form   = $(selector);
       var button = $(this);
-
+      
       F.pressButton(form, button);
 
       // don't interfere with a normal submit on a multipart form; remove
@@ -82,9 +88,11 @@ OLCS.formHandler = (function(document, $, undefined) {
       e.preventDefault();
 
       // make sure we don't try and submit cancel buttons
-      if (!F.buttonPressed(form, "[cancel]")) {
-        form.submit();
+      if (isModal && F.buttonPressed(form, "[cancel]")) {
+        return;
       }
+
+      form.submit();
     });
 
     /**
@@ -97,7 +105,7 @@ OLCS.formHandler = (function(document, $, undefined) {
 
       OLCS.formAjax({
         form: form,
-        success: OLCS.responseFilter(options.filter, options.container),
+        success: success,
         complete: function() {
           OLCS.eventEmitter.emit("update:" + options.container);
         }
