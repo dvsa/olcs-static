@@ -24,10 +24,8 @@ OLCS.formHandler = (function(document, $, undefined) {
 
     var selector = options.form;
     var isModal = options.isModal || false;
-    var success = options.success || function() {
-      return OLCS.responseFilter(options.filter, options.container);
-    };
-
+    var success = options.success || OLCS.responseFilter(options.filter, options.container);
+    
     var onChange = options.onChange !== undefined ? options.onChange : function() {
       $(this).submit();
     };
