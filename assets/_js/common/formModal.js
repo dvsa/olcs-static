@@ -13,6 +13,7 @@ OLCS.formModal = (function(document, $, undefined) {
     // and bind a form handler to it
     var handler = OLCS.formHandler({
       form: ".modal__content form",
+      isModal: true,
       container: ".modal__content",
       onChange: false
     });

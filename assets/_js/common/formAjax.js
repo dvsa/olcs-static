@@ -28,17 +28,23 @@ OLCS.formAjax = (function(document, $, undefined) {
     // @TODO this needs removing; formAjax shouldn't care about injecting
     // arbitrary form data - it should already be there if it needs to be
     var buttonClicked = $("button[type=submit][clicked=true]").attr('name');
+    
+    var enabledElements;
+
     if (buttonClicked != undefined) {
         data += '&buttonClicked=' + buttonClicked;
     }
 
     if (disableOnSubmit) {
-      form.find(":input").attr("disabled", true);
+      
+      enabledElements = form.find(":input").not(":disabled");
+      
+      enabledElements.attr("disabled", true);
     }
 
     function complete() {
       if (disableOnSubmit) {
-        form.find(":input").removeAttr("disabled");
+        enabledElements.removeAttr("disabled");
       }
 
       if (options.complete) {
