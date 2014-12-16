@@ -7,19 +7,30 @@ OLCS.normaliseResponse = (function(window, undefined) {
   // the return value is a simple function which takes
   // a callback; this callback will be invoked with the
   // normalised response...
-  return function init(callback) {
+  return function init(options) {
 
-    if (typeof callback !== "function") {
-      throw new Error("Please supply a callback function");
+    if (typeof options === "function") {
+      options = {
+        callback: options
+      };
     }
+
+    if (typeof options.callback !== "function") {
+      throw new Error("Please supply an options.callback function");
+    }
+
+    var callback        = options.callback;
+    var titleSelector   = options.title || ".js-title";
+    var bodySelector    = options.body || ".js-body";
+    var followRedirects = options.followRedirects || false;
 
     // ... the inner function will be invoked, we suppose,
     // by an AJAX request or similar
     return function onResponse(response) {
       if (typeof response === "string") {
 
-        var title = $(response).find(".js-title");
-        var body  = $(response).find(".js-body");
+        var title = $(response).find(titleSelector);
+        var body  = $(response).find(bodySelector);
 
         response = {
           status: 200,
@@ -44,7 +55,7 @@ OLCS.normaliseResponse = (function(window, undefined) {
 
       // we won't invoke the callback if the status
       // is a straightforward redirect
-      if (response.status === 302) {
+      if (response.status === 302 && followRedirects) {
         // manually invoke a preloader; just to make sure that while the page physically
         // performs the navigation we show it as 'loading'
         OLCS.preloader.show();
