@@ -22,6 +22,7 @@ OLCS.normaliseResponse = (function(window, undefined) {
     var callback        = options.callback;
     var titleSelector   = options.title || ".js-title";
     var bodySelector    = options.body || ".js-body";
+    var scriptSelector  = options.body || ".js-script";
     var followRedirects = options.followRedirects || false;
 
     // ... the inner function will be invoked, we suppose,
@@ -29,8 +30,9 @@ OLCS.normaliseResponse = (function(window, undefined) {
     return function onResponse(response) {
       if (typeof response === "string") {
 
-        var title = $(response).find(titleSelector);
-        var body  = $(response).find(bodySelector);
+        var title  = $(response).find(titleSelector);
+        var body   = $(response).find(bodySelector);
+        var script = $(response).find(scriptSelector);
 
         response = {
           status: 200,
@@ -51,6 +53,11 @@ OLCS.normaliseResponse = (function(window, undefined) {
           }
         }
 
+        // ensure scripts are injected too. If we want, we can
+        // add an options.disableScripts or whatever to ignore them
+        if (script.length) {
+          response.body += script.html();
+        }
       }
 
       // we won't invoke the callback if the status
