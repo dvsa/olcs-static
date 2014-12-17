@@ -14,30 +14,39 @@ OLCS.conditionalButton = (function(document, $, undefined) {
     var label           = options.label;
     var predicate       = options.predicate;
     var checkedSelector = options.checkedSelector || "input[name!='checkall']:checked";
+    var actionSelector  = ".actions-container button";
 
-    var actionSelector = selector + " .actions-container button";
+    function checkButton(context) {
+      var button;
+      var checkedInputs;
 
-    function checkButton() {
-      var editButton = $(actionSelector).filter("[value='" + label + "']");
-      if (editButton.length) {
-        var checkedInputs = $(selector).find(checkedSelector);
+      button = $(context).find(actionSelector).filter("[value='" + label + "']");
+
+      if (button.length) {
+        checkedInputs = $(context).find(checkedSelector);
 
         predicate(checkedInputs.length, function(disabled) {
           if (disabled) {
-            editButton.attr("disabled", true);
+            button.attr("disabled", true);
           } else {
-            editButton.removeAttr("disabled");
+            button.removeAttr("disabled");
           }
         });
       }
     }
 
-    $(document).on("change", selector, checkButton);
+    $(document).on("change", selector, function() {
+      checkButton(this);
+    });
 
-    checkButton();
+    function checkAll() {
+      $(selector).change();
+    }
+
+    checkAll();
 
     return {
-      check: checkButton
+      check: checkAll
     };
   };
 
