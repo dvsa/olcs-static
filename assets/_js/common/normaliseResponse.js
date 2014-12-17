@@ -23,7 +23,7 @@ OLCS.normaliseResponse = (function(window, undefined) {
     var titleSelector   = options.title || ".js-title";
     var bodySelector    = options.body || ".js-body";
     var scriptSelector  = options.body || ".js-script";
-    var followRedirects = options.followRedirects || false;
+    var followRedirects = options.followRedirects !== undefined ? options.followRedirects : true;
 
     // ... the inner function will be invoked, we suppose,
     // by an AJAX request or similar
