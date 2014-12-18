@@ -26,6 +26,8 @@ OLCS.modal = (function(document, $, undefined) {
   var header   = '.modal__title';
   var content  = '.modal__content';
 
+  var closeSelectors = selector + '__close, ' + content + ' #cancel';
+
   var template = [
     '<div class="overlay" style="display:none;"></div>',
     '<div class="modal__wrapper" style="display:none;">',
@@ -43,8 +45,6 @@ OLCS.modal = (function(document, $, undefined) {
    * public interface
    */
   exports.show = function(body, title) {
-    var closeSelectors = selector + '__close, ' + content + ' #cancel';
-
     if ($('body').find(wrapper).length === 0) {
       $('body').prepend(template);
     }
@@ -72,7 +72,7 @@ OLCS.modal = (function(document, $, undefined) {
   };
 
   exports.hide = function() {
-    $(document).off('click', selector + '__close');
+    $(document).off('click', closeSelectors);
     $(wrapper).hide();
     $(wrapper).prev().hide();
 
