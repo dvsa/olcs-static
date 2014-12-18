@@ -11,7 +11,6 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
 
     var tableSelector      = "form [data-group*='table']";
     var crudActionSelector = ".table__header button, .table__wrapper input[type=submit]";
-    var csrfSelector       = ".js-csrf-token";
     var modalBodySelector  = ".modal__content";
     var mainBodySelector   = ".js-body";
 
@@ -38,11 +37,14 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
     var F = OLCS.formHelper;
 
     /**
-     * Helper to reload the parent window behind the modal; needs to be
-     * declared so it can be called from a couple of different places
+     * Helper to reload the parent window behind the modal
      */
     function reloadParent() {
+
+      // the fact we reload the entire main body means we lose our
+      // scroll position; so cache it and re-apply it immediately after render
       var scrollTop = $(window).scrollTop();
+
       $.get(window.location.href, OLCS.normaliseResponse(function(response) {
         F.render(mainBodySelector, response.body);
         $(window).scrollTop(scrollTop);
@@ -79,10 +81,6 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
         };
 
         OLCS.formModal($.extend(data, options));
-
-        form.find(csrfSelector).val(
-          $(modalBodySelector).find(csrfSelector).val()
-        );
       }
 
       /**
@@ -127,12 +125,31 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
       });
     });
 
+    /**
+     * Make sure any time the parent page is re-rendered we give our conditional
+     * buttons a kick and we re-bind any one-off form initialisation
+     */
     OLCS.eventEmitter.on("render", function() {
       editButton.check();
       deleteButton.check();
       OLCS.formInit();
     });
 
+    /**
+     * Reload the parent page every time a modal is hidden. By and large this
+     * works well and means our parent page is always fresh (CSRF, version numbers etc).
+     * The only downside is that a user can close the modal without any interaction and
+     * still trigger a spinner and a refresh which might confuse them. However, it's
+     * still necessary because they've actually POSTed the original form and possibly
+     * updated the version, so if they try and view another modal they'll get a version conflict
+     *
+     * We could 'optimistically' reload the parent as soon as the modal is rendered, but
+     * you'd end up with a spinner on top of an otherwise ready modal form, and you'd
+     * still have to update the parent if the user added / edited something in the modal
+     * since the underlying table would need an update. This will do for now
+     * and at least means the reload only happens once, and always at the same point in
+     * the flow
+     */
     OLCS.eventEmitter.on("hide:modal", reloadParent);
   };
 
