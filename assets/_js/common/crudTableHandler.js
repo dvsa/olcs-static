@@ -93,15 +93,21 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
        */
       function handleCrudResponse(response) {
         if (response.status === 200) {
+
           // always render; could be a clean form (if we clicked add another),
           // could be riddled with errors
-          F.render(modalBodySelector, response.body);
 
           if (F.containsErrors(response.body)) {
+            F.render(
+              modalBodySelector,
+              F.stripErrorSummary(response.body)
+            );
             // if we have errors then there's no need to go any further; there's
             // no chance we need to refresh our parent page
             return;
           }
+
+          F.render(modalBodySelector, response.body);
         }
 
         // if the original response was a redirect then be sure to respect
@@ -113,13 +119,18 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
         // @TODO slightly awkward experience when the user has clicked
         // 'add another', since they can see a clean modal with a success flash
         // message but they also have a spinner because we're re-rendering
-        // the parent page.
+        // the parent page. Also happens on any inline submissions
+        // like postcode lookup
         // We could be smarter and only F.render in these situations after
         // reloading.
         // Also, we might want to not hide the modal until after the reload either,
         // although that would be inconsistent with how things work if the user
         // clicks cancel/close; since that *has* to close the modal before
         // reloading
+        //
+        // Starting to think we should just only reload once, when the modal is
+        // dismissed. Very consistent, no un-necessary reloads, only triggered
+        // by one consistent handler (modal hide)
 
         reloadParent();
       }

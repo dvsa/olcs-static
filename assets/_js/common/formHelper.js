@@ -78,9 +78,20 @@ OLCS.formHelper = (function(document, $, undefined) {
   };
 
   exports.clearErrors = function(context) {
+    // context can be null, hence why we don't use $(context).find()
     $(".validation-summary", context).remove();
     $(".validation-wrapper ul:first", context).remove();
     $(".validation-wrapper", context).removeClass("validation-wrapper");
+  };
+
+  exports.stripErrorSummary = function(payload) {
+    if (typeof payload === "string") {
+      payload = $("<div>" + payload + "</div>");
+    }
+
+    payload.find(".validation-summary").remove();
+
+    return payload;
   };
 
   exports.render = function(container, body) {
