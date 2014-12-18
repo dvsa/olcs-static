@@ -25,10 +25,10 @@ OLCS.formAjax = (function(document, $, undefined) {
 
     // we might have more than one submit button in form so
     // we need to send button name to the server
-    // @TODO this needs removing; formAjax shouldn't care about injecting
+    // @FIXME this needs removing; formAjax shouldn't care about injecting
     // arbitrary form data - it should already be there if it needs to be
     var buttonClicked = $("button[type=submit][clicked=true]").attr('name');
-    
+
     var enabledElements;
 
     if (buttonClicked != undefined) {
@@ -36,9 +36,7 @@ OLCS.formAjax = (function(document, $, undefined) {
     }
 
     if (disableOnSubmit) {
-      
       enabledElements = form.find(":input").not(":disabled");
-      
       enabledElements.attr("disabled", true);
     }
 
