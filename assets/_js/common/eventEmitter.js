@@ -40,12 +40,6 @@ OLCS.eventEmitter = (function(document, $, undefined) {
       });
     },
 
-    /*
-    off: function(event) {
-      exports.listeners[event] = [];
-    },
-    */
-
     emit: function(event, args) {
       if (!exports.listeners[event]) {
         return;

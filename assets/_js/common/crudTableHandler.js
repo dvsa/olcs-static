@@ -43,8 +43,8 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
      */
     function reloadParent() {
       var scrollTop = $(window).scrollTop();
-      $.get(window.location.href, OLCS.normaliseResponse(function(inner) {
-        F.render(mainBodySelector, inner.body);
+      $.get(window.location.href, OLCS.normaliseResponse(function(response) {
+        F.render(mainBodySelector, response.body);
         $(window).scrollTop(scrollTop);
       }));
     }
