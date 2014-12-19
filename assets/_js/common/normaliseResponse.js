@@ -74,7 +74,9 @@ OLCS.normaliseResponse = (function(window, undefined) {
       }
 
       // otherwise start to inspect the response for any things of interest
-      response.hasErrors = OLCS.formHelper.containsErrors(response.body);
+      if (response.body) {
+        response.hasErrors = OLCS.formHelper.containsErrors(response.body);
+      }
 
       // response.errors = OLCS.formHelper.extractErrors(response.body)
 
