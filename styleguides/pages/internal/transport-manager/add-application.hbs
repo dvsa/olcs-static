@@ -20,59 +20,13 @@ form:
         - label: Application ID
           type: text
           class: medium
-        - label: Status
-          type: radios
-          values: 
-            - Complete
-            - Requires approval
-            - Incomplete
-        - label: Which operating centre(s) will you be responsible for?
-          type: multi select
-          placholder: Choose operating centre(s)
-          values:
-            - 124 Eleanor Grove, Baschurch
-            - Unit 4, Battelfields Industrial Estate, Shrewsbury
-            - 240 Timmuses Drive, Yeaton   
-        - label: What type of manager will you be for this licence?
-          type: radios inline
-          values:
-            - Internal 
-            - External 
-    - legend: Hours per week
-      fields: 
-        - label: How many houurs will you spend on your Transport Manager duties?
-          type: hours-per-week
-table:
-  - title: <strong>Other licences</strong>
-    headers:
-      - label: Licence No.
-        class: sortable
-      - label: No. of operating centres
-        class: sortable
-      - label: Type
-        class: sortable
-      - label: Total vehicle auth.
-        class: sortable
-      - label: Hours per week
-        class: sortable
-      - label: <input type="checkbox">
-        class: non-sortable
-    columns:
-      - <a href="">OB162527</a>
-      - 2
-      - Licence holder
-      - 12
-      - 86
-      - <input type="checkbox">
-    rows: 2
     actions:
-      - label: Add
-        class: primary
-        link: add-other-licence.html
-      - label: Edit
-        class: secondary
-      - label: Remove
-        class: secondary
+      - label: Continue
+        class: primary large
+        link: add-application-2.html
+      - label: Cancel
+        class: secondary large
+        link: responsibilities.html
 
 ---
 
@@ -86,21 +40,5 @@ table:
     <h3>Add application</h3>
   </div>
   {{#each form }}{{> _forms }}{{/each }}
-  {{#each table}}
-    {{#is @index 0 }} 
-      {{> _table }}
-    {{/is }} 
-  {{/each}}
-   <fieldset>
-    <legend>Additional information</legend>
-      <div class="field">
-        <label>Please provide any additional information that could support your applicationas a transport manager</label>
-        <textarea class="extra-long" placeholder=""></textarea>
-      </div>  
-    </fieldset>
-  <div class="actions-container">
-    <a class="action--primary large" href="">Save</a>
-    <a class="action--secondary large" href="">Print</a>
-    <a class="action--secondary large" href="">Cancel</a>
-  </div>
+
 </div>

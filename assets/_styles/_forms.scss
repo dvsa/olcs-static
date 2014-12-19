@@ -336,7 +336,7 @@ input[type="file"] {
 %validation-box {
   padding: 1em 1em .5em 1em;
   margin: 0 0 1em -1em;
-  overflow: visible;
+  overflow: auto;
   background: $warning-background;
   @media (max-width: 640px){
     margin-left: -1em;
