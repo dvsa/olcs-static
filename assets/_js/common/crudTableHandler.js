@@ -13,6 +13,7 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
     var crudActionSelector = ".table__header button, .table__wrapper input[type=submit]";
     var modalBodySelector  = ".modal__content";
     var mainBodySelector   = ".js-body";
+    var modalWrapper       = ".modal__wrapper";
 
     /**
      * Always bind some generic edit and delete buttons as they're
@@ -102,8 +103,11 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
           if (response.hasErrors) {
             F.render(
               modalBodySelector,
-              F.stripErrorSummary(response.body)
+              response.body
             );
+            // After a bit of testing it was decided to re-scroll the modal
+            // to the top in the event of errors
+            $(modalWrapper).scrollTop(0);
             // if we have errors then there's no need to go any further; there's
             // no chance we need to refresh our parent page
             return;
