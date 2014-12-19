@@ -71,6 +71,10 @@ OLCS.modal = (function(document, $, undefined) {
       exports.hide();
       OLCS.eventEmitter.emit('close:modal');
     });
+
+    // if we've previously opened a modal and scrolled it our modal wrapper
+    // needs resetting
+    $(wrapper).scrollTop(0);
   };
 
   exports.hide = function() {
