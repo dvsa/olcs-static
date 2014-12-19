@@ -67,6 +67,38 @@ OLCS.formHelper = (function(document, $, undefined) {
     .val() === value;
   };
 
+  exports.containsErrors = function(payload) {
+    if (typeof payload === "string") {
+      // assume the payload needs a container if it's just a string
+      payload = $("<div>" + payload + "</div>");
+    }
+
+    return payload.find(".validation-summary").length > 0 ||
+      payload.find(".validation-wrapper").length > 0;
+  };
+
+  exports.clearErrors = function(context) {
+    // context can be null, hence why we don't use $(context).find()
+    $(".validation-summary", context).remove();
+    $(".validation-wrapper ul:first", context).remove();
+    $(".validation-wrapper", context).removeClass("validation-wrapper");
+  };
+
+  exports.stripErrorSummary = function(payload) {
+    if (typeof payload === "string") {
+      payload = $("<div>" + payload + "</div>");
+    }
+
+    payload.find(".validation-summary").remove();
+
+    return payload;
+  };
+
+  exports.render = function(container, body) {
+    $(container).html(body);
+    OLCS.eventEmitter.emit("render");
+  };
+
   return exports;
 
 }(document, window.jQuery));

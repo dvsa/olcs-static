@@ -26,6 +26,8 @@ OLCS.modal = (function(document, $, undefined) {
   var header   = '.modal__title';
   var content  = '.modal__content';
 
+  var closeSelectors = selector + '__close, ' + content + ' #cancel';
+
   var template = [
     '<div class="overlay" style="display:none;"></div>',
     '<div class="modal__wrapper" style="display:none;">',
@@ -43,8 +45,6 @@ OLCS.modal = (function(document, $, undefined) {
    * public interface
    */
   exports.show = function(body, title) {
-    var closeSelectors = selector + '__close, ' + content + ' #cancel';
-
     if ($('body').find(wrapper).length === 0) {
       $('body').prepend(template);
     }
@@ -56,7 +56,7 @@ OLCS.modal = (function(document, $, undefined) {
     $(wrapper).show();
 
     // adding attribute to the button so later we can find which submit button was clicked
-    // @TODO rework, don't want to add arbitrary attributes; instead this should be
+    // @FIXME rework, don't want to add arbitrary attributes; instead this should be
     // injecting a param into the form; see tableHandler and formHandler for
     // examples
     $(":button").click(function() {
@@ -67,11 +67,12 @@ OLCS.modal = (function(document, $, undefined) {
     $(document).on('click', closeSelectors, function(e) {
       e.preventDefault();
       exports.hide();
+      OLCS.eventEmitter.emit('close:modal');
     });
   };
 
   exports.hide = function() {
-    $(document).off('click', selector + '__close');
+    $(document).off('click', closeSelectors);
     $(wrapper).hide();
     $(wrapper).prev().hide();
 

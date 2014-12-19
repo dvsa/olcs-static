@@ -251,3 +251,27 @@ input[type="submit"].remove {
   }
 }
 
+.preloader {
+  @include opacity(.5);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: -144px;
+  background: #FFF;
+  z-index: 20;
+  &__icon {
+    height: 30px;
+    width: 30px;
+    position: fixed;
+    left: 49%;
+    top: 52%;
+    z-index: 30;
+    background: url('../images/preloader.gif') no-repeat 0 0;
+    @include device-pixel-ratio($ratio: 2) {
+      background-image: url('../images/preloader-2x.gif');
+      background-size: 30px 30px;
+    }
+  }
+}
