@@ -40,14 +40,19 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
      * Helper to reload the parent window behind the modal
      */
     function reloadParent() {
+      $.get(window.location.href, OLCS.normaliseResponse(function(response) {
+        renderParent(mainBodySelector, response.body);
+      }));
+    }
 
-      // the fact we reload the entire main body means we lose our
+    function renderParent(container, content) {
+      // the fact we redraw the entire main body means we lose our
       // scroll position; so cache it and re-apply it immediately after render
       var scrollTop = $(window).scrollTop();
-      $.get(window.location.href, OLCS.normaliseResponse(function(response) {
-        F.render(mainBodySelector, response.body);
-        $(window).scrollTop(scrollTop);
-      }));
+
+      F.render(container, content);
+
+      $(window).scrollTop(scrollTop);
     }
 
     $(document).on("click", crudActionSelector, function handleCrudClick(e) {
@@ -66,7 +71,7 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
       function handleCrudAction(data) {
         // if we find any errors, completely re-render our main body
         if (F.containsErrors(data.body)) {
-          return F.render(mainBodySelector, data.body);
+          return renderParent(mainBodySelector, data.body);
         }
 
         // otherwise clear any we might have had previouosly
