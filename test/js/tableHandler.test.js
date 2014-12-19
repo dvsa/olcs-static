@@ -43,6 +43,12 @@ describe("OLCS.tableHandler", function() {
 
     describe("when initialised with valid options", function() {
       beforeEach(function() {
+        this.conditionalButton = sinon
+        .stub(OLCS, "conditionalButton")
+        .returns({
+          check: sinon.spy()
+        });
+
         this.options = {
           table: "#stub",
           container: "#stub"
@@ -51,6 +57,7 @@ describe("OLCS.tableHandler", function() {
       });
 
       afterEach(function() {
+        this.conditionalButton.restore();
         $(document).off("click");
       });
 
