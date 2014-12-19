@@ -21,10 +21,11 @@ OLCS.modal = (function(document, $, undefined) {
   /**
    * private interface
    */
-  var selector = '.modal';
-  var wrapper  = '.modal__wrapper';
-  var header   = '.modal__title';
-  var content  = '.modal__content';
+  var selector  = '.modal';
+  var wrapper   = '.modal__wrapper';
+  var header    = '.modal__title';
+  var content   = '.modal__content';
+  var bodyClass = 'disable-scroll';
 
   var closeSelectors = selector + '__close, ' + content + ' #cancel';
 
@@ -52,6 +53,7 @@ OLCS.modal = (function(document, $, undefined) {
     $(header).html(title || '');
     $(content).html(body);
 
+    $('body').addClass(bodyClass);
     $(wrapper).prev().show();
     $(wrapper).show();
 
@@ -73,6 +75,8 @@ OLCS.modal = (function(document, $, undefined) {
 
   exports.hide = function() {
     $(document).off('click', closeSelectors);
+
+    $('body').removeClass(bodyClass);
     $(wrapper).hide();
     $(wrapper).prev().hide();
 
