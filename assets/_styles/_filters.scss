@@ -5,18 +5,21 @@
   float: none;
   overflow: auto;
   font-weight: 400;
+ .vertical-navigation &,
+ .app-navigation & {
+    border-top: 3px solid $primaryColour;
+    padding-top: .75em;
+    form { margin: 0; }
+  }
   .field {
     border-bottom: 1px solid $grey-2;
     padding-bottom: 1em;
     background: none !important;
-    &:last-child {
-      border-bottom: 4px solid red;
-    }
+    &:last-child { border-bottom: 4px solid red; }
   }
-  select {
-    width: 100%;
-  } 
+  select { width: 100%; } 
 }
+
 
 .filter-group {
   list-style: none;
@@ -36,16 +39,5 @@
     @if ($app == 'internal') {
       @extend %paragraph--tiny;
     }
-  }
-}
-
-.vertical-navigation,
-.app-navigation {
-  .filters {
-    border-top: 3px solid $primaryColour;
-    padding-top: .75em;
-  }
-  form {
-    margin: 0;
   }
 }

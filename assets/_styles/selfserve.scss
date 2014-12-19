@@ -166,7 +166,8 @@ $gutter: 2.5%;
 
 .proposition {
   float: left;
-  margin-left: 200px;
+  overflow: auto;
+  margin-left: 140px;
   &__title {
     float: left;
     font-size: 24px;
@@ -180,7 +181,7 @@ $gutter: 2.5%;
     float: left;
     font-size: 16px;
     font-weight: 600;
-    margin: 0 .5em 4px 0;
+    margin: 0 1em 4px 0;
   }
   a {
     color: #FFF;
