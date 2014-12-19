@@ -68,10 +68,10 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
        * of a proper JSON payload or a better status code, it's our only
        * choice
        */
-      function handleCrudAction(data) {
+      function handleCrudAction(response) {
         // if we find any errors, completely re-render our main body
-        if (F.containsErrors(data.body)) {
-          return renderParent(mainBodySelector, data.body);
+        if (response.hasErrors) {
+          return renderParent(mainBodySelector, response.body);
         }
 
         // otherwise clear any we might have had previouosly
@@ -84,7 +84,7 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
           })
         };
 
-        OLCS.formModal($.extend(data, options));
+        OLCS.formModal($.extend(response, options));
       }
 
       /**
