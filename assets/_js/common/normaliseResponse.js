@@ -37,7 +37,10 @@ OLCS.normaliseResponse = (function(window, undefined) {
         response = {
           status: 200,
           title: "",
-          body: response
+          body: response,
+          // @TODO populate actual array of errors too
+          //errors: [],
+          hasErrors: false
         };
 
         if (title.length) {
@@ -70,8 +73,13 @@ OLCS.normaliseResponse = (function(window, undefined) {
         return;
       }
 
-      // otherwise simply invoke the callback with the
-      // nice response object
+      // otherwise start to inspect the response for any things of interest
+      response.hasErrors = OLCS.formHelper.containsErrors(response.body);
+
+      // response.errors = OLCS.formHelper.extractErrors(response.body)
+
+      // by the time we get here we've got a nice consistent response, whatever
+      // we got back from the backend
       return callback(response);
     };
   };

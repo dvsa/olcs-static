@@ -44,7 +44,6 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
       // the fact we reload the entire main body means we lose our
       // scroll position; so cache it and re-apply it immediately after render
       var scrollTop = $(window).scrollTop();
-
       $.get(window.location.href, OLCS.normaliseResponse(function(response) {
         F.render(mainBodySelector, response.body);
         $(window).scrollTop(scrollTop);
@@ -95,7 +94,7 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
           // always render; could be a clean form (if we clicked add another),
           // could be riddled with errors
 
-          if (F.containsErrors(response.body)) {
+          if (response.hasErrors) {
             F.render(
               modalBodySelector,
               F.stripErrorSummary(response.body)
