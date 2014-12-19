@@ -7,7 +7,7 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
 
   "use strict";
 
-  return function init(options) {
+  return function init() {
 
     var tableSelector      = "form [data-group*='table']";
     var crudActionSelector = ".table__header button, .table__wrapper input[type=submit]";
