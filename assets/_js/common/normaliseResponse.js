@@ -40,7 +40,8 @@ OLCS.normaliseResponse = (function(window, undefined) {
           body: response,
           // @TODO populate actual array of errors too
           //errors: [],
-          hasErrors: false
+          hasErrors: false,
+          hasWarnings: false
         };
 
         if (title.length) {
@@ -77,6 +78,7 @@ OLCS.normaliseResponse = (function(window, undefined) {
       if (response.body) {
         response.hasErrors = OLCS.formHelper.containsErrors(response.body);
         // response.errors = OLCS.formHelper.extractErrors(response.body)
+        response.hasWarnings = OLCS.formHelper.containsWarnings(response.body);
       }
 
       // by the time we get here we've got a nice consistent response, whatever

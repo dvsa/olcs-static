@@ -70,8 +70,9 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
        * choice
        */
       function handleCrudAction(response) {
-        // if we find any errors, completely re-render our main body
-        if (response.hasErrors) {
+        // if we find any errors or flash warnings, completely
+        // re-render our main body
+        if (response.hasErrors || response.hasWarnings) {
           return renderParent(mainBodySelector, response.body);
         }
 
@@ -95,31 +96,24 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
        * we need
        */
       function handleCrudResponse(response) {
-        if (response.status === 200) {
-
-          // always render; could be a clean form (if we clicked add another),
-          // could be riddled with errors
-
-          if (response.hasErrors) {
-            F.render(
-              modalBodySelector,
-              response.body
-            );
-            // After a bit of testing it was decided to re-scroll the modal
-            // to the top in the event of errors
-            $(modalWrapper).scrollTop(0);
-            // if we have errors then there's no need to go any further; there's
-            // no chance we need to refresh our parent page
-            return;
-          }
-
-          F.render(modalBodySelector, response.body);
-        }
 
         // if the original response was a redirect then be sure to respect
         // that by closing the modal
         if (response.status === 302) {
-          OLCS.modal.hide();
+          return OLCS.modal.hide();
+        }
+
+        if (response.status === 200) {
+
+          // always render; could be a clean form (if we clicked add another),
+          // could be riddled with errors
+          F.render(modalBodySelector, response.body);
+
+          if (response.hasErrors) {
+            // after a bit of manual testing it was decided to re-scroll the
+            // modal to the top in the event of errors
+            $(modalWrapper).scrollTop(0);
+          }
         }
       }
 
