@@ -31,7 +31,7 @@ OLCS.conditionalButton = (function(document, $, undefined) {
           } else {
             button.removeAttr("disabled");
           }
-        });
+        }, checkedInputs);
       }
     }
 
@@ -44,6 +44,11 @@ OLCS.conditionalButton = (function(document, $, undefined) {
     }
 
     checkAll();
+    
+    /**
+     * Make sure any time the parent page is re-rendered we give our conditional buttons a kick
+     */
+    OLCS.eventEmitter.on("render", checkAll);
 
     return {
       check: checkAll

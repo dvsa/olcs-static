@@ -9,31 +9,10 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
 
   return function init() {
 
-    var tableSelector      = "form [data-group*='table']";
     var crudActionSelector = ".table__header button, .table__wrapper input[type=submit]";
     var modalBodySelector  = ".modal__content";
     var mainBodySelector   = ".js-body";
     var modalWrapper       = ".modal__wrapper";
-
-    /**
-     * Always bind some generic edit and delete buttons as they're
-     * common across most (all?) CRUD forms
-     */
-    var editButton = OLCS.conditionalButton({
-      container: tableSelector,
-      label: "Edit",
-      predicate: function (length, callback) {
-        callback(length !== 1);
-      }
-    });
-
-    var deleteButton = OLCS.conditionalButton({
-      container: tableSelector,
-      label: "Delete",
-      predicate: function (length, callback) {
-        callback(length < 1);
-      }
-    });
 
     var F = OLCS.formHelper;
 
@@ -134,14 +113,9 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
     });
 
     /**
-     * Make sure any time the parent page is re-rendered we give our conditional
-     * buttons a kick and we re-bind any one-off form initialisation
+     * Make sure any time the parent page is re-rendered we re-bind any one-off form initialisation
      */
-    OLCS.eventEmitter.on("render", function() {
-      editButton.check();
-      deleteButton.check();
-      OLCS.formInit();
-    });
+    OLCS.eventEmitter.on("render", OLCS.formInit);
 
     /**
      * Reload the parent page every time a modal is hidden. By and large this
