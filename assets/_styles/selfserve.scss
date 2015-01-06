@@ -462,28 +462,11 @@ $gutter: 2.5%;
    11. Read only lists
    ========================================================================== */
 
-dl {
-  border-top: 1px solid $grey-2;
-  margin-bottom: 2.5em;
-  overflow: auto;
-}
+@import '_read-only';
 
-dt, dd {
-  float: left;
-  border-bottom: 1px solid $grey-2;
-  margin: 0;
-  padding: .5em 0;
-}
-
-dt {
-  width: 40%;
-  font-weight: 400;
-}
-
-dd {
-  width: 60%;
-  font-weight: 700;
-}
+  dd { 
+    font-weight: 600; 
+  }
 
 /* ==========================================================================
    12. Status

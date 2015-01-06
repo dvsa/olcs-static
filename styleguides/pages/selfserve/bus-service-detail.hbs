@@ -1,0 +1,49 @@
+---
+title: Bus service details
+subtitle: Operator Licensing Ltd.
+layout: bus-regs-base.hbs
+breadcrumbs: 
+  - link: licences.html
+    label: Home
+  - link: bus-services.html
+    label: Bus services
+read-only:
+  - title:
+    editable: false
+    type: fields
+    groups: 
+    - group:
+      - name: Registration No.
+        value: 1242534 <span class="status green">Registered</span>
+      - name: Variation
+        value: 3
+    - group: 
+      - name: Service No.
+        value: 576, 570
+      - name: Submitted
+        value: 30 May 2013
+    - group: 
+      - name: Official VOSA record
+        value: Yes
+      - name: Route track map
+        value: Yes
+      - name: Submitted file
+        value: Yes
+      - name: Refresh
+        value: No
+      - name: Read
+        value: Yes
+---
+
+<div class="notice-container">  
+  <div class="notice--success">
+    <p>You successfully added a new operating centre</p>
+  </div>
+</div><!-- end .notice-container -->
+
+<div class="three-quarters">
+
+   {{#each read-only }}{{> _read-only }}{{/each }}
+
+</div><!-- end .two-thirds -->
+
