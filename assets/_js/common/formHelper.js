@@ -11,6 +11,13 @@ OLCS.formHelper = (function(document, $, undefined) {
    */
   var formClickAction = "form__action";
 
+  var errorSelectors = [
+    ".validation-summary",
+    ".validation-wrapper"
+  ];
+
+  var warningSelector = ".notice--warning";
+
   /**
    * Expose a jQuery-esque function which tries to work
    * out which actual public property to invoke purely
@@ -65,6 +72,41 @@ OLCS.formHelper = (function(document, $, undefined) {
     return exports.input(fieldset, name)
     .filter(":checked")
     .val() === value;
+  };
+
+  exports.containsErrors = function(payload) {
+    for (var i = 0, j = errorSelectors.length; i < j; i++) {
+      if (exports.containsElement(payload, errorSelectors[i])) {
+        return true;
+      }
+    }
+
+    return false;
+  };
+
+  exports.containsWarnings = function(payload) {
+    return exports.containsElement(payload, warningSelector);
+  };
+
+  exports.containsElement = function(payload, selector) {
+    if (typeof payload === "string") {
+      // assume the payload needs a container if it's just a string
+      payload = $("<div>" + payload + "</div>");
+    }
+
+    return payload.find(selector).length > 0;
+  };
+
+  exports.clearErrors = function(context) {
+    // context can be null, hence why we don't use $(context).find()
+    $(".validation-summary", context).remove();
+    $(".validation-wrapper ul:first-child", context).remove();
+    $(".validation-wrapper", context).removeClass("validation-wrapper");
+  };
+
+  exports.render = function(container, body) {
+    $(container).html(body);
+    OLCS.eventEmitter.emit("render");
   };
 
   return exports;

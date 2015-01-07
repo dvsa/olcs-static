@@ -21,10 +21,13 @@ OLCS.modal = (function(document, $, undefined) {
   /**
    * private interface
    */
-  var selector = '.modal';
-  var wrapper  = '.modal__wrapper';
-  var header   = '.modal__title';
-  var content  = '.modal__content';
+  var selector  = '.modal';
+  var wrapper   = '.modal__wrapper';
+  var header    = '.modal__title';
+  var content   = '.modal__content';
+  var bodyClass = 'disable-scroll';
+
+  var closeSelectors = selector + '__close, ' + content + ' #cancel';
 
   var template = [
     '<div class="overlay" style="display:none;"></div>',
@@ -43,8 +46,6 @@ OLCS.modal = (function(document, $, undefined) {
    * public interface
    */
   exports.show = function(body, title) {
-    var closeSelectors = selector + '__close, ' + content + ' #cancel';
-
     if ($('body').find(wrapper).length === 0) {
       $('body').prepend(template);
     }
@@ -52,11 +53,12 @@ OLCS.modal = (function(document, $, undefined) {
     $(header).html(title || '');
     $(content).html(body);
 
+    $('body').addClass(bodyClass);
     $(wrapper).prev().show();
     $(wrapper).show();
 
     // adding attribute to the button so later we can find which submit button was clicked
-    // @TODO rework, don't want to add arbitrary attributes; instead this should be
+    // @FIXME rework, don't want to add arbitrary attributes; instead this should be
     // injecting a param into the form; see tableHandler and formHandler for
     // examples
     $(":button").click(function() {
@@ -67,11 +69,18 @@ OLCS.modal = (function(document, $, undefined) {
     $(document).on('click', closeSelectors, function(e) {
       e.preventDefault();
       exports.hide();
+      OLCS.eventEmitter.emit('close:modal');
     });
+
+    // if we've previously opened a modal and scrolled it our modal wrapper
+    // needs resetting
+    $(wrapper).scrollTop(0);
   };
 
   exports.hide = function() {
-    $(document).off('click', selector + '__close');
+    $(document).off('click', closeSelectors);
+
+    $('body').removeClass(bodyClass);
     $(wrapper).hide();
     $(wrapper).prev().hide();
 

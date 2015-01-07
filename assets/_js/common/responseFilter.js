@@ -9,9 +9,13 @@ OLCS.responseFilter = (function(document, $, undefined) {
       var content = response.body;
 
       if (filter) {
-        content = $(content)
+        var filtered = $(content)
           .find(filter)
           .html();
+
+        if (filtered) {
+          content = filtered;
+        }
       }
 
       $(container).html(content);
