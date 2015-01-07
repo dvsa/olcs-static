@@ -87,7 +87,7 @@ $gutter: 2.5%;
   width: 61.6666666667%;
   &.border {
     border-top: 1px solid $grey-2;
-    padding-top: 1.25em;
+    padding-top: 2em;
   }
 }
 
@@ -355,7 +355,7 @@ $gutter: 2.5%;
 
 .overview-navigation {
   list-style: none;
-  margin: -20px 0 2em 0;
+  margin: -32px 0 2em 0;
 }
 
 
@@ -467,27 +467,48 @@ $gutter: 2.5%;
 
 @import '_read-only';
 
+.review {
+  background: #FFF;
+  body {
+    background: #FFF;
+    margin: 0 auto;
+    max-width: 860px;
+  }
+}
+
+.review-section {
+  border-top: 6px solid $black;
+  padding-top: 20px;
+  margin-top: 40px;
+  float: left;
+  width: 100%;
+  h2 {
+    margin-bottom: 40px;
+  }
+}
+
+.definition-list__item {
+  width: 100%;
+}
 
 dl {
   border-top: 1px solid $grey-2;
-  margin-bottom: 2.5em;
   overflow: auto;
 }
 
 dt, dd {
   float: left;
-  border-bottom: 1px solid $grey-2;
   margin: 0;
   padding: .5em 0;
 }
 
 dt {
-  width: 40%;
+  width: 47.5%;
   font-weight: 400;
 }
 
 dd {
-  width: 60%;
+  width: 47.5%;
   font-weight: 700;
 }
 
@@ -548,3 +569,4 @@ dd {
    ========================================================================== */
 
 @import '_empty-state';
+
