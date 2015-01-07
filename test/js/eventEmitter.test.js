@@ -12,7 +12,6 @@ describe("OLCS.eventEmitter", function() {
   it("should expose the correct public interface", function() {
     expect(this.component.on).to.be.a("function");
     expect(this.component.once).to.be.a("function");
-    expect(this.component.off).to.be.a("function");
     expect(this.component.emit).to.be.a("function");
   });
 

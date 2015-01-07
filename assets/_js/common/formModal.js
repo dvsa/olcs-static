@@ -4,17 +4,19 @@ OLCS.formModal = (function(document, $, undefined) {
 
   "use strict";
 
-  return function init(data) {
+  return function init(options) {
     // ... assume that the response we get back should be shown in
     // a modal
-    OLCS.modal.show(data.body, data.title);
+    OLCS.modal.show(options.body, options.title);
 
     // also assume that we've got a form within the rendered modal
     // and bind a form handler to it
     var handler = OLCS.formHandler({
       form: ".modal__content form",
+      isModal: true,
       container: ".modal__content",
-      onChange: false
+      onChange: false,
+      success: options.success
     });
 
     // because handler uses event delegation, the listeners it sets

@@ -1,3 +1,3 @@
-$(function() {
+OLCS.ready(function() {
   "use strict";
 });

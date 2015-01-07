@@ -21,12 +21,16 @@ OLCS.formHandler = (function(document, $, undefined) {
   "use strict";
 
   return function init(options) {
+
     var selector = options.form;
+    var isModal = options.isModal || false;
+    var success = options.success || OLCS.responseFilter(options.filter, options.container);
+
     var onChange = options.onChange !== undefined ? options.onChange : function() {
       $(this).submit();
     };
     var submitButton = options.submit || $(selector).find("[type=submit]");
-    var actionSelector = selector + " button[type=submit]";
+    var actionSelector = selector + " [type=submit]";
 
     // we'll return this so consumers can unbind listeners if they want to
     var handler = {
@@ -74,17 +78,32 @@ OLCS.formHandler = (function(document, $, undefined) {
 
       // don't interfere with a normal submit on a multipart form; remove
       // the submit handler and let the click event happen normally
-      if (F.buttonPressed(form, "[submit]") && form.attr("enctype") === "multipart/form-data") {
-        handler.unbind();
-        return;
+      if (form.attr("enctype") === "multipart/form-data") {
+
+        // got any file inputs populated?
+        var isDirty = false;
+        $.each(form.find("input[type=file]"), function(i, e) {
+          if ($(e).val() !== "") {
+            isDirty = true;
+          }
+        });
+
+        // if the user has pressed upload we *always* want to unbind
+        // otherwise if any file inputs have values and the form has been submitted, unbind too
+        if (F.buttonPressed(form, "[upload]") || (isDirty && F.buttonPressed(form, "[submit]"))) {
+          handler.unbind();
+          return;
+        }
       }
 
       e.preventDefault();
 
       // make sure we don't try and submit cancel buttons
-      if (!F.buttonPressed(form, "[cancel]")) {
-        form.submit();
+      if (isModal && F.buttonPressed(form, "[cancel]")) {
+        return;
       }
+
+      form.submit();
     });
 
     /**
@@ -97,7 +116,7 @@ OLCS.formHandler = (function(document, $, undefined) {
 
       OLCS.formAjax({
         form: form,
-        success: OLCS.responseFilter(options.filter, options.container),
+        success: success,
         complete: function() {
           OLCS.eventEmitter.emit("update:" + options.container);
         }

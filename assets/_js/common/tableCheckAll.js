@@ -1,5 +1,15 @@
+var OLCS = OLCS || {};
+
+/**
+ * OLCS.tableCheckAll
+ *
+ * Add listeners for the 'check all' checkbox present on
+ * various CRUD tables
+ */
 
 OLCS.tableCheckAll = (function(document, $, undefined) {
+
+  'use strict';
 
   return function init(options) {
 
