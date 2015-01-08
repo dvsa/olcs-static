@@ -79,7 +79,13 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
         // if the original response was a redirect then be sure to respect
         // that by closing the modal
         if (response.status === 302) {
-          return OLCS.modal.hide();
+          
+          if (OLCS.url.isCurrent(response.location)) {
+            return OLCS.modal.hide();
+          }
+          
+          window.location.href = response.location;
+          return;
         }
 
         if (response.status === 200) {

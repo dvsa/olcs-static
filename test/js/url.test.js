@@ -10,22 +10,22 @@ describe("OLCS.url", function() {
   });
 
   it("should expose the correct public interface", function() {
-    expect(this.component.comparePath).to.be.a("function");
+    expect(this.component.isSame).to.be.a("function");
   });
 
-  describe("comparePath", function() {
+  describe("isSame", function() {
 
     it("should return true when given matching paths", function() {
-      expect(this.component.comparePath("/foo/bar/", "/foo/bar/")).to.be(true);
+      expect(this.component.isSame("/foo/bar/", "/foo/bar/")).to.be(true);
     });
 
     it("should return true when given matching paths with inconsistent trailing slashes", function() {
-      expect(this.component.comparePath("/foo/bar/", "/foo/bar")).to.be(true);
-      expect(this.component.comparePath("/foo/bar", "/foo/bar/")).to.be(true);
+      expect(this.component.isSame("/foo/bar/", "/foo/bar")).to.be(true);
+      expect(this.component.isSame("/foo/bar", "/foo/bar/")).to.be(true);
     });
 
     it("should return false when given non-matching paths", function() {
-      expect(this.component.comparePath("/foo/bar/", "/foo/bar/baz/")).to.be(false);
+      expect(this.component.isSame("/foo/bar/", "/foo/bar/baz/")).to.be(false);
     });
   });
 });

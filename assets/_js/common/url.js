@@ -14,8 +14,8 @@ OLCS.url = (function(document, $, undefined) {
     return lastChar === '/';
   };
 
-  return {
-    comparePath: function(url1, url2) {
+  var exports = {
+    isSame: function(url1, url2) {
       if (!hasTrailingSlash(url1)) {
         url1 += '/';
       }
@@ -25,6 +25,12 @@ OLCS.url = (function(document, $, undefined) {
       }
 
       return url1 === url2;
+    },
+    isCurrent: function(url1) {
+      return exports.isSame(url1, window.location.pathname);
     }
   };
+  
+  return exports;
+
 }(document, $));
