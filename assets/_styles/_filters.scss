@@ -1,6 +1,25 @@
 .filters {
-  margin-top: .5em;
+  margin: .5em 0 -1.5em 0;
+  padding-top: .5em;
+  background: white;
+  float: none;
+  overflow: hidden;
+  font-weight: 400;
+ .vertical-navigation &,
+ .app-navigation & {
+    border-top: 3px solid $primaryColour;
+    padding-top: .75em;
+    form { margin: 0; }
+  }
+  .field {
+    border-bottom: 1px solid $grey-2;
+    padding-bottom: 1em;
+    background: none !important;
+    &:last-child { border-bottom: 4px solid red; }
+  }
+  select { width: 100%; } 
 }
+
 
 .filter-group {
   list-style: none;
@@ -21,32 +40,4 @@
       @extend %paragraph--tiny;
     }
   }
-}
-
-.filters {
-  border-top: 3px solid $primaryColour;
-  margin-bottom: -1.5em;
-  padding-top: .5em;
-}
-
-
-.vertical-navigation,
-.app-navigation {
-  form {
-    border-top: 3px solid $primaryColour;
-    padding: 1em 0 0 1px;
-    float: none;
-    overflow: visible;
-    margin: .5em 0 -24px 0;
-    background: white;
-    font-weight: 400;
-  }
-  .field {
-    border-bottom: 1px solid $grey-2;
-    padding-bottom: 1em;
-    background: none !important;
-  }
-  select {
-    width: 100%;
-  } 
 }

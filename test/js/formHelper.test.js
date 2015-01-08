@@ -13,9 +13,18 @@ describe("OLCS.formHelper", function() {
     expect(this.component).to.be.a("function");
   });
 
-  it("should also expose two helper functions", function() {
+  it("should also expose various helper functions", function() {
     expect(this.component.fieldset).to.be.a("function");
     expect(this.component.input).to.be.a("function");
+    expect(this.component.findInput).to.be.a("function");
+    expect(this.component.pressButton).to.be.a("function");
+    expect(this.component.buttonPressed).to.be.a("function");
+    expect(this.component.isChecked).to.be.a("function");
+    expect(this.component.containsErrors).to.be.a("function");
+    expect(this.component.containsWarnings).to.be.a("function");
+    expect(this.component.containsElement).to.be.a("function");
+    expect(this.component.clearErrors).to.be.a("function");
+    expect(this.component.render).to.be.a("function");
   });
 
   describe("Given a stubbed jQuery object", function() {
@@ -175,6 +184,106 @@ describe("OLCS.formHelper", function() {
 
         it("returns the correct result", function() {
           expect(this.result).to.equal(false);
+        });
+      });
+    });
+
+    describe("containsErrors", function() {
+      describe("Given a stubbed DOM with errors", function() {
+        beforeEach(function() {
+          var template = [
+            "<div id=stub2>",
+              "<div class='validation-summary'>Error summary</div>",
+            "</div>"
+          ].join("\n");
+
+          $("body").append(template);
+        });
+
+        afterEach(function() {
+          $("#stub2").remove();
+        });
+
+        describe("When invoked", function() {
+          beforeEach(function() {
+            this.result = this.component.containsErrors($("#stub2"));
+          });
+
+          it("returns true", function() {
+            expect(this.result).to.equal(true);
+          });
+        });
+      });
+
+      describe("Given a stubbed DOM without errors", function() {
+        beforeEach(function() {
+          var template = [
+            "<div id=stub2>",
+              "No errors here",
+            "</div>"
+          ].join("\n");
+
+          $("body").append(template);
+        });
+
+        afterEach(function() {
+          $("#stub2").remove();
+        });
+
+        describe("When invoked", function() {
+          beforeEach(function() {
+            this.result = this.component.containsErrors($("#stub2"));
+          });
+
+          it("returns false", function() {
+            expect(this.result).to.equal(false);
+          });
+        });
+      });
+    });
+
+    describe("clearErrors", function() {
+      describe("Given a stubbed DOM", function() {
+        beforeEach(function() {
+          var template = [
+            "<div id=stub2>",
+              "<div id=summary class='validation-summary'>Error summary</div>",
+              "<div id=wrapper1 class='validation-wrapper'>",
+                "<ul id=list1><li>Error message</li></ul>",
+                "<ul id=list2><li>Not an error message</li></ul>",
+              "</div>",
+              "<div id=wrapper2 class='validation-wrapper'>",
+                "<ul id=list3><li>Error message</li></ul>",
+              "</div>",
+            "</div>"
+          ].join("\n");
+
+          $("body").append(template);
+        });
+
+        afterEach(function() {
+          $("#stub2").remove();
+        });
+
+        describe("When invoked", function() {
+          beforeEach(function() {
+            this.component.clearErrors();
+          });
+
+          it("removes the expected elements", function() {
+            expect($("#summary").length).to.equal(0);
+            expect($("#list1").length).to.equal(0);
+            expect($("#list3").length).to.equal(0);
+          });
+
+          it("does not remove the expected list element", function() {
+            expect($("#list2").length).to.equal(1);
+          });
+
+          it("removes any validation wrapper classes", function() {
+            expect($("#wrapper1").hasClass("validation-wrapper")).to.equal(false);
+            expect($("#wrapper2").hasClass("validation-wrapper")).to.equal(false);
+          });
         });
       });
     });

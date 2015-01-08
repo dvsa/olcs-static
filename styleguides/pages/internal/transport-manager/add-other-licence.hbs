@@ -44,31 +44,20 @@ form:
   - fieldsets:
     - legend:
       fields:
-        - label: Licence search
-          type: inline-search
-          values: 
-            - Find licence
+        - label: Licence No.
+          type: text
           class: medium
+        - label: Type
+          type: radios
+          values:
+            - Licence holder
+            - Licence applicant
+            - Transport Manager
         - label: Which operating centre(s) will you be responsible for?
-          type: multi select
-          placholder: Choose operating centre(s)
-          values:
-            - 124 Eleanor Grove, Baschurch
-            - Unit 4, Battelfields Industrial Estate, Shrewsbury
-            - 240 Timmuses Drive, Yeaton   
-        - label: What type of manager will you be for this licence?
-          type: radios inline
-          values:
-            - Internal 
-            - External 
-    - legend: Hours per week
-      fields: 
-        - label: How many houurs will you spend on your Transport Manager duties?
-          type: hours-per-week
-    - legend: Additional information
-      fields: 
-        - label: Please provide any additional information that could support your applicationas a transport manager 
-          type: textarea
+          type: multiple
+        - label: Hours worked per week?
+          type: text
+          class: short
     actions:
       - label: Save
         class: primary large
@@ -84,7 +73,7 @@ form:
 <div class="modal__wrapper js-hidden">
   <div class="modal">
     <div class="modal__header"> 
-      <h2 class="modal__title">Add licence & responsibilities</h2>
+      <h2 class="modal__title">Add other licence</h2>
       <a href="" class="modal__close">Close</a>
     </div>
     <div class="modal__content">
