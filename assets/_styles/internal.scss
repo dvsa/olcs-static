@@ -413,6 +413,16 @@ $grey-2: #CCC;
 
 @import '_filters';
 
+.filters {
+  margin: .5em 0 -1.5em 0;
+  .field {
+    border-bottom: 1px solid $grey-2;
+    padding-bottom: 1em;
+  }
+}
+.filter-group label {
+  @extend %paragraph--tiny;
+}
 
 /* ==========================================================================
    8. Tables
@@ -613,6 +623,9 @@ input.action--delete {
 
 @import '_read-only';
 
+.read-only dt {
+  color: #555;
+}
 
 /* ==========================================================================
    12. Right hand column

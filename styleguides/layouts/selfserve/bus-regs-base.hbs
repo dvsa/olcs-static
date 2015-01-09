@@ -47,13 +47,16 @@
         <div class="page-header">
 
           <ol class="breadcrumbs">
+            {{#if breadcrumbs }}
             {{#each breadcrumbs }}
               <li class="breadcrumbs__item"><a href="{{ link }}">{{ label }}</a></li>
             {{/each}}
+            {{/if}}
           </ol>
           <div class="page-header__wrapper">
-            <h3 class="page-header__subtitle">{{ subtitle }}</h3>
+            {{#if subtitle }}<h3 class="page-header__subtitle">{{ subtitle }}</h3>{{/if}}
             <h1>{{ title }}</h1>
+            {{#if header-text }}<div class="page-header__text">{{{ header-text }}}</div>{{/if}}
           </div><!-- end .page-header__wrapper -->    
         </div><!-- end .page-header -->
 

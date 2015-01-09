@@ -132,6 +132,9 @@ input[type="submit"].action,
     font-family: $NTA-Light;
     font-size: 16px; 
     text-decoration: underline;
+    &.large {
+      @extend %paragraph--large;
+    }
     &:hover {
       text-decoration: none;
     }

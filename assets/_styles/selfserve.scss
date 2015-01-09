@@ -101,6 +101,18 @@ $gutter: 2.5%;
   width: 100% - ($gutter*2);
 }
 
+.three-eigths {
+  @extend %container;
+  width: 24%;
+}
+
+
+.five-eigths {
+  @extend %container;
+  width: 66%;
+}
+
+
 %container {
   float:left; 
   margin: 0 $gutter 1em $gutter;
@@ -258,6 +270,17 @@ $gutter: 2.5%;
     color: $grey-1;
     font-weight: 400;
   }
+  &__text  {
+    margin: 1em 0;
+    max-width: 660px;
+    width: 100%;
+    & > * {
+      @extend %paragraph--large;
+      
+
+    }
+  }
+
   &__actions {
     position: absolute;
     right: 0;
@@ -552,7 +575,8 @@ dd {
 
 .support {
   border-top: 1px solid $grey-2;
-  padding-top: 1em
+  padding-top: 1em;
+  float: left;
 }
 
 .links-list {

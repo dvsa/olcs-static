@@ -1,87 +1,84 @@
 ---
 title: Bus services
-subtitle: Operator Licensing Ltd.
+header-text: <p>In order to register, update or cancel a bus service you need to updload an Electronic Bus Registration Service pack (EBSR) in .ZIP format.</p>
+    <p><a href="register-update-cancel-service.html">Register, update or cancel a service</a></p>
 layout: bus-regs-base.hbs
-breadcrumbs: 
-  - link: licences.html
-    label: Home
+table:
+  - headers:
+      - label: Reg. No.
+        class: sortable descending
+      - label: Variation
+        class: sortable
+      - label: Licence No.
+        class: sortable
+      - label: Service No.
+        class: sortable
+      - label: Submitted 
+        class: sortable
+    columns:
+      - <strong><a href="bus-service-detail.html">232423</a></strong><span class="status green">Registered</span>
+      - 3
+      - PC1057277
+      - 576,570
+      - 12 May 2012
+    rows: 20
 ---
 
-<div class="two-thirds border">
+<div class="three-eigths">
+  <form class="filters">
+    <fieldset>
+      <legend>Search</legend>
+      <div class="field">
+        <label for="search">Keywords</label>
+        <input id="search" name="search" type="search" class="extra-long">
+        <p class="hint">Search by registration or service number.</p>
+      </div>
+      <div class="field">
+        <label>Start point</label>
+        <select name="">
+          <option value="">Please select</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>End point</label>
+        <select name="">
+          <option value="">Please select</option>
+        </select>
+      </div>
+      <input type="submit" class="action--primary large" value="Update results">
+    </fieldset>
+  </form>
+</div><!-- three-eights -->
 
-    <div class="article">
-      <h3>Register, update or cancel a service</h3>
-      <p>If you would like to register a new bus service, update an existing service or 
-      cancel a service you will need to updload an Electronic Bus Registration Service pack (EBSR) 
-      in .ZIP format below.</p>
-    </div>
+<div class="five-eigths">
+  <!-- Registered bus services -->
+  {{#each table}}
+    {{#is @index 0 }} 
+      {{> _table }}
+    {{/is }} 
+  {{/each}}
+  <div class="table__footer" style="margin-top: -30px; float: left;">
+    <div class="results-settings">
+      <p>Show:</p>
+      <ul class="results-settings__list">
+        <li class="results-settings__item current">10</li>
+        <li class="results-settings__item"><a href="">25</a></li>
+        <li class="results-settings__item"><a href="">50</a></li>
+      </ul><!-- .results-settings__list -->
+      <p>results per page</p>
+    </div><!-- .results-settings -->
+    <ul class="pagination right-aligned" role="menu">
+      <li class="pagination__item"><a href="" rel="previous">Previous</a></li>
+      <li class="pagination__item"><a href="">1</a></li>
+      <li class="pagination__item"><a href="">2</a></li>
+      <li class="pagination__item current">3</li>
+      <li class="pagination__item"><a href="">4</a></li>
+      <li class="pagination__item"><a href="">5</a></li>
+      <li class="pagination__item">...</li>
+      <li class="pagination__item"><a href="">14</a></li>
+      <li class="pagination__item"><a href="" rel="next">Next</a></li>
+    </ul><!-- .pagination.right-aligned -->
+  </div><!-- .table__footer -->
+</div><!-- .five-eights -->
 
-    <form>
-      <fieldset id="file-upload">
-        <div class="field file-upload">
-          <input type="file" multiple>
-          <input type="submit" value="Upload" class="action--primary">
-        </div>
-      </fieldset><!-- #file-upload -->
-    </form>
-
-    <!-- Registered bus services -->
-    <div class="table__header">
-      <h3>Registered bus services</h3>
-    </div><!-- end .table__header -->
-    <div class="table__wrapper">
-      <table>
-        <thead>
-          <tr>
-            <th>Reg. No.</th>
-            <th>Variation</th>
-            <th>Submitted</th>
-            <th>Service No.</th
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><b><a href="bus-service-detail.html">126272</a></b><span class="status green">Registered</span></td>
-            <td>2</td>  
-            <td>12 May 2013</td>
-            <td>537, 570</td>
-          </tr>
-          <tr>
-            <td><b><a href="bus-service-detail.html">126272</a></b><span class="status green">Registered</span></td>
-            <td>2</td>  
-            <td>12 May 2013</td>
-            <td>537, 570</td>
-          </tr>
-        </tbody>
-      </table>
-    </div><!-- end .table__wrapper -->
-
-
-</div><!-- end .two-thirds -->
-
-<div class="one-third sidebar">
-
-  <div class="links">
-    <h3>Useful information for bus operators</h3>
-    <ul class="links-list">
-      <li class="links-list__item"><a href="">How to register</a></li>
-      <li class="links-list__item"><a href="">Change or cancel a bus servicee</a></li>
-      <li class="links-list__item"><a href="">Traffic regulation conditions</a></li>
-      <li class="links-list__item"><a href="">Register a bus service in London</a></li>
-    </ul>
-  </div><!-- .links -->
-
-  <div class="support">
-    <h3>Support</h3>
-    <b>Call: 0113 254 3200</b>
-    <p>Mon to Thurs: 8:30am – 5pm<br />
-       Fri: 8:30am – 4pm
-    </p>
-    <p>Closed at weekend and on public and bank holidays</p>
-    <p>Or email our support team at:<br/>
-    <a href="">operatorlicensing@otc.gov.uk</a>
-    </p>
-  </div>
-
-</div>
 
