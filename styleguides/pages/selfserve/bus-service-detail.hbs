@@ -1,0 +1,50 @@
+---
+title: Bus service details
+subtitle: PC1057277/1
+layout: bus-regs-base.hbs
+breadcrumbs: 
+  - link: bus-services.html
+    label: Bus services
+read-only:
+  - title:
+    editable: false
+    type: fields
+    groups: 
+    - group:
+      - name: Registration No.
+        value: 1242534 <span class="status green">Registered</span>
+      - name: Variation
+        value: 3
+    - group: 
+      - name: Service No.(s)
+        value: 576, 570
+      - name: Service type
+        value: Bus service
+    - group:
+      - name: Start point
+        value: Leeds city centre
+      - name: End point
+        value: Chapel Allerton
+      - name: Via
+        value: Harrogate
+    - group:
+      - name: Date received
+        value: 30 May 2012
+      - name: Effective date
+        value: 30 August 2012
+      - name: End date
+        value: 30 August 2015
+    - group: 
+      - name: TAOs covered by route
+        value: Lorem ipsum, Sit dolor amet
+      - name: Local authorities convered by route
+        value: Leeds City Council
+      - name: N&P reference
+        value: 1276135316H
+---
+
+<div class="three-quarters">
+  {{#each read-only }}{{> _read-only }}{{/each }}
+  <a href="bus-services.html" class="action--tertiary large">Return to all bus services</a>
+</div><!-- end .two-thirds -->
+

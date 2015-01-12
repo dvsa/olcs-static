@@ -88,13 +88,13 @@ textarea {
   h3,h4 { margin-bottom: .5em; }
   ul { 
     @extend %paragraph--large; 
-    margin-bottom: 1em;
+    margin-bottom: 2em;
   }
   li {
     margin-bottom: 0.25em;
   }
   p { 
     @extend %paragraph--large;
-    margin-bottom: .75em; 
+    margin-bottom: 2em; 
   }
 }

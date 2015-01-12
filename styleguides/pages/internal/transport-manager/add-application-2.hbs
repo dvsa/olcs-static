@@ -13,13 +13,23 @@ verticalNavItems:
     link: previous-history.html
   - label: Competence
     link: competence.html
+read-only:
+  - title:
+    editable: false
+    type: fields
+    groups: 
+    - group:
+      - name: Operator name
+        value: Don Tarmacadam Limited
+    - group: 
+      - name: Licence No.
+        value: OB1272523
+      - name: Application ID
+        value: 126254
 form: 
   - fieldsets:
     - legend:
       fields:
-        - label: Application ID
-          type: text
-          class: medium
         - label: Which operating centre(s) will you be responsible for?
           type: multi select
           placholder: Choose operating centre(s)
@@ -76,19 +86,27 @@ table:
   <div class="content__header">
     <h3>Add application</h3>
   </div>
+  {{#each read-only }}{{> _read-only }}{{/each }}
   {{#each form }}{{> _forms }}{{/each }}
   {{#each table}}
     {{#is @index 0 }} 
       {{> _table }}
     {{/is }} 
   {{/each}}
-   <fieldset>
-    <legend>Additional information</legend>
-      <div class="field">
-        <label>Please provide any additional information that could support your applicationas a transport manager</label>
-        <textarea class="extra-long" placeholder=""></textarea>
-      </div>  
-    </fieldset>
+  <form>
+    <fieldset id="additional-information">
+      <legend>Additional information</legend>
+      <p class="hint">Please provide additional information relating to any prior insolvency proceedings. You may also upload evidence such as legal documents.</p>
+      <div class="field">  
+        <label for="additional-info" class="visually-hidden">Additional information</label>
+        <textarea id="additional-info" class="extra-long" placeholder="Enter text here"></textarea>
+      </div>
+      <div class="field file-upload">
+        <input type="file" multiple>
+        <input type="submit" value="Upload" class="action--primary">
+      </div>
+    </fieldset><!-- .additional-information -->
+  </form>
   <div class="actions-container">
     <a class="action--primary large" href="">Save</a>
     <a class="action--secondary large" href="">Print</a>
