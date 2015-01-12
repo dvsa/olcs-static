@@ -21,4 +21,24 @@ OLCS.ready(function() {
   }).bind("ajaxComplete", function() {
     OLCS.preloader.hide();
   });
+
+
+
+  $("tr").each( function() {
+   
+    // If this has more than a single anchor link child element
+    if ($(this).find("a").length === 1) {
+
+      // On click of the table row take the user to the href
+      // specified in the anchor
+      $(this).click( function() {
+        window.location = $(this).find("a").attr("href");
+      })
+      // And give these rows a hover class
+      .hover( function() {
+        $(this).toggleClass('hover');
+      });
+    }
+  });
+
 });

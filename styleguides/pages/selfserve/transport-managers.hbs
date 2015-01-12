@@ -1,7 +1,6 @@
 ---
 title: Transport managers
 subtitle: Step 7 of 13
-
 table:
   - title: 4 Transport managers
     headers:
@@ -28,16 +27,11 @@ table:
         class: secondary disabled
 ---
 
-    <div class="three-quarters">
-
-    
-
-      <!-- CRUD table -->
-      {{#each table}}
-        {{#is @index 0 }} 
-          {{> _table }}
-        {{/is }} 
-      {{/each}}
-    
-    </div><!-- end .full-width -->
+<div class="three-quarters">
+  {{#each table}}
+    {{#is @index 0 }} 
+      {{> _table }}
+    {{/is }} 
+  {{/each}}
+</div><!-- .three-quarters -->
 

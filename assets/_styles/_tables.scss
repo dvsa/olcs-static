@@ -38,6 +38,10 @@ table {
     text-align: center;
     display: block;
   }
+  .action--primary {
+    float: right;
+    margin-bottom: 20px;
+  }
 }
 
 td, 
@@ -60,6 +64,11 @@ th {
   &.selectable {
     text-align: centre;
   }
+}
+
+tr.hover {
+  background: $grey-3;
+  cursor: pointer;
 }
 
 td {
