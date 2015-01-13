@@ -3,8 +3,9 @@ var OLCS = OLCS || {};
 /**
  * OLCS.tableRows
  *
- * Makes the entire <tr> clickable when it has a
- * anchor link in one of it's <td>s
+ * Makes table rows with a single anchor link or 
+ * input[type=submit] more clickable
+ *
  */
 
 OLCS.tableRows = (function(document, $, undefined) {
@@ -13,38 +14,50 @@ OLCS.tableRows = (function(document, $, undefined) {
 
   return function init(options) {
 
-    var actionSelector = 'tbody tr';
-    var targetElements = 'a, input[type=submit]';
-    var exceptionElements = ':checkbox, :radio';
+    var tableRowSelector    = 'tbody tr';
+    var actionSelector      = 'a, input[type=submit]';
+    var otherInputSelector  = ':checkbox, :radio';
 
-    function isHoverableRow(element) {
-      return getTargetElements(element).length === 1;
+    // Get all the actions from a specified element
+    function getActions(selector) {
+      return $(selector).find(actionSelector);
     }
 
-    function getTargetElements(element) {
-      return $(element).find(targetElements)
+    // Check the row for a single action to see if it
+    // should be made hoverable
+    function hoverableRow(selector) {
+      return getActions(selector).length === 1;
     }
 
-    $(document).on('click', actionSelector, function(e) {  
+    // On click of a table row
+    $(document).on('click', tableRowSelector, function(e) {  
 
-      if (!isHoverableRow(this)) {
+      // If the row shouldn't be hoverable, return
+      if (!hoverableRow(this)) {
         return;
       }
 
-      var targetElements = getTargetElements(this);
+      // Cache the clicked table row's action
+      var $actionElement = getActions(this);
       
-      if (!$(e.target).is(exceptionElements)) {
-        targetElements.get(0).click();
+      // Providing the target of our click isn't one of the
+      // row's checkbox or radios, we trigger a click of the 
+      // row's primary action
+      if (!$(e.target).is(otherInputSelector)) {
+        $actionElement.get(0).click();
       }
 
     });
 
-    $(document).on('mouseenter mouseleave', actionSelector, function(e) {
+    // On hover of a table row
+    $(document).on('mouseenter mouseleave', tableRowSelector, function(e) {
       
-      if (!isHoverableRow(this)) {
+      // If the row shouldn't be hoverable, return
+      if (!hoverableRow(this)) {
         return;
       }
 
+      // Toggle the class 'hover' on the table row
       if (e.type == "mouseenter") {
         $(this).addClass('hover');
       } else {
