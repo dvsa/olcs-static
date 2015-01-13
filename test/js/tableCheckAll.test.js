@@ -2,7 +2,7 @@ describe('OLCS.tableCheckAll', function() {
   'use strict';
 
   beforeEach(function() {
-    this.component = OLCS.tableRows;
+    this.component = OLCS.tableCheckAll;
   });
 
   it('should be defined', function() {
@@ -13,46 +13,58 @@ describe('OLCS.tableCheckAll', function() {
     expect(this.component).to.be.a('function');
   });
 
-  describe('Given a stubbed DOM with a tables', function() {
+  describe('Given a stubbed DOM with 2 tables', function() {
     beforeEach(function() {
       var table = [
         '<table id="table1">',
           '<thead>',
-            '<th></th>',
-            '<th></th>',
-            '<th></th>',
-            '<th></th>',
+            '<tr>',
+              '<th>',
+                '<input type="checkbox" name="checkall" />',
+              '</th>',
+            '</tr>',
           '</thead>',
           '<tbody>',
             '<tr>',
-              '<td><a href="licences.html">5</a></td>',
-              '<td>12 May 2012</td>',
-              '<td>12 August 2012</td>',
-              '<td>12 August 2013</td>',
+              '<td>',
+                '<input type="checkbox" name="id[]" value="1" />',
+              '</td>',
             '</tr>',
             '<tr>',
-              '<td><a href="licences.html">4</a></td>',
-              '<td>12 May 2012</td>',
-              '<td><input type="submit" value="12 August 2012"></td>',
-              '<td>12 August 2013</td>',
+              '<td>',
+                '<input type="checkbox" name="id[]" value="2" />',
+              '</td>',
             '</tr>',
             '<tr>',
-              '<td><input type="submit" name="edit" value="3"></td>',
-              '<td>12 May 2012</td>',
-              '<td>12 August 2012</td>',
-              '<td>12 August 2013</td>',
+              '<td>',
+                '<input type="checkbox" name="id[]" value="3" />',
+              '</td>',
+            '</tr>',
+          '</tbody>',
+        '</table>',
+        '<table id="table2">',
+          '<thead>',
+            '<tr>',
+              '<th>',
+                '<input type="checkbox" name="checkall" />',
+              '</th>',
+            '</tr>',
+          '</thead>',
+          '<tbody>',
+            '<tr>',
+              '<td>',
+                '<input type="checkbox" name="id[]" value="1" />',
+              '</td>',
             '</tr>',
             '<tr>',
-              '<td><input type="submit" name="edit" value="2"></td>',
-              '<td>12 May 2012</td>',
-              '<td><input type="submit" name="edit" value="12 August 2012"></td>',
-              '<td>12 August 2013</td>',
+              '<td>',
+                '<input type="checkbox" name="id[]" value="2" />',
+              '</td>',
             '</tr>',
             '<tr>',
-              '<td><a href="licences.html">1</a></td>',
-              '<td>12 May 2012</td>',
-              '<td><a href="">12 August 2012</a></td>',
-              '<td>12 August 2013</td>',
+              '<td>',
+                '<input type="checkbox" name="id[]" value="3" />',
+              '</td>',
             '</tr>',
           '</tbody>',
         '</table>'
@@ -68,6 +80,7 @@ describe('OLCS.tableCheckAll', function() {
     afterEach(function() {
       this.on.restore();
       $('#table1').remove();
+      $('#table2').remove();
     });
 
     describe('When initialised with default options', function() {
