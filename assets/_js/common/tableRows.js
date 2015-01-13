@@ -14,9 +14,9 @@ OLCS.tableRows = (function(document, $, undefined) {
 
   return function init(options) {
 
-    var tableRowSelector    = 'tbody tr';
-    var actionSelector      = 'a, input[type=submit]';
-    var otherInputSelector  = ':checkbox, :radio';
+    var tableRowSelector   = 'tbody tr';
+    var actionSelector     = 'a, input[type=submit]';
+    var otherInputSelector = ':checkbox, :radio';
 
     // Get all the actions from a specified element
     function getActions(selector) {

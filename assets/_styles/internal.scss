@@ -368,6 +368,10 @@ $grey-2: #CCC;
 
 @import '_breadcrumb';
 
+.breadcrumbs a {
+  color: $grey-1; 
+}
+
 /* 7.2 Application nav
    ========================================================================== */
 
