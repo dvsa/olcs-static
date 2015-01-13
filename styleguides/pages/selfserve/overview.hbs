@@ -1,7 +1,10 @@
 ---
-layout: two-thirds--app-overview.hbs
+layout: base.hbs
 title: Application overview 
 subtitle: Application no.1280887
+breadcrumbs: 
+  - link: licences.html
+    label: Home
 overview-items:
   - name: 1. Type of licence
     status: Complete
@@ -40,91 +43,52 @@ overview-items:
   - name: 12. Convictions & penalties
     status: Not started
     edit link: Add convictions & penalties
-  - name: 13. Undertakings
+  - name: 13. Review & declarations
     status: Disabled
     edit-link:
 ---
 
-
-
-
-  <div class="two-thirds">
+  <div class="two-thirds border">
     <ul class="overview-navigation">
    
     {{#each overview-items }}
 
       {{#is status "Complete"}}
       <li class="overview-item">
-        <div class="overview-item__header">
-          <a href="" class="overview-item__control">
-            <h4>{{ name }}</h4>
-          </a>
+        <a href="/styleguides/selfserve/operating-centres.html" class="overview-item__link">
+          <h4>{{ name }}</h4>
           <span class="status green">{{ status }}</span>
-          <a href="/styleguides/selfserve/operating-centres.html" class="overview-item__edit">{{ edit-link }}</a>
-        </div> 
-        {{#is open true }}
-        <div class="overview-item__content summary" style="display:none;">
-         
-          <table>
-            <tr>
-              <th scope="row" width="40%">What type of business are you?</th>
-              <td>Limited company</td>
-            </tr>
-            <tr>
-              <th scope="row" width="40%">Registered company number</th>
-              <td>1234567</td>
-            </tr>
-            <tr>
-              <th scope="row" width="40%">Company name</th>
-              <td>John Smith Haulage Ltd</td>
-            </tr>
-            <tr>
-              <th scope="row" width="40%">Trading names</th>
-              <td>John Smith<br/>John Smith Halauge<br />John Smith Transport</td>
-            </tr>
-          </table>
-
-        </div>
-        {{/is}}
+          <p>{{ edit-link }}</p>
+        </a>
       </li>
       {{/is}}
 
       {{#is status "Incomplete"}}
-      <li class="overview-item {{#is expnaded true }}expanded{{/is}}">
-        <div class="overview-item__header">
-          <a href="" class="overview-item__control">
-            <h4>{{ name }}</h4>
-          </a>
-            <span class="status orange">{{ status }}</span>
-          <a href="/styleguides/selfserve/operating-centres.html" class="overview-item__edit">{{ edit-link }}</a>
-        </div> 
-        {{#is open true }}
-        <div class="overview-item__content">
-          <p>This is the content</p>
-        </div>
-        {{/is}}
+      <li class="overview-item">
+        <a href="/styleguides/selfserve/operating-centres.html" class="overview-item__link">
+          <h4>{{ name }}</h4>
+          <span class="status orange">{{ status }}</span>
+          <p>{{ edit-link }}</p>
+        </a>
       </li>
       {{/is}}
 
       {{#is status "Not started" }}
       <li class="overview-item not-started">
-        <div class="overview-item__header">
-          <div class="overview-item__control">
-            <h4>{{ name }}</h4>
-          </div>
-            <span class="status {{#is status "Not started" }}grey{{/is}}">{{ status }}</span>
-            <a href="/styleguides/selfserve/operating-centres.html" class="overview-item__edit">{{ edit-link }}</a>
-        </div> 
+        <a href="/styleguides/selfserve/operating-centres.html" class="overview-item__link">
+          <h4>{{ name }}</h4>
+          <span class="status {{#is status "Not started" }}grey{{/is}}">{{ status }}</span>
+          <p>{{ edit-link }}</p>
+        </a>
       </li>
       {{/is}}
 
      {{#is status "Disabled" }}
       <li class="overview-item disabled">
-        <div class="overview-item__header">
-          <div class="overview-item__control">
-            <h4>{{ name }}</h4>
-          </div>
-        </div> 
+        <div class="overview-item__link">
+          <h4>{{ name }}</h4>
+          <span>Please complete the other sections first</span>
+        </div>
       </li>
       {{/is}}
 

@@ -12,6 +12,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/styles/selfserve.css" media="all" rel="stylesheet" type="text/css">
+    <script type="text/javascript" async="" src="/js/selfserve.js"></script>
   </head>
 
   <body class="selfserve">
@@ -24,8 +25,8 @@
         <div class="proposition">
           <h2 class="proposition__title">Vehicle operator licensing</h2>
           <ul class="proposition-nav">
-            <li class="proposition-nav__item"><a href="">Licences</a></li>
-            <li class="proposition-nav__item"><a href="">Bus routes</a></li>
+            <li class="proposition-nav__item"><a href="licences.html">Licences</a></li>
+            <li class="proposition-nav__item"><a href="bus-services.html">Bus services</a></li>
             <li class="proposition-nav__item"><a href="">My details</a></li>
             <li class="proposition-nav__item"><a href="">Sign out</a></li>
           </ul>
@@ -36,22 +37,26 @@
     <div class="page-wrapper">
 
       <div class="user-header">
-        <p class="phase"><span class="phase__tag">alpha</span><span class="phase__message">This is a prototype – your <a href="">feedback</a> will help us improve it.</span></p> 
+        <p class="phase"><span class="phase__tag">alpha</span><span class="phase__message">This is a new service – <a href="">help us improve it.</a></span></p> 
         <ul class="user-menu">
-          <li class="user-menu__item">Katy Hasley, <b>Operator Licencing Ltd.</b></li>
+          <li class="user-menu__item">Katy Hasley, <b>Operator Licensing Ltd.</b></li>
         </ul>
       </div><!-- end .user-header -->
 
-      <div id="main" role="main">
-
+      <div id="main" role="main" class="styleguide">
         <div class="page-header">
-          <ol class="breadcrumbs">
-            <li class="breadcrumbs__item"><a href="/styleguides/selfserve/dashboard.html">Back to overview</a></li>
-          </ol>
 
+          <ol class="breadcrumbs">
+            {{#if breadcrumbs }}
+            {{#each breadcrumbs }}
+              <li class="breadcrumbs__item"><a href="{{ link }}">{{ label }}</a></li>
+            {{/each}}
+            {{/if}}
+          </ol>
           <div class="page-header__wrapper">
-            <h3 class="page-header__subtitle">{{ subtitle }}</h3>
+            {{#if subtitle }}<h3 class="page-header__subtitle">{{ subtitle }}</h3>{{/if}}
             <h1>{{ title }}</h1>
+            {{#if header-text }}<div class="page-header__text">{{{ header-text }}}</div>{{/if}}
           </div><!-- end .page-header__wrapper -->    
         </div><!-- end .page-header -->
 

@@ -56,6 +56,10 @@ dd {
   float: left;
 }
 
+a:visited { 
+  background-color: $link-visited-colour;
+}
+
 .hint {
   display: block;
   color: $grey-1;

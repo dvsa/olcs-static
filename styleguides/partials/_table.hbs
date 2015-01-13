@@ -1,8 +1,12 @@
 <form>  
-    <div class="table__header">
-      <h3>{{{title}}}</h3>
-      {{> _actions }}
-    </div><!-- end .table__header -->
+    {{#if title }}
+      <div class="table__header">
+        <h3>{{{title}}}</h3>
+        {{> _actions }}
+      </div><!-- end .table__header -->
+    {{else}}
+
+    {{/if}}
 
     <div class="table__wrapper">
       <table>
