@@ -72,7 +72,7 @@ describe("OLCS.crudTableHandler", function() {
       });
 
       it("binds a click handler to the correct selectors", function() {
-        var str = ".table__header button, .table__wrapper input[type=submit]";
+        var str = ".table__header button, .table__wrapper input[type=submit], .table__empty button";
         expect(this.on.firstCall.args[0]).to.equal("click");
         expect(this.on.firstCall.args[1]).to.equal(str);
       });
