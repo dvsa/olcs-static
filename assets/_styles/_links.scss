@@ -1,16 +1,14 @@
 a { color: $link-colour; }
 
-a:focus { outline: thin dotted; }
-
 a:active,
 a:hover { 
-    color: $link-active-colour;
-    outline: 0; 
-    text-decoration: none;
+  color: $link-active-colour;
+  outline: 0;
+  text-decoration: none;
 }
 
 .disabled,
 .disabled a {
-    text-decoration: none;
-    color: $grey-1;
+  text-decoration: none;
+  color: $grey-1;
 }

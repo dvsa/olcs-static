@@ -19,12 +19,15 @@
     }
   }
   a { 
-    color: $grey-1; 
+    color: $black; 
     padding-right: 1em;
     background: url('#{$assetPath}/breadcrumb-arrow.png') no-repeat 100% 70%;
     @include device-pixel-ratio($ratio: 2) {
       background: url('#{$assetPath}/breadcrumb-arrow-2x.png') no-repeat 95% 45%;
       background-size: 6px 11px;
+    }
+    &:focus {
+      background: $yellow;
     }
   }
   .current { 

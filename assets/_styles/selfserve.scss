@@ -18,6 +18,7 @@
  * 12. Statuses
  * 13. Right hand column
  * 14. Empty state
+ * 15. Confirmation
  *
  **/
 
@@ -46,6 +47,9 @@ $gutter: 2.5%;
 
 @import '_links';
 
+a:focus { 
+  background: $yellow; 
+}
 
 /* ==========================================================================
    2. Typography
@@ -470,6 +474,10 @@ $gutter: 2.5%;
 
 @import '_tables';
 
+td {
+  vertical-align: middle;
+}
+
 /* ==========================================================================
    9. Actions & buttons
    ========================================================================== */
@@ -594,3 +602,18 @@ dd {
 
 @import '_empty-state';
 
+
+/* ==========================================================================
+   15. Confirmation
+   ========================================================================== */
+
+.confirmation {
+  color: #FFF;
+  background: $turquoise;
+  text-align: center;
+  padding: 3em 1em;
+  margin-bottom: 3em;
+  p {
+    @extend %paragraph--large;
+  }
+}

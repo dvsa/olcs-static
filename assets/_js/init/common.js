@@ -9,6 +9,9 @@ OLCS.ready(function() {
   // initialise any check-all table checkboxes
   OLCS.tableCheckAll();
 
+  // initialise any js-table-rows tables
+  OLCS.tableRows();
+
   OLCS.formInit();
 
   /*
@@ -21,4 +24,6 @@ OLCS.ready(function() {
   }).bind("ajaxComplete", function() {
     OLCS.preloader.hide();
   });
+
+
 });

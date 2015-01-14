@@ -1,6 +1,6 @@
 ---
 title: Bus service details
-subtitle: PC1057277/1
+subtitle: PD0000738/316
 layout: bus-regs-base.hbs
 breadcrumbs: 
   - link: bus-services.html
@@ -11,10 +11,10 @@ read-only:
     type: fields
     groups: 
     - group:
-      - name: Registration No.
-        value: 1242534 <span class="status green">Registered</span>
-      - name: Variation
+      - name: Current variation No.
         value: 3
+      - name: Status
+        value: Registered
     - group: 
       - name: Service No.(s)
         value: 576, 570
@@ -41,10 +41,89 @@ read-only:
         value: Leeds City Council
       - name: N&P reference
         value: 1276135316H
+table:
+  - title: Service history
+    headers:
+      - label: Variation No.
+        class: not-sortable
+      - label: Received
+        class: not-sortable
+      - label: Effective
+        class: not-sortable
+      - label: End
+        class: not-sortable
+    columns:
+      - <a href="licence/"><b>3</b></span>
+      - 12 May 2012
+      - 12 August 2012
+      - 12 August 2013
+    rows: 4
 ---
 
 <div class="three-quarters">
   {{#each read-only }}{{> _read-only }}{{/each }}
-  <a href="bus-services.html" class="action--tertiary large">Return to all bus services</a>
-</div><!-- end .two-thirds -->
+  <hr />
+
+  <form action="">
+    <div class="table__header">
+      <h3>Service history</h3>
+    </div><!-- .table__header -->
+    <div class="table__wrapper">
+      <table>
+        <thead>
+          <th>Variation No.</th>
+          <th>Received</th>
+          <th>Effective</th>
+          <th>End</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="licences.html"><b>5</b></a></td>
+            <td>12 May 2012</td>
+            <td>12 August 2012</td>
+            <td>12 August 2013</td>
+          </tr>
+          <tr>
+            <td><a href="licences.html"><b>4</b></a></td>
+            <td>12 May 2012</td>
+            <td>12 August 2012</td>
+            <td>12 August 2013</td>
+          </tr>
+          <tr>
+            <td><a href="licences.html"><b>3</b></a></td>
+            <td>12 May 2012</td>
+            <td>12 August 2012</td>
+            <td>12 August 2013</td>
+          </tr>
+          <tr>
+            <td><a href="licences.html"><b>2</b></a></td>
+            <td>12 May 2012</td>
+            <td>12 August 2012</td>
+            <td>12 August 2013</td>
+          </tr>
+          <tr>
+            <td><a href="licences.html">1</a></td>
+            <td>12 May 2012</td>
+            <td>12 August 2012</td>
+            <td>12 August 2013</td>
+          </tr>
+        </tbody>
+      </table>
+    </div><!-- .table__wrapper -->
+  </form>
+
+  <h3>Documents</h3>
+  <div class="files">
+    <div class="field file-upload">
+      <p><a href=""><b>Uploaded EBSR pack</b></a><span> (1.4MB)</span></p>
+    </div>
+    <div class="field file-upload">
+      <p><a href=""><b>Official VOSA record</b></a><span> (156KB)</span></p>
+    </div>
+    <div class="field file-upload">
+      <p><a href=""><b>Route track map</b></a><span> (1.2MB)</span></p>
+    </div>
+  </div><!-- .files -->
+  
+</div><!-- .three-quarters -->
 

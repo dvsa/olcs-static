@@ -13,10 +13,10 @@
         <thead>
           <tr>
             {{#each headers }}
-              {{#contains this.class "sortable" }}      
-              <th class="{{ this.class }}"><a href="">{{{ this.label }}}</a></th>
-              {{else }}
+              {{#contains this.class "not-sortable" }}      
               <th>{{{ this.label }}}</th>
+              {{else }}
+              <th class="{{ this.class }}"><a href="">{{{ this.label }}}</a></th>
               {{/contains }}
             {{/each }}
           </tr>

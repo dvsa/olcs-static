@@ -1,0 +1,108 @@
+---
+layout: base.hbs
+title: Application overview 
+subtitle: Application no.1280887
+breadcrumbs: 
+  - link: licences.html
+    label: Home
+table:
+  - title: 2 Transport managers
+    headers:
+      - label: Name
+        class: sortable
+      - label: DOB
+        class: sortable descending
+      - label: Email
+        class: sortable descending
+      - label:
+        class: non-sortable
+    columns:
+      - <a href="licence/">Jeff Hill</a><span class="status orange">Incomplete</span>
+      - 12/2/65
+      - jeffhill@gmail.com
+      - <input type="submit" class="action--primary" value="Approve">
+    rows: 2
+---
+
+  <div class="two-thirds border">
+  
+      <form>
+        <div class="table__header">
+          <h3>Transport manager applications</h3>
+          <div class="actions-container">
+            <input type="submit" class="action--primary" value="Approve" disabled="disabled">
+            <input type="submit" class="action--secondary" value="Edit" disabled="disabled">
+          </div><!-- .actions-container -->
+        </div><!-- .table__header -->
+        <div class="table__wrapper">
+          <table>
+            <thead>
+              <th class="not-sortable">Name</th>
+              <th class="not-sortable">DOB</th>
+              <th class="not-sortable">Email</th>
+              <th class="not-sortable"><input type="checkbox"></th>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href=""><b>Katy Hasley</b></a><span class="status orange">Incomplete</span></td>
+                <td>23/1/80</td>
+                <td>katy-hasley@gmail.com</td>
+                <td><input type="checkbox"></td>
+              </tr>
+              <tr>
+                <td><a href=""><b>James Welbeck</b></a><span class="status red">Needs approving</span></td>
+                <td>12/2/65</td>
+                <td>james-welbeck@gmail.com</td>
+                <td><input type="checkbox"></td>
+              </tr>
+              <tr>
+                <td><a href=""><b>Tina Welbeck</b></a><span class="status green">Approved</span></td>
+                <td>24/4/68</td>
+                <td>tina-welbeck@gmail.com</td>
+                <td><input type="checkbox"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div><!-- table__wrapper -->
+      </form>
+
+    <div class="article">
+      <h3>Before your application can be granted you must:</h3>
+      <ul>
+        <li>Approve any outstanding Transport Manager applications</li>
+        <li>Send any supporting documents that were requested but you did not upload during the application. Please write the application reference on any paper copies you send to:<br/> 
+        <br /><b>Central Licensing Office</b><br />386 Hillcrest House<br />Harehills Lane<br/>Leeds<br />LS9 6NF</li>
+      </ul>
+      <h3>What happens next?</h3>
+      <p>The Central licensing Office aims to process your application as soon as possible. The information provided will be checked and further information may be requested.</p>
+    </div><!-- .article -->
+
+</div><!-- .two-thirds -->
+
+
+  <div class="one-third sidebar">
+
+    <dl class="meta">
+      <dt>Reference No.</dt>
+      <dd>OB127253/9734</dd>
+      <dt>Submitted</dt>
+      <dd>14 September 2014</dd>
+      <dt>Status</dt>
+      <dd>Under consideration</dd>
+      <dt>Target completion date</dt>
+      <dd>15 October 2014</dd>
+    </dl><!-- .meta -->
+
+    <div class="links">
+      <h3>Applying for a new licence</h3>
+      <ul class="links-list">
+        <li class="links-list__item"><a href="">Complete your applications for a goods vehicle operator's licence</a></li>
+        <li class="links-list__item"><a href="">Advertise your application for a licence</a></li>
+        <li class="links-list__item"><a href="">Financial information</a></li>
+        <li class="links-list__item"><a href="">A guide to operator fees</a></li>
+        <li class="links-list__item"><a href="">How to draw up a maintenance contract</a></li>
+      </ul>
+    </div><!-- .links -->
+
+  </div><!-- .one-third -->
+
