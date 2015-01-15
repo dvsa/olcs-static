@@ -58,6 +58,10 @@ module.exports = (grunt) ->
           ext: '.html'
         ]
 
+    notify:
+      options:
+        sucess: false
+
     assemble:
       internal:
         options:
@@ -133,12 +137,6 @@ module.exports = (grunt) ->
           '“http-equiv” on XHTML element “meta”.'
         ]
 
-    open:
-      selfserve:
-        path: 'http://localhost:7001/styleguides/selfserve'
-      internal:
-        path: 'http://localhost:7001/styleguides/internal'
-
     uglify:
       dev:
         options:
@@ -201,9 +199,9 @@ module.exports = (grunt) ->
   ]
 
   grunt.registerTask 'serve', [
+    'notify'
     'compile:dev'
     'browserSync'
-    'open'
     'watch'
   ]
 

@@ -83,9 +83,16 @@ fieldset {
   &.subquestion {
     margin: 0 0 1em 1em;
   }
+  &.add-another .hint {
+    margin-top: -10px;
+  }
   fieldset {
     margin-bottom: 1em;
   }
+}
+
+fieldset fieldset .field:last-child {
+  margin-bottom: 0;
 }
 
 .field { 
@@ -329,6 +336,29 @@ input[type="file"] {
   background: none;
   padding: 0;
   margin-top: .25em;
+}
+
+/* 6.3 Checkbox
+   ========================================================================== */
+
+.checkbox {
+  label {
+    background: $grey-3;
+    padding: 14px 17px 14px 17px;
+    display: inline-block;
+    &:hover {
+      background: $grey-2;
+      cursor: pointer;
+    }
+    &.selected {
+      background: #FFF;
+      border: 2px solid $black;
+      padding: 12px 15px 12px 15px;
+    }
+  }
+  input:focus {
+    border: none;
+  }
 }
 
 /* 6.5 Validation

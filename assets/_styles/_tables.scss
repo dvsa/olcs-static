@@ -38,6 +38,10 @@ table {
     text-align: center;
     display: block;
   }
+  input[type="submit"]:focus {
+    border: none;
+    background: $yellow;
+  }
   .action--primary {
     float: right;
     margin-bottom: 20px;

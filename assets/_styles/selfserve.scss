@@ -178,6 +178,9 @@ a:focus {
       display: none;
     }
   }
+  a:focus {
+    background: none;
+  }
 }
 
 .proposition {

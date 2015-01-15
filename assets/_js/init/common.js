@@ -12,6 +12,8 @@ OLCS.ready(function() {
   // initialise any js-table-rows tables
   OLCS.tableRows();
 
+  OLCS.selectInputs();
+
   OLCS.formInit();
 
   /*
