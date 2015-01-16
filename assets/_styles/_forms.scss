@@ -96,6 +96,12 @@ fieldset {
   }
 }
 
+
+.fieldset--primary {
+  legend { @extend legend; }
+  label { @extend label;}
+}
+
 .fieldset--secondary {
   margin-bottom: 0;
   fieldset {
@@ -110,7 +116,7 @@ fieldset {
 form fieldset:last-child,
 fieldset .field:last-child,
 fieldset fieldset .field:last-child {
-  margin-bottom: 0;
+  margin-bottom: 10px;
 }
 
 .field { 

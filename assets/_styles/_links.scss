@@ -1,10 +1,14 @@
-a { color: $link-colour; }
-
-a:active,
-a:hover { 
-  color: $link-active-colour;
-  outline: 0;
-  text-decoration: none;
+a { 
+	color: $link-colour; 
+  &:visited {
+    background: none;
+  }
+  &:active,
+  &:hover { 
+    color: $link-active-colour;
+    outline: 0;
+    text-decoration: none;
+  }
 }
 
 .disabled,
