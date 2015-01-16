@@ -6,14 +6,10 @@ OLCS.ready(function() {
     trigger: ".js-modal-ajax"
   });
 
-  // initialise any check-all table checkboxes
   OLCS.tableCheckAll();
-
-  // initialise any js-table-rows tables
   OLCS.tableRows();
-
-  OLCS.selectInputs();
-
+  OLCS.checkboxes();
+  OLCS.radioButtons();
   OLCS.formInit();
 
   /*

@@ -357,6 +357,21 @@ $grey-2: #CCC;
 
 @import '_forms';
 
+fieldset {
+  margin-bottom: 10px;
+  fieldset {
+    margin-bottom: 0;
+  }
+}
+
+.field {
+  margin-bottom: 25px;
+  &.inline-text {
+    margin-bottom: 10px;
+
+  }
+}
+
 /* ==========================================================================
    7. Navigation
    ========================================================================== */

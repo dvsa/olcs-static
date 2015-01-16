@@ -20,13 +20,15 @@ OLCS.tableRows = (function(document, $, undefined) {
 
     // Get all the actions from a specified element
     function getActions(selector) {
-      return $(selector).find(actionSelector);
+        return $(selector).find(actionSelector);
     }
 
     // Check the row for a single action to see if it
     // should be made hoverable
     function hoverableRow(selector) {
-      return getActions(selector).length === 1;
+      if (!$(selector).hasClass('disabled')) {
+        return getActions(selector).length === 1;
+      }
     }
 
     // On click of a table row

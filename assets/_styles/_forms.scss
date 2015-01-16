@@ -64,15 +64,14 @@ form {
 }
 
 fieldset {
-  @if ($app == internal) {
-    margin: 0 0 1em 0;
-  } @else {
-    margin: 0 0 2em 0;
-  }
+  margin: 0 0 40px 0;
   padding: 0;
   border: 0;
   clear: both;
   width: 100%;
+  &.inline {
+    margin-bottom: 20px;
+  }
   &.multiple {
     a {
       margin: -.75em 0 0 0;
@@ -80,29 +79,48 @@ fieldset {
         @extend %paragraph--tiny;
     }
   }
+  &.question {
+    margin: 20px 0 40px 0 !important;
+  }
   &.subquestion {
-    margin: 0 0 1em 1em;
+    margin: 0 0 30px 1em;
   }
   &.add-another .hint {
-    margin-top: -10px;
+    margin-top: -20px;
   }
   fieldset {
-    margin-bottom: 1em;
+    margin-bottom: 20px;
+  }
+  .empty {
+    margin-bottom: -20px;
   }
 }
 
+.fieldset--secondary {
+  margin-bottom: 0;
+  fieldset {
+    margin-left: 20px;
+  }
+  .empty__wrapper {
+    margin: -10px 0 60px 0;
+    float: left;
+  }
+}
+
+form fieldset:last-child,
+fieldset .field:last-child,
 fieldset fieldset .field:last-child {
   margin-bottom: 0;
 }
 
 .field { 
-  margin: 0 0 1.25em 0;
+  margin: 0 0 30px 0;
   overflow: visible;
   @media (max-width: 640px) {
     margin-bottom: .5em;
   }
   &.inline {
-    margin: 0 .5em .25em 0;
+    margin: 0 .5em 10px 0;
   }
   &.inline-text {
     float: left;
@@ -330,7 +348,6 @@ select:focus {
   }
 }
 
-
 input[type="file"] {
   border: 0;
   background: none;
@@ -338,35 +355,80 @@ input[type="file"] {
   margin-top: .25em;
 }
 
-/* 6.3 Checkbox
+/* 6.4 Lookup
+   ========================================================================== */
+
+.lookup {
+  .field {
+    margin-bottom: 10px;
+  }
+  .hint {
+    margin-bottom: 20px; 
+  }
+}
+
+
+/* 6.3 Address
+   ========================================================================== */
+
+.address {
+  fieldset {
+    margin-bottom: 15px;
+  }
+  >.field .visually-hidden + input {
+    margin-top: -10px;
+  }
+}
+
+
+/* 6.3 Traffic area
+   ========================================================================== */
+
+.traffic-area {
+  .field {
+    @extend %paragraph--large;
+    margin-bottom: 5px;
+  }
+}
+
+
+/* 6.4 Checkbox
    ========================================================================== */
 
 .checkbox {
+  &.inline label {
+    clear: none;
+  }
   label {
     background: $grey-3;
     padding: 14px 17px 14px 17px;
-    display: inline-block;
+    float: left;
+    clear: both;
     &:hover {
       background: $grey-2;
       cursor: pointer;
     }
     &.selected {
       background: #FFF;
-      border: 2px solid $black;
-      padding: 12px 15px 12px 15px;
+      border: 1px solid $black;
+      padding: 13px 16px 13px 16px;
     }
   }
   input:focus {
     border: none;
+    outline: none;
+  }
+  .hint {
+    float: left;
   }
 }
+
 
 /* 6.5 Validation
    ========================================================================== */
 
 %validation-box {
   padding: 1em 1em .5em 1em;
-  margin: 0 0 1em -1em;
   overflow: auto;
   background: $warning-background;
   @media (max-width: 640px){
@@ -377,6 +439,7 @@ input[type="file"] {
 
 .validation-summary {
   @extend %validation-box;
+  margin-bottom: 30px;
   border: 3px solid $mellow-red;
   &__list {
     margin: 0 0 1em 1.5em;

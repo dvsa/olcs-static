@@ -38,10 +38,14 @@ table {
     text-align: center;
     display: block;
   }
-  input[type="submit"]:focus {
-    border: none;
-    background: $yellow;
+  input[type="submit"] {
+    font-weight: 600;
+    &:focus {
+      border: none;
+      background: $yellow;
+    }
   }
+  input[type="submit"]
   .action--primary {
     float: right;
     margin-bottom: 20px;
@@ -73,6 +77,15 @@ th {
 tr.hover {
   background: $grey-3;
   cursor: pointer;
+}
+
+tr.disabled {
+  cursor: default;
+  input[type="submit"] {
+    cursor: default;
+    text-decoration: none;
+    color: $grey-1;
+  }
 }
 
 td {
