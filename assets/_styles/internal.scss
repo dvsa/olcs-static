@@ -390,7 +390,56 @@ fieldset {
 /* 7.2 Application nav
    ========================================================================== */
 
-@import '_app-nav';
+// status class, 1x Y value, 2x Y value
+$mobile-statuses: (
+  complete 5px 4px,
+  incomplete -295px -297px, 
+  current -95px -95px,
+  edited -398px -400px
+);
+
+.app-navigation {
+  @extend %navigation;
+  overflow: hidden;
+  border-top: none;
+  margin: 0;
+  a, 
+  .current,
+  .disabled {
+    display: block;
+    width: 90%;
+    padding: .5em 10% .5em 0;
+    border-bottom: 1px solid $grey-2;
+  }
+  .current {
+    border-bottom: 3px solid $black;
+    font-weight: 700;
+    &.no-background {
+      background: none;
+    }
+  }
+  &__item {
+    @extend %navigation__item;
+    padding: 0;
+    margin: 0;
+    width: 100% !important;
+    text-align: left;
+    background-size: 13px 165px;
+    background: url('#{$assetPath}/application-navigation-small.png') no-repeat 100% -192px;
+    @include device-pixel-ratio($ratio: 2) {
+      background: url('#{$assetPath}/application-navigation-2x.png') no-repeat 100% -192px;
+      background-size: 25px 467px;
+    }
+  }
+  @each $status in $mobile-statuses {
+    .#{nth($status, 1)} {
+      background-position: 100% nth($status, 2);
+      @include device-pixel-ratio($ratio: 2) {
+          background-position: 100% nth($status, 3);
+      }
+    }
+  }
+}
 
 /* 7.3 Horizontal navigation
    ========================================================================== */

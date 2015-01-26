@@ -40,7 +40,6 @@ $assetPath : "../images/";
   '_base-styles';
 
 $primaryColour: $department-for-transport;
-$grey-3: #eee;
 $gutter: 2.5%;
 
 /* 1.1 Links
@@ -54,6 +53,15 @@ $gutter: 2.5%;
    ========================================================================== */
 
 @import '_typography';
+
+.important {
+  padding-left: 30px;
+  background: url('#{$assetPath}/important.png') no-repeat 0 0 ;
+  @include device-pixel-ratio($ratio: 2) {
+    background: url('#{$assetPath}/important-2x.png') no-repeat 0 0;
+    background-size: 25px 25px;
+  }
+}
 
 
 /* ==========================================================================
@@ -462,11 +470,6 @@ $gutter: 2.5%;
    ========================================================================== */
 
 @import '_filters';
-
-/* 7.8 Application nav
-   ========================================================================== */
-
-@import '_app-nav';
 
 
 /* ==========================================================================

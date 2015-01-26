@@ -48,8 +48,15 @@
           <div class="page-header__wrapper">
             {{#if subtitle }}<h3 class="page-header__subtitle">{{ subtitle }}</h3>{{/if}}
             {{#if title }}<h1>{{ title }}</h1>{{/if}}
-          </div><!-- end .page-header__wrapper -->    
-        </div><!-- end .page-header -->
+            
+            <ul class="page-header__actions">
+              {{#each page-actions }}
+              <li><a href="" class="page-header__action">{{ this }}</a></li>
+              {{/each}}
+            </ul>
+
+          </div><!-- .page-header__wrapper -->    
+        </div><!-- .page-header -->
 
         {{> body }}
 
@@ -66,8 +73,8 @@
         <div class="global-footer__copyright">
           <a href="">&copy; Crown copyright</a>
         </div>
-        </div><!-- end global-wrapper -->
-    </div><!-- end global-footer -->
+        </div><!-- .global-wrapper -->
+    </div><!-- .global-footer -->
 
   </body>
 </html>
