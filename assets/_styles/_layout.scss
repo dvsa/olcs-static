@@ -2,9 +2,10 @@
   @if $app == 'selfserve' { max-width: 1020px; }
   margin: 0 auto;
   overflow: hidden;
-  width: 100%;
+  width: 95%;
   clear: both;
   overflow: hidden;
+  padding: 0 1.25%;
   @media (max-width: 640px){
     padding: 0;
     width: 100%;
