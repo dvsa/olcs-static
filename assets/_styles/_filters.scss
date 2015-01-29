@@ -1,8 +1,6 @@
 .filters {
   padding-top: .5em;
   background: white;
-  float: left;
-  overflow: visible;
   font-weight: 400;
  .vertical-navigation &,
  .app-navigation & {
@@ -12,29 +10,14 @@
   }
   .field {
     background: none !important;
-    &:last-child { border-bottom: 4px solid red; }
+    margin-bottom: 20px;
+  }
+  label {
+    margin-bottom: 5px;
   }
   select { width: 100%; } 
   input[type="search"] {
     width: 95%;
     padding: .5em 2.5%;
-  }
-}
-
-.filter-group {
-  list-style: none;
-  border-bottom: 1px solid $grey-2;
-  padding: 0 0 .8em 0;
-  margin-bottom: .7em;
-  &__title {
-    @extend %paragraph--tiny;
-    font-weight: 700;
-    margin-bottom: .35em;
-  }
-  &__item {
-    margin-bottom: .25em;
-  }
-  label {
-    @extend %paragraph--small;
   }
 }

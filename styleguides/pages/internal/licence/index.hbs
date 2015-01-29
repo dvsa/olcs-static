@@ -32,12 +32,9 @@ read-only:
     groups: 
     - group:
       - name: Operator name
-        value: Don Tarmacadam Limited
-    - group: 
-      - name: No of licences
-        value: 4 <a href="">View licences</a>
-      - name: Lead TC
-        value: Paul Rooney
+        value: <a href="">Don Tarmacadam Limited</a>
+      - name: No. of licences
+        value: 4
     - group: 
       - name: Licence number
         value: OB1265270
@@ -45,10 +42,15 @@ read-only:
         value: 16 Aug 2012
       - name: Licence type
         value: R
+    - group:
       - name: Continuation date
         value: 31 July 2017
       - name: Licence status
         value: Valid
+      - name: Next review date
+        value: 12 May 2018 
+      - name: Current review complaints
+        value: None
     - group: 
       - name: No. of operating centres
         value: 1
@@ -58,15 +60,10 @@ read-only:
         value: 2    
       - name: Trailer authorisation
         value: 2
-      - name: Trailers in possession
-        value: 0
     - group: 
-      - name: Current review complaints
-        value: None
-      - name: No of case
+      - name: Open cases
         value: 3 <a href="">View cases</a>
-      - name: Next review date
-        value: 12 May 2018   
+
 
 ---
 
@@ -81,4 +78,18 @@ read-only:
     <h3>Overview</h3>
   </div>
   {{#each read-only }}{{> _read-only }}{{/each }}
+  <form>
+    <fieldset>
+      <label>Lead Traffic Commissioner</label>
+      <select>
+        <option value="">Not set</option>
+        <option value="">North East England</option>
+        <option value="">North West England</option>
+      </select>
+    </fieldset>
+      <div class="actions-container">
+        <input class="action--primary large" type="submit" value="Save">
+        <input class="action--tertiary large" type="submit" value="Cancel">
+      </div>
+  </form>
 </div>

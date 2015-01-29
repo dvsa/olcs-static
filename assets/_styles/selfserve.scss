@@ -79,7 +79,6 @@ $gutter: 2.5%;
   @extend %container;
   width: 28.3333333333%;
   width : 27.4%\9; /* lt IE9  */
-  p { @extend %paragraph--small; }
 }
 
 .one-quarter { 
@@ -242,6 +241,7 @@ $gutter: 2.5%;
 @import '_user-header';
 
 .phase {
+  @extend %paragraph--small;
   float: left;
   &__tag {
     background: $alpha-colour;
@@ -279,19 +279,17 @@ $gutter: 2.5%;
     margin-top: 3em;
     padding-bottom: 2em;
   }
+  h1 {
+    max-width: 540px;
+  }
   &__subtitle {
     color: $grey-1;
     font-weight: 400;
   }
   &__text  {
-    margin: 1em 0;
-    max-width: 660px;
+    margin: 30px 0 0 0;
+    max-width: 500px;
     width: 100%;
-    & > * {
-      @extend %paragraph--large;
-      
-
-    }
   }
 
   &__actions {
@@ -381,6 +379,15 @@ $gutter: 2.5%;
 
 @import '_navigation';
 
+.list-navigation {
+  list-style: none;
+  margin-bottom: 40px;
+  &__item {
+    @extend %paragraph--large;
+    margin-bottom: 5px;
+  }
+}
+
 /* 7.1 Breadcrumb
    ========================================================================== */
 
@@ -427,6 +434,7 @@ $gutter: 2.5%;
     width: 40%;
   }
   p { 
+    @extend %paragraph--small;
     float: right;
     clear: none;
     text-decoration: underline;
@@ -589,6 +597,9 @@ dd {
   border-top: 1px solid $grey-2;
   padding-top: 1em;
   float: left;
+  p {
+    @extend %paragraph--small;
+  }
 }
 
 .links-list {

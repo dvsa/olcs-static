@@ -10,16 +10,19 @@ read-only:
     editable: false
     type: fields
     groups: 
-    - group:
-      - name: Current variation No.
-        value: 3
-      - name: Status
-        value: Registered
     - group: 
       - name: Service No.(s)
         value: 576, 570
       - name: Service type
         value: Bus service
+    - group:
+      - name: Registration type 
+        value: Electronic
+    - group:
+      - name: Variation No.
+        value: 5
+      - name: Status
+        value: Registered
     - group:
       - name: Start point
         value: Leeds city centre
@@ -31,12 +34,12 @@ read-only:
       - name: Date received
         value: 30 May 2012
       - name: Effective date
-        value: 30 August 2012
+        value: 30 Aug 2012
       - name: End date
-        value: 30 August 2015
+        value: 30 Au 2015
     - group: 
       - name: TAOs covered by route
-        value: Lorem ipsum, Sit dolor amet
+        value: Lorem ipsum, sit dolor amet
       - name: Local authorities convered by route
         value: Leeds City Council
       - name: N&P reference
@@ -66,7 +69,7 @@ table:
 
   <form action="">
     <div class="table__header">
-      <h3>Service history</h3>
+      <h3>Variation history</h3>
     </div><!-- .table__header -->
     <div class="table__wrapper">
       <table>
@@ -77,8 +80,8 @@ table:
           <th>End</th>
         </thead>
         <tbody>
-          <tr>
-            <td><a href="licences.html"><b>5</b></a></td>
+          <tr class="current">
+            <td><b>5</b></td>
             <td>12 May 2012</td>
             <td>12 August 2012</td>
             <td>12 August 2013</td>
@@ -97,15 +100,15 @@ table:
           </tr>
           <tr>
             <td><a href="licences.html"><b>2</b></a></td>
-            <td>12 May 2012</td>
-            <td>12 August 2012</td>
-            <td>12 August 2013</td>
+            <td>2 Jan 2013</td>
+            <td>7 Jan 2013</td>
+            <td>24 Apr 2012</td>
           </tr>
           <tr>
             <td><a href="licences.html">1</a></td>
             <td>12 May 2012</td>
-            <td>12 August 2012</td>
-            <td>12 August 2013</td>
+            <td>12 Aug 2012</td>
+            <td>1 Jan 2012</td>
           </tr>
         </tbody>
       </table>

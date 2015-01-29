@@ -88,6 +88,10 @@ tr.disabled {
   }
 }
 
+tr.current {
+  background: $light-blue-25;
+}
+
 td {
   overflow: visible;
   border-top: 1px solid $grey-2; 

@@ -1,7 +1,7 @@
-<div class="filters">
+<form class="filters">
   {{#each filterList }}
-  <div class="filter-group">
-    <h5 class="filter-group__title">{{this.header}}</h5>
+  <div class="field">
+    <label>{{this.header}}</label>
 
     {{#is this.type 'checkboxes'}}
       {{#each this.filters }}
@@ -21,4 +21,4 @@
     
   </div><!-- end .filter-group -->
   {{/each }}
-</div>
+</form>

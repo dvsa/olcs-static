@@ -33,7 +33,7 @@ h1, h2, h3, h4, h5, p {
 
 h1 { 
   @if $app == 'selfserve' {
-    @include font-size(42px,18pt,32px);  
+    @include font-size(48px,18pt,32px);  
   } @else {
     @include font-size(28px,15pt,24px);
     display: inline;
@@ -61,7 +61,7 @@ h4 {
 h5 { @extend %paragraph--small; }
 
 p { 
-  @extend %paragraph--small;
+  @extend %paragraph--large;
   @if ($app == internal) {
     @extend %paragraph--tiny;
   }

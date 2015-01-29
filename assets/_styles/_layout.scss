@@ -1,9 +1,8 @@
 .page-wrapper {
-  @if $app == 'selfserve' { max-width: 1080px; }
+  @if $app == 'selfserve' { max-width: 1020px; }
   margin: 0 auto;
   overflow: hidden;
-  width: 95%;
-  padding: 0 $gutter;
+  width: 100%;
   clear: both;
   overflow: hidden;
   @media (max-width: 640px){
