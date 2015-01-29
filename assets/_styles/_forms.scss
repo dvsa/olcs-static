@@ -91,9 +91,6 @@ fieldset {
   fieldset {
     margin-bottom: 20px;
   }
-  .empty {
-    margin-bottom: -20px;
-  }
 }
 
 
@@ -350,6 +347,7 @@ select:focus {
     font-weight: 400;
   }
   p {
+    @extend %paragraph--small;
     float: left;
   }
 }
@@ -381,10 +379,11 @@ input[type="file"] {
   fieldset {
     margin-bottom: 15px;
   }
-  >.field .visually-hidden + input {
+  .field .visually-hidden + input {
     margin-top: -10px;
   }
 }
+
 
 
 /* 6.3 Traffic area
@@ -396,6 +395,14 @@ input[type="file"] {
     margin-bottom: 5px;
   }
 }
+
+
+/* 6.4 Trading names
+   ========================================================================== */
+
+.trading-names .visually-hidden + input {
+    margin-top: -10px;
+  }
 
 
 /* 6.4 Checkbox

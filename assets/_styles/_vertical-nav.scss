@@ -6,6 +6,10 @@
   &__title {
     margin-bottom: 0;
   }
+  &__item {
+    width: 100%;
+    float: left;
+  }
   a {
     @extend %navigation__link;
     padding: .5em 0 .6em 0;
@@ -25,6 +29,8 @@
     border-bottom: 3px solid $primaryColour;
     padding-bottom: .5em;
     margin-bottom: -1px;
+    overflow: auto;
+
   }
   .disabled {
     color: $grey-1;

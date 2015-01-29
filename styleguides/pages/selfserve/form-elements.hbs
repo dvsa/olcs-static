@@ -1,21 +1,11 @@
 ---
 title: Form elements
 subtitle: Styleguide
-verticalNavItems: 
-  - label: Address
-    link: 
-  - label: Personal information
-    link: 
-  - label: About you
-    link: 
-  - label: Type size
-    link:
+breadcrumbs: 
+  - link: index.html
+    label: Back to index
 ---
 
-<div class="one-quarter">
-  <h4>In this section</h4>
-  {{> _vertical-navigation }}
-</div><!-- end .one-quarter -->
 
 <div class="two-thirds">
     <form>
@@ -29,75 +19,63 @@ verticalNavItems:
         </ol><!-- end .validation-summary__list -->
       </div><!-- end .validation-summary -->
 
-    <fieldset class="address">
-
-      <fieldset class="postcode-search">
-        <legend class="tooltip-grandparent">Postcode
-          <div class="locked-icon tooltip-parent">
-            <span class="tooltip">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</span>
-          </div>
-        </legend>
-        <div class="field inline">
-          <label for="postcode-search" class="visually-hidden">Postcode search</label>
-          <input id="postcode-search" name="postcode" type="text" class="short">
-          <p class="hint"><a href="">Enter manually</a></p>
-        </div>
-        <div class="field inline">
-          <input class="action--secondary large" type="submit" value="Find address">
-        </div>
-      </fieldset>
-
-      <div class="field">
-        <label for="street-line-one">Street
-          <div class="locked-icon tooltip-parent">
-          <span class="tooltip">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</span>
-          </div>
-        </label>
-        <input id="street-line-one" name="address" type="text" class="long">
+  <fieldset class="address" data-group="correspondence_address">
+    <legend>Establishment address</legend>
+    <p class="hint">This is where you usually keep your operator licence records.</p>
+    <fieldset>
+      <legend>Postcode search</legend>
+      <div class="field inline">
+        <input type="text" name="" class="short" value="">
       </div>
-      <div class="field">
-        <label for="street-line-two" class="visually-hidden">Street line 2</label>
-        <input id="street-line-two" name="address" type="text" class="long">
-      </div>
-      <div class="field">
-        <label for="street-line-three" class="visually-hidden">Street line 3</label>
-          <input id="street-line-three" name="address" type="text" class="long">
-      </div>
-      <div class="field">
-        <label for="street-line-four" class="visually-hidden">Street line 4</label>
-          <input id="street-line-four" name="address" type="text" class="long">
-      </div>
-      <div class="validation-wrapper">
-        <ul>
-          <li id="error2">Please complete your biography</li>
-        </ul>
-        <div class="field">
-          <label for="town-city">Town/city</label>
-            <input id="town-city" name="town-city" type="text" class="long">
-        </div>
+      <div class="field ">
+        <button type="submit" class="action--primary large" value="search">Find address</button>
+        <p class="hint--small"><a href="">Enter address manually</a></p>
       </div>
 
     </fieldset>
+    <div class="field ">
+      <label for="">Address lines</label>
+      <input type="text" name="" class="long" value="Solway Business Centre">
+    </div>
+    <div class="field ">
+      <label class="visually-hidden" for="">Address line 2</label>
+      <input type="text" name="" class="long" value="Kingstown">
+    </div>
+    <div class="field ">
+      <label class="visually-hidden" for="">Address line 3</label>
+      <input type="text" name="" class="long" value="">
+    </div>
+    <div class="field ">
+      <label class="visually-hidden" for="">Address line 4</label>
+      <input type="text" name="" class="long" value="">
+    </div>
+    <div class="field ">
+      <label for="">Town/City</label>
+      <input type="text" class="long" value="Carlisle">
+    </div>
+    <div class="field ">
+      <label for="">Postcode</label>
+      <input type="text" name="" value="CA6 4BY">
+    </div>
+    <div class="field ">
+      <label for="">Country</label>
+      <select name="">
+        <option value="">Please Select</option>
+        <option value="AF">Afghanistan</option>
+        <option value="AX">Aland Islands</option>
+      </select>
+    </div>
+    </fieldset><!-- .address -->
 
-    <fieldset>
-
-      <legend>Business details</legend>
-      <div class="field ">
-        <label for="title">What type of business are you?</label>
-        <select id="title" name="title" disabled="disabled">
-          <option value="Please select">Limited company</option>
-        </select>
-        <p class="hint"><a href="">Change business type</a></p>
-      </div>
-    
+    <fieldset class="trading-names">
       <div class="field">
-        <label for="trading-name-1">Trading names</label>
+        <label for="trading-name-1" >Trading names</label>
         <input id="trading-name-1" name="address" type="text" class="long">
       </div>
       <div class="field">
         <label for="trading-name-2" class="visually-hidden">Trading name 2</label>
         <input id="trading-name-2" name="address" type="text" class="long">
-        <p class="hint"><a href="">Add another</a></p>
+        <p class="hint--small"><a href="">Add another</a></p>
       </div>
     </fieldset>
 

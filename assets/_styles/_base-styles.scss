@@ -69,6 +69,11 @@ a:visited {
   legend + & {
     margin: 0 0 .75em 0;
   }
+  &--small {
+    @extend %paragraph--small;
+    color: $grey-1;
+    margin: 5px 0;
+  }
 }
 
 .highlight-box {
