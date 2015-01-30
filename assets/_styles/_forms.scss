@@ -154,7 +154,7 @@ fieldset fieldset .field:last-child {
   background: $grey-3;
 }
 
-/* 6.2 Labelling
+/* 6.3 Labelling
    ========================================================================== */
 
 legend {
@@ -217,7 +217,7 @@ fieldset fieldset label {
   }
 }
 
-/* 6.3 Inputs
+/* 6.4 Inputs
    ========================================================================== */
 
 input,
@@ -327,7 +327,7 @@ select:focus {
   }
 }
 
-/* 6.3 File uplaod
+/* 6.5 File uplaod
    ========================================================================== */
 
 .file-upload {
@@ -359,7 +359,7 @@ input[type="file"] {
   margin-top: .25em;
 }
 
-/* 6.4 Lookup
+/* 6.6 Lookup
    ========================================================================== */
 
 .lookup {
@@ -372,7 +372,7 @@ input[type="file"] {
 }
 
 
-/* 6.3 Address
+/* 6.7 Address
    ========================================================================== */
 
 .address {
@@ -386,7 +386,7 @@ input[type="file"] {
 
 
 
-/* 6.3 Traffic area
+/* 6.8 Traffic area
    ========================================================================== */
 
 .traffic-area {
@@ -397,15 +397,15 @@ input[type="file"] {
 }
 
 
-/* 6.4 Trading names
+/* 6.9 Trading names
    ========================================================================== */
 
 .trading-names .visually-hidden + input {
-    margin-top: -10px;
-  }
+  margin-top: -10px;
+}
 
 
-/* 6.4 Checkbox
+/* 6.10 Checkbox
    ========================================================================== */
 
 .checkbox {
@@ -437,7 +437,7 @@ input[type="file"] {
 }
 
 
-/* 6.5 Validation
+/* 6.11 Validation
    ========================================================================== */
 
 %validation-box {
@@ -469,125 +469,41 @@ input[type="file"] {
 .validation-wrapper {
   @extend %validation-box;
   border-left: 3px solid $mellow-red;
-  fieldset {
-    margin-bottom: 0;
-  }
-  ul {
-    list-style: none;
-  }
+  fieldset { margin-bottom: 0; }
+  ul { list-style: none; }
   li {
     @extend %paragraph--small;
     display: block;
     margin-bottom: .5em;
     color: $mellow-red;
   }
-  .active-result {
-    color: $black;
+  .active-result { color: $black; }
+}
+
+
+/* 6.12 Locked
+ ========================================================================== */
+
+ /* This is used to indidcate that a field or fieldset cannot be updated
+    without creating a variation or new application */
+
+.locked-icon { 
+  margin-left: 5px;
+  height: 24px;
+  width: 12px;
+  display: inline-block;
+  background: url('#{$assetPath}/lock.png') no-repeat 0 11px;
+  @include device-pixel-ratio($ratio: 2) {
+    background: url('#{$assetPath}/lock-2x.png') no-repeat 0 11px;
+    background-size: 10px 13px;
   }
 }
 
-/* 6.6 Read only
+/* 6.13 Confirmation
    ========================================================================== */
 
-  // R-E-F-A-C-T-O-R
-
-  $ro-margin-bottom: .5em;
-
-  .field.read-only {
-    margin-bottom: .5em;
-    p {
-      @extend %paragraph--small;
-    }
-  }
-
-  form.read-only {
-    height: 400px;
-    width: 100%;
-    background: $grey-4;
-    border: 1px solid $grey-3;
-    display: block;
-    overflow: auto;
-    padding: .25em 1.5em;
-    margin-bottom: 1.5em;
-    clear: both;
-    * {
-      color: $grey-1;
-      font-family: arial, sans-serif;
-      margin-bottom: 0;
-    }
-    h2 {
-      border-bottom: 3px solid $grey-2;
-      font-size: 26px;
-      line-height: 2;
-      margin-bottom: $ro-margin-bottom;
-    }
-    h3 {
-      border-bottom: 1px solid $grey-2;
-      font-size: 21px;
-      line-height: 2;
-      margin-bottom: $grey-2;
-    }
-    .field {
-      margin-bottom: $grey-2;
-    }
-    input {
-      border: none;
-      padding: 0;
-      margin-left: 2px;
-      &[type="text"] {
-        width: 100%;
-      }
-    }
-    select {
-      -webkit-appearance: none;
-      border: none;
-      border-radius: 0;
-      background: none;
-    }
-    label {
-      @extend %paragraph--small;
-      font-weight: 700;
-    }
-    legend {
-      @extend %paragraph--large;
-      font-weight: 700;
-      line-height: 1.5;       
-    }
-    fieldset {
-      margin-bottom: $ro-margin-bottom;
-    }
-    fieldset fieldset label {
-      font-weight: 400;
-      font-size: 16px;
-    }
-    fieldset fieldset legend {
-      font-weight: 600;
-      font-size: 16px;
-    }
-    .hint {
-      display: none;
-    }
-  }
-
-
-
-  // R-E-F-A-C-T-O-R
-
-
-  /* 6.6 Locked
-   ========================================================================== */
-
-   /* This is used to indidcate that a field or fieldset cannot be updated
-      without creating a variation or new application */
-
-  .locked-icon { 
-    margin-left: 5px;
-    height: 24px;
-    width: 12px;
-    display: inline-block;
-    background: url('#{$assetPath}/lock.png') no-repeat 0 11px;
-    @include device-pixel-ratio($ratio: 2) {
-      background: url('#{$assetPath}/lock-2x.png') no-repeat 0 11px;
-      background-size: 10px 13px;
-    }
-  }
+.confirm {
+  padding: 15px 15px 7px 15px;
+  border: 1px solid $light-blue-50;
+  background: $light-blue-25;
+}

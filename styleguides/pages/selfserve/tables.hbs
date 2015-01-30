@@ -1,6 +1,8 @@
 ---
 title: Tables
-subtitle: Styleguide
+breadcrumbs: 
+  - link: index.html
+    label: Back to index
 
 table:
   - title: <strong>5</strong> Operating centres
@@ -18,7 +20,7 @@ table:
       - label: <input name="row" type="checkbox">
         class: non-sortable
     columns:
-      - <a href="licence/">Unit 5, 12 Albert Street, Westpoint, Leeds</a>
+      - <b><a href="licence/">Unit 5, 12 Albert Street, Westpoint, Leeds</a></b>
       - 34
       - 23
       - Y
@@ -26,7 +28,7 @@ table:
       - <input name="row" type="checkbox">
     rows: 10
     actions:
-      - label: Add
+      - label: Add operating centre
         class: primary
       - label: Edit
         class: secondary disabled
@@ -39,8 +41,8 @@ table:
       <div class="empty__wrapper">
         <h3 class="empty__title">Operating centres</h3>
         <div class="empty">
-          <p>There are currently no convictions on this submission</p>
-          <a class="action--primary" href="">Add comments</a>
+          <p>Add your first operating centre here</p>
+          <a class="action--primary" href="">Add operating centre</a>
         </div><!-- empty -->
       </div><!-- .empty__wrapper -->
 
@@ -51,7 +53,8 @@ table:
           {{> _table }}
         {{/is }} 
       {{/each}}
-      <div class="table__footer">
+
+      <div class="table__footer" style="margin-top: -35px; float: left;">
         <div class="results-settings">
             <p>Show:</p>
             <ul class="results-settings__list">
@@ -75,58 +78,6 @@ table:
         </ul><!-- end .pagination.right-aligned -->
       </div>
 
-      <div class="table__header">
-        <h3>Revoked, curtailed or suspended licences</h3>
-      </div><!-- end .table__header -->
-      <div class="table__wrapper" style="width: 682px">
-        <table>
-          <thead>
-            <tr>
-              <th>Licence no.</th>
-              <th>Licence holder name</th>
-              <th>Address</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>OB1352622</td>
-              <td>Dan Howitt</td>  
-              <td>24 The Mount, Gardenville</td>
-            </tr>
-            <tr>
-              <td>OB1352622</td>
-              <td>Dan Howitt</td>  
-              <td>24 The Mount, Gardenville</td>
-            </tr>
-          </tbody>
-        </table>
-      </div><!-- end .table__wrapper -->
-
-      <hr />
-
-      <div class="table__header">
-        <h3>New applications</h3>
-      </div><!-- end .table__header -->
-      <div class="table__wrapper" style="width: 682px;">
-        <table>
-          <thead>
-            <tr>
-              <th>Application no.</th>
-              <th>Licence number</th>
-              <th class="">Submitted </th>
-               <th class="">Target completion</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><a href=""><b>218011</b></a><span class="status green">Submitted</span></td>
-              <td>OB1057273</td>
-              <td>8 Jul 2013</td>
-              <td>28 Jul 2013</td>
-            </tr>
-          </tbody>
-        </table>
-      </div><!-- end .table__wrapper -->
 
     </div><!-- end .full-width -->
 
