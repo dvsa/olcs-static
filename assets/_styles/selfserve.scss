@@ -19,6 +19,7 @@
  * 13. Right hand column
  * 14. Empty state
  * 15. Confirmation
+ * 16. Guidance & help
  *
  **/
 
@@ -191,7 +192,7 @@ $gutter: 2.5%;
 .proposition {
   float: left;
   overflow: auto;
-  margin-left: 140px;
+  margin-left: 180px;
   &__title {
     float: left;
     font-size: 24px;
@@ -201,6 +202,7 @@ $gutter: 2.5%;
 }
 .proposition-nav {
   list-style: none;
+  clear: left;
   &__item {
     float: left;
     font-size: 16px;
@@ -520,9 +522,9 @@ td {
 }
 
 .review-section {
-  border-top: 6px solid $black;
+  border-top: 5px solid $black;
   padding-top: 20px;
-  margin-top: 40px;
+  margin-top: 20px;
   float: left;
   width: 100%;
   h2 {
@@ -631,4 +633,39 @@ dd {
   p {
     @extend %paragraph--large;
   }
+}
+
+
+/* ==========================================================================
+   16. Guidance & help
+   ========================================================================== */
+
+.guidance {
+  background: $grey-4;
+  border-left: 4px solid $grey-2;
+  padding: 15px;
+  margin-bottom: 40px;
+}
+
+.help__summary {
+  @extend %paragraph--large;
+  display: inline-block;
+  color: $link-colour;
+  text-decoration: underline;
+  margin-bottom: 3px;
+  &:hover {
+    color: $link-hover-colour;
+    cursor: pointer;
+  }
+  &:active,
+  &:focus {
+    outline: none;
+    border: 3px solid $yellow;
+    margin: -3px 0 0 -3px;
+  }
+}
+
+.help__text {
+  padding: 15px;
+  border-left: 4px solid $grey-2;
 }

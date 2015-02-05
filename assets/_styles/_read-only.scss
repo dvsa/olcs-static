@@ -55,7 +55,10 @@
   border-bottom: 1px solid $grey-2;
   margin: 0 0 12px 0;
   padding: 0 0 3px 0;
-  width: 100%;  
+  width: 100%; 
+  &:last-child {
+    border-bottom: none;
+  }
   &__item {
     float: left;
     width: 50%;

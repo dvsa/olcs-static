@@ -16,8 +16,8 @@ breadcrumbs:
           <li class="validation-summary__item"><a href="#error1">Enter a town or city</a></li>
           <li class="validation-summary__item"><a href="#error2">Enter a date of birth</a></li>
           <li class="validation-summary__item"><a href="#error3">Enter a biography</a></li>
-        </ol><!-- end .validation-summary__list -->
-      </div><!-- end .validation-summary -->
+        </ol><!-- .validation-summary__list -->
+      </div><!-- .validation-summary -->
 
   <fieldset class="address" data-group="correspondence_address">
     <legend>Establishment address</legend>
@@ -79,8 +79,8 @@ breadcrumbs:
       </div>
     </fieldset>
 
-    <fieldset id="personal-information">
-      <legend>Personal information (if applicable)</legend>
+    <fieldset>
+      <legend>Personal information</legend>
       <div class="field">
         <label for="title">Title</label>
         <select id="title" name="title">
@@ -172,14 +172,13 @@ breadcrumbs:
       </div>
     </fieldset><!-- #file-upload -->
 
-    <fieldset id="confirmation">
-      <fieldset>
-        <legend>Confirm</legend>
-        <div class="field--list">
-          <label for="confirm"><input type="checkbox" id="confirm">Please tick to confirm that you are aware that you must tell the traffic commissioner immediately of any insolvency proceedings that occur between the submission of your application and a decision being made on the application</label>
-        </div>
-      </fieldset>
-    </fieldset><!-- end #confirmation -->
+    <div class="field confirm">
+      <label class="">
+        <input type="hidden" name="" value="N">
+        <input type="checkbox" name="" id="" placeholder="" value="Y">
+        By ticking this checkbox you are confirming that there are suitable arrangements in place to keep the vehicles in a fit and serviceable condition at all times
+      </label>
+    </div>
 
     <div class="actions-container">
       <input class="action--primary large" type="submit" value="Continue">
