@@ -376,12 +376,21 @@ input[type="file"] {
    ========================================================================== */
 
 .address {
+  &__select {
+    float: left;
+    clear: both;
+    padding: 10px;
+    background: $grey-3;
+    border-left: 3px solid $grey-2;
+    margin-bottom: 5px;
+  }
   fieldset {
     margin-bottom: 15px;
   }
   .field .visually-hidden + input {
     margin-top: -10px;
   }
+
 }
 
 

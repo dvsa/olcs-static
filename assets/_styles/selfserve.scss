@@ -192,7 +192,7 @@ $gutter: 2.5%;
 .proposition {
   float: left;
   overflow: auto;
-  margin-left: 140px;
+  margin-left: 180px;
   &__title {
     float: left;
     font-size: 24px;
@@ -202,6 +202,7 @@ $gutter: 2.5%;
 }
 .proposition-nav {
   list-style: none;
+  clear: left;
   &__item {
     float: left;
     font-size: 16px;
@@ -521,9 +522,9 @@ td {
 }
 
 .review-section {
-  border-top: 6px solid $black;
+  border-top: 5px solid $black;
   padding-top: 20px;
-  margin-top: 40px;
+  margin-top: 20px;
   float: left;
   width: 100%;
   h2 {

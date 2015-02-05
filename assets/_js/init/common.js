@@ -11,7 +11,6 @@ OLCS.ready(function() {
   OLCS.checkboxes();
   OLCS.radioButtons();
   OLCS.formInit();
-  OLCS.toggleHelp();
 
   /*
    * By default, opt-in to showing a preloader for
