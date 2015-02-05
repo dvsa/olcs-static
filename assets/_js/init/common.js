@@ -12,6 +12,10 @@ OLCS.ready(function() {
   OLCS.radioButtons();
   OLCS.formInit();
 
+  OLCS.postcodeSearch({
+    container: ".address"
+  });
+
   /*
    * By default, opt-in to showing a preloader for
    * all AJAX requests. If this proves to be a bit greedy
