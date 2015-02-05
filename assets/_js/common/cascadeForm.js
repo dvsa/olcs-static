@@ -7,6 +7,9 @@ var OLCS = OLCS || {};
  * (usually defined by a top-level fieldset) relates to the one which
  * follows it; that is the content of the following fieldset is affected
  * in some way by the input received in the current one.
+ *
+ * @FIXME: this component needs to use event delegation and stop caching
+ * a reference to a form object.
  */
 
 OLCS.cascadeForm = (function(document, $, undefined) {
