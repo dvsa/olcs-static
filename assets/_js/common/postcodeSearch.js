@@ -33,7 +33,8 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
     var roots = [
       // if we're in a modal, render in there...
       ".modal__content",
-      // ... otherwise, fall back to top-level body
+      // ... otherwise, fall back to one of the top-level body selectors
+      ".js-body__main",
       ".js-body"
     ];
 
