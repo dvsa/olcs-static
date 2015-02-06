@@ -34,9 +34,9 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
     var F = OLCS.formHelper;
 
     /**
-     * Does the component already have address data?
+     * Does the component contain any data or errors?
      */
-    function hasData(component) {
+    function isClean(component) {
       var group = $(component).data("group");
 
       for (var i = 0, j = fields.length; i < j; i++) {
@@ -46,10 +46,11 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
         }
 
         if (input.val() !== "") {
-          return true;
+          return false;
         }
       }
-      return false;
+
+      return $(component).children(".validation-wrapper").length === 0;
     }
 
     /**
@@ -72,8 +73,6 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
         var button   = fieldset.find(selector);
         var form     = fieldset.parents("form");
 
-        console.log(this);
-
         // ensure the backend knows which button was pressed
         F.pressButton(form, button);
 
@@ -94,8 +93,10 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
     function setup() {
       $(container).each(function(i, component) {
         // we hide all address fields if a search is in progress or the
-        // address data is currently empty
-        if (inProgress(component) || hasData(component) === false) {
+        // address data is currently empty and valid
+        if (inProgress(component) || isClean(component)) {
+          // this selector looks a bit loose but it works fine; we use children
+          // rather than find which is equivalent to foo > bar.
           $(component).children(".field").hide();
         } else {
           // otherwise we hide the 'enter address manually' button
@@ -131,9 +132,11 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
 
       var fieldset = $(this).parents(container);
 
-      // we have to show all address fields...
-      fieldset.children(".field").show();
-      // hide the address options, if present...
+      // we have to show our pristine address fields
+      var inputs = fieldset.children(".field");
+      inputs.find("[type=text]").val("");
+      inputs.show();
+      // ditch the address options, if present...
       fieldset.find(selectClass).remove();
       // and finally, remove this button
       $(this).remove();
