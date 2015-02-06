@@ -21,11 +21,8 @@ OLCS.ready(function() {
    * all AJAX requests. If this proves to be a bit greedy
    * we can make it more selective :)
    */
-  $(document).bind("ajaxSend", function() {
-    OLCS.preloader.show();
-  }).bind("ajaxComplete", function() {
-    OLCS.preloader.hide();
-  });
-
+  $(document)
+  .bind("ajaxSend", OLCS.preloader.show)
+  .bind("ajaxComplete", OLCS.preloader.hide);
 
 });
