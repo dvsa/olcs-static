@@ -59,18 +59,23 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       return inputs;
     }
 
-    function submitForm(fieldset, selector) {
-      var button = fieldset.find(selector);
-      var form   = fieldset.parents("form");
+    function handleClick(selector) {
+      return function(e) {
+        e.preventDefault();
 
-      F.pressButton(form, button);
+        var fieldset = $(this).parents(container);
+        var button   = fieldset.find(selector);
+        var form     = fieldset.parents("form");
 
-      OLCS.formAjax({
-        form: form,
-        success: OLCS.normaliseResponse(function(response) {
-          F.render(".js-body", response.body);
-        })
-      });
+        F.pressButton(form, button);
+
+        OLCS.formAjax({
+          form: form,
+          success: OLCS.normaliseResponse(function(response) {
+            F.render(".js-body", response.body);
+          })
+        });
+      };
     }
 
     function setup() {
@@ -84,21 +89,9 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       });
     }
 
-    $(document).on("click", submitSelector, function(e) {
-      e.preventDefault();
+    $(document).on("click", submitSelector, handleClick(".js-find"));
 
-      var fieldset = $(this).parents(container);
-
-      submitForm(fieldset, ".js-find");
-    });
-
-    $(document).on("change", selectSelector, function(e) {
-      e.preventDefault();
-
-      var fieldset = $(this).parents(container);
-
-      submitForm(fieldset, ".js-select");
-    });
+    $(document).on("change", selectSelector, handleClick(".js-select"));
 
     $(document).on("click", ".hint--small a", function(e) {
       e.preventDefault();
