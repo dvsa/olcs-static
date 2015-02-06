@@ -25,6 +25,10 @@ OLCS.modalAjax = (function(document, $, undefined) {
     $(document).on('click', trigger, function(e) {
       e.preventDefault();
 
+      // stop any other things like table rows getting greedy
+      // and causing this event to re-trigger
+      e.stopPropagation();
+
       var key = $(this).attr('href');
 
       $.ajax({
