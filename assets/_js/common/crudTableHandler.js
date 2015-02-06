@@ -21,18 +21,8 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
      */
     function reloadParent() {
       $.get(window.location.href, OLCS.normaliseResponse(function(response) {
-        renderParent(mainBodySelector, response.body);
+        F.render(mainBodySelector, response.body);
       }));
-    }
-
-    function renderParent(container, content) {
-      // the fact we redraw the entire main body means we lose our
-      // scroll position; so cache it and re-apply it immediately after render
-      var scrollTop = $(window).scrollTop();
-
-      F.render(container, content);
-
-      $(window).scrollTop(scrollTop);
     }
 
     $(document).on("click", crudActionSelector, function handleCrudClick(e) {
@@ -52,7 +42,7 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
         // if we find any errors or flash warnings, completely
         // re-render our main body
         if (response.hasErrors || response.hasWarnings) {
-          return renderParent(mainBodySelector, response.body);
+          return F.render(mainBodySelector, response.body);
         }
 
         // otherwise clear any we might have had previouosly
@@ -79,11 +69,9 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
         // if the original response was a redirect then be sure to respect
         // that by closing the modal
         if (response.status === 302) {
-          
           if (OLCS.url.isCurrent(response.location)) {
             return OLCS.modal.hide();
           }
-          
           window.location.href = response.location;
           return;
         }
