@@ -1,7 +1,7 @@
 var OLCS = OLCS || {};
 
 /**
- * Cascade Form
+ * OLCS.cascadeForm
  *
  * This component should be bound to a form in which each section
  * (usually defined by a top-level fieldset) relates to the one which

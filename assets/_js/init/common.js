@@ -8,8 +8,7 @@ OLCS.ready(function() {
 
   OLCS.tableCheckAll();
   OLCS.tableRows();
-  OLCS.checkboxes();
-  OLCS.radioButtons();
+  OLCS.selectBox();
   OLCS.formInit();
 
   OLCS.postcodeSearch({
