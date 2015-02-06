@@ -1,35 +1,56 @@
 var OLCS = OLCS || {};
 
 /**
- * OLCS.radioButtons
+ * OLCS.selectBox
  *
- * Makes radio inputs more clickable
- *
+ * Makes radios and checkboxes inputs more selectable by providing
+ * a bigger hit area
  */
 
-OLCS.radioButtons = (function(document, $, undefined) {
+OLCS.selectBox = (function(document, $, undefined) {
 
   'use strict';
 
-  return function init(options) {
+  return function init() {
 
-    $(document).on('change', 'input[type="radio"]', function () {
-        
-        var groupSelector = 'input[type="radio"][name="' + $(this).attr('name') + '"]';
-        
-        $(groupSelector).each(function() {
-            
-            if ($(this).is(':checked')) {
-              $(this).parent('label').addClass('selected'); 
-            } else {
-              $(this).parent('label').removeClass('selected');
-            }
-        });
-        
+    var activeClass = 'selected';
+
+    var checkboxSelector = 'input[type="checkbox"]';
+    var radioSelector    = 'input[type="radio"]';
+
+    function setup() {
+      $(checkboxSelector + ':checked, ' + radioSelector + ':checked')
+      .parent('label')
+      .addClass(activeClass);
+    }
+
+    function select(selector) {
+      $(selector).parent('label').addClass(activeClass);
+    }
+
+    function deselect(selector) {
+      $(selector).parent('label').removeClass(activeClass);
+    }
+
+    $(document).on('change', radioSelector, function() {
+
+      var groupSelector = radioSelector + '[name="' + $(this).attr('name') + '"]';
+
+      deselect(groupSelector);
+      select(groupSelector + ':checked');
     });
 
+    $(document).on('change', checkboxSelector, function() {
+      if ($(this).is(':checked')) {
+        select(this);
+      } else {
+        deselect(this);
+      }
+    });
+
+    setup();
+
+    OLCS.eventEmitter.on('render', setup);
   };
 
 }(document, window.jQuery));
-
-
