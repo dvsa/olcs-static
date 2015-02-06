@@ -21,16 +21,17 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       "countryCode"
     ];
 
+    var selectClass = ".address__select";
     var submitSelector = container + " button";
-    var selectSelector = container + " select:first";
+    var selectSelector = container + " " + selectClass;
 
     var F = OLCS.formHelper;
 
-    function hasData() {
-      var group = $(container).data("group");
+    function hasData(elem) {
+      var inputs = getInputs(elem);
 
-      for (var i = 0, j = fields.length; i < j; i++) {
-        var input = F(group, fields[i]);
+      for (var i = 0, j = inputs.length; i < j; i++) {
+        var input = inputs[i];
         if (input.attr("type") !== "text") {
           continue;
         }
@@ -42,40 +43,76 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       return false;
     }
 
-    function handleClick(selector) {
-      return function(e) {
-        e.preventDefault();
-
-        var fieldset = $(this).parents(container);
-        var button   = fieldset.find(selector);
-        var form     = fieldset.parents("form");
-
-        F.pressButton(form, button);
-
-        OLCS.formAjax({
-          form: form,
-          success: OLCS.normaliseResponse(function(response) {
-            F.render(".js-body", response.body);
-          })
-        });
-      };
+    function inProgress(elem) {
+      return $(elem).find(selectClass).length > 0;
     }
 
-    $(document).on("click", submitSelector, handleClick(".js-find"));
+    function getInputs(elem) {
+      var group = $(elem).data("group");
 
-    $(document).on("change", selectSelector, handleClick(".js-select"));
+      var inputs = [];
+
+      for (var i = 0, j = fields.length; i < j; i++) {
+        inputs.push(F(group, fields[i]));
+      }
+
+      return inputs;
+    }
+
+    function submitForm(fieldset, selector) {
+      var button = fieldset.find(selector);
+      var form   = fieldset.parents("form");
+
+      F.pressButton(form, button);
+
+      OLCS.formAjax({
+        form: form,
+        success: OLCS.normaliseResponse(function(response) {
+          F.render(".js-body", response.body);
+        })
+      });
+    }
+
+    function setup() {
+      var elements = $(container);
+      elements.each(function(i, elem) {
+        if (inProgress(elem) || hasData(elem) === false) {
+          $(elem).children(".field").hide();
+        } else {
+          $(elem).find(".hint--small").hide();
+        }
+      });
+    }
+
+    $(document).on("click", submitSelector, function(e) {
+      e.preventDefault();
+
+      var fieldset = $(this).parents(container);
+
+      submitForm(fieldset, ".js-find");
+    });
+
+    $(document).on("change", selectSelector, function(e) {
+      e.preventDefault();
+
+      var fieldset = $(this).parents(container);
+
+      submitForm(fieldset, ".js-select");
+    });
 
     $(document).on("click", ".hint--small a", function(e) {
       e.preventDefault();
-      console.log("@TODO show all address inputs");
+
+      var fieldset = $(this).parents(container);
+
+      fieldset.children(".field").show();
+      fieldset.find(selectClass).remove();
+      $(this).remove();
     });
 
-    // @TODO: loop over *all* valid containers
-    if (hasData()) {
-      $(container).find(".hint--small").hide();
-    } else {
-      console.log("@TODO hide all inputs");
-    }
+    setup();
+
+    OLCS.eventEmitter.on("render", setup);
   };
 
 }(document, window.jQuery));
