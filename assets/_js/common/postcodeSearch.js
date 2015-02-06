@@ -6,6 +6,8 @@ var OLCS = OLCS || {};
 
 OLCS.postcodeSearch = (function(document, $, undefined) {
 
+  // jshint newcap:false
+
   "use strict";
 
   return function init(options) {
@@ -34,8 +36,11 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       // if we're in a modal, render in there...
       ".modal__content",
       // ... otherwise, fall back to one of the top-level body selectors
-      ".js-body__main",
-      ".js-body"
+      // @TODO don't like this; some templates botch the ordering meaning
+      // js-body is "closer" than main... @see http://api.jquery.com/parentsUntil/
+      // for what looks like a robust fix
+      ".js-body",
+      ".js-body__main"
     ];
 
     var selectClass = ".address__select";
@@ -63,7 +68,7 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
         }
       }
 
-      return $(component).children(".validation-wrapper").length === 0;
+      return $(component).children(".validation-wrapper > .field").length === 0;
     }
 
     /**
