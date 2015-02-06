@@ -25,6 +25,18 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       "countryCode"
     ];
 
+    /*
+     * store a list of possible root elements within which we'll render
+     * the result of our lookup. These should be in order of likely DOM
+     * proximity because the first match will win
+     */
+    var roots = [
+      // if we're in a modal, render in there...
+      ".modal__content",
+      // ... otherwise, fall back to top-level body
+      ".js-body"
+    ];
+
     var selectClass = ".address__select";
 
     var inputSelector  = container + " .js-input";
@@ -62,12 +74,32 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
     }
 
     /**
+     * Work out what our most appropriate root element is in which
+     * we should render our AJAX response
+     */
+    function getRootSelector(component) {
+      for (var i = 0, j = roots.length; i < j; i++) {
+        if ($(component).parents(roots[i]).length) {
+          return roots[i];
+        }
+      }
+      throw new Error("No valid root selector found");
+    }
+
+    /**
      * Handle either the click of the 'find' button or the change
      * of the 'select' input; either way, we perform the same action
      */
     function handleInput(selector) {
       return function(e) {
         e.preventDefault();
+
+        // we have to prevent this event bubbling; not only to ancestors
+        // but also to listeners with the same specifity. This is because
+        // postcode search is *the* most specific "click" or "submit"
+        // handler and doesn't want to trigger wider events (like form
+        // submission)
+        e.stopImmediatePropagation();
 
         var fieldset = $(this).parents(container);
         var button   = fieldset.find(selector);
@@ -79,7 +111,8 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
         OLCS.formAjax({
           form: form,
           success: OLCS.normaliseResponse(function(response) {
-            F.render(".js-body", response.body);
+            var root = getRootSelector(fieldset);
+            F.render(root, response.body);
           })
         });
       };
