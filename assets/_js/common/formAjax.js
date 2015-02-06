@@ -5,6 +5,11 @@ var OLCS = OLCS || {};
  * that the ajax submission matches the form's method
  * and action etc
  *
+ * @NOTE: invoking this component *actually submits* the
+ * form in question; it does NOT set up listeners which
+ * at some indeterminate point will then submit it
+ *
+ * If that's what you're after, please use OLCS.formHandler instead
  */
 
 OLCS.formAjax = (function(document, $, undefined) {
