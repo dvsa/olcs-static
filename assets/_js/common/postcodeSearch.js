@@ -45,6 +45,7 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
     var inputSelector  = container + " .js-input";
     var submitSelector = container + " button";
     var selectSelector = container + " " + selectClass;
+    var manualSelector = container + " .hint--small a";
 
     var F = OLCS.formHelper;
 
@@ -177,7 +178,7 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
     $(document).on("change", selectSelector, handleInput(".js-select"));
 
     // when we click the 'enter address manualy' button...
-    $(document).on("click", ".hint--small a", function(e) {
+    $(document).on("click", manualSelector, function(e) {
       e.preventDefault();
 
       var fieldset = $(this).parents(container);
@@ -188,8 +189,8 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       inputs.show();
       // ditch the address options, if present...
       fieldset.find(selectClass).remove();
-      // and finally, remove this button
-      $(this).remove();
+      // and finally, remove this button's container
+      $(this).parent().remove();
     });
 
     /**
