@@ -36,11 +36,8 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       // if we're in a modal, render in there...
       ".modal__content",
       // ... otherwise, fall back to one of the top-level body selectors
-      // @TODO don't like this; some templates botch the ordering meaning
-      // js-body is "closer" than main... @see http://api.jquery.com/parentsUntil/
-      // for what looks like a robust fix
-      ".js-body",
-      ".js-body__main"
+      ".js-body__main",
+      ".js-body"
     ];
 
     var selectClass = ".address__select";
@@ -84,10 +81,24 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
      * we should render our AJAX response
      */
     function getRootSelector(component) {
+      var root = null;
+      var distance = Infinity;
+
       for (var i = 0, j = roots.length; i < j; i++) {
-        if ($(component).parents(roots[i]).length) {
-          return roots[i];
+        var cRoot = roots[i];
+
+        // have to check existence first; parentsUntil will just return
+        // the <html> tag if there's no matching selector
+        if ($(component).parents(cRoot).length) {
+          var dist = $(component).parentsUntil(cRoot).length;
+          if (dist < distance) {
+            distance = dist;
+            root = cRoot;
+          }
         }
+      }
+      if (root !== null) {
+        return root;
       }
       throw new Error("No valid root selector found");
     }
