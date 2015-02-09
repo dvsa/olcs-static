@@ -1,7 +1,7 @@
 var OLCS = OLCS || {};
 
 /**
- * Cascade Input
+ * OLCS.cascadeInput
  *
  * Given a source and destination input, and a process callback
  * invoked when the source value changes, apply those changes
