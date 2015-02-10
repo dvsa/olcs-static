@@ -50,6 +50,7 @@ OLCS.formHelper = (function(document, $, undefined) {
     .find("[name*=\\[" + name + "\\]]");
   };
 
+  // @TODO: make this work with string selectors, not just objects
   exports.pressButton = function(form, button) {
     var actionValue = button.val();
     var actionName  = button.attr("name");
