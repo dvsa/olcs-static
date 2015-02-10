@@ -66,7 +66,9 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
         }
       }
 
-      return $(component).children(".validation-wrapper > .field").length === 0;
+      return $(component)
+      .children(".validation-wrapper")   // find any errors wrappers...
+      .children(".field").length === 0;  // which *also* have direct field children
     }
 
     /**

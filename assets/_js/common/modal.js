@@ -57,15 +57,13 @@ OLCS.modal = (function(document, $, undefined) {
     $(wrapper).prev().show();
     $(wrapper).show();
 
-    // adding attribute to the button so later we can find which submit button was clicked
-    // @FIXME rework, don't want to add arbitrary attributes; instead this should be
-    // injecting a param into the form; see tableHandler and formHandler for
-    // examples
-    $(":button").click(function() {
-        $("button[type=submit]").removeAttr("clicked");
-        $(this).attr("clicked", "true");
-    });
+    // let other potentially interested components know
+    // there's been a render event
+    OLCS.eventEmitter.emit('render');
 
+    // @NOTE: why does the listener have to be set up here?
+    // it can be done on bootstrap and we can do away with
+    // the constant on/off stuff...
     $(document).on('click', closeSelectors, function(e) {
       e.preventDefault();
       exports.hide();
