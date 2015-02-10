@@ -8,7 +8,7 @@
 
 .overlay {
     @extend %fixed;
-    @include opacity(.8);
+    @include opacity(.6);
     background: $black;
     z-index: 1;
 }
@@ -244,18 +244,18 @@ input[type="submit"].remove {
 }
 
 .preloader {
-  @include opacity(.5);
+  @include opacity(.6);
+  background: $black;
   position: fixed;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   border: -144px;
-  background: #FFF;
   z-index: 20;
   &__icon {
-    height: 30px;
-    width: 30px;
+    height: 32px;
+    width: 32px;
     position: fixed;
     left: 49%;
     top: 52%;
