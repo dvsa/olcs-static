@@ -12,7 +12,7 @@ OLCS.ready(function() {
   OLCS.formInit();
 
   OLCS.postcodeSearch({
-    container: ".address"
+    container: ".js-postcode-search"
   });
 
   /*
