@@ -1,12 +1,15 @@
 var OLCS = OLCS || {};
 
 /**
- * Cascade Form
+ * OLCS.cascadeForm
  *
  * This component should be bound to a form in which each section
  * (usually defined by a top-level fieldset) relates to the one which
  * follows it; that is the content of the following fieldset is affected
  * in some way by the input received in the current one.
+ *
+ * @FIXME: this component needs to use event delegation and stop caching
+ * a reference to a form object.
  */
 
 OLCS.cascadeForm = (function(document, $, undefined) {

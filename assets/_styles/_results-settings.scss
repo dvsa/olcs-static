@@ -6,6 +6,7 @@
         float: left;
     }
     p, &__item {
+        @extend %paragraph--small;
         float: left;
         margin-right: .5em;
         clear: none;

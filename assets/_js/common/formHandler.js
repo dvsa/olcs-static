@@ -1,20 +1,16 @@
 var OLCS = OLCS || {};
 
 /**
- * Form Handler
+ * OLCS.formHandler
  *
- * A simple component to handle form submissions and
- * make them asynchronous
+ * A simple component to listen for form submissions and
+ * make them asynchronous by using OLCS.formAjax to submit them.
+ *
+ * This is a handy component which abstracts a lot of nuances
+ * related to form submissions via JS; things like ensuring
+ * the correct button is pressed and not interfering for file
+ * uploads (which we can't handle due to IE8 compatibility)
  */
-
-/*
-OLCS.formHandler({
-  form: "#my-form",
-  hideSubmit: true,
-  container: ".my-container",
-  filter: ".my-selector"
-});
-*/
 
 OLCS.formHandler = (function(document, $, undefined) {
 
