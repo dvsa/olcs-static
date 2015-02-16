@@ -85,6 +85,7 @@ OLCS.cascadeForm = (function(document, $, undefined) {
     function triggerRule(group, selector, rule) {
       var show;
       var elem;
+      var action;
 
       if ($.isFunction(rule)) {
         show = rule.call(form);
@@ -100,10 +101,15 @@ OLCS.cascadeForm = (function(document, $, undefined) {
         elem = elem.parents(errorWrapper);
       }
 
-      if (show) {
-        elem.show();
-      } else {
-        elem.hide();
+      if (show && elem.is(":hidden")) {
+        action = "show";
+      } else if (!show && elem.is(":visible")) {
+        action = "hide";
+      }
+
+      if (action) {
+        elem[action]();
+        OLCS.eventEmitter.emit(action + ":" + group + ":" + selector);
       }
     }
 

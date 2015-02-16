@@ -115,12 +115,11 @@ OLCS.formHelper = (function(document, $, undefined) {
     OLCS.eventEmitter.emit("render");
   };
 
-  exports.setRadioByValue = function(fieldset, name, value) {
-    var radio = exports.input(fieldset, name).filter("[value='"+value+"']")[0];
-    if (radio) {
-      radio.checked = "checked";
-    }
-  }
+  exports.selectRadio = function(fieldset, name, value) {
+    exports.input(fieldset, name)
+    .filter("[value='"+value+"']")
+    .prop("checked", true);
+  };
 
   return exports;
 
