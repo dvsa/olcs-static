@@ -118,7 +118,8 @@ OLCS.formHelper = (function(document, $, undefined) {
   exports.selectRadio = function(fieldset, name, value) {
     exports.input(fieldset, name)
     .filter("[value='"+value+"']")
-    .prop("checked", true);
+    .prop("checked", true)
+    .change();
   };
 
   return exports;
