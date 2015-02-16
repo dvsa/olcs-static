@@ -128,7 +128,7 @@ module.exports = (grunt) ->
         watchTask: true
         server:
           baseDir: './public'
-          
+
     htmllint:
       all: ['public/styleguides/**/*.html']
       options:
