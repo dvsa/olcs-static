@@ -229,3 +229,4 @@ module.exports = (grunt) ->
   # new stuff; instead we just add it to this task and we're done
   ###
   grunt.registerTask 'build:staging', ['test:ci', 'compile:staging']
+  grunt.registerTask 'build:demo', ['test:ci', 'compile:live']
