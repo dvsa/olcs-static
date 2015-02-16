@@ -25,6 +25,7 @@ describe("OLCS.formHelper", function() {
     expect(this.component.containsElement).to.be.a("function");
     expect(this.component.clearErrors).to.be.a("function");
     expect(this.component.render).to.be.a("function");
+    expect(this.component.setRadioByValue).to.be.a("function"); // @todo test this method
   });
 
   describe("Given a stubbed jQuery object", function() {
