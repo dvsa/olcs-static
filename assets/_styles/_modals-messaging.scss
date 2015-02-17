@@ -149,45 +149,56 @@ input[type="submit"].remove {
    ========================================================================== */
 
 .notice-container {
-    margin-bottom: 1.5em;
-    overflow: auto;
-    .one-fifth--right & {
-      margin: 1em 0;
-    }
+  overflow: auto;
+  position: fixed;
+  top: 14px;
+  left: 0;
+  width: 95%;
+  margin: 0 2.5%;
+  @media (min-width:640px) {
+    left: 50%;
+    width: 100%;
+    margin-left: -250px;
+    margin-right: 0;
+    max-width: 500px;
+  }
+  .one-fifth--right & {
+    margin: 1em 0;
+  }
 }
 
 @mixin notice($background,$border,$color) {
-    background: $background;
-    border-left: 3px solid $border; 
-    color: $color;
-    a {
-      color: $color;
-    }
+  background: $background;
+  border: 1px solid $border;
+  color: $color;
 }
 
 .notice {
-    &--success {
-        @include notice(#dff0d8,#d6e9c6,#3c763d);
-    }
-    &--info {
-        @include notice(#d9edf7,#bce8f1,#31708f);
-    }
-    &--warning {
-        @include notice($yellow-25,$yellow-50,#8a6d3b);
-    }
-    &--danger {
-        @include notice(#f2dede,#ebccd1,#a94442);
-    }
+  &--success {
+    @include notice(#dff0d8,#98BF73,#3c763d);
+  }
+  &--warning {
+    @include notice(#fcf8e3,#E5BE71,#8a6d3b);
+  }
+  &--danger {
+    @include notice(#f2dede,#ebccd1,#a94442);
+  }
 }
 
-.notice--success, .notice--info, .notice--warning, .notice--danger {
-    padding: .5em;
-    margin-bottom: .25em;
-    p {
-        @extend %paragraph--small;
-        margin: 0;
-        padding: 0;
-    }
+.notice--success,  
+.notice--warning, 
+.notice--danger {
+  @include border-radius(2px);
+  padding: 6px 15px;
+  margin-bottom: .25em;
+  p {
+    @extend %paragraph--small;
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    float: right;
+  }
 }
 
 /* 10.4 Tooltips
@@ -242,6 +253,10 @@ input[type="submit"].remove {
     bottom:-9px;
   }
 }
+
+
+/* 10.5 Tooltips
+   ========================================================================== */
 
 .preloader {
   @include opacity(.6);
