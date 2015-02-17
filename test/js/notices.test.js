@@ -58,8 +58,7 @@ describe("OLCS.notices", function() {
 
       });
 
-     
-
     });
+
   });
 });

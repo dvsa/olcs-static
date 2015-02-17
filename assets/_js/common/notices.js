@@ -29,7 +29,7 @@ OLCS.notices = (function(document, $, undefined) {
     $(document).on('click', closeLinkSelector, function(e) {
       e.preventDefault();
       
-      if ( $(this).closest('div').siblings().length) {
+      if ($(this).closest('div').siblings().length) {
         remove($(this).closest('div'));
       } else {
         remove(noticeContainerSelector);
