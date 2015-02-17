@@ -65,6 +65,12 @@ describe("OLCS.cascadeForm", function() {
       beforeEach(function() {
         this.submitSpy = sinon.spy();
 
+        this.f1Spy = sinon.spy();
+        this.f2Spy = sinon.spy();
+
+        OLCS.eventEmitter.once("show:foo:*", this.f1Spy);
+        OLCS.eventEmitter.once("hide:bar:*", this.f2Spy);
+
         this.component({
           form: ".stub-form",
           submit: this.submitSpy,
@@ -101,8 +107,16 @@ describe("OLCS.cascadeForm", function() {
         expect($(".f1").is(":visible")).to.equal(true);
       });
 
+      it("should not fire the first fieldset's show event", function() {
+        expect(this.f1Spy.callCount).to.equal(0);
+      });
+
       it("should hide the second fieldset", function() {
         expect($(".f2").is(":visible")).to.equal(false);
+      });
+
+      it("should fire the second fieldset's hide event", function() {
+        expect(this.f2Spy.callCount).to.equal(1);
       });
 
       it("should hide the third fieldset", function() {
