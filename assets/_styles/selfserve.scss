@@ -375,6 +375,38 @@ $gutter: 2.5%;
 @import '_forms';
 
 
+/* 6.1 GDS checkboxes
+   ========================================================================== */
+
+.checkbox {
+  &.inline label {
+    clear: none;
+  }
+  label {
+    background: $grey-3;
+    padding: 14px 17px 14px 17px;
+    float: left;
+    clear: both;
+    &:hover {
+      background: $grey-2;
+      cursor: pointer;
+    }
+    &.selected {
+      background: #FFF;
+      border: 1px solid $black;
+      padding: 13px 16px 13px 16px;
+    }
+  }
+  input:focus {
+    border: none;
+    outline: none;
+  }
+  .hint {
+    float: left;
+  }
+}
+
+
 /* ==========================================================================
    7. Navigation
    ========================================================================== */
