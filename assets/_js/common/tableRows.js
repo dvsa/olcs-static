@@ -14,9 +14,9 @@ OLCS.tableRows = (function(document, $, undefined) {
 
   return function init() {
 
-    var tableRowSelector   = 'tbody tr';
-    var actionSelector     = 'a, input[type=submit]';
-    var otherInputSelector = ':checkbox, :radio';
+    var tableRowSelector = 'tbody tr';
+    var actionSelector   = 'a, input[type=submit]';
+    var selectBox      = 'input[type=checkbox], input[type=radio]';
 
     // Get all the actions from a specified element
     function getActions(selector) {
@@ -34,20 +34,26 @@ OLCS.tableRows = (function(document, $, undefined) {
     // On click of a table row
     $(document).on('click', tableRowSelector, function(e) {
 
+      var actionElement = getActions(this);
+      var target        = $(e.target);
+
       // If the row shouldn't be hoverable, return
       if (!hoverableRow(this)) {
         return;
       }
 
-      // Cache the clicked table row's action
-      var $actionElement = getActions(this);
-
-      // Providing the target of our click isn't one of the
-      // row's checkbox or radios, we trigger a click of the
-      // row's primary action
-      if (!$(e.target).is(otherInputSelector)) {
-        $actionElement.get(0).click();
+      // If the target element isn't a select box or and doesn't contain one
+      // simulate a click of the row's primary action 
+      if (!target.is(selectBox) && !target.children(selectBox).length) {
+        actionElement.get(0).click();
       }
+
+      // If the target element contains a select box, simulate a click of it's
+      // select box
+      if (target.children(selectBox).length) {
+        target.children(selectBox).click();
+      }
+  
 
     });
 
