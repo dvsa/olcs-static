@@ -68,7 +68,7 @@
     }
     form {
         overflow: auto;
-        margin: 0 2.5% 1em 2.5%;
+        margin: 0 2.5% 0 2.5%;
         padding: 0 2.5% 0 1px;
         width: 95%;
     }
@@ -155,6 +155,13 @@ input[type="submit"].remove {
   left: 0;
   width: 95%;
   margin: 0 2.5%;
+  .modal & {
+    position: relative;
+    max-width: none;
+    left: 0;
+    width: 95%;
+    margin: -10px 2.5% 30px 2.5%;
+  }
   @media (min-width:640px) {
     left: 50%;
     width: 100%;
@@ -180,6 +187,9 @@ input[type="submit"].remove {
   &--warning {
     @include notice(#fcf8e3,#E5BE71,#8a6d3b);
   }
+  &--info {
+    @include notice(#d9edf7, #bce8f1,#31708f);
+  }
   &--danger {
     @include notice(#f2dede,#ebccd1,#a94442);
   }
@@ -187,6 +197,7 @@ input[type="submit"].remove {
 
 .notice--success,  
 .notice--warning, 
+.notice--info,
 .notice--danger {
   @include border-radius(2px);
   padding: 6px 15px;

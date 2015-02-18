@@ -20,23 +20,34 @@ OLCS.notices = (function(document, $, undefined) {
       $(element).remove();
     }
 
-    // $(noticeContainerSelector)
-    //   .delay(6000)
-    //   .fadeOut(300, function() {
-    //     remove($(this));
-    // });
-    
+    function fadeOut(element) {
+      // If our notice container isn't in a modal...
+      if (!$(noticeContainerSelector).parents('.modal').length) {
+        $(noticeContainerSelector)
+          .delay(6000)
+          .fadeOut(300, function() {
+            remove($(this));
+        });
+      }
+    }
+
+    OLCS.eventEmitter.on("render", fadeOut);
+
     $(document).on('click', closeLinkSelector, function(e) {
       e.preventDefault();
       
+      // If there are more than one notice remove itself
       if ($(this).closest('div').siblings().length) {
         remove($(this).closest('div'));
       } else {
+        // Otherwise remove the whole notice container
         remove(noticeContainerSelector);
       }
 
     });
 
+    // Everything's in place and our listeners are ready; go!
+    fadeOut();
   };
 
 }(document, window.jQuery));

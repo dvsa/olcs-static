@@ -16,7 +16,7 @@ OLCS.tableRows = (function(document, $, undefined) {
 
     var tableRowSelector = 'tbody tr';
     var actionSelector   = 'a, input[type=submit]';
-    var selectBox      = 'input[type=checkbox], input[type=radio]';
+    var selectBox        = 'input[type=checkbox], input[type=radio]';
 
     // Get all the actions from a specified element
     function getActions(selector) {
@@ -25,7 +25,7 @@ OLCS.tableRows = (function(document, $, undefined) {
 
     // Check the row for a single action to see if it
     // should be made hoverable
-    function hoverableRow(selector) {
+    function checkForSingleAction(selector) {
       if (!$(selector).hasClass('disabled')) {
         return getActions(selector).length === 1;
       }
@@ -37,8 +37,14 @@ OLCS.tableRows = (function(document, $, undefined) {
       var actionElement = getActions(this);
       var target        = $(e.target);
 
-      // If the row shouldn't be hoverable, return
-      if (!hoverableRow(this)) {
+      // If the target element contains a select box, simulate a 
+      // click of it's select box
+      if (target.children(selectBox).length) {
+        target.children(selectBox).click();
+      }
+
+      // Crap-out if the row shouldn't be hoverable 
+      if (!checkForSingleAction(this)) {
         return;
       }
 
@@ -48,12 +54,7 @@ OLCS.tableRows = (function(document, $, undefined) {
         actionElement.get(0).click();
       }
 
-      // If the target element contains a select box, simulate a click of it's
-      // select box
-      if (target.children(selectBox).length) {
-        target.children(selectBox).click();
-      }
-  
+
 
     });
 
@@ -61,7 +62,7 @@ OLCS.tableRows = (function(document, $, undefined) {
     $(document).on('mouseenter mouseleave', tableRowSelector, function(e) {
 
       // If the row shouldn't be hoverable, return
-      if (!hoverableRow(this)) {
+      if (!checkForSingleAction(this)) {
         return;
       }
 
