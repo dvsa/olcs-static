@@ -396,6 +396,16 @@ $gutter: 2.5%;
       border: 1px solid $black;
       padding: 13px 16px 13px 16px;
     }
+    &.disabled {
+      cursor: default;
+    }
+    &.disabled:hover {
+      background: $grey-3; 
+    }
+    &.selected.disabled:hover {
+      background: $white; 
+    }
+
   }
   input:focus {
     border: none;

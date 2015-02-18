@@ -20,11 +20,11 @@ OLCS.notices = (function(document, $, undefined) {
       $(element).remove();
     }
 
-    $(noticeContainerSelector)
-      .delay(6000)
-      .fadeOut(300, function() {
-        remove($(this));
-    });
+    // $(noticeContainerSelector)
+    //   .delay(6000)
+    //   .fadeOut(300, function() {
+    //     remove($(this));
+    // });
     
     $(document).on('click', closeLinkSelector, function(e) {
       e.preventDefault();
