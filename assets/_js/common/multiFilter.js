@@ -1,5 +1,15 @@
 var OLCS = OLCS || {};
 
+/**
+ * OLCS.multiFilter
+ *
+ * A *very* niche component; used to filter a destination
+ * multiselect based on the current value(s) of a source
+ * multiselect. The exact keys/values used to do the filtering
+ * are tied one to one with the use-case which spawned the
+ * component so probably aren't re-usable (yet)
+ */
+
 OLCS.multiFilter = (function(document, $, undefined) {
 
   "use strict";
