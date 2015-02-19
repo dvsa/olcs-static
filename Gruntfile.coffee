@@ -128,7 +128,7 @@ module.exports = (grunt) ->
         watchTask: true
         server:
           baseDir: './public'
-          
+
     htmllint:
       all: ['public/styleguides/**/*.html']
       options:
@@ -212,7 +212,7 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'lint', [
     'coffeelint'
-    # 'jshint' FIXME: this *must* be reinstated when the js is fit for purpose
+    'jshint'
   ]
 
   grunt.registerTask 'assemble:pretty', [
@@ -229,3 +229,5 @@ module.exports = (grunt) ->
   # new stuff; instead we just add it to this task and we're done
   ###
   grunt.registerTask 'build:staging', ['test:ci', 'compile:staging']
+
+  grunt.registerTask 'build:demo', ['test:ci', 'compile:live']

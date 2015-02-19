@@ -81,10 +81,15 @@ OLCS.cascadeForm = (function(document, $, undefined) {
      * invoke a rule against an element or fieldset. The
      * end result will be the showing or hiding of the
      * relevant element
+     *
+     * Usually traverses up the DOM tree to see if the matched container
+     * itself sits within an error message and treats that as the parent
+     * if so; although currently there are exceptions to this
      */
     function triggerRule(group, selector, rule) {
       var show;
       var elem;
+      var action;
 
       if ($.isFunction(rule)) {
         show = rule.call(form);
@@ -96,14 +101,21 @@ OLCS.cascadeForm = (function(document, $, undefined) {
 
       // are we currently sat inside a validation error wrapper? If
       // so that becomes the top-level element
-      if (elem.parents(errorWrapper).length) {
+      // note that key=val selectors are an exception to this rule
+      // and as such we never check their containers
+      if (selector.search("=") === -1 && elem.parents(errorWrapper).length) {
         elem = elem.parents(errorWrapper);
       }
 
-      if (show) {
-        elem.show();
-      } else {
-        elem.hide();
+      if (show && elem.is(":hidden")) {
+        action = "show";
+      } else if (!show && elem.is(":visible")) {
+        action = "hide";
+      }
+
+      if (action) {
+        elem[action]();
+        OLCS.eventEmitter.emit(action + ":" + group + ":" + selector);
       }
     }
 

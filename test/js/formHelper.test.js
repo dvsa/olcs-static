@@ -25,6 +25,7 @@ describe("OLCS.formHelper", function() {
     expect(this.component.containsElement).to.be.a("function");
     expect(this.component.clearErrors).to.be.a("function");
     expect(this.component.render).to.be.a("function");
+    expect(this.component.selectRadio).to.be.a("function");
   });
 
   describe("Given a stubbed jQuery object", function() {
@@ -284,6 +285,43 @@ describe("OLCS.formHelper", function() {
             expect($("#wrapper1").hasClass("validation-wrapper")).to.equal(false);
             expect($("#wrapper2").hasClass("validation-wrapper")).to.equal(false);
           });
+        });
+      });
+    });
+  });
+
+  describe("selectRadio", function() {
+    describe("Given a stubbed DOM", function() {
+      beforeEach(function() {
+        var template = [
+          "<div id=stub3>",
+            "<fieldset data-group=bar>",
+              "<input id=r1 name=bar[foo] value=Y type=radio />",
+              "<input id=r2 name=bar[foo] value=N type=radio />",
+              "<input id=r3 name=bar[foo] value=Z type=radio />",
+            "</fieldset>",
+          "</div>"
+        ].join("\n");
+
+        $("body").append(template);
+      });
+
+      afterEach(function() {
+        $("#stub3").remove();
+      });
+
+      describe("When invoked", function() {
+        beforeEach(function() {
+          this.component.selectRadio("bar", "foo", "Y");
+        });
+
+        it("checks the correct element", function() {
+          expect($("#r1").is(":checked")).to.equal(true);
+        });
+
+        it("does not check the other elements", function() {
+          expect($("#r2").is(":checked")).to.equal(false);
+          expect($("#r3").is(":checked")).to.equal(false);
         });
       });
     });
