@@ -155,7 +155,8 @@ input[type="submit"].remove {
   left: 0;
   width: 95%;
   margin: 0 2.5%;
-  .modal & {
+  .modal &,
+  .one-fifth--right & {
     position: relative;
     max-width: none;
     left: 0;

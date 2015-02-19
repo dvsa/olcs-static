@@ -21,8 +21,10 @@ OLCS.notices = (function(document, $, undefined) {
     }
 
     function fadeOut(element) {
-      // If our notice container isn't in a modal...
-      if (!$(noticeContainerSelector).parents('.modal').length) {
+      // If our notice container isn't in a modal or the sidebar...
+      // @NOTE We should really update the markup to make this more
+      // specific instead of having to check parent elements
+      if (!$(noticeContainerSelector).parents('.modal, .one-fifth--right').length) {
         $(noticeContainerSelector)
           .delay(6000)
           .fadeOut(300, function() {
