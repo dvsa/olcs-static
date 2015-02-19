@@ -155,13 +155,19 @@ input[type="submit"].remove {
   left: 0;
   width: 95%;
   margin: 0 2.5%;
-  .modal &,
-  .one-fifth--right & {
+  .modal & {
     position: relative;
     max-width: none;
     left: 0;
     width: 95%;
     margin: -10px 2.5% 30px 2.5%;
+  }
+  .one-fifth--right & {
+    margin: 0 0 1em 0;
+    position: relative;
+    float: left;
+    left: 0;
+    top: 0;
   }
   @media (min-width:640px) {
     left: 50%;
@@ -170,9 +176,7 @@ input[type="submit"].remove {
     margin-right: 0;
     max-width: 500px;
   }
-  .one-fifth--right & {
-    margin: 1em 0;
-  }
+
 }
 
 @mixin notice($background,$border,$color) {
