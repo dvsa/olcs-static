@@ -29,31 +29,51 @@ describe("OLCS.notices", function() {
       $("#stub").remove();
     });
 
-    describe("When invoked", function() {
+    describe("Given a fake clock", function() {
       beforeEach(function() {
-        this.component();
+        this.clock = sinon.useFakeTimers();
+      });
+      
+      afterEach(function() {
+        this.clock.restore();
       });
 
-      describe("When the first close button is clicked", function() {
+      describe("When invoked", function() {
         beforeEach(function() {
-          $("#l2").click();
+          this.component();
         });
 
-        it("It removes the expected element", function() {
-          expect($(".notice--danger").length).to.equal(0);
-          expect($(".notice--success").length).to.equal(1);
-          expect($(".notice-container").length).to.equal(1);
-        });
-
-        describe("When the last remaining element's close button is clicked", function() {
+        describe("When the first close button is clicked", function() {
           beforeEach(function() {
-            $("#l1").click();
+            $("#l2").click();
+          });
+
+          it("It removes the expected element", function() {
+            expect($(".notice--danger").length).to.equal(0);
+            expect($(".notice--success").length).to.equal(1);
+            expect($(".notice-container").length).to.equal(1);
+          });
+
+          describe("When the last remaining element's close button is clicked", function() {
+            beforeEach(function() {
+              $("#l1").click();
+            });
+
+            it("It removes the container from them DOM", function() {
+              expect($(".notice-container").length).to.equal(0);
+            });
+          });
+
+        });
+
+        describe("After 6400ms seconds has passed", function() {
+          beforeEach(function(){
+            this.clock.tick(6400);
           });
 
           it("It removes the container from them DOM", function() {
-            expect($(".notice-container").length).to.equal(0);
+            expect($(".notice-container").length).to.equal(0);    
           });
-
         });
 
       });
@@ -61,4 +81,52 @@ describe("OLCS.notices", function() {
     });
 
   });
+
+  describe("Given a stubbed DOM with the class of 'modal'", function() {
+    beforeEach(function() {
+      $("body").append([
+        "<div class=modal>",
+          "<div class=notice-container>",
+            "<div class=notice--success>",
+              "<p>Message<a href=# class=notice__link id=l1>Close</a></p>",
+            "</div>",
+          "</div>",
+        "</div>"
+      ].join("\n"));
+    });
+
+    afterEach(function() {
+      $(".modal").remove();
+    });
+
+    describe("Given a fake clock", function() {
+      beforeEach(function() {
+        this.clock = sinon.useFakeTimers();
+      });
+      
+      afterEach(function() {
+        this.clock.restore();
+      });
+
+      describe("When invoked", function() {
+        beforeEach(function() {
+          this.component();
+        });
+
+        describe("After 6400ms seconds has passed", function() {
+          beforeEach(function(){
+            this.clock.tick(6400);
+          });
+
+          it("The notice container should still be present", function() {
+            expect($(".notice-container").length).to.equal(1);    
+          });
+        });
+
+      });
+
+    });
+
+  });
+
 });

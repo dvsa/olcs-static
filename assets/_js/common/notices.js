@@ -13,6 +13,7 @@ OLCS.notices = (function(document, $, undefined) {
 
   var closeLinkSelector       = '.notice__link';
   var noticeContainerSelector = '.notice-container';
+  var noticeSelector          = 'div[class^="notice--"]';
 
   return function init() {
 
@@ -21,35 +22,35 @@ OLCS.notices = (function(document, $, undefined) {
     }
 
     function fadeOut(element) {
-      // If our notice container isn't in a modal or the sidebar...
-      // @NOTE We should really update the markup to make this more
-      // specific instead of having to check parent elements
-      if (!$(noticeContainerSelector).parents('.modal, .one-fifth--right').length) {
-        $(noticeContainerSelector)
-          .delay(6000)
-          .fadeOut(300, function() {
-            remove($(this));
-        });
-      }
+      $(element)
+        .delay(6000)
+        .fadeOut(300, function() {
+          remove(element);
+      });
     }
 
-    OLCS.eventEmitter.on("render", fadeOut);
+    OLCS.eventEmitter.on('render', fadeOut);
 
     $(document).on('click', closeLinkSelector, function(e) {
       e.preventDefault();
-      
-      // If there are more than one notice remove itself
-      if ($(this).closest('div').siblings().length) {
-        remove($(this).closest('div'));
+      // If there is more than one notice, remove itself
+      if ($(this).parents(noticeSelector).siblings().length) {
+        remove($(this).parents(noticeSelector));
       } else {
         // Otherwise remove the whole notice container
         remove(noticeContainerSelector);
       }
-
     });
 
-    // Everything's in place and our listeners are ready; go!
-    fadeOut();
+    /** 
+     * @TODO SQ: 09/02/2015 
+     * Update the markup to make this more specific instead of having 
+     * to check parent elements
+     */
+    if (!$(noticeContainerSelector).parents('.modal, .one-fifth--right').length) {
+      fadeOut(noticeContainerSelector);
+    }
+
   };
 
 }(document, window.jQuery));
