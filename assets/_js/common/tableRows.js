@@ -33,14 +33,15 @@ OLCS.tableRows = (function(document, $, undefined) {
 
     // On click of a table row
     $(document).on('click', tableRowSelector, function(e) {
-
-      var actionElement = getActions(this);
-      var target        = $(e.target);
+      
+      var target          = $(e.target);
+      var actionElement   = getActions(this);
+      var targetselectBox = target.children(selectBox);
 
       // If the target element contains a select box, simulate a 
       // click of it's select box
-      if (target.children(selectBox).length) {
-        target.children(selectBox).click();
+      if (targetselectBox.length) {
+        targetselectBox.click();
         return;
       }
 
@@ -51,7 +52,7 @@ OLCS.tableRows = (function(document, $, undefined) {
 
       // If the target element isn't a select box or and doesn't contain one
       // simulate a click of the row's primary action 
-      if (!target.is(selectBox) && !target.children(selectBox).length) {
+      if (!target.is(selectBox) && !targetselectBox.length) {
         actionElement.get(0).click();
       }
 
