@@ -41,9 +41,10 @@ OLCS.tableRows = (function(document, $, undefined) {
       // click of it's select box
       if (target.children(selectBox).length) {
         target.children(selectBox).click();
+        return;
       }
 
-      // Crap-out if the row shouldn't be hoverable 
+      // Return if the row shouldn't be hoverable 
       if (!checkForSingleAction(this)) {
         return;
       }
@@ -53,8 +54,6 @@ OLCS.tableRows = (function(document, $, undefined) {
       if (!target.is(selectBox) && !target.children(selectBox).length) {
         actionElement.get(0).click();
       }
-
-
 
     });
 
@@ -69,7 +68,7 @@ OLCS.tableRows = (function(document, $, undefined) {
       // Toggle the class 'hover' on the table row
       if (e.type === 'mouseenter') {
         $(this).addClass('hover');
-      } else {
+      } else if (e.type === 'mouseleave'){
         $(this).removeClass('hover');
       }
 

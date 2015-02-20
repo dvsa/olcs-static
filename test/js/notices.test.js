@@ -63,7 +63,6 @@ describe("OLCS.notices", function() {
               expect($(".notice-container").length).to.equal(0);
             });
           });
-
         });
 
         describe("After 6400ms seconds has passed", function() {
@@ -75,11 +74,8 @@ describe("OLCS.notices", function() {
             expect($(".notice-container").length).to.equal(0);    
           });
         });
-
       });
-
     });
-
   });
 
   describe("Given a stubbed DOM with the class of 'modal'", function() {
@@ -122,11 +118,7 @@ describe("OLCS.notices", function() {
             expect($(".notice-container").length).to.equal(1);    
           });
         });
-
       });
-
     });
-
   });
-
 });
