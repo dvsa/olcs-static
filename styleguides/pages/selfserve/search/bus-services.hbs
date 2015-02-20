@@ -1,38 +1,36 @@
 ---
-title: Bus registrations
-header-text: <p>In order to register, update or cancel a bus service you need to updload an Electronic Bus Registration Service pack (EBSR) in .ZIP format.</p>
-    <p><b><a href="register-update-cancel-service.html">Register, update or cancel a service</a></b></p>
+title: Search results
+header-text: <p>We’ve found 18 <b>bus services</b> that match your search</p>
 layout: base.hbs
-user: bus operator
 table:
   - headers:
       - label: Registration No.
         class: sortable descending
-      - label: Variation
+      - label: Operator
         class: sortable
-      - label: Type
+      - label: Starts
+        class: sortable
+      - label: Finishes
         class: sortable
       - label: Service No.
         class: sortable
-      - label: Submitted 
-        class: sortable
+
     columns:
       - <strong><a href="bus-service-detail.html">PC1057277/232</a></strong><span class="status green">Registered</span>
-      - 3
-      - Electronic
+      - First West Yorkshire Limited
+      - Leeds
+      - Doncaster
       - 576,570
-      - 12 May 2012
     rows: 20
 ---
 
 <div class="three-eigths">
   <form class="filters">
     <fieldset>
-      <legend>Search</legend>
+      <legend>Edit search</legend>
       <div class="field">
         <label for="search">Keywords</label>
         <input id="search" name="search" type="search" class="extra-long">
-        <p class="hint--small">Search by registration or service number.</p>
       </div>
       <div class="field">
         <label>Start point</label>

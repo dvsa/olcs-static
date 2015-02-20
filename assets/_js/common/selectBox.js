@@ -14,6 +14,7 @@ OLCS.selectBox = (function(document, $, undefined) {
   return function init() {
 
     var activeClass = 'selected';
+    var disabledClass = 'disabled';
 
     var checkboxSelector = 'input[type="checkbox"]';
     var radioSelector    = 'input[type="radio"]';
@@ -22,6 +23,10 @@ OLCS.selectBox = (function(document, $, undefined) {
       $(checkboxSelector + ':checked, ' + radioSelector + ':checked')
       .parent('label')
       .addClass(activeClass);
+     
+      $(checkboxSelector + ':disabled, ' + radioSelector + ':disabled')
+      .parent('label')
+      .addClass(disabledClass);
     }
 
     function select(selector) {
