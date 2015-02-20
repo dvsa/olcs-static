@@ -14,7 +14,7 @@ OLCS.selectBox = (function(document, $, undefined) {
   return function init() {
 
     var activeClass = 'selected';
-    var disabledClass = 'disabled'
+    var disabledClass = 'disabled';
 
     var checkboxSelector = 'input[type="checkbox"]';
     var radioSelector    = 'input[type="radio"]';
