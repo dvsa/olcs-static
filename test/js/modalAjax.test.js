@@ -27,11 +27,15 @@ describe("OLCS.modalAjax", function() {
 
       this.body.append(template);
 
+      // @todo Why doesn't sinon.spy work here
+      this.modal = sinon.stub(OLCS.modal, "hide");
+
       this.on = sinon.spy($.prototype, "on");
     });
 
     afterEach(function() {
       this.on.restore();
+      this.modal.restore();
       $("#stub").remove();
     });
 
