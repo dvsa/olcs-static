@@ -11,10 +11,13 @@ OLCS.fileUploader = (function(document, $, undefined) {
 
   'use strict';
 
-  var fileUploadSelector = '.file-uploader';
-  var fileUploadButton   = ''+ fileUploadSelector +' .action--secondary';
-  var fileInput          = ''+ fileUploadSelector +' input[type=file]';
-
+  var fileUploader     = '.file-uploader';
+  var fileInput        = 'input[type=file]';
+  var fileUploadButton = '.action--primary, .action--secondary';
+  var fileList         = '.file-uploader__list';
+  var fileActions      = '.file-uploader__actions'
+  var fileAction       = '.file-uploader__action';
+  var fileRemoveAction = '.file-uploader__remove';
   
   return function init() {
 
@@ -22,7 +25,7 @@ OLCS.fileUploader = (function(document, $, undefined) {
       var index = path.lastIndexOf("\\") + 1;
       return path.substr(index);
     }
-
+  
     function formatFileSizeString(fileSizeInBytes) {
       var string = fileSizeInBytes.toString();
       var stringLength = string.length;
@@ -45,62 +48,82 @@ OLCS.fileUploader = (function(document, $, undefined) {
       }
     }
 
-    function fileInputFactory(int) {
-      var fileSetID = 'fileset'+int+'';
-      var hiddenFileInput = '<input class="js-hidden" type="file" data-attr="'+fileSetID+'">';
 
-      $(fileUploadSelector).append(hiddenFileInput)
+    function createNewFileInput(element) {
+
+      // Get the number of uploader actions
+      var actionCount = element.length + 1;
+
+      // Clone the last file input
+      var newfileUploaderAction = element.last().clone();
+
+      // Store a string version
+      var newHTML = newfileUploaderAction.html();
+      
+      // Find the ID
+      var regex = new RegExp(/fileUpload\[(.*?)\]/g);
+
+      // Replace ID with the new incremented one 
+      newHTML = newHTML.replace(regex, "fileUpload["+actionCount+"]");
+
+      // Set the HTML of our new element
+      newfileUploaderAction.html(newHTML);
+
+      // Return the new element
+      return newfileUploaderAction;
 
     }
 
-    var existingFiles;
 
-    // When the file upload button is clicked
-    // trigger a click of the file input
+    // When the file upload button is clicked trigger a 
+    // click of the file input
     $(document).on('click', fileUploadButton, function(e) {
       e.preventDefault();
-      
-      // Cache any existing files 
-      existingFiles = $(this).siblings('input')[0].files;
-
-      // Trigger a click of the hidden input 
-      $(fileInput).click();
+      $(this).siblings(fileInput).click();
     });
-
 
 
     // When the file input is updated
     $(document).on('change', fileInput, function() {
       
-      else {
-        console.log("File uploader is empty");
-      }
+      var newFiles       = this.files;
+      var allFiles       = [];
+      var domFileList    = [];
+      var thisParent     = $(this).parents(fileUploader);
+      var thisFileAction = thisParent.find(fileAction);
 
-      var fileList      = this.files;
-      var domFileList   = [];
+      console.log($(fileAction).length);
 
-      console.log(fileList); 
-      
+      if (newFiles.length) {
+        
+        // Add the new file uploader
+        $(this).closest(fileActions).append(createNewFileInput(thisFileAction));
 
-      if (fileList.length) {
+        // Hide the current file uploader
+        $(this).closest(fileAction).hide();
+        
+        // Get every file from every file inputs within the parent .file-uploader
+        // and push it to our array
+        thisParent.find(fileInput).each( function() {
+          
+          for (var i = 0; i < this.files.length; i++) {
+            var fileName      = this.files[i].name;
+            var fileSize      = this.files[i].size;
+            var formattedSize = formatFileSizeString(fileSize);
 
-        // Loop through the file list
-        for (var i = 0; i < fileList.length; i++) {
-          var fileName      = fileList[i].name;
-          var fileSize      = fileList[i].size;
-          var formattedSize = formatFileSizeString(fileSize);
-
-          // Populate the domFileList array with dom elements
-          domFileList.push('<div class="file-uploader__item"><p>'+ 
-            fileName +
-            ' <span>'+ 
-            formattedSize +
-            '</span></p><a class="file-uploader__remove" href="#">Remove</a></div>'
-          );
-        }
+            // Populate the domFileList array with dom elements
+            domFileList.push('<div class="file-uploader__item"><p>'+ 
+              fileName +
+              ' <span>'+ 
+              formattedSize +
+              '</span></p><a class="file-uploader__remove" href="#">Cancel</a></div>'
+            );
+          }
+         
+        });
 
         // Redraw the file list
-        $('.file-uploader__list').html(domFileList);
+        $(fileList).html(domFileList);
 
       }
 
@@ -116,7 +139,7 @@ OLCS.fileUploader = (function(document, $, undefined) {
         // Create a corresponding element and append it to the dom
         $('.file-uploader__list').html('<div class="file-uploader__item"><p>'+ 
           fileName +
-          '</p><a class="file-uploader__remove" href="#">Remove</a></div>'
+          '</p><a class="file-uploader__remove" href="#">Cancel</a></div>'
         );
       }
     });

@@ -364,6 +364,16 @@ input[type="file"] {
    ========================================================================== */
 
 .file-uploader {
+  ul {
+    list-style: none;
+  }
+  > .hint {
+    width: 100%;
+  }
+}
+
+.file-uploader__action {
+  .action--primary,
   .action--secondary {
     float: left;
     margin-bottom: 10px;
@@ -375,29 +385,28 @@ input[type="file"] {
     width: auto;
     margin-left: 10px;
   }
-  &__item {
-    border-left: 3px solid $grey-3;
-    background: $grey-4;
-    padding: 15px 15px 10px 15px;
-    float: left;
-    width: 100%;
-    margin-top: 5px;
-    max-width: 560px;
-    p {
-      @extend %paragraph--small;
-      float: left;
-    }
-    span {
-      color: $grey-1;
-    }
-    a {
-      float: right;
-    }
-
-  }
-
-
 }
+
+.file-uploader__item {
+  border-left: 3px solid $grey-3;
+  background: $grey-4;
+  padding: 15px 15px 10px 15px;
+  float: left;
+  width: 100%;
+  margin-top: 5px;
+  max-width: 560px;
+  p {
+    @extend %paragraph--small;
+    float: left;
+  }
+  span {
+    color: $grey-1;
+  }
+  a {
+    float: right;
+  }
+}
+
 
 /* 6.6 Lookup
    ========================================================================== */

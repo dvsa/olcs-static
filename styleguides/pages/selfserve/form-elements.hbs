@@ -172,15 +172,21 @@ breadcrumbs:
       </div>
     </fieldset><!-- #file-upload -->
 
-     <fieldset>
+    <fieldset class="file-uploader">
       <legend>File upload</legend>
       <p class="hint">Please upload any files which you feel may hep aid your application.</p>
-      <div class="file-uploader">
-        <a href="#" class="action--secondary large" class="js-visible">Upload files</a>
-        <input class="js-hidden" type="file" multiple>
-        <p class="hint">20MB maximum file size. PDF, DOC, JPG, PNG or GIF</p>
-        <div class="file-uploader__list"></div>
-      </div>
+      
+      <ul class="file-uploader__actions">
+        <li class="file-uploader__action">
+          <a href="#" class="action--secondary large" data-attr="fileUpload[1]" class="js-visible">Upload files</a>   
+          <input class="js-hidden" type="file" name="fileUpload[1]" data-attr="fileUpload[1]" multiple>
+          <p class="hint">20MB maximum file size. PDF, DOC, JPG, PNG or GIF</p>
+        </li>
+      </ul><!-- file-uploader__actions -->
+
+      <ul class="file-uploader__list">
+      </ul><!-- file-uploader__list -->
+
     </fieldset><!-- .file-uploader -->
 
     <div class="field confirm">
