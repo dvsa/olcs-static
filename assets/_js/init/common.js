@@ -10,6 +10,7 @@ OLCS.ready(function() {
   OLCS.tableRows();
   OLCS.selectBox();
   OLCS.formInit();
+  OLCS.notices();
 
   OLCS.postcodeSearch({
     container: ".js-postcode-search"
