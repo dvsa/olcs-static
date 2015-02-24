@@ -327,7 +327,7 @@ select:focus {
   }
 }
 
-/* 6.5 File uplaod
+/* 6.5 File upload
    ========================================================================== */
 
 .file-upload {
@@ -357,6 +357,46 @@ input[type="file"] {
   background: none;
   padding: 0;
   margin-top: .25em;
+}
+
+
+/* 6.5 File uploader
+   ========================================================================== */
+
+.file-uploader {
+  .action--secondary {
+    float: left;
+    margin-bottom: 10px;
+  }
+  .hint {
+    @extend %paragraph--small;
+    float: left;
+    clear: none;
+    width: auto;
+    margin-left: 10px;
+  }
+  &__item {
+    border-left: 3px solid $grey-3;
+    background: $grey-4;
+    padding: 15px 15px 10px 15px;
+    float: left;
+    width: 100%;
+    margin-top: 5px;
+    max-width: 560px;
+    p {
+      @extend %paragraph--small;
+      float: left;
+    }
+    span {
+      color: $grey-1;
+    }
+    a {
+      float: right;
+    }
+
+  }
+
+
 }
 
 /* 6.6 Lookup

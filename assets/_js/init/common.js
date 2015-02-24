@@ -11,6 +11,7 @@ OLCS.ready(function() {
   OLCS.selectBox();
   OLCS.formInit();
   OLCS.notices();
+  OLCS.fileUploader();
 
   OLCS.postcodeSearch({
     container: ".js-postcode-search"
