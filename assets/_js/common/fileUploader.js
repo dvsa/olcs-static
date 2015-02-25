@@ -48,17 +48,16 @@ OLCS.fileUploader = (function(document, $, undefined) {
       }
     }
 
-
-    function createNewFileInput(element) {
+    function createNewFileAction(element) {
 
       // Get the number of uploader actions
       var actionCount = element.length + 1;
 
       // Clone the last file input
-      var newfileUploaderAction = element.last().clone();
+      var newfileAction = element.last().clone();
 
       // Store a string version
-      var newHTML = newfileUploaderAction.html();
+      var newHTML = newfileAction.html();
       
       // Find the ID
       var regex = new RegExp(/fileUpload\[(.*?)\]/g);
@@ -67,10 +66,10 @@ OLCS.fileUploader = (function(document, $, undefined) {
       newHTML = newHTML.replace(regex, "fileUpload["+actionCount+"]");
 
       // Set the HTML of our new element
-      newfileUploaderAction.html(newHTML);
+      newfileAction.html(newHTML);
 
       // Return the new element
-      return newfileUploaderAction;
+      return newfileAction;
 
     }
 
@@ -82,22 +81,21 @@ OLCS.fileUploader = (function(document, $, undefined) {
       $(this).siblings(fileInput).click();
     });
 
-
     // When the file input is updated
-    $(document).on('change', fileInput, function() {
-      
-      var newFiles       = this.files;
-      var allFiles       = [];
-      var domFileList    = [];
-      var thisParent     = $(this).parents(fileUploader);
-      var thisFileAction = thisParent.find(fileAction);
+    $(document).on('change', fileInput, function() {    
+      var newFiles         = this.files;
+      var thisParent       = $(this).parents(fileUploader);
+      var thisFileAction   = thisParent.find(fileAction);
+      var allFiles         = [];
+      var domFileList      = [];
 
-      console.log($(fileAction).length);
+      thisParent.data('allFiles', allFiles);
 
       if (newFiles.length) {
+        console.log(thisParent.data());
         
         // Add the new file uploader
-        $(this).closest(fileActions).append(createNewFileInput(thisFileAction));
+        $(this).closest(fileActions).append(createNewFileAction(thisFileAction));
 
         // Hide the current file uploader
         $(this).closest(fileAction).hide();
@@ -127,6 +125,13 @@ OLCS.fileUploader = (function(document, $, undefined) {
 
       }
 
+    });
+
+
+    $(document).on('click', fileRemoveAction, function(e) {
+      e.preventDefault();
+      $(this).closest('.file-uploader__item').remove();
+      console.log(domFileList + allFiles);
     });
 
     // For IE users we bind a property change event
