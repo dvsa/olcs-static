@@ -21,8 +21,8 @@ OLCS.tableHandler = (function(document, $, undefined) {
     var table = options.table;
     var container = options.container;
 
-    var actionSelector = table + " .table__header [name=action], .table__empty button, "
-      + ".table__wrapper input[type=submit]";
+    var actionSelector = table + " .table__header [name=action], .table__empty button, " +
+      ".table__wrapper input[type=submit]";
 
     var editButtonHandler;
     var deleteButtonHandler;
