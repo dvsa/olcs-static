@@ -50,26 +50,6 @@ OLCS.tableHandler = (function(document, $, undefined) {
         })
       });
     });
-
-    /**
-     * Controls within the table form
-     */
-
-    // for now we assume two things:
-    // 1) The edit button is always called 'Edit'
-    // 2) We always want to disable mutliple edits
-    //
-    // Neither of the above may always be true. As soon as they're
-    // not, please modify this component to look for more generic
-    // attributes, and modify the table builder backend logic so
-    // we can opt-in to this behaviour easily
-    OLCS.conditionalButton({
-      form: ".table__form",
-      label: "Edit",
-      predicate: function(length, callback) {
-        callback(length !== 1);
-      }
-    });
   };
 
 }(document, window.jQuery));

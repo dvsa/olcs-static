@@ -10,8 +10,21 @@ OLCS.conditionalButton = (function(document, $, undefined) {
   "use strict";
 
   return function init(options) {
-    var selector        = options.container || options.form;
-    var label           = options.label;
+    var selector;
+    var filter;
+
+    if (options.label && options.selector) {
+      throw new Error("'label' and 'selector' are mutually exclusive");
+    }
+
+    if (options.label) {
+      selector = options.container || options.form;
+      filter = "[value='" + options.label + "']";
+    } else {
+      selector = options.selector;
+      filter = options.selector;
+    }
+
     var predicate       = options.predicate;
     var checkedSelector = options.checkedSelector || "input[name!='checkall']:checked";
     var actionSelector  = ".actions-container button";
@@ -44,7 +57,7 @@ OLCS.conditionalButton = (function(document, $, undefined) {
     }
 
     checkAll();
-    
+
     /**
      * Make sure any time the parent page is re-rendered we give our conditional buttons a kick
      */
