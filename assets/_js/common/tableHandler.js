@@ -19,11 +19,8 @@ OLCS.tableHandler = (function(document, $, undefined) {
 
   return function init(options) {
     var table = options.table;
-    var container = options.container;
 
     var actionSelector = table + " .table__header [name=action], .table__empty button";
-
-    var buttonHandler;
 
     var F = OLCS.formHelper;
 
@@ -66,22 +63,12 @@ OLCS.tableHandler = (function(document, $, undefined) {
     // not, please modify this component to look for more generic
     // attributes, and modify the table builder backend logic so
     // we can opt-in to this behaviour easily
-    buttonHandler = OLCS.conditionalButton({
+    OLCS.conditionalButton({
       form: ".table__form",
       label: "Edit",
       predicate: function(length, callback) {
         callback(length !== 1);
       }
-    });
-
-    /**
-     * @TODO NP: 02/02/2014 container is no longer relevant within
-     * a table handler; it needs to move to tableSorter, but that
-     * causes an issue that the conditional button logic needs
-     * sharing between the two...
-     */
-    OLCS.eventEmitter.on("update:" + container, function() {
-      buttonHandler.check();
     });
   };
 
