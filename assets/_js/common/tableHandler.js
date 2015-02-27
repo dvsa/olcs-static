@@ -21,9 +21,11 @@ OLCS.tableHandler = (function(document, $, undefined) {
     var table = options.table;
     var container = options.container;
 
-    var actionSelector = table + " .table__header [name=action], .table__empty button";
+    var actionSelector = table + " .table__header [name=action], .table__empty button, " +
+      ".table__wrapper input[type=submit]";
 
-    var buttonHandler;
+    var editButtonHandler;
+    var deleteButtonHandler;
 
     var F = OLCS.formHelper;
 
@@ -66,11 +68,19 @@ OLCS.tableHandler = (function(document, $, undefined) {
     // not, please modify this component to look for more generic
     // attributes, and modify the table builder backend logic so
     // we can opt-in to this behaviour easily
-    buttonHandler = OLCS.conditionalButton({
+    editButtonHandler = OLCS.conditionalButton({
       form: ".table__form",
       label: "Edit",
       predicate: function(length, callback) {
         callback(length !== 1);
+      }
+    });
+
+    deleteButtonHandler = OLCS.conditionalButton({
+      form: ".table__form",
+      label: "Delete",
+      predicate: function(length, callback) {
+        callback(length < 1);
       }
     });
 
@@ -81,7 +91,8 @@ OLCS.tableHandler = (function(document, $, undefined) {
      * sharing between the two...
      */
     OLCS.eventEmitter.on("update:" + container, function() {
-      buttonHandler.check();
+      editButtonHandler.check();
+      deleteButtonHandler.check();
     });
   };
 

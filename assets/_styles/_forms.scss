@@ -200,7 +200,7 @@ fieldset fieldset legend {
   @if ($app == internal) {
     @extend %paragraph--small;
     font-weight: 400;
-    margin-bottom: .25em;
+    margin-bottom: 7px;
   } @else {
     @extend %paragraph--large;
   }
@@ -414,43 +414,12 @@ input[type="file"] {
 }
 
 
-/* 6.10 Checkbox
-   ========================================================================== */
-
-.checkbox {
-  &.inline label {
-    clear: none;
-  }
-  label {
-    background: $grey-3;
-    padding: 14px 17px 14px 17px;
-    float: left;
-    clear: both;
-    &:hover {
-      background: $grey-2;
-      cursor: pointer;
-    }
-    &.selected {
-      background: #FFF;
-      border: 1px solid $black;
-      padding: 13px 16px 13px 16px;
-    }
-  }
-  input:focus {
-    border: none;
-    outline: none;
-  }
-  .hint {
-    float: left;
-  }
-}
-
-
-/* 6.11 Validation
+/* 6.10 Validation
    ========================================================================== */
 
 %validation-box {
   padding: 1em 1em .5em 1em;
+  margin-bottom: 20px;
   overflow: visible;
   background: $warning-background;
   @media (max-width: 640px){
@@ -461,6 +430,7 @@ input[type="file"] {
 
 .validation-summary {
   @extend %validation-box;
+  overflow: auto;
   margin-bottom: 30px;
   border: 3px solid $mellow-red;
   &__list {
@@ -490,7 +460,7 @@ input[type="file"] {
 }
 
 
-/* 6.12 Locked
+/* 6.11 Locked
  ========================================================================== */
 
  /* This is used to indidcate that a field or fieldset cannot be updated
@@ -508,7 +478,7 @@ input[type="file"] {
   }
 }
 
-/* 6.13 Confirmation
+/* 6.12 Confirmation
    ========================================================================== */
 
 .confirm {

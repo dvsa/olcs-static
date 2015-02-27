@@ -421,7 +421,7 @@ $mobile-statuses: (
     @extend %navigation__item;
     padding: 0;
     margin: 0;
-    width: 100% !important;
+    width: 100%;
     text-align: left;
     background-size: 13px 165px;
     background: url('#{$assetPath}/application-navigation-small.png') no-repeat 100% -192px;

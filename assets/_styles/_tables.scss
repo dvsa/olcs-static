@@ -55,7 +55,7 @@ table {
 td, 
 th { 
   @extend %paragraph--small;
-  padding: .5em 0;
+  padding: .5em 10px .5em 0;
   text-align: left; 
 }
 
@@ -115,7 +115,7 @@ tfoot {
 }
 
 .sortable {
-  padding: .5em 0;
+  padding: .5em 15px .5em 0;
   a {
     padding-right: 1em;
     color: $black;
