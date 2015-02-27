@@ -20,7 +20,8 @@ OLCS.tableHandler = (function(document, $, undefined) {
   return function init(options) {
     var table = options.table;
 
-    var actionSelector = table + " .table__header [name=action], .table__empty button";
+    var actionSelector = table + " .table__header [name=action], .table__empty button, " +
+      ".table__wrapper input[type=submit]";
 
     var F = OLCS.formHelper;
 
