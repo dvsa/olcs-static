@@ -62,7 +62,7 @@ describe("OLCS.tableHandler", function() {
       });
 
       it("binds a click handler to the correct selectors", function() {
-        var str = '#stub .table__header [name=action], .table__empty button';
+        var str = '#stub .table__header [name=action], .table__empty button, .table__wrapper input[type=submit]';
         expect(this.on.firstCall.args[0]).to.equal('click');
         expect(this.on.firstCall.args[1]).to.equal(str);
       });
