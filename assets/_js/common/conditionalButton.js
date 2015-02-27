@@ -17,11 +17,11 @@ OLCS.conditionalButton = (function(document, $, undefined) {
       throw new Error("'label' and 'selector' are mutually exclusive");
     }
 
+    selector = options.container || options.form;
+
     if (options.label) {
-      selector = options.container || options.form;
       filter = "[value='" + options.label + "']";
     } else {
-      selector = options.selector;
       filter = options.selector;
     }
 
@@ -33,7 +33,7 @@ OLCS.conditionalButton = (function(document, $, undefined) {
       var button;
       var checkedInputs;
 
-      button = $(context).find(actionSelector).filter("[value='" + label + "']");
+      button = $(context).find(actionSelector).filter(filter);
 
       if (button.length) {
         checkedInputs = $(context).find(checkedSelector);
@@ -52,20 +52,16 @@ OLCS.conditionalButton = (function(document, $, undefined) {
       checkButton(this);
     });
 
-    function checkAll() {
+    function setup() {
       $(selector).change();
     }
-
-    checkAll();
 
     /**
      * Make sure any time the parent page is re-rendered we give our conditional buttons a kick
      */
-    OLCS.eventEmitter.on("render", checkAll);
+    OLCS.eventEmitter.on("render", setup);
 
-    return {
-      check: checkAll
-    };
+    setup();
   };
 
 }(document, window.jQuery));
