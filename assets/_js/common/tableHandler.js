@@ -19,13 +19,9 @@ OLCS.tableHandler = (function(document, $, undefined) {
 
   return function init(options) {
     var table = options.table;
-    var container = options.container;
 
     var actionSelector = table + " .table__header [name=action], .table__empty button, " +
       ".table__wrapper input[type=submit]";
-
-    var editButtonHandler;
-    var deleteButtonHandler;
 
     var F = OLCS.formHelper;
 
@@ -54,45 +50,6 @@ OLCS.tableHandler = (function(document, $, undefined) {
           OLCS.formModal(data);
         })
       });
-    });
-
-    /**
-     * Controls within the table form
-     */
-
-    // for now we assume two things:
-    // 1) The edit button is always called 'Edit'
-    // 2) We always want to disable mutliple edits
-    //
-    // Neither of the above may always be true. As soon as they're
-    // not, please modify this component to look for more generic
-    // attributes, and modify the table builder backend logic so
-    // we can opt-in to this behaviour easily
-    editButtonHandler = OLCS.conditionalButton({
-      form: ".table__form",
-      label: "Edit",
-      predicate: function(length, callback) {
-        callback(length !== 1);
-      }
-    });
-
-    deleteButtonHandler = OLCS.conditionalButton({
-      form: ".table__form",
-      label: "Delete",
-      predicate: function(length, callback) {
-        callback(length < 1);
-      }
-    });
-
-    /**
-     * @TODO NP: 02/02/2014 container is no longer relevant within
-     * a table handler; it needs to move to tableSorter, but that
-     * causes an issue that the conditional button logic needs
-     * sharing between the two...
-     */
-    OLCS.eventEmitter.on("update:" + container, function() {
-      editButtonHandler.check();
-      deleteButtonHandler.check();
     });
   };
 
