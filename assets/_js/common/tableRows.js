@@ -33,25 +33,25 @@ OLCS.tableRows = (function(document, $, undefined) {
 
     // On click of a table row
     $(document).on('click', tableRowSelector, function(e) {
-      
+
       var target          = $(e.target);
       var actionElement   = getActions(this);
       var targetSelectBox = target.children(selectBox);
 
-      // If the target element contains a select box, simulate a 
-      // click of it's select box
+      // If the target element contains a select box, simulate a
+      // click of its select box
       if (targetSelectBox.length) {
         targetSelectBox.click();
         return;
       }
 
-      // Return if the row shouldn't be hoverable 
+      // Return if the row shouldn't be hoverable
       if (!checkForSingleAction(this)) {
         return;
       }
 
       // If the target element isn't a select box or and doesn't contain one
-      // simulate a click of the row's primary action 
+      // simulate a click of the row's primary action
       if (!target.is(selectBox) && !targetSelectBox.length) {
         actionElement.get(0).click();
       }

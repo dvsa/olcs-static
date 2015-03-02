@@ -18,7 +18,7 @@ OLCS.responseFilter = (function(document, $, undefined) {
         }
       }
 
-      $(container).html(content);
+      OLCS.formHelper.render(container, content);
     });
   };
 
