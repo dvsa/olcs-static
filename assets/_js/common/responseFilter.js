@@ -8,14 +8,12 @@ OLCS.responseFilter = (function(document, $, undefined) {
     return OLCS.normaliseResponse(function(response) {
       var content = response.body;
 
-      if (filter) {
-        var filtered = $(content)
-          .find(filter)
-          .html();
+      var filtered = $(content)
+        .find(filter)
+        .html();
 
-        if (filtered) {
-          content = filtered;
-        }
+      if (filtered) {
+        content = filtered;
       }
 
       OLCS.formHelper.render(container, content);
