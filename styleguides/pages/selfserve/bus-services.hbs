@@ -8,20 +8,20 @@ table:
   - headers:
       - label: Registration No.
         class: sortable descending
-      - label: Variation
-        class: sortable
-      - label: Type
+      - label: Var. No.
         class: sortable
       - label: Service No.
         class: sortable
-      - label: Submitted 
+      - label: Start Point
+        class: sortable
+      - label: End Point
         class: sortable
     columns:
       - <strong><a href="bus-service-detail.html">PC1057277/232</a></strong><span class="status green">Registered</span>
       - 3
-      - Electronic
       - 576,570
-      - 12 May 2012
+      - Leeds
+      - Harrogate
     rows: 20
 ---
 
@@ -49,9 +49,9 @@ table:
 <div class="five-eigths">
   <!-- Registered bus services -->
   {{#each table}}
-    {{#is @index 0 }} 
+    {{#is @index 0 }}
       {{> _table }}
-    {{/is }} 
+    {{/is }}
   {{/each}}
   <div class="table__footer" style="margin-top: -30px; float: left;">
     <div class="results-settings">
