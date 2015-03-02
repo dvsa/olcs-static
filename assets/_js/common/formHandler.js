@@ -20,13 +20,22 @@ OLCS.formHandler = (function(document, $, undefined) {
 
     var selector = options.form;
     var isModal = options.isModal || false;
-    var success = options.success || OLCS.responseFilter(options.filter, options.container);
+    var success = options.success;
 
+    // need the strict check because onChange can be passed in as false
     var onChange = options.onChange !== undefined ? options.onChange : function() {
       $(this).submit();
     };
     var submitButton = options.submit || $(selector).find("[type=submit]");
     var actionSelector = selector + " [type=submit]";
+
+    if (!success) {
+      // if the user didn't pass a success callback then we assume they
+      // used the filter & container shorthand instead. As such, construct
+      // a response filter (which internally normalises the response first)
+      // to simply replace the container with the new filtered HTML
+      success = OLCS.responseFilter(options.filter, options.container);
+    }
 
     // we'll return this so consumers can unbind listeners if they want to
     var handler = {
