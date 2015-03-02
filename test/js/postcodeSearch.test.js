@@ -143,6 +143,37 @@ describe("OLCS.postcodeSearch", function() {
           });
         });
       });
+
+      describe("Given the DOM is in a clean state but has no find button", function() {
+        beforeEach(function() {
+          var stub = [
+            "<div class=address id=stub data-group=a>",
+              "<fieldset>",
+              "</fieldset>",
+              "<div class=field id=f1><input name='a[addressLine1]' type=text /></div>",
+              "<div class=field id=f2><input name='a[addressLine2]' type=text /></div>",
+            "</div>"
+          ].join("\n");
+
+          this.body = $("body");
+          this.body.append(stub);
+        });
+
+        afterEach(function() {
+          $("#stub").remove();
+        });
+
+        describe("When the component is notified of a new DOM", function() {
+          beforeEach(function() {
+            OLCS.eventEmitter.emit("render");
+          });
+
+          it("should not hide the address fields", function() {
+            expect($("#f1").is(":visible")).to.equal(true);
+            expect($("#f2").is(":visible")).to.equal(true);
+          });
+        });
+      });
     });
   });
 });
