@@ -29,7 +29,7 @@ describe("OLCS.responseFilter", function() {
     });
 
     it("returns a function", function() {
-      expect(this.component).to.be.a("function");
+      expect(this.result).to.be.a("function");
     });
 
     describe("When invoking the returned function", function() {

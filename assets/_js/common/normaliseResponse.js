@@ -9,14 +9,14 @@ OLCS.normaliseResponse = (function(window, undefined) {
   // normalised response...
   return function init(options) {
 
-    if (typeof options === "function") {
+    if (!$.isPlainObject(options)) {
       options = {
         callback: options
       };
     }
 
     if (typeof options.callback !== "function") {
-      throw new Error("Please supply an options.callback function");
+      throw new Error("OLCS.normaliseResponse requires at least a callback argument");
     }
 
     var callback        = options.callback;

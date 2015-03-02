@@ -42,21 +42,22 @@ describe("OLCS.ready", function() {
       });
 
       it("invokes jQuery's on ready handler with the function", function() {
+        expect(this.stub.callCount).to.equal(1);
         expect(this.stub.firstCall.args[0]).to.equal(this.foo);
       });
 
-      /**
-       * the below doesn't work; because we set up and tear down our stubs
-       * each time our stub count is back to zero, but our *cache* has
-       * persisted...
-       */
-      describe.skip("When invoked again with the same function", function() {
+      describe("When invoked again with the same function", function() {
         beforeEach(function() {
           OLCS.ready(this.foo);
         });
 
         it("does not invoke on ready again", function() {
-          expect(this.stub.callCount).to.equal(1);
+          // you'd think this should be one, right? But because of the
+          // way we set up and tear down our stubs each time they
+          // reset, whereas OLCS.ready maintains an internal cache such
+          // that the *only* time this callCount will be one is the very
+          // first time it's executed
+          expect(this.stub.callCount).to.equal(0);
         });
       });
     });
