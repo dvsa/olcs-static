@@ -19,10 +19,10 @@ OLCS.tableHandler = (function(document, $, undefined) {
 
   return function init(options) {
     var table = options.table;
-
-    var actionSelector = table + " .table__header [name=action], .table__empty button, " +
-      ".table__wrapper input[type=submit]";
-
+    var actionName = options.actionName || "action";
+    
+    var actionSelector = table + " .table__header [name=" + actionName + "], .table__empty button, " +
+      ".table__wrapper input[type=submit], .table__header [name='table[" + actionName + "]']";
     var F = OLCS.formHelper;
 
     /**
