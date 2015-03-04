@@ -90,13 +90,12 @@ OLCS.fileUploader = (function(document, $, undefined) {
       // button's text and hide the submit button
       if (thisIndex == 0) {
         lastAction.html(replaceString(lastAction,'Attach another file','Attach file'));
-        $(thisSubmit).addClass('hidden');
+        $(thisSubmit).addClass('js-hidden');
       }
 
       // Remove the list item
       thisListItem.remove();
     }
-
 
     function getFileList(element) {
       var domFileList = [];
@@ -153,7 +152,7 @@ OLCS.fileUploader = (function(document, $, undefined) {
 
       // If there is one attached file show the submit button
       if (thisFileInputs.length == 1) {
-        $(thisSubmit).removeClass('hidden');
+        $(thisSubmit).removeClass('js-hidden');
       }
 
       // Redraw the file list
