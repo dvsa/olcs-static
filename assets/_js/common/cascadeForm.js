@@ -197,7 +197,7 @@ OLCS.cascadeForm = (function(document, $, undefined) {
 
     checkForm();
 
-    $(document).on("change", form, checkForm);
+    form.on("change", checkForm);
   };
 
 }(document, window.jQuery));
