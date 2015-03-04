@@ -34,7 +34,7 @@ input[type="radio"] {
 input[type="search"] {
   -webkit-appearance: textfield;
   -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box; 
+  -webkit-box-sizing: content-box;
   box-sizing: content-box;
 }
 
@@ -116,7 +116,7 @@ fieldset fieldset .field:last-child {
   margin-bottom: 10px;
 }
 
-.field { 
+.field {
   margin: 0 0 30px 0;
   overflow: visible;
   @media (max-width: 640px) {
@@ -208,7 +208,7 @@ fieldset fieldset legend {
   width: 100%;
 }
 
-fieldset fieldset label { 
+fieldset fieldset label {
   @if ($app == internal) {
     @extend %paragraph--tiny;
     font-weight: 400;
@@ -279,7 +279,7 @@ select[multiple] {
   &.extra-long {
     @extend .extra-long;
   }
-  &.long { 
+  &.long {
     @extend .long;
   }
   &.medium {
@@ -296,23 +296,23 @@ select[multiple] {
 input:focus,
 textarea:focus,
 select:focus {
-  outline: 3px solid #ffbf47; 
+  outline: 3px solid #ffbf47;
 }
 
 .extra-long { width: 100%; }
 
 .long { width: $two-thirds; }
 
-.medium { 
-  width: $half; 
+.medium {
+  width: $half;
   @if ($app == internal) {
     min-width: 300px;
     max-width: 450px;
   }
 }
 
-.short { 
-  width: $one-quarter; 
+.short {
+  width: $one-quarter;
   width: 140px;
   @media (max-width: 640px){
     width: $half;
@@ -362,6 +362,7 @@ input[type="file"] {
 /* 6.5 File uploader
    ========================================================================== */
 
+
 .file-uploader {
   ul {
     list-style: none;
@@ -369,42 +370,67 @@ input[type="file"] {
   > .hint {
     width: 100%;
   }
-}
+  input[type="file"] {
+    width: 95%;
+    border: 0;
+    background: $grey-4;
+    padding: 1em 2.5% .8em 2.5%;
+    border-left: 4px solid $grey-3;
+    margin-top: .25em;
 
-.file-uploader__action {
-  .action--primary,
-  .action--secondary {
-    float: left;
-    margin-bottom: 10px;
   }
-  .hint {
-    @extend %paragraph--small;
+  input[type="submit"] {
+    margin-top: 15px !important;
     float: left;
-    clear: none;
-    width: auto;
-    margin-left: 10px;
   }
 }
 
-.file-uploader__item {
-  border-left: 3px solid $grey-3;
-  background: $grey-4;
-  padding: 15px 15px 10px 15px;
-  float: left;
-  width: 100%;
-  margin-top: 5px;
-  max-width: 560px;
-  p {
-    @extend %paragraph--small;
+.js-enabled {
+  .file-uploader__action {
     float: left;
+    width: 100%;
+    label {
+      float: left;
+      margin-bottom: 10px;
+    }
+    .hint {
+      @extend %paragraph--small;
+      float: left;
+      clear: none;
+      width: auto;
+      margin-left: 10px;
+    }
   }
-  span {
-    color: $grey-1;
+
+  .file-uploader__label {
+    @extend .action--secondary;
+    font-size: 19px;
   }
-  a {
-    float: right;
+
+  .file-uploader__item {
+    border-left: 3px solid $grey-3;
+    background: $grey-4;
+    padding: 15px 15px 10px 15px;
+    float: left;
+    width: 100%;
+    margin-top: 5px;
+    max-width: 560px;
+    position: relative;
+    p {
+      @extend %paragraph--small;
+      float: left;
+    }
+    span {
+      color: $grey-1;
+    }
+    a {
+      position: absolute;
+      right: 15px;
+      top: 15px;
+    }
   }
 }
+
 
 
 /* 6.6 Lookup
@@ -415,7 +441,7 @@ input[type="file"] {
     margin-bottom: 10px;
   }
   .hint {
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
   }
 }
 
@@ -514,7 +540,7 @@ input[type="file"] {
  /* This is used to indidcate that a field or fieldset cannot be updated
     without creating a variation or new application */
 
-.locked-icon { 
+.locked-icon {
   margin-left: 5px;
   height: 24px;
   width: 12px;

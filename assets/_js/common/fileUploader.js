@@ -3,7 +3,8 @@ var OLCS = OLCS || {};
 /**
  * OLCS.fileUploader
  *
- * Enhances the file uploader
+ * File uploader enables the user to attach multiple files
+ * and provides and nicer, more conistent UI element.
  *
  */
 
@@ -14,13 +15,25 @@ OLCS.fileUploader = (function(document, $, undefined) {
   var fileUploader     = '.file-uploader';
   var fileActions      = '.file-uploader__actions';
   var fileAction       = '.file-uploader__action';
-  var fileUploadButton = '.action--primary, .action--secondary';
   var fileInput        = 'input[type=file]';
   var fileRemoveAction = '.file-uploader__remove';
   var fileListItem     = '.file-uploader__item';
   var fileList         = '.file-uploader__list';
+  var submit           = 'input[type=submit]';
 
-  return function init() {
+  return function init(options) {
+
+    var selector     = options.selector || '.file-uploader';
+    var isMultiple   = options.isMultiple !== undefined ? options.isMultiple : false;
+
+
+    // function setup(selector) {
+    //   $(fileInput).each( function() {
+    //     $(this).wrap('<label class="action--secondary large">Attach file</label>');
+    //   });
+    // }
+
+    // setup();
 
     function getFileName(path) {
       var index = path.lastIndexOf('\\') + 1;
@@ -30,7 +43,6 @@ OLCS.fileUploader = (function(document, $, undefined) {
     function formatFileSizeString(fileSizeInBytes) {
       var string = fileSizeInBytes.toString();
       var stringLength = string.length;
-
       var kilo = fileSizeInBytes / 1000;
       var mega = kilo / 1000;
       var giga = mega / 1000;
@@ -49,113 +61,108 @@ OLCS.fileUploader = (function(document, $, undefined) {
       }
     }
 
-    function createNewFileAction(current) {
-
-      var newfileAction = $(current).last().clone();
-
-      var regex         = new RegExp(/fileUpload\[(.*?)\]/g);
-      var actionsCount  = $(current).find(fileAction).length + 1;
-      var newHTML       = newfileAction.html();
-
-      // Replace ID with the new incremented one
-      newHTML = newHTML.replace(regex, 'fileUpload['+actionsCount+']');
-
-      // Set the HTML of our new element
-      newfileAction.html(newHTML);
-
-      // Return the new element
-      return newfileAction;
-
+    function replaceString(element,from,to) {
+      var newHTML = element.html();
+      newHTML = newHTML.replace(new RegExp(''+from+''), ''+to+'');
+      return newHTML;
     }
 
-    function removeFile(current) {
+    function cloneElement(element) {
+      var newElement = element.clone();
+      newElement.html(replaceString(newElement,'Attach file','Attach another file'));
+      return newElement;
+    }
 
-      var thisFileUploader = $(current).parents(fileUploader);
-      var thisListItem     = $(current).closest(fileListItem);
+    function removeFile(element) {
+      var thisFileUploader = $(element).parents(fileUploader);
+      var thisListItem     = $(element).closest(fileListItem);
       var thisIndex        = thisListItem.index();
+      var lastAction       = thisFileUploader.find(fileAction).last();
+      var thisSubmit       = thisFileUploader.find(submit);
 
-      // Remove the corresponding file input
-      thisFileUploader.find(fileAction).get(thisIndex).remove();
+      // If we're dealing with a multiple file uploader,
+      // remove the corresponding file input
+      if (isMultiple) {
+        thisFileUploader.find(fileAction).eq(thisIndex).remove();
+      }
 
-      // Remove it's parent list item
+      // If this is the last item in the list, change the
+      // button's text and hide the submit button
+      if (thisIndex == 0) {
+        lastAction.html(replaceString(lastAction,'Attach another file','Attach file'));
+        $(thisSubmit).addClass('hidden');
+      }
+
+      // Remove the list item
       thisListItem.remove();
     }
 
 
-    // When the file upload button is clicked trigger a
-    // click of the file input
-    $(document).on('click', fileUploadButton, function(e) {
-      e.preventDefault();
-      $(this).siblings(fileInput).click();
-    });
+    function getFileList(element) {
+      var domFileList = [];
 
-    // When the file input is updated
-    $(document).on('change', fileInput, function() {
+      // Loop through all the attached files
+      element.each( function() {
 
-      var thisFileUploader = $(this).parents(fileUploader);
-      var thisFileAction   = thisFileUploader.find(fileAction);
-      var thisFileList     = thisFileUploader.find(fileList);
-      var domFileList      = [];
+        // If this browser is IE8 or 9
+        if (this.files == undefined && this.value) {
+          var fileName = getFileName(this.value);
 
-      // Add the new file uploader
-      $(this).closest(fileActions).append(createNewFileAction(thisFileAction));
-
-      // Hide the current file uploader
-      $(this).closest(fileAction).hide();
-
-      // Get every attached file
-      thisFileUploader.find(fileInput).each( function() {
-
-        if (this.files.length) {
+          // Pass the file name into a html template and then push that
+          // to the array
+          domFileList.push(
+            '<div class="file-uploader__item">'+
+            ' <p>'+fileName+'</p>'+
+            ' <a class="file-uploader__remove" href="#">Cancel</a>'+
+            '</div>'
+          );
+        } else if (this.files !== undefined && this.files.length) {
           var fileName      = this.files[0].name;
           var formattedSize = formatFileSizeString(this.files[0].size);
 
-          // Push a template to the domFileList array
-          domFileList.push('<div class="file-uploader__item"><p>'+
-            fileName +
-            ' <span>'+
-            formattedSize +
-            '</span></p><a class="file-uploader__remove" href="#">Cancel</a></div>'
-          );
-        }
-
-      });
-
-      thisFileList.html(domFileList);
-
-    });
-
-    //For IE users we bind a property change event
-    $(fileInput).on('propertychange', function() {
-
-      var thisFileUploader = $(this).parents(fileUploader);
-      var thisFileAction   = thisFileUploader.find(fileAction);
-      var thisFileList     = thisFileUploader.find(fileList);
-      var domFileList      = [];
-
-      // Add the new file uploader
-      $(this).closest(fileActions).append(createNewFileAction(thisFileAction));
-
-      // Hide the current file uploader
-      $(this).closest(fileAction).hide();
-
-      thisFileUploader.find(fileInput).each( function() {
-        if (this.value) {
-          var fileName = getFileName(this.value);
-
-          // Create a corresponding element and append it to the dom
-          thisFileList.html('<div class="file-uploader__item"><p>'+
-            fileName +
-            '</p><a class="file-uploader__remove" href="#">Cancel</a></div>'
+          // Pass the file name and the file size into a html template
+          // and then push that to the array
+          domFileList.push(
+            '<div class="file-uploader__item">'+
+            ' <p>'+fileName +' <span>'+formattedSize+'</span></p>'+
+            ' <a class="file-uploader__remove" href="#">Cancel</a>'+
+            '</div>'
           );
         }
       });
 
-      thisFileList.html(domFileList);
+      return domFileList;
+    }
+
+
+    // When the file input is updated
+    $(selector).on('change', fileInput, function() {
+      var thisFileUploader     = $(this).parents(fileUploader);
+      var thisFileAction       = thisFileUploader.find(fileAction);
+      var thisFileList         = thisFileUploader.find(fileList);
+      var thisFileInputs       = thisFileUploader.find(fileInput);
+      var thisSubmit           = thisFileUploader.find(submit);
+      var newFileAction        = cloneElement($(thisFileAction).last());
+
+      // If this file uploader can handle mutliple files switch out
+      // the current file upload action for a new empty one
+      if (isMultiple) {
+        $(this).closest(fileActions).append(newFileAction);
+        $(this).closest(fileAction).hide();
+      }
+
+      // If there is one attached file show the submit button
+      if (thisFileInputs.length == 1) {
+        $(thisSubmit).removeClass('hidden');
+      }
+
+      // Redraw the file list
+      thisFileList.html(getFileList(thisFileInputs));
     });
+
 
     // When a remove link is clicked remove the list item and file input
-    $(document).on('click', fileRemoveAction, function(e) {
+    $(selector).on('click', fileRemoveAction, function(e) {
       e.preventDefault();
       removeFile(this);
     });

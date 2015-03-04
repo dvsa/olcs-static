@@ -1,13 +1,10 @@
 ---
 title: Form elements
 subtitle: Styleguide
-breadcrumbs: 
+breadcrumbs:
   - link: index.html
     label: Back to index
 ---
-
-
-
 
 <div class="two-thirds">
   <form>
@@ -151,7 +148,7 @@ breadcrumbs:
     <fieldset id="additional-information">
       <legend>Additional information</legend>
       <p class="hint">Please provide additional information relating to any prior insolvency proceedings. You may also upload evidence such as legal documents.</p>
-      <div class="field">  
+      <div class="field">
         <label for="additional-info" class="visually-hidden">Additional information</label>
         <textarea id="additional-info" class="extra-long" placeholder="Enter text here"></textarea>
       </div>
@@ -174,39 +171,35 @@ breadcrumbs:
       </div>
     </fieldset><!-- #file-upload -->
 
-    <fieldset class="file-uploader">
+    <fieldset class="file-uploader" id="aiFileUploader">
       <legend>Provide additional information</legend>
       <p class="hint">Upload any files which you feel may hep aid your application.</p>
-      
       <ul class="file-uploader__actions">
         <li class="file-uploader__action">
-          <a href="#" class="action--secondary large" data-attr="fileUpload[1]" class="js-visible">Attach file</a>   
-          <input class="js-hidden" type="file" name="fileUpload[1]" data-attr="fileUpload[1]">
+          <label class="file-uploader__label">
+            Attach file
+            <input class="js-visually-hidden" type="file" name="fileUpload1">
+          </label>
           <p class="hint">20MB maximum file size. PDF, DOC, JPG, PNG or GIF</p>
         </li>
       </ul><!-- file-uploader__actions -->
-
-      <ul class="file-uploader__list">
-      </ul><!-- file-uploader__list -->
-
+      <ul class="file-uploader__list"></ul><!-- file-uploader__list -->
+      <input class="action--primary large hidden" type="submit" value="Upload">
     </fieldset><!-- .file-uploader -->
 
-
-     <fieldset class="file-uploader">
+    <fieldset class="file-uploader" id="feFileUploader">
       <legend>Financial evidence</legend>
       <p class="hint">Please upload any files which you feel may hep aid your application.</p>
-      
       <ul class="file-uploader__actions">
         <li class="file-uploader__action">
-          <a href="#" class="action--secondary large" data-attr="fileUpload[1]" class="js-visible">Attach file</a>   
-          <input class="js-hidden" type="file" name="fileUpload[1]" data-attr="fileUpload[1]">
+          <label class="file-uploader__label">
+            Attach file
+            <input class="js-visually-hidden" type="file" name="fileUpload2[]">
+          </label>
           <p class="hint">20MB maximum file size. PDF, DOC, JPG, PNG or GIF</p>
         </li>
       </ul><!-- file-uploader__actions -->
-
-      <ul class="file-uploader__list">
-      </ul><!-- file-uploader__list -->
-
+      <ul class="file-uploader__list" id="fileUploader1"></ul><!-- file-uploader__list -->
     </fieldset><!-- .file-uploader -->
 
     <div class="field confirm">
@@ -225,3 +218,5 @@ breadcrumbs:
   </form>
 
 </div><!-- end .two-thirds -->
+
+

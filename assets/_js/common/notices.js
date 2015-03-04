@@ -17,7 +17,7 @@ OLCS.notices = (function(document, $, undefined) {
 
   return function init() {
 
-    function addCloseButton(element) {
+    function addCloseButton() {
       $(noticeSelector)
         .find('p')
         .prepend('<a href="" class="notice__link">Close</a>');
