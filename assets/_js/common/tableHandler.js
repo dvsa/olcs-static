@@ -21,6 +21,8 @@ OLCS.tableHandler = (function(document, $, undefined) {
     var table = options.table;
     var actionName = options.actionName || "action";
     
+    // @TODO this needs to change; sensible defaults but
+    // overridable via options.selector
     var actionSelector = table + " .table__header [name=" + actionName + "], .table__empty button, " +
       ".table__wrapper input[type=submit], .table__header [name='table[" + actionName + "]']";
     var F = OLCS.formHelper;

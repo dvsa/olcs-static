@@ -6,7 +6,7 @@ OLCS.tableSorter = (function(document, $, undefined) {
 
   return function init(options) {
     var table = options.table;
-    var filter = options.filter || null;
+    var filter = options.filter;
     var container = options.container;
 
     var linkSelector =
