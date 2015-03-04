@@ -79,6 +79,10 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       return $(component).find(selectClass).length > 0;
     }
 
+    function hasSearchField(component) {
+      return $(component).find(".js-find").length > 0;
+    }
+
     /**
      * Work out what our most appropriate root element is in which
      * we should render our AJAX response
@@ -145,6 +149,10 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
      */
     function setup() {
       $(container).each(function(i, component) {
+        if (!hasSearchField(component)) {
+          return;
+        }
+
         // we hide all address fields if a search is in progress or the
         // address data is currently empty and valid
         if (inProgress(component) || isClean(component)) {
