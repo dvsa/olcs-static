@@ -26,15 +26,6 @@ OLCS.fileUploader = (function(document, $, undefined) {
     var selector     = options.selector || '.file-uploader';
     var isMultiple   = options.isMultiple !== undefined ? options.isMultiple : false;
 
-
-    // function setup(selector) {
-    //   $(fileInput).each( function() {
-    //     $(this).wrap('<label class="action--secondary large">Attach file</label>');
-    //   });
-    // }
-
-    // setup();
-
     function getFileName(path) {
       var index = path.lastIndexOf('\\') + 1;
       return path.substr(index);
