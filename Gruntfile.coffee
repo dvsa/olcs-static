@@ -120,6 +120,7 @@ module.exports = (grunt) ->
       options:
         port: 7001
         open: false
+        notify: false
         ghostMode:
           clicks: true
           scroll: true

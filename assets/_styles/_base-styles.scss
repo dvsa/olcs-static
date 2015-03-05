@@ -10,11 +10,7 @@ body {
   margin: 0;
   background: #FFF;
   font-size: 100%;
-  @if $app == 'selfserve' {
-    font-family: $NTA-Light;
-  } @else {
-    font-family: Arial, sans-serif;
-  }
+  font-family: $NTA-Light;
   font-weight: 400;
   color: #333;
   text-rendering: optimizeLegibility;
@@ -56,6 +52,13 @@ dd {
   float: left;
 }
 
+<<<<<<< Updated upstream
+=======
+a:visited {
+  background-color: $link-visited-colour;
+}
+
+>>>>>>> Stashed changes
 .hint {
   display: block;
   color: $grey-1;
