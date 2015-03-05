@@ -100,7 +100,7 @@ module.exports = (grunt) ->
         tasks: ['sass:dev']
       hbs:
         files: ['styleguides/**/*.hbs']
-        tasks: ['assemble']
+        tasks: ['newer:assemble']
       scripts:
         files: ['assets/_js/**/*.js']
         tasks: ['uglify:dev']
@@ -216,7 +216,7 @@ module.exports = (grunt) ->
   ]
 
   grunt.registerTask 'assemble:pretty', [
-    'assemble'
+    'newer:assemble'
     'prettify'
   ]
 

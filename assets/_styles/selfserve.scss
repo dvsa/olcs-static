@@ -572,10 +572,19 @@ td {
   h2 {
     margin-bottom: 40px;
   }
+  p {
+    @extend %paragraph--small;
+    max-width: 700px;
+    margin-bottom: .6em;
+  }
 }
 
 .definition-list__item {
   width: 100%;
+  li {
+    max-width: 700px;
+    margin-bottom: .6em;
+  }
 }
 
 dl {
@@ -682,32 +691,4 @@ dd {
    16. Guidance & help
    ========================================================================== */
 
-.guidance {
-  background: $grey-4;
-  border-left: 4px solid $grey-2;
-  padding: 15px;
-  margin-bottom: 40px;
-}
-
-.help__summary {
-  @extend %paragraph--large;
-  display: inline-block;
-  color: $link-colour;
-  text-decoration: underline;
-  margin-bottom: 3px;
-  &:hover {
-    color: $link-hover-colour;
-    cursor: pointer;
-  }
-  &:active,
-  &:focus {
-    outline: none;
-    border: 3px solid $yellow;
-    margin: -3px 0 0 -3px;
-  }
-}
-
-.help__text {
-  padding: 15px;
-  border-left: 4px solid $grey-2;
-}
+@import '_guidance';

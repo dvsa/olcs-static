@@ -17,6 +17,12 @@ OLCS.notices = (function(document, $, undefined) {
 
   return function init() {
 
+    function addCloseButton() {
+      $(noticeSelector)
+        .find('p')
+        .prepend('<a href="" class="notice__link">Close</a>');
+    }
+
     function remove(element) {
       $(element).remove();
     }
@@ -29,8 +35,6 @@ OLCS.notices = (function(document, $, undefined) {
       });
     }
 
-    OLCS.eventEmitter.on('render', fadeOut);
-
     $(document).on('click', closeLinkSelector, function(e) {
       e.preventDefault();
       // If there is more than one notice, remove itself
@@ -42,14 +46,20 @@ OLCS.notices = (function(document, $, undefined) {
       }
     });
 
-    /** 
-     * @TODO SQ: 09/02/2015 
-     * Update the markup to make this more specific instead of having 
+    OLCS.eventEmitter.on('render', addCloseButton);
+    addCloseButton();
+
+    /**
+     * @TODO SQ: 09/02/2015
+     * Update the markup to make this more specific instead of having
      * to check parent elements
      */
     if (!$(noticeContainerSelector).parents('.modal, .one-fifth--right').length) {
+      OLCS.eventEmitter.on('render', fadeOut);
       fadeOut(noticeContainerSelector);
     }
+
+
 
   };
 

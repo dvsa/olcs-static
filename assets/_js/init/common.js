@@ -12,6 +12,16 @@ OLCS.ready(function() {
   OLCS.formInit();
   OLCS.notices();
 
+  OLCS.fileUploader({
+    selector: "#aiFileUploader",
+    isMultiple: false
+  });
+
+  OLCS.fileUploader({
+    selector: "#feFileUploader",
+    isMultiple: true
+  });
+
   OLCS.postcodeSearch({
     container: ".js-postcode-search"
   });

@@ -8,40 +8,37 @@ table:
   - headers:
       - label: Registration No.
         class: sortable descending
-      - label: Variation
-        class: sortable
-      - label: Type
+      - label: Var. No.
         class: sortable
       - label: Service No.
         class: sortable
-      - label: Submitted 
+      - label: Submitted
+        class: sortable
+      - label: Type
         class: sortable
     columns:
       - <strong><a href="bus-service-detail.html">PC1057277/232</a></strong><span class="status green">Registered</span>
       - 3
-      - Electronic
       - 576,570
-      - 12 May 2012
+      - 12:02 13 May 2013
+      - EBSR live
     rows: 20
 ---
 
 <div class="three-eigths">
   <form class="filters">
     <fieldset>
-      <legend>Search</legend>
+      <legend>Filter by:</legend>
       <div class="field">
-        <label for="search">Keywords</label>
-        <input id="search" name="search" type="search" class="extra-long">
-        <p class="hint--small">Search by registration or service number.</p>
-      </div>
-      <div class="field">
-        <label>Start point</label>
+        <label>EBSR file</label>
         <select name="">
-          <option value="">Please select</option>
+          <option value="">All</option>
+          <option value="">Yes </option>
+          <option value="">All</option>
         </select>
       </div>
       <div class="field">
-        <label>End point</label>
+        <label>Status</label>
         <select name="">
           <option value="">Please select</option>
         </select>
@@ -54,9 +51,9 @@ table:
 <div class="five-eigths">
   <!-- Registered bus services -->
   {{#each table}}
-    {{#is @index 0 }} 
+    {{#is @index 0 }}
       {{> _table }}
-    {{/is }} 
+    {{/is }}
   {{/each}}
   <div class="table__footer" style="margin-top: -30px; float: left;">
     <div class="results-settings">

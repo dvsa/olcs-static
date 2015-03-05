@@ -1,23 +1,22 @@
 ---
 title: Form elements
 subtitle: Styleguide
-breadcrumbs: 
+breadcrumbs:
   - link: index.html
     label: Back to index
 ---
 
-
 <div class="two-thirds">
-    <form>
-      <div class="validation-summary">
-        <h3>There was a problem submitting the form</h3>
-        <p>Please try the following:</p>
-        <ol class="validation-summary__list">
-          <li class="validation-summary__item"><a href="#error1">Enter a town or city</a></li>
-          <li class="validation-summary__item"><a href="#error2">Enter a date of birth</a></li>
-          <li class="validation-summary__item"><a href="#error3">Enter a biography</a></li>
-        </ol><!-- .validation-summary__list -->
-      </div><!-- .validation-summary -->
+  <form>
+    <div class="validation-summary">
+      <h3>There was a problem submitting the form</h3>
+      <p>Please try the following:</p>
+      <ol class="validation-summary__list">
+        <li class="validation-summary__item"><a href="#error1">Enter a town or city</a></li>
+        <li class="validation-summary__item"><a href="#error2">Enter a date of birth</a></li>
+        <li class="validation-summary__item"><a href="#error3">Enter a biography</a></li>
+      </ol><!-- .validation-summary__list -->
+    </div><!-- .validation-summary -->
 
   <fieldset class="address" data-group="correspondence_address">
     <legend>Establishment address</legend>
@@ -149,7 +148,7 @@ breadcrumbs:
     <fieldset id="additional-information">
       <legend>Additional information</legend>
       <p class="hint">Please provide additional information relating to any prior insolvency proceedings. You may also upload evidence such as legal documents.</p>
-      <div class="field">  
+      <div class="field">
         <label for="additional-info" class="visually-hidden">Additional information</label>
         <textarea id="additional-info" class="extra-long" placeholder="Enter text here"></textarea>
       </div>
@@ -172,9 +171,40 @@ breadcrumbs:
       </div>
     </fieldset><!-- #file-upload -->
 
+    <fieldset class="file-uploader" id="aiFileUploader">
+      <legend>Provide additional information</legend>
+      <p class="hint">Upload any files which you feel may hep aid your application.</p>
+      <ul class="file-uploader__actions">
+        <li class="file-uploader__action">
+          <label class="file-uploader__label">
+            Attach file
+            <input class="js-visually-hidden" type="file" name="fileUpload1">
+          </label>
+          <p class="hint">20MB maximum file size. PDF, DOC, JPG, PNG or GIF</p>
+        </li>
+      </ul><!-- file-uploader__actions -->
+      <ul class="file-uploader__list"></ul><!-- file-uploader__list -->
+      <input class="action--primary large js-hidden" type="submit" value="Upload">
+    </fieldset><!-- .file-uploader -->
+
+    <fieldset class="file-uploader" id="feFileUploader">
+      <legend>Financial evidence</legend>
+      <p class="hint">Please upload any files which you feel may hep aid your application.</p>
+      <ul class="file-uploader__actions">
+        <li class="file-uploader__action">
+          <label class="file-uploader__label">
+            Attach file
+            <input class="js-visually-hidden" type="file" name="fileUpload2[]">
+          </label>
+          <p class="hint">20MB maximum file size. PDF, DOC, JPG, PNG or GIF</p>
+        </li>
+      </ul><!-- file-uploader__actions -->
+      <ul class="file-uploader__list" id="fileUploader1"></ul><!-- file-uploader__list -->
+      <input class="action--primary large js-hidden" type="submit" value="Upload">
+    </fieldset><!-- .file-uploader -->
+
     <div class="field confirm">
       <label class="">
-        <input type="hidden" name="" value="N">
         <input type="checkbox" name="" id="" placeholder="" value="Y">
         By ticking this checkbox you are confirming that there are suitable arrangements in place to keep the vehicles in a fit and serviceable condition at all times
       </label>
@@ -189,3 +219,5 @@ breadcrumbs:
   </form>
 
 </div><!-- end .two-thirds -->
+
+

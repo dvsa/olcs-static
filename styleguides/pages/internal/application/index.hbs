@@ -1,5 +1,5 @@
 ---
-layout: variation.hbs
+layout: application.hbs
 sectionTitle: Application details
 subSectionTitle: Overview
 appNavItems:
@@ -7,10 +7,10 @@ appNavItems:
     link:
     status: current no-background
   - label: Type of licence
-    link:  
+    link:
     status: complete
   - label: Business details
-    link:  
+    link:
     status: complete js-hidden
   - label: Addresses
     link:
@@ -36,36 +36,73 @@ appNavItems:
   - label: Delarations
     link:
     status: disabled
-form: 
+form:
   - title: Overview
     fieldsets:
-    - legend:
+    - legend: Details
       fields:
         - label: App recieved
           type: date
         - label: Target completion date
           type: date
-        - label: 
+        - label:
           type: checkboxes
           values:
             - Override completion date
             - Change of entity
-        - label: Lorem ipsum
+    - legend: Tracking
+      class: tracking
+      fields:
+        - label: Type of licence
           type: select
           values:
+            - Please select
             - Accepted
             - Not accepted
-            - N/A
+            - Not applicable
+        - label: Business type
+          type: select
+          values:
+            - Please select
+            - Accepted
+            - Not accepted
+            - Not applicable
+        - label: Business details
+          type: select
+          values:
+            - Please select
+            - Accepted
+            - Not accepted
+            - Not applicable
+        - label: Addresses
+          type: select
+          values:
+            - Please select
+            - Accepted
+            - Not accepted
+            - Not applicable
+        - label: People
+          type: select
+          values:
+            - Please select
+            - Accepted
+            - Not accepted
+            - Not applicable
+        - label: Operating centres & authorisation
+          type: select
+          values:
+            - Please select
+            - Accepted
+            - Not accepted
+            - Not applicable
     actions:
       - label: Save
         class: primary large
       - label: Cancel
         class: secondary large
-      - label: Back to home
-        class: tertiary large
+
 
 ---
-
 
 <div class="one-fifth--left">
   <h4>Application details</h4>
@@ -73,6 +110,13 @@ form:
 </div>
 
 <div class="three-fifths">
-  <h3>Overview</h3>
+  <div class="content__header">
+    <h3>Overview</h3>
+  </div>
+  <div class="guidance">
+    <h4>Interim request</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad quam ex expedita, ullam sed placeat reprehenderit in necessitatibus non officiis exercitationem consectetur at cupiditate magni similique dolor natus est illo aspernatur sunt repellat sit, inventore. Hic et dolore, vel beatae.</p>
+    <a href="">View interim application</a>
+  </div>
   {{#each form }}{{> _forms }}{{/each }}
 </div>
