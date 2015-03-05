@@ -52,13 +52,10 @@ dd {
   float: left;
 }
 
-<<<<<<< Updated upstream
-=======
 a:visited {
-  background-color: $link-visited-colour;
+  color: $link-visited-colour;
 }
 
->>>>>>> Stashed changes
 .hint {
   display: block;
   color: $grey-1;
