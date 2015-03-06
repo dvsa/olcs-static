@@ -108,6 +108,10 @@ OLCS.fileUploader = (function(document, $, undefined) {
             '</div>'
           );
         } else if (this.files !== undefined && this.files.length) {
+<<<<<<< HEAD
+=======
+          fileName          = this.files[0].name;
+>>>>>>> 435dae78f61affa5b62317619e859b6893ed9f86
           var formattedSize = formatFileSizeString(this.files[0].size);
           fileName          = this.files[0].name;
 
