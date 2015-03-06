@@ -40,6 +40,7 @@ $assetPath: "../images";
 $primaryColour: $department-for-transport;
 $gutter: 1.25%;
 $grey-2: #CCC;
+$grey-3: #E5E5E5;
 
 html {
   background: $grey-4;
@@ -265,17 +266,19 @@ body {
 /* 4.3 Admin menu
    ========================================================================== */
 
+.admin:hover .admin__menu {
+  display: block;
+  .js-enabled & {
+    display: none;
+  }
+}
+
 .admin {
   position: absolute;
   top: .5em;
   right: 0;
   list-style: none;
   margin-right: 2.5%;
-  &:hover {
-    .admin__menu {
-      display: block;
-    }
-  }
   &__title {
     @include border-radius(3px);
     position: relative;
@@ -287,22 +290,38 @@ body {
       background-size: 12px 112px;
     }
     &:hover {
-      background-color: #222;
+      background-color: #111;
       cursor: pointer;
+    }
+    &.active {
+      background-color: #151515;
+    }
+  }
+  &__arrow {
+    display: block;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: -9px;
+    right: 30px;
+    background: url('../images/menu-arrow.png') no-repeat 0 0;
+    @include device-pixel-ratio($ratio: 2) {
+      background-image: url('../images/menu-arrow-2x.png');
+      background-size: 16px 12px;
     }
   }
   &__menu {
     display: none;
     @include border-radius(3px);
     @include box-shadow(0 1px 5px $grey-3);
-    top: 32px;
+    top: 35px;
     right: 0;
     background: #fff;
     border: 1px solid $grey-3;
     z-index: 3;
     width: 420px;
     position: absolute;
-    padding: 15px 0;
+    padding: 10px 0;
     cursor: normal;
   }
   &__submenu {

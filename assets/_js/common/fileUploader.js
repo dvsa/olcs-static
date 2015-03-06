@@ -79,7 +79,7 @@ OLCS.fileUploader = (function(document, $, undefined) {
 
       // If this is the last item in the list, change the
       // button's text and hide the submit button
-      if (thisIndex == 0) {
+      if (thisIndex === 0) {
         lastAction.html(replaceString(lastAction,'Attach another file','Attach file'));
         $(thisSubmit).addClass('js-hidden');
       }
@@ -90,13 +90,14 @@ OLCS.fileUploader = (function(document, $, undefined) {
 
     function getFileList(element) {
       var domFileList = [];
+      var fileName;
 
       // Loop through all the attached files
       element.each( function() {
 
         // If this browser is IE8 or 9
-        if (this.files == undefined && this.value) {
-          var fileName = getFileName(this.value);
+        if (this.files === undefined && this.value) {
+          fileName = getFileName(this.value);
 
           // Pass the file name into a html template and then push that
           // to the array
@@ -107,8 +108,8 @@ OLCS.fileUploader = (function(document, $, undefined) {
             '</div>'
           );
         } else if (this.files !== undefined && this.files.length) {
-          var fileName      = this.files[0].name;
           var formattedSize = formatFileSizeString(this.files[0].size);
+          fileName          = this.files[0].name;
 
           // Pass the file name and the file size into a html template
           // and then push that to the array
@@ -142,7 +143,7 @@ OLCS.fileUploader = (function(document, $, undefined) {
       }
 
       // If there is one attached file show the submit button
-      if (thisFileInputs.length == 1) {
+      if (thisFileInputs.length === 1) {
         $(thisSubmit).removeClass('js-hidden');
       }
 
