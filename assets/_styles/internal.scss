@@ -292,7 +292,9 @@ body {
     }
   }
   &__menu {
+    display: none;
     @include border-radius(3px);
+    @include box-shadow(0 1px 5px $grey-3);
     top: 32px;
     right: 0;
     background: #fff;
