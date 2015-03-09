@@ -108,10 +108,6 @@ OLCS.fileUploader = (function(document, $, undefined) {
             '</div>'
           );
         } else if (this.files !== undefined && this.files.length) {
-<<<<<<< HEAD
-=======
-          fileName          = this.files[0].name;
->>>>>>> 435dae78f61affa5b62317619e859b6893ed9f86
           var formattedSize = formatFileSizeString(this.files[0].size);
           fileName          = this.files[0].name;
 
@@ -132,12 +128,12 @@ OLCS.fileUploader = (function(document, $, undefined) {
 
     // When the file input is updated
     $(selector).on('change', fileInput, function() {
-      var thisFileUploader     = $(this).parents(fileUploader);
-      var thisFileAction       = thisFileUploader.find(fileAction);
-      var thisFileList         = thisFileUploader.find(fileList);
-      var thisFileInputs       = thisFileUploader.find(fileInput);
-      var thisSubmit           = thisFileUploader.find(submit);
-      var newFileAction        = cloneElement($(thisFileAction).last());
+      var thisFileUploader = $(this).parents(fileUploader);
+      var thisFileAction   = thisFileUploader.find(fileAction);
+      var thisFileList     = thisFileUploader.find(fileList);
+      var thisFileInputs   = thisFileUploader.find(fileInput);
+      var thisSubmit       = thisFileUploader.find(submit);
+      var newFileAction    = cloneElement($(thisFileAction).last());
 
       // If this file uploader can handle mutliple files switch out
       // the current file upload action for a new empty one

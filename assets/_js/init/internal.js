@@ -18,8 +18,8 @@ OLCS.ready(function() {
   });
 
   OLCS.toggleElement({
-    triggerSelector: '.admin__title',
-    targetSelector: '.admin__menu'
+    triggerSelector: ".admin__title",
+    targetSelector: ".admin__menu"
   });
 
 });
