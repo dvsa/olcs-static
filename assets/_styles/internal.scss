@@ -15,7 +15,7 @@
  *  9. Actions & buttons
  * 10. Modals & messaging
  * 11. Read only
- * 12. Right hand column 
+ * 12. Right hand column
  * 13. Statuses
  * 14. Comments
  * 15. Empty
@@ -27,20 +27,28 @@
    1. Base styles
    ========================================================================== */
 
-$app: internal;
-
-@import 
+@import
   'vendor/govuk_toolkit/_device-pixels',
-  'vendor/govuk_toolkit/_measurements', 
+  'vendor/govuk_toolkit/_measurements',
   'vendor/govuk_toolkit/_css3',
   'vendor/govuk_toolkit/_colours',
   'vendor/govuk_toolkit/_typography',
   '_base-styles';
 
+$app: internal;
 $assetPath: "../images";
 $primaryColour: $department-for-transport;
 $gutter: 1.25%;
 $grey-2: #CCC;
+$grey-3: #E5E5E5;
+
+html {
+  background: $grey-4;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
 
 /* 1.1 Links
    ========================================================================== */
@@ -52,7 +60,6 @@ $grey-2: #CCC;
    ========================================================================== */
 
 @import '_typography';
-
 
 /* ==========================================================================
    3. Layout
@@ -102,8 +109,8 @@ $grey-2: #CCC;
 }
 
 //Needs refactoring
-.three-fifths { 
-  @extend %table-cell; 
+.three-fifths {
+  @extend %table-cell;
 }
 
 .four-fifths {
@@ -120,7 +127,7 @@ $grey-2: #CCC;
     border-bottom: 1px solid $grey-2;
     padding-bottom: .4em;
     margin-bottom: .5em;
-   
+
   }
 }
 
@@ -144,11 +151,11 @@ $grey-2: #CCC;
     overflow: visible;
     height: 32px;
     @media(max-width: 640px) {
-      height: 72px;  
+      height: 72px;
       padding-bottom: 1em;
       width: 92%;
       margin: 0 4% 0 4%;
-    } 
+    }
   }
   &__title {
     float: left;
@@ -175,28 +182,27 @@ $grey-2: #CCC;
   margin-top: 2px;
   @media (max-width: 640px) {
     width: 100%;
-  }  
+  }
   &__wrapper {
     float: left;
     position: relative;
     height: 32px;
     width: 75%;
     background: $grey-4;
-    @include border-radius(2px); 
+    @include border-radius(2px);
     @media (max-width: 640px) {
       width: 100%;
-    }  
+    }
   }
   &__input {
     @extend %paragraph--small;
-    @include border-radius(2px); 
+    @include border-radius(2px);
     position: absolute;
     display: table-cell;
-    vertical-align: middle;
     left: 0;
     top: 0;
     width: 165px;
-    padding: 6px 0 7px 3%;
+    padding: 9px 0 7px 3%;
     border: 0;
     color: $black;
     vertical-align: middle;
@@ -227,7 +233,7 @@ $grey-2: #CCC;
     float: left;
     @media(max-width: 640px) {
       display: none;
-    }  
+    }
   }
 }
 
@@ -239,7 +245,7 @@ $grey-2: #CCC;
   background: url('../images/down-arrow.png') no-repeat 88% 11px;
   @include device-pixel-ratio($ratio: 2) {
     background-image: url('../images/down-arrow-2x.png');
-    background-size: 10px 130px;
+    background-size: 12px 112px;
   }
   select {
     background: transparent;
@@ -260,42 +266,62 @@ $grey-2: #CCC;
 /* 4.3 Admin menu
    ========================================================================== */
 
+.admin:hover .admin__menu {
+  display: block;
+  .js-enabled & {
+    display: none;
+  }
+}
+
 .admin {
   position: absolute;
   top: .5em;
   right: 0;
   list-style: none;
   margin-right: 2.5%;
-  &:hover {
-    .admin__menu {
-      display: block;
-    }
-  }
   &__title {
     @include border-radius(3px);
     position: relative;
     overflow: visible;
-    padding: .3em 1.5em .3em .75em;
+    padding: 7px 30px .3em .75em;
     background: url('../images/down-arrow.png') no-repeat 85% 13px;
     @include device-pixel-ratio($ratio: 2) {
       background-image: url('../images/down-arrow-2x.png');
-      background-size: 10px 130px;
+      background-size: 12px 112px;
     }
     &:hover {
-      background-color: #222;
+      background-color: #111;
       cursor: pointer;
+    }
+    &.active {
+      background-color: #151515;
+    }
+  }
+  &__arrow {
+    display: block;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: -9px;
+    right: 30px;
+    background: url('../images/menu-arrow.png') no-repeat 0 0;
+    @include device-pixel-ratio($ratio: 2) {
+      background-image: url('../images/menu-arrow-2x.png');
+      background-size: 16px 12px;
     }
   }
   &__menu {
     display: none;
-    top: 32px;
+    @include border-radius(3px);
+    @include box-shadow(0 1px 5px $grey-3);
+    top: 35px;
     right: 0;
-    background: $grey-4;
+    background: #fff;
     border: 1px solid $grey-3;
     z-index: 3;
-    width: 360px;
+    width: 420px;
     position: absolute;
-    padding: .5em 1em;
+    padding: 10px 0;
     cursor: normal;
   }
   &__submenu {
@@ -304,13 +330,17 @@ $grey-2: #CCC;
   }
   &__item {
     width: 100%;
-    font-weight: 600;
-    color: $black;
     list-style: none;
-    padding: .25em 0;
     a {
-      font-weight: 400;
+      display: block;
+      font-size: 15px;
+      font-weight: 500;
       color: $link-colour;
+      padding: 8px 20px;
+      &:hover {
+        text-decoration: none;
+        background: $grey-4;
+      }
     }
   }
 }
@@ -341,7 +371,7 @@ $grey-2: #CCC;
   &__subtitle {
     @include font-size(16px,12pt,16px);
     color: $grey-1;
-    font-weight: 400; 
+    font-weight: 400;
     display: inline;
     @media(max-width: 640px) {
       display: block;
@@ -384,6 +414,12 @@ fieldset {
   }
 }
 
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid #ffbf47;
+}
+
 /* ==========================================================================
    7. Navigation
    ========================================================================== */
@@ -396,7 +432,7 @@ fieldset {
 @import '_breadcrumb';
 
 .breadcrumbs a {
-  color: $grey-1; 
+  color: $grey-1;
 }
 
 /* 7.2 Application nav
@@ -405,7 +441,7 @@ fieldset {
 // status class, 1x Y value, 2x Y value
 $mobile-statuses: (
   complete 5px 4px,
-  incomplete -295px -297px, 
+  incomplete -295px -297px,
   current -95px -95px,
   edited -398px -400px
 );
@@ -415,7 +451,7 @@ $mobile-statuses: (
   overflow: hidden;
   border-top: none;
   margin: 0;
-  a, 
+  a,
   .current,
   .disabled {
     display: block;
@@ -515,8 +551,8 @@ $mobile-statuses: (
   }
 }
 
-table { 
-  border: 1px solid $grey-2; 
+table {
+  border: 1px solid $grey-2;
 }
 
 tfoot {
@@ -525,21 +561,21 @@ tfoot {
 
 tr.urgent { border-left: 5px solid $mellow-red; }
 
-th, 
+th,
 td {
-  @extend %paragraph--tiny; 
-  padding: .5em .75em .5em .75em; 
+  @extend %paragraph--tiny;
+  padding: .5em .75em .5em .75em;
 }
 
 th {
-  background: $grey-3; 
+  background: $grey-3;
   border: 1px solid $grey-2;
   padding: .5em .75em .5em .75em;
   a { display: block; }
-}  
+}
 
 td {
-  border-top: 1px solid $grey-2; 
+  border-top: 1px solid $grey-2;
   border-right: 1px dotted $grey-2;
 }
 
@@ -549,8 +585,8 @@ td {
   a {
     padding: 0;
   }
-  &:hover, 
-  &.ascending, 
+  &:hover,
+  &.ascending,
   &.descening {
     background-color: #cccccc;
   }
@@ -590,7 +626,7 @@ input.action--delete {
   font-size: 15px;
   behavior: url(/htc/PIE.htc);
   &.large {
-    font-weight: 600; 
+    font-weight: 600;
     font-size: 17px;
     padding: .5em .75em;
     .inline & {
@@ -605,7 +641,7 @@ input.action--delete {
   background: none;
   border: 0;
   font-family: $NTA-Light;
-  font-size: 16px; 
+  font-size: 16px;
   text-decoration: underline;
 }
 
@@ -613,7 +649,7 @@ input.action--delete {
   $color,
   $border-colour,
   $grad-light,
-  $grad-dark, 
+  $grad-dark,
   $hover-bg,
   $disabled-text-color,
   $disabled-bg,
@@ -626,7 +662,7 @@ input.action--delete {
   background: -moz-linear-gradient($grad-light, $grad-dark);
   background: -ms-linear-gradient($grad-light, $grad-dark);
   background: -o-linear-gradient($grad-light, $grad-dark);
-  background: linear-gradient($grad-light, $grad-dark); 
+  background: linear-gradient($grad-light, $grad-dark);
   &:hover {
     cursor: pointer;
     color: $color;
@@ -792,7 +828,7 @@ input.action--delete {
 .submission-item {
   @extend %comment;
   background: $light-blue-25;
-  border-left: 3px solid $light-blue-50;  
+  border-left: 3px solid $light-blue-50;
   margin-bottom: .5em;
   h4 {
     border-bottom: 0;
@@ -812,7 +848,7 @@ input.action--delete {
       margin-right: 5%;
       clear: none;
     }
-    b { 
+    b {
       display: block;
     }
   }
@@ -846,3 +882,40 @@ input.action--delete {
     margin-bottom: 10px;
   }
 }
+
+
+/* ==========================================================================
+   17. Sign in
+   ========================================================================== */
+
+.sign-in {
+  background: $grey-4;
+  #main {
+    border-top: 6px solid $primaryColour;
+  }
+  legend {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  form {
+    @include box-shadow(0 1px 5px $grey-3);
+    background: #FFF;
+    max-width: 440px;
+    margin: 40px auto;
+    padding: 20px 32px 0 30px;
+    float: none;
+    overflow: auto;
+  }
+  input[type=text],
+  input[type=password] {
+    width: 94%;
+    padding: .5em 3%;
+  }
+  .forgot-link {
+    @extend %paragraph--tiny;
+    float: right;
+    margin-top: 10px;
+  }
+}
+
+

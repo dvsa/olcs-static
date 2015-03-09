@@ -26,15 +26,6 @@ OLCS.fileUploader = (function(document, $, undefined) {
     var selector     = options.selector || '.file-uploader';
     var isMultiple   = options.isMultiple !== undefined ? options.isMultiple : false;
 
-
-    // function setup(selector) {
-    //   $(fileInput).each( function() {
-    //     $(this).wrap('<label class="action--secondary large">Attach file</label>');
-    //   });
-    // }
-
-    // setup();
-
     function getFileName(path) {
       var index = path.lastIndexOf('\\') + 1;
       return path.substr(index);
@@ -117,8 +108,8 @@ OLCS.fileUploader = (function(document, $, undefined) {
             '</div>'
           );
         } else if (this.files !== undefined && this.files.length) {
-          fileName          = this.files[0].name;
           var formattedSize = formatFileSizeString(this.files[0].size);
+          fileName          = this.files[0].name;
 
           // Pass the file name and the file size into a html template
           // and then push that to the array
@@ -137,12 +128,12 @@ OLCS.fileUploader = (function(document, $, undefined) {
 
     // When the file input is updated
     $(selector).on('change', fileInput, function() {
-      var thisFileUploader     = $(this).parents(fileUploader);
-      var thisFileAction       = thisFileUploader.find(fileAction);
-      var thisFileList         = thisFileUploader.find(fileList);
-      var thisFileInputs       = thisFileUploader.find(fileInput);
-      var thisSubmit           = thisFileUploader.find(submit);
-      var newFileAction        = cloneElement($(thisFileAction).last());
+      var thisFileUploader = $(this).parents(fileUploader);
+      var thisFileAction   = thisFileUploader.find(fileAction);
+      var thisFileList     = thisFileUploader.find(fileList);
+      var thisFileInputs   = thisFileUploader.find(fileInput);
+      var thisSubmit       = thisFileUploader.find(submit);
+      var newFileAction    = cloneElement($(thisFileAction).last());
 
       // If this file uploader can handle mutliple files switch out
       // the current file upload action for a new empty one
