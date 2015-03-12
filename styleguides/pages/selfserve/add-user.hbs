@@ -1,0 +1,78 @@
+---
+title: Manage users
+subtitle: Operator Halauge Ltd.
+user: operator
+table:
+  - title: 3 Users
+    headers:
+      - label: Name
+        class: sortable
+      - label: Email
+        class: sortable descending
+      - label: Permission
+        class: sortable descending
+      - label: <input name="row" type="checkbox">
+        class: non-sortable
+    columns:
+      - <a href="licence/">Jeff Hill</a>
+      - jeffhill@gmail.com
+      - Administrator
+      - <input name="row" type="checkbox">
+    rows: 3
+    actions:
+      - label: Add user
+        class: primary
+      - label: Edit
+        class: secondary disabled
+      - label: Delete
+        class: secondary disabled
+form:
+  - fieldsets:
+    - legend:
+      fields:
+        - label: Username
+          type: text
+          class: medium
+        - label: Email address
+          type: text
+          class: long
+        - label: Confirm email address
+          type: text
+          class: long
+        - label: Permission
+          type: radios
+          hint: Administrators are able to manage and add other users
+          values:
+            - Administrator
+            - Standard user
+        - label: This user will be sent a confirmation email with temporary password, which they will have to update when they sign in.
+          type: html
+    actions:
+      - label: Save
+        class: primary large
+      - label: Cancel
+        class: secondary large
+---
+
+<div class="overlay"></div>
+<div class="modal__wrapper">
+  <div class="modal">
+    <div class="modal__header">
+      <h2 class="modal__title">Add new user</h2>
+      <a href="" class="modal__close">Close</a>
+    </div>
+    <div class="modal__content">
+      {{#each form }}{{> _forms }}{{/each }}
+    </div><!-- .modal__content -->
+  </div><!-- .modal -->
+</div><!-- .modal__wrapper -->
+
+
+<div class="three-quarters">
+  {{#each table}}
+    {{#is @index 0 }}
+      {{> _table }}
+    {{/is }}
+  {{/each}}
+</div><!-- .three-quarters -->
+

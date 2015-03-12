@@ -257,6 +257,7 @@ body {
     -webkit-appearance: none;
     line-height: 1.6;
     color: $grey-1;
+    text-align: right;
     &:focus {
       outline: none;
     }
@@ -739,6 +740,7 @@ input.action--delete {
 .read-only dt {
   color: #555;
 }
+
 
 /* ==========================================================================
    12. Right hand column
