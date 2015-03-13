@@ -1,4 +1,12 @@
 var OLCS = OLCS || {};
+/**
+ * @FIXME: no longer table specific. All this really does is bind
+ * a listener to the click event of several buttons
+ *
+ * Can either get rid or rename
+ *
+ * Either way, let's consolidate
+ */
 
 /**
  * Table Handler
@@ -20,7 +28,7 @@ OLCS.tableHandler = (function(document, $, undefined) {
   return function init(options) {
     var table = options.table;
     var actionName = options.actionName || "action";
-    
+
     // @TODO this needs to change; sensible defaults but
     // overridable via options.selector
     var actionSelector = table + " .table__header [name=" + actionName + "], .table__empty button, " +
