@@ -100,7 +100,7 @@ module.exports = (grunt) ->
         tasks: ['sass:dev']
       hbs:
         files: ['styleguides/**/*.hbs']
-        tasks: ['assemble']
+        tasks: ['newer:assemble']
       scripts:
         files: ['assets/_js/**/*.js']
         tasks: ['uglify:dev']
@@ -120,6 +120,7 @@ module.exports = (grunt) ->
       options:
         port: 7001
         open: false
+        notify: false
         ghostMode:
           clicks: true
           scroll: true
@@ -150,9 +151,14 @@ module.exports = (grunt) ->
     jshint:
       options:
         jshintrc: ".jshintrc"
-      all: [
+      static: [
         "assets/_js/**/*.js"
         "!assets/_js/**/vendor/*"
+      ],
+      apps: [
+        "../olcs-common/Common/src/Common/assets/js/inline/**/*.js",
+        "../olcs-internal/module/*/assets/js/inline/**/*.js",
+        "../olcs-selfserve/module/*/assets/js/inline/**/*.js"
       ]
 
     karma:
@@ -212,11 +218,11 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'lint', [
     'coffeelint'
-    'jshint'
+    'jshint:static'
   ]
 
   grunt.registerTask 'assemble:pretty', [
-    'assemble'
+    'newer:assemble'
     'prettify'
   ]
 

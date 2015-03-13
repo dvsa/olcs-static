@@ -1,7 +1,7 @@
 
 <form>
   {{#each fieldsets }}
-    <fieldset>
+    <fieldset class="{{ class }}">
       <legend>{{ legend }}</legend>
 
       {{#each fields }}
@@ -14,7 +14,7 @@
             </p>
             {{/each }}
           </div>
-          {{/is}}  
+          {{/is}}
 
           {{#is type "read only two-col" }}
           <div class="field two-col read-only">
@@ -24,7 +24,7 @@
             </p>
             {{/each }}
           </div>
-          {{/is}} 
+          {{/is}}
 
           {{#is type "read only three-col" }}
           <div class="field three-col read-only">
@@ -34,12 +34,12 @@
             </p>
             {{/each }}
           </div>
-          {{/is}} 
-          
-          {{#is type "select" }}    
-          <div class="field">
+          {{/is}}
+
+          {{#is type "select" }}
+          <div class="field {{ label }}">
             <label>{{ label }}</label>
-            <select id="{{ this }}" name="{{ this }}"> 
+            <select id="{{ this }}" name="{{ this }}">
               {{#each values }}
               <option value="{{ this }}">{{ this }}</option>
               {{/each }}
@@ -47,7 +47,7 @@
           </div>
           {{/is }}
 
-          {{#is type "multi select" }}    
+          {{#is type "multi select" }}
           <div class="field">
             <label>{{ label }}</label>
             <select multiple class="chosen-select-medium" data-placeholder="{{ placeholder }}">
@@ -63,14 +63,14 @@
             <label>{{ label }}</label>
             <input type="text" class="{{ class }}" placeholder="{{#each values }}{{ this }}{{/each }}">
             <p class="hint">{{{ hint }}}</hint>
-          </div>  
+          </div>
           {{/is }}
 
           {{#is type "textarea" }}
           <div class="field">
             <label>{{ label }}</label>
             <textarea class="extra-long" placeholder="{{#each values }}{{ this }}{{/each }}"></textarea>
-          </div>  
+          </div>
           {{/is }}
 
           {{#is type "date" }}
@@ -98,7 +98,7 @@
             <div class="field inline-text">
               <label>Mon</label>
               <input type="text" class="" placeholder="">
-            </div>  
+            </div>
             <div class="field inline-text">
               <label>Tue</label>
               <input type="text" class="" placeholder="">
@@ -106,11 +106,11 @@
             <div class="field inline-text">
               <label>Wed</label>
               <input type="text" class="" placeholder="">
-            </div> 
+            </div>
             <div class="field inline-text">
               <label>Thu</label>
               <input type="text" class="" placeholder="">
-            </div>  
+            </div>
             <div class="field inline-text">
               <label>Fri</label>
               <input type="text" class="" placeholder="">
@@ -118,11 +118,11 @@
             <div class="field inline-text">
               <label>Sat</label>
               <input type="text" class="" placeholder="">
-            </div> 
+            </div>
             <div class="field inline-text">
               <label>Sun</label>
               <input type="text" class="" placeholder="">
-            </div>    
+            </div>
           </fieldset>
           {{/is }}
 
@@ -193,7 +193,7 @@
             </div>
             <p class="hint"><a href="">Enter address manually</a></p>
           </fieldset>
-        
+
           {{/is }}
 
 

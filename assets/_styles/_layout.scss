@@ -18,7 +18,7 @@
 }
 
 .hidden {
-    display: none;
+  display: none !important;
 }
 
 .right-aligned {
@@ -62,12 +62,15 @@ hr {
   }
 }
 
-// This may seem counter-intuitive, but it is correct
 .js-visible {
   display: none;
 }
 
 .js-enabled {
+  .js-visually-hidden {
+    @extend .visually-hidden;
+  }
+
   .js-hidden {
     display: none !important;
   }

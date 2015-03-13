@@ -29,15 +29,18 @@ OLCS.eventEmitter = (function(document, $, undefined) {
     once: function(event, handler) {
       var id = exports.on(event, function() {
         handler.apply(exports, arguments);
-
-        for (var i = 0, j = exports.listeners[event].length; i < j; i++) {
-          var target = exports.listeners[event][i];
-          if (target.id === id) {
-            exports.listeners[event].splice(i, 1);
-            break;
-          }
-        }
+        exports.off(event, id);
       });
+    },
+
+    off: function(event, id) {
+      for (var i = 0, j = exports.listeners[event].length; i < j; i++) {
+        var target = exports.listeners[event][i];
+        if (target.id === id) {
+          exports.listeners[event].splice(i, 1);
+          return;
+        }
+      }
     },
 
     emit: function(event, args) {

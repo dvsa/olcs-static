@@ -1,10 +1,7 @@
-a { 
-	color: $link-colour; 
-  &:visited {
-    background: none;
-  }
+a {
+	color: $link-colour;
   &:active,
-  &:hover { 
+  &:hover {
     color: $link-active-colour;
     outline: 0;
     text-decoration: none;

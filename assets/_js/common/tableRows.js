@@ -69,7 +69,7 @@ OLCS.tableRows = (function(document, $, undefined) {
       // Toggle the class 'hover' on the table row
       if (e.type === 'mouseenter') {
         $(this).addClass('hover');
-      } else if (e.type === 'mouseleave'){
+      } else if (e.type === 'mouseleave') {
         $(this).removeClass('hover');
       }
 

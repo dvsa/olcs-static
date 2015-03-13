@@ -57,6 +57,8 @@ OLCS.modal = (function(document, $, undefined) {
     $(wrapper).prev().show();
     $(wrapper).show();
 
+    OLCS.eventEmitter.emit('show:modal');
+
     // let other potentially interested components know
     // there's been a render event
     OLCS.eventEmitter.emit('render');
@@ -81,6 +83,9 @@ OLCS.modal = (function(document, $, undefined) {
     $('body').removeClass(bodyClass);
     $(wrapper).hide();
     $(wrapper).prev().hide();
+
+    $(header).empty();
+    $(content).empty();
 
     OLCS.eventEmitter.emit('hide:modal');
   };

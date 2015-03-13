@@ -48,7 +48,7 @@
     }
     &__header {
         background: $grey-3;
-        margin: 0 0 1em 0; 
+        margin: 0 0 1em 0;
         padding: 10px 1em 5px 1em;
         border-bottom: 1px solid $grey-2;
     }
@@ -78,7 +78,7 @@
     table {
       margin-bottom: 1.5em;
     }
-    .actions-container {    
+    .actions-container {
         position: absolute;
         bottom: 0;
         right: 0;
@@ -135,7 +135,7 @@ input[type="submit"].remove {
     }
     p {
         @extend %paragraph--small;
-        margin-bottom: 1em; 
+        margin-bottom: 1em;
     }
 }
 
@@ -200,8 +200,8 @@ input[type="submit"].remove {
   }
 }
 
-.notice--success,  
-.notice--warning, 
+.notice--success,
+.notice--warning,
 .notice--info,
 .notice--danger {
   @include border-radius(2px);
