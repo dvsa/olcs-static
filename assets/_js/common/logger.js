@@ -9,6 +9,8 @@ OLCS.logger = (function(document, $, undefined) {
   "use strict";
 
   var console = window.console;
+  var exports = {};
+
   if (!console) {
     console = {
       log: function() {},
@@ -19,27 +21,25 @@ OLCS.logger = (function(document, $, undefined) {
     };
   }
 
-  var exports = {};
+  function proxy(method) {
+    exports[method] = function() {
+      console[method].apply(console, arguments);
+      return exports;
+    };
+  }
 
-  exports.log = function(text) {
-    // @TODO support variadic args
-    console.log(text);
-    return exports;
-  };
+  proxy("log");
+  proxy("warn");
+  proxy("group");
+  proxy("groupEnd");
 
-  exports.warn = function(text) {
-    console.warn(text);
-    return exports;
-  };
+  exports.debug = function(text, source) {
+    // @TODO might optionally no-op this based on config etc
+    if (source) {
+      return exports.log("%cOLCS.%s %c %s", "color:green", source, "color:black", text);
+    }
 
-  exports.group = function(text) {
-    console.group(text);
-    return exports;
-  };
-
-  exports.groupEnd = function() {
-    console.groupEnd();
-    return exports;
+    return exports.log(text);
   };
 
   return exports;

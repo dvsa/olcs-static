@@ -14,6 +14,8 @@ OLCS.eventEmitter = (function(document, $, undefined) {
     listeners: {},
 
     on: function(event, handler) {
+      OLCS.logger.debug("on: " + event, "eventEmitter");
+
       if (!exports.listeners[event]) {
         exports.listeners[event] = [];
       }
@@ -34,6 +36,8 @@ OLCS.eventEmitter = (function(document, $, undefined) {
     },
 
     off: function(event, id) {
+      OLCS.logger.debug("off: " + event, "eventEmitter");
+
       for (var i = 0, j = exports.listeners[event].length; i < j; i++) {
         var target = exports.listeners[event][i];
         if (target.id === id) {
@@ -44,6 +48,8 @@ OLCS.eventEmitter = (function(document, $, undefined) {
     },
 
     emit: function(event, args) {
+      OLCS.logger.debug("emit: " + event, "eventEmitter");
+
       if (!exports.listeners[event]) {
         return;
       }
