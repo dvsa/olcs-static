@@ -146,6 +146,8 @@ module.exports = (grunt) ->
       prod:
         options:
           sourceMap: false
+          compress:
+            pure_funcs: ["OLCS.log"]
         files: scripts
 
     jshint:

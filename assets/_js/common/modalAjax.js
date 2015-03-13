@@ -35,7 +35,7 @@ OLCS.modalAjax = (function(document, $, undefined) {
       // this was added to cater for when we need to trigger a new modal, when 1 is already showing
       OLCS.modal.hide();
 
-      $.ajax({
+      OLCS.ajax({
         url: key,
         success: OLCS.normaliseResponse(function(data) {
 

@@ -45,7 +45,7 @@ OLCS.formAjax = (function(document, $, undefined) {
       }
     }
 
-    return $.ajax({
+    return OLCS.ajax({
       url: form.attr("action"),
       method: form.attr("method"),
       data: data,
