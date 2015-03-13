@@ -36,7 +36,7 @@ OLCS.logger = (function(document, $, undefined) {
   exports.debug = function(text, source) {
     // @TODO might optionally no-op this based on config etc
     if (source) {
-      return exports.log("%cOLCS.%s %c %s", "color:green", source, "color:black", text);
+      return exports.log("%cOLCS.%s %c %s", "color:green", source, "color:dark-grey", text);
     }
 
     return exports.log(text);

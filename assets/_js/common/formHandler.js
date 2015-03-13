@@ -105,6 +105,7 @@ OLCS.formHandler = (function(document, $, undefined) {
 
       // make sure we don't try and submit cancel buttons
       if (isModal && F.buttonPressed(form, "[cancel]")) {
+        OLCS.logger.debug("trapped 'cancel' click inside modal, won't submit form", "formHandler");
         return;
       }
 
@@ -116,6 +117,8 @@ OLCS.formHandler = (function(document, $, undefined) {
      */
     $(document).on("submit", selector, function(e) {
       e.preventDefault();
+
+      OLCS.logger.debug("submitting form '" + selector + "'", "formHandler");
 
       var form = $(selector);
 
