@@ -27,8 +27,9 @@ OLCS.ajax = (function(document, $, undefined) {
       beforeSend: function(jqXHR, settings) {
         var method = options.method.toUpperCase();
 
-        OLCS.log.group(method + " " + options.url);
-        OLCS.log("Request ID " + requestId + ": start");
+        OLCS.logger
+        .group(method + " " + options.url)
+        .log("Request ID " + requestId + ": start");
 
         if (method === "POST") {
           OLCS.log("Request data: " + settings.data);
@@ -39,21 +40,18 @@ OLCS.ajax = (function(document, $, undefined) {
         }
       },
       success: function(data, textStatus, jqXHR) {
-        OLCS.log(
-          "Request ID " + requestId + ": end (" + jqXHR.status + " " + textStatus + ")"
-        );
-        OLCS.log.groupEnd();
+        OLCS.logger
+        .log("Request ID " + requestId + ": end (" + jqXHR.status + " " + textStatus + ")")
+        .groupEnd();
 
         if (options.success) {
           options.success.apply(null, arguments);
         }
       },
       error: function(jqXHR, testStatus, errorThrown) {
-        OLCS.log({
-          level: "warn",
-          text: "Request ID " + requestId + ": " + errorThrown
-        });
-        OLCS.log.groupEnd();
+        OLCS.logger
+        .warn("Request ID " + requestId + ": " + errorThrown)
+        .groupEnd();
 
         if (options.error) {
           options.error.apply(null, arguments);

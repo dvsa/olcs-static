@@ -4,7 +4,7 @@ var OLCS = OLCS || {};
  * Logging component
  */
 
-OLCS.log = (function(document, $, undefined) {
+OLCS.logger = (function(document, $, undefined) {
 
   "use strict";
 
@@ -19,28 +19,27 @@ OLCS.log = (function(document, $, undefined) {
     };
   }
 
-  var exports = function() {
-    return exports.log.apply(null, arguments);
+  var exports = {};
+
+  exports.log = function(text) {
+    // @TODO support variadic args
+    console.log(text);
+    return exports;
   };
 
-  exports.log = function(options) {
-    if (typeof options === "string") {
-      options = {
-        level: "log",
-        text: options
-      };
-    }
-
-    // @TODO support variadic args
-    return console[options.level](options.text);
+  exports.warn = function(text) {
+    console.warn(text);
+    return exports;
   };
 
   exports.group = function(text) {
-    return console.group(text);
+    console.group(text);
+    return exports;
   };
 
   exports.groupEnd = function() {
-    return console.groupEnd();
+    console.groupEnd();
+    return exports;
   };
 
   return exports;
