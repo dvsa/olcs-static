@@ -31,23 +31,14 @@ OLCS.modalAjax = (function(document, $, undefined) {
 
       var key = $(this).attr('href');
 
-      // Because we can only have 1 modal, it's fair to assume we can hide all
-      // this was added to cater for when we need to trigger a new modal, when 1 is already showing
+      // Because we can only have one modal, it's fair to assume we can hide all
+      // this was added to cater for when we need to trigger a new modal, when
+      // one is already showing
       OLCS.modal.hide();
 
       $.ajax({
         url: key,
-        success: OLCS.normaliseResponse(function(data) {
-
-          // assume that the the modal we get back has a form,
-          // so invoke a wrapper component to bind a formHandler
-          // and show the modal at the same time.
-
-          // this is safe to do because binding a form handler on
-          // the modal's content won't trigger unless there
-          // is in fact a form to submit
-          OLCS.formModal(data);
-        })
+        success: OLCS.modalResponse()
       });
     });
   };
