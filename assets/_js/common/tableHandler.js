@@ -1,4 +1,12 @@
 var OLCS = OLCS || {};
+/**
+ * @FIXME: no longer table specific. All this really does is bind
+ * a listener to the click event of several buttons
+ *
+ * Can either get rid or rename
+ *
+ * Either way, let's consolidate
+ */
 
 /**
  * Table Handler

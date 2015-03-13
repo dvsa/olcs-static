@@ -151,9 +151,14 @@ module.exports = (grunt) ->
     jshint:
       options:
         jshintrc: ".jshintrc"
-      all: [
+      static: [
         "assets/_js/**/*.js"
         "!assets/_js/**/vendor/*"
+      ],
+      apps: [
+        "../olcs-common/Common/src/Common/assets/js/inline/**/*.js",
+        "../olcs-internal/module/*/assets/js/inline/**/*.js",
+        "../olcs-selfserve/module/*/assets/js/inline/**/*.js"
       ]
 
     karma:
@@ -213,7 +218,7 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'lint', [
     'coffeelint'
-    'jshint'
+    'jshint:static'
   ]
 
   grunt.registerTask 'assemble:pretty', [
