@@ -30,7 +30,6 @@ OLCS.normaliseResponse = (function(window, undefined) {
     return function onResponse(response) {
       if (typeof response === "string") {
 
-        OLCS.logger.group("OLCS.normaliseResponse");
         OLCS.logger.debug("converting response string to object", "normaliseResponse");
 
         var title  = $(response).find(titleSelector);
@@ -110,8 +109,6 @@ OLCS.normaliseResponse = (function(window, undefined) {
           );
         }
       }
-
-      OLCS.logger.groupEnd();
 
       // by the time we get here we've got a nice consistent response, whatever
       // we got back from the backend

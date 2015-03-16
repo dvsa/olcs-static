@@ -32,7 +32,12 @@ OLCS.ajax = (function(document, $, undefined) {
         .log("Request ID " + requestId + ": start");
 
         if (method === "POST") {
-          OLCS.logger.log("Request data: " + settings.data);
+          OLCS.logger.group("Request data");
+          var data = OLCS.queryString.parse("?" + decodeURI(settings.data));
+          for (var key in data) {
+            OLCS.logger.log(key + ": " + data[key]);
+          }
+          OLCS.logger.groupEnd();
         }
 
         if (options.beforeSend) {
