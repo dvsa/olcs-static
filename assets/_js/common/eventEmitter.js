@@ -23,7 +23,7 @@ OLCS.eventEmitter = (function(document, $, undefined) {
         id: ++handlerId
       });
 
-      OLCS.logger.debug("listening for '" + event + "' (ID " + handlerId + ")", "eventEmitter");
+      OLCS.logger.verbose("listening for '" + event + "' (ID " + handlerId + ")", "eventEmitter");
 
       return handlerId;
     },
