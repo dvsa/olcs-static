@@ -49,48 +49,22 @@ form:
   - fieldsets:
     - legend:
       fields:
-        - label: Type
-          type: select
-          values:
-            - Self service
-            - Internal
-            - Partner
-            - Transport Manager
-            - Local authority
-            - Self service (No licence)
-        - label: Role
-          type: radios
-          values:
-            - Admin user
-            - Standard user
-    - legend: Details
-      fields:
-        - label: First name
-          type: text
-          class: long
-        - label: Last name
-          type: text
-          class: long
-        - label: Date of birth
-          type: date
-        - label: Phone
+        - label: Username
           type: text
           class: medium
-        - label: Fax
-          type: text
-          class: medium
-        - label: Email
+        - label: Email address
           type: text
           class: long
-    - legend: Address
-      fields:
-        - label: Email
-          type: full-address
+        - label: Confirm email address
+          type: text
+          class: long
+        - label: This user will be sent a confirmation email with temporary password, which they will have to update when they sign in.
+          type: html
     actions:
       - label: Save
-        class: primary
+        class: primary large
       - label: Cancel
-        class: secondary
+        class: secondary large
 
 ---
 
