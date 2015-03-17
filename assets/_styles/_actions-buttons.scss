@@ -6,8 +6,8 @@
   padding-bottom: 2px;
   margin-bottom: 1em;
   float: left;
-  a, 
-  input, 
+  a,
+  input,
   button {
     margin-right: .3em;
   }
@@ -72,7 +72,6 @@ fieldset.actions-container {
 }
 
 %action-box {
-  @include inline-block;
   @include border-radius(3px);
   @extend %paragraph--small;
   border: none;
@@ -130,7 +129,7 @@ input[type="submit"].action,
     background: none;
     border: 0;
     font-family: $NTA-Light;
-    font-size: 16px; 
+    font-size: 16px;
     text-decoration: underline;
     &.large {
       @extend %paragraph--large;
@@ -143,8 +142,8 @@ input[type="submit"].action,
       @if ($app == internal) {
         line-height: 1.8;
       } @else {
-        line-height: 2.3; 
-      } 
+        line-height: 2.3;
+      }
     }
   }
   &--delete {
@@ -158,7 +157,7 @@ input[type="submit"].action,
 }
 
 .action--primary.large,
-.action--secondary.large, 
+.action--secondary.large,
 .action--warning.large {
   @extend %paragraph--large;
   .article & {
