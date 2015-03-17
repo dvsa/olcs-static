@@ -206,113 +206,26 @@ read-only:
           <li>Aliquam quaerat voluptatem</li>
         </ul>
       </div><!-- .comment -->
-
-      <fieldset id="operatingCentresUploader" class="file-uploader">
-
-        <ul class="file-uploader__actions">
-          <li class="file-uploader__action">
-            <label class="file-uploader__label">
-              Attach file
-              <input class="js-visually-hidden" type="file" name="fileUpload2[]">
-            </label>
-            <p class="hint">20MB maximum file size. PDF, DOC, JPG, PNG or GIF</p>
-          </li>
-        </ul><!-- file-uploader__actions -->
-
-        <ul class="uploaded-files">
-          <div class="file-uploader__item uploaded">
-            <p><a href="">Screen Shot 2015-03-14 at 13.48.05.png</a><span> 90 kB</span></p>
-            <a class="file-uploader__remove" href="#">Remove</a>
-            <img src="http://tctechcrunch2011.files.wordpress.com/2013/05/copy-of-sf-cards.png"/>
-          </div>
-        </ul><!-- uploaded-files -->
-
-        <ul class="attached-files">
-        </ul><!-- attached-files -->
-
-        <input class="inline-upload js-hidden" type="submit" value="Upload">
-      </fieldset><!-- .file-uploader -->
     </form>
 
 
-    <!-- A SECTION WITH A COMMENT -->
-
-    <fieldset id="penaltiesUploader" class="file-uploader">
-      <h4>Penalties</h4>
-      <div class="comment">
-        <a class="comment__edit" href="" >Edit</a>
-        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum <i>quia dolor sit amet</i>, consectetur.</p>
-      </div><!-- .comment -->
-      <ul class="file-uploader__actions">
-        <li class="file-uploader__action">
-          <label class="file-uploader__label">
-            Attach file
-            <input class="js-visually-hidden" type="file" name="fileUpload2[]">
-          </label>
-          <p class="hint">20MB maximum file size. PDF, DOC, JPG, PNG or GIF</p>
-        </li>
-      </ul><!-- file-uploader__actions -->
-      <ul class="uploaded-list "></ul><!-- file-uploader__list -->
-      <ul class="file-uploader__list" id="fileUploader1"></ul><!-- file-uploader__list -->
-      <input class="action--primary js-hidden" type="submit" value="Upload">
-    </fieldset><!-- .file-uploader -->
-
-
-
-    <!-- AN EMPTY SECTION -->
-
-    <fieldset id="convictionsUploader" class="file-uploader">
+   <fieldset class="file-uploader" id="FileUploader2">
       <legend>Convictions</legend>
       <input class="action--secondary" type="submit" value="Add comment">
-      <ul class="file-uploader__actions">
-        <li class="file-uploader__action">
-          <label class="file-uploader__label">
+      <ul class="attach-action__list">
+        <li class="attach-action">
+          <label class="attach-action__label">
             Attach file
-            <input class="js-visually-hidden" type="file" name="fileUpload2[]">
+            <input class="attach-action__input js-visually-hidden" type="file" name="fileUpload[]">
           </label>
-          <p class="hint">20MB maximum file size. PDF, DOC, JPG, PNG or GIF</p>
+          <p class="attach-action__hint">20MB maximum file size. PDF, DOC, JPG, PNG or GIF</p>
         </li>
-      </ul><!-- file-uploader__actions -->
-      <ul class="file-uploader__list" id="fileUploader1"></ul><!-- file-uploader__list -->
-      <input class="action--primary js-hidden" type="submit" value="Upload">
-    </fieldset><!-- .file-uploader -->
-
-
-    <!-- AN EMPTY SECTION -->
-
-    <fieldset id="prohibitionsUploader" class="file-uploader">
-      <legend>Prohibitions</legend>
-      <input class="action--secondary" type="submit" value="Add comment">
-      <ul class="file-uploader__actions">
-        <li class="file-uploader__action">
-          <label class="file-uploader__label">
-            Attach file
-            <input class="js-visually-hidden" type="file" name="fileUpload2[]">
-          </label>
-          <p class="hint">20MB maximum file size. PDF, DOC, JPG, PNG or GIF</p>
-        </li>
-      </ul><!-- file-uploader__actions -->
-      <ul class="file-uploader__list" id="fileUploader1"></ul><!-- file-uploader__list -->
-      <input class="action--primary js-hidden" type="submit" value="Upload">
-    </fieldset><!-- .file-uploader -->
-
-
-    <!-- AN EMPTY SECTION -->
-
-    <fieldset class="file-uploader">
-    <legend>Serious infringements</legend>
-      <input class="action--secondary" type="submit" value="Add comment">
-      <ul class="file-uploader__actions">
-        <li class="file-uploader__action">
-          <label class="file-uploader__label">
-            Attach file
-            <input class="js-visually-hidden" type="file" name="fileUpload2[]">
-          </label>
-          <p class="hint">20MB maximum file size. PDF, DOC, JPG, PNG or GIF</p>
-        </li>
-      </ul><!-- file-uploader__actions -->
-      <ul class="file-uploader__list" id="fileUploader1"></ul><!-- file-uploader__list -->
-      <input class="action--primary large js-hidden" type="submit" value="Upload">
+      </ul><!-- attach-actions -->
+      <ul class="uploaded-file__list">
+      </ul><!-- uploaded-files -->
+      <ul class="attached-file__list">
+      </ul><!-- attached-file__list -->
+      <input class="inline-upload js-hidden" type="submit" value="Upload">
     </fieldset><!-- .file-uploader -->
 
 
@@ -343,3 +256,17 @@ read-only:
         </div><!-- .submission-item__meta -->
       </li><!-- .submission-item -->
     </ul><!-- .submission-action -->
+
+
+
+    <script type="text/javascript">
+    OLCS.fileUploader({
+      selector: "#FileUploader1",
+      isMultiple: false
+    });
+
+    OLCS.fileUploader({
+      selector: "#FileUploader2",
+      isMultiple: true
+    });
+    </script>

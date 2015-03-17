@@ -19,7 +19,7 @@ OLCS.fileUploader = (function(document, $, undefined) {
   var file               = '.file';
   var fileRemove         = '.file__remove';
   var attachedFileList   = '.attached-file__list';
-  var submit             = 'input[type=submit]';
+  var submit             = 'input[type=submit].inline-upload';
 
   return function init(options) {
 

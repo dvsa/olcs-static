@@ -364,34 +364,24 @@ input[type="file"] {
 
 
 .file-uploader {
+  max-width: 800px;
   ul {
     list-style: none;
+
   }
   > .hint {
     width: 100%;
   }
-}
-
-.attach-action__list,
-.uploaded-files {
-  display: block;
-  max-width: 700px;
-}
-
-
-.inline-upload {
-  @extend .action--primary;
-  clear: both;
-  margin-top: 15px !important;
-  .selfserve & {
-    @extend .large;
+  input[type="submit"] {
+    float: left;
   }
 }
 
 
+
 .attach-action {
   &__list {
-    width: 100%;
+    clear: right;
   }
   input[type="file"] {
     width: 100%;
@@ -430,13 +420,21 @@ input[type="file"] {
   }
 }
 
+.attached-files__list,
+.uploaded-files__list {
+  display: block;
+  max-width: 700px;
+  clear: both;
+}
+
 .file {
   position: relative;
   overflow: auto;
   display: block;
+  width: 95%;
   border-left: 3px solid $grey-3;
   background: $grey-4;
-  padding: 15px 15px 10px 15px;
+  padding: 15px 2.5% 10px 2.5%;
   margin-top: 5px;
   &__remove {
     position: absolute;
@@ -456,6 +454,16 @@ input[type="file"] {
     margin: 10px 0;
   }
 }
+
+.inline-upload {
+  @extend .action--primary;
+  clear: both;
+  margin-top: 15px !important;
+  .selfserve & {
+    @extend .large;
+  }
+}
+
 
 
 
