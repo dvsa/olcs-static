@@ -36,7 +36,7 @@ OLCS.modalAjax = (function(document, $, undefined) {
       // one is already showing
       OLCS.modal.hide();
 
-      $.ajax({
+      OLCS.ajax({
         url: key,
         success: OLCS.modalResponse()
       });

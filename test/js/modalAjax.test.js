@@ -60,7 +60,7 @@ describe("OLCS.modalAjax", function() {
 
       describe("Given a stubbed ajax mechanism", function() {
         beforeEach(function() {
-          this.ajax = sinon.stub($, "ajax");
+          this.ajax = sinon.stub(OLCS, "ajax");
         });
 
         afterEach(function() {

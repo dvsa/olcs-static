@@ -27,8 +27,8 @@ OLCS.formAjax = (function(document, $, undefined) {
     // cache the form data before we disable it, otherwise
     // we'll serialize nothing
     var data = form.serialize();
-
     var enabledElements;
+    var url;
 
     if (disableOnSubmit) {
       enabledElements = form.find(":input").not(":disabled");
@@ -45,8 +45,17 @@ OLCS.formAjax = (function(document, $, undefined) {
       }
     }
 
-    return $.ajax({
-      url: form.attr("action"),
+    url = form.attr("action");
+    if (!url) {
+      OLCS.logger.debug(
+        "form has no action attribute, using current path",
+        "formAjax"
+      );
+      url = window.location.pathname;
+    }
+
+    return OLCS.ajax({
+      url: url,
       method: form.attr("method"),
       data: data,
       success: success,
