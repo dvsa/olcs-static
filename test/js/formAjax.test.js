@@ -13,9 +13,9 @@ describe("OLCS.formAjax", function() {
     expect(this.component).to.be.a("function");
   });
 
-  describe("Given a stubbed jQuery ajax method", function() {
+  describe("Given a stubbed OLCS.ajax method", function() {
     beforeEach(function() {
-      this.ajax = sinon.stub($, "ajax");
+      this.ajax = sinon.stub(OLCS, "ajax");
     });
 
     afterEach(function() {
@@ -53,7 +53,7 @@ describe("OLCS.formAjax", function() {
         });
       });
 
-      it("invokes $.ajax with the expected parameters", function() {
+      it("invokes OLCS.ajax with the expected parameters", function() {
         var args = this.ajax.firstCall.args[0];
 
         expect(args.url).to.equal("/foo");
@@ -97,7 +97,7 @@ describe("OLCS.formAjax", function() {
         });
       });
 
-      it("invokes $.ajax with the expected parameters", function() {
+      it("invokes OLCS.ajax with the expected parameters", function() {
         var args = this.ajax.firstCall.args[0];
 
         expect(args.url).to.equal("/foo");

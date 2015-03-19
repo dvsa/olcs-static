@@ -23,6 +23,8 @@ OLCS.eventEmitter = (function(document, $, undefined) {
         id: ++handlerId
       });
 
+      OLCS.logger.verbose("listening for '" + event + "' (ID " + handlerId + ")", "eventEmitter");
+
       return handlerId;
     },
 
@@ -34,6 +36,8 @@ OLCS.eventEmitter = (function(document, $, undefined) {
     },
 
     off: function(event, id) {
+      OLCS.logger.debug("removing listener for '" + event + "' (ID " + id + ")", "eventEmitter");
+
       for (var i = 0, j = exports.listeners[event].length; i < j; i++) {
         var target = exports.listeners[event][i];
         if (target.id === id) {
@@ -44,6 +48,8 @@ OLCS.eventEmitter = (function(document, $, undefined) {
     },
 
     emit: function(event, args) {
+      OLCS.logger.debug("emitting '" + event + "'", "eventEmitter");
+
       if (!exports.listeners[event]) {
         return;
       }
