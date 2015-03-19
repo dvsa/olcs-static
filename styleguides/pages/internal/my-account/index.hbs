@@ -1,10 +1,13 @@
 ---
-layout: my-details.hbs
-subSectionTitle: Users
+layout: my-account.hbs
+subSectionTitle: My details
 form:
   - fieldsets:
     - legend:
       fields:
+        - label: Username
+          type: text
+          class: medium
         - label: First name
           type: text
           class: medium
@@ -13,20 +16,12 @@ form:
           class: medium
         - label: Date of birth
           type: date
-    - legend: Login
-      fields:
-        - label: Username
-          type: text
-          class: medium
-        - label: New password
-          type: text
-          class: medium
-        - label: Confirm new password
-          type: text
-          class: medium
     - legend: Contact
       fields:
         - label: Email address
+          type: text
+          class: long
+        - label: Confirm email address
           type: text
           class: long
         - label: Phone
@@ -46,8 +41,14 @@ form:
         class: secondary
 ---
 
-
 <div class="one-fifth--left">
-  {{#each form }}{{> _forms }}{{/each }}
-</div><!-- one-fifth-left -->
+  <h4>My account</h4>
+  {{> _vertical-navigation }}
+</div>
 
+<div class="three-fifths">
+  <div class="content__header">
+    <h3>My details</h3>
+  </div>
+  {{#each form }}{{> _forms }}{{/each }}
+</div>

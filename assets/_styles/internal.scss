@@ -910,10 +910,17 @@ input.action--delete {
     width: 94%;
     padding: .5em 3%;
   }
-  .forgot-link {
-    @extend %paragraph--tiny;
-    float: right;
-    margin-top: 10px;
+  label {
+    float: left;
+    width: 50%;
+    margin-right: 0;
+  }
+  .hint {
+    float: left;
+    width: 50%;
+    clear: none;
+    text-align: right;
+    margin: 0;
   }
 }
 

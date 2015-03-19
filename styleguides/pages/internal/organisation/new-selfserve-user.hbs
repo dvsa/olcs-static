@@ -52,12 +52,27 @@ form:
         - label: Username
           type: text
           class: medium
+        - label: First name
+          type: text
+          class: medium
+        - label: Last name
+          type: text
+          class: medium
         - label: Email address
           type: text
           class: long
         - label: Confirm email address
           type: text
           class: long
+        - label: Memorable word
+          type: text
+          class: long
+        - label: Permission
+          type: radios
+          values:
+            - Administrator
+            - Standard
+            - Transport manager only
         - label: This user will be sent a confirmation email with temporary password, which they will have to update when they sign in.
           type: html
     actions:
