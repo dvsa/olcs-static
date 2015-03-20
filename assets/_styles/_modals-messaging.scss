@@ -205,6 +205,7 @@ input[type="submit"].remove {
 .notice--info,
 .notice--danger {
   @include border-radius(2px);
+  overflow: auto;
   padding: 6px 15px;
   margin-bottom: .25em;
   p {
@@ -214,8 +215,12 @@ input[type="submit"].remove {
   }
   a {
     float: right;
+    .one-fifth--right & {
+      float: left;
+    }
   }
 }
+
 
 /* 10.4 Tooltips
    ========================================================================== */

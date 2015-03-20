@@ -5,7 +5,7 @@ read-only:
   - title: Case details
     editable: false
     type: fields
-    groups: 
+    groups:
       - group:
         - name: Operator name
           value: Don Tarmacadam Limited (MLH)
@@ -15,7 +15,7 @@ read-only:
           value: Rice importer
         - name: ECMS
           value: 1634536
-      - group: 
+      - group:
         - name: Licence number
           value: OB1265270
         - name: Licence start date
@@ -26,11 +26,11 @@ read-only:
           value: 31 July 2017
         - name: Licence status
           value: Valid
-      - group: 
+      - group:
         - name: Total vehicle authorisation
           value: 4
         - name: Vehicles in possession
-          value: 2    
+          value: 2
         - name: Trailer authorisation
           value: 2
         - name: Trailers in possession
@@ -40,7 +40,7 @@ read-only:
     type: textarea
 
 ---
-    
+
     <!-- MAIN HEADER -->
 
     <div class="content__header">
@@ -51,7 +51,7 @@ read-only:
       </div><!-- actions-container -->
     </div><!-- content__header -->
 
-    
+
     <!-- READ ONLY GROUP -->
 
     <div class="read-only">
@@ -114,12 +114,24 @@ read-only:
         <li class="definition-list__item ">
           <dt>Trailers in possession</dt>
           <dd>0</dd>
-        </li>  
+        </li>
       </ul><!-- .definition-list -->
-      <div class="actions-container">
-        <input class="action--secondary" type="submit" value="Add comment"> 
-        <a class="action--secondary" href="">Upload file</a>
-      </div>
+
+      <fieldset id="caseDetailsFileUploader" class="file-uploader">
+        <input class="action--secondary" type="submit" value="Add comment">
+        <ul class="file-uploader__actions">
+          <li class="file-uploader__action">
+            <label class="file-uploader__label">
+              Attach file
+              <input class="js-visually-hidden" type="file" name="fileUpload2[]">
+            </label>
+            <p class="hint">20MB maximum file size. PDF, DOC, JPG, PNG or GIF</p>
+          </li>
+        </ul><!-- file-uploader__actions -->
+        <ul class="file-uploader__list" id="fileUploader1"></ul><!-- file-uploader__list -->
+        <input class="action--primary large js-hidden" type="submit" value="Upload">
+      </fieldset><!-- .file-uploader -->
+
     </div><!-- read-only -->
 
 
@@ -136,9 +148,9 @@ read-only:
       <div class="table__wrapper">
         <table>
           <thead>
-            <tr>    
+            <tr>
               <th>Operating centre address</th>
-              <th>Vehicles</th>   
+              <th>Vehicles</th>
               <th>Trailers</th>
               <th>Permission</th>
               <th>Advertised</th>
@@ -181,48 +193,40 @@ read-only:
           </tbody>
         </table>
       </div><!-- .table__wrapper -->
+
       <div class="comment">
         <a class="comment__edit" href="" >Edit</a>
         <b>Voluptatem accusantium</b>
         <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
         <b>Nemo enim ipsam voluptatem</b>
-        <p>quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum <i>quia dolor sit amet</i>, consectetur.</p> 
-        <b>Adipisci velit</b>
-        <p>quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum <i>quia dolor sit amet</i>, consectetur.</p> 
+        <p>quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum <i>quia dolor sit amet</i>, consectetur.</p>
         <ul>
-          <li>Sed quia non numquam eius modi tempora</li> 
-          <li>Incidunt ut labore et dolore magnam</li> 
+          <li>Sed quia non numquam eius modi tempora</li>
+          <li>Incidunt ut labore et dolore magnam</li>
           <li>Aliquam quaerat voluptatem</li>
         </ul>
-        <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
-        <ol>
-          <li>Quis autem vel eum iure reprehenderit</li> 
-          <li>qui in ea voluptate velit</li> 
-          <li>esse quam nihil molestiae consequatur</li> 
-        </ol>
       </div><!-- .comment -->
     </form>
 
 
-    <!-- A SECTION WITH A COMMENT -->
-
-    <h4>Penalties</h4>
-    <div class="comment">
-      <a class="comment__edit" href="" >Edit</a>
-      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum <i>quia dolor sit amet</i>, consectetur.</p> 
-    </div><!-- .comment -->
-
-
-    <!-- AN EMPTY SECTION -->
-
-    <div class="empty__wrapper">
-      <h4 class="empty__title">Convictions</h4>
-      <div class="empty">
-        <p>There are currently no convictions on this submission</p>
-        <a class="action--primary" href="">Add comments</a>
-        <a class="action--secondary" href="">Upload file</a>
-      </div><!-- empty -->
-    </div><!-- .empty__wrapper -->
+   <fieldset class="file-uploader" id="FileUploader2">
+      <legend>Convictions</legend>
+      <input class="action--secondary" type="submit" value="Add comment">
+      <ul class="attach-action__list">
+        <li class="attach-action">
+          <label class="attach-action__label">
+            Attach file
+            <input class="attach-action__input js-visually-hidden" type="file" name="fileUpload[]">
+          </label>
+          <p class="attach-action__hint">20MB maximum file size. PDF, DOC, JPG, PNG or GIF</p>
+        </li>
+      </ul><!-- attach-actions -->
+      <ul class="uploaded-file__list">
+      </ul><!-- uploaded-files -->
+      <ul class="attached-file__list">
+      </ul><!-- attached-file__list -->
+      <input class="inline-upload js-hidden" type="submit" value="Upload">
+    </fieldset><!-- .file-uploader -->
 
 
     <!-- SUBMISSION ACTIONS -->
@@ -232,7 +236,7 @@ read-only:
       <li class="submission-item">
         <h4>Recommedation: Revoke licence</h4>
         <a class="submission-item__edit" href="">Edit</a>
-        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum <i>quia dolor sit amet</i>, consectetur.</p> 
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum <i>quia dolor sit amet</i>, consectetur.</p>
         <div class="submission-item__meta">
           <p><b>From</b>Daniel Karribyson</p>
           <p><b>To</b>Paul Rooney</p>
@@ -243,7 +247,7 @@ read-only:
       <li class="submission-item">
         <h4>Decision: Revoke licence</h4>
         <a class="submission-item__edit" href="">Edit</a>
-        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum <i>quia dolor sit amet</i>, consectetur.</p> 
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum <i>quia dolor sit amet</i>, consectetur.</p>
         <div class="submission-item__meta">
           <p><b>From</b>Daniel Karribyson</p>
           <p><b>To</b>Paul Rooney</p>
@@ -252,3 +256,17 @@ read-only:
         </div><!-- .submission-item__meta -->
       </li><!-- .submission-item -->
     </ul><!-- .submission-action -->
+
+
+
+    <script type="text/javascript">
+    OLCS.fileUploader({
+      selector: "#FileUploader1",
+      isMultiple: false
+    });
+
+    OLCS.fileUploader({
+      selector: "#FileUploader2",
+      isMultiple: true
+    });
+    </script>

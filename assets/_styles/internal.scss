@@ -257,6 +257,7 @@ body {
     -webkit-appearance: none;
     line-height: 1.6;
     color: $grey-1;
+    text-align: right;
     &:focus {
       outline: none;
     }
@@ -740,6 +741,7 @@ input.action--delete {
   color: #555;
 }
 
+
 /* ==========================================================================
    12. Right hand column
    ========================================================================== */
@@ -768,41 +770,38 @@ input.action--delete {
   }
 }
 
-  /* ==========================================================================
-     13. Statuses
-     ========================================================================== */
+/* ==========================================================================
+   13. Statuses
+   ========================================================================== */
 
-  @import '_statuses';
+@import '_statuses';
 
-  /* ==========================================================================
-     14. Comments
-     ========================================================================== */
+/* ==========================================================================
+   14. Comments
+   ========================================================================== */
 
-  %comment {
-    float: left;
-    width: 100%;
-    max-width: 800px;
-    position: relative;
-    padding: 1em 0 .25em 0;
-    margin-bottom: 2em;
-    > * {
-      margin: 0 45px 0 15px;
-    }
-    > p {
-      @extend %paragraph--small;
-      margin-bottom: 1em;
-    }
-    ul, ol {
-      list-style-position: inside;
-      margin: 0 0 1em 1em;
-    }
-    ul {
-      list-style-type: disc;
-    }
-    form & {
-      margin-bottom: 0;
-    }
+%comment {
+  float: left;
+  width: 100%;
+  max-width: 800px;
+  position: relative;
+  padding: 1em 0 .25em 0;
+  margin-bottom: 1em;
+  > * {
+    margin: 0 45px 0 15px;
   }
+  > p {
+    @extend %paragraph--small;
+    margin-bottom: 1em;
+  }
+  ul, ol {
+    list-style-position: inside;
+    margin: 0 0 1em 1em;
+  }
+  ul {
+    list-style-type: disc;
+  }
+}
 
 %edit-link {
   position: absolute;
@@ -832,7 +831,7 @@ input.action--delete {
   margin-bottom: .5em;
   h4 {
     border-bottom: 0;
-    padding-bottom: 0;
+    padding-bottom: 10px;
     display: block;
   }
   &__edit {
@@ -911,10 +910,17 @@ input.action--delete {
     width: 94%;
     padding: .5em 3%;
   }
-  .forgot-link {
-    @extend %paragraph--tiny;
-    float: right;
-    margin-top: 10px;
+  label {
+    float: left;
+    width: 50%;
+    margin-right: 0;
+  }
+  .hint {
+    float: left;
+    width: 50%;
+    clear: none;
+    text-align: right;
+    margin: 0;
   }
 }
 
