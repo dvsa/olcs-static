@@ -919,3 +919,73 @@ input.action--delete {
 }
 
 
+/* ==========================================================================
+   18. Split screen
+   ========================================================================== */
+
+.iframe {
+    position: fixed;
+    margin: 0px;
+    border: 0px;
+}
+.iframe-full {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.iframe-vertical {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
+.iframe-horizontal {
+    height: 50%;
+    width: 100%;
+}
+#iframe-one.iframe-vertical {
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+#iframe-two.iframe-vertical {
+    top: 50px;
+    bottom: 0;
+    right: 0;
+}
+#iframe-one.iframe-horizontal {
+    top: 0;
+    right: 0;
+    left: 0;
+}
+#iframe-two.iframe-horizontal {
+    bottom: 5%;
+    right: 0;
+    left: 0;
+    height: 45%;
+}
+#iframe-panel {
+    background: #3399cc;
+}
+#iframe-panel a {
+    margin: 10px;
+}
+#iframe-panel.iframe-panel-vertical {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 50%;
+    height: 50px;
+}
+#iframe-panel.iframe-panel-horizontal {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5%;
+    z-index: 10;
+}
+
