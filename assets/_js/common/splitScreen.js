@@ -25,7 +25,7 @@ OLCS.splitScreen = (function(document, $, undefined) {
 
     var mainFrame = $('#iframe-one');
     var sideFrame = $('#iframe-two');
-    var panel = $('#iframe-panel');
+    var panel = $('.iframe-controls');
 
     var canStore;
 
@@ -68,7 +68,7 @@ OLCS.splitScreen = (function(document, $, undefined) {
     function close() {
       orientation = 'closed';
       updateHash();
-      mainFrame.attr('class', 'iframe iframe-full');
+      mainFrame.attr('class', 'iframe--full');
       sideFrame.remove();
       panel.remove();
       isClosed = true;
@@ -84,9 +84,9 @@ OLCS.splitScreen = (function(document, $, undefined) {
 
       setOrientationPreference(orientation);
 
-      mainFrame.attr('class', 'iframe iframe-' + orientation);
-      sideFrame.attr('class', 'iframe iframe-' + orientation);
-      panel.attr('class', 'iframe-panel-' + orientation);
+      mainFrame.attr('class', 'iframe--' + orientation);
+      sideFrame.attr('class', 'iframe--' + orientation);
+      panel.attr('class', 'iframe-controls ' + orientation);
 
       updateHash();
     }
@@ -128,11 +128,18 @@ OLCS.splitScreen = (function(document, $, undefined) {
       }
     });
 
-    $(document).on('click', '#toggle-orientation', function toggleOrientation() {
+    $(document).on('click', '.iframe-controls--orientation', function toggleOrientation() {
       setOrientation(orientation === 'vertical' ? 'horizontal' : 'vertical');
     });
 
-    $(document).on('click', '#side-panel-close', close);
+    $(document).on('click', '.iframe-controls--toggle', function(e) {
+      e.preventDefault();
+      $(this).parent('.iframe-controls').toggleClass('collapsed');
+      $('#iframe-two').toggleClass('collapsed');
+      $('#iframe-one.iframe--horizontal').toggleClass('full');
+    });
+
+    $(document).on('click', '.iframe-controls--close', close);
   };
 
 }(document, window.jQuery));
