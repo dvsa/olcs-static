@@ -54,6 +54,11 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
 
         var options = {
           success: OLCS.normaliseResponse({
+            /**
+             * We trap redirects and handle them ourselves, because if the redirect
+             * URL is the current page we want to ignore it and just hide the modal
+             * instead
+             */
             followRedirects: false,
             callback: handleCrudResponse
           })
@@ -76,8 +81,7 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
           if (OLCS.url.isCurrent(response.location)) {
             return OLCS.modal.hide();
           }
-          window.location.href = response.location;
-          return;
+          return OLCS.url.load(response.location);
         }
 
         if (response.status === 200) {

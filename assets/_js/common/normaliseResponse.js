@@ -94,9 +94,8 @@ OLCS.normaliseResponse = (function(window, undefined) {
           "caught 302 redirect; followRedirects=true; redirecting to " + response.location,
           "normaliseResponse"
         );
-        OLCS.preloader.show();
-        window.location.href = response.location;
-        return;
+
+        return OLCS.url.load(response.location);
       }
 
       // otherwise start to inspect the response for any things of interest
