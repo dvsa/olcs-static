@@ -17,7 +17,7 @@ OLCS.tableSorter = (function(document, $, undefined) {
     $(document).on("click", linkSelector, function clickHandler(e) {
       e.preventDefault();
 
-      $.ajax({
+      OLCS.ajax({
         url: $(this).attr("href"),
         success: OLCS.responseFilter(filter, container),
         complete: function() {

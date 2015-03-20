@@ -23,6 +23,7 @@ OLCS.ready(function() {
    */
   $(document)
   .bind("ajaxSend", OLCS.preloader.show)
-  .bind("ajaxComplete", OLCS.preloader.hide);
+  .bind("ajaxSuccess", OLCS.preloader.hide)
+  .bind("ajaxError", OLCS.preloader.hide);
 
 });

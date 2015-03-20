@@ -7,9 +7,13 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
 
   "use strict";
 
-  return function init() {
+  return function init(options) {
 
-    var crudActionSelector = ".table__header button, .table__wrapper input[type=submit], .table__empty button";
+    if (options === undefined) {
+      options = {};
+    }
+
+    var crudActionSelector = options.selector ||  ".table__header button, .table__wrapper input[type=submit], .table__empty button";
     var modalBodySelector  = ".modal__content";
     var mainBodySelector   = ".js-body";
     var modalWrapper       = ".modal__wrapper";
