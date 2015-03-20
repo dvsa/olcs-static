@@ -104,11 +104,6 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
     });
 
     /**
-     * Make sure any time the parent page is re-rendered we re-bind any one-off form initialisation
-     */
-    OLCS.eventEmitter.on("render", OLCS.formInit);
-
-    /**
      * Reload the parent page every time a modal is hidden. By and large this
      * works well and means our parent page is always fresh (CSRF, version numbers etc).
      * The only downside is that a user can close the modal without any interaction and
