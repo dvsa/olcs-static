@@ -70,9 +70,8 @@ hr {
   .js-visually-hidden {
     @extend .visually-hidden;
   }
-
   .js-hidden {
-    display: none !important;
+    display: none;
   }
   .js-visible {
     display: block;

@@ -364,72 +364,106 @@ input[type="file"] {
 
 
 .file-uploader {
+  max-width: 800px;
   ul {
     list-style: none;
+
   }
   > .hint {
     width: 100%;
   }
+  input[type="submit"] {
+    float: left;
+  }
+}
+
+
+
+.attach-action {
+  &__list {
+    clear: right;
+  }
   input[type="file"] {
-    width: 95%;
+    width: 100%;
     border: 0;
     background: $grey-4;
-    padding: 1em 2.5% .8em 2.5%;
+    padding: 15px 15px 10px 15px;
     border-left: 4px solid $grey-3;
     margin-top: .25em;
-
   }
-  input[type="submit"] {
-    margin-top: 15px !important;
-    float: left;
+  &__hint {
+    @extend .hint;
+    @extend %paragraph--small;
   }
 }
 
 .js-enabled {
-  .file-uploader__action {
+  .attach-action__list {
     float: left;
-    width: 100%;
-    label {
-      float: left;
-      margin-bottom: 10px;
-    }
-    .hint {
-      @extend %paragraph--small;
-      float: left;
-      clear: none;
-      width: auto;
-      margin-left: 10px;
-    }
+    margin-bottom: 15px;
   }
-
-  .file-uploader__label {
+  .attach-action {
+    float: left;
+  }
+  .attach-action__label {
     @extend .action--secondary;
     font-size: 19px;
-  }
-
-  .file-uploader__item {
-    border-left: 3px solid $grey-3;
-    background: $grey-4;
-    padding: 15px 15px 10px 15px;
     float: left;
-    width: 100%;
-    margin-top: 5px;
-    max-width: 560px;
-    position: relative;
-    p {
-      @extend %paragraph--small;
-      float: left;
-    }
-    span {
-      color: $grey-1;
-    }
-    a {
-      position: absolute;
-      right: 15px;
-      top: 15px;
-    }
+    margin-bottom: 10px;
+  }
+  .attach-action__hint {
+    @extend %paragraph--small;
+    float: left;
+    clear: none;
+    width: auto;
+    margin-left: 10px;
   }
 }
+
+.attached-files__list,
+.uploaded-files__list {
+  display: block;
+  max-width: 700px;
+  clear: both;
+}
+
+.file {
+  position: relative;
+  overflow: auto;
+  display: block;
+  width: 95%;
+  border-left: 3px solid $grey-3;
+  background: $grey-4;
+  padding: 15px 2.5% 10px 2.5%;
+  margin-top: 5px;
+  &__remove {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+  }
+  p {
+    @extend %paragraph--small;
+    float: left;
+  }
+  span {
+    color: $grey-1;
+  }
+  img {
+    width: 100%;
+    height: auto;
+    margin: 10px 0;
+  }
+}
+
+.inline-upload {
+  @extend .action--primary;
+  clear: both;
+  margin-top: 15px !important;
+  .selfserve & {
+    @extend .large;
+  }
+}
+
 
 
 

@@ -12,14 +12,14 @@ OLCS.fileUploader = (function(document, $, undefined) {
 
   'use strict';
 
-  var fileUploader     = '.file-uploader';
-  var fileActions      = '.file-uploader__actions';
-  var fileAction       = '.file-uploader__action';
-  var fileInput        = 'input[type=file]';
-  var fileRemoveAction = '.file-uploader__remove';
-  var fileListItem     = '.file-uploader__item';
-  var fileList         = '.file-uploader__list';
-  var submit           = 'input[type=submit]';
+  var fileUploader       = '.file-uploader';
+  var attachAction       = '.attach-action';
+  var attachActionList   = '.attach-action__list';
+  var fileInput          = 'input[type=file]';
+  var file               = '.file';
+  var fileRemove         = '.file__remove';
+  var attachedFileList   = '.attached-file__list';
+  var submit             = 'input[type=submit].inline-upload';
 
   return function init(options) {
 
@@ -66,15 +66,15 @@ OLCS.fileUploader = (function(document, $, undefined) {
 
     function removeFile(element) {
       var thisFileUploader = $(element).parents(fileUploader);
-      var thisListItem     = $(element).closest(fileListItem);
-      var thisIndex        = thisListItem.index();
-      var lastAction       = thisFileUploader.find(fileAction).last();
+      var thisFile         = $(element).closest(file);
+      var thisIndex        = thisFile.index();
+      var lastAction       = thisFileUploader.find(attachAction).last();
       var thisSubmit       = thisFileUploader.find(submit);
 
       // If we're dealing with a multiple file uploader,
       // remove the corresponding file input
       if (isMultiple) {
-        thisFileUploader.find(fileAction).eq(thisIndex).remove();
+        thisFileUploader.find(attachAction).eq(thisIndex).remove();
       }
 
       // If this is the last item in the list, change the
@@ -85,7 +85,7 @@ OLCS.fileUploader = (function(document, $, undefined) {
       }
 
       // Remove the list item
-      thisListItem.remove();
+      thisFile.remove();
     }
 
     function getFileList(element) {
@@ -102,10 +102,10 @@ OLCS.fileUploader = (function(document, $, undefined) {
           // Pass the file name into a html template and then push that
           // to the array
           domFileList.push(
-            '<div class="file-uploader__item">'+
+            '<li class="file">'+
             ' <p>'+fileName+'</p>'+
-            ' <a class="file-uploader__remove" href="#">Cancel</a>'+
-            '</div>'
+            ' <a class="file__remove" href="#">Cancel</a>'+
+            '</li>'
           );
         } else if (this.files !== undefined && this.files.length) {
           var formattedSize = formatFileSizeString(this.files[0].size);
@@ -114,10 +114,10 @@ OLCS.fileUploader = (function(document, $, undefined) {
           // Pass the file name and the file size into a html template
           // and then push that to the array
           domFileList.push(
-            '<div class="file-uploader__item">'+
+            '<li class="file">'+
             ' <p>'+fileName +' <span>'+formattedSize+'</span></p>'+
-            ' <a class="file-uploader__remove" href="#">Cancel</a>'+
-            '</div>'
+            ' <a class="file__remove" href="#">Cancel</a>'+
+            '</li>'
           );
         }
       });
@@ -128,32 +128,31 @@ OLCS.fileUploader = (function(document, $, undefined) {
 
     // When the file input is updated
     $(selector).on('change', fileInput, function() {
-      var thisFileUploader = $(this).parents(fileUploader);
-      var thisFileAction   = thisFileUploader.find(fileAction);
-      var thisFileList     = thisFileUploader.find(fileList);
-      var thisFileInputs   = thisFileUploader.find(fileInput);
-      var thisSubmit       = thisFileUploader.find(submit);
-      var newFileAction    = cloneElement($(thisFileAction).last());
+      var thisFileUploader     = $(this).parents(fileUploader);
+      var thisAttachAction     = thisFileUploader.find(attachAction);
+      var thisAttachedFileList = thisFileUploader.find(attachedFileList);
+      var thisFileInputs       = thisFileUploader.find(fileInput);
+      var thisSubmit           = thisFileUploader.find(submit);
+      var newAttachAction      = cloneElement($(thisAttachAction).last());
 
       // If this file uploader can handle mutliple files switch out
       // the current file upload action for a new empty one
       if (isMultiple) {
-        $(this).closest(fileActions).append(newFileAction);
-        $(this).closest(fileAction).hide();
+        $(this).closest(attachActionList).append(newAttachAction);
+        $(this).closest(attachAction).hide();
       }
 
-      // If there is one attached file show the submit button
-      if (thisFileInputs.length === 1) {
+      // If there is one or more attached files show the inline submit
+      if (thisFileInputs.length >= 1) {
         $(thisSubmit).removeClass('js-hidden');
       }
 
       // Redraw the file list
-      thisFileList.html(getFileList(thisFileInputs));
+      thisAttachedFileList.html(getFileList(thisFileInputs));
     });
 
-
     // When a remove link is clicked remove the list item and file input
-    $(selector).on('click', fileRemoveAction, function(e) {
+    $(selector).on('click', fileRemove, function(e) {
       e.preventDefault();
       removeFile(this);
     });
