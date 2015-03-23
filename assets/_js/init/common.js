@@ -26,4 +26,8 @@ OLCS.ready(function() {
   .bind("ajaxSuccess", OLCS.preloader.hide)
   .bind("ajaxError", OLCS.preloader.hide);
 
+  // @TODO why don't we emit "render" here? It would
+  // make things line up neatly between initial page render
+  // and modal re-render etc
+
 });

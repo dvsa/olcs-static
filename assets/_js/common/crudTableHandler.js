@@ -54,6 +54,11 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
 
         var options = {
           success: OLCS.normaliseResponse({
+            /**
+             * We trap redirects and handle them ourselves, because if the redirect
+             * URL is the current page we want to ignore it and just hide the modal
+             * instead
+             */
             followRedirects: false,
             callback: handleCrudResponse
           })
@@ -76,8 +81,7 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
           if (OLCS.url.isCurrent(response.location)) {
             return OLCS.modal.hide();
           }
-          window.location.href = response.location;
-          return;
+          return OLCS.url.load(response.location);
         }
 
         if (response.status === 200) {
@@ -102,11 +106,6 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
         success: OLCS.normaliseResponse(handleCrudAction)
       });
     });
-
-    /**
-     * Make sure any time the parent page is re-rendered we re-bind any one-off form initialisation
-     */
-    OLCS.eventEmitter.on("render", OLCS.formInit);
 
     /**
      * Reload the parent page every time a modal is hidden. By and large this

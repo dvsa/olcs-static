@@ -32,9 +32,18 @@ OLCS.normaliseResponse = (function(window, undefined) {
 
         OLCS.logger.debug("converting response string to object", "normaliseResponse");
 
-        var title  = $(response).find(titleSelector);
-        var body   = $(response).find(bodySelector);
-        var script = $(response).find(scriptSelector);
+        var title  = "";
+        var body   = "";
+        var script = "";
+
+        // this can throw if the response we get back can't be parsed (i.e. var dumped data during debug)
+        try {
+          title  = $(response).find(titleSelector);
+          body   = $(response).find(bodySelector);
+          script = $(response).find(scriptSelector);
+        } catch (e) {
+          OLCS.logger.debug("Caught error parsing response", "normaliseResponse");
+        }
 
         response = {
           status: 200,
@@ -85,9 +94,8 @@ OLCS.normaliseResponse = (function(window, undefined) {
           "caught 302 redirect; followRedirects=true; redirecting to " + response.location,
           "normaliseResponse"
         );
-        OLCS.preloader.show();
-        window.location.href = response.location;
-        return;
+
+        return OLCS.url.load(response.location);
       }
 
       // otherwise start to inspect the response for any things of interest
