@@ -375,9 +375,10 @@ input[type="file"] {
   input[type="submit"] {
     float: left;
   }
+  .validation-wrapper {
+    clear: both;
+  }
 }
-
-
 
 .attach-action {
   &__list {
@@ -444,6 +445,9 @@ input[type="file"] {
   p {
     @extend %paragraph--small;
     float: left;
+    .validation-wrapper & {
+      color: $black;
+    }
   }
   span {
     color: $grey-1;
@@ -452,6 +456,10 @@ input[type="file"] {
     width: 100%;
     height: auto;
     margin: 10px 0;
+  }
+  &.invalid {
+    border-left: 3px solid $mellow-red;
+    background-color: $warning-background;
   }
 }
 
@@ -530,6 +538,7 @@ input[type="file"] {
   margin-bottom: 20px;
   overflow: visible;
   background: $warning-background;
+  clear: both;
   @media (max-width: 640px){
     margin-left: -1em;
     margin-right: -1em;
@@ -565,6 +574,13 @@ input[type="file"] {
     color: $mellow-red;
   }
   .active-result { color: $black; }
+}
+
+.validation-message {
+  @extend %paragraph--small;
+  display: block;
+  margin: 15px 0 5px 0;
+  color: $mellow-red;
 }
 
 

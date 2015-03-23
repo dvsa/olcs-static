@@ -35,6 +35,10 @@
               <li class="proposition-nav__item"><a href="bus-services.html">Bus registrations</a></li>
               <li class="proposition-nav__item"><a href="">My account</a></li>
             {{/is }}
+            {{#is user "tm" }}
+              <li class="proposition-nav__item"><a href="licences.html">Applications</a></li>
+              <li class="proposition-nav__item"><a href="">My account</a></li>
+            {{/is }}
             <li class="proposition-nav__item"><a href="search.html">Search</a></li>
           </ul>
         </div>
@@ -54,6 +58,10 @@
           {{/is}}
           {{#is user "bus operator"}}
           <li class="user-menu__item">Ruben Loftus-Cheek, <b>Operator Coaches Ltd.</b></li>
+          <li class="user-menu__item"><a href="">Sign out</a></li>
+          {{/is}}
+          {{#is user "tm"}}
+          <li class="user-menu__item">Terry Barrett-Edgecombe, <b>Big Trucks Limited.</b></li>
           <li class="user-menu__item"><a href="">Sign out</a></li>
           {{/is}}
         {{else}}
