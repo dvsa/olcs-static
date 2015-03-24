@@ -64,7 +64,7 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
           })
         };
 
-        OLCS.formModal($.extend(response, options));
+        OLCS.modalForm($.extend(response, options));
       }
 
       /**

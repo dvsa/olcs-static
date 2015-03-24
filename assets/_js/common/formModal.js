@@ -1,13 +1,13 @@
 var OLCS = OLCS || {};
 
 /**
- * OLCS.formModal
+ * OLCS.modalForm
  *
  * Composite component which displays an OLCS.modal and binds
  * an OLCS.formHandler to it
  */
 
-OLCS.formModal = (function(document, $, undefined) {
+OLCS.modalForm = (function(document, $, undefined) {
 
   "use strict";
 

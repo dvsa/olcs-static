@@ -82,7 +82,7 @@ describe("OLCS.modalLink", function() {
 
           describe("Given the request returns successfully", function() {
             beforeEach(function() {
-              this.spy = sinon.stub(OLCS, "formModal");
+              this.spy = sinon.stub(OLCS, "modalForm");
             });
 
             afterEach(function() {

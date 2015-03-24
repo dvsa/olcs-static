@@ -26,7 +26,7 @@ OLCS.modalResponse = (function(document, $, undefined) {
       // this is safe to do because binding a form handler on
       // the modal's content won't trigger unless there
       // is in fact a form to submit
-      OLCS.formModal(data);
+      OLCS.modalForm(data);
     });
   };
 
