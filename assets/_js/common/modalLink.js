@@ -1,7 +1,7 @@
 var OLCS = OLCS || {};
 
 /**
- * OLCS.modalAjax
+ * OLCS.modalLink
  *
  * Triggers an AJAX request, the response from which is
  * used to populate a modal
@@ -15,7 +15,7 @@ var OLCS = OLCS || {};
  * being made more consistent with each other.
  */
 
-OLCS.modalAjax = (function(document, $, undefined) {
+OLCS.modalLink = (function(document, $, undefined) {
 
   'use strict';
 

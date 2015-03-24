@@ -1,8 +1,8 @@
-describe("OLCS.modalAjax", function() {
+describe("OLCS.modalLink", function() {
   "use strict";
 
   beforeEach(function() {
-    this.component = OLCS.modalAjax;
+    this.component = OLCS.modalLink;
   });
 
   it("should be defined", function() {
