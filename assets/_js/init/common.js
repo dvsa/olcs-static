@@ -12,16 +12,6 @@ OLCS.ready(function() {
   OLCS.formInit();
   OLCS.notices();
 
-  OLCS.fileUploader({
-    selector: "#aiFileUploader",
-    isMultiple: false
-  });
-
-  OLCS.fileUploader({
-    selector: "#feFileUploader",
-    isMultiple: true
-  });
-
   OLCS.postcodeSearch({
     container: ".js-postcode-search"
   });
@@ -35,5 +25,9 @@ OLCS.ready(function() {
   .bind("ajaxSend", OLCS.preloader.show)
   .bind("ajaxSuccess", OLCS.preloader.hide)
   .bind("ajaxError", OLCS.preloader.hide);
+
+  // @TODO why don't we emit "render" here? It would
+  // make things line up neatly between initial page render
+  // and modal re-render etc
 
 });

@@ -140,6 +140,7 @@
           {{#is type "radios" }}
           <fieldset class="{{ type }}">
             <legend class="legend">{{ label }}</legend>
+            <p class="hint">{{hint}}</p>
             {{#each values }}
             <div class="field--list">
               <label><input type="radio" name="{{ this }}">{{ this }}</label>
@@ -249,6 +250,12 @@
           </fieldset>
           {{/is }}
 
+
+          {{#is type "html" }}
+          <fieldset class="{{ type }}">
+            <p>{{ label }}</p>
+          </fieldset>
+          {{/is }}
 
       {{/each }}
 

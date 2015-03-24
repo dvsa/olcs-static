@@ -257,6 +257,7 @@ body {
     -webkit-appearance: none;
     line-height: 1.6;
     color: $grey-1;
+    text-align: right;
     &:focus {
       outline: none;
     }
@@ -740,6 +741,7 @@ input.action--delete {
   color: #555;
 }
 
+
 /* ==========================================================================
    12. Right hand column
    ========================================================================== */
@@ -768,41 +770,38 @@ input.action--delete {
   }
 }
 
-  /* ==========================================================================
-     13. Statuses
-     ========================================================================== */
+/* ==========================================================================
+   13. Statuses
+   ========================================================================== */
 
-  @import '_statuses';
+@import '_statuses';
 
-  /* ==========================================================================
-     14. Comments
-     ========================================================================== */
+/* ==========================================================================
+   14. Comments
+   ========================================================================== */
 
-  %comment {
-    float: left;
-    width: 100%;
-    max-width: 800px;
-    position: relative;
-    padding: 1em 0 .25em 0;
-    margin-bottom: 2em;
-    > * {
-      margin: 0 45px 0 15px;
-    }
-    > p {
-      @extend %paragraph--small;
-      margin-bottom: 1em;
-    }
-    ul, ol {
-      list-style-position: inside;
-      margin: 0 0 1em 1em;
-    }
-    ul {
-      list-style-type: disc;
-    }
-    form & {
-      margin-bottom: 0;
-    }
+%comment {
+  float: left;
+  width: 100%;
+  max-width: 800px;
+  position: relative;
+  padding: 1em 0 .25em 0;
+  margin-bottom: 1em;
+  > * {
+    margin: 0 45px 0 15px;
   }
+  > p {
+    @extend %paragraph--small;
+    margin-bottom: 1em;
+  }
+  ul, ol {
+    list-style-position: inside;
+    margin: 0 0 1em 1em;
+  }
+  ul {
+    list-style-type: disc;
+  }
+}
 
 %edit-link {
   position: absolute;
@@ -832,7 +831,7 @@ input.action--delete {
   margin-bottom: .5em;
   h4 {
     border-bottom: 0;
-    padding-bottom: 0;
+    padding-bottom: 10px;
     display: block;
   }
   &__edit {
@@ -911,10 +910,177 @@ input.action--delete {
     width: 94%;
     padding: .5em 3%;
   }
-  .forgot-link {
-    @extend %paragraph--tiny;
-    float: right;
-    margin-top: 10px;
+  label {
+    float: left;
+    width: 50%;
+    margin-right: 0;
+  }
+  .hint {
+    float: left;
+    width: 50%;
+    clear: none;
+    text-align: right;
+    margin: 0;
+  }
+}
+
+
+/* ==========================================================================
+   18. Split screen
+   ========================================================================== */
+
+%iframe {
+  background: $grey-2;
+  position: fixed;
+  margin: 0px;
+  border: 0px;
+}
+
+.iframe {
+  &--full {
+    @extend %iframe;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  &--vertical {
+    @extend %iframe;
+    height: 100%;
+  }
+  &--horizontal {
+    @extend %iframe;
+    width: 100%;
+  }
+}
+
+#iframe-one {
+  top: 0;
+  &.iframe--vertical {
+    width: 100%;
+    bottom: 0;
+    left: 0;
+  }
+  &.iframe--horizontal {
+    right: 0;
+    left: 0;
+    height: 50.5%;
+    &.full {
+      height: 100%;
+    }
+  }
+}
+
+#iframe-two {
+  bottom: 0;
+  right: 0;
+  &.iframe--vertical {
+    width: 40%;
+    top: 0;
+    z-index: 11;
+    &.collapsed {
+      width: 0;
+    }
+  }
+  &.iframe--horizontal {
+    left: 0;
+    height: 45%;
+    &.collapsed {
+      height: 0;
+    }
+  }
+}
+
+
+.iframe-controls {
+  position: fixed;
+  z-index: 12;
+  background-color: $grey-4;
+  a {
+    @extend .action--secondary;
+    text-indent: -9999px;
+    height: 24px;
+    width: 24px;
+    padding: 0;
+    background-image: url('../images/iframe-controls.png');
+    background-repeat: no-repeat;
+    @include device-pixel-ratio($ratio: 2) {
+      background-image: url('../images/iframe-controls-2x.png');
+      background-size: 54px 171px;
+    }
+    &:hover {
+      background-image: url('../images/iframe-controls.png');
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.iframe-controls.horizontal {
+  @include box-shadow(0 0 6px 0 rgba(0,0,0,.2));
+  border-top: 1px solid $grey-2;
+  border-bottom: 1px solid $grey-2;
+  right: 0;
+  bottom: 45%;
+  left: 0;
+  width: 100%;
+  height: 38px;
+  padding-left: 3px;
+  a {
+    margin: 6px 0 0 3px;
+  }
+  &.collapsed {
+    bottom: 0;
+  }
+}
+
+.iframe-controls.vertical {
+  @include box-shadow(-2px 0 3px 0 rgba(0,0,0,.1));
+  border-left: 1px solid $grey-2;
+  border-right: 1px solid #AEAEAE;
+  top: 0px;
+  right: 40%;
+  width: 38px;
+  height: 100%;
+  a {
+    margin: 6px 0 0 6px;
+  }
+  &.collapsed {
+    right: 0;
+  }
+}
+
+a.iframe-controls--close {
+  background-position: 6px 7px;
+  &:hover {
+    background-position: -36px 7px;
+  }
+}
+
+a.iframe-controls--orientation {
+  background-position: 6px -75px;
+  &:hover {
+    background-position: -36px -75px;
+  }
+  .vertical & {
+    background-position: 6px -33px;
+    &:hover {
+      background-position: -36px -33px;
+    }
+  }
+}
+
+a.iframe-controls--toggle {
+  background-position: 6px -155px;
+  &:hover {
+    background-position: -36px -155px;
+  }
+  .vertical & {
+    background-position: 4px -116px;
+    &:hover {
+      background-position: -38px -116px;
+    }
   }
 }
 
