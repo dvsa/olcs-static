@@ -34,7 +34,7 @@ OLCS.formHandler = (function(document, $, undefined) {
       // used the filter & container shorthand instead. As such, construct
       // a response filter (which internally normalises the response first)
       // to simply replace the container with the new filtered HTML
-      success = OLCS.responseFilter(options.filter, options.container);
+      success = OLCS.filterResponse(options.filter, options.container);
     }
 
     // we'll return this so consumers can unbind listeners if they want to

@@ -1,8 +1,8 @@
-describe("OLCS.responseFilter", function() {
+describe("OLCS.filterResponse", function() {
   "use strict";
 
   beforeEach(function() {
-    this.component = OLCS.responseFilter;
+    this.component = OLCS.filterResponse;
   });
 
   it("should be a function", function() {
@@ -19,7 +19,7 @@ describe("OLCS.responseFilter", function() {
     });
 
     it("throws the expected error", function() {
-      expect(this.e.message).to.equal("OLCS.responseFilter requires a container argument");
+      expect(this.e.message).to.equal("OLCS.filterResponse requires a container argument");
     });
   });
 

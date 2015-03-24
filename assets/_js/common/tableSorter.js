@@ -19,7 +19,7 @@ OLCS.tableSorter = (function(document, $, undefined) {
 
       OLCS.ajax({
         url: $(this).attr("href"),
-        success: OLCS.responseFilter(filter, container),
+        success: OLCS.filterResponse(filter, container),
         complete: function() {
           OLCS.eventEmitter.emit("update:" + container);
         }
