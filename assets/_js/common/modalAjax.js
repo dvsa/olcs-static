@@ -9,7 +9,7 @@ var OLCS = OLCS || {};
  * Typically invoked by binding a listener on links which
  * want to open in a modal
  *
- * @NOTE: the way this is named is the same as OLCS.formAjax
+ * @NOTE: the way this is named is the same as OLCS.submitForm
  * but they behave differently (this binds listeners, that
  * actually fires a form immediately). These could do with
  * being made more consistent with each other.

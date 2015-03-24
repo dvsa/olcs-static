@@ -12,7 +12,7 @@ var OLCS = OLCS || {};
  * If that's what you're after, please use OLCS.formHandler instead
  */
 
-OLCS.formAjax = (function(document, $, undefined) {
+OLCS.submitForm = (function(document, $, undefined) {
 
   "use strict";
 
@@ -49,7 +49,7 @@ OLCS.formAjax = (function(document, $, undefined) {
     if (!url) {
       OLCS.logger.debug(
         "form has no action attribute, using current path",
-        "formAjax"
+        "submitForm"
       );
       url = window.location.pathname;
     }

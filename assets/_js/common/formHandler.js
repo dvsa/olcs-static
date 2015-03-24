@@ -4,7 +4,7 @@ var OLCS = OLCS || {};
  * OLCS.formHandler
  *
  * A simple component to listen for form submissions and
- * make them asynchronous by using OLCS.formAjax to submit them.
+ * make them asynchronous by using OLCS.submitForm to submit them.
  *
  * This is a handy component which abstracts a lot of nuances
  * related to form submissions via JS; things like ensuring
@@ -122,7 +122,7 @@ OLCS.formHandler = (function(document, $, undefined) {
 
       var form = $(selector);
 
-      OLCS.formAjax({
+      OLCS.submitForm({
         form: form,
         success: success,
         complete: function() {

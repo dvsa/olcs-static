@@ -101,7 +101,7 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
       F.pressButton(form, button);
 
       // hook everything up and submit the form
-      OLCS.formAjax({
+      OLCS.submitForm({
         form: form,
         success: OLCS.normaliseResponse(handleCrudAction)
       });
