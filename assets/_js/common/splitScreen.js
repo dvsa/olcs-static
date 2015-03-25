@@ -23,7 +23,7 @@ OLCS.splitScreen = (function(document, $, undefined) {
 
       url1 = parts[0];
       url2 = parts[1];
-      orientation = parts[2];
+      orientation = parts[2] || null;
       isVisible = parts[3] === '0' ? false : true;
     }
 
