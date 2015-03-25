@@ -39,6 +39,9 @@
         }
       },
       assemble: {
+        options: {
+          helpers: ['handlebars-helper-repeat']
+        },
         internal: {
           options: {
             layout: 'base.hbs',
