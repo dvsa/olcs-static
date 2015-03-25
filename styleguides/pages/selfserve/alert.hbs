@@ -2,22 +2,27 @@
 title: Alert
 ---
 
-  <div class="overlay"></div>
-  <div class="alert__wrapper">
-    <div class="alert">
-      <h3>Alert header</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-      <div class="actions-container">
-        <input class="action--primary" type="submit" value="OK">
-        <input class="action--secondary" type="submit" value="Cancel">
-      </div><!-- end .actions -->
-    </div><!-- end .alert -->
-  </div><!-- end .alert__wrapper -->
+<div class="overlay"></div>
+<div class="modal__wrapper">
+  <div class="modal--alert">
+    <div class="modal__header">
+      <h2 class="modal__title">Alert header</h2>
+      <a href="" class="modal__close">Close</a>
+    </div>
+    <div class="modal__content">
+      <p>Are you really sure you want to perform this action?</p>
+      <form>
+        <div class="actions-container">
+          <input class="action--primary" type="submit" value="OK">
+          <input class="action--secondary" type="submit" value="Cancel">
+        </div>
+      </form>
+    </div><!-- .modal__content -->
+  </div><!-- modal-alert-->
+</div>
 
-  <div class="two-thirds">
-    <div class="article">
-      <p>Services should use clear, easy to read type, with consistent styles and a clear hierarchy of information.</p>
-      <p>GOV.UK uses the typeface New Transport, cut especially for government use. This typeface is embedded in the GOV.UK CSS and is served to browsers via a WOFF file (or an EOT file for Internet Explorer 8). The font is hinted to display well on all browsers. Older browsers do not receive the typeface.</p>
-      <p><a href="" id="launch-alert" class="action--primary large">Launch alert</a></p>
-    </div><!-- end .article -->
-  </div><!-- end .two-thirds -->
+<div class="two-thirds">
+  <div class="article">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga itaque dolore vero nostrum, inventore praesentium totam tenetur id! Perspiciatis quae voluptatum veniam, libero pariatur dolores totam tempore ex dicta cum.</p>
+  </div>
+</div>

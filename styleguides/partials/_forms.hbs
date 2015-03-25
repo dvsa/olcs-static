@@ -1,6 +1,7 @@
 
 <form>
   {{#each fieldsets }}
+    <h2>{{ title }}</h2>
     <fieldset class="{{ class }}">
       <legend>{{ legend }}</legend>
 
@@ -256,6 +257,18 @@
             <p>{{ label }}</p>
           </fieldset>
           {{/is }}
+
+          {{#is type "empty-table" }}
+          <div class="empty__wrapper">
+            <h3 class="empty__title">{{ legend }}</h3>
+            <div class="empty">
+              <p>{{ label }}</p>
+              <a class="action--primary" href="">{{ action }}</a>
+            </div><!-- empty -->
+          </div><!-- .empty__wrapper -->
+          {{/is }}
+
+
 
       {{/each }}
 

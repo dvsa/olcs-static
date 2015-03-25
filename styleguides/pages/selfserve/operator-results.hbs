@@ -1,5 +1,5 @@
 ---
-title: Bus services
+title: Vehicle Operators
 header-text: <p>In order to register, update or cancel a bus service you need to updload an Electronic Bus Registration Service pack (EBSR) in .ZIP format.</p>
     <p><b><a href="register-update-cancel-service.html">Register, update or cancel a service</a></b></p>
 layout: bus-regs-base.hbs
@@ -47,9 +47,9 @@ table:
 <div class="five-eigths">
   <!-- Registered bus services -->
   {{#each table}}
-    {{#is @index 0 }} 
+    {{#is @index 0 }}
       {{> _table }}
-    {{/is }} 
+    {{/is }}
   {{/each}}
   <div class="table__footer" style="margin-top: -30px; float: left;">
     <div class="results-settings">

@@ -1,148 +1,11 @@
 %fixed {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-.overlay {
-    @extend %fixed;
-    @include opacity(.6);
-    background: $black;
-    z-index: 1;
-}
-
-%overlay-box {
-    @include border-radius(3px);
-    display: block;
-    border: 3px solid $grey-2;
-    background: $white;
-    padding: 1em;
-    overflow: hidden;
-    position: relative;
-    z-index: 2;
-    @media (max-width:640px) {
-        padding: .5em 1em 4.25em 1em;
-    }
-}
-
-/* 10.1 Modals
-   ========================================================================== */
-.modal__wrapper {
-    @extend %fixed;
-    overflow: auto;
-    z-index: 6;
-}
-.modal {
-    @extend %overlay-box;
-    position: absolute;
-    left: 50%;
-    margin: 5% 0 5% -320px;
-    padding: 0 0 3.5em 0;
-    width: 640px;
-    @media(max-width: 640px) {
-        margin: 46px 0 5% 0;
-        width: 100%;
-        left: 0;
-    }
-    &__header {
-        background: $grey-3;
-        margin: 0 0 1em 0;
-        padding: 10px 1em 5px 1em;
-        border-bottom: 1px solid $grey-2;
-    }
-    &__close {
-        @extend .close;
-        position: absolute;
-        right: .75em;
-        top: .6em;
-    }
-    /* Ajaxed content overides*/
-
-    h2 {
-        @extend %h4;
-    }
-    .subtitle {
-        @extend %paragraph--small;
-    }
-    form {
-        overflow: auto;
-        margin: 0 2.5% 0 2.5%;
-        padding: 0 2.5% 0 1px;
-        width: 95%;
-    }
-    form + form {
-      margin-top: -4.5em;
-    }
-    table {
-      margin-bottom: 1.5em;
-    }
-    .actions-container {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        height: 2em;
-        padding: 1em 2.5%;
-        margin: 0;
-        overflow: visible;
-        width: 95%;
-        border-top: 1px solid $grey-3;
-        background: $grey-4;
-    }
-}
-
-.close {
-  background: url('../images/close.png') no-repeat 0 0;
-  @include device-pixel-ratio($ratio: 2) {
-    background: url('../images/close-2x.png') no-repeat 0 0;
-    background-size: 60px 22px;
-  }
-  text-indent: -9999px;
-  height: 22px;
-  width: 22px;
-  &:hover {
-    background-position: -39px 0;
-  }
-}
-
-input[type="submit"].remove {
-  @extend .close;
-}
-
-/* 10.2 Alerts
-   ========================================================================== */
-.alert__wrapper {
-    z-index: 1;
-    display: none;
-}
-
-.alert, .alert--warning  {
-    @extend %overlay-box;
-    margin: 20% auto;
-    width: 40%;
-    max-width: 360px;
-    min-width: 260px;
-    padding: 1em 1em 1.25em 1em;
-    &__wrapper {
-        @extend %fixed;
-    }
-    .actions-container {
-        text-align: center;
-        display: block;
-        margin-bottom: 0;
-        float: none;
-    }
-    p {
-        @extend %paragraph--small;
-        margin-bottom: 1em;
-    }
-}
-
-.alert--warning {
-    background: $warning-background;
-    border: 3px solid $mellow-red;
-}
 
 
 /* 10.3 Notices
@@ -159,8 +22,8 @@ input[type="submit"].remove {
     position: relative;
     max-width: none;
     left: 0;
-    width: 95%;
-    margin: -10px 2.5% 30px 2.5%;
+    width: 100%;
+    margin: -10px 0 30px 0;
   }
   .one-fifth--right & {
     margin: 0 0 1em 0;
@@ -176,7 +39,6 @@ input[type="submit"].remove {
     margin-right: 0;
     max-width: 500px;
   }
-
 }
 
 @mixin notice($background,$border,$color) {

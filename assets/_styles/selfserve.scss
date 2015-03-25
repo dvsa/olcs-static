@@ -696,3 +696,23 @@ dd {
    ========================================================================== */
 
 @import '_guidance';
+
+
+/* ==========================================================================
+   17. Modals
+   ========================================================================== */
+
+
+@import '_modals';
+
+.modal {
+  &__close {
+    background: url('../images/selfserve-close.png') no-repeat 10px 5px;
+    @include device-pixel-ratio($ratio: 2) {
+      background: url('../images/selfserve-close-2x.png') no-repeat 10px 0;
+      background-size: 38px 38px;
+    }
+    height: 38px;
+    width: 38px;
+  }
+}

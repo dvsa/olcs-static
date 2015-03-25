@@ -1,8 +1,9 @@
 ---
 title: Financial evidence
+user: operator
 subtitle: Step 4 of 12
 layout: base.hbs
-breadcrumbs: 
+breadcrumbs:
   - link: licences.html
     label: Home
   - link: overview.html
@@ -35,16 +36,43 @@ breadcrumbs:
             <label><input type="radio" name="no">Send in the post</label>
           </div>
         </fieldset>
-        <div class="field">
-          <input type="submit" class="action--primary large" value="Choose files">
-        </div>
       </fieldset>
+
+      <fieldset class="file-uploader" id="financialEvidenceUpload" style="margin-top: -40px">
+
+        <ul class="attach-action__list">
+          <li class="attach-action">
+            <label class="attach-action__label">
+              Attach file
+              <input class="attach-action__input js-visually-hidden" type="file" name="fileUpload[]">
+            </label>
+            <p class="attach-action__hint">20MB maximum file size. PDF, DOC, JPG, PNG or GIF</p>
+          </li>
+        </ul><!-- attach-actions -->
+
+        <ul class="uploaded-file__list">
+        </ul><!-- uploaded-file__list -->
+
+        <ul class="attached-file__list">
+        </ul><!-- attached-file__list -->
+
+        <input class="inline-upload js-hidden" type="submit" value="Upload">
+      </fieldset><!-- .file-uploader -->
+
     </form>
-    
+
     <div class="actions-container">
-      <a href="/styleguides/selfserve/overview.html" class="action--primary large">Save and continue</a>
-      <a href="" class="action--secondary large">Save and return</a>
+      <a href="/styleguides/selfserve/overview.html" class="action--primary large disabled">Save and continue</a>
+      <a href="" class="action--secondary large  disabled">Save and return</a>
     </div>
 
 </div><!-- .two-thirds -->
+
+<script type="text/javascript">
+  OLCS.fileUploader({
+    selector: "#financialEvidenceUpload",
+    isMultiple: true
+  });
+
+</script>
 

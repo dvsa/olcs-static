@@ -1,0 +1,85 @@
+---
+title: Transport manager application
+subtitle: Daniel McPhee
+user: tm
+breadcrumbs:
+  - link: licences.html
+    label: Back to applications
+form:
+  - fieldsets:
+    - title: My details
+      legend:
+      fields:
+        - label: First name
+          type: text
+          class: long
+        - label: Last name
+          type: text
+          class: long
+        - label: Email address
+          type: text
+          class: extra-long
+        - label: Date of birth
+          type: date
+        - label:  Place of birth
+          type: text
+          class: long
+    - legend: Home address
+      fields:
+        - label: Title
+          type: address
+    - legend: Work address
+      fields:
+        - label: Title
+          type: address
+    - title: Responsibilities
+      legend:
+      fields:
+        - label: Which operating centre(s) will you be responsible for?
+          type: multi select
+          placholder: Choose operating centre(s)
+          values:
+            - 124 Eleanor Grove, Baschurch
+            - Unit 4, Battelfields Industrial Estate, Shrewsbury
+            - 240 Timmuses Drive, Yeaton
+        - label: What type of manager will you be for this licence?
+          type: radios inline
+          values:
+            - Internal
+            - External
+    - legend: Hours per week
+      fields:
+        - label: How many houurs will you spend on your Transport Manager duties?
+          type: hours-per-week
+    - legend: Other licences
+      fields:
+        - label: If you hold, are applying for or are the Transport Manager on any other licences, add their details here
+          action: Add other licences
+          type: empty-table
+    - legend: Other employment
+      fields:
+        - label: If you hold any other permanent or regular employment, add their details here
+          action: Add other employment
+          type: empty-table
+    - title: Previous history
+      legend: Convictions & penalties
+      fields:
+        - label: If you have been convicted of any relevant offences that must be declared to the Traffic Commissioner, add their details here
+          action: Add offence
+          type: empty-table
+    - legend: Previous licences
+      fields:
+        - label: Have you had any association in the past with a licence that has been revoked, curtialed or suspended, add their details here
+          action: Add licence details
+          type: empty-table
+    actions:
+      - label: Save & continue
+        class: primary large
+      - label: Save
+        class: secondary large
+---
+
+<div class="three-quarters">
+  {{#each form }}{{> _forms }}{{/each }}
+</div><!-- .three-quarters -->
+
