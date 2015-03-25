@@ -57,9 +57,9 @@ describe("OLCS.formHandler", function() {
           expect($("[type=submit]").is(":hidden")).to.equal(true);
         });
 
-        describe("Given a stubbed OLCS.formAjax component", function() {
+        describe("Given a stubbed OLCS.submitForm component", function() {
           beforeEach(function() {
-            this.ajax = sinon.stub(OLCS, "formAjax");
+            this.ajax = sinon.stub(OLCS, "submitForm");
           });
 
           afterEach(function() {
@@ -114,11 +114,11 @@ describe("OLCS.formHandler", function() {
           $(document).off("change");
         });
 
-        describe("Given a stubbed OLCS.formAjax component", function() {
+        describe("Given a stubbed OLCS.submitForm component", function() {
           beforeEach(function() {
             var self = this;
 
-            this.ajax = sinon.stub(OLCS, "formAjax");
+            this.ajax = sinon.stub(OLCS, "submitForm");
           });
 
           afterEach(function() {

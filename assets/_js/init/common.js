@@ -2,7 +2,7 @@ OLCS.ready(function() {
   "use strict";
 
   // allow any links to opt-in to ajax modals
-  OLCS.modalAjax({
+  OLCS.modalLink({
     trigger: ".js-modal-ajax"
   });
 

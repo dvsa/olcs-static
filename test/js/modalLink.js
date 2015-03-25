@@ -1,8 +1,8 @@
-describe("OLCS.modalAjax", function() {
+describe("OLCS.modalLink", function() {
   "use strict";
 
   beforeEach(function() {
-    this.component = OLCS.modalAjax;
+    this.component = OLCS.modalLink;
   });
 
   it("should be defined", function() {
@@ -82,7 +82,7 @@ describe("OLCS.modalAjax", function() {
 
           describe("Given the request returns successfully", function() {
             beforeEach(function() {
-              this.spy = sinon.stub(OLCS, "formModal");
+              this.spy = sinon.stub(OLCS, "modalForm");
             });
 
             afterEach(function() {

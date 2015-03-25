@@ -38,11 +38,11 @@ OLCS.conditionalButton = (function(document, $, undefined) {
       if (button.length) {
         checkedInputs = $(context).find(checkedSelector);
 
-        predicate(checkedInputs.length, function(disabled) {
-          if (disabled) {
-            button.attr("disabled", true);
-          } else {
+        predicate(checkedInputs.length, function(enabled) {
+          if (enabled) {
             button.removeAttr("disabled");
+          } else {
+            button.attr("disabled", true);
           }
         }, checkedInputs);
       }
