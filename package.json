@@ -23,7 +23,7 @@
     "grunt-notify": "^0.4.1",
     "grunt-open": "^0.2.3",
     "grunt-prettify": "^0.3.5",
-    "handlebars-helper-repeat": "*",
+    "handlebars-helper-repeat": "0.2.0",
     "karma": "~0.12.23",
     "karma-coverage": "~0.2.6",
     "karma-expect": "~1.1.0",
