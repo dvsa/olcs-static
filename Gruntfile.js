@@ -151,13 +151,18 @@
     } else {
       require('matchdep').filterAll(['grunt-*', 'assemble']).forEach(grunt.loadNpmTasks);
     }
+
     grunt.registerTask('compile:dev', ['lint', 'sass:dev', 'uglify:dev', 'assemble']);
     grunt.registerTask('compile:staging', ['lint', 'sass:prod', 'uglify:prod', 'assemble']);
     grunt.registerTask('compile:live', ['sass:prod', 'uglify:prod']);
+
     grunt.registerTask('serve', ['notify', 'compile:dev', 'browserSync', 'watch']);
+
     grunt.registerTask('images', ['imagemin']);
+
     grunt.registerTask('test', ['karma:test']);
     grunt.registerTask('test:ci', ['karma:ci']);
+
     grunt.registerTask('lint', ['jshint:static']);
 
     /*
@@ -169,7 +174,8 @@
      * new stuff; instead we just add it to this task and we're done
      */
     grunt.registerTask('build:staging', ['test:ci', 'compile:staging']);
-    return grunt.registerTask('build:demo', ['test:ci', 'compile:live']);
+    grunt.registerTask('build:demo', ['test:ci', 'compile:live']);
+    grunt.registerTask('build:live', ['compile:live']);
   };
 
 }).call(this);
