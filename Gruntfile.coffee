@@ -44,20 +44,6 @@ module.exports = (grunt) ->
           value: 80
           level: "warn"
 
-    prettify:
-      options:
-        indent: 2
-        wrap_line_length: 200
-        brace_style: 'expand'
-      dist:
-        files: [
-          expand: true
-          cwd: 'public/styleguides'
-          src: '*.html'
-          dest: 'public/styleguides'
-          ext: '.html'
-        ]
-
     notify:
       options:
         sucess: false
@@ -82,15 +68,6 @@ module.exports = (grunt) ->
         expand: true
         src: '**/*.hbs'
 
-    imagemin:
-      options:
-        optimizationLevel: 3
-      files:
-        expand: true
-        cwd: 'assets/_images/'
-        src: ['**/*.{png,jpg,gif}']
-        dest: 'public/images/'
-
     watch:
       options:
         livereload: true
@@ -100,16 +77,13 @@ module.exports = (grunt) ->
         tasks: ['sass:dev']
       hbs:
         files: ['styleguides/**/*.hbs']
-        tasks: ['newer:assemble']
+        tasks: ['assemble']
       scripts:
         files: ['assets/_js/**/*.js']
         tasks: ['uglify:dev']
       images:
         files: ['assets/_images/**/*.{png,jpg,gif}']
-        tasks: ['newer:imagemin']
-      # htmllint:
-      #   files: ['public/styleguides/**/*.html']
-      #   tasks: ['newer:htmllint']
+        tasks: ['imagemin']
 
     browserSync:
       bsFiles:
@@ -129,14 +103,6 @@ module.exports = (grunt) ->
         watchTask: true
         server:
           baseDir: './public'
-
-    htmllint:
-      all: ['public/styleguides/**/*.html']
-      options:
-        ignore: [
-          'Bad value “X-UA-Compatible” for attribute ' +
-          '“http-equiv” on XHTML element “meta”.'
-        ]
 
     uglify:
       dev:
@@ -189,7 +155,7 @@ module.exports = (grunt) ->
     'sass:dev'
     'uglify:dev'
     #'images'
-    'assemble:pretty'
+    'assemble'
   ]
 
   grunt.registerTask 'compile:staging', [
@@ -197,7 +163,7 @@ module.exports = (grunt) ->
     'sass:prod'
     'uglify:prod'
     #'images'
-    'assemble:pretty'
+    'assemble'
   ]
 
   grunt.registerTask 'compile:live', [
@@ -221,11 +187,6 @@ module.exports = (grunt) ->
   grunt.registerTask 'lint', [
     'coffeelint'
     'jshint:static'
-  ]
-
-  grunt.registerTask 'assemble:pretty', [
-    'newer:assemble'
-    'prettify'
   ]
 
   ###
