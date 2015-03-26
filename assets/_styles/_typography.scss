@@ -31,36 +31,46 @@ h1, h2, h3, h4, h5, p {
   margin-bottom: .25em;
 }
 
-h1 { 
+h1 {
   @if $app == 'selfserve' {
-    @include font-size(48px,18pt,32px);  
+    @include font-size(48px,18pt,32px);
   } @else {
     @include font-size(28px,15pt,24px);
     display: inline;
-    padding-right: .25em; 
-  }   
+    padding-right: .25em;
+  }
   margin: 0 0 .15em 0;
   line-height: 1.1;
 }
 
-h2 { @extend %h2; }
-
-h3 { 
-  @if ($app == internal) {
-    @extend %h4;
-  } @else {
-    @extend %h3; 
+h2 {
+  @extend %h2;
+  &.divider {
+    border-top: 1px solid $grey-2;
+    padding: 40px 0 10px 0;
+    &:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
   }
 }
 
-h4 { 
-  @extend %h4; 
+h3 {
+  @if ($app == internal) {
+    @extend %h4;
+  } @else {
+    @extend %h3;
+  }
+}
+
+h4 {
+  @extend %h4;
   margin-bottom: .5em;
 }
 
 h5 { @extend %paragraph--small; }
 
-p { 
+p {
   @extend %paragraph--large;
   @if ($app == internal) {
     @extend %paragraph--tiny;
@@ -86,15 +96,15 @@ textarea {
 .article {
   h2 { margin-bottom: .25em;}
   h3,h4 { margin-bottom: .5em; }
-  ul { 
-    @extend %paragraph--large; 
+  ul {
+    @extend %paragraph--large;
     margin-bottom: 2em;
   }
   li {
     margin-bottom: 0.25em;
   }
-  p { 
+  p {
     @extend %paragraph--large;
-    margin-bottom: 2em; 
+    margin-bottom: 2em;
   }
 }

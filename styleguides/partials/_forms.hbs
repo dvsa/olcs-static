@@ -1,7 +1,7 @@
 
 <form>
   {{#each fieldsets }}
-    <h2>{{ title }}</h2>
+    {{#if title}}<h2 class="divider">{{ title }}</h2>{{/if}}
     <fieldset class="{{ class }}">
       <legend>{{ legend }}</legend>
 

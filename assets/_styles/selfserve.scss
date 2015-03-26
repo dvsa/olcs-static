@@ -290,7 +290,7 @@ $gutter: 2.5%;
   }
   &__text  {
     margin: 30px 0 0 0;
-    max-width: 500px;
+    max-width: 600px;
     width: 100%;
   }
 
@@ -539,6 +539,13 @@ td {
    ========================================================================== */
 
 @import '_actions-buttons';
+
+.action--tertiary.list {
+  display: block;
+  font-size: 19px;
+  margin: 40px 0 -30px 0;
+  padding: 0;
+}
 
 
 /* ==========================================================================
