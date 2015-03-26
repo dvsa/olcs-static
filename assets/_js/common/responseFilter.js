@@ -1,13 +1,13 @@
 var OLCS = OLCS || {};
 
-OLCS.responseFilter = (function(document, $, undefined) {
+OLCS.filterResponse = (function(document, $, undefined) {
 
   "use strict";
 
   return function init(filter, container) {
 
     if (!container) {
-      throw new Error("OLCS.responseFilter requires a container argument");
+      throw new Error("OLCS.filterResponse requires a container argument");
     }
 
     return OLCS.normaliseResponse(function(response) {

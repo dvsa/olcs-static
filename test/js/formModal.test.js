@@ -1,8 +1,8 @@
-describe("OLCS.formModal", function() {
+describe("OLCS.modalForm", function() {
   "use strict";
 
   beforeEach(function() {
-    this.component = OLCS.formModal;
+    this.component = OLCS.modalForm;
   });
 
   it("should be defined", function() {
@@ -36,7 +36,7 @@ describe("OLCS.formModal", function() {
 
       describe("when invoked", function() {
         beforeEach(function() {
-          OLCS.formModal({
+          OLCS.modalForm({
             title: "foo",
             body: "bar"
           });

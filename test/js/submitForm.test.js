@@ -1,8 +1,8 @@
-describe("OLCS.formAjax", function() {
+describe("OLCS.submitForm", function() {
   "use strict";
 
   beforeEach(function() {
-    this.component = OLCS.formAjax;
+    this.component = OLCS.submitForm;
   });
 
   it("should be defined", function() {

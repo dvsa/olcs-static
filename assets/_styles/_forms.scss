@@ -6,7 +6,8 @@ $warning-background: #fef7f7;
 button,
 input,
 select,
-textarea {
+textarea,
+.terms--box {
   font-size: 100%;
   margin: 0;
   vertical-align: baseline;
@@ -222,7 +223,8 @@ fieldset fieldset label {
    ========================================================================== */
 
 input,
-textarea {
+textarea,
+.terms--box {
   padding: .5em .75em;
   background-color: #f9f9f9;
   border: 1px solid #A2A2A2;
@@ -252,7 +254,8 @@ input[type="submit"] {
   }
 }
 
-textarea {
+textarea,
+.terms--box {
   min-height: 10em;
   padding-top: .5em;
   overflow: auto;
@@ -610,4 +613,8 @@ input[type="file"] {
   padding: 15px 15px 7px 15px;
   border: 1px solid $light-blue-50;
   background: $light-blue-25;
+}
+
+.terms--box {
+  height: 200px;
 }

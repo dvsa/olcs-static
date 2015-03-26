@@ -132,7 +132,7 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
         // ensure the backend knows which button was pressed
         F.pressButton(form, button);
 
-        OLCS.formAjax({
+        OLCS.submitForm({
           form: form,
           success: OLCS.normaliseResponse(function(response) {
             var root = getRootSelector(fieldset);
