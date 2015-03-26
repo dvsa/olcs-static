@@ -12,7 +12,15 @@ OLCS.splitScreen = (function(document, $, undefined) {
 
   return function init() {
 
-    var url1, url2, orientation, isVisible, mainFrame, sideFrame, panel, canStore;
+    var url1;
+    var url2;
+    var orientation;
+    var isVisible;
+    var canStore;
+    var orientationPreferenceIndex = 'OLCS.preferences.splitscreen.orientation';
+    var mainFrame = $('#iframe-one');
+    var sideFrame = $('#iframe-two');
+    var panel = $('.iframe-controls');
 
     /**
      * Splits the hash fragment into the relevant variables, format is
@@ -25,15 +33,6 @@ OLCS.splitScreen = (function(document, $, undefined) {
       url2 = parts[1];
       orientation = parts[2] || null;
       isVisible = parts[3] === '0' ? false : true;
-    }
-
-    /**
-     * Finds the panel and the iframe dom elements
-     */
-    function findComponents() {
-      mainFrame = $('#iframe-one');
-      sideFrame = $('#iframe-two');
-      panel = $('.iframe-controls');
     }
 
     /**
@@ -59,11 +58,13 @@ OLCS.splitScreen = (function(document, $, undefined) {
      */
     function getDefaultOrientation() {
 
+      var defaultOrientation;
+
       if (isValidOrientation(orientation)) {
         return orientation;
       }
 
-      var defaultOrientation = getOrientationPreference();
+      defaultOrientation = getOrientationPreference();
 
       if (!isValidOrientation(defaultOrientation)) {
         defaultOrientation = 'horizontal';
@@ -77,7 +78,7 @@ OLCS.splitScreen = (function(document, $, undefined) {
      */
     function getOrientationPreference() {
       if (canStore) {
-        return localStorage.getItem('OLCS.preferences.splitscreen.orientation');
+        return localStorage.getItem(orientationPreferenceIndex);
       }
     }
 
@@ -88,7 +89,7 @@ OLCS.splitScreen = (function(document, $, undefined) {
      */
     function setOrientationPreference(orientation) {
       if (canStore) {
-        localStorage.setItem('OLCS.preferences.splitscreen.orientation', orientation);
+        localStorage.setItem(orientationPreferenceIndex, orientation);
       }
     }
 
@@ -96,13 +97,13 @@ OLCS.splitScreen = (function(document, $, undefined) {
      * Called when the close button is clicked
      */
     function close() {
+      // Resize the iframe
+      mainFrame.attr('class', 'iframe--full');
+
       // We need to update the hash to remember that we are closed
       //  in case someone refreshes the page
       orientation = 'closed';
       updateHashFragment();
-
-      // Resize the iframe
-      mainFrame.attr('class', 'iframe--full');
 
       // We no longer care about the side frame or panel so we can remove them
       sideFrame.remove();
@@ -113,6 +114,8 @@ OLCS.splitScreen = (function(document, $, undefined) {
           $(this).attr('target', '_parent');
         }
       });
+
+      OLCS.preloader.hide();
     }
 
     /**
@@ -147,32 +150,35 @@ OLCS.splitScreen = (function(document, $, undefined) {
       isVisible = !isVisible;
       updateHashFragment();
       panel.toggleClass('collapsed');
-      $('#iframe-two').toggleClass('collapsed');
-      $('#iframe-one.iframe--horizontal').toggleClass('full');
+      sideFrame.toggleClass('collapsed');
+      mainFrame.filter('.iframe--horizontal').toggleClass('full');
     }
 
-    splitHashFragment();
+    function setUp() {
+      splitHashFragment();
 
-    findComponents();
+      // Start loading the iframes
+      mainFrame.attr('src', url1);
+      sideFrame.attr('src', url2);
 
-    // Start loading the iframes
-    mainFrame.attr('src', url1);
-    sideFrame.attr('src', url2);
+      checkStore();
 
-    checkStore();
+      if (orientation === 'closed') {
+        OLCS.preloader.show();
+        mainFrame.attr('class', 'iframe--full');
+        panel.remove();
+        // In this case, we have to wait for the mainFrame to load before calling close, otherwise it won't
+        //  set target parent on anything
+        $(mainFrame).on('load', function() {
+          close();
+        });
+      } else {
+        setOrientation(getDefaultOrientation());
+      }
 
-    if (orientation === 'closed') {
-      // In this case, we have to wait for the mainFrame to load before calling close, otherwise it won't
-      //  set target parent on anything
-      mainFrame.load(function() {
-        close();
-      });
-    } else {
-      setOrientation(getDefaultOrientation());
-    }
-
-    if (!isVisible) {
-      toggleVisible();
+      if (!isVisible) {
+        toggleVisible();
+      }
     }
 
     // Listeners
@@ -190,5 +196,7 @@ OLCS.splitScreen = (function(document, $, undefined) {
       e.preventDefault();
       close();
     });
+
+    setUp();
   };
 }(document, window.jQuery));
