@@ -24,9 +24,12 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
      * Helper to reload the parent window behind the modal
      */
     function reloadParent() {
-      $.get(window.location.href, OLCS.normaliseResponse(function(response) {
-        F.render(mainBodySelector, response.body);
-      }));
+      OLCS.ajax({
+        url: window.location.href,
+        success: OLCS.normaliseResponse(function(response) {
+          F.render(mainBodySelector, response.body);
+        })
+      });
     }
 
     $(document).on("click", crudActionSelector, function handleCrudClick(e) {
