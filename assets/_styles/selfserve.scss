@@ -719,6 +719,9 @@ dd {
 @import '_modals';
 
 .modal {
+  &__title {
+    @extend %h2;
+  }
   &__close {
     background: url('../images/selfserve-close.png') no-repeat 10px 5px;
     @include device-pixel-ratio($ratio: 2) {

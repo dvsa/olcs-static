@@ -1146,7 +1146,8 @@ a.iframe-controls--toggle {
   }
 }
 
-.close {
+.modal__close {
+  top: 13px;
   background: url('../images/close.png') no-repeat 0 0;
   @include device-pixel-ratio($ratio: 2) {
     background: url('../images/close-2x.png') no-repeat 0 0;
