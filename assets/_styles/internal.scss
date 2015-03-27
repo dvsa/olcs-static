@@ -1096,8 +1096,6 @@ a.iframe-controls--toggle {
 @import '_modals';
 
 
-
-
 .modal {
   @include border-radius(3px);
   padding: 65px 20px 60px 20px;
@@ -1121,6 +1119,9 @@ a.iframe-controls--toggle {
     padding: 15px 15px;
     background: $grey-4;
     border-top: 1px solid $grey-3;
+  }
+  .validation-summary {
+    margin: 18px;
   }
 }
 

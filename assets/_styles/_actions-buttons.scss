@@ -124,7 +124,8 @@ input[type=submit].action--primary.large,
 input[type=submit].action--secondary.large {
   @extend %paragraph--large;
   padding: 7px 15px 5px 15px;
-  .lookup & {
+  .lookup &,
+  .js-postcode-search & {
     padding: 4px 12px 3px 12px;
   }
 }
