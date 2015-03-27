@@ -81,7 +81,12 @@ OLCS.normaliseResponse = (function(window, undefined) {
         // ensure scripts are injected too. If we want, we can
         // add an options.disableScripts or whatever to ignore them
         if (script.length) {
+          OLCS.logger.debug("found inline script matching " + scriptSelector, "normaliseResponse");
           response.body += script.html();
+        } else {
+          OLCS.logger.debug("no matching inline script for " + scriptSelector, "normaliseResponse");
+          // @TODO: if the original body contained inline script but we filtered it via js-body
+          // or js-body__main, we'll have 'lost' the inline script on the page. Try and find it here
         }
       }
 
