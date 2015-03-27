@@ -489,7 +489,7 @@ input[type="file"] {
     margin-bottom: 10px;
   }
   .hint {
-    margin-bottom: 20px;
+    margin-bottom: 0px;
   }
 }
 
@@ -510,9 +510,8 @@ input[type="file"] {
     margin-bottom: 15px;
   }
   .field .visually-hidden + input {
-    margin-top: -10px;
+    margin-top: -20px;
   }
-
 }
 
 

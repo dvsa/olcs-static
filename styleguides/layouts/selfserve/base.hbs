@@ -26,20 +26,22 @@
           <h2 class="proposition__title">Vehicle Operator Licensing</h2>
           <ul class="proposition-nav">
             {{#is user "operator" }}
-              <li class="proposition-nav__item"><a href="licences.html">Licences</a></li>
+              <li class="proposition-nav__item"><a href="licences.html">Home</a></li>
+              <li class="proposition-nav__item"><a href="search.html">Search</a></li>
               <li class="proposition-nav__item"><a href="">Manage users</a></li>
               <li class="proposition-nav__item"><a href="">My account</a></li>
             {{/is }}
             {{#is user "bus operator" }}
-              <li class="proposition-nav__item"><a href="licences.html">Licences</a></li>
+              <li class="proposition-nav__item"><a href="licences.html">Home</a></li>
               <li class="proposition-nav__item"><a href="bus-services.html">Bus registrations</a></li>
+              <li class="proposition-nav__item"><a href="search.html">Search</a></li>
               <li class="proposition-nav__item"><a href="">My account</a></li>
             {{/is }}
             {{#is user "tm" }}
-              <li class="proposition-nav__item"><a href="licences.html">Applications</a></li>
+              <li class="proposition-nav__item"><a href="tm-home.html">Home</a></li>
+              <li class="proposition-nav__item"><a href="search.html">Search</a></li>
               <li class="proposition-nav__item"><a href="">My account</a></li>
             {{/is }}
-            <li class="proposition-nav__item"><a href="search.html">Search</a></li>
           </ul>
         </div>
       </div><!-- end .global-header__wrapper -->
@@ -65,7 +67,7 @@
           <li class="user-menu__item"><a href="">Sign out</a></li>
           {{/is}}
         {{else}}
-          <li class="user-menu__item"><a href="">Sign in</a></li>
+          <li class="user-menu__item"><a href="sign-in.html">Sign in</a></li>
         {{/if}}
         </ul>
       </div><!-- end .user-header -->

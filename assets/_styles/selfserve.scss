@@ -498,10 +498,16 @@ $gutter: 2.5%;
 
 
 
-/* 7.3 Horizontal navigation
+/* 7.3 Search navigation
    ========================================================================== */
 
-@import '_horizontal-nav';
+.search-navigation {
+  list-style: none;
+  font-size: 21px;
+  &__item {
+    font-weight: 600;
+  }
+}
 
 /* 7.4 Vertical navigation
    ========================================================================== */
