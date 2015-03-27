@@ -178,7 +178,7 @@ body {
 
 .search {
   float: left;
-  width: 450px;
+  width: 500px;
   margin-top: 2px;
   @media (max-width: 640px) {
     width: 100%;
@@ -189,6 +189,7 @@ body {
     height: 32px;
     width: 75%;
     background: $grey-4;
+
     @include border-radius(2px);
     @media (max-width: 640px) {
       width: 100%;
@@ -202,17 +203,17 @@ body {
     left: 0;
     top: 0;
     width: 165px;
-    padding: 9px 0 7px 3%;
+    padding: 0 0 0 3%;
     border: 0;
     color: $black;
-    vertical-align: middle;
+    line-height: 2;
     behavior: url(/htc/PIE.htc);
     &:focus {
       outline: none;
     }
   }
   input[type="submit"] {
-    @include border-radius(0 2px 2px 0);
+    @include border-radius(0 3px 3px 0);
     position: absolute;
     right: -3px;
     border: 0;
@@ -238,22 +239,25 @@ body {
 }
 
 .search__select {
-  width: 105px;
+  width: 140px;
   overflow: hidden;
   position: absolute;
   right: 34px;
-  background: url('../images/down-arrow.png') no-repeat 88% 11px;
+  border-left: 1px solid $grey-2;
+  padding-left: 7px;
+  background: $grey-4 url('../images/down-arrow.png') no-repeat 92% 11px;
+  height: 100%;
   @include device-pixel-ratio($ratio: 2) {
-    background-image: url('../images/down-arrow-2x.png');
+    background: $grey-4 url('../images/down-arrow-2x.png') no-repeat 92% 11px;
     background-size: 12px 112px;
   }
   select {
     background: transparent;
-    width: 120px;
+    width: 160px;
     font-size: 14px;
+    padding: 6px 0 0 0;
     border: 0;
     border-radius: 0;
-    padding: 5px 0 0 0;
     -webkit-appearance: none;
     line-height: 1.6;
     color: $grey-1;
@@ -617,8 +621,8 @@ input.action--delete {
   overflow: visible;
   position: relative;
   vertical-align: middle;
-  margin-right: .25em;
-  padding: .4em .75em;
+  margin-right: 5px;
+  padding: 5px 10px 7px 10px;
   line-height: 1.2;
   text-align: center;
   font-weight: 600;
@@ -628,7 +632,7 @@ input.action--delete {
   &.large {
     font-weight: 600;
     font-size: 17px;
-    padding: .5em .75em;
+    padding: 7px 13px 7px 13px;
     .inline & {
       font-size: 15px;
       padding: 8px 12px;
@@ -643,6 +647,9 @@ input.action--delete {
   font-family: $NTA-Light;
   font-size: 16px;
   text-decoration: underline;
+  &.large {
+     padding-left: 7px;
+  }
 }
 
 @mixin actionColour (
@@ -740,6 +747,7 @@ input.action--delete {
   color: #555;
 }
 
+
 /* ==========================================================================
    12. Right hand column
    ========================================================================== */
@@ -768,41 +776,38 @@ input.action--delete {
   }
 }
 
-  /* ==========================================================================
-     13. Statuses
-     ========================================================================== */
+/* ==========================================================================
+   13. Statuses
+   ========================================================================== */
 
-  @import '_statuses';
+@import '_statuses';
 
-  /* ==========================================================================
-     14. Comments
-     ========================================================================== */
+/* ==========================================================================
+   14. Comments
+   ========================================================================== */
 
-  %comment {
-    float: left;
-    width: 100%;
-    max-width: 800px;
-    position: relative;
-    padding: 1em 0 .25em 0;
-    margin-bottom: 2em;
-    > * {
-      margin: 0 45px 0 15px;
-    }
-    > p {
-      @extend %paragraph--small;
-      margin-bottom: 1em;
-    }
-    ul, ol {
-      list-style-position: inside;
-      margin: 0 0 1em 1em;
-    }
-    ul {
-      list-style-type: disc;
-    }
-    form & {
-      margin-bottom: 0;
-    }
+%comment {
+  float: left;
+  width: 100%;
+  max-width: 800px;
+  position: relative;
+  padding: 1em 0 .25em 0;
+  margin-bottom: 1em;
+  > * {
+    margin: 0 45px 0 15px;
   }
+  > p {
+    @extend %paragraph--small;
+    margin-bottom: 1em;
+  }
+  ul, ol {
+    list-style-position: inside;
+    margin: 0 0 1em 1em;
+  }
+  ul {
+    list-style-type: disc;
+  }
+}
 
 %edit-link {
   position: absolute;
@@ -832,7 +837,7 @@ input.action--delete {
   margin-bottom: .5em;
   h4 {
     border-bottom: 0;
-    padding-bottom: 0;
+    padding-bottom: 10px;
     display: block;
   }
   &__edit {
@@ -902,7 +907,7 @@ input.action--delete {
     background: #FFF;
     max-width: 440px;
     margin: 40px auto;
-    padding: 20px 32px 0 30px;
+    padding: 20px 32px 20px 30px;
     float: none;
     overflow: auto;
   }
@@ -911,10 +916,252 @@ input.action--delete {
     width: 94%;
     padding: .5em 3%;
   }
-  .forgot-link {
-    @extend %paragraph--tiny;
-    float: right;
-    margin-top: 10px;
+  label {
+    float: left;
+    width: 50%;
+    margin-right: 0;
+  }
+  .hint {
+    float: left;
+    width: 50%;
+    clear: none;
+    text-align: right;
+    margin: 0;
+  }
+}
+
+
+/* ==========================================================================
+   18. Split screen
+   ========================================================================== */
+
+%iframe {
+  background: $grey-2;
+  position: fixed;
+  margin: 0px;
+  border: 0px;
+}
+
+.iframe {
+  &--full {
+    @extend %iframe;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  &--vertical {
+    @extend %iframe;
+    height: 100%;
+  }
+  &--horizontal {
+    @extend %iframe;
+    width: 100%;
+  }
+}
+
+#iframe-one {
+  top: 0;
+  &.iframe--vertical {
+    width: 100%;
+    bottom: 0;
+    left: 0;
+  }
+  &.iframe--horizontal {
+    right: 0;
+    left: 0;
+    height: 50.5%;
+    &.full {
+      height: 100%;
+    }
+  }
+}
+
+#iframe-two {
+  bottom: 0;
+  right: 0;
+  &.iframe--vertical {
+    width: 40%;
+    top: 0;
+    z-index: 11;
+    &.collapsed {
+      width: 0;
+    }
+  }
+  &.iframe--horizontal {
+    left: 0;
+    height: 45%;
+    &.collapsed {
+      height: 0;
+    }
+  }
+}
+
+
+.iframe-controls {
+  position: fixed;
+  z-index: 12;
+  background-color: $grey-4;
+  a {
+    @extend .action--secondary;
+    text-indent: -9999px;
+    height: 24px;
+    width: 24px;
+    padding: 0;
+    background-image: url('../images/iframe-controls.png');
+    background-repeat: no-repeat;
+    @include device-pixel-ratio($ratio: 2) {
+      background-image: url('../images/iframe-controls-2x.png');
+      background-size: 54px 171px;
+    }
+    &:hover {
+      background-image: url('../images/iframe-controls.png');
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.iframe-controls.horizontal {
+  @include box-shadow(0 0 6px 0 rgba(0,0,0,.2));
+  border-top: 1px solid $grey-2;
+  border-bottom: 1px solid $grey-2;
+  right: 0;
+  bottom: 45%;
+  left: 0;
+  width: 100%;
+  height: 38px;
+  padding-left: 3px;
+  a {
+    margin: 6px 0 0 3px;
+  }
+  &.collapsed {
+    bottom: 0;
+  }
+}
+
+.iframe-controls.vertical {
+  @include box-shadow(-2px 0 3px 0 rgba(0,0,0,.1));
+  border-left: 1px solid $grey-2;
+  border-right: 1px solid #AEAEAE;
+  top: 0px;
+  right: 40%;
+  width: 38px;
+  height: 100%;
+  a {
+    margin: 6px 0 0 6px;
+  }
+  &.collapsed {
+    right: 0;
+  }
+}
+
+a.iframe-controls--close {
+  background-position: 6px 7px;
+  &:hover {
+    background-position: -36px 7px;
+  }
+}
+
+a.iframe-controls--orientation {
+  background-position: 6px -75px;
+  &:hover {
+    background-position: -36px -75px;
+  }
+  .vertical & {
+    background-position: 6px -33px;
+    &:hover {
+      background-position: -36px -33px;
+    }
+  }
+}
+
+a.iframe-controls--toggle {
+  background-position: 6px -155px;
+  &:hover {
+    background-position: -36px -155px;
+  }
+  .vertical & {
+    background-position: 4px -116px;
+    &:hover {
+      background-position: -38px -116px;
+    }
+  }
+}
+
+
+/* ==========================================================================
+   19. Modals
+   ========================================================================== */
+
+
+@import '_modals';
+
+
+.modal {
+  @include border-radius(3px);
+  padding: 65px 20px 60px 20px;
+  &__header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 12px 15px;
+    background: $grey-4;
+    border-bottom: 1px solid $grey-3;
+  }
+  &__title {
+    @extend %h4;
+  }
+  .actions-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 15px 15px;
+    background: $grey-4;
+    border-top: 1px solid $grey-3;
+  }
+  .validation-summary {
+    margin: 18px;
+  }
+}
+
+.modal__header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 12px 15px;
+  background: $grey-4;
+  border-bottom: 1px solid $grey-3;
+}
+
+.modal--alert {
+  @include border-radius(3px);
+  padding: 75px 20px 20px 20px;
+  .modal__title {
+    @extend %h4;
+    margin-bottom: 0;
+  }
+  p {
+    @extend %paragraph--small;
+  }
+}
+
+.modal__close {
+  top: 13px;
+  background: url('../images/close.png') no-repeat 0 0;
+  @include device-pixel-ratio($ratio: 2) {
+    background: url('../images/close-2x.png') no-repeat 0 0;
+    background-size: 60px 22px;
+  }
+  text-indent: -9999px;
+  height: 22px;
+  width: 22px;
+  &:hover {
+    background-position: -39px 0;
   }
 }
 

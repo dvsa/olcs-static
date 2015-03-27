@@ -9,7 +9,6 @@ module.exports = function(config) {
       "node_modules/sinon/lib/sinon.js",
       "node_modules/sinon/lib/sinon/spy.js",
       "node_modules/sinon/lib/sinon/**/*.js",
-      "test/js/setup.js",
 
       // common dependencies, jQuery always first
       "assets/_js/common/vendor/jquery.1.11.0.js",
@@ -19,6 +18,8 @@ module.exports = function(config) {
       "assets/_js/common/*.js",
       // "assets/_js/internal/*.js",  <-- none yet, triggers a warning
       // "assets/_js/selfserve/*.js", <-- none yet, triggers a warning
+
+      "test/js/setup.js",
 
       // test files
       "test/js/**/*.test.js"

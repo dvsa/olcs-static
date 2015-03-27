@@ -37,7 +37,10 @@ OLCS.cascadeInput = (function(document, $, undefined) {
           return callback([{value: ""}]);
         }
 
-        $.get(options.url + "/" + value, callback);
+        OLCS.ajax({
+          url: options.url + "/" + value,
+          success: callback
+        });
       };
     }
 

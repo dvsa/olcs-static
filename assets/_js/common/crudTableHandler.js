@@ -7,9 +7,13 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
 
   "use strict";
 
-  return function init() {
+  return function init(options) {
 
-    var crudActionSelector = ".table__header button, .table__wrapper input[type=submit], .table__empty button";
+    if (options === undefined) {
+      options = {};
+    }
+
+    var crudActionSelector = options.selector ||  ".table__header button, .table__wrapper input[type=submit], .table__empty button";
     var modalBodySelector  = ".modal__content";
     var mainBodySelector   = ".js-body";
     var modalWrapper       = ".modal__wrapper";
@@ -50,12 +54,17 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
 
         var options = {
           success: OLCS.normaliseResponse({
+            /**
+             * We trap redirects and handle them ourselves, because if the redirect
+             * URL is the current page we want to ignore it and just hide the modal
+             * instead
+             */
             followRedirects: false,
             callback: handleCrudResponse
           })
         };
 
-        OLCS.formModal($.extend(response, options));
+        OLCS.modalForm($.extend(response, options));
       }
 
       /**
@@ -72,8 +81,7 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
           if (OLCS.url.isCurrent(response.location)) {
             return OLCS.modal.hide();
           }
-          window.location.href = response.location;
-          return;
+          return OLCS.url.load(response.location);
         }
 
         if (response.status === 200) {
@@ -93,16 +101,11 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
       F.pressButton(form, button);
 
       // hook everything up and submit the form
-      OLCS.formAjax({
+      OLCS.submitForm({
         form: form,
         success: OLCS.normaliseResponse(handleCrudAction)
       });
     });
-
-    /**
-     * Make sure any time the parent page is re-rendered we re-bind any one-off form initialisation
-     */
-    OLCS.eventEmitter.on("render", OLCS.formInit);
 
     /**
      * Reload the parent page every time a modal is hidden. By and large this

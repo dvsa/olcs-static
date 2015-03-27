@@ -30,9 +30,20 @@ OLCS.normaliseResponse = (function(window, undefined) {
     return function onResponse(response) {
       if (typeof response === "string") {
 
-        var title  = $(response).find(titleSelector);
-        var body   = $(response).find(bodySelector);
-        var script = $(response).find(scriptSelector);
+        OLCS.logger.debug("converting response string to object", "normaliseResponse");
+
+        var title  = "";
+        var body   = "";
+        var script = "";
+
+        // this can throw if the response we get back can't be parsed (i.e. var dumped data during debug)
+        try {
+          title  = $(response).find(titleSelector);
+          body   = $(response).find(bodySelector);
+          script = $(response).find(scriptSelector);
+        } catch (e) {
+          OLCS.logger.debug("Caught error parsing response", "normaliseResponse");
+        }
 
         response = {
           status: 200,
@@ -45,16 +56,26 @@ OLCS.normaliseResponse = (function(window, undefined) {
         };
 
         if (title.length) {
+          OLCS.logger.debug("found response title matching " + titleSelector, "normaliseResponse");
           response.title = title.html();
+        } else {
+          OLCS.logger.debug("no matching response title for " + titleSelector, "normaliseResponse");
         }
 
         if (body.length) {
+          OLCS.logger.debug("got response body matching " + bodySelector, "normaliseResponse");
           var inner = body.find(".js-body__main");
           if (inner.length) {
+            OLCS.logger.debug(
+              "got response body override matching .js-body__main",
+              "normaliseResponse"
+            );
             response.body = inner.html();
           } else {
             response.body = body.html();
           }
+        } else {
+          OLCS.logger.debug("no matching response body for " + bodySelector, "normaliseResponse");
         }
 
         // ensure scripts are injected too. If we want, we can
@@ -69,16 +90,32 @@ OLCS.normaliseResponse = (function(window, undefined) {
       if (response.status === 302 && followRedirects) {
         // manually invoke a preloader; just to make sure that while the page physically
         // performs the navigation we show it as 'loading'
-        OLCS.preloader.show();
-        window.location.href = response.location;
-        return;
+        OLCS.logger.debug(
+          "caught 302 redirect; followRedirects=true; redirecting to " + response.location,
+          "normaliseResponse"
+        );
+
+        return OLCS.url.load(response.location);
       }
 
       // otherwise start to inspect the response for any things of interest
       if (response.body) {
         response.hasErrors = OLCS.formHelper.containsErrors(response.body);
-        // response.errors = OLCS.formHelper.extractErrors(response.body)
         response.hasWarnings = OLCS.formHelper.containsWarnings(response.body);
+
+        if (response.hasErrors) {
+          OLCS.logger.debug(
+            "normalised response contains errors",
+            "normaliseResponse"
+          );
+        }
+
+        if (response.hasWarnings) {
+          OLCS.logger.debug(
+            "normalised response contains warnings",
+            "normaliseResponse"
+          );
+        }
       }
 
       // by the time we get here we've got a nice consistent response, whatever

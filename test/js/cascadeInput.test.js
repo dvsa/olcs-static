@@ -119,7 +119,7 @@ describe("OLCS.cascadeInput", function() {
 
       describe("Given a stubbed ajax mechanism", function() {
         beforeEach(function() {
-          this.get = sinon.stub($, "get");
+          this.get = sinon.stub(OLCS, "ajax");
         });
 
         afterEach(function() {
@@ -136,7 +136,8 @@ describe("OLCS.cascadeInput", function() {
           });
 
           it("with the correct arguments", function() {
-            expect(this.get.firstCall.args[0]).to.equal("/foo/test123");
+            expect(this.get.firstCall.args[0].url).to.equal("/foo/test123");
+            expect(this.get.firstCall.args[0].success).to.be.a("function");
           });
         });
       });

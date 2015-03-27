@@ -6,6 +6,9 @@
   border-left: 4px solid $grey-2;
   clear: left;
   margin-bottom: 1em;
+  fieldset & {
+    margin-bottom: 0;
+  }
   &__wrapper {
     max-width: 800px;
     overflow: auto;

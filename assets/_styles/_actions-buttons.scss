@@ -4,26 +4,22 @@
 /* Use these to wrap multiple actions */
 .actions-container {
   padding-bottom: 2px;
-  margin-bottom: 1em;
+  margin: 10px 0;
   float: left;
-  a, 
-  input, 
+  a,
+  input,
   button {
-    margin-right: .3em;
+    margin-right: 5px;
   }
-
 }
 
-fieldset.actions-container {
-  margin-top: .5em;
-}
 
 @mixin action-colour ($colour: $button-colour) {
-  background: $colour;
   @include box-shadow(0 2px 0 darken($colour, 15%));
   @include ie-lte(8) {
     border-bottom: 2px solid darken($colour, 15%);
   }
+  background: $colour;
   &:visited{
     background-color: $colour;
   }
@@ -72,17 +68,11 @@ fieldset.actions-container {
 }
 
 %action-box {
-  @include inline-block;
-  @include border-radius(3px);
   @extend %paragraph--small;
   border: none;
   margin: 0 .3em 0 0;
-  padding: .3em .5em .1em .5em;
-  padding : .3em .5em .4em .5em\9;
-  @if ($app == 'internal') {
-    @include border-radius(2px);
-    padding: .3em .5em .2em .5em;
-  }
+  padding: 5px 10px 3px 10px;
+  padding: .3em .5em .4em .5em\9;
   font-family: $NTA-Light;
   text-decoration: none;
   text-rendering: optimizeLegibility;
@@ -90,12 +80,6 @@ fieldset.actions-container {
   vertical-align: top;
   -webkit-appearance: none;
   cursor: pointer;
-  &[rel="external"]:after {
-    display: none;
-    content: none;
-    margin-left: 0;
-    margin-right: 0;
-  }
   @include ie-lte(8) {
     &[type="submit"],
     &[type="reset"],
@@ -114,56 +98,44 @@ input[type="submit"].action,
   &--primary {
     @include action-colour();
     @extend %action-box;
-    &.large {
-      @extend %paragraph--large;
-    }
   }
-  &--secondary, &--warning {
+  &--secondary {
     @include action-colour($grey-3);
     @extend %action-box;
-    &.large {
-      @extend %paragraph--large;
-    }
   }
   &--tertiary {
     @extend a;
     background: none;
     border: 0;
     font-family: $NTA-Light;
-    font-size: 16px; 
     text-decoration: underline;
-    &.large {
-      @extend %paragraph--large;
-    }
+    padding: 10px 15px 5px 5px;
     &:hover {
       text-decoration: none;
-    }
-    .actions-container & {
-      padding: 0 .25em;
-      @if ($app == internal) {
-        line-height: 1.8;
-      } @else {
-        line-height: 2.3; 
-      } 
-    }
-  }
-  &--delete {
-    @include action-colour($red);
-    @extend %action-box;
-    color: $white;
-    &.large {
-      @extend %paragraph--large;
     }
   }
 }
 
 .action--primary.large,
-.action--secondary.large, 
-.action--warning.large {
+.action--secondary.large,
+button.action--primary.large,
+button.action--secondary.large,
+input[type=submit].action--primary.large,
+input[type=submit].action--secondary.large {
   @extend %paragraph--large;
-  .article & {
-    margin-top: .5em;
+  padding: 7px 15px 5px 15px;
+  .lookup &,
+  .js-postcode-search & {
+    padding: 4px 12px 3px 12px;
   }
+}
+
+.action--tertiary.large,
+input[type=submit].action--tertiary.large,
+button.action--tertiary.large {
+  @extend %paragraph--large;
+  padding: 7px 15px 5px 5px;
+  line-height: 2.3;
 }
 
 

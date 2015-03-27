@@ -30,9 +30,9 @@
 $app: selfserve;
 $assetPath : "../images/";
 
-@import 
+@import
   'vendor/govuk_toolkit/_device-pixels',
-  'vendor/govuk_toolkit/_measurements', 
+  'vendor/govuk_toolkit/_measurements',
   'vendor/govuk_toolkit/_css3',
   'vendor/govuk_toolkit/_colours',
   'vendor/govuk_toolkit/_typography',
@@ -82,7 +82,7 @@ $gutter: 2.5%;
   width : 27.4%\9; /* lt IE9  */
 }
 
-.one-quarter { 
+.one-quarter {
   @extend %container;
   width: 20%;
 }
@@ -101,9 +101,9 @@ $gutter: 2.5%;
   }
 }
 
-.three-quarters { 
+.three-quarters {
   @extend %container;
-  width: 70%; 
+  width: 70%;
 }
 
 .full-width {
@@ -124,7 +124,7 @@ $gutter: 2.5%;
 
 
 %container {
-  float:left; 
+  float:left;
   margin: 0 $gutter 1em $gutter;
   @media (max-width: 640px){
     width: 92%;
@@ -143,11 +143,11 @@ $gutter: 2.5%;
 
 .global-header {
   background: $black;
-  color: $white;    
+  color: $white;
   &__wrapper {
     @extend .page-wrapper;
     margin: 0 auto;
-    padding: .5em;        
+    padding: .5em;
     overflow: auto;
   }
   &__logo {
@@ -211,7 +211,7 @@ $gutter: 2.5%;
   }
   a {
     color: #FFF;
-    text-decoration: none;  
+    text-decoration: none;
     &:hover {
       text-decoration: underline;
     }
@@ -290,7 +290,7 @@ $gutter: 2.5%;
   }
   &__text  {
     margin: 30px 0 0 0;
-    max-width: 500px;
+    max-width: 600px;
     width: 100%;
   }
 
@@ -345,13 +345,13 @@ $gutter: 2.5%;
     margin-right: $gutter-half;
     @media (max-width: 640px){
       display: block;
-      text-align: center; 
+      text-align: center;
       width: 90%;
     }
   }
   &__copyright {
     @extend .one-third;
-    height: 150px;  
+    height: 150px;
     float: right;
     display: block;
     background: url('#{$assetPath}/footer-crest.png') no-repeat 50% 0 ;
@@ -400,10 +400,10 @@ $gutter: 2.5%;
       cursor: default;
     }
     &.disabled:hover {
-      background: $grey-3; 
+      background: $grey-3;
     }
     &.selected.disabled:hover {
-      background: $white; 
+      background: $white;
     }
 
   }
@@ -460,13 +460,13 @@ $gutter: 2.5%;
     text-decoration: none;
     float: left;
     display: block;
-    .disabled &  { 
+    .disabled &  {
       color: $grey-1;
     }
     &:hover {
       background: $grey-3;
       color: $black;
-      .disabled &  { 
+      .disabled &  {
         background: none;
         color: $grey-1;
       }
@@ -477,13 +477,13 @@ $gutter: 2.5%;
     float: left;
     width: 40%;
   }
-  p { 
+  p {
     @extend %paragraph--small;
     float: right;
     clear: none;
     text-decoration: underline;
     color: $link-colour;
-    @media (max-width: 640px){ 
+    @media (max-width: 640px){
       font-size: 14px;
     }
   }
@@ -491,17 +491,23 @@ $gutter: 2.5%;
     float: left;
     margin-top: 2px;
   }
-  @media (max-width: 640px){ 
+  @media (max-width: 640px){
     .status { display: none; }
   }
 }
 
 
 
-/* 7.3 Horizontal navigation
+/* 7.3 Search navigation
    ========================================================================== */
 
-@import '_horizontal-nav';
+.search-navigation {
+  list-style: none;
+  font-size: 21px;
+  &__item {
+    font-weight: 600;
+  }
+}
 
 /* 7.4 Vertical navigation
    ========================================================================== */
@@ -540,12 +546,23 @@ td {
 
 @import '_actions-buttons';
 
+.action--tertiary.list {
+  display: block;
+  font-size: 19px;
+  margin: 40px 0 -30px 0;
+  padding: 0;
+}
+
 
 /* ==========================================================================
    10. Modals & messaging
    ========================================================================== */
 
 @import '_modals-messaging';
+
+.modal .hint {
+  @extend %paragraph--small;
+}
 
 
 /* ==========================================================================
@@ -692,3 +709,26 @@ dd {
    ========================================================================== */
 
 @import '_guidance';
+
+
+/* ==========================================================================
+   17. Modals
+   ========================================================================== */
+
+
+@import '_modals';
+
+.modal {
+  &__title {
+    @extend %h2;
+  }
+  &__close {
+    background: url('../images/selfserve-close.png') no-repeat 10px 5px;
+    @include device-pixel-ratio($ratio: 2) {
+      background: url('../images/selfserve-close-2x.png') no-repeat 10px 0;
+      background-size: 38px 38px;
+    }
+    height: 38px;
+    width: 38px;
+  }
+}

@@ -1,6 +1,7 @@
 
 <form>
   {{#each fieldsets }}
+    {{#if title}}<h2 class="divider">{{ title }}</h2>{{/if}}
     <fieldset class="{{ class }}">
       <legend>{{ legend }}</legend>
 
@@ -140,6 +141,7 @@
           {{#is type "radios" }}
           <fieldset class="{{ type }}">
             <legend class="legend">{{ label }}</legend>
+            <p class="hint">{{hint}}</p>
             {{#each values }}
             <div class="field--list">
               <label><input type="radio" name="{{ this }}">{{ this }}</label>
@@ -182,14 +184,14 @@
           {{/is }}
 
           {{#is type "address" }}
-          <fieldset class="postcode-search">
+          <fieldset class="lookup">
             <legend>Postcode</legend>
             <div class="field inline">
               <label for="postcode-search" class="visually-hidden">Postcode search</label>
               <input id="postcode-search" name="postcode" type="text" class="short">
             </div>
             <div class="field inline">
-              <input class="action--secondary large" type="submit" value="Find address">
+              <input class="action--primary large" type="submit" value="Find address">
             </div>
             <p class="hint"><a href="">Enter address manually</a></p>
           </fieldset>
@@ -247,6 +249,23 @@
               <input type="file" multiple="">
             </div>
           </fieldset>
+          {{/is }}
+
+
+          {{#is type "html" }}
+          <fieldset class="{{ type }}">
+            <p>{{ label }}</p>
+          </fieldset>
+          {{/is }}
+
+          {{#is type "empty-table" }}
+          <div class="empty__wrapper">
+            <h3 class="empty__title">{{ legend }}</h3>
+            <div class="empty">
+              <p>{{ label }}</p>
+              <a class="action--primary" href="">{{ action }}</a>
+            </div><!-- empty -->
+          </div><!-- .empty__wrapper -->
           {{/is }}
 
 

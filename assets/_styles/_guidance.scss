@@ -2,8 +2,11 @@
   background: $grey-4;
   border-left: 4px solid $grey-2;
   padding: 15px;
-  margin-bottom: 40px;
   float: left;
+  margin-bottom: 40px;
+  .page-header & {
+    margin-bottom: 0;
+  }
 }
 
 .help__summary {

@@ -2,7 +2,7 @@ OLCS.ready(function() {
   "use strict";
 
   // allow any links to opt-in to ajax modals
-  OLCS.modalAjax({
+  OLCS.modalLink({
     trigger: ".js-modal-ajax"
   });
 
@@ -11,16 +11,6 @@ OLCS.ready(function() {
   OLCS.selectBox();
   OLCS.formInit();
   OLCS.notices();
-
-  OLCS.fileUploader({
-    selector: "#aiFileUploader",
-    isMultiple: false
-  });
-
-  OLCS.fileUploader({
-    selector: "#feFileUploader",
-    isMultiple: true
-  });
 
   OLCS.postcodeSearch({
     container: ".js-postcode-search"
@@ -33,6 +23,11 @@ OLCS.ready(function() {
    */
   $(document)
   .bind("ajaxSend", OLCS.preloader.show)
-  .bind("ajaxComplete", OLCS.preloader.hide);
+  .bind("ajaxSuccess", OLCS.preloader.hide)
+  .bind("ajaxError", OLCS.preloader.hide);
+
+  // @TODO why don't we emit "render" here? It would
+  // make things line up neatly between initial page render
+  // and modal re-render etc
 
 });

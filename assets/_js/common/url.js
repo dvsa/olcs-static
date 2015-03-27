@@ -31,6 +31,11 @@ OLCS.url = (function(document, $, undefined) {
 
     isCurrent: function(url1) {
       return exports.isSame(url1, window.location.pathname);
+    },
+
+    load: function(url) {
+      OLCS.preloader.show();
+      window.location.href = url;
     }
   };
 

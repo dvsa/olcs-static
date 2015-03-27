@@ -57,7 +57,7 @@ describe("OLCS.crudTableHandler", function() {
           .stub(OLCS, "formHelper")
           .returns(this.formHelperStub);
 
-        this.component();
+        this.component({});
 
         this.handleCrudClick = this.on.firstCall.args[2];
       });

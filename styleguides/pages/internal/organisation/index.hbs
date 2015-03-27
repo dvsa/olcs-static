@@ -6,10 +6,12 @@ verticalNavItems:
   - label: Business details
     link:  index.html
   - label: People
-    link:  index.html
+    link:  people.html
   - label: Licences & applications
     link:  index.html
-form: 
+  - label: Users
+    link:  users.html
+form:
   - title: Business details
     fieldsets:
     - legend:
@@ -24,7 +26,7 @@ form:
           class: medium
           values:
             - Find company
-          hint: If you don't have your company number to hand, or are having problems retrieving your company details, please enter them manually below. 
+          hint: If you don't have your company number to hand, or are having problems retrieving your company details, please enter them manually below.
         - label: Operator name
           type: text
           class: medium
@@ -50,6 +52,8 @@ form:
 </div>
 
 <div class="three-fifths">
-  <h3>Business details</h3>
+  <div class="content__header">
+    <h3>Business details</h3>
+  </div>
   {{#each form }}{{> _forms }}{{/each }}
 </div>

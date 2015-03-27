@@ -9,10 +9,16 @@
    width: 95%;
    margin: -.75em 2.5% -1em 2.5%;
   }
+  .actions-container {
+    margin-bottom: 20px;
+  }
   &__header {
     @extend %header-with-actions;
     border-bottom: 1px solid $grey-2;
     margin-bottom: 1em;
+    .actions-container {
+      margin-bottom: 0;
+    }
   }
   h4 {
     border: 0;
@@ -38,9 +44,6 @@
     border: 0;
     border-top: 1px solid $grey-2;
     padding: .5em 0;
-  }
-  .actions-container {
-    margin-bottom: 20px;
   }
 
 }

@@ -60,23 +60,23 @@ describe("OLCS.postcodeSearch", function() {
 
           describe("When clicking the find button", function() {
             beforeEach(function() {
-              this.formAjax = sinon.stub(OLCS, "formAjax");
+              this.submitForm = sinon.stub(OLCS, "submitForm");
 
               $(".address .js-find").click();
             });
 
             afterEach(function() {
-              this.formAjax.restore();
+              this.submitForm.restore();
             });
 
             it("should invoke a form AJAX submission", function() {
-              expect(this.formAjax.callCount).to.equal(1);
+              expect(this.submitForm.callCount).to.equal(1);
             });
 
             describe("Given the AJAX request returns successfully", function() {
               beforeEach(function() {
                 try {
-                  this.formAjax.yieldTo("success", "some body");
+                  this.submitForm.yieldTo("success", "some body");
                 } catch (e) {
                   this.e = e;
                 }

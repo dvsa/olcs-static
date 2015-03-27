@@ -4,7 +4,7 @@ var OLCS = OLCS || {};
  * OLCS.formHandler
  *
  * A simple component to listen for form submissions and
- * make them asynchronous by using OLCS.formAjax to submit them.
+ * make them asynchronous by using OLCS.submitForm to submit them.
  *
  * This is a handy component which abstracts a lot of nuances
  * related to form submissions via JS; things like ensuring
@@ -34,7 +34,7 @@ OLCS.formHandler = (function(document, $, undefined) {
       // used the filter & container shorthand instead. As such, construct
       // a response filter (which internally normalises the response first)
       // to simply replace the container with the new filtered HTML
-      success = OLCS.responseFilter(options.filter, options.container);
+      success = OLCS.filterResponse(options.filter, options.container);
     }
 
     // we'll return this so consumers can unbind listeners if they want to
@@ -105,6 +105,7 @@ OLCS.formHandler = (function(document, $, undefined) {
 
       // make sure we don't try and submit cancel buttons
       if (isModal && F.buttonPressed(form, "[cancel]")) {
+        OLCS.logger.debug("trapped 'cancel' click inside modal, won't submit form", "formHandler");
         return;
       }
 
@@ -117,9 +118,11 @@ OLCS.formHandler = (function(document, $, undefined) {
     $(document).on("submit", selector, function(e) {
       e.preventDefault();
 
+      OLCS.logger.debug("submitting form '" + selector + "'", "formHandler");
+
       var form = $(selector);
 
-      OLCS.formAjax({
+      OLCS.submitForm({
         form: form,
         success: success,
         complete: function() {

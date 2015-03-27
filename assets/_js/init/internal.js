@@ -5,7 +5,7 @@ OLCS.ready(function() {
     form: ".table__form",
     selector: ".js-require--one",
     predicate: function(length, callback) {
-      callback(length !== 1);
+      callback(length === 1);
     }
   });
 
@@ -13,7 +13,7 @@ OLCS.ready(function() {
     form: ".table__form",
     selector: ".js-require--multiple",
     predicate: function(length, callback) {
-      callback(length < 1);
+      callback(length >= 1);
     }
   });
 
