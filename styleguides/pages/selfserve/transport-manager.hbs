@@ -26,6 +26,8 @@ form:
         - label:  Place of birth
           type: text
           class: long
+        - label:  Certificate of profesisonal competence
+          type: file-uploader
     - legend: Home address
       fields:
         - label: Title
@@ -45,10 +47,15 @@ form:
             - Unit 4, Battelfields Industrial Estate, Shrewsbury
             - 240 Timmuses Drive, Yeaton
         - label: What type of manager will you be for this licence?
-          type: radios inline
+          type: radios inline selfserve
           values:
             - Internal
             - External
+        - label: Are you an owner/director of the organisation applying for the oVehicle Operator Licence?
+          type: radios inline selfserve
+          values:
+            - Yes
+            - No
     - legend: Hours per week
       fields:
         - label: How many hours will you spend on your Transport Manager duties?
@@ -128,5 +135,12 @@ form:
   </div>
 
 </div>
+
+<script type="text/javascript">
+  OLCS.fileUploader({
+    selector: ".file-uploader",
+    isMultiple: false
+  });
+</script>
 
 

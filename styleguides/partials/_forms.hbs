@@ -138,6 +138,17 @@
           </fieldset>
           {{/is }}
 
+          {{#is type "radios inline selfserve" }}
+          <fieldset class="checkbox">
+            <legend class="legend">{{ label }}</legend>
+            {{#each values }}
+            <div class="field inline">
+              <label><input type="radio" name="{{ this }}">{{ this }}</label>
+            </div>
+            {{/each }}
+          </fieldset>
+          {{/is }}
+
           {{#is type "radios" }}
           <fieldset class="{{ type }}">
             <legend class="legend">{{ label }}</legend>
@@ -220,10 +231,10 @@
             <label for="street-line-four">Town/city</label>
               <input id="street-line-four" name="address" type="text" class="long">
           </div>
-            <div class="field">
-              <label for="postcode">Postcode</label>
-              <input id="postcode" name="postcode" type="text" class="short">
-            </div>
+          <div class="field">
+            <label for="postcode">Postcode</label>
+            <input id="postcode" name="postcode" type="text" class="short">
+          </div>
           {{/is }}
 
 
@@ -250,6 +261,30 @@
             </div>
           </fieldset>
           {{/is }}
+
+          {{#is type "file-uploader" }}
+          <fieldset class="file-uploader" id="FileUploader2">
+            <legend>{{ label }}</legend>
+            {{#if hint}}<p class="hint">{{ hint }}</p>{{/if}}
+
+            <ul class="attach-action__list">
+              <li class="attach-action">
+                <label class="attach-action__label">
+                  Attach file
+                  <input class="attach-action__input js-visually-hidden" type="file" name="fileUpload[]">
+                </label>
+                <p class="attach-action__hint">20MB maximum file size. PDF, DOC, JPG, PNG or GIF</p>
+              </li>
+            </ul><!-- attach-actions -->
+
+            <ul class="uploaded-file__list">
+            </ul><!-- uploaded-files -->
+
+            <ul class="attached-file__list">
+            </ul><!-- attached-file__list -->
+          </fieldset><!-- .file-uploader -->
+          {{/is }}
+
 
 
           {{#is type "html" }}
