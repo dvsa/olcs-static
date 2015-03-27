@@ -34,7 +34,7 @@ OLCS.modal = (function(document, $, undefined) {
     '<div class="modal__wrapper" style="display:none;">',
       '<div class="modal">',
         '<div class="modal__header">',
-          '<h2 class="modal__title"></h2>',
+          '<h1 class="modal__title"></h1>',
           '<a href="" class="modal__close">Close</a>',
         '</div>',
         '<div class="modal__content"></div>',
@@ -87,6 +87,7 @@ OLCS.modal = (function(document, $, undefined) {
     $(header).empty();
     $(content).empty();
 
+    // watch it, triggers incorrect behaviour sometimes
     OLCS.eventEmitter.emit('hide:modal');
   };
 

@@ -76,7 +76,7 @@ OLCS.formHandler = (function(document, $, undefined) {
      */
     $(document).on("click", actionSelector, function(e) {
 
-      var form   = $(selector);
+      var form   = $(this).parents(selector);
       var button = $(this);
 
       F.pressButton(form, button);
@@ -120,7 +120,7 @@ OLCS.formHandler = (function(document, $, undefined) {
 
       OLCS.logger.debug("submitting form '" + selector + "'", "formHandler");
 
-      var form = $(selector);
+      var form = $(this);
 
       OLCS.submitForm({
         form: form,
