@@ -16,6 +16,13 @@ OLCS.modalForm = (function(document, $, undefined) {
     // a modal
     OLCS.modal.show(options.body, options.title);
 
+    OLCS.transform({
+      selector: ".modal",
+      replace: {
+        "[name='generic-confirmation']": ".modal--alert"
+      }
+    });
+
     // also assume that we've got a form within the rendered modal
     // and bind a form handler to it
     var handler = OLCS.formHandler({
