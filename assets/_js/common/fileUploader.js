@@ -89,8 +89,6 @@ OLCS.fileUploader = (function(document, $, undefined) {
 
       // Remove the list item
       thisFile.remove();
-
-
     }
 
     function getFileList(element) {
