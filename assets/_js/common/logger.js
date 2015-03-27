@@ -72,7 +72,7 @@ OLCS.logger = (function(document, $, undefined) {
 
   // try and actually set the level from localStorage too
   try {
-    logLevel = window.localStorage.getItem(key) || levels.DEBUG;
+    logLevel = +window.localStorage.getItem(key) || levels.DEBUG;
   } catch (e) {
     logLevel = levels.DEBUG;
   }

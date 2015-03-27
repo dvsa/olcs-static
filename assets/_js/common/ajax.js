@@ -13,6 +13,17 @@ OLCS.ajax = (function(document, $, undefined) {
 
   var lastRequestId = 0;
 
+  /**
+   * This will hold a date object to compare POST timestamps
+   */
+  var lastTimestamp = 0;
+
+  /**
+   * If we trap two POSTs within this number of msec we'll throw
+   * a warning
+   */
+  var minPostThreshold = 50;
+
   return function ajax(options) {
 
     var requestId = ++lastRequestId;
@@ -26,19 +37,31 @@ OLCS.ajax = (function(document, $, undefined) {
     var finalOptions = $.extend({}, options, {
       beforeSend: function(jqXHR, settings) {
         var method = options.method.toUpperCase();
+        var postData;
+        var submitTimestamp = new Date();
+        var since = submitTimestamp - lastTimestamp;
 
         OLCS.logger
         .group(method + " " + options.url)
         .log("Request ID " + requestId + ": start");
 
         if (method === "POST") {
+          if (since < minPostThreshold) {
+            OLCS.logger.error("Possible duplicate POST detected - time since last request is " + since + "ms");
+          }
           OLCS.logger.group("Request data");
-          var data = OLCS.queryString.parse("?" + decodeURI(settings.data));
-          for (var key in data) {
-            OLCS.logger.log(key + ": " + data[key]);
+          if (settings.data === "") {
+            OLCS.logger.warn("No POST data - is this correct?");
+          } else {
+            postData = OLCS.queryString.parse("?" + decodeURI(settings.data));
+            for (var key in postData) {
+              OLCS.logger.log(key + ": " + postData[key]);
+            }
           }
           OLCS.logger.groupEnd();
         }
+
+        lastTimestamp = new Date();
 
         if (options.beforeSend) {
           options.beforeSend.apply(null, arguments);
