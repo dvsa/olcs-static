@@ -28,13 +28,21 @@ OLCS.normaliseResponse = (function(window, undefined) {
     // ... the inner function will be invoked, we suppose,
     // by an AJAX request or similar
     return function onResponse(response) {
+      var title  = "";
+      var body   = "";
+      var script = "";
+
+      function findTitleInBody() {
+        title = body.find(".content__header");
+        if (title.length) {
+          response.title = title.text();
+          $(title).remove();
+        }
+      }
+
       if (typeof response === "string") {
 
         OLCS.logger.debug("converting response string to object", "normaliseResponse");
-
-        var title  = "";
-        var body   = "";
-        var script = "";
 
         // this can throw if the response we get back can't be parsed (i.e. var dumped data during debug)
         try {
@@ -43,6 +51,7 @@ OLCS.normaliseResponse = (function(window, undefined) {
           script = $(response).find(scriptSelector);
         } catch (e) {
           OLCS.logger.debug("Caught error parsing response", "normaliseResponse");
+          // @TODO wrap body in something sensible
         }
 
         response = {
@@ -58,8 +67,12 @@ OLCS.normaliseResponse = (function(window, undefined) {
         if (title.length) {
           OLCS.logger.debug("found response title matching " + titleSelector, "normaliseResponse");
           response.title = title.html();
+          if ($.trim(response.title) === "") {
+            findTitleInBody();
+          }
         } else {
-          OLCS.logger.debug("no matching response title for " + titleSelector, "normaliseResponse");
+          OLCS.logger.debug("no matching response title for " + titleSelector + ", searching headings...", "normaliseResponse");
+          findTitleInBody();
         }
 
         if (body.length) {
