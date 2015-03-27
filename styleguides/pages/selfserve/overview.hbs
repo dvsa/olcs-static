@@ -1,8 +1,9 @@
 ---
 layout: base.hbs
-title: Application overview 
+user: operator
+title: Application overview
 subtitle: Application no.1280887
-breadcrumbs: 
+breadcrumbs:
   - link: licences.html
     label: Home
 overview-items:
@@ -50,7 +51,7 @@ overview-items:
 
   <div class="two-thirds border">
     <ul class="overview-navigation">
-   
+
     {{#each overview-items }}
 
       {{#is status "Complete"}}
@@ -92,7 +93,7 @@ overview-items:
       </li>
       {{/is}}
 
-    {{/each }} 
+    {{/each }}
 
     </ul><!-- .overview-navigation -->
 

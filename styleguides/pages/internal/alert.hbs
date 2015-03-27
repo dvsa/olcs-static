@@ -1,6 +1,6 @@
 ---
 title: Home
-subtitle:  
+subtitle:
 filterList:
   - header: Team
     type: dropdown
@@ -31,7 +31,7 @@ filterList:
       - All
       - Open
       - Closed
-  - header: 
+  - header:
     type: checkboxes
     filters:
       - Urgent only
@@ -53,7 +53,7 @@ table:
         class: sortable
       - label: Description
         class: sortable
-      - label: Date 
+      - label: Date
         class: sortable
       - label: Owner
         class: sortable
@@ -71,29 +71,35 @@ table:
       - Don Tarmacadam
       - <input name="row" type="checkbox">
     rows: 20
-  
+
 ---
 
 <div class="content">
 
- <div class="overlay"></div>
-  
-  <div class="alert__wrapper" style="display:block">
-    <div class="alert">
-      <h3>Alert header</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
-      <div class="actions-container">
-        <input class="action--primary large" type="submit" value="OK">
-        <input class="action--secondary large" type="submit" value="Cancel">
-      </div><!-- end .actions -->
-    </div><!-- end .alert -->
-  </div><!-- end .alert__wrapper -->
+  <div class="overlay"></div>
+  <div class="modal__wrapper">
+    <div class="modal--alert">
+      <div class="modal__header">
+        <h2 class="modal__title">Alert header</h2>
+        <a href="" class="modal__close">Close</a>
+      </div>
+      <div class="modal__content">
+        <p>Are you really sure you want to perform this action?</p>
+        <form>
+          <div class="actions-container">
+            <input class="action--primary" type="submit" value="OK">
+            <input class="action--secondary" type="submit" value="Cancel">
+          </div>
+        </form>
+      </div><!-- .modal__content -->
+    </div><!-- modal-alert-->
+  </div>
 
   <div class="four-fifths--right">
   {{#each table}}
-    {{#is @index 0 }} 
+    {{#is @index 0 }}
       {{> _table }}
-    {{/is }} 
+    {{/is }}
   {{/each}}
   </div>
 

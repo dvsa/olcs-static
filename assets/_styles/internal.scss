@@ -618,8 +618,8 @@ input.action--delete {
   overflow: visible;
   position: relative;
   vertical-align: middle;
-  margin-right: .25em;
-  padding: .4em .75em;
+  margin-right: 5px;
+  padding: 5px 10px 7px 10px;
   line-height: 1.2;
   text-align: center;
   font-weight: 600;
@@ -629,7 +629,7 @@ input.action--delete {
   &.large {
     font-weight: 600;
     font-size: 17px;
-    padding: .5em .75em;
+    padding: 7px 13px 7px 13px;
     .inline & {
       font-size: 15px;
       padding: 8px 12px;
@@ -644,6 +644,9 @@ input.action--delete {
   font-family: $NTA-Light;
   font-size: 16px;
   text-decoration: underline;
+  &.large {
+     padding-left: 7px;
+  }
 }
 
 @mixin actionColour (
@@ -901,7 +904,7 @@ input.action--delete {
     background: #FFF;
     max-width: 440px;
     margin: 40px auto;
-    padding: 20px 32px 0 30px;
+    padding: 20px 32px 20px 30px;
     float: none;
     overflow: auto;
   }
@@ -1081,6 +1084,79 @@ a.iframe-controls--toggle {
     &:hover {
       background-position: -38px -116px;
     }
+  }
+}
+
+
+/* ==========================================================================
+   19. Modals
+   ========================================================================== */
+
+
+@import '_modals';
+
+
+
+
+.modal {
+  @include border-radius(3px);
+  padding: 65px 20px 60px 20px;
+  &__header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 12px 15px;
+    background: $grey-4;
+    border-bottom: 1px solid $grey-3;
+  }
+  &__title {
+    @extend %h4;
+  }
+  .actions-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 15px 15px;
+    background: $grey-4;
+    border-top: 1px solid $grey-3;
+  }
+}
+
+.modal__header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 12px 15px;
+  background: $grey-4;
+  border-bottom: 1px solid $grey-3;
+}
+
+.modal--alert {
+  @include border-radius(3px);
+  padding: 75px 20px 20px 20px;
+  .modal__title {
+    @extend %h4;
+    margin-bottom: 0;
+  }
+  p {
+    @extend %paragraph--small;
+  }
+}
+
+.close {
+  background: url('../images/close.png') no-repeat 0 0;
+  @include device-pixel-ratio($ratio: 2) {
+    background: url('../images/close-2x.png') no-repeat 0 0;
+    background-size: 60px 22px;
+  }
+  text-indent: -9999px;
+  height: 22px;
+  width: 22px;
+  &:hover {
+    background-position: -39px 0;
   }
 }
 

@@ -1,12 +1,23 @@
 ---
 title: Register, update or cancel a service
-layout: bus-regs-base.hbs
-breadcrumbs: 
+layout: base.hbs
+user: bus operator
+breadcrumbs:
   - link: bus-services.html
     label: Bus services
 ---
 
 <div class="two-thirds">
+
+  <div class="validation-summary">
+    <h3>There was a problem uploading you files</h3>
+    <p>Please try the following:</p>
+    <ol class="validation-summary__list">
+      <li class="validation-summary__item"><a href="#error1">Your attached file is too big</a></li>
+      <li class="validation-summary__item"><a href="#error2">Your attached file is the wrong formate</a></li>
+    </ol><!-- .validation-summary__list -->
+  </div><!-- .validation-summary -->
+
   <div class="article">
     <p>To register a new service, update or cancel an existing service you need to updload an Electronic Bus Registration Service pack (EBSR) in .ZIP format.</p>
     <h3>Please check the following</h3>
@@ -19,26 +30,47 @@ breadcrumbs:
   </div>
   <form>
 
-    <fieldset id="about-you">
-        <fieldset>
+    <fieldset>
+      <legend>EBSR pack upload</legend>
+      <fieldset>
         <legend>Upload type</legend>
-          <div class="field--list checkbox">
-            <label><input type="radio" name="gender" value="male">Data refresh</label>
-          </div>
           <div class="field--list checkbox">
             <label><input type="radio" name="gender" value="female">Electronic registration</label>
           </div>
+          <div class="field--list checkbox">
+            <label><input type="radio" name="gender" value="male">Data refresh</label>
+          </div>
       </fieldset>
-    <fieldset>
-  
-    <fieldset>
-      <legend>EBSR pack upload</legend>
-      <div class="field file-upload">
-        <input type="file" multiple>
-      </div>
-    </fieldset><!-- #file-upload -->
-    <input type="submit" value="Submit" class="action--primary large">
+    </fieldset>
+
+    <fieldset class="file-uploader" id="EBSRUploader" style="margin-top: -20px;">
+      <ul class="attach-action__list">
+        <li class="attach-action">
+          <label class="attach-action__label">
+            Attach another file
+            <input class="attach-action__input js-visually-hidden" type="file" name="fileUpload[]">
+          </label>
+          <p class="attach-action__hint">20MB maximum file size. ZIP format only</p>
+        </li>
+      </ul><!-- attach-actions -->
+      <ul class="attached-file__list">
+          <p class="validation-message">This file is too big</p>
+          <li class="file invalid">
+            <p>Screen Shot 2015-03-18 at 16.29.25.png <span>59 kB</span></p> <a class="file__remove" href="#">Remove</a>
+          </li>
+          <p class="validation-message">This file is the wrong format</p>
+          <li class="file invalid">
+            <p>Screen Shot 2015-03-18 at 16.29.25.png <span>59 kB</span></p> <a class="file__remove" href="#">Remove</a>
+          </li>
+        </div>
+      </ul>
+      <ul class="attached-file__list">
+      </ul><!-- attached-file__list -->
+      <input class="inline-upload js-hidden" type="submit" value="Upload">
+    </fieldset><!-- .file-uploader -->
+
   </form>
+
 </div><!-- .three-quarters -->
 <div class="one-third sidebar">
   <div class="support">
@@ -52,4 +84,11 @@ breadcrumbs:
     <a href="">operatorlicensing@otc.gov.uk</a></p>
   </div><!-- support -->
 </div><!-- .one-quarter -->
+
+<script type="text/javascript">
+  OLCS.fileUploader({
+    selector: "#EBSRUploader",
+    isMultiple: true
+  });
+</script>
 

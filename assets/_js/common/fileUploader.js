@@ -84,6 +84,9 @@ OLCS.fileUploader = (function(document, $, undefined) {
         $(thisSubmit).addClass('js-hidden');
       }
 
+      // Remove any validation message
+      thisFile.prev('.validation-message').remove();
+
       // Remove the list item
       thisFile.remove();
     }
