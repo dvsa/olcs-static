@@ -5,6 +5,8 @@ OLCS.complexPredicate = (function(document, $, undefined) {
   "use strict";
 
   return function init(options) {
+    var attr;
+
     if ($.isArray(options)) {
       options = {
         allow: options
@@ -19,15 +21,20 @@ OLCS.complexPredicate = (function(document, $, undefined) {
       options.attr = "action";
     }
 
+    if (typeof options.attr !== "function") {
+      attr = options.attr;
+      options.attr = function(input) {
+        return $(input).data(attr);
+      };
+    }
+
     return function checkComplexPredicate(length, enable, selectedInputs) {
 
       if (length < 1 || length > options.max) {
         return enable(false);
       }
 
-      var rows = $.map(selectedInputs, function(input) {
-        return $(input).data(options.attr);
-      });
+      var rows = $.map(selectedInputs, options.attr);
 
       enable(
         // as long as we don't have any rows NOT in the allowed list; go for it
