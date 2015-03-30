@@ -32,8 +32,25 @@ OLCS.normaliseResponse = (function(window, undefined) {
       var body   = "";
       var script = "";
 
+      /**
+       * This method is used to paper over the cracks present in our wildly inconsistent views.
+       * Ideally it wouldn't exist as every title would be rendered in a proper header view
+       * and thus be placed automatically inside js-title when rendered asynchronously but that's
+       * often not the case on olcs-internal. As such this method is a bit of a catch-all workhorse
+       * which tries to rummage through what *should* be the body of the response and look for
+       * a title-esque field
+       */
       function findTitleInBody() {
-        title = body.find(".content__header");
+        // first up try the sensible option; just grab the first heading which is an
+        // immediate descendent of the content block
+        title = body.find(".js-content").children("h1,h2,h3,h4,h5,h6").first();
+        if (title.length === 0) {
+          // okay, no luck. Internal templates often appear within a header container - try that
+          title = body.find(".content__header");
+        }
+
+        // hopefully we've got a title. If so we need to explicitly remove it from the body block
+        // otherwise it'll be duplicated
         if (title.length) {
           response.title = title.text();
           $(title).remove();
@@ -68,6 +85,7 @@ OLCS.normaliseResponse = (function(window, undefined) {
           OLCS.logger.debug("found response title matching " + titleSelector, "normaliseResponse");
           response.title = title.text();
           if ($.trim(response.title) === "") {
+            OLCS.logger.debug("title selector contents is empty, falling back to searching body");
             findTitleInBody();
           }
         } else {
