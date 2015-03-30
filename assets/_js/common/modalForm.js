@@ -19,7 +19,7 @@ OLCS.modalForm = (function(document, $, undefined) {
     OLCS.transform({
       selector: ".modal",
       replace: {
-        "[name='generic-confirmation']": ".modal--alert"
+        ".js-modal-alert": ".modal--alert"
       }
     });
 
