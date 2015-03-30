@@ -29,6 +29,10 @@ OLCS.conditionalButton = (function(document, $, undefined) {
     var checkedSelector = options.checkedSelector || "table input[name!='checkall']:checked";
     var actionSelector  = ".actions-container button";
 
+    if ($.isPlainObject(predicate)) {
+      predicate = OLCS.complexPredicate(predicate);
+    }
+
     function checkButton(context) {
       var button;
       var checkedInputs;
