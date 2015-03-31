@@ -81,9 +81,9 @@ body {
   &__header {
     @extend %header-with-actions;
     border-bottom: 1px solid $grey-3;
-    margin-bottom: 1em;
+    margin: 5px 0 12px 0;
     h3 {
-      font-size: 17px,
+      font-size: 17px;
     }
   }
 }
@@ -99,10 +99,11 @@ body {
     width: 200px;
     padding: 0 30px 0 0;
     h4 {
+      @extend %header-with-actions;
+      border-bottom: 1px solid $grey-3;
+      margin: 5px 0 0px 0;
       font-size: 17px;
       border-bottom: 1px solid $grey-3;
-      padding-bottom: 10px;
-      margin-bottom: 5px;
     }
   }
   &--right {
@@ -381,7 +382,7 @@ body {
     }
   }
   &__subtitle {
-    @include font-size(16px,12pt,16px);
+    @include font-size(15px,11pt,15px);
     color: $grey-1;
     font-weight: 400;
     display: inline;
@@ -404,6 +405,10 @@ fieldset {
   fieldset {
     margin-bottom: 20px;
   }
+}
+
+legend {
+  font-size: 17px;
 }
 
 .field {
@@ -438,6 +443,7 @@ select:focus {
 
 @import '_navigation';
 
+
 /* 7.1 Breadcrumb
    ========================================================================== */
 
@@ -469,11 +475,10 @@ $mobile-statuses: (
     display: block;
     width: 90%;
     padding: .5em 10% .5em 0;
-    border-bottom: 1px solid $grey-2;
+    border-bottom: 1px solid $grey-3;
   }
   .current {
     border-bottom: 3px solid $black;
-    font-weight: 700;
     &.no-background {
       background: none;
     }
@@ -506,26 +511,24 @@ $mobile-statuses: (
 
 @import '_horizontal-nav';
 
-.horizontal-navigation__item a {
-  font-size: 15px;
-  font-weight: 500;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
-}
 
 /* 7.4 Vertical navigation
    ========================================================================== */
 
 @import '_vertical-nav';
 
-.vertical-navigation__item a {
+.horizontal-navigation__item,
+.vertical-navigation__item,
+.app-navigation__item {
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
-  &:hover {
-    text-decoration: underline;
+  a {
+    text-decoration: none;
+  }
+  &.current {
+    font-weight: 500;
+    font-size: 15px;
   }
 }
 
@@ -562,6 +565,10 @@ $mobile-statuses: (
 .table__header {
   @extend %header-with-actions;
   margin-bottom: 0;
+  h3 {
+    font-size: 17px;
+    margin-top: 3px;
+  }
   h3 + form & {
     margin-top: .2em !important;
   }
@@ -624,9 +631,7 @@ td {
 .action--primary,
 input.action--primary,
 .action--secondary,
-input.action--secondary,
-.action--delete,
-input.action--delete {
+input.action--secondary {
   @include border-radius(2px);
   display: inline-block;
   width: auto;
@@ -650,6 +655,11 @@ input.action--delete {
       padding: 8px 12px;
     }
   }
+}
+
+button.action--primary,
+button.action--secondary {
+  padding: 6px 10px;
 }
 
 .action--tertiary {
@@ -755,8 +765,16 @@ input.action--delete {
 
 @import '_read-only';
 
-.read-only dt {
-  color: #555;
+.read-only  {
+  dt {
+    color: #555;
+  }
+  h4 {
+    font-size: 17px;
+  }
+  &__header {
+    margin-top: 5px;
+  }
 }
 
 
