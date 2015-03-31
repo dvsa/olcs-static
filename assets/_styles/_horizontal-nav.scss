@@ -3,7 +3,7 @@ $breakpoint: 880px;
 .horizontal-navigation {
   @extend %navigation;
   margin-bottom: 10px;
-  border-bottom: 1px solid $grey-2;
+  border-bottom: 1px solid $grey-3;
   &__item {
     @extend %navigation__item;
   }
@@ -18,14 +18,14 @@ $breakpoint: 880px;
     }
   }
   .current {
-    @extend %navigation__link;  
+    @extend %navigation__link;
     color: $black;
     border-bottom: 3px solid $primaryColour;
     padding: 2px .75em .55em .75em;
     @media(max-width: $breakpoint) {
       border: none;
       border-bottom: 3px solid $primaryColour;
-    }   
+    }
     &:hover {
       background: none;
     }

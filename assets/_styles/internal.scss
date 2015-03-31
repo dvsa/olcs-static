@@ -40,7 +40,7 @@ $assetPath: "../images";
 $primaryColour: $department-for-transport;
 $gutter: 1.25%;
 $grey-2: #CCC;
-$grey-3: #E5E5E5;
+$grey-3: #DDD;
 
 html {
   background: $grey-4;
@@ -80,8 +80,11 @@ body {
   padding-top: 5px;
   &__header {
     @extend %header-with-actions;
-    border-bottom: 1px solid $grey-2;
+    border-bottom: 1px solid $grey-3;
     margin-bottom: 1em;
+    h3 {
+      font-size: 17px,
+    }
   }
 }
 
@@ -96,7 +99,8 @@ body {
     width: 200px;
     padding: 0 30px 0 0;
     h4 {
-      border-bottom: 1px solid $grey-2;
+      font-size: 17px;
+      border-bottom: 1px solid $grey-3;
       padding-bottom: 10px;
       margin-bottom: 5px;
     }
@@ -105,6 +109,9 @@ body {
     @extend %table-cell;
     width: 220px;
     padding-left: 30px;
+    @media(max-width: 1200px) {
+      display: none;
+    }
   }
 }
 
@@ -178,7 +185,7 @@ body {
 
 .search {
   float: left;
-  width: 500px;
+  width: 450px;
   margin-top: 2px;
   @media (max-width: 640px) {
     width: 100%;
@@ -207,6 +214,7 @@ body {
     border: 0;
     color: $black;
     line-height: 2;
+    font-size: 15px;
     behavior: url(/htc/PIE.htc);
     &:focus {
       outline: none;
@@ -499,6 +507,8 @@ $mobile-statuses: (
 @import '_horizontal-nav';
 
 .horizontal-navigation__item a {
+  font-size: 15px;
+  font-weight: 500;
   text-decoration: none;
   &:hover {
     text-decoration: underline;
@@ -512,6 +522,8 @@ $mobile-statuses: (
 
 .vertical-navigation__item a {
   text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
   &:hover {
     text-decoration: underline;
   }
@@ -756,7 +768,7 @@ input.action--delete {
   margin-bottom: 1.5em;
   &__title {
     @extend %paragraph--small;
-    border-bottom: 1px solid $grey-2;
+    border-bottom: 1px solid $grey-3;
     padding-bottom: .5em;
     margin: .4em 0 .5em 0;
   }

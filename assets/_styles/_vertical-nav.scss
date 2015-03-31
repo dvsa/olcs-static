@@ -13,7 +13,7 @@
   a {
     @extend %navigation__link;
     padding: .5em 0 .6em 0;
-    border-bottom: 1px solid $grey-2;   
+    border-bottom: 1px solid $grey-3;
   }
   .current, .disabled {
     padding: .5em 0 .25em 0;
@@ -34,6 +34,6 @@
   }
   .disabled {
     color: $grey-1;
-    border-bottom: 1px solid $grey-2;
+    border-bottom: 1px solid $grey-3;
   }
 }
