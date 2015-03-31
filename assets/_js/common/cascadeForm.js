@@ -112,6 +112,7 @@ OLCS.cascadeForm = (function(document, $, undefined) {
       } else if (!show && elem.is(":visible")) {
         action = "hide";
       }
+      console.log(group, selector, show, elem.is(":visible"), elem.is(":hidden"), "->", action);
 
       if (action) {
         elem[action]();
@@ -130,6 +131,10 @@ OLCS.cascadeForm = (function(document, $, undefined) {
       }
 
       var parts;
+
+      if (selector.substring(0, 1) === "#") {
+        selector = "selector:" + selector;
+      }
 
       if (selector.search(":") !== -1) {
 
