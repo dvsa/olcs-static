@@ -562,6 +562,10 @@ $mobile-statuses: (
 
 @import '_tables';
 
+.table__wrapper {
+  @include border-radius(3px);
+}
+
 .table__header {
   @extend %header-with-actions;
   margin-bottom: 0;
@@ -591,8 +595,8 @@ td {
 }
 
 th {
-  background: $grey-3;
-  border: 1px solid $grey-2;
+  background: $grey-4;
+  border: 1px solid $grey-3;
   padding: .5em .75em .5em .75em;
   a { display: block; }
 }
@@ -604,14 +608,14 @@ td {
 
 .sortable {
   padding: .5em .75em .5em .75em;
-  background: $grey-3;
+  background: $grey-4;
   a {
     padding: 0;
   }
   &:hover,
   &.ascending,
   &.descening {
-    background-color: #cccccc;
+    background-color: $grey-3;
   }
 }
 
