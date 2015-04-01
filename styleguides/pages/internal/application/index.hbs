@@ -41,15 +41,14 @@ form:
     fieldsets:
     - legend: Details
       fields:
+        - label: Set lead TC
+          type: select
+          values:
+            - Kevin Rooney
         - label: App recieved
           type: date
         - label: Target completion date
           type: date
-        - label:
-          type: checkboxes
-          values:
-            - Override completion date
-            - Change of entity
     - legend: Tracking
       class: tracking
       fields:
@@ -100,6 +99,66 @@ form:
         class: primary large
       - label: Cancel
         class: secondary large
+read-only:
+  - title:
+    editable: false
+    type: fields
+    groups:
+    - group:
+      - name: Operator name
+        value: <a href="">Don Tarmacadam Limited</a>
+      - name: Trading names
+        value: Don Tarmacadam Limited
+      - name: Previous operator name
+        value: Don Tarmacadam Limited
+      - name: Previous licence No.
+        value: Don Tarmacadam Limited
+      - name: No. of licences
+        value: 4
+      - name: Current applications
+        value: 4
+    - group:
+      - name: Application created
+        value: 31 July 2017
+      - name: Out of opposition
+        value: 31 July 2017
+      - name: No. of oppositions
+        value: 4
+      - name: Out of representation
+        value: 31 July 2017
+      - name: Change of enitity
+        value: No <a href="">Add details</a>
+      - name: Interim status
+        value: Not requested <a href="">Add interim</a>
+    - group:
+      - name: Licence status
+        value: Valid
+      - name: Outsanding fees
+        value: No
+      - name: Licence start date
+        value: 31 July 2017
+      - name: Continuation date
+        value: 31 July 2017
+    - group:
+      - name: No. of vehicles
+        value: 51
+      - name: Total vehicle auth.
+        value: 51
+      - name: Authorised operating centres
+        value: 12 May 2018
+      - name: Total trailer auth. / No. of Issued Discs
+        value: 12 / 12
+      - name: No. of community licences
+        value: 4
+    - group:
+      - name: Open cases
+        value: 13
+      - name: Current review complaints
+        value: 4
+      - name: Received mail electronically
+        value: Yes
+      - name: Registered for self service
+        value: Yes
 
 
 ---
@@ -113,10 +172,6 @@ form:
   <div class="content__header">
     <h3>Overview</h3>
   </div>
-  <div class="guidance">
-    <h4>Interim request</h4>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad quam ex expedita, ullam sed placeat reprehenderit in necessitatibus non officiis exercitationem consectetur at cupiditate magni similique dolor natus est illo aspernatur sunt repellat sit, inventore. Hic et dolore, vel beatae.</p>
-    <a href="">View interim application</a>
-  </div>
+  {{#each read-only }}{{> _read-only }}{{/each }}
   {{#each form }}{{> _forms }}{{/each }}
 </div>

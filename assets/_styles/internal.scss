@@ -40,7 +40,7 @@ $assetPath: "../images";
 $primaryColour: $department-for-transport;
 $gutter: 1.25%;
 $grey-2: #CCC;
-$grey-3: #E5E5E5;
+$grey-3: #DDD;
 
 html {
   background: $grey-4;
@@ -80,8 +80,11 @@ body {
   padding-top: 5px;
   &__header {
     @extend %header-with-actions;
-    border-bottom: 1px solid $grey-2;
-    margin-bottom: 1em;
+    border-bottom: 1px solid $grey-3;
+    margin: 5px 0 12px 0;
+    h3 {
+      font-size: 17px;
+    }
   }
 }
 
@@ -96,15 +99,20 @@ body {
     width: 200px;
     padding: 0 30px 0 0;
     h4 {
-      border-bottom: 1px solid $grey-2;
-      padding-bottom: 10px;
-      margin-bottom: 5px;
+      @extend %header-with-actions;
+      border-bottom: 1px solid $grey-3;
+      margin: 5px 0 0px 0;
+      font-size: 17px;
+      border-bottom: 1px solid $grey-3;
     }
   }
   &--right {
     @extend %table-cell;
     width: 220px;
     padding-left: 30px;
+    @media(max-width: 1200px) {
+      display: none;
+    }
   }
 }
 
@@ -178,19 +186,18 @@ body {
 
 .search {
   float: left;
-  width: 500px;
+  width: 450px;
   margin-top: 2px;
   @media (max-width: 640px) {
     width: 100%;
   }
   &__wrapper {
+    @include border-radius(2px);
     float: left;
     position: relative;
     height: 32px;
     width: 75%;
     background: $grey-4;
-
-    @include border-radius(2px);
     @media (max-width: 640px) {
       width: 100%;
     }
@@ -203,10 +210,12 @@ body {
     left: 0;
     top: 0;
     width: 165px;
-    padding: 0 0 0 3%;
+    padding: 8px 0 0 3%;
+    line-height: 1;
     border: 0;
     color: $black;
-    line-height: 2;
+    font-size: 15px;
+    vertical-align: middle;
     behavior: url(/htc/PIE.htc);
     &:focus {
       outline: none;
@@ -373,7 +382,7 @@ body {
     }
   }
   &__subtitle {
-    @include font-size(16px,12pt,16px);
+    @include font-size(15px,11pt,15px);
     color: $grey-1;
     font-weight: 400;
     display: inline;
@@ -398,6 +407,10 @@ fieldset {
   }
 }
 
+legend {
+  font-size: 17px;
+}
+
 .field {
   margin-bottom: 25px;
   &.inline-text {
@@ -407,7 +420,7 @@ fieldset {
 
 .tracking {
   .field {
-    width: 100%;
+    width: 50%;
     float: left;
     margin-bottom: 15px;
   }
@@ -429,6 +442,7 @@ select:focus {
    ========================================================================== */
 
 @import '_navigation';
+
 
 /* 7.1 Breadcrumb
    ========================================================================== */
@@ -461,11 +475,10 @@ $mobile-statuses: (
     display: block;
     width: 90%;
     padding: .5em 10% .5em 0;
-    border-bottom: 1px solid $grey-2;
+    border-bottom: 1px solid $grey-3;
   }
   .current {
     border-bottom: 3px solid $black;
-    font-weight: 700;
     &.no-background {
       background: none;
     }
@@ -498,22 +511,24 @@ $mobile-statuses: (
 
 @import '_horizontal-nav';
 
-.horizontal-navigation__item a {
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
-}
 
 /* 7.4 Vertical navigation
    ========================================================================== */
 
 @import '_vertical-nav';
 
-.vertical-navigation__item a {
+.horizontal-navigation__item,
+.vertical-navigation__item,
+.app-navigation__item {
   text-decoration: none;
-  &:hover {
-    text-decoration: underline;
+  font-size: 15px;
+  font-weight: 500;
+  a {
+    text-decoration: none;
+  }
+  &.current {
+    font-weight: 500;
+    font-size: 15px;
   }
 }
 
@@ -550,6 +565,10 @@ $mobile-statuses: (
 .table__header {
   @extend %header-with-actions;
   margin-bottom: 0;
+  h3 {
+    font-size: 17px;
+    margin-top: 3px;
+  }
   h3 + form & {
     margin-top: .2em !important;
   }
@@ -612,9 +631,7 @@ td {
 .action--primary,
 input.action--primary,
 .action--secondary,
-input.action--secondary,
-.action--delete,
-input.action--delete {
+input.action--secondary {
   @include border-radius(2px);
   display: inline-block;
   width: auto;
@@ -638,6 +655,11 @@ input.action--delete {
       padding: 8px 12px;
     }
   }
+}
+
+button.action--primary,
+button.action--secondary {
+  padding: 6px 10px;
 }
 
 .action--tertiary {
@@ -743,8 +765,16 @@ input.action--delete {
 
 @import '_read-only';
 
-.read-only dt {
-  color: #555;
+.read-only  {
+  dt {
+    color: #555;
+  }
+  h4 {
+    font-size: 17px;
+  }
+  &__header {
+    margin-top: 5px;
+  }
 }
 
 
@@ -756,7 +786,7 @@ input.action--delete {
   margin-bottom: 1.5em;
   &__title {
     @extend %paragraph--small;
-    border-bottom: 1px solid $grey-2;
+    border-bottom: 1px solid $grey-3;
     padding-bottom: .5em;
     margin: .4em 0 .5em 0;
   }
