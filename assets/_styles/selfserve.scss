@@ -732,3 +732,77 @@ dd {
     width: 38px;
   }
 }
+
+/* ==========================================================================
+   18. Verify
+   ========================================================================== */
+
+$verify-colour: #255AAA;
+
+.verify {
+  background: $verify-colour;
+  padding: 25px;
+  overflow: auto;
+  margin-bottom: 40px;
+  p, a {
+    color: #FFF;
+  }
+  p {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+a.action--verify {
+  @extend %h4;
+  background: #FFF;
+  color: $verify-colour;
+  padding:  10px 20px;
+  margin-right: 20px;
+  font-weight: 700;
+  border-bottom: 2px solid darken($verify-colour,20%);
+
+}
+
+
+/* ==========================================================================
+   19. Steps
+   ========================================================================== */
+
+.steps {
+  list-style: none;
+  border-left: 4px solid $grey-3;
+  padding-left: 20px;
+}
+
+/* ==========================================================================
+   19. Progress
+   ========================================================================== */
+
+.progress {
+  list-style: none;
+  &__item {
+    display: block;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  &__box {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: 3px solid $grey-3;
+    &.checked {
+      background: url('#{$assetPath}/green-tick.png') no-repeat 0 0;
+      @include device-pixel-ratio($ratio: 2) {
+        background: url('#{$assetPath}/green-tick-2x.png') no-repeat 0 0;
+        background-size: 20px 20px;
+      }
+    }
+  }
+  p {
+    @extend %paragraph--small;
+    padding-left: 38px;
+  }
+}
