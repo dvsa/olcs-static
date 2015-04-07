@@ -81,10 +81,6 @@
         scripts: {
           files: ['assets/_js/**/*.js'],
           tasks: ['uglify:dev']
-        },
-        images: {
-          files: ['assets/_images/**/*.{png,jpg,gif}'],
-          tasks: ['imagemin']
         }
       },
       browserSync: {
@@ -157,8 +153,6 @@
     grunt.registerTask('compile:live', ['sass:prod', 'uglify:prod']);
 
     grunt.registerTask('serve', ['notify', 'compile:dev', 'browserSync', 'watch']);
-
-    grunt.registerTask('images', ['imagemin']);
 
     grunt.registerTask('test', ['karma:test']);
     grunt.registerTask('test:ci', ['karma:ci']);
