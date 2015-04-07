@@ -113,9 +113,9 @@ OLCS.cascadeForm = (function(document, $, undefined) {
         action = "hide";
       }
       OLCS.logger.verbose(
-        group + "->" + selector +
-          ", show (" + show + "), visible (" +
-          elem.is(":visible") + "), action (" +
+        group + " > " + selector +
+          ", should show? (" + show + "), is visible? (" +
+          elem.is(":visible") + "), action: (" +
           action + ")",
         "cascadeForm"
       );
