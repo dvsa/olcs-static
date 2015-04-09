@@ -69,7 +69,9 @@ OLCS.normaliseResponse = (function(window, undefined) {
         script = $(responseString).find(scriptSelector);
       } catch (e) {
         OLCS.logger.debug("Caught error parsing response", "normaliseResponse");
-        // @TODO wrap body in something sensible
+        // we wrap body in something sensible otherwise when we use it to parse later
+        // we'll hit errors
+        body = "<div>" + body + "</div>";
       }
 
       /**
