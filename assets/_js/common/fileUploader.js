@@ -41,15 +41,16 @@ OLCS.fileUploader = (function(document, $, undefined) {
       if (stringLength <= 3) {
         return '0 kB';
       }
-      else if (stringLength <= 6) {
+
+      if (stringLength <= 6) {
         return kilo.toFixed(0) + ' kB';
       }
-      else if (stringLength <= 9) {
+
+      if (stringLength <= 9) {
         return mega.toFixed(1) + ' MB';
       }
-      else {
-        return giga.toFixed(1) + ' GB';
-      }
+
+      return giga.toFixed(1) + ' GB';
     }
 
     function replaceString(element,from,to) {
@@ -96,7 +97,7 @@ OLCS.fileUploader = (function(document, $, undefined) {
       var fileName;
 
       // Loop through all the attached files
-      element.each( function() {
+      element.each(function() {
 
         // If this browser is IE8 or 9
         if (this.files === undefined && this.value) {
@@ -128,7 +129,6 @@ OLCS.fileUploader = (function(document, $, undefined) {
       return domFileList;
     }
 
-
     // When the file input is updated
     $(selector).on('change', fileInput, function() {
       var thisFileUploader     = $(this).parents(fileUploader);
@@ -159,7 +159,6 @@ OLCS.fileUploader = (function(document, $, undefined) {
       e.preventDefault();
       removeFile(this);
     });
-
   };
 
 }(document, window.jQuery));
