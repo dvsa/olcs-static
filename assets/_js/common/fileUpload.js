@@ -34,26 +34,15 @@ OLCS.fileUpload = (function(document, $, undefined) {
       asyncUploads = false;
     }
 
-    function upload(form, name, index, file) {
+    function upload(form, container, index, file) {
       OLCS.logger.debug(
         "Uploading file " + file.name + " (" + file.type + ")",
         "fileUpload"
       );
 
+      var name = $(container).data("group");
+
       var kbSize = Math.round(file.size / 1024);
-      $(".js-upload-list").append([
-        "<li class=file data-upload-index=" + index + ">",
-          "<p>",
-            "<a href=#>",
-              file.name,
-            "</a>",
-            "<span>",
-              kbSize + "KB",
-            "</span>",
-          "</p>",
-          "<span class=file__remove>Uploading&hellip;</span>",
-        "</li>"
-      ].join("\n"));
 
       var xhr = new XMLHttpRequest();
       // make sure we take the form data as it stands to support
@@ -66,6 +55,20 @@ OLCS.fileUpload = (function(document, $, undefined) {
         // here if we want to use it...
       });
       */
+
+      $(container).find(".js-upload-list").append([
+        "<li class=file data-upload-index=" + index + ">",
+          "<p>",
+            "<a href=#>",
+              file.name,
+            "</a>",
+            "<span>",
+              kbSize + "KB",
+            "</span>",
+          "</p>",
+          "<span class=file__remove>Uploading&hellip;</span>",
+        "</li>"
+      ].join("\n"));
 
       xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
@@ -137,9 +140,9 @@ OLCS.fileUpload = (function(document, $, undefined) {
         e.preventDefault();
         e.stopPropagation();
 
-        var form  = $(this).parents("form");
-        var name  = $(this).parents(containerSelector).data("group");
-        var files = e.target.files;
+        var form       = $(this).parents("form");
+        var container  = $(this).parents(containerSelector);
+        var files      = e.target.files;
 
         OLCS.logger.debug("Uploading " + files.length + " file(s)");
 
@@ -151,7 +154,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
         OLCS.preloader.show();
 
         $.each(files, function(index, file) {
-          upload(form, name, index, file);
+          upload(form, container, index, file);
         });
       });
 
