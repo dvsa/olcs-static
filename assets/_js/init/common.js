@@ -31,6 +31,6 @@ OLCS.ready(function() {
   // and modal re-render etc
 
   OLCS.fileUpload({
-    mutliple: true
+    multiple: true
   });
 });

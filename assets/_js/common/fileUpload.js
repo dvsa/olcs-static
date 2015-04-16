@@ -146,7 +146,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
         var container  = $(this).parents(containerSelector);
         var files      = e.target.files;
 
-        OLCS.logger.debug("Uploading " + files.length + " file(s)");
+        OLCS.logger.debug("Uploading " + files.length + " file(s)", "fileUpload");
 
         numUploaded = 0;
         totalUploads = files.length;
