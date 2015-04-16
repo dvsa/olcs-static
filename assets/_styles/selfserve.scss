@@ -116,12 +116,10 @@ $gutter: 2.5%;
   width: 24%;
 }
 
-
 .five-eigths {
   @extend %container;
   width: 66%;
 }
-
 
 %container {
   float:left;
@@ -131,7 +129,6 @@ $gutter: 2.5%;
     margin: 0 4% 1.5em 4%;
   }
 }
-
 
 
 /* ==========================================================================
@@ -200,6 +197,7 @@ $gutter: 2.5%;
     margin: 4px 0 2px 0;
   }
 }
+
 .proposition-nav {
   list-style: none;
   clear: left;
@@ -218,7 +216,7 @@ $gutter: 2.5%;
   }
 }
 
-@media (max-width: 640px){
+@media (max-width: 640px) {
   .proposition {
     width: 100%;
     margin: .5em 0 .25em 5%;
@@ -445,7 +443,6 @@ $gutter: 2.5%;
   margin: -32px 0 2em 0;
 }
 
-
 .disabled .overflow-item:hover {
   background: none;
 }
@@ -471,7 +468,6 @@ $gutter: 2.5%;
         color: $grey-1;
       }
     }
-
   }
   h4 {
     float: left;
@@ -490,12 +486,11 @@ $gutter: 2.5%;
   .status {
     float: left;
     margin-top: 2px;
-  }
-  @media (max-width: 640px){
-    .status { display: none; }
+    @media (max-width: 640px){
+      display: none;
+    }
   }
 }
-
 
 
 /* 7.3 Search navigation
@@ -761,7 +756,6 @@ a.action--verify {
   margin-right: 20px;
   font-weight: 700;
   border-bottom: 2px solid darken($verify-colour,20%);
-
 }
 
 
