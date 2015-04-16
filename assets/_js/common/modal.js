@@ -23,6 +23,7 @@ OLCS.modal = (function(document, $, undefined) {
    */
   var selector  = '.modal';
   var wrapper   = '.modal__wrapper';
+  var overlay   = '.overlay';
   var header    = '.modal__title';
   var content   = '.modal__content';
   var bodyClass = 'disable-scroll';
@@ -46,7 +47,7 @@ OLCS.modal = (function(document, $, undefined) {
    * public interface
    */
   exports.show = function(body, title) {
-    if ($('body').find(wrapper).length === 0) {
+    if ($('body').find(overlay).length === 0) {
       $('body').prepend(template);
     }
 
@@ -54,9 +55,13 @@ OLCS.modal = (function(document, $, undefined) {
     $(content).html(body);
 
     $('body').addClass(bodyClass);
+
+    // overlay first...
     $(wrapper).prev().show();
+    // ... then the modal itself
     $(wrapper).show();
 
+    // @TODO: does anything care about this anymore? a grep is in order
     OLCS.eventEmitter.emit('show:modal');
 
     // let other potentially interested components know
@@ -81,13 +86,16 @@ OLCS.modal = (function(document, $, undefined) {
     $(document).off('click', closeSelectors);
 
     $('body').removeClass(bodyClass);
-    $(wrapper).hide();
+
+    // ... hide the overlay first...
     $(wrapper).prev().hide();
+    // ... then the modal itself
+    $(wrapper).hide();
 
-    $(header).empty();
-    $(content).empty();
+    // now obliterate them completely
+    $(wrapper).prev().remove();
+    $(wrapper).remove();
 
-    // watch it, triggers incorrect behaviour sometimes
     OLCS.eventEmitter.emit('hide:modal');
   };
 
