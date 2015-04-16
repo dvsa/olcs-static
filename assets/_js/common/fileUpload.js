@@ -9,18 +9,15 @@ OLCS.fileUpload = (function(document, $, undefined) {
 
   "use strict";
 
-  if (window.FormData === undefined) {
-    OLCS.logger.warn("XHR form uploads not supported in this browser", "fileUpload");
-    return;
-  }
-
   return function init() {
 
     var F = OLCS.formHelper;
+    var asyncUploads      = true;
     var containerSelector = ".file-uploader";
     var inputSelector     = ".attach-action__input";
     var removeSelector    = ".file__remove";
     var mainBodySelector  = ".js-body";
+    var submitSelector    = ".js-upload";
     var numUploaded       = 0;
     var totalUploads      = 0;
 
@@ -31,6 +28,13 @@ OLCS.fileUpload = (function(document, $, undefined) {
         F.render(mainBodySelector, response.body);
       }
     });
+
+    if (window.FormData === undefined) {
+      OLCS.logger.warn("XHR form uploads not supported in this browser", "fileUpload");
+      asyncUploads = false;
+    }
+
+    asyncUploads = false;
 
     function upload(form, name, index, file) {
       OLCS.logger.debug(
@@ -49,7 +53,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
               kbSize + "KB",
             "</span>",
           "</p>",
-          "<span class=file__remove>Uploading...</span>",
+          "<span class=file__remove>Uploading&hellip;</span>",
         "</li>"
       ].join("\n"));
 
@@ -88,7 +92,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
         }
       };
 
-      fd.append(name + "[file-controls][file]", file);
+      fd.append(name + "[file]", file);
       fd.append(name + "[upload]", "Upload");
 
       xhr.open(
@@ -110,30 +114,13 @@ OLCS.fileUpload = (function(document, $, undefined) {
       }, index * 250);
     }
 
-    $(document).on("change", inputSelector, function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-
-      var form  = $(this).parents("form");
-      var name  = $(this).parents(containerSelector).data("group");
-      var files = e.target.files;
-
-      OLCS.logger.debug("Uploading " + files.length + " file(s)");
-
-      numUploaded = 0;
-      totalUploads = files.length;
-
-      // we don't actually want to do this; it's just a temporary
-      // way of showing that something's happening
-      OLCS.preloader.show();
-
-      $.each(files, function(index, file) {
-        upload(form, name, index, file);
-      });
-    });
+    function setup() {
+      $(submitSelector).hide();
+    }
 
     $(document).on("click", removeSelector, function(e) {
       e.preventDefault();
+      e.stopPropagation();
 
       var button = $(this);
       var form   = $(this).parents("form");
@@ -145,6 +132,34 @@ OLCS.fileUpload = (function(document, $, undefined) {
         success: handleResponse
       });
     });
+
+    if (asyncUploads) {
+      $(document).on("change", inputSelector, function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        var form  = $(this).parents("form");
+        var name  = $(this).parents(containerSelector).data("group");
+        var files = e.target.files;
+
+        OLCS.logger.debug("Uploading " + files.length + " file(s)");
+
+        numUploaded = 0;
+        totalUploads = files.length;
+
+        // we don't actually want to do this; it's just a temporary
+        // way of showing that something's happening
+        OLCS.preloader.show();
+
+        $.each(files, function(index, file) {
+          upload(form, name, index, file);
+        });
+      });
+
+      OLCS.eventEmitter.on("render", setup);
+
+      setup();
+    }
   };
 
 }(document, window.jQuery));
