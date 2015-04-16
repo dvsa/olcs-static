@@ -9,7 +9,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
 
   "use strict";
 
-  return function init() {
+  return function init(options) {
 
     var F = OLCS.formHelper;
     var asyncUploads       = true;
@@ -118,7 +118,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
 
     function setup() {
       $(submitSelector).hide();
-      $(inputSelector).attr("multiple", true);
+      $(inputSelector).attr("multiple", options.multiple);
     }
 
     $(document).on("click", removeSelector, function(e) {

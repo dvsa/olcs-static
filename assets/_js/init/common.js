@@ -30,5 +30,7 @@ OLCS.ready(function() {
   // make things line up neatly between initial page render
   // and modal re-render etc
 
-  OLCS.fileUpload();
+  OLCS.fileUpload({
+    mutliple: true
+  });
 });
