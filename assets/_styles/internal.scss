@@ -61,6 +61,10 @@ body {
 
 @import '_typography';
 
+%h4 {
+  @include font-size(16px,12pt,14px);
+}
+
 /* ==========================================================================
    3. Layout
    ========================================================================== */
@@ -101,9 +105,10 @@ body {
     h4 {
       @extend %header-with-actions;
       border-bottom: 1px solid $grey-3;
-      margin: 5px 0 0px 0;
+      margin: 3px 0 0px 0;
       font-size: 17px;
       border-bottom: 1px solid $grey-3;
+      padding-bottom: 10px;
     }
   }
   &--right {
@@ -435,6 +440,10 @@ input:focus,
 textarea:focus,
 select:focus {
   outline: 2px solid #ffbf47;
+}
+
+.chosen-container {
+  font-size: 14px;
 }
 
 /* ==========================================================================
@@ -818,9 +827,7 @@ input.action--delete {
 
 .status {
   font-size: 11px;
-  line-height: 1.6;
   padding: 0 3px 1px 3px;
-  vertical-align: top;
 }
 
 /* ==========================================================================
@@ -1163,9 +1170,6 @@ a.iframe-controls--toggle {
     padding: 15px 15px;
     background: $grey-4;
     border-top: 1px solid $grey-3;
-  }
-  .validation-summary {
-    margin: 18px;
   }
 }
 

@@ -5,14 +5,14 @@
   display: block;
   border-left: 4px solid $grey-2;
   clear: left;
-  margin-bottom: 1em;
+  margin: 11px 0 1em 0;
   fieldset & {
     margin-bottom: 0;
   }
   &__wrapper {
     max-width: 800px;
     overflow: auto;
-    margin-bottom: 20px;
+    margin: 3px 0 20px 0;
     clear: both;
   }
   &__title {
