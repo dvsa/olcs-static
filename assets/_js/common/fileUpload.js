@@ -12,14 +12,15 @@ OLCS.fileUpload = (function(document, $, undefined) {
   return function init() {
 
     var F = OLCS.formHelper;
-    var asyncUploads      = true;
-    var containerSelector = ".file-uploader";
-    var inputSelector     = ".attach-action__input";
-    var removeSelector    = ".file__remove";
-    var mainBodySelector  = ".js-body";
-    var submitSelector    = ".js-upload";
-    var numUploaded       = 0;
-    var totalUploads      = 0;
+    var asyncUploads       = true;
+    var containerSelector  = ".file-uploader";
+    var inputSelector      = ".attach-action__input";
+    var removeSelector     = ".file__remove";
+    var mainBodySelector   = ".js-body";
+    var submitSelector     = ".js-upload";
+    var numUploaded        = 0;
+    var totalUploads       = 0;
+    var MULTI_UPLOAD_DELAY = 1000;
 
     var handleResponse = OLCS.normaliseResponse(function(response) {
       if (OLCS.modal.isVisible()) {
@@ -112,11 +113,12 @@ OLCS.fileUpload = (function(document, $, undefined) {
       // off we go...
       setTimeout(function() {
         xhr.send(fd);
-      }, index * 250);
+      }, index * MULTI_UPLOAD_DELAY);
     }
 
     function setup() {
       $(submitSelector).hide();
+      $(inputSelector).attr("multiple", true);
     }
 
     $(document).on("click", removeSelector, function(e) {
