@@ -62,7 +62,7 @@ body {
 @import '_typography';
 
 %h4 {
-  @include font-size(16px,12pt,14px);
+  @include font-size(17px,13pt,15px);
 }
 
 /* ==========================================================================
@@ -781,12 +781,6 @@ input.action--delete {
 .read-only  {
   dt {
     color: #555;
-  }
-  h4 {
-    font-size: 17px;
-  }
-  &__header {
-    margin-top: 5px;
   }
 }
 
