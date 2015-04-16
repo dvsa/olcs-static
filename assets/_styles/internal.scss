@@ -816,6 +816,13 @@ input.action--delete {
 
 @import '_statuses';
 
+.status {
+  font-size: 11px;
+  line-height: 1.6;
+  padding: 0 3px 1px 3px;
+  vertical-align: top;
+}
+
 /* ==========================================================================
    14. Comments
    ========================================================================== */
