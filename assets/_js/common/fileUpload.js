@@ -34,8 +34,6 @@ OLCS.fileUpload = (function(document, $, undefined) {
       asyncUploads = false;
     }
 
-    asyncUploads = false;
-
     function upload(form, name, index, file) {
       OLCS.logger.debug(
         "Uploading file " + file.name + " (" + file.type + ")",
@@ -121,6 +119,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
     $(document).on("click", removeSelector, function(e) {
       e.preventDefault();
       e.stopPropagation();
+      e.stopImmediatePropagation();
 
       var button = $(this);
       var form   = $(this).parents("form");
