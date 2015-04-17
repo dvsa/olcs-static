@@ -89,7 +89,7 @@ OLCS.cascadeForm = (function(document, $, undefined) {
     function triggerRule(group, selector, rule) {
       var show;
       var elem;
-      var action;
+      var action = "none";
 
       if ($.isFunction(rule)) {
         show = rule.call(form);
@@ -112,8 +112,15 @@ OLCS.cascadeForm = (function(document, $, undefined) {
       } else if (!show && elem.is(":visible")) {
         action = "hide";
       }
+      OLCS.logger.verbose(
+        group + " > " + selector +
+          ", should show? (" + show + "), is visible? (" +
+          elem.is(":visible") + "), action: (" +
+          action + ")",
+        "cascadeForm"
+      );
 
-      if (action) {
+      if (action !== "none") {
         elem[action]();
         OLCS.eventEmitter.emit(action + ":" + group + ":" + selector);
       }
@@ -130,6 +137,11 @@ OLCS.cascadeForm = (function(document, $, undefined) {
       }
 
       var parts;
+
+      // save people typing "selector:#id", allow "#id" instead
+      if (selector.substring(0, 1) === "#") {
+        selector = "selector:" + selector;
+      }
 
       if (selector.search(":") !== -1) {
 
