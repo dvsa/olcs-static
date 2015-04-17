@@ -78,23 +78,24 @@ th {
   }
 }
 
-tr.hover {
-  background: $grey-3;
-  cursor: pointer;
-}
-
-tr.disabled {
-  cursor: default;
-  input[type="submit"] {
+tr {
+  &.hover {
+    background: $grey-3;
+    cursor: pointer;
+  }
+  &.disabled {
     cursor: default;
-    text-decoration: none;
-    color: $grey-1;
+    input[type="submit"] {
+      cursor: default;
+      text-decoration: none;
+      color: $grey-1;
+    }
+  }
+  &.current {
+    background: $light-blue-25;
   }
 }
 
-tr.current {
-  background: $light-blue-25;
-}
 
 td {
   overflow: visible;
@@ -134,5 +135,9 @@ tfoot {
     }
     &:active { color: $grey-1; }
   }
+}
 
+.new {
+  color: $primaryColour;
+  margin-right: 5px;
 }

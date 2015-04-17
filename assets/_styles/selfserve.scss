@@ -116,12 +116,10 @@ $gutter: 2.5%;
   width: 24%;
 }
 
-
 .five-eigths {
   @extend %container;
   width: 66%;
 }
-
 
 %container {
   float:left;
@@ -131,7 +129,6 @@ $gutter: 2.5%;
     margin: 0 4% 1.5em 4%;
   }
 }
-
 
 
 /* ==========================================================================
@@ -200,6 +197,7 @@ $gutter: 2.5%;
     margin: 4px 0 2px 0;
   }
 }
+
 .proposition-nav {
   list-style: none;
   clear: left;
@@ -218,7 +216,7 @@ $gutter: 2.5%;
   }
 }
 
-@media (max-width: 640px){
+@media (max-width: 640px) {
   .proposition {
     width: 100%;
     margin: .5em 0 .25em 5%;
@@ -445,7 +443,6 @@ $gutter: 2.5%;
   margin: -32px 0 2em 0;
 }
 
-
 .disabled .overflow-item:hover {
   background: none;
 }
@@ -471,7 +468,6 @@ $gutter: 2.5%;
         color: $grey-1;
       }
     }
-
   }
   h4 {
     float: left;
@@ -490,12 +486,11 @@ $gutter: 2.5%;
   .status {
     float: left;
     margin-top: 2px;
-  }
-  @media (max-width: 640px){
-    .status { display: none; }
+    @media (max-width: 640px){
+      display: none;
+    }
   }
 }
-
 
 
 /* 7.3 Search navigation
@@ -528,6 +523,51 @@ $gutter: 2.5%;
    ========================================================================== */
 
 @import '_filters';
+
+/* 7.8 Tabs
+   ========================================================================== */
+
+.tabs {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+.tab-list {
+  list-style: none;
+  border-bottom: 1px solid $grey-2;
+  overflow: visible;
+  float: left;
+  width: 100%;
+  &__item {
+    @extend %paragraph--large;
+    float: left;
+  }
+  a {
+    display: block;
+    margin: 4px 2px 3px 2px;
+    padding: 9px 15px 8px 15px;
+    background: $grey-3;
+    text-decoration: none;
+    &:focus {
+      outline: 3px solid $yellow;
+    }
+  }
+  .active {
+    border: 1px solid $grey-2;
+    border-bottom: 1px solid #FFF;
+    background: #FFF;
+    margin: 0 1px -4px 1px;
+  }
+  .active a {
+    color: $black;
+    background: #FFF;
+    cursor: default;
+    padding: 8px 13px 9px 13px;
+    &:focus {
+      outline: none;
+    }
+  }
+}
 
 
 /* ==========================================================================
@@ -723,13 +763,13 @@ dd {
     @extend %h2;
   }
   &__close {
-    background: url('../images/selfserve-close.png') no-repeat 10px 5px;
-    @include device-pixel-ratio($ratio: 2) {
-      background: url('../images/selfserve-close-2x.png') no-repeat 10px 0;
-      background-size: 38px 38px;
-    }
     height: 38px;
     width: 38px;
+    background: url('../images/selfserve-close.png') no-repeat 10px 5px;
+    @include device-pixel-ratio($ratio: 2) {
+      background: url('../images/selfserve-close-2x.png') no-repeat 10px 5px;
+      background-size: 19px 19px;
+    }
   }
 }
 
@@ -761,7 +801,6 @@ a.action--verify {
   margin-right: 20px;
   font-weight: 700;
   border-bottom: 2px solid darken($verify-colour,20%);
-
 }
 
 
