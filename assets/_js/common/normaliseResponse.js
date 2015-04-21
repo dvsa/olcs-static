@@ -25,100 +25,122 @@ OLCS.normaliseResponse = (function(window, undefined) {
     var scriptSelector  = options.body || ".js-script";
     var followRedirects = options.followRedirects !== undefined ? options.followRedirects : true;
 
-    // ... the inner function will be invoked, we suppose,
-    // by an AJAX request or similar
-    return function onResponse(response) {
+
+    /**
+     * This method is used to paper over the cracks present in our wildly inconsistent views.
+     * Ideally it wouldn't exist as every title would be rendered in a proper header view
+     * and thus be placed automatically inside js-title when rendered asynchronously but that's
+     * often not the case on olcs-internal. As such this method is a bit of a catch-all workhorse
+     * which tries to rummage through what *should* be the body of the response and look for
+     * a title-esque field
+     */
+    function findTitle(body) {
+      var title;
+      var text = "";
+
+      // first up try the sensible option; just grab the first heading which is an
+      // immediate descendent of the content block
+      title = body.find(".js-content").children("h1,h2,h3,h4,h5,h6").first();
+      if (title.length === 0) {
+        // okay, no luck. Internal templates often appear within a header container - try that
+        title = body.find(".content__header");
+      }
+
+      // hopefully we've got a title. If so we need to explicitly remove it from the body block
+      // otherwise it'll be duplicated
+      if (title.length) {
+        text = title.text();
+        $(title).remove();
+      }
+
+      return text;
+    }
+
+    function parse(responseString) {
       var title  = "";
       var body   = "";
       var script = "";
+      var response;
+
+      // this can throw if the response we get back can't be parsed (i.e. var dumped data during debug)
+      try {
+        title  = $(responseString).find(titleSelector);
+        body   = $(responseString).find(bodySelector);
+        script = $(responseString).find(scriptSelector);
+      } catch (e) {
+        OLCS.logger.debug("Caught error parsing response", "normaliseResponse");
+        // we wrap body in something sensible otherwise when we use it to parse later
+        // we'll hit errors
+        body = "<div>" + body + "</div>";
+      }
 
       /**
-       * This method is used to paper over the cracks present in our wildly inconsistent views.
-       * Ideally it wouldn't exist as every title would be rendered in a proper header view
-       * and thus be placed automatically inside js-title when rendered asynchronously but that's
-       * often not the case on olcs-internal. As such this method is a bit of a catch-all workhorse
-       * which tries to rummage through what *should* be the body of the response and look for
-       * a title-esque field
+       * We set up some sensible defaults here so that if we can't parse anything else
+       * of use we at least turn a usable response
        */
-      function findTitleInBody() {
-        // first up try the sensible option; just grab the first heading which is an
-        // immediate descendent of the content block
-        title = body.find(".js-content").children("h1,h2,h3,h4,h5,h6").first();
-        if (title.length === 0) {
-          // okay, no luck. Internal templates often appear within a header container - try that
-          title = body.find(".content__header");
-        }
+      response = {
+        status: 200,
+        title: "",
+        body: responseString,
+        // @TODO populate actual array of errors too
+        //errors: [],
+        hasErrors: false,
+        hasWarnings: false
+      };
 
-        // hopefully we've got a title. If so we need to explicitly remove it from the body block
-        // otherwise it'll be duplicated
-        if (title.length) {
-          response.title = title.text();
-          $(title).remove();
+      if (title.length) {
+        OLCS.logger.debug("found response title matching " + titleSelector, "normaliseResponse");
+        response.title = title.text();
+        if ($.trim(response.title) === "") {
+          OLCS.logger.debug("title selector contents is empty, falling back to searching body");
+          response.title = findTitle(body);
         }
+      } else {
+        OLCS.logger.debug("no matching response title for " + titleSelector + ", searching headings...", "normaliseResponse");
+        response.title = findTitle(body);
       }
+
+      if (body.length) {
+        OLCS.logger.debug("got response body matching " + bodySelector, "normaliseResponse");
+        var inner = body.find(".js-body__main");
+        if (inner.length) {
+          OLCS.logger.debug(
+            "got response body override matching .js-body__main",
+            "normaliseResponse"
+          );
+          response.body = inner.html();
+        } else {
+          // js-script will often live within js-body; we want to lift it out as it'll be appended
+          // afterwards
+          body.find(scriptSelector).remove();
+          response.body = body.html();
+        }
+      } else {
+        OLCS.logger.debug("no matching response body for " + bodySelector, "normaliseResponse");
+      }
+
+      // ensure scripts are injected too. If we want, we can
+      // add an options.disableScripts or whatever to ignore them
+      if (script.length) {
+        OLCS.logger.debug("found inline script matching " + scriptSelector, "normaliseResponse");
+        response.body += script.html();
+      } else {
+        OLCS.logger.debug("no matching inline script for " + scriptSelector, "normaliseResponse");
+        // @TODO: if the original body contained inline script but we filtered it via js-body
+        // or js-body__main, we'll have 'lost' the inline script on the page. Try and find it here
+      }
+
+      return response;
+    }
+
+    // ... the inner function will be invoked, we suppose,
+    // by an AJAX request or similar
+    return function onResponse(response) {
 
       if (typeof response === "string") {
 
         OLCS.logger.debug("converting response string to object", "normaliseResponse");
-
-        // this can throw if the response we get back can't be parsed (i.e. var dumped data during debug)
-        try {
-          title  = $(response).find(titleSelector);
-          body   = $(response).find(bodySelector);
-          script = $(response).find(scriptSelector);
-        } catch (e) {
-          OLCS.logger.debug("Caught error parsing response", "normaliseResponse");
-          // @TODO wrap body in something sensible
-        }
-
-        response = {
-          status: 200,
-          title: "",
-          body: response,
-          // @TODO populate actual array of errors too
-          //errors: [],
-          hasErrors: false,
-          hasWarnings: false
-        };
-
-        if (title.length) {
-          OLCS.logger.debug("found response title matching " + titleSelector, "normaliseResponse");
-          response.title = title.text();
-          if ($.trim(response.title) === "") {
-            OLCS.logger.debug("title selector contents is empty, falling back to searching body");
-            findTitleInBody();
-          }
-        } else {
-          OLCS.logger.debug("no matching response title for " + titleSelector + ", searching headings...", "normaliseResponse");
-          findTitleInBody();
-        }
-
-        if (body.length) {
-          OLCS.logger.debug("got response body matching " + bodySelector, "normaliseResponse");
-          var inner = body.find(".js-body__main");
-          if (inner.length) {
-            OLCS.logger.debug(
-              "got response body override matching .js-body__main",
-              "normaliseResponse"
-            );
-            response.body = inner.html();
-          } else {
-            response.body = body.html();
-          }
-        } else {
-          OLCS.logger.debug("no matching response body for " + bodySelector, "normaliseResponse");
-        }
-
-        // ensure scripts are injected too. If we want, we can
-        // add an options.disableScripts or whatever to ignore them
-        if (script.length) {
-          OLCS.logger.debug("found inline script matching " + scriptSelector, "normaliseResponse");
-          response.body += script.html();
-        } else {
-          OLCS.logger.debug("no matching inline script for " + scriptSelector, "normaliseResponse");
-          // @TODO: if the original body contained inline script but we filtered it via js-body
-          // or js-body__main, we'll have 'lost' the inline script on the page. Try and find it here
-        }
+        response = parse(response);
       }
 
       // we won't invoke the callback if the status

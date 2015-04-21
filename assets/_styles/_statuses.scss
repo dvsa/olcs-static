@@ -1,13 +1,13 @@
 .status {
   @extend %paragraph--tiny;
   @include border-radius(2px);
-  margin: 0 6px 0 6px;
-  padding: 0 4px 1px 4px;
+  margin: 0 6px;
+  padding: 1px 3px 0 3px;
   font-weight: 600;
-  font-size: 12px;
-  line-height: 1.4;
+  font-size: 11px;
+  line-height: 1;
   text-transform: uppercase;
-  vertical-align: middle;
+  white-space: nowrap;
   &.red {
     border:  1px solid $red;
     color: $red;

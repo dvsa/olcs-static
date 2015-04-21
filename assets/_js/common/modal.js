@@ -99,6 +99,16 @@ OLCS.modal = (function(document, $, undefined) {
     OLCS.eventEmitter.emit('hide:modal');
   };
 
+  exports.isVisible = function() {
+    return $(wrapper).is(':visible');
+  };
+
+  exports.updateBody = function(body) {
+    var position = $(wrapper).scrollTop();
+    OLCS.formHelper.render(content, body);
+    $(wrapper).scrollTop(position);
+  };
+
   return exports;
 
 }(document, window.jQuery));

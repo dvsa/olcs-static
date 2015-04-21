@@ -15,9 +15,11 @@
   label {
     margin-bottom: 5px;
   }
-  select { width: 100%; } 
+  select { width: 100%; }
   input[type="search"] {
     width: 95%;
-    padding: .5em 2.5%;
+    padding: .5em 2%;
+    display: block;
+    margin-right: -20px;
   }
 }
