@@ -9,11 +9,16 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
 
   return function init(options) {
 
-    if (options === undefined) {
+    if (!$.isPlainObject(options)) {
       options = {};
     }
 
-    var crudActionSelector = options.selector ||  ".table__header button, .table__wrapper input[type=submit], .table__empty button";
+    var crudActionSelector = options.selector ||  [
+      ".table__header button:not(.js-disable-crud)",
+      ".table__wrapper input[type=submit]",
+      ".table__empty button"
+    ].join(",");
+
     var modalBodySelector  = ".modal__content";
     var mainBodySelector   = ".js-body";
     var modalWrapper       = ".modal__wrapper";
