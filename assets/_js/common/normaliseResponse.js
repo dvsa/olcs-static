@@ -40,10 +40,10 @@ OLCS.normaliseResponse = (function(window, undefined) {
 
       // first up try the sensible option; just grab the first heading which is an
       // immediate descendent of the content block
-      title = body.find(".js-content").children("h1,h2,h3,h4,h5,h6").first();
+      title = $(body).find(".js-content").children("h1,h2,h3,h4,h5,h6").first();
       if (title.length === 0) {
         // okay, no luck. Internal templates often appear within a header container - try that
-        title = body.find(".content__header");
+        title = $(body).find(".content__header");
       }
 
       // hopefully we've got a title. If so we need to explicitly remove it from the body block
@@ -69,9 +69,6 @@ OLCS.normaliseResponse = (function(window, undefined) {
         script = $(responseString).find(scriptSelector);
       } catch (e) {
         OLCS.logger.debug("Caught error parsing response", "normaliseResponse");
-        // we wrap body in something sensible otherwise when we use it to parse later
-        // we'll hit errors
-        body = "<div>" + body + "</div>";
       }
 
       /**
