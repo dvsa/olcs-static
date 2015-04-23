@@ -30,6 +30,15 @@ OLCS.logger = (function(document, $, undefined) {
     };
   }
 
+  // It seems IE10 is missing some of the console methods that we use, so we need to add them
+  var methods = ["log", "warn", "error", "group", "groupEnd"];
+
+  for (var i = 0; i < methods.length; i++) {
+    if (!console[methods[i]]) {
+      console[methods[i]] = function() {};
+    }
+  }
+
   function proxy(method, level) {
     exports[method] = function() {
       if (!level || logLevel >= level) {
@@ -52,7 +61,6 @@ OLCS.logger = (function(document, $, undefined) {
       return exports.log(text);
     };
   }
-
 
   make("debug", levels.DEBUG);
   make("verbose", levels.VERBOSE);
