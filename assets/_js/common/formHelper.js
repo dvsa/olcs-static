@@ -75,6 +75,11 @@ OLCS.formHelper = (function(document, $, undefined) {
     .val() === value;
   };
 
+  exports.isSelected = function(fieldset, name, value) {
+    return exports.input(fieldset, name)
+      .val() === value;
+  };
+
   exports.containsErrors = function(payload) {
     for (var i = 0, j = errorSelectors.length; i < j; i++) {
       if (exports.containsElement(payload, errorSelectors[i])) {
