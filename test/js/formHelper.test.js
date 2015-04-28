@@ -20,6 +20,7 @@ describe("OLCS.formHelper", function() {
     expect(this.component.pressButton).to.be.a("function");
     expect(this.component.buttonPressed).to.be.a("function");
     expect(this.component.isChecked).to.be.a("function");
+    expect(this.component.isSelected).to.be.a("function");
     expect(this.component.containsErrors).to.be.a("function");
     expect(this.component.containsWarnings).to.be.a("function");
     expect(this.component.containsElement).to.be.a("function");
@@ -111,6 +112,14 @@ describe("OLCS.formHelper", function() {
                 '<input type="radio" name="baz[test]" value="N" />',
               '</label>',
             '</fieldset>',
+            '<fieldset class=f1 data-group=foo>',
+              '<label class=l1>',
+                '<select name="foo[bar]">',
+                  '<option value="cake" selected="selected">Cake</option>',
+                  '<option value="bar">Bar</option>',
+                '</select>',
+              '</label>',
+            '</fieldset>',
             '<button type=submit name=save>Save</button>',
             '<button type=submit name=cancel>Cancel</button>',
           '</form>',
@@ -181,6 +190,28 @@ describe("OLCS.formHelper", function() {
       describe("When invoked on a radio button which does not exist", function() {
         beforeEach(function() {
           this.result = this.component.isChecked("baz", "fake");
+        });
+
+        it("returns the correct result", function() {
+          expect(this.result).to.equal(false);
+        });
+      });
+    });
+
+    describe("isSelected", function() {
+      describe("When invoked on a select element checking a selected value", function() {
+        beforeEach(function() {
+          this.result = this.component.isSelected("foo", "bar", "cake");
+        });
+
+        it("returns the correct result", function() {
+          expect(this.result).to.equal(true);
+        });
+      });
+
+      describe("When invoked on a select element checking an unselected value", function() {
+        beforeEach(function() {
+          this.result = this.component.isSelected("foo", "bar", "baz");
         });
 
         it("returns the correct result", function() {
