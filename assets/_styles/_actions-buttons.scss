@@ -13,7 +13,6 @@
   }
 }
 
-
 @mixin action-colour ($colour: $button-colour) {
   @include box-shadow(0 2px 0 darken($colour, 15%));
   @include ie-lte(8) {
@@ -138,4 +137,37 @@ button.action--tertiary.large {
   line-height: 2.3;
 }
 
+.more-actions {
+  position: relative;
+  float: left;
+  &__button {
+    @extend .action--secondary;
+    padding-right: 25px;
+    background-image: url('../images/down-arrow.png');
+    background-repeat: no-repeat;
+    background-position: 92.5% 11px;
+    @include device-pixel-ratio($ratio: 2) {
+      background-image: url('../images/down-arrow-2x.png');
+      background-size: 12px 112px;
+    }
+  }
+  &__list {
+    @include border-radius(3px);
+    @include box-shadow(0 1px 5px $grey-3);
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background: #FFF;
+    padding: 10px 0;
+    width: 100%;
+  }
+  &__item {
+    margin: 4px 15px 4px 15px;
+    display: block;
+  }
+  &:hover .more-actions__list {
+    display: block;
+  }
+}
 
