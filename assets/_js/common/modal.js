@@ -33,12 +33,12 @@ OLCS.modal = (function(document, $, undefined) {
   var template = [
     '<div class="overlay" style="display:none;"></div>',
     '<div class="modal__wrapper" style="display:none;">',
-      '<div class="modal">',
+      '<div class="modal" role="dialog" aria-labelledby="modal-title" tabindex="1">',
         '<div class="modal__header">',
-          '<h1 class="modal__title"></h1>',
-          '<a href="" class="modal__close">Close</a>',
+          '<h1 class="modal__title" id="modal-title"></h1>',
         '</div>',
         '<div class="modal__content"></div>',
+        '<a href="" class="modal__close" aria-label="close">Close</a>',
       '</div>',
     '</div>'
   ].join('\n');
@@ -61,6 +61,8 @@ OLCS.modal = (function(document, $, undefined) {
     // ... then the modal itself
     $(wrapper).show();
 
+    $(selector).focus();
+
     // @TODO: does anything care about this anymore? a grep is in order
     OLCS.eventEmitter.emit('show:modal');
 
@@ -75,6 +77,14 @@ OLCS.modal = (function(document, $, undefined) {
       e.preventDefault();
       exports.hide();
       OLCS.eventEmitter.emit('close:modal');
+    });
+
+    $(document).keyup(function(e) {
+      if (e.keyCode == 27) {
+        e.preventDefault();
+        exports.hide();
+        OLCS.eventEmitter.emit('close:modal');
+      }
     });
 
     // if we've previously opened a modal and scrolled it our modal wrapper
