@@ -23,7 +23,8 @@ OLCS.tableCheckAll = (function(document, $, undefined) {
 
       var table = $(this).closest('table');
 
-      $(table).find('input[type="checkbox"]').not(options.selector).prop('checked', $(this).is(':checked'));
+      $(table).find('input[type="checkbox"]').not(options.selector).not(':disabled')
+        .prop('checked', $(this).is(':checked'));
     });
   };
 
