@@ -1,6 +1,5 @@
 ---
-title: GV/SN Variation Fee
-subtitle: Licence OB1282626
+title: Pay fees
 layout: base.hbs
 user: bus operator
 breadcrumbs:
@@ -24,7 +23,48 @@ read-only:
 ---
 
 <div class="three-quarters">
-  {{#each read-only }}{{> _read-only }}{{/each }}
+
+  <div class="table__header">
+    <h3>Fees to be payed</h3>
+  </div><!-- .table__header -->
+  <div class="table__wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Invoice No.</th>
+          <th>Date invoiced</th>
+          <th>Licence No.</th>
+          <th>Status</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>16252526</td>
+          <td>16 May 2015</td>
+          <td>OB1524242</td>
+          <td>Outstanding</td>
+          <td>£258.00</td>
+        </tr>
+        <tr>
+          <td>16252526</td>
+          <td>16 May 2015</td>
+          <td>OB1524242</td>
+          <td>Outstanding</td>
+          <td>£258.00</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>Totals</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>£516</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div><!-- .table__wrapper -->
   <hr />
   <div class="article">
     <h3 class="important">Important</h3>
@@ -32,8 +72,8 @@ read-only:
     <p>Sit amet, consectetur adipisicing elit. Veniam nisi expedita maiores illo quibusdam quis nemo, libero provident quaerat esse, autem doloremque, magnam perspiciatis, harum veritatis odit praesentium omnis iusto!</p>
   </div><!-- .article -->
   <hr />
-  <p>Application fee</p>
-  <h2>£257.00</h2>
+  <p>Total</p>
+  <h2>£516.00</h2>
   <hr />
   <div class="actions-container">
     <a href="" class="action--primary large">Pay now</a>

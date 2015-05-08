@@ -1,6 +1,6 @@
 ---
 title: Tables
-breadcrumbs: 
+breadcrumbs:
   - link: index.html
     label: Back to index
 
@@ -15,7 +15,7 @@ table:
         class: sortable
       - label: Permission
         class: sortable
-      - label: Advertised 
+      - label: Advertised
         class: sortable
       - label: <input name="row" type="checkbox">
         class: non-sortable
@@ -26,7 +26,7 @@ table:
       - Y
       - N
       - <input name="row" type="checkbox">
-    rows: 10
+    rows: 5
     actions:
       - label: Add operating centre
         class: primary
@@ -49,9 +49,9 @@ table:
 
       <!-- CRUD table -->
       {{#each table}}
-        {{#is @index 0 }} 
+        {{#is @index 0 }}
           {{> _table }}
-        {{/is }} 
+        {{/is }}
       {{/each}}
 
       <div class="table__footer" style="margin-top: -35px; float: left;">
@@ -77,6 +77,56 @@ table:
             <li class="pagination__item"><a href="" rel="next">Next</a></li>
         </ul><!-- end .pagination.right-aligned -->
       </div>
+
+      <div class="table__header">
+        <h3>Vehicle</h3>
+        <div class="actions-container">
+          <a href="" class="action--primary">Add vehicle</a>
+          <a href="" class="action--secondary">Remove</a>
+          <div class="more-actions">
+            <p class="more-actions__button">More actions</p>
+            <div class="more-actions__list">
+              <a href="" class="more-actions__item">Transfer</a>
+              <a href="" class="more-actions__item">Reprint disc</a>
+              <a href="" class="more-actions__item">Export</a>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- .table__header -->
+      <div class="table__wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>VRM</th>
+              <th>Plated weight</th>
+              <th>Specified</th>
+              <th><input type="checkbox"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b><a href="">LL09 UVE</a></b></td>
+              <td>1500kg</td>
+              <td>12 May 2014</td>
+              <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+              <td><b><a href="">LL09 UVE</a></b></td>
+              <td>1500kg</td>
+              <td>12 May 2014</td>
+              <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+              <td><b><a href="">LL09 UVE</a></b></td>
+              <td>1500kg</td>
+              <td>12 May 2014</td>
+              <td><input type="checkbox"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div><!-- .table__wrapper -->
+
 
 
     </div><!-- end .full-width -->

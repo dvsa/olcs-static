@@ -76,6 +76,9 @@ th {
   &.selectable {
     text-align: centre;
   }
+  &.right {
+    text-align: right;
+  }
 }
 
 tr {
@@ -131,7 +134,7 @@ tfoot {
     background: url('../images/down-arrow.png') no-repeat 100% 5px;
       @include device-pixel-ratio($ratio: 2) {
       background-image: url('../images/down-arrow-2x.png');
-      background-size: 11px 136px;
+      background-size: 12px 112px;
     }
     &:active { color: $grey-1; }
   }
