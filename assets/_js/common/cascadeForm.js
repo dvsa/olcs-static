@@ -138,8 +138,8 @@ OLCS.cascadeForm = (function(document, $, undefined) {
 
       var parts;
 
-      // save people typing "selector:#id", allow "#id" instead
-      if (selector.substring(0, 1) === "#") {
+      // shorthands for ID and class selectors
+      if (selector.substring(0, 1) === "#" || selector.substring(0, 1) === ".") {
         selector = "selector:" + selector;
       }
 
