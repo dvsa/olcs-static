@@ -80,7 +80,7 @@ OLCS.modal = (function(document, $, undefined) {
     });
 
     $(document).keyup(function(e) {
-      if (e.keyCode == 27) {
+      if (e.keyCode === 27) {
         e.preventDefault();
         exports.hide();
         OLCS.eventEmitter.emit('close:modal');
