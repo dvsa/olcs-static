@@ -209,6 +209,8 @@ OLCS.cascadeForm = (function(document, $, undefined) {
 
     form.on("change", checkForm);
 
+    // hmm. This will outlive the component, which means when the component re-binds (if it's in a modal and uses jquery.onReady)
+    // then this will stack multiple listeners
     OLCS.eventEmitter.on("render", checkForm);
   };
 

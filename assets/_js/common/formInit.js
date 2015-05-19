@@ -18,8 +18,6 @@ OLCS.formInit = (function(document, $, undefined) {
       $(".chosen-select-large").chosen({width: "97%"});
     }
 
-    setup();
-
     OLCS.eventEmitter.on("render", setup);
   };
 

@@ -64,8 +64,6 @@ OLCS.conditionalButton = (function(document, $, undefined) {
      * Make sure any time the parent page is re-rendered we give our conditional buttons a kick
      */
     OLCS.eventEmitter.on("render", setup);
-
-    setup();
   };
 
 }(document, window.jQuery));
