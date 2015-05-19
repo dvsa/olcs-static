@@ -21,20 +21,16 @@ OLCS.logger = (function(document, $, undefined) {
   var key = "OLCS.debug";
 
   if (!console) {
-    console = {
-      log: function() {},
-      warn: function() {},
-      error: function() {},
-      group: function() {},
-      groupEnd: function() {}
-    };
+    console = {};
   }
 
   // It seems IE10 is missing some of the console methods that we use, so we need to add them
+  // And to boot, IE8 *does* declare some console properties (like warn), but they're *not*
+  // functions
   var methods = ["log", "warn", "error", "group", "groupEnd"];
 
   for (var i = 0; i < methods.length; i++) {
-    if (!console[methods[i]]) {
+    if (typeof console[methods[i] !== "function"]) {
       console[methods[i]] = $.noop;
     }
   }
