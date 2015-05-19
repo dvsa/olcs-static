@@ -101,7 +101,7 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
 
       if (body.length) {
         var deepest = null;
-        var depth = 0;
+        var depth = -1;
 
         // our templates, particularly on olcs-internal, are a bit of a mess - we sometimes find multiple .js-body tags and
         // sometimes even have a .js-body within a .js-body__main (which should never be right).

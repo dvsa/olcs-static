@@ -58,7 +58,6 @@ OLCS.cascadeForm = (function(document, $, undefined) {
      * bool or function
      */
     function checkForm() {
-      console.log("GHO");
       for (var fieldset in options.rulesets) {
         var ruleset = options.rulesets[fieldset];
 
