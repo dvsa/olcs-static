@@ -30,7 +30,7 @@ OLCS.logger = (function(document, $, undefined) {
   var methods = ["log", "warn", "error", "group", "groupEnd"];
 
   for (var i = 0; i < methods.length; i++) {
-    if (typeof console[methods[i] !== "function"]) {
+    if (typeof console[methods[i]] !== "function") {
       console[methods[i]] = $.noop;
     }
   }
