@@ -608,6 +608,10 @@ td {
 
 @import '_read-only';
 
+.read-only h4 {
+  @extend %h3;
+}
+
 .review {
   background: #FFF;
   body {
