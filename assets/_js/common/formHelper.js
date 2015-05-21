@@ -37,10 +37,16 @@ OLCS.formHelper = (function(document, $, undefined) {
    * public interface
    */
   exports.fieldset = function(selector) {
+    selector = selector
+      .replace("[", "\\[")
+      .replace("]", "\\]");
     return $("html").find("fieldset[data-group='" + selector + "']");
   };
 
   exports.input = function(fieldset, name) {
+    fieldset = fieldset
+      .replace("[", "\\[")
+      .replace("]", "\\]");
     return $("html").find("[name=" + fieldset + "\\[" + name + "\\]]");
   };
 
