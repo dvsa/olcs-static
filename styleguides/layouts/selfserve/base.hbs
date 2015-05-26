@@ -42,6 +42,11 @@
               <li class="proposition-nav__item"><a href="search.html">Search</a></li>
               <li class="proposition-nav__item"><a href="">My account</a></li>
             {{/is }}
+            {{#is user "local authority" }}
+              <li class="proposition-nav__item"><a href="search.html">Search</a></li>
+              <li class="proposition-nav__item"><a href="">Manage users</a></li>
+              <li class="proposition-nav__item"><a href="">My account</a></li>
+            {{/is }}
           </ul>
         </div>
       </div><!-- end .global-header__wrapper -->

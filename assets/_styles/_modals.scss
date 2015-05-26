@@ -21,6 +21,9 @@
   @media (max-width:640px) {
     padding: 20px;
   }
+  &:focus {
+    outline: none;
+  }
   &__close {
     position: absolute;
     text-indent: -9999px;

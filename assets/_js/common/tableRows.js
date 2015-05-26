@@ -41,8 +41,9 @@ OLCS.tableRows = (function(document, $, undefined) {
       // If the target element contains a select box, simulate a
       // click of its select box
       if (targetSelectBox.length) {
-        targetSelectBox.click();
-        return;
+        return targetSelectBox
+          .click()   // select the input
+          .change(); // make sure the change event is emitted properly
       }
 
       // Return if the row shouldn't be hoverable
