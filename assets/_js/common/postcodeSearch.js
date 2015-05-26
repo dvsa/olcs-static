@@ -202,11 +202,6 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       // and finally, remove this button's container
       $(this).parent().remove();
     });
-
-    /**
-     * Everything's in place and our listeners are ready; go!
-     */
-    setup();
   };
 
 }(document, window.jQuery));

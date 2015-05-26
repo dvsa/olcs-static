@@ -1,6 +1,6 @@
 var OLCS = OLCS || {};
 
-OLCS.normaliseResponse = (function(window, undefined) {
+OLCS.normaliseResponse = (function(window, $, undefined) {
 
   "use strict";
 
@@ -21,8 +21,9 @@ OLCS.normaliseResponse = (function(window, undefined) {
 
     var callback        = options.callback;
     var titleSelector   = options.title || ".js-title";
-    var bodySelector    = options.body || ".js-body";
-    var scriptSelector  = options.body || ".js-script";
+    var bodySelector    = options.body || ".js-body,.js-body__main";
+    var scriptSelector  = options.script || ".js-script";
+    var rootSelector    = options.root || ".js-response";
     var followRedirects = options.followRedirects !== undefined ? options.followRedirects : true;
 
 
@@ -41,6 +42,7 @@ OLCS.normaliseResponse = (function(window, undefined) {
       // first up try the sensible option; just grab the first heading which is an
       // immediate descendent of the content block
       title = $(body).find(".js-content").children("h1,h2,h3,h4,h5,h6").first();
+
       if (title.length === 0) {
         // okay, no luck. Internal templates often appear within a header container - try that
         title = $(body).find(".content__header");
@@ -98,20 +100,26 @@ OLCS.normaliseResponse = (function(window, undefined) {
       }
 
       if (body.length) {
-        OLCS.logger.debug("got response body matching " + bodySelector, "normaliseResponse");
-        var inner = body.find(".js-body__main");
-        if (inner.length) {
-          OLCS.logger.debug(
-            "got response body override matching .js-body__main",
-            "normaliseResponse"
-          );
-          response.body = inner.html();
-        } else {
-          // js-script will often live within js-body; we want to lift it out as it'll be appended
-          // afterwards
-          body.find(scriptSelector).remove();
-          response.body = body.html();
-        }
+        var deepest = null;
+        var depth = -1;
+
+        // our templates, particularly on olcs-internal, are a bit of a mess - we sometimes find multiple .js-body tags and
+        // sometimes even have a .js-body within a .js-body__main (which should never be right).
+        $.each(body, function(_, v) {
+          var dist = $(v).parentsUntil(rootSelector).length;
+          if (dist > depth) {
+            depth = dist;
+            deepest = $(v);
+          }
+        });
+
+        OLCS.logger.debug("got response body matching ." + deepest.attr("class") + " at depth " + depth, "normaliseResponse");
+
+        // js-script will often live within js-body; we want to lift it out as it'll be appended
+        // afterwards
+        deepest.find(scriptSelector).remove();
+        response.body = deepest.html();
+
       } else {
         OLCS.logger.debug("no matching response body for " + bodySelector, "normaliseResponse");
       }
@@ -130,8 +138,7 @@ OLCS.normaliseResponse = (function(window, undefined) {
       return response;
     }
 
-    // ... the inner function will be invoked, we suppose,
-    // by an AJAX request or similar
+    // ... the inner function will be invoked, we suppose, by an AJAX request or similar
     return function onResponse(response) {
 
       if (typeof response === "string") {
@@ -179,4 +186,4 @@ OLCS.normaliseResponse = (function(window, undefined) {
     };
   };
 
-}(window));
+}(window, window.jQuery));
