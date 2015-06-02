@@ -62,7 +62,9 @@ hr {
   }
 }
 
-.js-visible {
+.js-visible,
+input[type="checkbox"].js-visible,
+input[type="radio"].js-visible {
   display: none;
 }
 
@@ -73,7 +75,9 @@ hr {
   .js-hidden {
     display: none;
   }
-  .js-visible {
+  .js-visible,
+  input[type="checkbox"].js-visible,
+  input[type="radio"].js-visible {
     display: block;
   }
 }

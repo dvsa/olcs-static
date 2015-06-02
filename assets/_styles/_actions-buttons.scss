@@ -1,6 +1,16 @@
 /* 9.1 Actions
    ========================================================================== */
 
+a,
+button,
+input[type="submit"] {
+  &:focus {
+    background-color: #ffbf47;
+    outline: 3px solid #ffbf47;
+  }
+}
+
+
 /* Use these to wrap multiple actions */
 .actions-container {
   padding-bottom: 2px;
@@ -137,6 +147,11 @@ button.action--tertiary.large {
   line-height: 2.3;
 }
 
+button.more-actions__button,
+input[type=submit].more-actions__button {
+
+}
+
 .more-actions {
   position: relative;
   float: left;
@@ -162,12 +177,26 @@ button.action--tertiary.large {
     padding: 10px 0;
     width: 100%;
   }
-  &__item {
-    margin: 4px 15px 4px 15px;
-    display: block;
-  }
   &:hover .more-actions__list {
     display: block;
+  }
+}
+
+.more-actions__item {
+  margin: 2px 15px 6px 15px;
+  display: block;
+  background: none;
+  color: $link-colour;
+  border: 0;
+  padding: 0;
+  text-decoration: underline;
+  &[disabled] {
+    cursor: default;
+    color: $grey-1;
+    text-decoration: none;
+  }
+  &:hover {
+    text-decoration: none;
   }
 }
 
