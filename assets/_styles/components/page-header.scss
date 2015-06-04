@@ -1,0 +1,101 @@
+
+/*
+  Page header
+  ============
+*/
+
+
+/*
+  Selfserve theme
+  ---------------
+*/
+
+@if $app == 'selfserve' {
+
+  .page-header {
+    @extend .full-width;
+    position: relative;
+    margin-top: 3em;
+    margin-bottom: 2.5em;
+    @media (max-width: 640px){
+      margin-top: 1em;
+      margin-bottom: .5em;
+    }
+    &.two-thirds {
+      @extend .two-thirds;
+      border-bottom: 1px solid $grey-2;
+      margin-top: 3em;
+      padding-bottom: 2em;
+    }
+    h1 {
+      max-width: 540px;
+    }
+    &__subtitle {
+      color: $grey-1;
+      font-weight: 400;
+    }
+    &__text {
+      margin: 30px 0 0;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    &__actions {
+      position: absolute;
+      right: 0;
+      bottom: 9px;
+      list-style: none;
+      width: 30%;
+      @media (max-width: 640px){
+        position: relative;
+        float: left;
+        top: 0;
+        margin: 1em 0;
+        width: 100%;
+      }
+    }
+    &__action {
+      @extend %h4;
+      text-decoration: none;
+      font-weight: 600;
+    }
+  }
+
+}
+
+
+/*
+  Internal theme
+  --------------
+*/
+
+@if $app == 'internal' {
+
+  .page-header {
+    width: 100%;
+    border-bottom: 1px solid $grey-2;
+    background: $grey-4;
+    overflow: hidden;
+    margin-bottom: 10px;
+    &__wrapper {
+      @extend .page-wrapper;
+      margin: 0 $gutter .75em;
+      width: 97.5%;
+      @media(max-width: 640px) {
+        width: 92%;
+        margin: 0 4% 1em;
+      }
+    }
+    &__subtitle {
+      @include font-size(15px,11pt,15px);
+      color: $grey-1;
+      font-weight: 400;
+      display: inline;
+      @media(max-width: 640px) {
+        display: block;
+        margin: 5px 0 0;
+      }
+    }
+  }
+
+}

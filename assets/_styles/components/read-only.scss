@@ -1,0 +1,166 @@
+
+/*
+  Read only
+  =========
+*/
+
+.read-only {
+  display: block;
+  width: 100%;
+  overflow: visible;
+  float: left;
+  margin-bottom: 1em;
+  .modal & {
+    width: 95%;
+    margin: -.75em 2.5% -1em;
+  }
+  .actions-container {
+    margin-bottom: 20px;
+  }
+  h4 {
+    border: 0;
+    float: left;
+    padding: 0;
+    display: block;
+    margin-top: 2px;
+  }
+  table {
+    border: 0;
+    border-bottom: 1px solid $grey-3;
+  }
+  th,
+  td {
+    @extend %paragraph--small;
+    vertical-align: middle;
+  }
+  th {
+    background: none;
+    border: 0;
+    padding: 0 0 .5em;
+  }
+  td {
+    border: 0;
+    border-top: 1px solid $grey-3;
+    padding: .5em 0;
+  }
+}
+
+.read-only__header {
+  @extend %header-with-actions;
+  border-bottom: 1px solid $grey-3;
+  margin-bottom: 1em;
+  .actions-container {
+    margin-bottom: 0;
+  }
+}
+
+.text-area {
+  width: 100%;
+  max-width: 800px;
+  p {
+    @extend %paragraph--small;
+  }
+}
+
+
+/*
+  Fake definition list
+*/
+
+.definition-list {
+  float: left;
+  border-bottom: 1px solid $grey-3;
+  margin: 0 0 12px;
+  padding: 0 0 3px;
+  width: 100%;
+  &:last-child {
+    border-bottom: 0;
+  }
+  &__item {
+    float: left;
+    width: 50%;
+    list-style: none;
+  }
+  a {
+    font-weight: 400;
+  }
+  dt,
+  dd {
+    float: left;
+    overflow: auto;
+    margin: 0;
+    padding: 0 2.5% 10px 0;
+    width: 47.5%;
+  }
+}
+
+.definition-list .full-width {
+  width: 100%;
+  padding-top: 0;
+  dt {
+    width: 22.5%;
+  }
+  dd {
+    width: 72.5%;
+  }
+}
+
+
+/*
+  Selfserve theme
+  ---------------
+*/
+
+@if $app == 'selfserve' {
+
+  .read-only h4 {
+    @extend %h3;
+  }
+
+  .definition-list__item {
+    width: 100%;
+    li {
+      max-width: 700px;
+      margin-bottom: .6em;
+    }
+  }
+
+  dl {
+    border-top: 1px solid $grey-2;
+    overflow: auto;
+  }
+
+  dt,
+  dd {
+    float: left;
+    margin: 0;
+    padding: .5em 0;
+  }
+
+  dt {
+    width: 47.5%;
+    font-weight: 400;
+  }
+
+  dd {
+    width: 47.5%;
+    font-weight: 700;
+  }
+
+}
+
+
+/*
+  Internal theme
+  --------------
+*/
+
+@if $app == 'internal' {
+
+  .read-only {
+    dt {
+      color: #555;
+    }
+  }
+
+}

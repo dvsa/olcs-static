@@ -1,0 +1,50 @@
+
+/*
+  Filters
+  =======
+*/
+
+.filters {
+  padding-top: .5em;
+  background: #FFF;
+  font-weight: 400;
+  .field {
+    background: none !important;
+    margin-bottom: 20px;
+  }
+  label {
+    margin-bottom: 5px;
+  }
+  select { width: 100%; }
+  input[type="search"] {
+    width: 95%;
+    padding: .5em 2%;
+    display: block;
+    margin-right: -20px;
+  }
+}
+
+.vertical-navigation .fiters,
+.app-navigation .fiters {
+  border-top: 3px solid $primaryColour;
+  padding-top: .75em;
+  form {
+    margin: 0;
+  }
+}
+
+
+/*
+  Internal theme
+  --------------
+*/
+
+@if $app == 'internal' {
+
+  .filters {
+    margin: .5em 0 -7px;
+    label {
+      @extend %paragraph--tiny;
+    }
+  }
+}

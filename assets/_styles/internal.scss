@@ -191,7 +191,7 @@ body {
 
 .search {
   float: left;
-  width: 450px;
+  width: 480px;
   margin-top: 2px;
   @media (max-width: 640px) {
     width: 100%;
@@ -273,7 +273,7 @@ body {
     border: 0;
     border-radius: 0;
     -webkit-appearance: none;
-    line-height: 1.6;
+    line-height: 1.5;
     color: $grey-1;
     &:focus {
       outline: none;

@@ -1,0 +1,74 @@
+
+/*
+  Notices
+  =======
+*/
+
+.notice-container {
+  overflow: auto;
+  position: fixed;
+  top: 14px;
+  left: 0;
+  width: 95%;
+  margin: 0 2.5%;
+  .modal & {
+    position: relative;
+    max-width: none;
+    left: 0;
+    width: 100%;
+    margin: -10px 0 30px;
+  }
+  .one-fifth--right & {
+    margin: 0 0 1em;
+    position: relative;
+    float: left;
+    left: 0;
+    top: 0;
+  }
+  @media (min-width:640px) {
+    left: 50%;
+    width: 100%;
+    margin-left: -250px;
+    margin-right: 0;
+    max-width: 500px;
+  }
+}
+
+@mixin notice($background,$border,$color) {
+  background: $background;
+  border: 1px solid $border;
+  color: $color;
+}
+
+.notice {
+  &--success {
+    @include notice(#DFF0D8,#98BF73,#3C763D);
+  }
+  &--warning {
+    @include notice(#FCF8E3,#E5BE71,#8A6D3B);
+  }
+  &--info {
+    @include notice(#D9EDF7, #BCE8F1,#31708F);
+  }
+  &--danger {
+    @include notice(#F2DEDE,#EBCCD1,#A94442);
+  }
+}
+
+.notice--success,
+.notice--warning,
+.notice--info,
+.notice--danger {
+  @include border-radius(2px);
+  overflow: auto;
+  padding: 6px 15px;
+  margin-bottom: .25em;
+  p {
+    @extend %paragraph--small;
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    float: right;
+  }
+}

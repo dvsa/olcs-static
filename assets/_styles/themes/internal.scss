@@ -1,0 +1,56 @@
+
+
+/*
+  OLCS - Internal application SCSS
+  ================================
+  @version: 1.0
+  @author: sam.quayle@valtech.co.uk, Valtech Ltd
+*/
+
+$app: internal;
+
+$vendor-path:     '../vendor';
+$core-path: 	  '../core';
+$components-path: '../components';
+$views-path:      '../views';
+
+// Vendor
+@import '#{$vendor-path}/govuk_toolkit/_device-pixels';
+@import '#{$vendor-path}/govuk_toolkit/_measurements';
+@import '#{$vendor-path}/govuk_toolkit/_css3';
+@import '#{$vendor-path}/govuk_toolkit/_colours';
+@import '#{$vendor-path}/govuk_toolkit/_typography';
+
+// Core
+@import '#{$core-path}/base';
+@import '#{$core-path}/config';
+@import '#{$core-path}/links';
+@import '#{$core-path}/typography';
+@import '#{$core-path}/layout';
+@import '#{$core-path}/forms';
+@import '#{$core-path}/navigation';
+@import '#{$core-path}/tables';
+@import '#{$core-path}/buttons';
+
+// Components
+@import '#{$components-path}/global-header';
+@import '#{$components-path}/search';
+@import '#{$components-path}/admin-menu';
+@import '#{$components-path}/user-header';
+@import '#{$components-path}/page-header';
+@import '#{$components-path}/breadcrumb';
+@import '#{$components-path}/application-nav';
+@import '#{$components-path}/horizontal-nav';
+@import '#{$components-path}/vertical-nav';
+@import '#{$components-path}/pagination';
+@import '#{$components-path}/result-settings';
+@import '#{$components-path}/filters';
+@import '#{$components-path}/status';
+@import '#{$components-path}/comment';
+@import '#{$components-path}/empty';
+@import '#{$components-path}/guidance';
+@import '#{$components-path}/split-screen';
+@import '#{$components-path}/modal';
+
+// Views
+@import '#{$views-path}/sign-in';

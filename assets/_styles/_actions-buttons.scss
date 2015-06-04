@@ -1,5 +1,6 @@
-/* 9.1 Actions
-   ========================================================================== */
+/**
+ * Actions & buttons
+ */
 
 a,
 button,
@@ -10,8 +11,6 @@ input[type="submit"] {
   }
 }
 
-
-/* Use these to wrap multiple actions */
 .actions-container {
   padding-bottom: 2px;
   margin: 10px 0;
@@ -147,11 +146,6 @@ button.action--tertiary.large {
   line-height: 2.3;
 }
 
-button.more-actions__button,
-input[type=submit].more-actions__button {
-
-}
-
 .more-actions {
   position: relative;
   float: left;
@@ -199,4 +193,3 @@ input[type=submit].more-actions__button {
     text-decoration: none;
   }
 }
-

@@ -1,0 +1,97 @@
+
+/*
+  Search
+  ======
+*/
+
+.search {
+  float: left;
+  width: 480px;
+  margin-top: 2px;
+  @media (max-width: 640px) {
+    width: 100%;
+  }
+  &__wrapper {
+    @include border-radius(2px);
+    float: left;
+    position: relative;
+    height: 32px;
+    width: 75%;
+    background: $grey-4;
+    @media (max-width: 640px) {
+      width: 100%;
+    }
+  }
+  &__input {
+    @extend %paragraph--small;
+    @include border-radius(2px);
+    position: absolute;
+    display: table-cell;
+    left: 0;
+    top: 0;
+    width: 165px;
+    padding: 8px 0 0 3%;
+    line-height: 1;
+    border: 0;
+    color: $black;
+    font-size: 15px;
+    vertical-align: middle;
+    behavior: url('/htc/PIE.htc');
+  }
+  &__input:focus {
+    outline: none;
+  }
+  input[type="submit"] {
+    @include border-radius(0 3px 3px 0);
+    position: absolute;
+    right: -3px;
+    border: 0;
+    height: 32px;
+    width: 38px;
+    text-indent: -9999px;
+    behavior: url('/htc/PIE.htc');
+    background: $primaryColour url('#{$assetPath}/search.png') no-repeat 50% 45%;
+    @include device-pixel-ratio($ratio: 2) {
+      background: $primaryColour url('#{$assetPath}/search-2x.png') no-repeat 50% 45%;
+      background-size: 17px 17px;
+    }
+  }
+  &__advanced {
+    font-size: 14px;
+    color: $white;
+    margin: .5em 1em;
+    float: left;
+    @media(max-width: 640px) {
+      display: none;
+    }
+  }
+}
+
+.search__select {
+  width: 140px;
+  overflow: hidden;
+  position: absolute;
+  right: 34px;
+  border-left: 1px solid $grey-2;
+  padding-left: 7px;
+  background: $grey-4 url('../images/down-arrow.png') no-repeat 92% 11px;
+  height: 100%;
+  @include device-pixel-ratio($ratio: 2) {
+    background: $grey-4 url('../images/down-arrow-2x.png') no-repeat 92% 11px;
+    background-size: 12px 112px;
+  }
+  select {
+    background: transparent;
+    width: 160px;
+    font-size: 14px;
+    padding: 6px 0 0;
+    border: 0;
+    border-radius: 0;
+    -webkit-appearance: none;
+    line-height: 1.5;
+    color: $grey-1;
+  }
+  select:focus {
+    outline: none;
+  }
+}

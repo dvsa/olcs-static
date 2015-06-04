@@ -1,0 +1,52 @@
+
+/*
+  User header
+  ==============
+  Component decription
+*/
+
+.user-header {
+  width: 100% - ($gutter*2);
+  overflow: auto;
+  border-top: 8px solid $primaryColour;
+  padding: .6em 0;
+  margin-bottom: .5em;
+  @media (max-width: 640px){
+    width: 92%;
+    margin: 0 4% .4em;
+  }
+}
+
+.user-menu {
+  float: right;
+  &__item {
+    display: inline;
+    margin-left: .5em;
+  }
+}
+
+
+/*
+  Selfserve theme
+  ---------------
+*/
+
+@if $app == 'selfserve' {
+  .user-header {
+    @extend .full-width;
+    @extend %paragraph--small;
+    border-bottom: 1px solid $grey-2;
+  }
+}
+
+/*
+  Internal theme
+  --------------
+*/
+
+@if $app == 'internal' {
+  .user-header {
+    @extend %paragraph--tiny;
+    border-top: 6px solid $primaryColour;
+  }
+}

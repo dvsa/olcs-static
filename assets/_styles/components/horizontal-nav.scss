@@ -1,0 +1,31 @@
+
+/*
+  Horizontal nav
+  ==============
+*/
+
+.horizontal-navigation {
+  @extend %navigation;
+  margin-bottom: 8px;
+  border-bottom: 1px solid $grey-3;
+  &__item {
+    @extend %navigation__item;
+  }
+  a {
+    @extend %navigation__link;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-top: 2px;
+  }
+  .current {
+    @extend %navigation__link;
+    color: $black;
+    border-bottom: 3px solid $primaryColour;
+    padding: 2px 15px 10px 10px;
+    @media(max-width: 880px) {
+      border: 0;
+      border-bottom: 3px solid $primaryColour;
+    }
+  }
+}
