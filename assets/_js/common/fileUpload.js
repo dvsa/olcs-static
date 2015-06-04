@@ -161,8 +161,6 @@ OLCS.fileUpload = (function(document, $, undefined) {
       });
 
       OLCS.eventEmitter.on("render", setup);
-
-      setup();
     }
   };
 

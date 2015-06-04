@@ -95,6 +95,8 @@ describe("OLCS.cascadeForm", function() {
             }
           }
         });
+
+        OLCS.eventEmitter.emit("render");
       });
 
       it("should bind the correct change listener to the form", function() {
@@ -237,6 +239,8 @@ describe("OLCS.cascadeForm", function() {
               }
             }
           });
+
+          OLCS.eventEmitter.emit("render");
         } catch (e) {
           this.e = e;
         }

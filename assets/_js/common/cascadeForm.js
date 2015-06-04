@@ -138,8 +138,8 @@ OLCS.cascadeForm = (function(document, $, undefined) {
 
       var parts;
 
-      // save people typing "selector:#id", allow "#id" instead
-      if (selector.substring(0, 1) === "#") {
+      // shorthands for ID and class selectors
+      if (selector.substring(0, 1) === "#" || selector.substring(0, 1) === ".") {
         selector = "selector:" + selector;
       }
 
@@ -207,9 +207,11 @@ OLCS.cascadeForm = (function(document, $, undefined) {
       });
     }
 
-    checkForm();
-
     form.on("change", checkForm);
+
+    // hmm. This will outlive the component, which means when the component re-binds (if it's in a modal and uses jquery.onReady)
+    // then this will stack multiple listeners
+    OLCS.eventEmitter.on("render", checkForm);
   };
 
 }(document, window.jQuery));
