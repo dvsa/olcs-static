@@ -280,10 +280,6 @@ select[multiple] {
   }
 }
 
-/* Chosen */
-
-@import 'vendor/chosen';
-
 input:focus,
 textarea:focus,
 select:focus {
@@ -627,11 +623,46 @@ input[type="file"] {
   ---------------
 */
 
-// @if $app == 'selfserve' {
-//   .component {
-//     background: red;
-//   }
-// }
+@if $app == 'selfserve' {
+
+  .checkbox {
+    &.inline label {
+      clear: none;
+    }
+    label {
+      background: $grey-3;
+      padding: 14px 17px 14px 17px;
+      float: left;
+      clear: both;
+      &:hover {
+        background: $grey-2;
+        cursor: pointer;
+      }
+      &.selected {
+        background: #FFF;
+        border: 1px solid $black;
+        padding: 13px 16px 13px 16px;
+      }
+      &.disabled {
+        cursor: default;
+      }
+      &.disabled:hover {
+        background: $grey-3;
+      }
+      &.selected.disabled:hover {
+        background: $white;
+      }
+    }
+    input:focus {
+      border: none;
+      outline: none;
+    }
+    .hint {
+      float: left;
+    }
+  }
+
+}
 
 
 /*
@@ -666,7 +697,7 @@ input[type="file"] {
   }
 
   fieldset fieldset legend {
-    @extend %paragraph--small;
+    font-size: 15px;
     font-weight: 400;
     margin-bottom: 7px;
   }
@@ -677,7 +708,7 @@ input[type="file"] {
   }
 
   label {
-    @extend %paragraph--small;
+    font-size: 15px;
     .inline & {
       @extend %paragraph--tiny;
     }
@@ -694,6 +725,13 @@ input[type="file"] {
       width: 150px;
       margin-right: 10px;
     }
+  }
+
+  input,
+  textarea,
+  .terms--box {
+    border: 1px solid $grey-2;
+    background: $grey-4;
   }
 
   input:focus,

@@ -40,10 +40,10 @@
     }
   }
 
-  .gobal-header__logo {
+  .global-header__logo {
     float: left;
     padding-top: 6px;
-    color: $white;
+    color: white;
     font-weight: 700;
     font-size: 30px;
     line-height: 1;
@@ -58,9 +58,9 @@
     }
     &:hover {
       text-decoration: none;
-      border-bottom: 1px solid $white;
+      border-bottom: 1px solid #FFF;
       margin-bottom: -1px;
-      color: $white;
+      color: #FFF;
     }
   }
 
@@ -75,6 +75,7 @@
 @if $app == 'internal' {
 
   .global-header {
+    background: #111;
     &__wrapper {
       margin: 0 $gutter .75em;
       padding: .5em $gutter 0;

@@ -199,15 +199,20 @@ tfoot {
   }
 
   table {
-    border: 1px solid $grey-2;
+    border: 1px solid $grey-3;
   }
 
   tfoot {
     background: $grey-4;
   }
 
-  tr.urgent {
-    border-left: 5px solid $mellow-red;
+  tr {
+    &.urgent {
+      border-left: 5px solid $mellow-red;
+    }
+    &.hover {
+      background: $grey-4;
+    }
   }
 
   th,
@@ -225,8 +230,8 @@ tfoot {
   }
 
   td {
-    border-top: 1px solid $grey-2;
-    border-right: 1px dotted $grey-2;
+    border-top: 1px solid $grey-3;
+    border-right: 1px dotted $grey-3;
   }
 
   .sortable {
@@ -238,7 +243,7 @@ tfoot {
     &:hover,
     &.ascending,
     &.descening {
-      background-color: $grey-3;
+      background-color: $grey-4;
     }
   }
 

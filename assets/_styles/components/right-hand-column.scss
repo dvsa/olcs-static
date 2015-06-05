@@ -4,26 +4,88 @@
   =================
 */
 
-.small-module {
-  margin-bottom: 1.5em;
-  &__title {
-    @extend %paragraph--small;
-    border-bottom: 1px solid $grey-3;
-    padding-bottom: .5em;
-    margin: .4em 0 .5em;
+
+/*
+  Selfserve theme
+  ---------------
+*/
+
+@if $app == 'selfserve' {
+
+  .sidebar {
+    border-top: 6px solid $primaryColour;
   }
+
+  .meta {
+    border: none;
+    margin: 1em 0;
+    padding-bottom: 1em;
+    border-bottom: 1px solid $grey-2;
+    dt, dd {
+      border: none;
+      display: block;
+      width: 100%;
+      padding: 0;
+    }
+    dd {
+      @extend %h4;
+      padding: 0 0 .5em 0;
+    }
+  }
+
+  .links {
+    padding: 1em 0 2em 0;
+  }
+
+  .support {
+    border-top: 1px solid $grey-2;
+    padding-top: 1em;
+    float: left;
+    p {
+      @extend %paragraph--small;
+    }
+  }
+
+  .links-list {
+    margin-top: 1.25em;
+    list-style: none;
+    &__item {
+      margin-bottom: .5em;
+    }
+  }
+
 }
 
-.latest-note {
-  &__details {
-    @include border-radius(3px);
-    padding: .6em 1em .75em;
-    background: $yellow-25;
-    border: 1px solid $yellow-50;
+
+/*
+  Internal theme
+  --------------
+*/
+
+@if $app == 'internal' {
+
+  .small-module {
+    margin-bottom: 1.5em;
+    &__title {
+      @extend %paragraph--small;
+      border-bottom: 1px solid $grey-3;
+      padding-bottom: .5em;
+      margin: .4em 0 .5em;
+    }
   }
-  &__link {
-    @extend %paragraph--tiny;
-    text-align: right;
-    display: block;
+
+  .latest-note {
+    &__details {
+      @include border-radius(3px);
+      padding: .6em 1em .75em;
+      background: $yellow-25;
+      border: 1px solid $yellow-50;
+    }
+    &__link {
+      @extend %paragraph--tiny;
+      text-align: right;
+      display: block;
+    }
   }
+
 }

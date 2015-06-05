@@ -11,6 +11,13 @@
   left: 0;
   width: 95%;
   margin: 0 2.5%;
+  @media (min-width:640px) {
+    left: 50%;
+    width: 100%;
+    margin-left: -250px;
+    margin-right: 0;
+    max-width: 500px;
+  }
   .modal & {
     position: relative;
     max-width: none;
@@ -18,19 +25,16 @@
     width: 100%;
     margin: -10px 0 30px;
   }
-  .one-fifth--right & {
-    margin: 0 0 1em;
-    position: relative;
+}
+
+.one-fifth--right .notice-container {
+  margin: 0 0 1em;
+  position: relative;
+  float: left;
+  left: 0;
+  top: 0;
+  a {
     float: left;
-    left: 0;
-    top: 0;
-  }
-  @media (min-width:640px) {
-    left: 50%;
-    width: 100%;
-    margin-left: -250px;
-    margin-right: 0;
-    max-width: 500px;
   }
 }
 

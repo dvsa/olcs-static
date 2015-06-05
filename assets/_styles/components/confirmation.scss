@@ -1,0 +1,16 @@
+
+/*
+  Confirmation
+  ============
+*/
+
+.confirmation {
+  color: #FFF;
+  background: $turquoise;
+  text-align: center;
+  padding: 3em 1em;
+  margin-bottom: 3em;
+  p {
+    @extend %paragraph--large;
+  }
+}

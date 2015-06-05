@@ -9,8 +9,8 @@
     pubStyles = 'public/styles';
 
     styles = {
-      'public/styles/selfserve.css': 'assets/_styles/selfserve.scss',
-      'public/styles/internal.css': 'assets/_styles/internal.scss'
+      'public/styles/selfserve.css': 'assets/_styles/themes/selfserve.scss',
+      'public/styles/internal.css': 'assets/_styles/themes/internal.scss'
     };
 
     scriptPaths = function(path) {

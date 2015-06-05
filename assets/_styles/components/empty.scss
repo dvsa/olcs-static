@@ -8,11 +8,11 @@
 .empty {
   background: $grey-4;
   overflow: auto;
-  padding: 1.25em 1em 1.5em 1em;
+  padding: 1.25em 1em 1.75em;
   display: block;
   border-left: 4px solid $grey-2;
   clear: left;
-  margin: 11px 0 1em 0;
+  margin: 11px 0 1em;
   fieldset & {
     margin-bottom: 0;
   }
@@ -32,6 +32,20 @@
     @extend %paragraph--large;
     margin-bottom: .75em;
   }
+}
+
+
+/*
+  Selfserve theme
+  ---------------
+*/
+
+@if $app == 'selfserve' {
+
+  .empty {
+    max-width: 600px;
+  }
+
 }
 
 
