@@ -351,7 +351,7 @@ input[type="file"] {
 */
 
 .file-uploader {
-  max-width: 800px;
+  max-width: 600px;
   ul {
     list-style: none;
   }
@@ -419,7 +419,7 @@ input[type="file"] {
   position: relative;
   overflow: auto;
   display: block;
-  width: 95%;
+  width: 100%;
   border-left: 3px solid $grey-3;
   background: $grey-4;
   padding: 15px 2.5% 10px;
@@ -608,6 +608,7 @@ input[type="file"] {
 */
 
 .confirm {
+  max-width: 600px;
   padding: 15px 15px 7px;
   border: 1px solid $light-blue-50;
   background: $light-blue-25;
