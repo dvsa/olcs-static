@@ -46,7 +46,7 @@ OLCS.notices = (function(document, $, undefined) {
       }
     });
 
-    OLCS.eventEmitter.on('render', addCloseButton());
+    OLCS.eventEmitter.on('render', addCloseButton);
 
     /**
      * @TODO SQ: 09/02/2015
