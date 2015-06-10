@@ -6,10 +6,9 @@
 
 // status class, 1x Y value, 2x Y value
 $mobile-statuses: (
-  complete 5px 4px,
-  incomplete -295px -297px,
-  current -95px -95px,
-  edited -398px -400px
+  complete 11px 11px,
+  incomplete -990px -990px,
+  edited -489px -489px
 );
 
 .app-navigation {
@@ -22,11 +21,11 @@ $mobile-statuses: (
   .disabled {
     display: block;
     width: 90%;
-    padding: .5em 10% .5em 0;
+    padding: 8px 20px 9px 0;
     border-bottom: 1px solid $grey-3;
   }
   .current {
-    border-bottom: 3px solid $black;
+    border-bottom: 3px solid $primaryColour;
   }
   .current.no-background {
     background: none;
@@ -37,18 +36,18 @@ $mobile-statuses: (
     margin: 0;
     width: 100%;
     text-align: left;
-    background-size: 13px 165px;
-    background: url('#{$assetPath}/application-navigation-small.png') no-repeat 100% -192px;
+
+    background: url('#{$assetPath}/application-navigation.png') no-repeat 100% -192px;
     @include device-pixel-ratio($ratio: 2) {
       background: url('#{$assetPath}/application-navigation-2x.png') no-repeat 100% -192px;
-      background-size: 25px 467px;
+          background-size: 15px 1015px;
     }
   }
   @each $status in $mobile-statuses {
     .#{nth($status, 1)} {
-      background-position: 100% nth($status, 2);
+      background-position: 98% nth($status, 2);
       @include device-pixel-ratio($ratio: 2) {
-        background-position: 100% nth($status, 3);
+        background-position: 98% nth($status, 3);
       }
     }
   }

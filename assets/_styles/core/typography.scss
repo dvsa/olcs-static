@@ -131,10 +131,8 @@ textarea {
 }
 
 
-/*
-  Selfserve theme
-  ---------------
-*/
+// Selfserve theme
+// ---------------
 
 @if $app == 'selfserve' {
 
@@ -149,15 +147,17 @@ textarea {
 
 }
 
-/*
-  Internal theme
-  --------------
-*/
+// Internal theme
+// ---------------
 
 @if $app == 'internal' {
 
+  %h2 {
+    @include font-size(24px,16pt,20px);
+  }
+
   %h4 {
-    @include font-size(17px,13pt,15px);
+    @include font-size(16px,13pt,15px);
   }
 
   h1 {
@@ -171,7 +171,7 @@ textarea {
   }
 
   p {
-    @extend %paragraph--tiny;
+    font-size: 15px;
   }
 
 }

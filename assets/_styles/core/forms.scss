@@ -183,11 +183,10 @@ legend {
 label {
   @extend %paragraph--large;
   display: block;
-  margin: 0 .5em 7px 0;
+  margin: 0 10px 7px 0;
   .inline & {
     @extend %paragraph--small;
     display: inline;
-    margin: 0 .25em 0 0;
   }
 }
 
@@ -618,10 +617,8 @@ input[type="file"] {
   height: 200px;
 }
 
-/*
-  Selfserve theme
-  ---------------
-*/
+// Selfserve theme
+// ---------------
 
 @if $app == 'selfserve' {
 
@@ -665,12 +662,33 @@ input[type="file"] {
 }
 
 
-/*
-  Internal theme
-  --------------
-*/
+// Internal theme
+// ---------------
 
 @if $app == 'internal' {
+
+
+  .extra-long {
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .long {
+    max-width: 350px;
+  }
+
+  .medium {
+    max-width: 300px;
+    width: $half;
+  }
+
+  .short {
+    width: 140px;
+    @media (max-width: 640px){
+      width: $half;
+    }
+  }
+
 
   .medium {
     min-width: 300px;

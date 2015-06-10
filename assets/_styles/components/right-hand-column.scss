@@ -5,10 +5,8 @@
 */
 
 
-/*
-  Selfserve theme
-  ---------------
-*/
+// Selfserve theme
+// ---------------
 
 @if $app == 'selfserve' {
 
@@ -57,12 +55,15 @@
 }
 
 
-/*
-  Internal theme
-  --------------
-*/
+// Internal theme
+// ---------------
 
 @if $app == 'internal' {
+
+  .one-fifth--right,
+  .one-fifth--right p {
+    @extend %paragraph--tiny;
+  }
 
   .small-module {
     margin-bottom: 1.5em;

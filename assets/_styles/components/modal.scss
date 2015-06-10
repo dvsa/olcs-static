@@ -6,7 +6,7 @@
 
 .overlay {
   @extend %fixed;
-  @include opacity(.6);
+  @include opacity(.7);
   background: $black;
   z-index: 1;
 }
@@ -64,7 +64,9 @@
 .modal {
   left: 50%;
   margin: 5% 0 5% -350px;
-  width: 640px;
+  width: 600px;
+  overflow: visible;
+  float: left;
   @media(max-width: 700px) {
     margin: 46px 0 5%;
     width: auto;
@@ -87,17 +89,8 @@
 }
 
 
-
-/*
-  Some comment
-*/
-
-
-
-/*
-  Selfserve theme
-  ---------------
-*/
+// Selfserve theme
+// ---------------
 
 @if $app == 'selfserve' {
 
@@ -122,10 +115,8 @@
 
 }
 
-/*
-  Internal theme
-  --------------
-*/
+// Internal theme
+// ---------------
 
 @if $app == 'internal' {
 
@@ -150,12 +141,14 @@
       right: 0;
       left: 0;
       padding: 15px;
+      width: auto;
       background: $grey-4;
       border-top: 1px solid $grey-3;
     }
   }
 
   .modal__header {
+    @include border-radius(3px);
     position: absolute;
     top: 0;
     right: 0;
@@ -178,7 +171,7 @@
   }
 
   .modal__close {
-    top: 13px;
+    top: 11px;
     text-indent: -9999px;
     height: 22px;
     width: 22px;

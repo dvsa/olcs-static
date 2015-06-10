@@ -39,21 +39,14 @@
 }
 
 
-/*
-  Internal theme
-  --------------
-*/
+// Internal theme
+// ---------------
 
 @if $app == 'internal' {
-
   .guidance {
-    max-width: 700px;
-    border: 1px solid $grey-3;
-    background: $grey-4;
+    max-width: 600px;
     p {
-      @extend %paragraph--small;
-      color: $grey-1;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
   }
 

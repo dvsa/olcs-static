@@ -21,13 +21,6 @@ button {
   -moz-osx-font-smoothing: grayscale;
 }
 
-a:focus,
-button:focus,
-input[type="submit"]:focus {
-  outline: 3px solid $outline;
-  background-color: $outline;
-}
-
 @mixin action-colour ($colour: $button-colour) {
   @include box-shadow(0 2px 0 darken($colour, 15%));
   @include ie-lte(8) {
@@ -201,10 +194,8 @@ input.action,
 
 
 
-/*
-  Selfserve theme
-  ---------------
-*/
+// Selfserve theme
+// ---------------
 
 @if $app == 'selfserve' {
 
@@ -215,12 +206,17 @@ input.action,
     padding: 0;
   }
 
+  a:focus,
+  button:focus,
+  input[type="submit"]:focus {
+    outline: 3px solid $outline;
+    background-color: $outline;
+  }
+
 }
 
-/*
-  Internal theme
-  --------------
-*/
+// Internal theme
+// ---------------
 
 @if $app == 'internal' {
 
@@ -232,7 +228,7 @@ input.action,
   button:focus,
   input[type="submit"]:focus {
     outline: none;
-    background: none;
+    background-color: none;
   }
 
   %action-box {

@@ -13,11 +13,12 @@
   border-left: 4px solid $grey-2;
   clear: left;
   margin: 11px 0 1em;
+  max-width: 600px;
   fieldset & {
     margin-bottom: 0;
   }
   &__wrapper {
-    max-width: 800px;
+
     overflow: auto;
     margin: 3px 0 20px 0;
     clear: both;
@@ -28,36 +29,24 @@
   .actions-container {
     margin-bottom: 0;
   }
-  p {
-    @extend %paragraph--large;
-    margin-bottom: .75em;
-  }
 }
 
 
-/*
-  Selfserve theme
-  ---------------
-*/
+// Selfserve theme
+// ---------------
 
 @if $app == 'selfserve' {
 
-  .empty {
-    max-width: 600px;
-  }
 
 }
 
 
-/*
-  Internal theme
-  --------------
-*/
+// Internal theme
+// ---------------
 
 @if $app == 'internal' {
-
-  .empty p {
-    @extend %paragraph--small;
+  .empty {
+    padding: 15px 15px 19px 15px;
   }
 
 }

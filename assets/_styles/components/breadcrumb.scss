@@ -39,10 +39,8 @@
 }
 
 
-/*
-  Selfserve theme
-  ---------------
-*/
+// Selfserve theme
+// ---------------
 
 @if $app == 'selfserve' {
   .breadcrumbs {
@@ -54,11 +52,13 @@
 }
 
 
-@if $app == 'selfserve' {
-  .breadcrumbs {
-    margin: -2.5em 0 2.5em;
-    @media(max-width: 640px) {
-      margin-top: 0;
-    }
+// Internal theme
+// ---------------
+
+@if $app == 'internal' {
+
+  .breadcrumbs a {
+    color: $grey-1;
   }
+
 }

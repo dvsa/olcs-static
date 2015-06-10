@@ -95,10 +95,8 @@ dd {
 }
 
 
-/*
-  Selfserve theme
-  ---------------
-*/
+// Selfserve theme
+// ---------------
 
 @if $app == 'selfserve' {
   html {
@@ -111,10 +109,8 @@ dd {
 }
 
 
-/*
-  Internal theme
-  --------------
-*/
+// Internal theme
+// ---------------
 
 @if $app == 'internal' {
 
@@ -124,6 +120,12 @@ dd {
 
   body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 15px;
+  }
+
+  .hint,
+  .hint--small {
+    @extend %paragraph--tiny;
   }
 
 }

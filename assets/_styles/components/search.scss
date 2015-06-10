@@ -83,18 +83,14 @@
 }
 
 .search__select {
-  width: 100px;
+  @include border-radius(3px);
   overflow: hidden;
   position: absolute;
   right: 34px;
   border: 1px solid $grey-2;
   height: 21px;
   margin: 4px 5px 0;
-  padding-left: 7px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  @include border-radius(3px);
+  padding: 0 20px 0 7px;
   background: #EEE;
   background: -webkit-gradient(linear, 0 0, 0 bottom, from(#FCFCFC), to(#EEE));
   background: -webkit-linear-gradient(#FCFCFC, #EEE);
@@ -102,9 +98,25 @@
   background: -ms-linear-gradient(#FCFCFC, #EEE);
   background: -o-linear-gradient(#FCFCFC, #EEE);
   background: linear-gradient(#FCFCFC, #EEE);
+  &::after {
+    content: ' ';
+    display: block;
+    background: red;
+    float: left;
+    height: 20px;
+    width: 30px;
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    pointer-events: none;
+    background: url('../images/down-arrow.png') no-repeat 100% 5px;
+    @include device-pixel-ratio($ratio: 2) {
+      background-image: url('../images/down-arrow-2x.png');
+      background-size: 12px 112px;
+    }
+  }
   select {
     background: transparent;
-    width: 160px;
     font-size: 14px;
     padding: 0;
     border: 0;

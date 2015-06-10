@@ -55,9 +55,12 @@ $app: selfserve;
 @import '../components/modal';
 @import '../components/read-only';
 @import '../components/notice';
+@import '../components/tooltip';
+@import '../components/review';
 
 // Views
-@import '../views/overview';
-@import '../views/search';
-@import '../views/submit-tm-application';
-@import '../views/review';
+@import '../views/selfserve/overview';
+@import '../views/selfserve/search';
+@import '../views/selfserve/submit-tm-application';
+
+/*# sourceMappingURL=selfserve.css.map */

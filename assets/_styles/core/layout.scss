@@ -85,7 +85,7 @@ input[type="radio"].js-visible {
     margin: 0;
   }
   .actions-container {
-    margin: -5px 0 0;
+    margin: -5px 0 -1px;
     display: block;
     float: right;
   }
@@ -107,10 +107,8 @@ input[type="radio"].js-visible {
 
 
 
-/*
-  Selfserve theme
-  ---------------
-*/
+// Selfserve theme
+// ---------------
 
 @if $app == 'selfserve' {
 
@@ -179,10 +177,8 @@ input[type="radio"].js-visible {
 }
 
 
-/*
-  Internal theme
-  --------------
-*/
+// Internal theme
+// ---------------
 
 @if $app == 'internal' {
 
@@ -202,9 +198,6 @@ input[type="radio"].js-visible {
     @extend %header-with-actions;
     border-bottom: 1px solid $grey-3;
     margin: 5px 0 12px;
-    h3 {
-      font-size: 17px;
-    }
   }
 
   %table-cell {
@@ -219,7 +212,6 @@ input[type="radio"].js-visible {
     h4 {
       @extend %header-with-actions;
       margin: 3px 0 0;
-      font-size: 17px;
       border-bottom: 1px solid $grey-3;
       padding-bottom: 10px;
     }
