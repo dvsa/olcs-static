@@ -1,0 +1,55 @@
+
+/*
+  Global footer
+  =============
+*/
+
+.global-footer {
+  border-top: 1px solid $grey-2;
+  background: $grey-3;
+  color: #454a4c;
+  clear: both;
+  margin-top: 1.5em;
+  a {
+    color: #454a4c;
+  }
+  &__wrapper {
+    @extend .page-wrapper;
+    padding: 2em 0 0 0;
+  }
+  &__links {
+    @extend .two-thirds;
+    padding-top: 7em;
+    list-style: none;
+    @media (max-width: 640px){
+      padding: 0 5% 1.5em;
+    }
+  }
+  &__link {
+    float: left;
+    margin-right: $gutter-half;
+    @media (max-width: 640px){
+      display: block;
+      text-align: center;
+      width: 90%;
+    }
+  }
+}
+
+
+.global-footer__copyright {
+  @extend .one-third;
+  height: 150px;
+  float: right;
+  display: block;
+  background: url('#{$assetPath}/footer-crest.png') no-repeat 50% 0;
+  @include device-pixel-ratio($ratio: 2) {
+    background: url('#{$assetPath}/footer-crest-2x.png') no-repeat 50% 0;
+    background-size: 125px 102px;
+  }
+  a {
+    text-align: center;
+    display: block;
+    padding-top: 7em;
+  }
+}

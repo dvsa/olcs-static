@@ -1,0 +1,60 @@
+
+/*
+  Application/licence overview
+  ============================
+*/
+
+.overview-navigation {
+  list-style: none;
+  margin: -32px 0 2em 0;
+}
+
+.disabled .overflow-item:hover {
+  background: none;
+}
+
+.overview-item {
+  border-bottom: 1px solid $grey-2;
+  overflow: auto;
+  h4 {
+    float: left;
+    width: 40%;
+  }
+  p {
+    @extend %paragraph--small;
+    float: right;
+    clear: none;
+    text-decoration: underline;
+    color: $link-colour;
+    @media (max-width: 640px){
+      font-size: 14px;
+    }
+  }
+  .status {
+    float: left;
+    margin-top: 2px;
+    @media (max-width: 640px){
+      display: none;
+    }
+  }
+}
+
+.overview-item__link {
+  width: 96%;
+  padding: .8em 2% 0 2%;
+  color: $black;
+  text-decoration: none;
+  float: left;
+  display: block;
+  .disabled &  {
+    color: $grey-1;
+  }
+  &:hover {
+    background: $grey-3;
+    color: $black;
+    .disabled &  {
+      background: none;
+      color: $grey-1;
+    }
+  }
+}

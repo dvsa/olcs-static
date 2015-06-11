@@ -1,0 +1,346 @@
+
+/*
+  Buttons
+  =======
+*/
+
+.actions-container {
+  float: left;
+  margin: 10px 0;
+  padding-bottom: 2px;
+  a,
+  input,
+  button {
+    margin-right: 5px;
+  }
+}
+
+button {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin action-colour ($colour: $button-colour) {
+  @include box-shadow(0 2px 0 darken($colour, 15%));
+  @include ie-lte(8) {
+    border-bottom: 2px solid darken($colour, 15%);
+  }
+  background: $colour;
+  &:visited {
+    background-color: $colour;
+  }
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    background-color: darken($colour, 5%);
+  }
+  &:active {
+    @include box-shadow(0 0 0 $colour);
+    top: 2px;
+  }
+  &.disabled,
+  &[disabled="disabled"],
+  &[disabled] {
+    @include opacity(.5);
+    &:hover {
+      cursor: default;
+      background-color: $colour;
+    }
+    &:active {
+      @include box-shadow(0 2px 0 darken($colour, 15%));
+      @include ie-lte(8) {
+        border-bottom: 2px solid darken($colour, 15%);
+      }
+      top: 0;
+    }
+  }
+  @if lightness($colour) < 50% {
+    color: $white;
+    &:link,
+    &:hover,
+    &:focus,
+    &:visited {
+      color: $white;
+    }
+  } @else {
+    color: $text-colour;
+    &:link,
+    &:hover,
+    &:focus,
+    &:visited{
+      color: $text-colour;
+    }
+  }
+}
+
+%action-box {
+  @extend %paragraph--small;
+  border: 0;
+  margin: 0 .3em 0 0;
+  padding: 5px 10px 3px;
+  padding: .3em .5em .4em .5em\9;
+  font-family: $NTA-Light;
+  text-decoration: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  vertical-align: top;
+  -webkit-appearance: none;
+  cursor: pointer;
+  @include ie-lte(8) {
+    &[type="submit"],
+    &[type="reset"],
+    &[type="button"] {
+      filter: chroma(color=#000000);
+    }
+    &[type=submit].button {
+      filter: none;
+    }
+  }
+}
+
+input.action,
+.action {
+  &--primary {
+    @extend %action-box;
+    @include action-colour();
+  }
+  &--secondary {
+    @extend %action-box;
+    @include action-colour($grey-3);
+  }
+  &--tertiary {
+    @extend a;
+    background: none;
+    border: 0;
+    font-family: $NTA-Light;
+    text-decoration: underline;
+    padding: 10px 15px 5px 5px;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.action--primary.large,
+.action--secondary.large {
+  @extend %paragraph--large;
+  padding: 7px 15px 5px;
+  .lookup &,
+  .js-postcode-search & {
+    padding: 4px 12px 3px;
+  }
+}
+
+.action--tertiary.large {
+  @extend %paragraph--large;
+  padding: 7px 15px 5px 5px;
+  line-height: 2.3;
+}
+
+
+/*
+  More actions styles a select element
+  to look like a button
+ */
+
+.more-actions {
+  position: relative;
+  float: left;
+  &__button {
+    @extend .action--secondary;
+    padding-right: 25px;
+    background-image: url('../images/down-arrow.png');
+    background-repeat: no-repeat;
+    background-position: 92.5% 11px;
+    @include device-pixel-ratio($ratio: 2) {
+      background-image: url('../images/down-arrow-2x.png');
+      background-size: 12px 112px;
+    }
+  }
+  &__list {
+    @include border-radius(3px);
+    @include box-shadow(0 1px 5px $grey-3);
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background: #FFF;
+    padding: 10px 0;
+    width: 100%;
+  }
+  &:hover .more-actions__list {
+    display: block;
+  }
+}
+
+.more-actions__item {
+  display: block;
+  margin: 2px 15px 6px 15px;
+  border: 0;
+  padding: 0;
+  background: none;
+  color: $link-colour;
+  text-decoration: underline;
+  &[disabled] {
+    cursor: default;
+    color: $grey-1;
+    text-decoration: none;
+  }
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+
+
+// Selfserve theme
+// ---------------
+
+@if $app == 'selfserve' {
+
+  .action--tertiary.list {
+    display: block;
+    font-size: 19px;
+    margin: 40px 0 -30px 0;
+    padding: 0;
+  }
+
+  a:focus,
+  button:focus,
+  input[type="submit"]:focus {
+    outline: 3px solid $outline;
+    background-color: $outline;
+  }
+
+}
+
+// Internal theme
+// ---------------
+
+@if $app == 'internal' {
+
+  .actions-container select {
+    float: left;
+  }
+
+  a:focus,
+  button:focus,
+  input[type="submit"]:focus {
+    outline: none;
+    background-color: none;
+  }
+
+  %action-box {
+    @include border-radius(2px);
+    display: inline-block;
+    width: auto;
+    overflow: visible;
+    position: relative;
+    vertical-align: middle;
+    margin-right: 5px;
+    padding: 4px 10px 5px 10px;
+    line-height: 1.2;
+    text-align: center;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 15px;
+    behavior: url(/htc/PIE.htc);
+    box-shadow: none;
+    &.large {
+      font-weight: 600;
+      font-size: 17px;
+      padding: 7px 13px 7px 13px;
+      .inline & {
+        font-size: 15px;
+        padding: 8px 12px;
+      }
+    }
+  }
+
+  @mixin actionColour (
+    $color,
+    $border-colour,
+    $grad-light,
+    $grad-dark,
+    $hover-bg,
+    $disabled-text-color,
+    $disabled-bg,
+    $disabled-border ) {
+    color: $color;
+    border: 1px solid $border-colour;
+    background: $grad-dark;
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from($grad-light), to($grad-dark));
+    background: -webkit-linear-gradient($grad-light, $grad-dark);
+    background: -moz-linear-gradient($grad-light, $grad-dark);
+    background: -ms-linear-gradient($grad-light, $grad-dark);
+    background: -o-linear-gradient($grad-light, $grad-dark);
+    background: linear-gradient($grad-light, $grad-dark);
+    &:hover {
+      cursor: pointer;
+      color: $color;
+      background: $hover-bg;
+    }
+    &.disabled,
+    &[disabled],
+    &[disabled="disabled"] {
+      cursor: default;
+      border: 1px solid $disabled-border;
+      background: $disabled-bg;
+      color: $disabled-text-color;
+      &:hover {
+        background: $disabled-bg;
+      }
+    }
+  }
+
+  input.action--primary,
+  .action--primary {
+    @extend %action-box;
+    @include actionColour(#FFF, #10654E, #178B6C, $primaryColour, #146C55, #FFF, #8BB5AA, #8BB5AA);
+  }
+
+  input.action--secondary,
+  .action--secondary {
+    @extend %action-box;
+    @include actionColour(#222, $grey-2, #FCFCFC, #EEE, $grey-3, $grey-2, #FCFCFC, $grey-3);
+  }
+
+  input.action--delete,
+  .action--delete {
+    @extend %action-box;
+    @include actionColour($white, #990917, $red, #990917, #87000D, $red, #FCFCFC, $red);
+  }
+
+  input.action--tertiary,
+  .action--tertiary {
+    @extend %action-box;
+    @extend a;
+    background: none;
+    border: 0;
+    font-size: 15px;
+    text-decoration: underline;
+    &.large {
+       padding-left: 7px;
+    }
+  }
+
+
+  .record-actions {
+    margin-top: .75em;
+    display: block;
+    &__group {
+      list-style: none;
+      margin: .5em 0 1.1em 0;
+    }
+    &__item {
+      margin-bottom: .5em;
+    }
+    a {
+      color: $black;
+      text-decoration: none;
+      display: block;
+    }
+  }
+
+}

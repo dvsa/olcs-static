@@ -1,0 +1,14 @@
+
+/*
+  List navigation
+  ===============
+*/
+
+.list-navigation {
+  list-style: none;
+  margin-bottom: 40px;
+  &__item {
+    @extend %paragraph--large;
+    margin-bottom: 5px;
+  }
+}

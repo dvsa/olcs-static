@@ -1,0 +1,28 @@
+
+/*
+  Pagination
+  ==========
+*/
+
+.pagination {
+  &__item {
+    @extend %paragraph--small;
+    display: inline;
+    margin: 0 5px;
+  }
+}
+
+@media(max-width: 640px) {
+  a[rel="Previous"],
+  a[rel="Next"] {
+    display: none;
+  }
+}
+
+// Internal theme
+// ---------------
+
+.pagination__item {
+  font-size: 15px
+}
+

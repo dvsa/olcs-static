@@ -1,0 +1,68 @@
+
+/*
+  Sign in
+  =======
+*/
+
+.component {
+  display: block;
+}
+
+/*
+  Some comment
+*/
+
+
+// Selfserve theme
+// ---------------
+
+@if $app == 'selfserve' {
+  .component {
+    background: red;
+  }
+}
+
+
+// Internal theme
+// ---------------
+
+@if $app == 'internal' {
+
+  .sign-in {
+    background: $grey-4;
+    #main {
+      border-top: 6px solid $primaryColour;
+    }
+    legend {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    form {
+      @include box-shadow(0 1px 5px $grey-3);
+      background: #FFF;
+      max-width: 400px;
+      margin: 40px auto;
+      padding: 20px 32px 20px 30px;
+      float: none;
+      overflow: auto;
+    }
+    input[type=text],
+    input[type=password] {
+      width: 94%;
+      padding: .5em 3%;
+    }
+    label {
+      float: left;
+      width: 50%;
+      margin-right: 0;
+    }
+    .hint {
+      float: left;
+      width: 50%;
+      clear: none;
+      text-align: right;
+      margin: 0;
+    }
+  }
+
+}

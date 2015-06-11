@@ -1,0 +1,103 @@
+
+/*
+  Global header
+  =============
+*/
+
+.global-header {
+  background: $black;
+  color: $white;
+  overflow: hidden;
+  &__wrapper {
+    @extend .page-wrapper;
+  }
+}
+
+
+// Selfserve theme
+// ---------------
+
+@if $app == 'selfserve' {
+
+  .global-header {
+    &__wrapper {
+      margin: 0 auto;
+      padding: .5em;
+      overflow: auto;
+    }
+    &__title {
+      @extend %h4;
+      clear: none;
+      overflow: hidden;
+      text-align: right;
+      margin: .25em $gutter 0 0;
+      display: block;
+      @media (max-width: 640px){
+        display: none;
+      }
+    }
+  }
+
+  .global-header__logo {
+    float: left;
+    padding-top: 6px;
+    color: white;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1;
+    text-decoration: none;
+    margin-left: $gutter;
+    img {
+      margin-top: -3px;
+      width: 35px;
+      height: 31px;
+      padding-right: 6px;
+      float: left;
+    }
+    &:hover {
+      text-decoration: none;
+      border-bottom: 1px solid #FFF;
+      margin-bottom: -1px;
+      color: #FFF;
+    }
+  }
+
+}
+
+
+// Internal theme
+// ---------------
+
+@if $app == 'internal' {
+
+  .global-header {
+    background: #111;
+    &__wrapper {
+      margin: 0 $gutter .75em;
+      padding: .5em $gutter 0;
+      overflow: visible;
+      height: 32px;
+      @media(max-width: 640px) {
+        height: 72px;
+        padding-bottom: 1em;
+        width: 92%;
+        margin: 0 4%;
+      }
+    }
+    &__title {
+      float: left;
+      font-size: 26px;
+      font-weight: bold;
+      margin-right: $gutter;
+    }
+  }
+
+  .global-header a {
+    color: $white;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+}
