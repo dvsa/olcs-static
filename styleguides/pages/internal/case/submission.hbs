@@ -40,6 +40,7 @@ read-only:
     type: textarea
 
 ---
+  <div class="submission">
 
     <!-- MAIN HEADER -->
 
@@ -117,19 +118,21 @@ read-only:
         </li>
       </ul><!-- .definition-list -->
 
-      <fieldset id="caseDetailsFileUploader" class="file-uploader">
-        <input class="action--secondary" type="submit" value="Add comment">
-        <ul class="file-uploader__actions">
-          <li class="file-uploader__action">
-            <label class="file-uploader__label">
+      <fieldset class="file-uploader" id="FileUploader1">
+        <a class="action--secondary" href="add-comment.html">Add comment</a>
+        <ul class="attach-action__list">
+          <li class="attach-action">
+            <label class="attach-action__label">
               Attach file
-              <input class="js-visually-hidden" type="file" name="fileUpload2[]">
+              <input class="attach-action__input js-visually-hidden" type="file" name="fileUpload[]">
             </label>
-            <p class="hint">20MB maximum file size. PDF, DOC, JPG, PNG or GIF</p>
           </li>
-        </ul><!-- file-uploader__actions -->
-        <ul class="file-uploader__list" id="fileUploader1"></ul><!-- file-uploader__list -->
-        <input class="action--primary large js-hidden" type="submit" value="Upload">
+        </ul><!-- attach-actions -->
+        <ul class="uploaded-file__list">
+        </ul><!-- uploaded-files -->
+        <ul class="attached-file__list">
+        </ul><!-- attached-file__list -->
+        <input class="inline-upload js-hidden" type="submit" value="Upload">
       </fieldset><!-- .file-uploader -->
 
     </div><!-- read-only -->
@@ -196,38 +199,46 @@ read-only:
 
       <div class="comment">
         <a class="comment__edit" href="" >Edit</a>
-        <b>Voluptatem accusantium</b>
-        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-        <b>Nemo enim ipsam voluptatem</b>
-        <p>quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum <i>quia dolor sit amet</i>, consectetur.</p>
+        <h1>H1 Title</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <h2>H2 Title</h2>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <h3>H2 Title</h3>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
         <ul>
-          <li>Sed quia non numquam eius modi tempora</li>
-          <li>Incidunt ut labore et dolore magnam</li>
-          <li>Aliquam quaerat voluptatem</li>
+        <li>Excepteur sint</li>
+        <li>occaecat cupidatat</li>
+        <li>non proident</li>
         </ul>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <ol>
+        <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+        <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+        </ol>
       </div><!-- .comment -->
     </form>
 
-
-   <fieldset class="file-uploader" id="FileUploader2">
-      <legend>Convictions</legend>
-      <input class="action--secondary" type="submit" value="Add comment">
-      <ul class="attach-action__list">
-        <li class="attach-action">
-          <label class="attach-action__label">
-            Attach file
-            <input class="attach-action__input js-visually-hidden" type="file" name="fileUpload[]">
-          </label>
-          <p class="attach-action__hint">20MB maximum file size. PDF, DOC, JPG, PNG or GIF</p>
-        </li>
-      </ul><!-- attach-actions -->
-      <ul class="uploaded-file__list">
-      </ul><!-- uploaded-files -->
-      <ul class="attached-file__list">
-      </ul><!-- attached-file__list -->
-      <input class="inline-upload js-hidden" type="submit" value="Upload">
-    </fieldset><!-- .file-uploader -->
-
+    <div class="read-only text-area">
+      <div class="read-only__header">
+        <h3>Convictions</h3>
+      </div>
+      <fieldset class="file-uploader" id="FileUploader2">
+        <a class="action--secondary" href="add-comment.html">Add comment</a>
+        <ul class="attach-action__list">
+          <li class="attach-action">
+            <label class="attach-action__label">
+              Attach file
+              <input class="attach-action__input js-visually-hidden" type="file" name="fileUpload[]">
+            </label>
+          </li>
+        </ul><!-- attach-actions -->
+        <ul class="uploaded-file__list">
+        </ul><!-- uploaded-files -->
+        <ul class="attached-file__list">
+        </ul><!-- attached-file__list -->
+        <input class="inline-upload js-hidden" type="submit" value="Upload">
+      </fieldset><!-- .file-uploader -->
+    </div>
 
     <!-- SUBMISSION ACTIONS -->
 
@@ -270,3 +281,5 @@ read-only:
       isMultiple: true
     });
     </script>
+
+  </div>

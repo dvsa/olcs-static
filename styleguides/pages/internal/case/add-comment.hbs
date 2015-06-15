@@ -52,7 +52,7 @@ read-only:
           <form action="">
             <fieldset>
               <div class="field">
-                <label for="">Comment</label>
+                <label class="visually-hidden" for="">Comment</label>
                 <textarea type="text" class="extra-long tinymce"></textarea>
               </div>
             </fieldset>
@@ -232,27 +232,6 @@ read-only:
       </div><!-- .comment -->
     </form>
 
-
-   <fieldset class="file-uploader" id="FileUploader2">
-      <legend>Convictions</legend>
-      <input class="action--secondary" type="submit" value="Add comment">
-      <ul class="attach-action__list">
-        <li class="attach-action">
-          <label class="attach-action__label">
-            Attach file
-            <input class="attach-action__input js-visually-hidden" type="file" name="fileUpload[]">
-          </label>
-          <p class="attach-action__hint">20MB maximum file size. PDF, DOC, JPG, PNG or GIF</p>
-        </li>
-      </ul><!-- attach-actions -->
-      <ul class="uploaded-file__list">
-      </ul><!-- uploaded-files -->
-      <ul class="attached-file__list">
-      </ul><!-- attached-file__list -->
-      <input class="inline-upload js-hidden" type="submit" value="Upload">
-    </fieldset><!-- .file-uploader -->
-
-
     <!-- SUBMISSION ACTIONS -->
 
     <h4>Submission actions</h4>
@@ -293,12 +272,26 @@ read-only:
           statusbar : false,
           spellchecker_languages : "+English=en",
           height : 260,
-          plugins: [
-              "advlist autolink lists link charmap anchor",
-              "searchreplace fullscreen",
-              "insertdatetime table contextmenu paste spellchecker"
+          content_css : "/tinymce/skins/lightgray/custom.css",
+          style_formats: [
+            {title: "Headers", items: [
+              {title: "Header 1", format: "h1"},
+              {title: "Header 2", format: "h2"},
+              {title: "Header 3", format: "h3"}
+            ]},
+            {title: "Inline", items: [
+              {title: "Bold", icon: "bold", format: "bold"},
+              {title: "Italic", icon: "italic", format: "italic"},
+              {title: "Underline", icon: "underline", format: "underline"},
+              {title: "Strikethrough", icon: "strikethrough", format: "strikethrough"}
+            ]}
           ],
-          toolbar: "styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link spellchecker"
+          plugins: [
+            "lists charmap",
+            "searchreplace",
+            "contextmenu paste spellchecker"
+          ],
+          toolbar: "styleselect | bold italic | bullist numlist"
         });
 
       });

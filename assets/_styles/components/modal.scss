@@ -123,15 +123,6 @@
   .modal {
     @include border-radius(3px);
     padding: 65px 20px 60px;
-    &__header {
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      padding: 12px 15px;
-      background: $grey-4;
-      border-bottom: 1px solid $grey-3;
-    }
     &__title {
       @extend %h4;
     }
@@ -148,7 +139,7 @@
   }
 
   .modal__header {
-    @include border-radius(3px);
+    @include border-radius(3px 3px 0 0);
     position: absolute;
     top: 0;
     right: 0;

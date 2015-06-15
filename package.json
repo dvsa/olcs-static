@@ -21,8 +21,7 @@
     "karma-phantomjs-launcher": "~0.1.4",
     "matchdep": "^0.3.0",
     "mocha": "~1.18.2",
-    "sinon": "~1.10.0",
-    "grunt-contrib-concat": "^0.5.1"
+    "sinon": "~1.10.0"
   },
   "devDependencies": {
     "grunt-browser-sync": "^2.1.3",
