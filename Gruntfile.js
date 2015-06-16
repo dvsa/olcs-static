@@ -29,6 +29,7 @@
       "public/js/internal.js": scriptPaths("internal"),
       "public/js/selfserve.js": scriptPaths("selfserve")
     };
+
     grunt.initConfig({
       sass: {
         dev: {
