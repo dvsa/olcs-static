@@ -15,13 +15,21 @@
 
     scriptPaths = function(path) {
       var paths;
-      return paths = ["assets/_js/common/vendor/jquery.1.11.0.js", "assets/_js/common/vendor/**/*.js", "assets/_js/common/*.js", "assets/_js/" + path + "/*.js", "assets/_js/init/common.js", "assets/_js/init/" + path + ".js"];
+      return paths = [
+        "assets/_js/common/vendor/jquery.1.11.0.js",
+        "assets/_js/common/vendor/chosen.jquery.min.js",
+        "assets/_js/common/*.js",
+        "assets/_js/" + path + "/*.js",
+        "assets/_js/init/common.js",
+        "assets/_js/init/" + path + ".js"
+      ];
     };
 
     scripts = {
       "public/js/internal.js": scriptPaths("internal"),
       "public/js/selfserve.js": scriptPaths("selfserve")
     };
+
     grunt.initConfig({
       sass: {
         dev: {

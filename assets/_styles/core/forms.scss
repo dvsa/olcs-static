@@ -608,6 +608,7 @@ input[type="file"] {
 */
 
 .confirm {
+  overflow: auto;
   max-width: 600px;
   padding: 15px 15px 7px;
   border: 1px solid $light-blue-50;
@@ -761,6 +762,10 @@ input[type="file"] {
 
   .chosen-container {
     font-size: 14px;
+  }
+
+  .tinymce {
+
   }
 
 }
