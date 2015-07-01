@@ -199,18 +199,25 @@ input.action,
 
 @if $app == 'selfserve' {
 
-  .action--tertiary.list {
-    display: block;
-    font-size: 19px;
-    margin: 40px 0 -30px 0;
-    padding: 0;
-  }
+
 
   a:focus,
   button:focus,
   input[type="submit"]:focus {
     outline: 3px solid $outline;
     background-color: $outline;
+  }
+
+  .action--tertiary {
+    &.large {
+      padding: 0 15px 0;
+    }
+    &.list {
+      display: block;
+      font-size: 19px;
+      margin: 40px 0 -30px;
+      padding: 0;
+    }
   }
 
 }

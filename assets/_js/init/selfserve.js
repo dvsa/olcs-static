@@ -15,7 +15,9 @@ OLCS.ready(function() {
     if ($(".page-header__subtitle").text() === "Operator Licensing Ltd.") {
       $(".page-header__subtitle").text(user.company);
     }
-
   }
+
+  $('[name="form-actions[save]"]').attr('class','action--primary large');
+
 
 });

@@ -73,8 +73,11 @@ fieldset {
   border: 0;
   clear: both;
   width: 100%;
+  &.table {
+    margin-bottom: 0;
+  }
   &.inline {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
   &.multiple a {
     @extend %paragraph--tiny;
@@ -91,7 +94,7 @@ fieldset {
     margin-top: -20px;
   }
   fieldset {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
 }
 
@@ -119,7 +122,7 @@ fieldset {
 form fieldset:last-child,
 fieldset .field:last-child,
 fieldset fieldset .field:last-child {
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
 
 .field {
@@ -127,9 +130,6 @@ fieldset fieldset .field:last-child {
   overflow: visible;
   @media (max-width: 640px) {
     margin-bottom: .5em;
-  }
-  &.inline {
-    margin: 0 .5em 10px 0;
   }
   &.inline-text {
     float: left;
@@ -154,6 +154,13 @@ fieldset fieldset .field:last-child {
   &.three-col {
     width: 33.3%;
     float: left;
+  }
+}
+
+.field.inline {
+  margin-bottom: 0;
+  label {
+    margin-bottom: 0;
   }
 }
 
@@ -184,6 +191,7 @@ label {
   @extend %paragraph--large;
   display: block;
   margin: 0 10px 7px 0;
+  max-width: 600px;
   .inline & {
     @extend %paragraph--small;
     display: inline;
@@ -194,6 +202,7 @@ label {
 
 fieldset fieldset legend {
   @extend %paragraph--large;
+  max-width: 600px;
   clear: both;
   width: 100%;
 }
@@ -467,7 +476,7 @@ input[type="file"] {
 
 .lookup {
   .field {
-    margin-bottom: 10px;
+    margin: 0 5px 10px 0;
   }
   .hint {
     margin-bottom: 0;

@@ -8,7 +8,7 @@
 .user-header {
   width: 100% - ($gutter*2);
   overflow: auto;
-  border-top: 8px solid $primaryColour;
+  border-top: 10px solid $govuk-blue;
   padding: .6em 0;
   margin-bottom: .5em;
   @media (max-width: 640px){

@@ -6,7 +6,6 @@
 
 .results-settings {
   float: left;
-  margin-bottom: 2em;
   &__list {
     list-style: none;
     float: left;
@@ -24,7 +23,11 @@
 // Internal theme
 // ---------------
 
-.results-settings p,
-.results-settings__item {
-  font-size: 15px
+@if $app == 'internal' {
+
+  .results-settings p,
+  .results-settings__item {
+    font-size: 15px
+  }
+
 }

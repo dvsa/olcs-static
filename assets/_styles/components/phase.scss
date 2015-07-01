@@ -10,12 +10,13 @@
   &__tag {
     background: $alpha-colour;
     color: $white;
-    letter-spacing: .2em;
     font-weight: 700;
-    font-size: .75em;
+    font-size: 16px;
     text-transform: uppercase;
-    padding: .4em .6em;
-    margin-right: 1em;
+    padding: 1px 5px 0;
+    margin-right: 8px;
+    line-height: 1.25;
+    letter-spacing: 1px;
     position: relative;
   }
   &__message {
