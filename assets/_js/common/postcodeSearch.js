@@ -132,6 +132,10 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
         // ensure the backend knows which button was pressed
         F.pressButton(form, button);
 
+        if (selector === ".js-select") {
+          $("<div class=address__preloader></div>").insertAfter(".js-find");
+        }
+
         OLCS.submitForm({
           form: form,
           success: OLCS.normaliseResponse(function(response) {
@@ -173,7 +177,10 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
     OLCS.eventEmitter.on("render", setup);
 
     // when we click 'find'...
-    $(document).on("click", submitSelector, handleInput(".js-find"));
+    $(document).on("click", submitSelector, function() {
+      handleInput(".js-find");
+      $("<div class=address__preloader></div>").insertAfter(".js-find");
+    });
 
     // or we hit enter within the postcode input...
     $(document).on("keypress", inputSelector, function(e) {
@@ -181,6 +188,7 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       if (e.keyCode === 13) {
         // we need .call here because it relies on 'this' for context
         handleInput(".js-find").call(this, e);
+        $("<div class=address__preloader></div>").insertAfter(".js-find");
       }
     });
 

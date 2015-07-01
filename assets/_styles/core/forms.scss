@@ -469,19 +469,6 @@ input[type="file"] {
   }
 }
 
-/*
-  Lookup
-  ------
-*/
-
-.lookup {
-  .field {
-    margin: 0 5px 10px 0;
-  }
-  .hint {
-    margin-bottom: 0;
-  }
-}
 
 /*
   Address
@@ -489,16 +476,32 @@ input[type="file"] {
 */
 
 .address {
+  &__preloader {
+    float: right;
+    margin-top: 8px;
+    height: 20px;
+    width: 20px;
+    background: red;
+    background: url('../images/address-preloader.gif') no-repeat 0 0;
+    @include device-pixel-ratio($ratio: 2) {
+      background-image: url('../images/address-preloader-2x.gif');
+      background-size: 20px 20px;
+    }
+  }
   &__select {
     float: left;
     clear: both;
-    padding: 10px;
-    background: $grey-3;
-    border-left: 3px solid $grey-2;
-    margin-bottom: 5px;
+    margin: 10px 0 5px;
   }
   fieldset {
     margin-bottom: 15px;
+  }
+  button {
+    margin-left: 5px;
+  }
+  .hint--small {
+    margin-top: 5px;
+    float: left;
   }
   .field .visually-hidden + input {
     margin-top: -20px;
@@ -771,10 +774,6 @@ input[type="file"] {
 
   .chosen-container {
     font-size: 14px;
-  }
-
-  .tinymce {
-
   }
 
 }

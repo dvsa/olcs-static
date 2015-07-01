@@ -13,9 +13,10 @@ OLCS.preloader = (function(document, $, undefined) {
   /**
    * private interface
    */
-  var wrapper   = '.preloader__wrapper';
-  var showStack = 0;
-  var fadeTime  = 200;
+  var wrapper      = '.preloader__wrapper';
+  var modalWrapper = '.modal__wrapper';
+  var showStack    = 0;
+  var fadeTime     = 0;
 
   var template = [
     '<div class="preloader__wrapper" style="display:none;">',
@@ -31,6 +32,10 @@ OLCS.preloader = (function(document, $, undefined) {
     if ($('body').find(wrapper).length === 0) {
       $('body').prepend(template);
       showStack = 0;
+    }
+
+    if ($(modalWrapper).length) {
+      alert('Yes');
     }
 
     showStack ++;

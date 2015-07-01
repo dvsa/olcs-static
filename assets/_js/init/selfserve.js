@@ -17,7 +17,5 @@ OLCS.ready(function() {
     }
   }
 
-  $('[name="form-actions[save]"]').attr('class','action--primary large');
-
 
 });
