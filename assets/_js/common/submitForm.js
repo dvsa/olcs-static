@@ -38,6 +38,7 @@ OLCS.submitForm = (function(document, $, undefined) {
     function complete() {
       if (disableOnSubmit) {
         enabledElements.removeAttr("disabled");
+        console.log('form submitted');
       }
 
       if (options.complete) {

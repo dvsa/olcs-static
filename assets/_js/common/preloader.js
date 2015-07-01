@@ -34,10 +34,6 @@ OLCS.preloader = (function(document, $, undefined) {
       showStack = 0;
     }
 
-    if ($(modalWrapper).length) {
-      alert('Yes');
-    }
-
     showStack ++;
 
     $(wrapper).show();

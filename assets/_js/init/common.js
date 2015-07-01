@@ -22,9 +22,10 @@ OLCS.ready(function() {
    * we can make it more selective :)
    */
   $(document)
-  // .bind("ajaxSend", OLCS.preloader.show)
-  .bind("ajaxSuccess", OLCS.preloader.hide)
-  .bind("ajaxError", OLCS.preloader.hide);
+    .bind("ajaxSend", OLCS.preloader.show)
+    .bind("ajaxSuccess", OLCS.preloader.hide)
+    .bind("ajaxError", OLCS.preloader.hide);
+
 
   // @TODO why don't we emit "render" here? It would
   // make things line up neatly between initial page render
