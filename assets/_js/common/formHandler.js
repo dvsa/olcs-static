@@ -125,6 +125,7 @@ OLCS.formHandler = (function(document, $, undefined) {
       OLCS.submitForm({
         form: form,
         success: success,
+        disable: options.disable,
         complete: function() {
           OLCS.eventEmitter.emit("update:" + options.container);
         }
