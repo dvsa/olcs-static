@@ -322,39 +322,6 @@ select:focus {
 }
 
 /*
-  File upload
-  -----------
-*/
-
-.file-upload {
-  width: 95%;
-  max-width: 560px;
-  background: $grey-4;
-  border-left: 4px solid $grey-3;
-  overflow: auto;
-  margin-bottom: .25em;
-  padding: 1em 2.5% .8em;
-  input[type="submit"] {
-    float: right;
-  }
-  span {
-    color: $grey-1;
-    font-weight: 400;
-  }
-  p {
-    @extend %paragraph--small;
-    float: left;
-  }
-}
-
-input[type="file"] {
-  border: 0;
-  background: none;
-  padding: 0;
-  margin-top: .25em;
-}
-
-/*
   File uploader
   -----------
 */
@@ -433,6 +400,17 @@ input[type="file"] {
   background: $grey-4;
   padding: 15px 2.5% 10px;
   margin-top: 5px;
+  &__preloader {
+    float: left;
+    height: 20px;
+    width: 20px;
+    margin: 0 10px 0 0;
+    background: url('../images/address-preloader.gif') no-repeat 0 0;
+    @include device-pixel-ratio($ratio: 2) {
+      background-image: url('../images/address-preloader-2x.gif');
+      background-size: 20px 20px;
+    }
+  }
   &__remove {
     position: absolute;
     right: 15px;
@@ -441,6 +419,7 @@ input[type="file"] {
   p {
     @extend %paragraph--small;
     float: left;
+    clear: none;
   }
   span {
     color: $grey-1;
@@ -481,7 +460,6 @@ input[type="file"] {
     margin-top: 8px;
     height: 20px;
     width: 20px;
-    background: red;
     background: url('../images/address-preloader.gif') no-repeat 0 0;
     @include device-pixel-ratio($ratio: 2) {
       background-image: url('../images/address-preloader-2x.gif');

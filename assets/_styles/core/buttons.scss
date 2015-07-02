@@ -144,6 +144,14 @@ input.action,
   to look like a button
  */
 
+.more-actions:hover .more-actions__list {
+  display: block;
+  .js-enabled & {
+    display: none;
+  }
+}
+
+
 .more-actions {
   position: relative;
   float: left;
@@ -159,29 +167,27 @@ input.action,
     }
   }
   &__list {
-    @include border-radius(3px);
-    @include box-shadow(0 1px 5px $grey-3);
+    @include box-shadow(0 1px 5px $grey-2);
     display: none;
     position: absolute;
     top: 30px;
     right: 0;
     background: #FFF;
-    padding: 10px 0;
-    width: 100%;
-  }
-  &:hover .more-actions__list {
-    display: block;
+    padding: 5px 0;
+    min-width: 100%;
   }
 }
 
-.more-actions__item {
-  display: block;
-  margin: 2px 15px 6px 15px;
+button.more-actions__item,
+input[type=submit].more-actions__item {
+  float: left;
+  padding: 6px 10%;
   border: 0;
-  padding: 0;
   background: none;
-  color: $link-colour;
-  text-decoration: underline;
+  width: 100%;
+  text-align: left;
+  text-decoration: none;
+  color: $black;
   &[disabled] {
     cursor: default;
     color: $grey-1;
@@ -189,6 +195,14 @@ input.action,
   }
   &:hover {
     text-decoration: none;
+    background: $grey-3;
+  }
+  &[disabled]:hover {
+    background: none;
+  }
+  &:focus {
+    outline: none;
+    background: $yellow;
   }
 }
 
@@ -198,8 +212,6 @@ input.action,
 // ---------------
 
 @if $app == 'selfserve' {
-
-
 
   a:focus,
   button:focus,
@@ -218,6 +230,11 @@ input.action,
       margin: 40px 0 -30px;
       padding: 0;
     }
+  }
+
+  .more-actions button,
+  .more-actions input[type=submit] {
+    font-family: $NTA-Light;
   }
 
 }

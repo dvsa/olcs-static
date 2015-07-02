@@ -225,14 +225,9 @@ breadcrumbs:
 </div><!-- end .two-thirds -->
 
 <script type="text/javascript">
-  OLCS.fileUploader({
-    selector: "#FileUploader1",
-    isMultiple: false
-  });
-
-  OLCS.fileUploader({
-    selector: "#FileUploader2",
-    isMultiple: true
-  });
+    OLCS.toggleElement({
+      triggerSelector: '.more-actions',
+      targetSelector: '.more-actions__list'
+    });
 </script>
 
