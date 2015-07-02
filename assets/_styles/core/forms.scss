@@ -428,7 +428,7 @@ input[type="file"] {
   position: relative;
   overflow: auto;
   display: block;
-  width: 100%;
+  width: 95%;
   border-left: 3px solid $grey-3;
   background: $grey-4;
   padding: 15px 2.5% 10px;
@@ -635,6 +635,10 @@ input[type="file"] {
 // ---------------
 
 @if $app == 'selfserve' {
+
+  // fieldset fieldset.checkbox {
+  //   margin-bottom: 0;
+  // }
 
   .checkbox {
     &.inline label {

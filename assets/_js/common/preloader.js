@@ -14,9 +14,7 @@ OLCS.preloader = (function(document, $, undefined) {
    * private interface
    */
   var wrapper      = '.preloader__wrapper';
-  var modalWrapper = '.modal__wrapper';
   var showStack    = 0;
-  var fadeTime     = 0;
 
   var template = [
     '<div class="preloader__wrapper" style="display:none;">',
@@ -50,7 +48,7 @@ OLCS.preloader = (function(document, $, undefined) {
 
       // @NOTE: in time we might want an options.instant boolean or
       // similar
-      $(wrapper).fadeOut(options.fadeTime || fadeTime);
+      $(wrapper).hide().remove();
     }
   };
 
