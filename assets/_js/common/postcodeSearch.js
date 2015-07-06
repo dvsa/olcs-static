@@ -83,6 +83,23 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       return $(component).find(".js-find").length > 0;
     }
 
+
+    function formatUKPostcode(selector) {
+      var val =  $(selector).val().toUpperCase();
+      var list = [""+ val+""];
+
+      if (val.indexOf(" ") >= 0) {
+        return false;
+      } else {
+        for (var i = 0; i < list.length; i++) {
+          var parts = list[i].match(/^([A-Z]{1,2}\d{1,2}[A-Z]?)\s*(\d[A-Z]{2})$/);
+          parts.shift();
+          $(selector).val(parts.join(" "));
+        }
+      }
+
+    }
+
     /**
      * Work out what our most appropriate root element is in which
      * we should render our AJAX response
@@ -178,6 +195,12 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
 
     // when we click 'find'...
     $(document).on("click", submitSelector, function() {
+
+      // @TODO
+      // Would like to include this in handleInput but
+      // can't seem to get it working
+      formatUKPostcode(".js-input");
+
       handleInput(".js-find");
       $("<div class=address__preloader></div>").insertAfter(".js-find");
     });

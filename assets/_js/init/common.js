@@ -12,6 +12,10 @@ OLCS.ready(function() {
   OLCS.formInit();
   OLCS.notices();
 
+  OLCS.characterCount({
+    selector: "textarea.js-financial-history"
+  });
+
   OLCS.postcodeSearch({
     container: ".js-postcode-search"
   });

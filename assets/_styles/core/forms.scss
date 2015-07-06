@@ -91,7 +91,7 @@ fieldset {
     margin: 0 0 30px 1em;
   }
   &.add-another .hint {
-    margin-top: -20px;
+    margin-top: -5px;
   }
   fieldset {
     margin-bottom: 30px;
@@ -130,6 +130,9 @@ fieldset fieldset .field:last-child {
   overflow: visible;
   @media (max-width: 640px) {
     margin-bottom: .5em;
+  }
+  &.legend {
+    margin-bottom: 0;
   }
   &.inline-text {
     float: left;
@@ -466,11 +469,6 @@ select:focus {
       background-size: 20px 20px;
     }
   }
-  &__select {
-    float: left;
-    clear: both;
-    margin: 10px 0 5px;
-  }
   fieldset {
     margin-bottom: 15px;
   }
@@ -478,11 +476,35 @@ select:focus {
     margin-left: 5px;
   }
   .hint--small {
-    margin-top: 5px;
+    margin-top: 0;
     float: left;
   }
-  .field .visually-hidden + input {
-    margin-top: -20px;
+  .field {
+    margin-bottom: 20px;
+  }
+  .field.inline {
+    margin-bottom: 10px;
+  }
+}
+
+.field.address__select {
+  float: left;
+  clear: both;
+  margin: 5px 0 10px;
+}
+
+/*
+  Address
+  -------
+*/
+
+
+.lookup {
+  button {
+    margin-left: 5px;
+  }
+  .field.inline {
+    margin-bottom: 10px;
   }
 }
 
@@ -506,6 +528,21 @@ select:focus {
 
 .trading-names .visually-hidden + input {
   margin-top: -10px;
+}
+
+
+/*
+  Add another
+  -----------
+*/
+
+.add-another {
+  .field {
+    margin-bottom: 15px;
+  }
+  .hint {
+    font-size: 16px;
+  }
 }
 
 
@@ -609,6 +646,30 @@ select:focus {
   height: 200px;
 }
 
+
+/*
+  Character count
+  ---------------
+*/
+
+
+.character-count {
+  color: $grey-1;
+  margin: 5px 0 0 0;
+  clear: both;
+  display: block;
+  text-align: left;
+  width: 100%;
+}
+
+.js-financial-history + .character-count {
+  display: block;
+  margin-bottom: -20px;
+}
+
+
+
+
 // Selfserve theme
 // ---------------
 
@@ -617,6 +678,8 @@ select:focus {
   // fieldset fieldset.checkbox {
   //   margin-bottom: 0;
   // }
+  //
+
 
   .checkbox {
     &.inline label {
@@ -652,6 +715,17 @@ select:focus {
     }
     .hint {
       float: left;
+    }
+  }
+
+  .chosen-container {
+    max-width: 440px;
+  }
+
+  .send-by-post {
+    margin-top: -40px;
+    p {
+      margin-bottom: 15px;
     }
   }
 
@@ -700,7 +774,8 @@ select:focus {
 
   .field {
     margin-bottom: 25px;
-    &.inline-text {
+    &.inline-text,
+    &.legend {
       margin-bottom: 10px;
     }
   }

@@ -128,7 +128,7 @@ input.action,
   padding: 7px 15px 5px;
   .lookup &,
   .js-postcode-search & {
-    padding: 4px 12px 3px;
+    padding: 4px 12px;
   }
 }
 
@@ -178,9 +178,11 @@ input.action,
   }
 }
 
+.more-actions__list .action--secondary,
 button.more-actions__item,
 input[type=submit].more-actions__item {
   float: left;
+  margin: 0;
   padding: 6px 10%;
   border: 0;
   background: none;
@@ -188,6 +190,7 @@ input[type=submit].more-actions__item {
   text-align: left;
   text-decoration: none;
   color: $black;
+  box-shadow: none;
   &[disabled] {
     cursor: default;
     color: $grey-1;
@@ -204,6 +207,13 @@ input[type=submit].more-actions__item {
     outline: none;
     background: $yellow;
   }
+}
+
+
+// A temporary fix until we are able to do this
+// when the page is assembled in the backend.
+.lva-details .actions-container *:first-child {
+  @extend .action--primary;
 }
 
 

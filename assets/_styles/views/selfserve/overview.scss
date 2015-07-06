@@ -58,3 +58,22 @@
     }
   }
 }
+
+.overview-item__link:focus {
+  background: $grey-4;
+  h4 {
+    color: $grey-1;
+  }
+
+  p {
+    text-indent: -9999px;
+    width: 20px;
+    height: 20px;
+    background: url('../images/address-preloader.gif') no-repeat 0 0;
+    @include device-pixel-ratio($ratio: 2) {
+      background-image: url('../images/address-preloader-2x.gif');
+      background-size: 20px 20px;
+    }
+  }
+
+}
