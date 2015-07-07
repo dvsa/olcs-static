@@ -12,7 +12,7 @@ OLCS.detailsElement = (function(document, $, undefined) {
 
   'use strict';
 
-  return function init(options) {
+  return function init() {
 
 
     // @TODO -
