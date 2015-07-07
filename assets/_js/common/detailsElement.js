@@ -22,11 +22,13 @@ OLCS.detailsElement = (function(document, $, undefined) {
 
     if (!isChrome) {
       $('html').addClass('no-details');
+
+      $(document).on('click','summary',function() {
+        $(this).find('.help__text').toggle();
+      });
+
     }
 
-    $(document).on('click','summary',function() {
-      $('.help__text').toggle();
-    });
 
   };
 

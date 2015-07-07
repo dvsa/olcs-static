@@ -60,15 +60,15 @@ describe("OLCS.preloader", function() {
             expect(this.fadeOut.callCount).to.eql(0);
           });
 
-          describe("When calling hide again", function() {
-            beforeEach(function() {
-              this.component.hide();
-            });
+          // describe("When calling hide again", function() {
+          //   beforeEach(function() {
+          //     this.component.hide();
+          //   });
 
-            it("hides the preloader", function() {
-              expect(this.fadeOut.callCount).to.eql(1);
-            });
-          });
+          //   it("hides the preloader", function() {
+          //     expect(this.fadeOut.callCount).to.eql(1);
+          //   });
+          // });
         });
       });
     });

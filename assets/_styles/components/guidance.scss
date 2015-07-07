@@ -4,6 +4,7 @@
   ==============
 */
 
+
 .guidance {
   background: $grey-4;
   border-left: 4px solid $grey-2;
@@ -15,10 +16,11 @@
   }
 }
 
-summary,
-details {
-  display: block;
+fieldset + .field .help,
+.field + .field .help {
+  margin-top: -20px;
 }
+
 
 .help__summary {
   @extend %paragraph--large;
@@ -39,8 +41,17 @@ details {
 }
 
 .help__text {
+  @extend %paragraph--large;
   padding: 15px;
   border-left: 4px solid $grey-2;
+  p,
+  ul {
+    margin-bottom: .5em;
+  }
+  ul {
+    margin-left: 20px;
+  }
+
   .no-details & {
     display: none;
   }
