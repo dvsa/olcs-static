@@ -15,6 +15,11 @@
   }
 }
 
+summary,
+details {
+  display: block;
+}
+
 .help__summary {
   @extend %paragraph--large;
   display: inline-block;
@@ -36,6 +41,9 @@
 .help__text {
   padding: 15px;
   border-left: 4px solid $grey-2;
+  .no-details & {
+    display: none;
+  }
 }
 
 

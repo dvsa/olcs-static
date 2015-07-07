@@ -11,6 +11,7 @@ OLCS.ready(function() {
   OLCS.selectBox();
   OLCS.formInit();
   OLCS.notices();
+  OLCS.detailsElement();
 
   OLCS.characterCount({
     selector: "textarea.js-financial-history"
