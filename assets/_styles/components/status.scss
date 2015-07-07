@@ -1,0 +1,58 @@
+
+/*
+  Status
+  ==============
+  Component decription
+*/
+
+.status {
+  @extend %paragraph--tiny;
+  @include border-radius(2px);
+  margin: 0 6px;
+  padding: 1px 3px 0 3px;
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  &.red {
+    border:  1px solid $red;
+    color: $red;
+  }
+  &.orange {
+    border: 1px solid $orange;
+    color: $orange;
+  }
+  &.green {
+    border: 1px solid $primaryColour;
+    color: $primaryColour;
+  }
+  &.grey {
+    border: 1px solid $grey-1;
+    color: $grey-1;
+  }
+  .definition-list & {
+    margin: 0;
+  }
+}
+
+
+// Selfserve theme
+// ---------------
+
+@if $app == 'selfserve' {
+  .component {
+    background: red;
+  }
+}
+
+
+// Internal theme
+// ---------------
+
+@if $app == 'internal' {
+  .status {
+    font-size: 11px;
+    padding: 0 3px 1px;
+  }
+}

@@ -13,6 +13,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/styles/selfserve.css" media="all" rel="stylesheet" type="text/css">
     <script type="text/javascript" async="" src="/js/selfserve.js"></script>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
 
   <body class="selfserve js-enabled">
@@ -25,28 +28,32 @@
         <div class="proposition">
           <h2 class="proposition__title">Vehicle Operator Licensing</h2>
           <ul class="proposition-nav">
-            {{#is user "operator" }}
-              <li class="proposition-nav__item"><a href="licences.html">Home</a></li>
-              <li class="proposition-nav__item"><a href="search.html">Search</a></li>
-              <li class="proposition-nav__item"><a href="">Manage users</a></li>
-              <li class="proposition-nav__item"><a href="">My account</a></li>
-            {{/is }}
-            {{#is user "bus operator" }}
-              <li class="proposition-nav__item"><a href="licences.html">Home</a></li>
-              <li class="proposition-nav__item"><a href="bus-services.html">Bus registrations</a></li>
-              <li class="proposition-nav__item"><a href="search.html">Search</a></li>
-              <li class="proposition-nav__item"><a href="">My account</a></li>
-            {{/is }}
-            {{#is user "tm" }}
-              <li class="proposition-nav__item"><a href="tm-home.html">Home</a></li>
-              <li class="proposition-nav__item"><a href="search.html">Search</a></li>
-              <li class="proposition-nav__item"><a href="">My account</a></li>
-            {{/is }}
-            {{#is user "local authority" }}
-              <li class="proposition-nav__item"><a href="search.html">Search</a></li>
-              <li class="proposition-nav__item"><a href="">Manage users</a></li>
-              <li class="proposition-nav__item"><a href="">My account</a></li>
-            {{/is }}
+            {{#if user}}
+              {{#is user "operator" }}
+                <li class="proposition-nav__item"><a href="licences.html">Home</a></li>
+                <li class="proposition-nav__item"><a href="/styleguides/selfserve/search/index.html">Search</a></li>
+                <li class="proposition-nav__item"><a href="">Manage users</a></li>
+                <li class="proposition-nav__item"><a href="">My account</a></li>
+              {{/is }}
+              {{#is user "bus operator" }}
+                <li class="proposition-nav__item"><a href="licences.html">Home</a></li>
+                <li class="proposition-nav__item"><a href="bus-services.html">Bus registrations</a></li>
+                <li class="proposition-nav__item"><a href="/styleguides/selfserve/search/index.html">Search</a></li>
+                <li class="proposition-nav__item"><a href="">My account</a></li>
+              {{/is }}
+              {{#is user "tm" }}
+                <li class="proposition-nav__item"><a href="tm-home.html">Home</a></li>
+                <li class="proposition-nav__item"><a href="/styleguides/selfserve/search/index.html">Search</a></li>
+                <li class="proposition-nav__item"><a href="">My account</a></li>
+              {{/is }}
+              {{#is user "local authority" }}
+                <li class="proposition-nav__item"><a href="/styleguides/selfserve/search/index.html">Search</a></li>
+                <li class="proposition-nav__item"><a href="">Manage users</a></li>
+                <li class="proposition-nav__item"><a href="">My account</a></li>
+              {{/is }}
+            {{else}}
+                <li class="proposition-nav__item"><a href="/styleguides/selfserve/search/index.html">Search</a></li>
+            {{/if }}
           </ul>
         </div>
       </div><!-- end .global-header__wrapper -->
@@ -55,7 +62,7 @@
     <div class="page-wrapper">
       <div class="user-header">
         <p class="phase">
-          <span class="phase__tag">alpha</span><span class="phase__message">This is a new service – <a href="">help us improve it.</a></span>
+          <span class="phase__tag">alpha</span><span class="phase__message">This is a new service – <a href="https://www.surveymonkey.com/s/T8NGJV8">help us improve it.</a></span>
         </p>
         <ul class="user-menu">
         {{#if user}}
@@ -72,7 +79,7 @@
           <li class="user-menu__item"><a href="">Sign out</a></li>
           {{/is}}
         {{else}}
-          <li class="user-menu__item"><a href="sign-in.html">Sign in</a></li>
+          <li class="user-menu__item"><a href="/styleguides/selfserve/sign-in.html">Sign in</a></li>
         {{/if}}
         </ul>
       </div><!-- end .user-header -->

@@ -29,7 +29,7 @@ OLCS.notices = (function(document, $, undefined) {
 
     function fadeOut(element) {
       $(element)
-        .delay(6000)
+        .delay(10000)
         .fadeOut(300, function() {
           remove(element);
       });

@@ -1,0 +1,51 @@
+
+/*
+  Tooltip
+  =======
+*/
+
+.tooltip-grandparent {
+  cursor: pointer;
+  &:hover .tooltip {
+    display: block;
+  }
+}
+
+.tooltip-parent {
+  cursor: pointer;
+  position: relative;
+  overflow: visible;
+  &:hover .tooltip {
+    display: block;
+  }
+}
+
+.tooltip {
+  @include border-radius(2px);
+  display: none;
+  position: absolute;
+  bottom: 20px;
+  left: -38px;
+  opacity: .9; /* IE :after bug prevents using opacity mixin */
+  padding: .75em;
+  font-size: .8em;
+  line-height: 1.2;
+  width: 200px;
+  color: white;
+  background: $black;
+  &:hover {
+    cursor: default;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-top: 10px solid $black;
+    border-right: 9px solid transparent;
+    left: 35px;
+    bottom: -9px;
+  }
+}

@@ -1,0 +1,54 @@
+
+/*
+  Proposition navigation
+  ======================
+*/
+
+.proposition {
+  float: left;
+  overflow: auto;
+  margin-left: 180px;
+  &__title {
+    float: left;
+    font-size: 24px;
+    display: block;
+    margin: 4px 0 2px;
+  }
+}
+
+.proposition-nav {
+  list-style: none;
+  clear: left;
+  &__item {
+    float: left;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 1em 4px 0;
+  }
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+@media (max-width: 640px) {
+  .proposition {
+    width: 100%;
+    margin: .5em 0 .25em 5%;
+  }
+  .proposition__title {
+    display: none;
+  }
+  .proposition-nav {
+    float: left;
+    width: 100%;
+    display: block;
+    &__item {
+      float: none;
+      display: inline;
+    }
+  }
+}

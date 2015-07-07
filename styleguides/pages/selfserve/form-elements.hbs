@@ -18,20 +18,24 @@ breadcrumbs:
       </ol><!-- .validation-summary__list -->
     </div><!-- .validation-summary -->
 
-  <fieldset class="address" data-group="correspondence_address">
+  <fieldset class="address js-postcode-search" data-group="correspondence_address">
     <legend>Establishment address</legend>
     <p class="hint">This is where you usually keep your operator licence records.</p>
-    <fieldset class="lookup">
+
+    <fieldset data-group="address[searchPostcode]">
       <legend>Postcode search</legend>
       <div class="field inline">
-        <input type="text" name="" class="short" value="">
+        <input type="text" name="address[searchPostcode][postcode]" class="short js-input" data-container-class="inline" id="address[searchPostcode][postcode]" value="">
       </div>
-      <div class="field ">
-        <button type="submit" class="action--primary large" value="search">Find address</button>
-        <p class="hint--small"><a href="">Enter address manually</a></p>
+      <div class="field inline">
+        <button type="submit" name="address[searchPostcode][search]" class="action--primary large js-find" value="search">Find address</button>
+<!--         <div class="address__preloader"></div> -->
       </div>
-
+      <div class="field js-visible">
+        <p class="hint--small"><a href="#">Enter address manually</a></p>
+      </div>
     </fieldset>
+
     <div class="field ">
       <label for="">Address lines</label>
       <input type="text" name="" class="long" value="Solway Business Centre">
@@ -56,7 +60,7 @@ breadcrumbs:
       <label for="">Postcode</label>
       <input type="text" name="" value="CA6 4BY">
     </div>
-    <div class="field ">
+    <div class="field">
       <label for="">Country</label>
       <select name="">
         <option value="">Please Select</option>
@@ -220,15 +224,4 @@ breadcrumbs:
 
 </div><!-- end .two-thirds -->
 
-<script type="text/javascript">
-  OLCS.fileUploader({
-    selector: "#FileUploader1",
-    isMultiple: false
-  });
-
-  OLCS.fileUploader({
-    selector: "#FileUploader2",
-    isMultiple: true
-  });
-</script>
 

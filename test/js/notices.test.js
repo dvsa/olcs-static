@@ -33,7 +33,7 @@ describe("OLCS.notices", function() {
       beforeEach(function() {
         this.clock = sinon.useFakeTimers();
       });
-      
+
       afterEach(function() {
         this.clock.restore();
       });
@@ -65,13 +65,13 @@ describe("OLCS.notices", function() {
           });
         });
 
-        describe("After 6400ms seconds has passed", function() {
+        describe("After 10 seconds has passed", function() {
           beforeEach(function(){
-            this.clock.tick(6400);
+            this.clock.tick(10400);
           });
 
           it("It removes the container from them DOM", function() {
-            expect($(".notice-container").length).to.equal(0);    
+            expect($(".notice-container").length).to.equal(0);
           });
         });
       });
@@ -99,7 +99,7 @@ describe("OLCS.notices", function() {
       beforeEach(function() {
         this.clock = sinon.useFakeTimers();
       });
-      
+
       afterEach(function() {
         this.clock.restore();
       });
@@ -115,7 +115,7 @@ describe("OLCS.notices", function() {
           });
 
           it("The notice container should still be present", function() {
-            expect($(".notice-container").length).to.equal(1);    
+            expect($(".notice-container").length).to.equal(1);
           });
         });
       });

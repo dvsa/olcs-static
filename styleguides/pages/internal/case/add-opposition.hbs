@@ -1,7 +1,7 @@
 ---
 layout: case.hbs
 sectionTitle: Processing
-form: 
+form:
   - fieldsets:
     - legend: Opposition details
       fields:
@@ -17,11 +17,11 @@ form:
           hint: Out of objection date
         - label: Objector type
           type: select
-          values: 
+          values:
             - Please select
         - label: Valid
           type: select
-          values: 
+          values:
             - Yes
             - No
             - Not decided
@@ -29,18 +29,18 @@ form:
           type: textarea
         - label:
           type: checkboxes
-          values: 
+          values:
             - Copied
             - Willing to attend PI
             - In time
         - label: Status
           type: select
-          values: 
+          values:
             - Acknowledged
         - label: Affected centre
           type: multi select
           class: extra-long
-          values: 
+          values:
             - Operating centres 1, Shrewsbury
             - Operating centres 2, Shrewsbury
             - Operating centres 3, Shrewsbury
@@ -49,7 +49,7 @@ form:
         - label: Grounds
           type: multi select
           class: extra-long
-          values: 
+          values:
             - Opposition ground 1
             - Opposition ground 2
             - Opposition ground 3
@@ -95,10 +95,10 @@ form:
 
 ---
 
-  <div class="overlay  js-hidden"></div>
+  <div class="overlay js-hidden"></div>
   <div class="modal__wrapper js-hidden">
     <div class="modal">
-      <div class="modal__header"> 
+      <div class="modal__header">
         <h2 class="modal__title">Add oppositon</h2>
         <a href="" class="modal__close">Close</a>
       </div>

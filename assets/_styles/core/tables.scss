@@ -1,0 +1,249 @@
+
+/*
+  Tables
+  ======
+*/
+
+.table__wrapper {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  float: left;
+  + .table__header {
+    margin-top: 2em;
+  }
+}
+
+.table__header {
+  @extend %header-with-actions;
+  span {
+    @extend %paragraph--large;
+    font-weight: 400;
+    color: $grey-1;
+  }
+  p {
+    margin: 10px 0;
+    float: left;
+  }
+}
+
+.table__footer {
+  width: 100%;
+  clear: right;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-bottom: 1px solid $grey-2;
+  margin-bottom: 1em;
+  .summary & {
+    margin-bottom: 0;
+  }
+  input[type="checkbox"],
+  input[type="radio"] {
+    margin: .25em auto 0;
+    text-align: center;
+    display: block;
+  }
+  input[type="submit"]
+  .action--primary {
+    float: right;
+    margin-bottom: 20px;
+  }
+}
+
+table input[type="submit"] {
+  font-weight: 600;
+  &:focus {
+    border: 0;
+    background: $yellow;
+  }
+}
+
+td,
+th {
+  @extend %paragraph--small;
+  padding: .5em 10px .5em 0;
+  text-align: left;
+}
+
+th {
+  font-weight: 600;
+  border-top: 1px solid $grey-2;
+  height: 1.4em;
+  vertical-align: top;
+  &[scope="row"] {
+    border-top: 1px solid $grey-2;
+    font-weight: 400;
+    padding-right: 2em;
+  }
+  &.selectable {
+    text-align: centre;
+  }
+  &.right {
+    text-align: right;
+  }
+}
+
+tr {
+  &.hover {
+    background: $grey-3;
+    cursor: pointer;
+  }
+  &.current {
+    background: $light-blue-25;
+  }
+}
+
+tr.disabled {
+  cursor: default;
+  input[type="submit"] {
+    cursor: default;
+    text-decoration: none;
+    color: $grey-1;
+  }
+}
+
+
+td {
+  overflow: visible;
+  border-top: 1px solid $grey-2;
+  vertical-align: top;
+  &.right {
+    text-align: right;
+  }
+}
+
+tfoot {
+  tr {
+    border-top: 1px solid $grey-2;
+    border-bottom: 0;
+  }
+  th,
+  td {
+    border: 0;
+    overflow: hidden;
+    font-weight: 600;
+  }
+  th {
+    background: none;
+  }
+}
+
+.sortable {
+  padding: .5em 15px .5em 0;
+  a {
+    padding-right: 1em;
+    color: $black;
+    text-decoration: none;
+    background: url('../images/down-arrow.png') no-repeat 100% 5px;
+    @include device-pixel-ratio($ratio: 2) {
+      background-image: url('../images/down-arrow-2x.png');
+      background-size: 12px 112px;
+    }
+  }
+  a:active {
+    color: $grey-1;
+  }
+}
+
+.new {
+  color: $primaryColour;
+  margin-right: 5px;
+}
+
+
+/*
+  Some comment
+*/
+
+
+
+// Selfserve theme
+// ---------------
+
+@if $app == 'selfserve' {
+
+  td {
+    vertical-align: middle;
+  }
+
+}
+
+
+// Internal theme
+// ---------------
+
+@if $app == 'internal' {
+
+  .table__wrapper {
+    @include border-radius(3px);
+  }
+
+  .table__header {
+    @extend %header-with-actions;
+    margin-bottom: 0;
+    h3 {
+      margin-top: 3px;
+    }
+    h3 + form & {
+      margin-top: .2em !important;
+    }
+  }
+
+  table {
+    border: 1px solid $grey-3;
+  }
+
+  tfoot {
+    background: $grey-4;
+  }
+
+  tr {
+    &.urgent {
+      border-left: 5px solid $mellow-red;
+    }
+    &.hover {
+      background: $grey-4;
+    }
+  }
+
+  th,
+  td {
+    @extend %paragraph--tiny;
+    padding: .5em .75em;
+  }
+
+  th {
+    background: $grey-4;
+    border: 1px solid $grey-3;
+    a {
+      display: block;
+    }
+  }
+
+  td {
+    border-top: 1px solid $grey-3;
+    border-right: 1px dotted $grey-3;
+  }
+
+  .sortable {
+    padding: .5em .75em;
+    background: $grey-4;
+    a {
+      padding: 0;
+    }
+    &:hover,
+    &.ascending,
+    &.descening {
+      background-color: $grey-4;
+    }
+  }
+
+  .not-sortable {
+    padding: .5em .75em;
+  }
+
+}

@@ -21,7 +21,7 @@ table:
       - 12/3/14
       - 6252627
     rows: 5
-form: 
+form:
   - title: Business details
     fieldsets:
     - legend: Vehicle details
@@ -36,11 +36,11 @@ read-only:
   - title:
     editable: false
     type: fields
-    groups: 
-    - group: 
+    groups:
+    - group:
       - name: Disc no.
-        value: 027253 
-    - group: 
+        value: 027253
+    - group:
       - name: Received
         value: 08 Aug 2011
         class: full-width
@@ -62,27 +62,27 @@ actions:
   <div class="overlay  js-hidden"></div>
   <div class="modal__wrapper js-hidden">
     <div class="modal">
-      <div class="modal__header"> 
+      <div class="modal__header">
         <h2 class="modal__title">Edit vehicle</h2>
         <a href="" class="modal__close">Close</a>
       </div>
       <div class="modal__content">
         {{#each form }}
           {{> _forms }}
-        {{/each }}  
+        {{/each }}
         {{#each read-only}}
-          {{#is @index 0 }} 
+          {{#is @index 0 }}
             {{> _read-only }}
-          {{/is }} 
+          {{/is }}
         {{/each}}
         {{#each table}}
-          {{#is @index 0 }} 
+          {{#is @index 0 }}
             {{> _table }}
-          {{/is }} 
-        {{/each}} 
+          {{/is }}
+        {{/each}}
         <div class="actions-container">
         {{> _actions }}
-        </div>  
+        </div>
       </div>
     </div>
   </div>

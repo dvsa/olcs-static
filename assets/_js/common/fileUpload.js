@@ -59,6 +59,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
 
       $(container).find(".js-upload-list").append([
         "<li class=file data-upload-index=" + index + ">",
+          "<span class=file__preloader></span>",
           "<p>",
             "<a href=#>",
               file.name,
@@ -67,7 +68,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
               kbSize + "KB",
             "</span>",
           "</p>",
-          "<span class=file__remove>Uploading&hellip;</span>",
+          "<span class=file__remove>Uploading &hellip;</span>",
         "</li>"
       ].join("\n"));
 
@@ -80,6 +81,8 @@ OLCS.fileUpload = (function(document, $, undefined) {
           );
 
           $("[data-upload-index=" + index + "]")
+          .find(".file__preloader")
+          .remove()
           .find(".file__remove")
           .replaceWith("<a href=# class=file__remove>Remove</a>");
 
@@ -89,7 +92,6 @@ OLCS.fileUpload = (function(document, $, undefined) {
               "fileUpload"
             );
             handleResponse(xhr.responseText);
-            OLCS.preloader.hide();
           }
         }
       };
@@ -150,10 +152,6 @@ OLCS.fileUpload = (function(document, $, undefined) {
 
         numUploaded = 0;
         totalUploads = files.length;
-
-        // we don't actually want to do this; it's just a temporary
-        // way of showing that something's happening
-        OLCS.preloader.show();
 
         $.each(files, function(index, file) {
           upload(form, container, index, file);

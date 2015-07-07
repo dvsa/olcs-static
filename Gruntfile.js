@@ -9,19 +9,27 @@
     pubStyles = 'public/styles';
 
     styles = {
-      'public/styles/selfserve.css': 'assets/_styles/selfserve.scss',
-      'public/styles/internal.css': 'assets/_styles/internal.scss'
+      'public/styles/selfserve.css': 'assets/_styles/themes/selfserve.scss',
+      'public/styles/internal.css': 'assets/_styles/themes/internal.scss'
     };
 
     scriptPaths = function(path) {
       var paths;
-      return paths = ["assets/_js/common/vendor/jquery.1.11.0.js", "assets/_js/common/vendor/**/*.js", "assets/_js/common/*.js", "assets/_js/" + path + "/*.js", "assets/_js/init/common.js", "assets/_js/init/" + path + ".js"];
+      return paths = [
+        "assets/_js/common/vendor/jquery.1.11.0.js",
+        "assets/_js/common/vendor/chosen.jquery.min.js",
+        "assets/_js/common/*.js",
+        "assets/_js/" + path + "/*.js",
+        "assets/_js/init/common.js",
+        "assets/_js/init/" + path + ".js"
+      ];
     };
 
     scripts = {
       "public/js/internal.js": scriptPaths("internal"),
       "public/js/selfserve.js": scriptPaths("selfserve")
     };
+
     grunt.initConfig({
       sass: {
         dev: {
