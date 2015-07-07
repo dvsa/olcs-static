@@ -212,8 +212,9 @@ input[type=submit].more-actions__item {
 
 // A temporary fix until we are able to do this
 // when the page is assembled in the backend.
-.lva-details .actions-container *:first-child {
+.lva-details .actions-container .large:first-child {
   @extend .action--primary;
+  font-size: 19px;
 }
 
 
