@@ -199,7 +199,6 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       // @TODO
       // Would like to include this in handleInput but
       // can't seem to get it working
-
       if ($(".js-input").length) {
         formatUKPostcode(".js-input");
       }
