@@ -126,10 +126,16 @@ input.action,
 .action--secondary.large {
   @extend %paragraph--large;
   padding: 7px 15px 5px;
-  .lookup &,
-  .js-postcode-search & {
-    padding: 4px 12px;
-  }
+}
+
+.lookup .action--primary.large,
+.lookup .action--secondary.large {
+	padding: 4px 12px;
+}
+
+.js-postcode-search .action--primary.large,
+.js-postcode-search .action--secondary.large {
+	padding: 4px 12px;
 }
 
 .action--tertiary.large {
