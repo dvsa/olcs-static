@@ -149,6 +149,17 @@
           </fieldset>
           {{/is }}
 
+          {{#is type "radios selfserve" }}
+          <fieldset class="checkbox">
+            <legend class="legend">{{ label }}</legend>
+            {{#each values }}
+            <div class="field">
+              <label><input type="radio" name="{{ this }}">{{ this }}</label>
+            </div>
+            {{/each }}
+          </fieldset>
+          {{/is }}
+
           {{#is type "radios" }}
           <fieldset class="{{ type }}">
             <legend class="legend">{{ label }}</legend>

@@ -1,0 +1,61 @@
+---
+breadcrumbs:
+  - link: index.html
+    label: I already have an account
+title: Create an account
+form:
+  - fieldsets:
+    - legend: Your details
+      fields:
+        - label: Username
+          type: text
+          hint: Your user name can’t be less than 5 characters long and contain any spaces
+          class: long
+        - label:  First name
+          type: text
+          class: long
+        - label:  Last name
+          type: text
+          class: long
+        - label:  Email address
+          type: text
+          class: long
+        - label:  Re-enter email address
+          type: text
+          class: long
+    - legend: Security
+      fields:
+        - label: Memorable word
+          type: text
+          hint: Your memorable woord can’t be less than 5 characters long and contain any spaces
+          class: long
+    - legend: Current licences
+      fields:
+        - label: Do you currently hold any Vehicle Operator Licences?
+          type: radios inline selfserve
+          values:
+            - Yes
+            - No
+    - legend: Business details
+      fields:
+        - label: Business type
+          type: radios selfserve
+          values:
+            - Limited company
+            - Sole trader
+            - Partnership
+            - Limited Liability Partnership
+            - Other (e.g. public authority, charity, trust, university)
+        - label:  Registered company number
+          type: text
+          class: long
+
+
+---
+
+<div class="two-thirds">
+  {{#each form }}{{> _forms }}{{/each }}
+  <div class="actions-container">
+    <a href="account-created.html" class="action--primary large">Create account</a>
+  </div>
+</div><!-- .two-thirds -->
