@@ -54,11 +54,6 @@
     display: block;
     margin: 3px 0;
   }
-  .action--primary,
-  .action--secondary,
-  .action--tertiary {
-    @extend .large;
-  }
 }
 
 .modal {

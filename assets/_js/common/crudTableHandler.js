@@ -29,10 +29,14 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
      * Helper to reload the parent window behind the modal
      */
     function reloadParent() {
+
+      OLCS.preloader.show();
+
       OLCS.ajax({
         url: window.location.href,
         success: OLCS.normaliseResponse(function(response) {
           F.render(mainBodySelector, response.body);
+          OLCS.preloader.hide();
         })
       });
     }
