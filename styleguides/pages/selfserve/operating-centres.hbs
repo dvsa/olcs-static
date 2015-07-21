@@ -10,15 +10,6 @@ breadcrumbs:
     label: Licence overview
 ---
 
-<div class="notice-container">
-  <div class="notice--success">
-    <p>You successfully added a new operating centre</p>
-  </div>
-  <div class="notice--danger">
-    <p>You have done something wrong, try submitting again</p>
-  </div>
-</div>
-
 <div class="three-quarters">
 
     <!-- Licences -->
@@ -27,8 +18,6 @@ breadcrumbs:
         <h3>Operating centres</h3>
         <div class="actions-container">
           <a href="" class="action--primary">Add operating centre</a>
-          <a href="" class="action--secondary disabled">Edit</a>
-          <a href="" class="action--secondary disabled">Remove</a>
         </div>
       </div><!-- .table__header -->
       <div class="table__wrapper">
@@ -36,9 +25,9 @@ breadcrumbs:
           <thead>
             <tr>
               <th>Address</th>
-              <th>Vehicles</th>
-              <th>Trailers</th>
-              <th><input type="checkbox"></th>
+              <th>Vehicle spaces</th>
+              <th>Trailer spaces</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -46,19 +35,19 @@ breadcrumbs:
               <td><b><a href="">104 Garrett place, Shrewsbury</a></b></td>
               <td>12</td>
               <td>4</td>
-              <td><input type="checkbox"></td>
+              <td><a class="remove" href="">Remove</a></td>
             </tr>
             <tr>
               <td><b><input type="submit" value="Unit 4, Battelfield Industrial Estate, Shrewsbury"></b></td>
               <td>10</td>
               <td>2</td>
-              <td><input type="checkbox"></td>
+              <td><a class="remove" href="">Remove</a></td>
             </tr>
             <tr>
               <td><b><a href="">28 Timmuses Road, Baschurch</a></b></td>
               <td>2</td>
               <td>0</td>
-              <td><input type="checkbox"></td>
+              <td><a class="remove" href="">Remove</a></td>
             </tr>
           </tbody>
           <tfoot>
@@ -78,7 +67,7 @@ breadcrumbs:
         <p>Traffic area</p>
         <h3>North East England</h3>
         <p class="hint">Your traffic area is determined by the location of your operating centres.<br />
-        For more information and to find your traffci area please visit <a href="">this link</a></p>
+        <a href="">More information about traffic areas</a></p>
       </fieldset>
 
       <fieldset>

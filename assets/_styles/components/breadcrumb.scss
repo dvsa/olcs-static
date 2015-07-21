@@ -46,7 +46,8 @@
   .breadcrumbs {
     margin: -2.5em 0 2.5em;
     @media(max-width: 640px) {
-      margin-top: 0;
+      margin: -1em 0 2em 0;
+      font-size: 14px;
     }
   }
 }

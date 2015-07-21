@@ -141,7 +141,7 @@ input.action,
 .action--tertiary.large {
   @extend %paragraph--large;
   padding: 7px 15px 5px 5px;
-  line-height: 2.3;
+  line-height: 1.5;
 }
 
 
@@ -242,9 +242,9 @@ input[type=submit].more-actions__item {
       padding: 0 15px 0;
     }
     &.list {
+      @extend %paragraph--large;
       display: block;
-      font-size: 19px;
-      margin: 40px 0 -30px;
+      margin: 30px 0 -20px;
       padding: 0;
     }
   }

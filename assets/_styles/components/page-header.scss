@@ -16,8 +16,8 @@
     margin-top: 3em;
     margin-bottom: 2.5em;
     @media (max-width: 640px){
-      margin-top: 1em;
-      margin-bottom: .5em;
+      margin-top: 1.5em;
+      margin-bottom: 1.5em;
     }
     &.two-thirds {
       @extend .two-thirds;
@@ -32,12 +32,6 @@
       color: $grey-1;
       font-weight: 400;
     }
-    &__text {
-      margin: 30px 0 0;
-      max-width: 600px;
-      width: 100%;
-    }
-
     &__actions {
       position: absolute;
       right: 0;
@@ -56,6 +50,15 @@
       @extend %h4;
       text-decoration: none;
       font-weight: 600;
+    }
+  }
+
+  .page-header__text {
+    margin: 30px 0 0;
+    max-width: 600px;
+    width: 100%;
+    @media (max-width: 640px){
+      margin-top: 15px;
     }
   }
 
