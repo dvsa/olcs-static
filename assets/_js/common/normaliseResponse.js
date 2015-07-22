@@ -89,7 +89,7 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
 
       if (title.length) {
         OLCS.logger.debug("found response title matching " + titleSelector, "normaliseResponse");
-        response.title = title.text();
+        response.title = title.last().text();
         if ($.trim(response.title) === "") {
           OLCS.logger.debug("title selector contents is empty, falling back to searching body");
           response.title = findTitle(body);
