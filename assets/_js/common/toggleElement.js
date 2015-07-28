@@ -30,8 +30,10 @@ OLCS.toggleElement = (function(document, $, undefined) {
     });
 
     $(document).on('click', function() {
-      $(target).hide();
-      $(trigger).removeClass('active');
+      if ($(trigger).hasClass('active')) {
+        $(target).hide();
+        $(trigger).removeClass('active');
+      }
     });
 
   };
