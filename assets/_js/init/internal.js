@@ -22,5 +22,6 @@ OLCS.ready(function() {
     targetSelector: ".admin__menu"
   });
 
+  OLCS.crudTableHandler();
 
 });
