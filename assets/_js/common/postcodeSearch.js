@@ -149,9 +149,12 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
         // ensure the backend knows which button was pressed
         F.pressButton(form, button);
 
-        if (selector === ".js-select") {
-          $("<div class=address__preloader></div>").insertAfter(".js-find");
+        if ($(".js-input").length) {
+          formatUKPostcode(".js-input");
         }
+
+
+        $("<div class=address__preloader></div>").insertAfter(".js-find");
 
         OLCS.submitForm({
           form: form,
@@ -194,17 +197,8 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
     OLCS.eventEmitter.on("render", setup);
 
     // when we click 'find'...
-    $(document).on("click", submitSelector, function() {
-
-      // @TODO
-      // Would like to include this in handleInput but
-      // can't seem to get it working
-      if ($(".js-input").length) {
-        formatUKPostcode(".js-input");
-      }
-
-      handleInput(".js-find");
-      $("<div class=address__preloader></div>").insertAfter(".js-find");
+    $(document).on("click", submitSelector, function(e) {
+      handleInput(".js-find").call(this, e);
     });
 
     // or we hit enter within the postcode input...
@@ -213,7 +207,6 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       if (e.keyCode === 13) {
         // we need .call here because it relies on 'this' for context
         handleInput(".js-find").call(this, e);
-        $("<div class=address__preloader></div>").insertAfter(".js-find");
       }
     });
 
