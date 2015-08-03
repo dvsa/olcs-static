@@ -44,6 +44,20 @@ OLCS.modal = (function(document, $, undefined) {
   ].join('\n');
 
   /**
+   * Helper to reload the parent window behind the modal
+   */
+  function reloadParent() {
+
+    OLCS.ajax({
+      url: window.location.href,
+      success: OLCS.normaliseResponse(function(response) {
+        OLCS.formHelper.render(".js-body", response.body);
+        console.log('Parent reloaded');
+      })
+    });
+  }
+
+  /**
    * public interface
    */
   exports.show = function(body, title) {
@@ -76,9 +90,7 @@ OLCS.modal = (function(document, $, undefined) {
     $(document).on('click', closeSelectors, function(e) {
       e.preventDefault();
       exports.hide();
-
       OLCS.eventEmitter.emit('modal:cancel');
-
     });
 
     $(document).keyup(function(e) {
@@ -112,6 +124,9 @@ OLCS.modal = (function(document, $, undefined) {
     $(wrapper).remove();
 
     OLCS.eventEmitter.emit('hide:modal');
+
+    // Always reload the paren
+    reloadParent();
   };
 
 

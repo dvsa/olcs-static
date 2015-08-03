@@ -137,8 +137,7 @@ OLCS.formHandler = (function(document, $, undefined) {
 
 
     OLCS.eventEmitter.on("update:.modal__content", function() {
-      OLCS.modal.hide();
-      OLCS.preloader.show();
+      alert("Hello");
     });
 
     // callers of this component might want to manually unbind the listeners
