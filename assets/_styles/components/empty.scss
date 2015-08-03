@@ -36,7 +36,17 @@
 // ---------------
 
 @if $app == 'selfserve' {
-
+  .empty {
+    p {
+      margin-bottom: 10px;
+    }
+    .action--tertiary {
+      clear: both;
+      display: block;
+      margin: 22px 0 -5px;
+      padding: 0;
+    }
+  }
 
 }
 

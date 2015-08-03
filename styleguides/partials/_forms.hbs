@@ -1,5 +1,6 @@
 
-<form>
+<form class="{{ class }}" accept-charset="UTF-8" action="{{ action }}" method="POST">
+  <input type="hidden" name="utf8" value="✓">
   {{#each fieldsets }}
     {{#if title}}<h2 class="divider">{{ title }}</h2>{{/if}}
     <fieldset class="{{ class }}">
@@ -61,8 +62,8 @@
 
           {{#is type "text" }}
           <div class="field">
-            <label>{{ label }}</label>
-            <input type="text" class="{{ class }}" placeholder="{{#each values }}{{ this }}{{/each }}">
+            <label for="{{ name }}">{{ label }}</label>
+            <input id="{{ name }}" type="text" class="{{ class }}" name="{{ name }}" placeholder="{{#each values }}{{ this }}{{/each }}">
             <p class="hint">{{{ hint }}}</hint>
           </div>
           {{/is }}
@@ -132,7 +133,7 @@
             <legend class="legend">{{ label }}</legend>
             {{#each values }}
             <div class="field inline">
-              <label><input type="radio" name="{{ this }}">{{ this }}</label>
+              <label><input type="radio" name="group" val="{{ this }}">{{ this }}</label>
             </div>
             {{/each }}
           </fieldset>
@@ -143,7 +144,18 @@
             <legend class="legend">{{ label }}</legend>
             {{#each values }}
             <div class="field inline">
-              <label><input type="radio" name="{{ this }}">{{ this }}</label>
+              <label><input type="radio" name="group" val="{{ this }}">{{ this }}</label>
+            </div>
+            {{/each }}
+          </fieldset>
+          {{/is }}
+
+          {{#is type "radios selfserve" }}
+          <fieldset class="checkbox">
+            <legend class="legend">{{ label }}</legend>
+            {{#each values }}
+            <div class="field">
+              <label><input type="radio" name="group" val="{{ this }}">{{ this }}</label>
             </div>
             {{/each }}
           </fieldset>

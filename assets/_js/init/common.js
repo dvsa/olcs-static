@@ -29,6 +29,10 @@ OLCS.ready(function() {
    */
   $(document).bind("ajaxError", OLCS.preloader.hide);
 
+    OLCS.eventEmitter.on("modal:cancel", function() {
+        OLCS.preloader.hide();
+    });
+
 
   // A safe assumption that when the page is rendered
   // this preloader should be hidden
