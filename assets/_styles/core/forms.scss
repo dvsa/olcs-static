@@ -25,6 +25,12 @@ input[type="submit"] {
   *overflow: visible;
 }
 
+input[type="text"],
+input[type="search"],
+input[type="password"] {
+  box-sizing: border-box;
+}
+
 input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box;
@@ -545,6 +551,44 @@ select:focus {
     font-size: 16px;
   }
 }
+
+
+/*
+  Inline search
+  -------------
+  Prototype code only - will need tidying up
+*/
+
+.manage-users #username,
+.create-account #username {
+  float: left;
+}
+
+.inline-search__loading {
+  height: 20px;
+  width: 20px;
+  float: left;
+  margin: 8px 5px;
+  background: url('../images/address-preloader.gif') no-repeat 0 0;
+  @include device-pixel-ratio($ratio: 2) {
+    background-image: url('../images/address-preloader-2x.gif');
+    background-size: 20px 20px;
+  }
+}
+
+.inline-search__message {
+  @extend %paragraph--small;
+  float: left;
+  clear: left;
+  margin: 5px 0 -5px;
+  &.green {
+    color: $green;
+  }
+  &.red {
+    color: $mellow-red;
+  }
+}
+
 
 
 

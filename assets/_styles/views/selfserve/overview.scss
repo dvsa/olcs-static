@@ -25,6 +25,7 @@
     float: right;
     clear: none;
     text-decoration: underline;
+    pointer-events: none;
     color: $link-colour;
     @media (max-width: 640px){
       font-size: 14px;

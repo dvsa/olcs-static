@@ -8,6 +8,9 @@
   float: left;
   overflow: auto;
   margin-left: 180px;
+  @media (max-width: 800px) {
+    margin-left: 45px;
+  }
   &__title {
     float: left;
     font-size: 24px;
@@ -16,9 +19,38 @@
   }
 }
 
+.proposition__toggle {
+  display: none;
+  float: right;
+  color: #FFF;
+  text-decoration: none;
+  margin-top: 5px;
+  @media (max-width: 640px) {
+    display: block;
+  }
+  &:hover {
+    color: #FFF;
+    text-decoration: underline;
+  }
+  &:focus {
+    color: #FFF;
+  }
+  &::after {
+    display: inline-block;
+    font-size: 8px;
+    height: 8px;
+    padding-left: 5px;
+    vertical-align: middle;
+    content: " \25BC";
+  }
+}
+
 .proposition-nav {
   list-style: none;
   clear: left;
+  @media (max-width: 640px) {
+    display: block;
+  }
   &__item {
     float: left;
     font-size: 16px;
@@ -34,21 +66,33 @@
   }
 }
 
+
+
+
 @media (max-width: 640px) {
   .proposition {
     width: 100%;
-    margin: .5em 0 .25em 5%;
+    margin: .5em 0 .25em 0;
   }
   .proposition__title {
-    display: none;
+    font-size: 18px;
   }
   .proposition-nav {
-    float: left;
+    display: none;
+    padding-top: 10px
+  }
+  .proposition-nav__item {
     width: 100%;
+    margin: 0;
+  }
+  .proposition-nav__item a {
     display: block;
-    &__item {
-      float: none;
-      display: inline;
-    }
+    padding: 10px 0;
+    width: 100%;
+    font-size: 14px;
+    border-top: 1px solid #222;
+  }
+  .proposition-nav__item a:focus {
+    outline: none;
   }
 }

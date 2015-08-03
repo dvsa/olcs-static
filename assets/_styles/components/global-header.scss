@@ -19,22 +19,25 @@
 
 @if $app == 'selfserve' {
 
-  .global-header {
-    &__wrapper {
-      margin: 0 auto;
-      padding: 4px 0 7px 0;
-      overflow: auto;
+  .global-header__wrapper {
+    margin: 0 auto;
+    padding: 4px 0 7px 0;
+    overflow: auto;
+    @media (max-width: 640px) {
+      width: 92%;
+      padding: 4px 4% 7px;
     }
-    &__title {
-      @extend %h4;
-      clear: none;
-      overflow: hidden;
-      text-align: right;
-      margin: .25em $gutter 0 0;
-      display: block;
-      @media (max-width: 640px){
-        display: none;
-      }
+  }
+
+  .global-header__title {
+    font-size: 24px;
+    float: left;
+    clear: none;
+    margin: 5px 0 0 180px;
+    @media (max-width: 640px) {
+      font-size: 18px;
+      margin: 5px 0 0 0;
+      clear: both;
     }
   }
 
@@ -47,6 +50,10 @@
     line-height: 1;
     text-decoration: none;
     margin-left: $gutter;
+    @media (max-width: 640px) {
+      padding-top: 10px;
+      margin-left: 0;
+    }
     img {
       margin-top: -3px;
       width: 35px;
