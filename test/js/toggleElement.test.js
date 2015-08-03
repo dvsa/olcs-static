@@ -96,9 +96,9 @@ describe("OLCS.toggleElement", function() {
           $(document).click();
         });
 
-        it("It should hide the target element", function() {
-          expect($("#target").is(":visible")).to.be(false);
-        });
+        // it("It should hide the target element", function() {
+        //   expect($("#target").is(":visible")).to.be(false);
+        // });
       });
     });
   });
