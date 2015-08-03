@@ -76,6 +76,8 @@ OLCS.formHandler = (function(document, $, undefined) {
      */
     $(document).on("click", actionSelector, function(e) {
 
+      // OLCS.preloader.show();
+
       var form   = $(this).parents(selector);
       var button = $(this);
 
@@ -131,6 +133,12 @@ OLCS.formHandler = (function(document, $, undefined) {
           OLCS.eventEmitter.emit("update:" + options.container);
         }
       });
+    });
+
+
+    OLCS.eventEmitter.on("update:.modal__content", function() {
+      OLCS.modal.hide();
+      OLCS.preloader.show();
     });
 
     // callers of this component might want to manually unbind the listeners

@@ -76,14 +76,16 @@ OLCS.modal = (function(document, $, undefined) {
     $(document).on('click', closeSelectors, function(e) {
       e.preventDefault();
       exports.hide();
-      OLCS.eventEmitter.emit('close:modal');
+
+      OLCS.eventEmitter.emit('modal:cancel');
+
     });
 
     $(document).keyup(function(e) {
       if (e.keyCode === 27) {
         e.preventDefault();
         exports.hide();
-        OLCS.eventEmitter.emit('close:modal');
+        // OLCS.eventEmitter.emit('modal:cancel');
       }
     });
 
@@ -112,15 +114,6 @@ OLCS.modal = (function(document, $, undefined) {
     OLCS.eventEmitter.emit('hide:modal');
   };
 
-  exports.isVisible = function() {
-    return $(wrapper).is(':visible');
-  };
-
-  exports.updateBody = function(body) {
-    var position = $(wrapper).scrollTop();
-    OLCS.formHelper.render(content, body);
-    $(wrapper).scrollTop(position);
-  };
 
   return exports;
 
