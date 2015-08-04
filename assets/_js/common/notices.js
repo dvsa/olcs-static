@@ -42,7 +42,7 @@ OLCS.notices = (function(document, $, undefined) {
         remove($(this).parents(noticeSelector));
       } else {
         // Otherwise remove the whole notice container
-        remove(noticeContainerSelector);
+        remove($(this).parents(noticeContainerSelector));
       }
     });
 

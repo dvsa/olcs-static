@@ -32,10 +32,16 @@ OLCS.preloader = (function(document, $, undefined) {
       showStack = 0;
     }
 
-    // If there's already a modal on the page
+    // if there's already a modal on the page
     // then don't show another preloader
     if ($(".modal__wrapper").length) {
-      console.log("Already a modal here");
+      return;
+    }
+
+    // @NOTE: temporary fix to prevent the modal showing
+    // in the 'Type of licence' section on LVA
+    // 4/8/15
+    if ($(".js-title").text() === "Type of licence") {
       return;
     }
 
