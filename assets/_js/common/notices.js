@@ -54,8 +54,9 @@ OLCS.notices = (function(document, $, undefined) {
      * to check parent elements
      */
     if (!$(noticeContainerSelector).parents('.modal, .one-fifth--right').length) {
-      OLCS.eventEmitter.on('render', fadeOut);
-      fadeOut(noticeContainerSelector);
+      OLCS.eventEmitter.on('render', function() {
+        fadeOut(noticeContainerSelector);
+      });
     }
 
 
