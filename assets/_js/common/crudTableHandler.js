@@ -20,7 +20,7 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
     ].join(",");
 
     var modalBodySelector  = ".modal__content";
-    var mainBodySelector   = ".js-body";
+    var mainBodySelector   = ".js-body, .js-body__main";
     var modalWrapper       = ".modal__wrapper";
 
     var F = OLCS.formHelper;
@@ -75,7 +75,6 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
         // if the original response was a redirect then be sure to respect
         // that by closing the modal
         if (response.status === 302) {
-          console.log('redirect');
           if (OLCS.url.isCurrent(response.location)) {
             return OLCS.modal.hide();
           }

@@ -29,6 +29,8 @@ OLCS.modalLink = (function(document, $, undefined) {
       // and causing this event to re-trigger
       e.stopPropagation();
 
+      console.log("clicked");
+
       var key = $(this).attr('href');
 
       // Because we can only have one modal, it's fair to assume we can hide all

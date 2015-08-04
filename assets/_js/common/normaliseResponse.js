@@ -155,8 +155,6 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
         OLCS.modal.hide();
         OLCS.preloader.show();
 
-
-
         OLCS.logger.debug(
           "caught 302 redirect; followRedirects=true; redirecting to " + response.location,
           "normaliseResponse"
