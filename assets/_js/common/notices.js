@@ -46,19 +46,21 @@ OLCS.notices = (function(document, $, undefined) {
       }
     });
 
-    OLCS.eventEmitter.on('render', addCloseButton);
 
-    /**
-     * @TODO SQ: 09/02/2015
-     * Update the markup to make this more specific instead of having
-     * to check parent elements
-     */
-    if (!$(noticeContainerSelector).parents('.modal, .one-fifth--right').length) {
-      OLCS.eventEmitter.on('render', function() {
-        fadeOut(noticeContainerSelector);
+    OLCS.eventEmitter.on('render', function() {
+      addCloseButton();
+
+      // fade out any notice containers on render,
+      // so long as they're not in a modal or in the
+      // right hand column
+      //
+      // @NOTE: This need to be more specific
+      $(noticeContainerSelector).each(function() {
+        if (!$(this).parents().is('.modal, .one-fifth--right')) {
+          fadeOut($(this));
+        }
       });
-    }
-
+    });
 
 
   };
