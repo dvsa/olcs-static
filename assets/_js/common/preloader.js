@@ -27,11 +27,6 @@ OLCS.preloader = (function(document, $, undefined) {
    * public interface
    */
   exports.show = function() {
-    if ($('body').find(wrapper).length === 0) {
-      $('body').prepend(template);
-      showStack = 0;
-    }
-
     // if there's already a modal on the page
     // then don't show another preloader
     if ($(".modal__wrapper").length) {
@@ -43,6 +38,11 @@ OLCS.preloader = (function(document, $, undefined) {
     // 4/8/15
     if ($(".js-title").text() === "Type of licence") {
       return;
+    }
+
+    if ($('body').find(wrapper).length === 0) {
+      $('body').prepend(template);
+      showStack = 0;
     }
 
     showStack ++;
