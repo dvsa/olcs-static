@@ -25,17 +25,6 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
 
     var F = OLCS.formHelper;
 
-    /**
-     * Helper to reload the parent window behind the modal
-     */
-    // function reloadParent() {
-    //   OLCS.ajax({
-    //     url: window.location.href,
-    //     success: OLCS.normaliseResponse(function(response) {
-    //       F.render(mainBodySelector, response.body);
-    //     })
-    //   });
-    // }
 
     $(document).on("click", crudActionSelector, function handleCrudClick(e) {
       e.preventDefault();
@@ -86,6 +75,7 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
         // if the original response was a redirect then be sure to respect
         // that by closing the modal
         if (response.status === 302) {
+          console.log('redirect');
           if (OLCS.url.isCurrent(response.location)) {
             return OLCS.modal.hide();
           }
@@ -115,22 +105,8 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
       });
     });
 
-    /**
-     * Reload the parent page every time a modal is hidden. By and large this
-     * works well and means our parent page is always fresh (CSRF, version numbers etc).
-     * The only downside is that a user can close the modal without any interaction and
-     * still trigger a spinner and a refresh which might confuse them. However, it's
-     * still necessary because they've actually POSTed the original form and possibly
-     * updated the version, so if they try and view another modal they'll get a version conflict
-     *
-     * We could 'optimistically' reload the parent as soon as the modal is rendered, but
-     * you'd end up with a spinner on top of an otherwise ready modal form, and you'd
-     * still have to update the parent if the user added / edited something in the modal
-     * since the underlying table would need an update. This will do for now
-     * and at least means the reload only happens once, and always at the same point in
-     * the flow
-     */
-    // OLCS.eventEmitter.on("hide:modal", reloadParent);
+
+
   };
 
 }(document, window.jQuery));

@@ -27,6 +27,7 @@ OLCS.modal = (function(document, $, undefined) {
   var header    = '.modal__title';
   var content   = '.modal__content';
   var bodyClass = 'disable-scroll';
+  var mainBodySelector ='.js-body, .js-body__main';
 
   var closeSelectors = selector + '__close, ' + content + ' #cancel';
 
@@ -43,16 +44,15 @@ OLCS.modal = (function(document, $, undefined) {
     '</div>'
   ].join('\n');
 
+
   /**
    * Helper to reload the parent window behind the modal
    */
   function reloadParent() {
-
     OLCS.ajax({
       url: window.location.href,
       success: OLCS.normaliseResponse(function(response) {
-        OLCS.formHelper.render(".js-body", response.body);
-        console.log('Parent reloaded');
+        OLCS.formHelper.render(mainBodySelector, response.body);
       })
     });
   }
@@ -77,33 +77,29 @@ OLCS.modal = (function(document, $, undefined) {
 
     $(selector).focus();
 
-    // @TODO: does anything care about this anymore? a grep is in order
-    OLCS.eventEmitter.emit('show:modal');
-
     // let other potentially interested components know
     // there's been a render event
     OLCS.eventEmitter.emit('render');
 
-    // @NOTE: why does the listener have to be set up here?
-    // it can be done on bootstrap and we can do away with
-    // the constant on/off stuff...
-    $(document).on('click', closeSelectors, function(e) {
-      e.preventDefault();
-      exports.hide();
-      OLCS.eventEmitter.emit('modal:cancel');
-    });
-
-    $(document).keyup(function(e) {
-      if (e.keyCode === 27) {
-        e.preventDefault();
-        exports.hide();
-        // OLCS.eventEmitter.emit('modal:cancel');
-      }
-    });
-
     // if we've previously opened a modal and scrolled it our modal wrapper
     // needs resetting
     $(wrapper).scrollTop(0);
+
+
+    $(document).on('click', closeSelectors, function(e) {
+      e.preventDefault();
+      exports.hide();
+    });
+
+    if ($('.modal__content').length) {
+      $(document).keyup(function(e) {
+        if (e.keyCode === 27) {
+          e.preventDefault();
+          exports.hide();
+        }
+      });
+    }
+
   };
 
   exports.hide = function() {
@@ -125,10 +121,26 @@ OLCS.modal = (function(document, $, undefined) {
 
     OLCS.eventEmitter.emit('hide:modal');
 
-    // Always reload the paren
-    reloadParent();
   };
 
+
+  /**
+   * Reload the parent page every time a modal is hidden. By and large this
+   * works well and means our parent page is always fresh (CSRF, version numbers etc).
+   * The only downside is that a user can close the modal without any interaction and
+   * still trigger a spinner and a refresh which might confuse them. However, it's
+   * still necessary because they've actually POSTed the original form and possibly
+   * updated the version, so if they try and view another modal they'll get a version conflict
+   *
+   * We could 'optimistically' reload the parent as soon as the modal is rendered, but
+   * you'd end up with a spinner on top of an otherwise ready modal form, and you'd
+   * still have to update the parent if the user added / edited something in the modal
+   * since the underlying table would need an update. This will do for now
+   * and at least means the reload only happens once, and always at the same point in
+   * the flow
+   */
+
+  OLCS.eventEmitter.on("hide:modal", reloadParent);
 
   return exports;
 

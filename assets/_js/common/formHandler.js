@@ -135,11 +135,6 @@ OLCS.formHandler = (function(document, $, undefined) {
       });
     });
 
-
-    OLCS.eventEmitter.on("update:.modal__content", function() {
-      alert("Hello");
-    });
-
     // callers of this component might want to manually unbind the listeners
     // we've bound to it, so we need to return a wrapped object which lets
     // them do so

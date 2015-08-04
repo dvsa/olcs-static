@@ -152,6 +152,11 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
       if (response.status === 302 && followRedirects) {
         // manually invoke a preloader; just to make sure that while the page physically
         // performs the navigation we show it as 'loading'
+        OLCS.modal.hide();
+        OLCS.preloader.show();
+
+
+
         OLCS.logger.debug(
           "caught 302 redirect; followRedirects=true; redirecting to " + response.location,
           "normaliseResponse"
