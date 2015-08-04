@@ -28,11 +28,11 @@ OLCS.ready(function() {
    * we can make it more selective :)
    */
 
-  $(document).on("ajaxStart", function(){
-    if (!$(".modal__wrapper").length && !$(".preloader").length) {
-      OLCS.preloader.show();
-    }
-  });
+  // $(document).on("ajaxStart", function(){
+  //   if (!$(".modal__wrapper").length && !$(".preloader").length) {
+
+  //   }
+  // });
 
   $(document).bind("ajaxError", OLCS.preloader.hide);
 

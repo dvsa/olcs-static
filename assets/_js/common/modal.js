@@ -46,21 +46,10 @@ OLCS.modal = (function(document, $, undefined) {
 
 
   /**
-   * Helper to reload the parent window behind the modal
-   */
-  function reloadParent() {
-    OLCS.ajax({
-      url: window.location.href,
-      success: OLCS.normaliseResponse(function(response) {
-        OLCS.formHelper.render(mainBodySelector, response.body);
-      })
-    });
-  }
-
-  /**
    * public interface
    */
   exports.show = function(body, title) {
+
     if ($('body').find(overlay).length === 0) {
       $('body').prepend(template);
     }
@@ -139,8 +128,6 @@ OLCS.modal = (function(document, $, undefined) {
     OLCS.formHelper.render(content, body);
     $(wrapper).scrollTop(position);
   };
-
-  OLCS.eventEmitter.on('hide:modal', reloadParent);
 
   return exports;
 

@@ -32,6 +32,13 @@ OLCS.preloader = (function(document, $, undefined) {
       showStack = 0;
     }
 
+    // If there's already a modal on the page
+    // then don't show another preloader
+    if ($(".modal__wrapper").length) {
+      console.log("Already a modal here");
+      return;
+    }
+
     showStack ++;
 
     $(wrapper).show();

@@ -34,7 +34,12 @@ OLCS.modalLink = (function(document, $, undefined) {
       // Because we can only have one modal, it's fair to assume we can hide all
       // this was added to cater for when we need to trigger a new modal, when
       // one is already showing
-      OLCS.modal.hide();
+      //
+      // @NOTE: Because we now reload the parent whenever a modal is hidden, firing
+      // this when the modal is invoked was causing the parent to reload uneccessarily.
+      //
+      // OLCS.modal.hide();
+      OLCS.preloader.show();
 
       OLCS.ajax({
         url: key,
