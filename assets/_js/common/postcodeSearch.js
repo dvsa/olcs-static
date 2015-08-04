@@ -84,8 +84,8 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
     }
 
 
-    function formatUKPostcode(selector) {
-      var val =  $(selector).val().toUpperCase();
+    function formatUKPostcode(element) {
+      var val =  element.val().toUpperCase();
       var list = [""+ val+""];
 
       if (val.indexOf(" ") >= 0) {
@@ -94,7 +94,7 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
         for (var i = 0; i < list.length; i++) {
           var parts = list[i].match(/^([A-Z]{1,2}\d{1,2}[A-Z]?)\s*(\d[A-Z]{2})$/);
           parts.shift();
-          $(selector).val(parts.join(" "));
+          element.val(parts.join(" "));
         }
       }
 
@@ -145,12 +145,13 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
         var fieldset = $(this).parents(container);
         var button   = fieldset.find(selector);
         var form     = fieldset.parents("form");
+        var input    = fieldset.find(".js-input");
 
         // ensure the backend knows which button was pressed
         F.pressButton(form, button);
 
-        if ($(".js-input").length) {
-          formatUKPostcode(".js-input");
+        if (input.length) {
+          formatUKPostcode(input);
         }
 
 
