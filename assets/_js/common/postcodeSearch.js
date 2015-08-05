@@ -86,16 +86,18 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
 
     function formatUKPostcode(element) {
       var val =  element.val().toUpperCase();
-      var list = [""+ val+""];
+
+      // Convert value to uppercase
+      element.val(val);
+
 
       if (val.indexOf(" ") >= 0) {
-        return false;
+        return;
       } else {
-        for (var i = 0; i < list.length; i++) {
-          var parts = list[i].match(/^([A-Z]{1,2}\d{1,2}[A-Z]?)\s*(\d[A-Z]{2})$/);
-          parts.shift();
-          element.val(parts.join(" "));
-        }
+        var parts = val.match(/^([A-Z]{1,2}\d{1,2}[A-Z]?)\s*(\d[A-Z]{2})$/);
+        console.log(typeof(parts));
+        parts.shift();
+        element.val(parts.join(" "));
       }
 
     }
@@ -155,7 +157,7 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
         }
 
 
-        $("<div class=address__preloader></div>").insertAfter(".js-find");
+        $("<div class=address__preloader></div>").insertAfter(button);
 
         OLCS.submitForm({
           form: form,

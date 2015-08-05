@@ -27,9 +27,9 @@ OLCS.preloader = (function(document, $, undefined) {
    * public interface
    */
   exports.show = function() {
-    // if there's already a modal on the page
+    // if there's already a modal on the page, or an address preloader
     // then don't show another preloader
-    if ($(".modal__wrapper").length) {
+    if ($(".modal__wrapper, .address__preloader").length) {
       return;
     }
 
