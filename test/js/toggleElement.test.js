@@ -99,6 +99,7 @@ describe("OLCS.toggleElement", function() {
             expect($("#target").is(":visible")).to.be(false);
           });
         });
+
       });
     });
   });
