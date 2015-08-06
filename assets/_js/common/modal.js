@@ -27,7 +27,6 @@ OLCS.modal = (function(document, $, undefined) {
   var header    = '.modal__title';
   var content   = '.modal__content';
   var bodyClass = 'disable-scroll';
-  var mainBodySelector ='.js-body, .js-body__main';
 
   var closeSelectors = selector + '__close, ' + content + ' #cancel';
 

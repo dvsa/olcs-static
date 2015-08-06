@@ -43,52 +43,66 @@ describe("OLCS.notices", function() {
           this.component();
         });
 
-        describe("When the first close button is clicked", function() {
+        describe("And the page has rendered", function() {
           beforeEach(function() {
-            $("#l2").click();
+            OLCS.eventEmitter.emit("render");
           });
 
-          it("It removes the expected element", function() {
-            expect($(".notice--danger").length).to.equal(0);
-            expect($(".notice--success").length).to.equal(1);
-            expect($(".notice-container").length).to.equal(1);
+          it("It should add a 'Close button' to each notice", function() {
+            expect($(".notice--success .notice__link").length).to.equal(2);
           });
 
-          describe("When the last remaining element's close button is clicked", function() {
+          describe("When the first notice's close button is clicked", function() {
             beforeEach(function() {
-              $("#l1").click();
+              $(".notice--success .notice__link").click();
+            });
+
+            it("It removes the expected element", function() {
+              expect($(".notice--danger").length).to.equal(1);
+              expect($(".notice--success").length).to.equal(0);
+              expect($(".notice-container").length).to.equal(1);
+            });
+
+            describe("When the last remaining element's close button is clicked", function() {
+              beforeEach(function() {
+                $(".notice--danger .notice__link").click();
+              });
+
+              it("It removes the container from them DOM", function() {
+                expect($(".notice-container").length).to.equal(0);
+              });
+            });
+          });
+
+
+          describe("After 10 seconds has passed", function() {
+            beforeEach(function(){
+              this.clock.tick(10400);
             });
 
             it("It removes the container from them DOM", function() {
               expect($(".notice-container").length).to.equal(0);
             });
           });
+
         });
 
-        describe("After 10 seconds has passed", function() {
-          beforeEach(function(){
-            this.clock.tick(10400);
-          });
-
-          it("It removes the container from them DOM", function() {
-            expect($(".notice-container").length).to.equal(0);
-          });
-        });
       });
     });
   });
 
-  describe("Given a stubbed DOM with the class of 'modal'", function() {
+  describe("Given a stubbed DOM with the class of either 'modal' or 'one-fifth--right", function() {
     beforeEach(function() {
       $("body").append([
-        "<div class=modal>",
+        "<div class=modal "+"one-fifth--right"+">",
           "<div class=notice-container>",
             "<div class=notice--success>",
-              "<p>Message<a href=# class=notice__link id=l1>Close</a></p>",
+              "<p>Message</p>",
             "</div>",
           "</div>",
         "</div>"
       ].join("\n"));
+
     });
 
     afterEach(function() {
@@ -104,14 +118,15 @@ describe("OLCS.notices", function() {
         this.clock.restore();
       });
 
-      describe("When invoked", function() {
+      describe("When invoked and the page has rendered", function() {
         beforeEach(function() {
           this.component();
+          OLCS.eventEmitter.emit("render");
         });
 
-        describe("After 6400ms seconds has passed", function() {
+        describe("After 14000ms seconds has passed", function() {
           beforeEach(function(){
-            this.clock.tick(6400);
+            this.clock.tick(14000);
           });
 
           it("The notice container should still be present", function() {
@@ -119,6 +134,7 @@ describe("OLCS.notices", function() {
           });
         });
       });
+
     });
   });
 });

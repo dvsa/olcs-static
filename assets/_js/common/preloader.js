@@ -29,14 +29,14 @@ OLCS.preloader = (function(document, $, undefined) {
   exports.show = function() {
     // if there's already a modal on the page, or an address preloader
     // then don't show another preloader
-    if ($(".modal__wrapper, .address__preloader").length) {
+    if ($('.modal__wrapper, .address__preloader').length) {
       return;
     }
 
     // @NOTE: temporary fix to prevent the modal showing
     // in the 'Type of licence' section on LVA
     // 4/8/15
-    if ($(".js-title").text() === "Type of licence") {
+    if ($('.js-titl').text() === 'Type of licence') {
       return;
     }
 

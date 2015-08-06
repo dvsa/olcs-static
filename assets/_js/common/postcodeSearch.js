@@ -95,7 +95,6 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
         return;
       } else {
         var parts = val.match(/^([A-Z]{1,2}\d{1,2}[A-Z]?)\s*(\d[A-Z]{2})$/);
-        console.log(typeof(parts));
         parts.shift();
         element.val(parts.join(" "));
       }
