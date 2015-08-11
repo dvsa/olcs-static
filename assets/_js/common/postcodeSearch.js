@@ -84,18 +84,19 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
     }
 
 
-    function formatUKPostcode(selector) {
-      var val =  $(selector).val().toUpperCase();
-      var list = [""+ val+""];
+    function formatUKPostcode(element) {
+      var val =  element.val().toUpperCase();
+
+      // Convert value to uppercase
+      element.val(val);
+
 
       if (val.indexOf(" ") >= 0) {
-        return false;
+        return;
       } else {
-        for (var i = 0; i < list.length; i++) {
-          var parts = list[i].match(/^([A-Z]{1,2}\d{1,2}[A-Z]?)\s*(\d[A-Z]{2})$/);
-          parts.shift();
-          $(selector).val(parts.join(" "));
-        }
+        var parts = val.match(/^([A-Z]{1,2}\d{1,2}[A-Z]?)\s*(\d[A-Z]{2})$/);
+        parts.shift();
+        element.val(parts.join(" "));
       }
 
     }
@@ -145,13 +146,17 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
         var fieldset = $(this).parents(container);
         var button   = fieldset.find(selector);
         var form     = fieldset.parents("form");
+        var input    = fieldset.find(".js-input");
 
         // ensure the backend knows which button was pressed
         F.pressButton(form, button);
 
-        if (selector === ".js-select") {
-          $("<div class=address__preloader></div>").insertAfter(".js-find");
+        if (input.length) {
+          formatUKPostcode(input);
         }
+
+
+        $("<div class=address__preloader></div>").insertAfter(button);
 
         OLCS.submitForm({
           form: form,
@@ -194,17 +199,8 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
     OLCS.eventEmitter.on("render", setup);
 
     // when we click 'find'...
-    $(document).on("click", submitSelector, function() {
-
-      // @TODO
-      // Would like to include this in handleInput but
-      // can't seem to get it working
-      if ($(".js-input").length) {
-        formatUKPostcode(".js-input");
-      }
-
-      handleInput(".js-find");
-      $("<div class=address__preloader></div>").insertAfter(".js-find");
+    $(document).on("click", submitSelector, function(e) {
+      handleInput(".js-find").call(this, e);
     });
 
     // or we hit enter within the postcode input...
@@ -213,7 +209,6 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       if (e.keyCode === 13) {
         // we need .call here because it relies on 'this' for context
         handleInput(".js-find").call(this, e);
-        $("<div class=address__preloader></div>").insertAfter(".js-find");
       }
     });
 

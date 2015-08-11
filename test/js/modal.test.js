@@ -19,6 +19,10 @@ describe("OLCS.modal", function() {
       this.component.show("body here", "title here");
     });
 
+    afterEach(function() {
+      this.component.hide();
+    });
+
     it("shows the modal overlay", function() {
       expect($(".overlay").is(":visible")).to.be(true);
     });

@@ -89,16 +89,17 @@ describe("OLCS.toggleElement", function() {
         it("Should show the target element", function() {
           expect($("#target").is(":visible")).to.be(true);
         });
-      });
 
-      describe("When the document is clicked and the target element his visible", function() {
-        beforeEach(function() {
-          $(document).click();
+        describe("When the document is clicked", function() {
+          beforeEach(function() {
+            $(document).click();
+          });
+
+          it("It should hide the target element", function() {
+            expect($("#target").is(":visible")).to.be(false);
+          });
         });
 
-        // it("It should hide the target element", function() {
-        //   expect($("#target").is(":visible")).to.be(false);
-        // });
       });
     });
   });

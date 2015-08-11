@@ -11,6 +11,7 @@
   left: 0;
   width: 95%;
   margin: 0 2.5%;
+  z-index: 2;
   @media (min-width:640px) {
     left: 50%;
     width: 100%;
@@ -33,6 +34,7 @@
   float: left;
   left: 0;
   top: 0;
+  z-index: 0;
   a {
     float: left;
   }
@@ -75,4 +77,20 @@
   a {
     float: right;
   }
+}
+
+
+// Internal theme
+// ---------------
+
+@if $app == 'internal' {
+
+  .notice-container p {
+    font-size: 15px;
+  }
+
+  .one-fifth--right .notice-container p {
+    font-size: 14px;
+  }
+
 }

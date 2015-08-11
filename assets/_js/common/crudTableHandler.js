@@ -30,6 +30,7 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
      */
     function reloadParent() {
 
+      // Show our preloader
       OLCS.preloader.show();
 
       OLCS.ajax({
@@ -43,9 +44,6 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
 
     $(document).on("click", crudActionSelector, function handleCrudClick(e) {
       e.preventDefault();
-
-      // Show our preloader
-      OLCS.preloader.show();
 
       var button = $(this);
       var form   = $(this).parents("form");

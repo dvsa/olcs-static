@@ -43,10 +43,12 @@ OLCS.modal = (function(document, $, undefined) {
     '</div>'
   ].join('\n');
 
+
   /**
    * public interface
    */
   exports.show = function(body, title) {
+
     if ($('body').find(overlay).length === 0) {
       $('body').prepend(template);
     }
@@ -70,22 +72,26 @@ OLCS.modal = (function(document, $, undefined) {
     // there's been a render event
     OLCS.eventEmitter.emit('render');
 
+    // if we've previously opened a modal and scrolled it our modal wrapper
+    // needs resetting
+    $(wrapper).scrollTop(0);
+
     // @NOTE: why does the listener have to be set up here?
     // it can be done on bootstrap and we can do away with
     // the constant on/off stuff...
     $(document).on('click', closeSelectors, function(e) {
       e.preventDefault();
       exports.hide();
-      OLCS.eventEmitter.emit('close:modal');
     });
 
-    $(document).keyup(function(e) {
-      if (e.keyCode === 27) {
-        e.preventDefault();
-        exports.hide();
-        OLCS.eventEmitter.emit('close:modal');
-      }
-    });
+    if ($('.modal__content').length) {
+      $(document).keyup(function(e) {
+        if (e.keyCode === 27) {
+          e.preventDefault();
+          exports.hide();
+        }
+      });
+    }
 
     // if we've previously opened a modal and scrolled it our modal wrapper
     // needs resetting
