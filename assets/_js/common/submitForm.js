@@ -30,6 +30,8 @@ OLCS.submitForm = (function(document, $, undefined) {
     var enabledElements;
     var url;
 
+    console.log(options);
+
     if (disableOnSubmit) {
       enabledElements = form.find(":input").not(":disabled");
       enabledElements.attr("disabled", true);
