@@ -87,9 +87,7 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
     function formatUKPostcode(element) {
       var val =  element.val().toUpperCase();
 
-      // Convert value to uppercase
       element.val(val);
-
 
       if (val.indexOf(" ") >= 0) {
         return;

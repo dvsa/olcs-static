@@ -104,6 +104,41 @@ describe("OLCS.postcodeSearch", function() {
         });
       });
 
+      describe("Given the the input field has an incorrectly formatted postcode", function() {
+        beforeEach(function() {
+          var stub = [
+            "<div class=address id=stub>",
+              "<fieldset>",
+                "<input type=text class=js-input value=ls81an>",
+                "<button type=submit name='address[searchPostcode][search]' class='action--primary large js-find' value=search>Find address</button>",
+              "</fieldset>",
+            "</div>"
+          ].join("\n");
+
+          this.body = $("body");
+          this.body.append(stub);
+        });
+
+        afterEach(function() {
+          $("#stub").remove();
+        });
+
+        describe("When clicking the find button", function() {
+          beforeEach(function() {
+            this.submitForm = sinon.stub(OLCS, "submitForm");
+            $(".address .js-find").click();
+          });
+
+          afterEach(function() {
+            this.submitForm.restore();
+          });
+
+          it("should convert the input to uppercase and add a space", function() {
+            expect($(".js-input").val()).to.be("LS8 1AN");
+          });
+        });
+      });
+
       describe("Given some address fields have data", function() {
         beforeEach(function() {
           var stub = [
