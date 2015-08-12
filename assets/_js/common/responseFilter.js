@@ -34,6 +34,7 @@ OLCS.filterResponse = (function(document, $, undefined) {
       }
 
       OLCS.formHelper.render(container, content);
+      OLCS.formHelper.renderModalTitle(response.title);
     });
   };
 

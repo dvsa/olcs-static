@@ -126,6 +126,12 @@ OLCS.formHelper = (function(document, $, undefined) {
     OLCS.eventEmitter.emit("render");
   };
 
+  exports.renderModalTitle = function(title) {
+    if ($('#modal-title').length > 0) {
+      $('#modal-title').html(title);
+    }
+  };
+
   exports.selectRadio = function(fieldset, name, value) {
     exports.input(fieldset, name)
     .filter("[value='"+value+"']")
