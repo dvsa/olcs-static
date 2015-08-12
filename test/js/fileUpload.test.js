@@ -24,16 +24,21 @@ describe("OLCS.fileUpload", function() {
       describe("Given the DOM is in a clean state", function() {
         beforeEach(function() {
           var stub = [
-            "<div class=address id=stub data-group=a>",
-              "<fieldset>",
-                "<button type=submit name='address[searchPostcode][search]' class='action--primary large js-find' value=search>Find address</button>",
-                "<div class=field>",
-                  "<p class=hint--small id=p1><a href=#>Manual</a></p>",
-                "</div>",
-              "</fieldset>",
-              "<div class=field id=f1><input name='a[addressLine1]' type=text /></div>",
-              "<div class=field id=f2><input name='a[addressLine2]' type=text /></div>",
-            "</div>"
+            "<fieldset class=file-uploader>",
+              "<legend>Advertisement <span class='js-hidden'>(if applicable)</span>(optional)</legend>",
+              "<div class=field>",
+                "<ul class=attach-action__list>",
+                  "<li class=attach-action>",
+                    "<label class=attach-action__label>",
+                      "<input type=file name='advertisements[file][file]' class='js-visually-hidden attach-action__input' id='advertisements[file][file]'>",
+                    "</label>",
+                  "</li>",
+                "</ul>",
+              "</div>"
+              "<ul class='js-upload-list' data-group='advertisements[file][list]'></ul>",
+              "<input type=hidden name='advertisements[file][__messages__]' id='advertisements[file][__messages__]>",
+              "<button type=submit name='advertisements[file][upload]' class='inline-upload js-upload' id='advertisements[file][upload]' value=Upload>Upload</button>",
+            "</fieldset>"
           ].join("\n");
 
           this.body = $("body");

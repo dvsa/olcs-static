@@ -60,7 +60,8 @@ OLCS.submitForm = (function(document, $, undefined) {
       data: data,
       success: success,
       error: error,
-      complete: complete
+      complete: complete,
+      beforeSend: OLCS.preloader.show()
     });
   };
 
