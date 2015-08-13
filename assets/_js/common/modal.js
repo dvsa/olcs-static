@@ -99,6 +99,15 @@ OLCS.modal = (function(document, $, undefined) {
   };
 
   exports.hide = function() {
+
+    var form = $(content).find('form[data-close-trigger]');
+
+    if (form.length > 0) {
+      var selector = form.data('close-trigger');
+      $(selector).trigger('click');
+      return;
+    }
+
     $(document).off('click', closeSelectors);
 
     $('body').removeClass(bodyClass);
