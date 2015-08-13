@@ -62,7 +62,7 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
           return F.render(mainBodySelector, response.body);
         }
 
-        // otherwise clear any we might have had previouosly
+        // otherwise clear any we might have had previously
         F.clearErrors();
 
         var options = {
