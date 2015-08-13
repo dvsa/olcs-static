@@ -150,9 +150,13 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
       // we won't invoke the callback if the status
       // is a straightforward redirect
       if (response.status === 302 && followRedirects) {
+        // @NOTE This was breaking functionality when a crud action attempts to redirect back to parent without showing
+        // a modal. This was causing a second GET request to reloadParent which showed a double spinner, 2 x wait time
+        // and any flash messengers being hidden and removed too soon.
+        //OLCS.modal.hide();
+
         // manually invoke a preloader; just to make sure that while the page physically
         // performs the navigation we show it as 'loading'
-        OLCS.modal.hide();
         OLCS.preloader.show();
 
         OLCS.logger.debug(
