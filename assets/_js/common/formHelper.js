@@ -127,8 +127,8 @@ OLCS.formHelper = (function(document, $, undefined) {
   };
 
   exports.renderModalTitle = function(title) {
-    if ($('#modal-title').length > 0) {
-      $('#modal-title').html(title);
+    if ($("#modal-title").length > 0) {
+      $("#modal-title").html(title);
     }
   };
 
