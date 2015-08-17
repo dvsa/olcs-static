@@ -19,7 +19,7 @@ describe("OLCS.preloader", function() {
       $(".preloader__wrapper").remove();
     });
 
-    describe("show", function() {
+    describe("when the 'show' method is invoked", function() {
       beforeEach(function() {
         this.component.show();
       });

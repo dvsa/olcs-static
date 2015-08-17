@@ -148,8 +148,10 @@ fieldset fieldset .field:last-child {
     margin-top: .5em;
   }
   &.inline-text  input {
-    width: 2em;
-    margin-right: 1em;
+    width: 50px;
+    padding: 0 5px;
+    line-height: 2;
+    margin: 0 10px 10px 0;
   }
   &--two-col {
     width: 47.5%;
@@ -554,6 +556,21 @@ select:focus {
 
 
 /*
+  DOB
+  ---
+*/
+
+.dob {
+  legend {
+    margin-bottom: 0;
+  }
+  label {
+    padding-top: 0;
+  }
+}
+
+
+/*
   Inline search
   -------------
   Prototype code only - will need tidying up
@@ -876,6 +893,12 @@ select:focus {
 
   .chosen-container {
     font-size: 14px;
+  }
+
+  .js-postcode-search .inline .action--primary.large,
+  .lookup button.action--primary.large {
+    margin-left: 5px;
+    padding: 7px 12px;
   }
 
 }
