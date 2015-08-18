@@ -6,11 +6,11 @@ OLCS.browser = (function(document, $, undefined) {
 
   var exports = {};
 
-  exports.isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+  exports.isOpera = !!window.opera || navigator.userAgent.indexOf(" OPR/") >= 0;
 
-  exports.isFirefox = typeof InstallTrigger !== 'undefined';
+  exports.isFirefox = typeof InstallTrigger !== "undefined";
 
-  exports.isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+  exports.isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf("Constructor") > 0;
 
   exports.isChrome = !!window.chrome && !exports.isOpera;
 
