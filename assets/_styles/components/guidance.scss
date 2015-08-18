@@ -14,6 +14,10 @@
   .page-header & {
     margin-bottom: 0;
   }
+  .modal__wrapper & {
+    word-wrap: break-word;
+    float: none;
+  }
 }
 
 fieldset + .field .help,
