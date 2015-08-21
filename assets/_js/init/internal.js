@@ -3,7 +3,7 @@ OLCS.ready(function() {
 
   OLCS.conditionalButton({
     form: ".table__form",
-    selector: ".js-require--one",
+    selector: ".js-require--one:not(.js-force-disable)",
     predicate: function(length, callback) {
       callback(length === 1);
     }
@@ -11,7 +11,7 @@ OLCS.ready(function() {
 
   OLCS.conditionalButton({
     form: ".table__form",
-    selector: ".js-require--multiple",
+    selector: ".js-require--multiple:not(.js-force-disable)",
     predicate: function(length, callback) {
       callback(length >= 1);
     }
