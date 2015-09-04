@@ -8,6 +8,35 @@
   list-style: none;
   font-size: 21px;
   &__item {
-    font-weight: 600;
+  font-weight: 600;
   }
+}
+
+.search-results {
+  list-style: none;
+}
+
+.search-result {
+  border-bottom: 1px solid $grey-3;
+  padding-bottom: 20px;
+  margin-bottom: 25px;
+  p {
+    @extend %paragraph--small;
+  }
+}
+
+.search-result__header {
+  margin-bottom: 10px;
+   h4 {
+    display: block;
+    margin-bottom: 0;
+  }
+}
+
+.search-result__extract {
+  margin-bottom: 10px;
+}
+
+.search-result__meta p {
+  margin-bottom: 0;
 }
