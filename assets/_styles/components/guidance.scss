@@ -17,6 +17,7 @@
   .modal__wrapper & {
     word-wrap: break-word;
     float: none;
+    overflow: auto;
   }
 }
 
@@ -72,5 +73,4 @@ fieldset + .field .help,
       margin-bottom: 5px;
     }
   }
-
 }
