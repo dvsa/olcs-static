@@ -75,6 +75,9 @@
         }
       },
       clean: {
+        styleguide: {
+          src: 'public/styleguides/**/*.html'
+        },
         prototype: {
           options: {
             force: true
