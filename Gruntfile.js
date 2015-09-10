@@ -79,7 +79,11 @@
           options: {
             force: true
           },
-          src: ["../prototypes/<%= globalConfig.prototypeName %>"]
+          src: ['../prototypes/<%= globalConfig.prototypeName %>/**/*.html',
+                '../prototypes/<%= globalConfig.prototypeName %>/**/*.css',
+                '../prototypes/<%= globalConfig.prototypeName %>/**/*.js',
+                '../prototypes/<%= globalConfig.prototypeName %>/**/*.png'
+          ]
         }
       },
       notify: {
@@ -212,6 +216,11 @@
     /* Prototype tasks */
     grunt.registerTask('tm-prototype', function(directory) {
       globalConfig.prototypeName = 'tm-prototype';
+      grunt.task.run(['clean:prototype', 'copy:prototype']);
+    });
+
+    grunt.registerTask('authentication-prototype', function(directory) {
+      globalConfig.prototypeName = 'authentication-prototype';
       grunt.task.run(['clean:prototype', 'copy:prototype']);
     });
 

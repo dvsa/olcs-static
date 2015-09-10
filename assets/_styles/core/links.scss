@@ -22,15 +22,14 @@ a {
 
 .download {
   font-weight: 600;
-  padding-left: 30px;
+  padding: 4px 0 5px 34px;
   background: url('#{$assetPath}/download.png') no-repeat 0 0;
   display: block;
   margin-top: 5px;
-  padding-top: 2px;
   cursor: pointer;
   @include device-pixel-ratio($ratio: 2) {
     background: url('#{$assetPath}/download-2x.png') no-repeat 0 0;
-    background-size: 26px 31px;
+    background-size: 27px 30px;
   }
   &:hover {
     text-decoration: underline;
