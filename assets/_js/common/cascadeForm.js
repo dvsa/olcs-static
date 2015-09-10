@@ -7,9 +7,6 @@ var OLCS = OLCS || {};
  * (usually defined by a top-level fieldset) relates to the one which
  * follows it; that is the content of the following fieldset is affected
  * in some way by the input received in the current one.
- *
- * @FIXME: this component needs to use event delegation and stop caching
- * a reference to a form object.
  */
 
 OLCS.cascadeForm = (function(document, $, undefined) {
@@ -18,7 +15,7 @@ OLCS.cascadeForm = (function(document, $, undefined) {
 
   return function init(options) {
     var selector = options.form || "form";
-    var form = $(selector);
+    var formSelector = selector;
     var previousFieldset;
     var cascade = options.cascade !== undefined ? options.cascade : true;
     var onSubmit = options.submit;
@@ -92,7 +89,7 @@ OLCS.cascadeForm = (function(document, $, undefined) {
       var action = "none";
 
       if ($.isFunction(rule)) {
-        show = rule.call(form);
+        show = rule.call($(formSelector));
       } else {
         show = rule;
       }
@@ -151,13 +148,13 @@ OLCS.cascadeForm = (function(document, $, undefined) {
           case "label":
             // @NOTE: we make some assumptions about the markup surrounding labels
             // feel free to update as and when
-            return form.find("label[for=" + parts[1] + "]").parents(".field");
+            return $(formSelector).find("label[for=" + parts[1] + "]").parents(".field");
           case "selector":
-            return form.find(parts[1]);
+            return $(formSelector).find(parts[1]);
           case "date":
-            return form.find("[name*=" + parts[1] + "]").parents(".field");
+            return $(formSelector).find("[name*=" + parts[1] + "]").parents(".field");
           case "parent":
-            return form.find(parts[1]).parent();
+            return $(formSelector).find(parts[1]).parent();
           default:
             throw new Error("Unsupported left-hand selector: " + parts[0]);
         }
@@ -202,12 +199,12 @@ OLCS.cascadeForm = (function(document, $, undefined) {
 
     if (onSubmit) {
       // we'd like to use bind, but IE8 won't let us
-      form.on("submit", function(e) {
-        onSubmit.call(form, e);
+      $(document).on("submit", formSelector, function(e) {
+        onSubmit.call($(formSelector), e);
       });
     }
 
-    form.on("change", checkForm);
+    $(document).on("change", formSelector, checkForm);
 
     // hmm. This will outlive the component, which means when the component re-binds (if it's in a modal and uses jquery.onReady)
     // then this will stack multiple listeners

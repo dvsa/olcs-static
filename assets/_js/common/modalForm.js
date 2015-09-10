@@ -16,11 +16,20 @@ OLCS.modalForm = (function(document, $, undefined) {
     // a modal
     OLCS.modal.show(options.body, options.title);
 
-    OLCS.transform({
-      selector: ".modal",
-      replace: {
-        ".js-modal-alert": ".modal--alert"
-      }
+    OLCS.eventEmitter.on("render", function transform() {
+      OLCS.transform({
+          selector: ".modal",
+          replace: {
+              ".js-modal-alert": ".modal--alert"
+          }
+      });
+
+      OLCS.transform({
+        selector: ".modal--alert",
+          replace: {
+            ".js-modal": ".modal"
+          }
+      });
     });
 
     // also assume that we've got a form within the rendered modal
