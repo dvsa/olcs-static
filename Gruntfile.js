@@ -227,6 +227,11 @@
       grunt.task.run(['clean:prototype', 'copy:prototype']);
     });
 
+    grunt.registerTask('verify-prototype', function(directory) {
+      globalConfig.prototypeName = 'verify-prototype';
+      grunt.task.run(['clean:prototype', 'copy:prototype']);
+    });
+
 
     /*
      * Define a single Jenkins build task here for any relevant environments
