@@ -69,7 +69,7 @@
           }, {
             expand: true,
             cwd: 'public/images/',
-            src: ['**/*.png'],
+            src: ['**/*.png', '**/*.gif'],
             dest: '../prototypes/<%= globalConfig.prototypeName %>/images/'
           }]
         }

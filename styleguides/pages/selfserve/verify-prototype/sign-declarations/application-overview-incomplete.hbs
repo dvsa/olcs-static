@@ -11,41 +11,40 @@ overview-items:
     status: Complete
     edit-link: Edit licence type
   - name: 2. Business details
-    status: Complete
-    edit-link: Edit business details
-    open: true
+    status: Not started
+    edit-link: Add business details
   - name: 3. Addresses
-    status: Complete
+    status: Disabled
     edit-link: Edit addresses
   - name: 4. People
-    status: Complete
+    status: Disabled
     edit-link: Edit directors
   - name: 5. Operating centres
-    status: Complete
-    edit-link: Edit operating centres
+    status: Not started
+    edit-link: Add operating centres
   - name: 6. Financial evidence
-    status: Complete
+    status: Disabled
     edit-link: Edit financial evidence
   - name: 7. Transport managers
-    status: Complete
+    status: Disabled
     edit-link: Edit transport managers
   - name: 8. Vehicles
-    status: Complete
+    status: Disabled
     edit-link: Edit vehicles
   - name: 9. Safety information
-    status: Complete
-    edit-link: Edit safety information
-  - name: 10. Financial history
-    status: Complete
-    edit-link: Edit financial history
-  - name: 11. Licence history
-    status: Complete
-    edit-link: Edit licence history
-  - name: 12. Convictions & penalties
-    status: Complete
-    edit-link: Edit convictions & penalties
-  - name: 13. Declarations
     status: Not started
+    edit-link: Add safety information
+  - name: 10. Financial history
+    status: Not started
+    edit-link: Add financial history
+  - name: 11. Licence history
+    status: Not started
+    edit-link: Add licence history
+  - name: 12. Convictions & penalties
+    status: Not started
+    edit-link: Add convictions & penalties
+  - name: 13. Declarations
+    status: Disabled
     edit-link: Sign the declaration
 ---
 
@@ -88,7 +87,6 @@ overview-items:
       <li class="overview-item disabled">
         <div class="overview-item__link">
           <h4>{{ name }}</h4>
-          <span>Please complete the other sections first</span>
         </div>
       </li>
       {{/is}}
@@ -110,7 +108,7 @@ overview-items:
       <dt>Created</dt>
       <dd>14 September 2015</dd>
       <dt>Progress</dt>
-      <dd>12 of 13 sections complete</dd>
+      <dd>1 of 13 sections complete</dd>
       <dt>Status</dt>
       <dd>Incomplete</dd>
     </dl><!-- .meta -->

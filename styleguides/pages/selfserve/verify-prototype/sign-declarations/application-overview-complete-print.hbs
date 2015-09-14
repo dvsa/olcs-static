@@ -2,7 +2,7 @@
 layout: base.hbs
 user: operator
 title: Application overview
-subtitle: Application No.9
+subtitle: Application no.9
 breadcrumbs:
   - link: licences.html
     label: Home
@@ -45,8 +45,8 @@ overview-items:
     status: Complete
     edit-link: Edit convictions & penalties
   - name: 13. Declarations
-    status: Not started
-    edit-link: Sign the declaration
+    status: Complete
+    edit-link: View declarations
 ---
 
   <div class="two-thirds border">
@@ -56,7 +56,7 @@ overview-items:
 
       {{#is status "Complete"}}
       <li class="overview-item">
-        <a href="/styleguides/selfserve/operating-centres.html" class="overview-item__link">
+        <a href="print-declarations.html" class="overview-item__link">
           <h4>{{ name }}</h4>
           <span class="status green">{{ status }}</span>
           <p>{{ edit-link }}</p>
@@ -100,7 +100,7 @@ overview-items:
     <p>Application fee</p>
     <h2>£257.00</h2>
     <hr />
-    <a href="" class="action--primary large disabled">Submit &amp; pay</a>
+    <a href="" class="action--primary large">Submit &amp; pay</a>
   </div><!-- .two-thirds -->
 
 
@@ -110,9 +110,9 @@ overview-items:
       <dt>Created</dt>
       <dd>14 September 2015</dd>
       <dt>Progress</dt>
-      <dd>12 of 13 sections complete</dd>
+      <dd>13 of 13 sections complete</dd>
       <dt>Status</dt>
-      <dd>Incomplete</dd>
+      <dd>Not submitted</dd>
     </dl><!-- .meta -->
 
     <div class="links">

@@ -14,17 +14,34 @@
   height: 100%;
   border: -144px;
   z-index: 20;
-  &__icon {
-    height: 32px;
-    width: 32px;
-    position: fixed;
-    left: 49%;
-    top: 52%;
-    z-index: 30;
-    background: url('../images/preloader.gif') no-repeat 0 0;
-    @include device-pixel-ratio($ratio: 2) {
-      background-image: url('../images/preloader-2x.gif');
-      background-size: 30px 30px;
-    }
+}
+
+%preloader-icon {
+  height: 32px;
+  width: 32px;
+
+  z-index: 30;
+  @include device-pixel-ratio($ratio: 2) {
+    background-size: 30px 30px;
+  }
+}
+
+.preloader__icon {
+  position: fixed;
+  left: 49%;
+  top: 52%;
+  @extend %preloader-icon;
+  background: url('../images/preloader.gif') no-repeat 0 0;
+  @include device-pixel-ratio($ratio: 2) {
+    background-image: url('../images/preloader-2x.gif');
+  }
+}
+
+.processing__icon {
+  @extend %preloader-icon;
+  margin: 40px auto 100px;
+  background: url('../images/preloader--dark.gif') no-repeat 0 0;
+  @include device-pixel-ratio($ratio: 2) {
+    background-image: url('../images/preloader--dark-2x.gif');
   }
 }
