@@ -1,7 +1,7 @@
-OLCS Frontend
-=============
+OLCS Static
+===========
 
-This is the UI framework for both the OLCS Selfserve and Internal applications
+This is repo contains the styleguides, prototypes and static assets for both the internal application and external service.
 
 Installation
 ------------

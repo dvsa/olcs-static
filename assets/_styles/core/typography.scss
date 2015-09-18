@@ -64,10 +64,6 @@ h1 {
 
 h2 {
   @extend %h2;
-  &.divider {
-    border-top: 1px solid $grey-2;
-    padding: 40px 0 10px;
-  }
 }
 
 h3 {
@@ -103,6 +99,11 @@ input,
 select,
 textarea {
   font-family: sans-serif;
+}
+
+.divider {
+  border-top: 1px solid $grey-2;
+  padding: 40px 0 10px;
 }
 
 /*
