@@ -30,6 +30,9 @@ OLCS.ready(function() {
       browser_spellcheck : true,
       statusbar : false,
       spellchecker_languages : "+English=en",
+      spellchecker_language : "en",
+      spellchecker_rpc_url: "index.php",
+      spellchecker_report_misspellings : true,
       height : 260,
       content_css : "/tinymce/skins/lightgray/custom.css",
       style_formats: [
