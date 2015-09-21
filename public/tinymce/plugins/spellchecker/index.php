@@ -27,4 +27,3 @@ $tinymceSpellCheckerConfig = array(
 );
 
 TinyMCE_Spellchecker_Engine::processRequest($tinymceSpellCheckerConfig);
-?>
