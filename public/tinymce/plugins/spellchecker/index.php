@@ -20,11 +20,10 @@ $tinymceSpellCheckerConfig = array(
 	// "enchant_dicts_path" => "./dicts",
 
 	// PSpell options
-	"pspell.mode" => "fast",
-	"pspell.spelling" => "",
+	"pspelsl.mode" => "fast",
+	"pspell.spelling" => "British",
 	"pspell.jargon" => "",
-	"pspell.encoding" => ""
+	"pspell.encoding" => "utf-8"
 );
 
 TinyMCE_Spellchecker_Engine::processRequest($tinymceSpellCheckerConfig);
-?>
