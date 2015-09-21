@@ -227,8 +227,8 @@
       grunt.task.run(['clean:prototype', 'copy:prototype']);
     });
 
-    grunt.registerTask('verify-prototype', function(directory) {
-      globalConfig.prototypeName = 'verify-prototype';
+    grunt.registerTask('submit-app-prototype', function(directory) {
+      globalConfig.prototypeName = 'submit-app-prototype';
       grunt.task.run(['clean:prototype', 'copy:prototype']);
     });
 
