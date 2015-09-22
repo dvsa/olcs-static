@@ -69,7 +69,7 @@
           }, {
             expand: true,
             cwd: 'public/images/',
-            src: ['**/*.png'],
+            src: ['**/*.png', '**/*.gif'],
             dest: '../prototypes/<%= globalConfig.prototypeName %>/images/'
           }]
         }
@@ -224,6 +224,11 @@
 
     grunt.registerTask('authentication-prototype', function(directory) {
       globalConfig.prototypeName = 'authentication-prototype';
+      grunt.task.run(['clean:prototype', 'copy:prototype']);
+    });
+
+    grunt.registerTask('submit-app-prototype', function(directory) {
+      globalConfig.prototypeName = 'submit-app-prototype';
       grunt.task.run(['clean:prototype', 'copy:prototype']);
     });
 

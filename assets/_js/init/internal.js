@@ -23,7 +23,7 @@ OLCS.ready(function() {
   });
 
 
-  OLCS.eventEmitter.on('render', function() {
+  OLCS.eventEmitter.on("render", function() {
     $(".tinymce").tinymce({
       menubar : false,
       document_base_url: "/tinymce/",
