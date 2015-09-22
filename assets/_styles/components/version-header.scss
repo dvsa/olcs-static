@@ -1,0 +1,35 @@
+
+/*
+  Version header
+  ==============
+*/
+
+.version-header {
+  background: #333;
+  margin: 0;
+  overflow: hidden;
+  padding: 5px 10px 2px;
+}
+
+.version-header p {
+  font-size: 13px;
+  clear: none;
+  color: $grey-2;
+    float: left;
+}
+
+.version-header span {
+  color: #FFF;
+  font-weight: 600;
+}
+
+.environment-marker {
+  background: green;
+  padding: 1px 5px;
+  border-radius: 2px;
+  color: #FFF;
+}
+
+.version {
+  margin-left: 10px;
+}
