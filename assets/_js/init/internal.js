@@ -24,6 +24,9 @@ OLCS.ready(function() {
 
 
   OLCS.eventEmitter.on("render", function() {
+    if (typeof(tinymce) === "undefined") {
+      return;
+    }
     $(".tinymce").tinymce({
       menubar : false,
       document_base_url: "/tinymce/",
