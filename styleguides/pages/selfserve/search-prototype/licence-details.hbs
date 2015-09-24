@@ -1,13 +1,12 @@
 ---
-title: Big Wagons Limited
-subtitle: OB1725267
+title: OH1058363
+subtitle: AB Agri Limited
 layout: base.hbs
-user: local authority
 breadcrumbs:
-  - link: index.html
+  - link: operator-results.html
     label: Back to operator search
 read-only:
-  - title: Licence details (OB124525)
+  - title: Licence details
     editable: false
     type: fields
     groups:
@@ -52,7 +51,7 @@ read-only:
     groups:
     - group:
       - name: Registered company name
-        value: Big Trucks Limited
+        value: AB Agri Limited
       - name: Company No.
         value: 17265252
       - name: Registerd address
@@ -176,7 +175,7 @@ table:
       - 12 May 2012
       - Valid
     rows: 1
-  - title: Other licenecs
+  - title: Other licences
     headers:
       - label: Licence No.
         class: not-sortable
@@ -190,7 +189,7 @@ table:
       - 12 May 2012
     rows: 3
 ---
-<div class="one-quarter">
+<!-- <div class="one-quarter">
   <h4>On this page</h4>
   <ul class="vertical-navigation">
     <li><a href="">Licence details</a></li>
@@ -204,9 +203,9 @@ table:
     <li><a href="">Coditions &amp; undertakings</a></li>
     <li><a href="">Other licences</a></li>
   </ul>
-</div>
+</div> -->
 
-<div class="three-quarters">
+<div class="full-width">
     {{#each read-only}}
       {{#is @index 0 }}
         {{> _read-only }}
@@ -228,8 +227,8 @@ table:
     {{/each}}
 
   <div class="actions-container">
-  <a class="action--tertiary large" href="">Back to top</a>
-  <a class="action--tertiary large" href="">Back to operator search</a>
+    <a class="action--tertiary large" href="" style="padding-left: 0">Back to top</a>
+    <a class="action--tertiary large" href="operator-results.html">Back to operator search</a>
   </div>
 </div><!-- .three-quarters -->
 
