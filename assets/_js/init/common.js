@@ -49,4 +49,20 @@ OLCS.ready(function() {
   OLCS.fileUpload({
     multiple: true
   });
+
+  OLCS.formHandler({
+    form: ".js-form-ajax-submit",
+    onChange: false,
+    disable: false,
+    success: OLCS.normaliseResponse(function(data) {
+      if (data.hasErrors) {
+        F.render(".js-body", data.body);
+        setupCascade();
+
+        return;
+      }
+      OLCS.modalForm(data);
+    })
+  });
+
 });
