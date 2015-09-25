@@ -12,6 +12,7 @@ OLCS.ready(function() {
   OLCS.formInit();
   OLCS.notices();
   OLCS.detailsElement();
+  var F = OLCS.formHelper;
 
   OLCS.characterCount({
     selector: "textarea.js-financial-history"
@@ -57,7 +58,6 @@ OLCS.ready(function() {
     success: OLCS.normaliseResponse(function(data) {
       if (data.hasErrors) {
         F.render(".js-body", data.body);
-        setupCascade();
 
         return;
       }
