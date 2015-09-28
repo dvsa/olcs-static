@@ -12,6 +12,7 @@ OLCS.ready(function() {
   OLCS.formInit();
   OLCS.notices();
   OLCS.detailsElement();
+  var F = OLCS.formHelper;
 
   OLCS.characterCount({
     selector: "textarea.js-financial-history"
@@ -49,4 +50,19 @@ OLCS.ready(function() {
   OLCS.fileUpload({
     multiple: true
   });
+
+  OLCS.formHandler({
+    form: ".js-form-ajax-submit",
+    onChange: false,
+    disable: false,
+    success: OLCS.normaliseResponse(function(data) {
+      if (data.hasErrors) {
+        F.render(".js-body", data.body);
+
+        return;
+      }
+      OLCS.modalForm(data);
+    })
+  });
+
 });

@@ -32,7 +32,6 @@ OLCS.conditionalButton = (function(document, $, undefined) {
     if ($.isPlainObject(predicate)) {
       predicate = OLCS.complexPredicate(predicate);
     }
-
     function checkButton(context) {
       var button;
       var checkedInputs;

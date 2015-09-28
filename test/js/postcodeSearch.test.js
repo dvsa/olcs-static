@@ -58,34 +58,34 @@ describe("OLCS.postcodeSearch", function() {
             expect($("#p1").is(":visible")).to.equal(true);
           });
 
-          // describe("When clicking the find button", function() {
-          //   beforeEach(function() {
-          //     this.submitForm = sinon.stub(OLCS, "submitForm");
-          //     $(".address .js-find").click();
-          //   });
+          describe("When clicking the find button", function() {
+            beforeEach(function() {
+              this.submitForm = sinon.stub(OLCS, "submitForm");
+              $(".address .js-find").click();
+            });
 
-          //   afterEach(function() {
-          //     this.submitForm.restore();
-          //   });
+            afterEach(function() {
+              this.submitForm.restore();
+            });
 
-          //   it("should invoke a form AJAX submission", function() {
-          //     expect(this.submitForm.callCount).to.equal(1);
-          //   });
+            it("should invoke a form AJAX submission", function() {
+              expect(this.submitForm.callCount).to.equal(1);
+            });
 
-          //   describe("Given the AJAX request returns successfully", function() {
-          //     beforeEach(function() {
-          //       try {
-          //         this.submitForm.yieldTo("success", "some body");
-          //       } catch (e) {
-          //         this.e = e;
-          //       }
-          //     });
+            describe("Given the AJAX request returns successfully", function() {
+              beforeEach(function() {
+                try {
+                  this.submitForm.yieldTo("success", "some body");
+                } catch (e) {
+                  this.e = e;
+                }
+              });
 
-          //     it("throws an error as there is no valid root selector found", function() {
-          //       expect(this.e.message).to.equal("No valid root selector found");
-          //     });
-          //   });
-          // });
+              it("throws an error as there is no valid root selector found", function() {
+                expect(this.e.message).to.equal("No valid root selector found");
+              });
+            });
+          });
 
           describe("When clicking the enter address manually button", function() {
             beforeEach(function() {
@@ -100,6 +100,41 @@ describe("OLCS.postcodeSearch", function() {
             it("should hide the manual address button", function() {
               expect($("#p1").is(":visible")).to.equal(false);
             });
+          });
+        });
+      });
+
+      describe("Given the the input field has an incorrectly formatted postcode", function() {
+        beforeEach(function() {
+          var stub = [
+            "<div class=address id=stub>",
+              "<fieldset>",
+                "<input type=text class=js-input value=ls81an>",
+                "<button type=submit name='address[searchPostcode][search]' class='action--primary large js-find' value=search>Find address</button>",
+              "</fieldset>",
+            "</div>"
+          ].join("\n");
+
+          this.body = $("body");
+          this.body.append(stub);
+        });
+
+        afterEach(function() {
+          $("#stub").remove();
+        });
+
+        describe("When clicking the find button", function() {
+          beforeEach(function() {
+            this.submitForm = sinon.stub(OLCS, "submitForm");
+            $(".address .js-find").click();
+          });
+
+          afterEach(function() {
+            this.submitForm.restore();
+          });
+
+          it("should convert the input to uppercase and add a space", function() {
+            expect($(".js-input").val()).to.be("LS8 1AN");
           });
         });
       });

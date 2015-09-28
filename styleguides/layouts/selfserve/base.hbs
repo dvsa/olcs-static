@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/styles/selfserve.css" media="all" rel="stylesheet" type="text/css">
-    <script type="text/javascript" async="" src="/js/selfserve.js"></script>
+    <script type="text/javascript" src="/js/selfserve.js"></script>
     <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -33,24 +33,24 @@
               {{#is user "operator" }}
                 <li class="proposition-nav__item"><a href="/styleguides/selfserve/licences.html">Home</a></li>
                 <li class="proposition-nav__item"><a href="/styleguides/selfserve/search/index.html">Search</a></li>
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/authentication/manage-users.html">Manage users</a></li>
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/authentication/my-account.html">My account</a></li>
+                <li class="proposition-nav__item"><a href="/styleguides/selfserve/authentication-prototype/manage-users/manage-users.html">Manage users</a></li>
+                <li class="proposition-nav__item"><a href="/styleguides/selfserve/authentication-prototype/update-details/my-account.html">My account</a></li>
               {{/is }}
               {{#is user "bus operator" }}
                 <li class="proposition-nav__item"><a href="/styleguides/selfserve/licences.html">Home</a></li>
                 <li class="proposition-nav__item"><a href="/styleguides/selfserve/bus-services.html">Bus registrations</a></li>
                 <li class="proposition-nav__item"><a href="/styleguides/selfserve/search/index.html">Search</a></li>
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/authentication/my-account.html">My account</a></li>
+                <li class="proposition-nav__item"><a href="/styleguides/selfserve/authentication-prototype/update-details/my-account.html">My account</a></li>
               {{/is }}
               {{#is user "tm" }}
                 <li class="proposition-nav__item"><a href="/styleguides/selfserve/tm-home.html">Home</a></li>
                 <li class="proposition-nav__item"><a href="/styleguides/selfserve/search/index.html">Search</a></li>
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/authentication/my-account.html">My account</a></li>
+                <li class="proposition-nav__item"><a href="/styleguides/selfserve/authentication-prototype/update-details/my-account.html">My account</a></li>
               {{/is }}
               {{#is user "local authority" }}
                 <li class="proposition-nav__item"><a href="/styleguides/selfserve/search/index.html">Search</a></li>
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/authentication/manage-users.html">Manage users</a></li>
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/authentication/my-account.html">My account</a></li>
+                <li class="proposition-nav__item"><a href="/styleguides/selfserve/authentication-prototype/manage-users/manage-users.html">Manage users</a></li>
+                <li class="proposition-nav__item"><a href="/styleguides/selfserve/authentication-prototype/update-details/my-account.html">My account</a></li>
               {{/is }}
             {{else}}
                 <li class="proposition-nav__item"><a href="/styleguides/selfserve/search/index.html">Search</a></li>
@@ -68,15 +68,15 @@
         <ul class="user-menu">
         {{#if user}}
           {{#is user "operator"}}
-          <li class="user-menu__item">Katy Hasley, <b>Operator Halauge Ltd.</b></li>
+          <li class="user-menu__item">Katy Hasley, <b>Operator Licensing Ltd.</b></li>
           <li class="user-menu__item"><a href="/styleguides/selfserve/authentication/index.html">Sign out</a></li>
           {{/is}}
           {{#is user "bus operator"}}
-          <li class="user-menu__item">Ruben Loftus-Cheek, <b>Operator Coaches Ltd.</b></li>
+          <li class="user-menu__item">Ruben Loftus-Cheek, <b>Operator Licensing Ltd.</b></li>
           <li class="user-menu__item"><a href="/styleguides/selfserve/authentication/index.html">Sign out</a></li>
           {{/is}}
           {{#is user "tm"}}
-          <li class="user-menu__item">Terry Barrett-Edgecombe, <b>Big Trucks Limited.</b></li>
+          <li class="user-menu__item">Dave Willis, <b>Big Trucks Limited.</b></li>
           <li class="user-menu__item"><a href="/styleguides/selfserve/authentication/index.html">Sign out</a></li>
           {{/is}}
         {{else}}

@@ -7,10 +7,16 @@
 .confirmation {
   color: #FFF;
   background: $turquoise;
-  text-align: center;
-  padding: 3em 1em;
-  margin-bottom: 3em;
+  padding: 30px 30px 15px;
+  margin-bottom: 40px;
+  h2 {
+  	margin-top: -30px;
+    display: inline-block;
+  }
   p {
     @extend %paragraph--large;
+  }
+  a {
+  	color: #FFF;
   }
 }

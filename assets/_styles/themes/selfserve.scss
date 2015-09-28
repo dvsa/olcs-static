@@ -30,6 +30,7 @@ $app: selfserve;
 @import '../core/buttons';
 
 // Components
+@import '../components/version-header';
 @import '../components/global-header';
 @import '../components/search';
 @import '../components/user-header';
@@ -62,6 +63,6 @@ $app: selfserve;
 // Views
 @import '../views/selfserve/overview';
 @import '../views/selfserve/search';
-@import '../views/selfserve/submit-tm-application';
+@import '../views/selfserve/submit-application';
 
 /*# sourceMappingURL=selfserve.css.map */

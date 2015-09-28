@@ -77,13 +77,15 @@
 
 @if $app == 'internal' {
 
+
   .global-header {
     background: #111;
+    position: relative;
+    overflow: visible;
     &__wrapper {
-      margin: 0 $gutter .75em;
+      margin: 0 $gutter;
       padding: .5em $gutter 0;
-      overflow: visible;
-      height: 32px;
+      overflow: hidden;
       @media(max-width: 640px) {
         height: 72px;
         padding-bottom: 1em;
