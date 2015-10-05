@@ -232,6 +232,11 @@
       grunt.task.run(['clean:prototype', 'copy:prototype']);
     });
 
+    grunt.registerTask('search-prototype', function(directory) {
+      globalConfig.prototypeName = 'search-prototype';
+      grunt.task.run(['clean:prototype', 'copy:prototype']);
+    });
+
 
     /*
      * Define a single Jenkins build task here for any relevant environments
