@@ -91,7 +91,10 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
         // if the original response was a redirect then be sure to respect
         // that by closing the modal
         if (response.status === 302) {
-          if (OLCS.url.isCurrent(response.location)) {
+
+          // We check for the data-hard-refresh attribute, as in some cases we want to fully reload the page
+          // to ensure that markers etc are reloaded
+          if (!form.attr("data-hard-refresh") && OLCS.url.isCurrent(response.location)) {
             return OLCS.modal.hide();
           }
           return OLCS.url.load(response.location);
