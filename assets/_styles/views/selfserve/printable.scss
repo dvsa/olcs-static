@@ -1,0 +1,42 @@
+
+/*
+  Printable
+  =========
+  Styles for printable documents, including the applications,
+  declaration form and payment receipts
+*/
+
+
+.printable {
+  p, ul {
+    @extend %paragraph--large;
+  }
+}
+
+.printable__address {
+  margin-top: 100px;
+}
+
+.printable__header {
+  margin: 100px 0 80px;
+}
+
+.printable h4 {
+  margin: 20px 0 5px;
+}
+
+.signature-box {
+  background: $grey-3;
+  padding: 25px;
+  margin: 50px 0;
+}
+
+.signature-box__label {
+  font-weight: 600;
+}
+
+.signature-box__input {
+  width: 400px;
+  height: 100px;
+  border: 2px solid $black;
+}
