@@ -7,9 +7,11 @@
 */
 
 
-
 .printable {
   padding: 20px 30px 40px;
+  h4 {
+    margin: 20px 0 5px;
+  }
   p,
   ul,
   dt,
@@ -39,8 +41,8 @@
     padding: 0;
   }
   dd {
-    font-weight: 600;
     margin-bottom: 10px;
+    font-weight: 600;
   }
 }
 
@@ -49,21 +51,15 @@
   margin: 120px 0 60px;
 }
 
-
-.printable h4 {
-  margin: 20px 0 5px;
-}
-
 .signature-box {
+  margin: 30px 0;
+  padding: 30px 25px 15px;
   background: $grey-3;
   -webkit-print-color-adjust:exact;
-  padding: 30px 25px 15px;
-  margin: 30px 0 30px;
 }
 
 .signature-box__label {
   font-weight: 600;
-
 }
 
 .signature-box__input {
@@ -73,11 +69,7 @@
   &.signature {
     height: 100px;
   }
-  &.name {
-
-  }
   &.date {
     width: 200px;
   }
 }
-
