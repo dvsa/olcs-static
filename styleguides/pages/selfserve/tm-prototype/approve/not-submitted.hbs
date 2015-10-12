@@ -1,0 +1,49 @@
+---
+title: Details not submitted
+subtitle: John Smith
+user: tm
+breadcrumbs:
+  - link: licences.html
+    label: Back to Transport Managers
+---
+
+
+<div class="two-thirds">
+  <div class="article">
+    <p>This Transport Manager has not yet submitted their details for review.</p>
+    <p>If your Transport Manager has not received their invitation, or they have lost it you can resend the link to their email address below.</p>
+  </div>
+  <form action="">
+    <fieldset>
+    <legend>Resend link</legend>
+      <div class="field">
+        <label for="">Transport Manager's email address</label>
+        <input type="text" class="long" value="john.smith@bigtrucks.com">
+      </div>
+    </fieldset>
+    <div class="action-container">
+      <a href="" class="action--primary large">Resend link</a>
+      <a href="" class="action--tertiary list">Back to Transport Managers</a>
+    </div>
+  </form>
+</div><!-- .two-thirds -->
+
+<div class="one-third sidebar">
+  <dl class="meta" style="border-bottom: none;">
+    <dt>Submitted</dt>
+    <dd>14 September 2014</dd>
+    <dt>Status</dt>
+    <dd>Pending Transport Manager details</dd>
+  </dl><!-- .meta -->
+
+  {{> _support }}
+</div>
+
+<script type="text/javascript" src="/js/tm-prototype.js"></script>
+<script type="text/javascript">
+  OLCS.ready(function() {
+    OLCS.eventEmitter.emit("render");
+  });
+</script>
+
+
