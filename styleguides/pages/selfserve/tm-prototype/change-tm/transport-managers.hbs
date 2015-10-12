@@ -40,7 +40,7 @@ breadcrumbs:
       </div>
       <div class="modal__content">
         <form action="">
-          <fieldset class="">
+          <fieldset class="js-select-user">
             <div class="field">
               <label>Select from a list of registered users within your organisation</label>
               <select name="tm-select" id="tm-select">
@@ -51,23 +51,8 @@ breadcrumbs:
               <p class="hint"><a href="" class="js-add-new-user">Or add a new user</a></p>
             </div>
           </fieldset>
-          <fieldset class="js-tm-email-address">
-            <fieldset>
-              <legend class="legend">Does this Transport Manager have an email address?</legend>
-              <div class="field checkbox inline">
-                <label><input type="radio" name="email-address" value="has-email">Yes</label>
-              </div>
-              <div class="field checkbox inline">
-                <label><input type="radio" name="email-address" value="no-email">No</label>
-              </div>
-            </fieldset>
-          </fieldset>
+
           <fieldset class="js-tm-details">
-            <div class="field">
-              <label for="username">Username</label>
-              <input id="username" type="text" class="long" name="username" placeholder="">
-              <p class="hint"></p>
-            </div>
             <div class="field">
               <label for="firstname">First name</label>
               <input id="firstname" type="text" class="long" name="firstname" placeholder="">
@@ -78,14 +63,7 @@ breadcrumbs:
               <input id="lastname" type="text" class="long" name="lastname" placeholder="">
               <p class="hint"></p>
             </div>
-            <div class="field">
-              <label for="email">Email address</label>
-              <input id="email" type="text" class="long" name="email" placeholder="">
-            </div>
-            <div class="field">
-              <label for="repeat-email">Re-enter email address</label>
-              <input id="repeat-email" type="text" class="long" name="email" placeholder="">
-            </div>
+
             <fieldset class="dob">
               <legend>Date of birth</legend>
               <div class="field inline-text">
@@ -102,6 +80,32 @@ breadcrumbs:
               </div>
               <p class="hint--small">E.g. 12, 6, 2014</p>
             </fieldset>
+          </fieldset>
+          <fieldset class="js-tm-email-address">
+            <fieldset>
+              <legend class="legend">Does this Transport Manager have an email address?</legend>
+              <div class="field checkbox inline">
+                <label><input type="radio" name="email-address" value="has-email">Yes</label>
+              </div>
+              <div class="field checkbox inline">
+                <label><input type="radio" name="email-address" value="no-email">No</label>
+              </div>
+            </fieldset>
+          </fieldset>
+          <fieldset class="js-account-details">
+            <div class="field">
+              <label for="username">Username</label>
+              <input id="username" type="text" class="long" name="username" placeholder="">
+              <p class="hint"></p>
+            </div>
+            <div class="field">
+              <label for="email">Email address</label>
+              <input id="email" type="text" class="long" name="email" placeholder="">
+            </div>
+            <div class="field">
+              <label for="repeat-email">Re-enter email address</label>
+              <input id="repeat-email" type="text" class="long" name="email" placeholder="">
+            </div>
           </fieldset>
           <fieldset class="js-tm-morgan">
             <div class="field">
@@ -233,5 +237,5 @@ breadcrumbs:
 
 </div><!-- .three-quarters -->
 
-<script type="text/javascript" src="/js/submit-app-prototype.js"></script>
+<script type="text/javascript" src="/js/tm-prototype.js"></script>
 
