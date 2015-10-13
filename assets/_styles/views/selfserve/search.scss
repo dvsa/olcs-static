@@ -20,9 +20,6 @@
   border-bottom: 1px solid $grey-3;
   padding-bottom: 20px;
   margin-bottom: 25px;
-  p {
-    @extend %paragraph--small;
-  }
 }
 
 .search-result__header {
@@ -35,6 +32,11 @@
 
 .search-result__extract {
   margin-bottom: 10px;
+}
+
+.search-result__extract p,
+.search-result__meta p {
+  @extend %paragraph--small;
 }
 
 .search-result__meta p {
