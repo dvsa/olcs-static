@@ -60,6 +60,14 @@
       </div><!-- end .global-header__wrapper -->
     </div><!-- end .global-header -->
 
+    {{#is cookie-banner "true" }}
+    <div class="cookie-banner">
+      <div class="cookie-banner__wrapper">
+        <p>This service uses cookies to make the site simpler.</p><a href="">Close</a>
+      </div>
+    </div>
+    {{/is }}
+
     <div class="page-wrapper">
       <div class="user-header">
         <p class="phase">
