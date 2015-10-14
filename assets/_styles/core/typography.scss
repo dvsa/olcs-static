@@ -111,6 +111,7 @@ textarea {
  */
 
 .article {
+  overflow: auto;
   h2 {
     margin-bottom: .25em;
   }
@@ -131,6 +132,9 @@ textarea {
   }
 }
 
+.article + .article {
+  margin-top: 40px;
+}
 
 // Selfserve theme
 // ---------------
