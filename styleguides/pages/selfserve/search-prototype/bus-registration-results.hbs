@@ -1,6 +1,6 @@
 ---
 title: Search results
-header-text: <p>We’ve found 18 <b>bus services</b> that match your search</p>
+header-text: <p>We’ve found 18 <b>bus registrations</b> that match your search</p>
 layout: base.hbs
 table:
   - headers:
@@ -31,20 +31,22 @@ table:
       <div class="field">
         <label for="search">Keywords</label>
         <input id="search" name="search" type="search" class="extra-long">
+        <p class="hint--small">Try searching for a town or city, bus route number or bus company</p>
       </div>
       <div class="field">
-        <label>Start point</label>
+        <label>Traffic area</label>
         <select name="">
           <option value="">Please select</option>
         </select>
       </div>
       <div class="field">
-        <label>End point</label>
+        <label>Registration status</label>
         <select name="">
           <option value="">Please select</option>
         </select>
       </div>
       <input type="submit" class="action--primary large" value="Update results">
+      <a href="index.html" style="display:block; margin-top: 15px;">Start again</a>
     </fieldset>
   </form>
 </div><!-- three-eights -->
@@ -52,9 +54,9 @@ table:
 <div class="five-eigths">
   <!-- Registered bus services -->
   {{#each table}}
-    {{#is @index 0 }} 
+    {{#is @index 0 }}
       {{> _table }}
-    {{/is }} 
+    {{/is }}
   {{/each}}
   <div class="table__footer" style="margin-top: -30px; float: left;">
     <div class="results-settings">

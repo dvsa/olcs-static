@@ -1,7 +1,6 @@
 ---
-title: Provide details
+title: Your details
 subtitle: Step 1
-header-text: <p>Provide your Transport Manager details for the Vehicle Operator Licence application <b>OB12423/2625</b>.</p>
 user: tm
 page-actions:
   - Save and return later
@@ -37,14 +36,14 @@ page-actions:
 </div>
 
 
-<div class="two-thirds border">
+<div class="two-thirds">
   <form action="">
     <fieldset data-group="details">
       <div class="field read-only ">
         <p>Name<br><b>David Willis</b></p>
       </div>
       <div class="field read-only ">
-        <p>Date of birth<br><b>15/04/1975</b></p></div>
+        <p>Date of birth<br><b>15 April 2015</b></p></div>
       <div class="field ">
         <label for="details[emailAddress]">Email address</label>
         <input type="text" name="details[emailAddress]" class="extra-long" id="details[emailAddress]" value="dave.willis@gmail.com">
@@ -109,7 +108,7 @@ page-actions:
           </select>
         </p>
         <div class="field js-visible">
-          <p class="hint--small"><a href="#">Enter address manually</a></p>
+          <p class="hint--small"><a href="#">Enter the address yourself</a></p>
         </div>
       </fieldset>
       <div class="js-address-lines">
@@ -216,15 +215,15 @@ page-actions:
         <label><input type="radio" name="responsibilities[tmType]" value="tm_t_i">Internal</label>
       </fieldset>
       <fieldset class="checkbox inline">
-        <legend>Are you the owner/director of the organisation applying for the Vehicle Operator Licence?</legend>
+        <legend>Are you the owner/operator of the organisation that’s applying for the licence?</legend>
         <label><input type="radio" name="responsibilities[isOwner]" id="responsibilities[isOwner]" value="Y">Yes</label>
         <label><input type="radio" name="responsibilities[isOwner]" value="N">No</label>
       </fieldset>
     </fieldset>
     <fieldset data-group="responsibilities[hoursOfWeek]">
-      <legend>Hours per week</legend>
+      <legend>Hours per day</legend>
       <fieldset data-group="responsibilities[hoursOfWeek][hoursPerWeekContent]">
-        <legend>How many hours will you spend on your Transport Manager duties?</legend>
+        <legend>How many hours per day will you spend on your Transport Manager duties?</legend>
         <div class="field inline-text">
           <label>Mon</label>
           <input type="text" class="short" data-container-class="inline-text" id="" value="">
@@ -265,28 +264,28 @@ page-actions:
       </div>
     </fieldset>
     <fieldset class="js-other-employment">
-      <legend>Other employement</legend>
+      <legend>Other employment</legend>
       <div class="empty">
-        <p>If you hold any other permanent or regular employment, add their details here</p>
+        <p>If you have other permanent or regular jobs, add details of them here</p>
         <div class="actions-container">
-          <a href="" class="action--primary large">Add other employment</a>
+          <a href="" class="action--primary large">Add another job</a>
         </div>
       </div>
     </fieldset>
     <h2 class="divider">Compliance history</h2>
     <fieldset class="js-convictions">
-      <legend>Convictions &amp; penalties</legend>
+      <legend>Convictions and penalties</legend>
       <div class="empty">
-        <p>If you have been convicted of any relevant offences that must be declared to the Traffic Commissioner, add their details here</p>
+        <p>If you’ve ever been convicted of any offences that must be reported to the Traffic Commissioner, add details of them here</p>
         <div class="actions-container">
           <a href="" class="action--primary large">Add offences</a>
         </div>
       </div>
     </fieldset>
     <fieldset class="js-revoked">
-      <legend>Revoked, curtialed or suspended licences</legend>
+      <legend>Revoked, curtailed or suspended licences</legend>
       <div class="empty">
-        <p>If you have had any association in the past with a licence that has been revoked, curtialed or suspended, add their details here</p>
+        <p>If you’ve ever been associated with licences that have been revoked, curtailed or suspended, add details of them here</p>
         <div class="actions-container">
           <a href="" class="action--primary large js-show-modal">Add licences</a>
         </div>
@@ -318,25 +317,13 @@ page-actions:
   </form>
 
   <div class="actions-container">
-    <a href="transport-manager-declarations.html" class="action--primary large">Sign declarations</a>
+    <a href="review-submit.html" class="action--primary large">Continue</a>
     <a href="" class="action--secondary large">Save and return later</a>
   </div>
 </div><!-- .three-quarters -->
 
 <div class="one-third sidebar">
-
-  <div class="support">
-    <h3>Support</h3>
-    <b>Call: 0113 254 3200</b>
-    <p>Mon to Thurs: 8:30am – 5pm<br />
-       Fri: 8:30am – 4pm
-    </p>
-    <p>Closed at weekend and on public and bank holidays</p>
-    <p>Or email our support team at:<br/>
-    <a href="">operatorlicensing@otc.gov.uk</a>
-    </p>
-  </div>
-
+  {{> _support }}
 </div>
 
 <script type="text/javascript" src="/js/tm-prototype.js"></script>
