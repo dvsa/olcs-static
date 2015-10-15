@@ -1,7 +1,9 @@
 (function() {
-  "use strict";
+    
+    "use strict";
 
-  module.exports = function(grunt) {
+    module.exports = function(grunt) {
+      
     var pubStyles, scriptPaths, scripts, srcAssets, styles, prototypeName, globalConfig;
 
     srcAssets = 'assets/_styles';
@@ -32,7 +34,9 @@
     };
 
     grunt.initConfig({
+        
       globalConfig: globalConfig,
+      
       sass: {
         dev: {
           options: {
@@ -49,6 +53,7 @@
           files: styles
         }
       },
+      
      copy: {
         prototype: {
           files: [{
@@ -74,6 +79,7 @@
           }]
         }
       },
+      
       clean: {
         styleguide: {
           src: 'public/styleguides/**/*.html'
@@ -89,11 +95,13 @@
           ]
         }
       },
+      
       notify: {
         options: {
           sucess: false
         }
       },
+      
       assemble: {
         options: {
           helpers: ['handlebars-helper-repeat']
@@ -121,6 +129,7 @@
           src: '**/*.hbs'
         }
       },
+      
       watch: {
         options: {
           livereload: true,
@@ -139,6 +148,7 @@
           tasks: ['uglify:dev']
         }
       },
+      
       browserSync: {
         bsFiles: {
           src: ['public/**/*.css', 'public/**/*.html']
@@ -159,6 +169,7 @@
           }
         }
       },
+      
       uglify: {
         dev: {
           options: {
@@ -176,6 +187,7 @@
           files: scripts
         }
       },
+      
       jshint: {
         options: {
           jshintrc: ".jshintrc"
@@ -183,6 +195,7 @@
         "static": ["assets/_js/**/*.js", "!assets/_js/**/vendor/*"],
         apps: ["../olcs-common/Common/src/Common/assets/js/inline/**/*.js", "../olcs-internal/module/*/assets/js/inline/**/*.js", "../olcs-selfserve/module/*/assets/js/inline/**/*.js"]
       },
+      
       karma: {
         options: {
           browsers: ["PhantomJS"],
@@ -195,8 +208,17 @@
         ci: {
           colors: false
         }
-      }
-    });
+      },
+      
+        scsslint: {
+            allFiles: [
+                'assets/styles/**/*.scss',
+            ],
+            options: {}
+        }
+        
+    }); // initConfig
+    
     if (grunt.option("production")) {
       grunt.loadNpmTasks("grunt-sass");
       grunt.loadNpmTasks("grunt-contrib-uglify");
@@ -207,6 +229,10 @@
     grunt.registerTask('compile:dev', ['lint', 'sass:dev', 'uglify:dev', 'assemble']);
     grunt.registerTask('compile:staging', ['lint', 'sass:prod', 'uglify:prod', 'assemble']);
     grunt.registerTask('compile:live', ['sass:prod', 'uglify:prod']);
+    
+    // Sass/Scss linting
+    grunt.loadNpmTasks('grunt-scss-lint');
+    grunt.registerTask('default', ['scsslint']);
 
     grunt.registerTask('serve', ['notify', 'compile:dev', 'browserSync', 'watch']);
 
