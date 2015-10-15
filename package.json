@@ -10,7 +10,7 @@
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-contrib-uglify": "^0.8.0",
     "grunt-karma": "~0.8.3",
-    "grunt-sass": "^0.18.1",
+    "grunt-sass": "~1.0.0",
     "handlebars-helper-repeat": "0.2.0",
     "karma": "~0.12.23",
     "karma-coverage": "~0.2.6",
