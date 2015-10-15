@@ -22,7 +22,6 @@
 
 .printable__address {
   margin-top: 110px;
-  width: 45%;
   float: left;
 }
 
@@ -53,9 +52,16 @@
 
 .signature-box {
   margin: 30px 0;
-  padding: 30px 25px 15px;
+  padding: 30px 0 30px 5%;
   background: $grey-3;
+  overflow: auto;
   -webkit-print-color-adjust:exact;
+}
+
+.signature-box__column {
+  float: left;
+  width: 45%;
+  margin: 0 5% 0 0;
 }
 
 .signature-box__label {
@@ -63,7 +69,7 @@
 }
 
 .signature-box__input {
-  width: 400px;
+  width: 100%;
   border: 2px solid $black;
   margin-bottom: 20px;
   &.signature {
