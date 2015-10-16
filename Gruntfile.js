@@ -265,7 +265,7 @@
             // SCSS-Lint
             // https://github.com/brigade/scss-lint
             //-----------------------------------------------------
-      
+            
             scsslint: {
                 allFiles: [
                     'assets/_styles/**/*.scss',
