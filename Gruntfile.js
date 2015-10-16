@@ -1,5 +1,5 @@
 //=================================================================
-// OLCS - Front End Dev Setup
+// OLCS - Grunt Setup
 // https://wiki.i-env.net/display/olcs/Frontend+development+guidelines
 //=================================================================
 
@@ -38,7 +38,7 @@
         };
 
         scripts = {
-            "public/js/internal.js": scriptPaths("internal"),
+            "public/js/internal.js" : scriptPaths("internal"),
             "public/js/selfserve.js": scriptPaths("selfserve")
         };
         
@@ -262,6 +262,18 @@
             },
 
             //-----------------------------------------------------
+            // SCSS-Lint
+            // https://github.com/brigade/scss-lint
+            //-----------------------------------------------------
+      
+            scsslint: {
+                allFiles: [
+                    'assets/_styles/**/*.scss',
+                ],
+                options: {}
+            },
+
+            //-----------------------------------------------------
             // Karma
             // https://github.com/karma-runner/grunt-karma
             //-----------------------------------------------------
@@ -278,18 +290,6 @@
                 ci: {
                     colors: false
                 }
-            },
-
-            //-----------------------------------------------------
-            // SCSS-Lint
-            // https://github.com/brigade/scss-lint
-            //-----------------------------------------------------
-      
-            scsslint: {
-                allFiles: [
-                    'assets/styles/**/*.scss',
-                ],
-                options: {}
             }
         
         }); // initConfig
@@ -304,9 +304,6 @@
         } else {
             require('matchdep').filterAll(['grunt-*', 'assemble']).forEach(grunt.loadNpmTasks);
         }
-        
-        // Sass/Scss linting
-        grunt.loadNpmTasks('grunt-scss-lint');
         
         //---------------------------------------------------------
         // Register Environments
@@ -334,12 +331,9 @@
         //---------------------------------------------------------
         // Register General Grunt Tasks
         //---------------------------------------------------------
-        
-        // SCSS Lint
-        grunt.registerTask('default', ['scsslint']);
     
-        // JS Hint
-        grunt.registerTask('lint', ['jshint:static']);
+        // JS/SCSS Linting
+        grunt.registerTask('lint', ['jshint:static', 'scsslint']);
 
         // Browser Sync
         grunt.registerTask('serve', ['notify', 'compile:dev', 'browserSync', 'watch']);
