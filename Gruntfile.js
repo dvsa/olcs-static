@@ -269,6 +269,7 @@
             scsslint: {
                 allFiles: [
                     'assets/_styles/**/*.scss',
+                    '!assets/_styles/vendor/**/*'
                 ],
                 options: {}
             },
