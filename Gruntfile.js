@@ -1,6 +1,5 @@
 //=================================================================
 // OLCS - Grunt Setup
-// https://wiki.i-env.net/display/olcs/Frontend+development+guidelines
 //=================================================================
 
 (function() {
