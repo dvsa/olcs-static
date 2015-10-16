@@ -38,23 +38,48 @@ title: Create an account
       </div>
     </fieldset>
     <fieldset class="">
-        <fieldset class="checkbox">
-          <legend class="legend">Do you already hold a Vehicle Operator Licence?</legend>
-          <div class="field inline">
-            <label><input type="radio" class="js-no-existing-licence" name="licence-holder" value="No">No</label>
-          </div>
-          <div class="field inline">
-            <label><input type="radio" name="licence-holder" value="Yes">Yes</label>
-          </div>
-        </fieldset>
-        <div class="field js-organisation-name">
-          <label for="company">Organisation name</label>
-          <input id="company" type="text" class="long" name="company" placeholder="">
+      <legend>Business details</legend>
+      <fieldset class="checkbox">
+        <legend class="legend">Do you already hold a Vehicle Operator Licence?</legend>
+        <div class="field inline">
+          <label><input type="radio" name="licence-holder" value="Yes">Yes</label>
         </div>
-        <div class="field js-licence-no">
-          <label for="company">Licence number</label>
-          <input id="company" type="text" class="long" name="company" placeholder="">
+        <div class="field inline">
+          <label><input type="radio" class="js-no-existing-licence" name="licence-holder" value="No">No</label>
         </div>
+      </fieldset>
+      <div class="field js-organisation-name">
+        <label for="company">Company name</label>
+        <input id="company" type="text" class="long" name="company" placeholder="">
+      </div>
+      <div class="field js-licence-no">
+        <label for="company">Licence number</label>
+        <input id="company" type="text" class="long" name="company" placeholder="">
+      </div>
+      <fieldset class="checkbox js-organisation-name">
+        <legend class="legend">Business type?</legend>
+        <div class="field">
+          <label><input type="radio" name="business-type">Limited Company</label>
+        </div>
+        <div class="field">
+          <label><input type="radio" name="business-type">Sole Trader</label>
+        </div>
+        <div class="field">
+          <label><input type="radio" name="business-type">Partnership</label>
+        </div>
+        <div class="field">
+          <label><input type="radio" name="business-type">Limited Liability Partnership</label>
+        </div>
+        <div class="field">
+          <label><input type="radio" name="business-type">Other (e.g.public authority,, charit, trust, university)</label>
+        </div>
+      </fieldset>
+      <div class="field confirm">
+        <label class="">
+          <input type="checkbox" name="" id="" placeholder="" value="Y">
+          I agree to the <a href="">terms and conditions</a>
+        </label>
+      </div>
     </fieldset>
   </form>
   <div class="actions-container">
@@ -64,17 +89,7 @@ title: Create an account
 </div><!-- .two-thirds -->
 
 <div class="one-third">
-  <div class="support">
-    <h3>Support</h3>
-    <b>Call: 0113 254 3200</b>
-    <p>Mon to Thurs: 8:30am – 5pm<br />
-       Fri: 8:30am – 4pm
-    </p>
-    <p>Closed at weekend and on public and bank holidays</p>
-    <p>Or email our support team at:<br/>
-    <a href="">operatorlicensing@otc.gov.uk</a>
-    </p>
-  </div>
+  {{> _support}}
 </div>
 
 <script type="text/javascript" src="/js/authentication-prototype.js"></script>
