@@ -84,7 +84,6 @@ button {
   text-decoration: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  vertical-align: top;
   -webkit-appearance: none;
   cursor: pointer;
   @include ie-lte(8) {
