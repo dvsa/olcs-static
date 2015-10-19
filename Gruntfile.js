@@ -333,7 +333,8 @@
         //---------------------------------------------------------
     
         // JS/SCSS Linting
-        grunt.registerTask('lint', ['jshint:static', 'scsslint']);
+        //grunt.registerTask('lint', ['jshint:static', 'scsslint']);
+        grunt.registerTask('lint', ['jshint:static']);
 
         // Browser Sync
         grunt.registerTask('serve', ['notify', 'compile:dev', 'browserSync', 'watch']);
