@@ -1,0 +1,52 @@
+---
+title: Review and approve
+subtitle: John Smith
+user: tm
+breadcrumbs:
+  - link: licences.html
+    label: Back to Transport Managers
+---
+
+
+<div class="two-thirds">
+  <div class="article">
+    <p style="margin-bottom: 0;">The Transport Manager has provided their details. You’ll need to review and approve them before we can consider your application.</p>
+    <p><a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/394936/GV79-application-for-a-goods-vehicle-operators-licence.pdf" download="declarations.pdf" class="download">Review Transport Manager's details</a></p>
+    <div class="actions-container">
+      <a href="awaiting-approval.html" class="action--primary large">Approve details</a>
+    </div>
+  </div>
+  <div class="article">
+    <h3>Change details</h3>
+    <p>If the Transport Manager’s details are wrong, you’ll need to contact them to make the changes. They’ll still be able to access their details through the original link.</p>
+    <details class="help">
+      <summary class="help__summary">Resend link to Transport Manager</summary>
+      <form action="" style="margin-top: 20px;">
+        <fieldset>
+          <div class="field">
+            <label for="">Transport Manager's email address</label>
+            <input type="text" class="long" value="john.smith@bigtrucks.com">
+          </div>
+        </fieldset>
+        <div class="action-container">
+          <a href="" class="action--primary large">Resend link</a>
+        </div>
+      </form>
+    </details>
+    <hr />
+    <hr />
+  </div>
+</div><!-- .two-thirds -->
+
+<div class="one-third sidebar">
+  {{> _support }}
+</div>
+
+<script type="text/javascript" src="/js/tm-prototype.js"></script>
+<script type="text/javascript">
+  OLCS.ready(function() {
+    OLCS.eventEmitter.emit("render");
+  });
+</script>
+
+

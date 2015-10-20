@@ -84,7 +84,6 @@ button {
   text-decoration: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  vertical-align: top;
   -webkit-appearance: none;
   cursor: pointer;
   @include ie-lte(8) {
@@ -286,7 +285,6 @@ input[type=submit].more-actions__item {
     font-weight: 600;
     text-decoration: none;
     font-size: 15px;
-    behavior: url(/htc/PIE.htc);
     box-shadow: none;
     &.large {
       font-weight: 600;
