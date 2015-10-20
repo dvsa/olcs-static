@@ -60,37 +60,47 @@ OLCS.cascadeInput = (function(document, $, undefined) {
       }
 
       function done(result) {
-        // @NOTE it's pretty obvious we're making three huge assumptions here:
-        // 1) That we get an array of values & labels back
-        // 2) We expect "options.dest" to be a select (because we build up
-        // some options)
-        // 3) We expect the first value, which will be selected, to be 'current'
-        // As and when this component is expanded, obviously we'll need to change this!
-        var str = "";
-        $.each(result, function(i, r) {
-          if (r.value === "" && emptyLabel) {
-            r.label = emptyLabel;
+
+        if (destination.attr("type") === "text") {
+
+          if (result.value) {
+            destination.val(result.value);
           }
-          str += "<option value='" + r.value + "'>" + r.label + "</option>";
-        });
 
-        destination.html(str);
+        } else {
 
-        if (disableDestination) {
-          destination.removeAttr("disabled");
+          // @NOTE it's pretty obvious we're making three huge assumptions here:
+          // 1) That we get an array of values & labels back
+          // 2) We expect "options.dest" to be a select (because we build up
+          // some options)
+          // 3) We expect the first value, which will be selected, to be 'current'
+          // As and when this component is expanded, obviously we'll need to change this!
+          var str = "";
+          $.each(result, function(i, r) {
+            if (r.value === "" && emptyLabel) {
+              r.label = emptyLabel;
+            }
+            str += "<option value='" + r.value + "'>" + r.label + "</option>";
+          });
+
+          destination.html(str);
+
+          if (disableDestination) {
+            destination.removeAttr("disabled");
+          }
+
+          // we assume that if we trapped the earlier change event, we want to
+          // trigger one now. Note that the event is triggered on a different element
+          // (dest rather than src); if this matters by all means tweak the component
+          if (trap) {
+            destination.change();
+          }
+
+          if (disableDestination) {
+            destination.html("<option>" + loadingText + "</option>");
+            destination.attr("disabled", true);
+          }
         }
-
-        // we assume that if we trapped the earlier change event, we want to
-        // trigger one now. Note that the event is triggered on a different element
-        // (dest rather than src); if this matters by all means tweak the component
-        if (trap) {
-          destination.change();
-        }
-      }
-
-      if (disableDestination) {
-        destination.html("<option>" + loadingText + "</option>");
-        destination.attr("disabled", true);
       }
 
       process.call(this, $(this).val(), done);
