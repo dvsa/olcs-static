@@ -56,7 +56,7 @@ OLCS.ready(function() {
         "searchreplace",
         "contextmenu paste spellchecker"
       ],
-      toolbar: "styleselect | bold italic | bullist numlist"
+      toolbar: "styleselect | bold italic | bullist numlist | spellchecker"
     });
   });
 });
