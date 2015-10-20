@@ -248,7 +248,8 @@
             uglify: {
                 dev: {
                     options: {
-                        sourceMap: true
+                        sourceMap: true,
+                        mangle: false
                     },
                     files: scripts
                 },
