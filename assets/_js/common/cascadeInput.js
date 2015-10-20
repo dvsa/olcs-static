@@ -95,12 +95,12 @@ OLCS.cascadeInput = (function(document, $, undefined) {
           if (trap) {
             destination.change();
           }
-
-          if (disableDestination) {
-            destination.html("<option>" + loadingText + "</option>");
-            destination.attr("disabled", true);
-          }
         }
+      }
+
+      if (disableDestination) {
+        destination.html("<option>" + loadingText + "</option>");
+        destination.attr("disabled", true);
       }
 
       process.call(this, $(this).val(), done);
