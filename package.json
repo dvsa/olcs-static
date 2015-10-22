@@ -30,6 +30,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-notify": "^0.4.1",
     "grunt-scss-lint": "^0.3.8",
-    "grunt-postcss": "^0.6.0"
+    "grunt-postcss": "^0.6.0",
+    "autoprefixer": "^6.0.3"
   }
 }
