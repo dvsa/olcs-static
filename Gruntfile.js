@@ -3,15 +3,15 @@
 //=================================================================
 
 (function() {
-    
+
     "use strict";
 
     module.exports = function(grunt) {
-      
+
         //---------------------------------------------------------
         // Config
         //---------------------------------------------------------
-        
+
         var pubStyles, scriptPaths, scripts, srcAssets, styles, prototypeName, globalConfig;
 
         srcAssets = 'assets/_styles';
@@ -40,20 +40,20 @@
             "public/js/internal.js" : scriptPaths("internal"),
             "public/js/selfserve.js": scriptPaths("selfserve")
         };
-        
+
         //---------------------------------------------------------
         // Tasks
         //---------------------------------------------------------
 
         grunt.initConfig({
-        
+
             globalConfig: globalConfig,
-      
+
             //-----------------------------------------------------
             // Sass
             // https://github.com/sindresorhus/grunt-sass
             //-----------------------------------------------------
-        
+
             sass: {
                 dev: {
                     options: {
@@ -68,16 +68,15 @@
                         style: 'compressed',
                         sourcemap: false
                     },
-                    files: styles,
-                    tasks: ['postcss']
+                    files: styles
                 }
             },
-            
+
             //-----------------------------------------------------
             // Post CSS
             // https://github.com/nDmitry/grunt-postcss
             //-----------------------------------------------------
-            
+
             postcss: {
                 options: {
                     map: true,
@@ -91,12 +90,12 @@
                     src: 'public/**/*.css'
                 }
             },
-            
+
             //-----------------------------------------------------
             // Copy
             // https://github.com/gruntjs/grunt-contrib-copy
             //-----------------------------------------------------
-      
+
             copy: {
                 prototype: {
                     files: [
@@ -124,12 +123,12 @@
                     ]
                 }
             },
-            
+
             //-----------------------------------------------------
             // Clean
             // https://github.com/gruntjs/grunt-contrib-clean
             //-----------------------------------------------------
-      
+
             clean: {
                 styleguide: {
                     src: 'public/styleguides/**/*.html'
@@ -146,23 +145,23 @@
                     ]
                 }
             },
-                        
+
             //-----------------------------------------------------
             // Notify
             // https://github.com/dylang/grunt-notify
             //-----------------------------------------------------
-      
+
             notify: {
                 options: {
                     sucess: false
                 }
             },
-            
+
             //-----------------------------------------------------
             // Assemble
             // https://github.com/assemble/grunt-assemble
             //-----------------------------------------------------
-      
+
             assemble: {
                 options: {
                     helpers: ['handlebars-helper-repeat']
@@ -190,12 +189,12 @@
                     src: '**/*.hbs'
                 }
             },
-            
+
             //-----------------------------------------------------
             // Watch
             // https://github.com/gruntjs/grunt-contrib-watch
             //-----------------------------------------------------
-      
+
             watch: {
                 options: {
                     livereload: true,
@@ -214,12 +213,12 @@
                     tasks: ['uglify:dev']
                 }
             },
-            
+
             //-----------------------------------------------------
             // Browser Sync
             // https://github.com/BrowserSync/grunt-browser-sync
             //-----------------------------------------------------
-      
+
             browserSync: {
                 bsFiles: {
                     src: ['public/**/*.css', 'public/**/*.html']
@@ -240,12 +239,12 @@
                     }
                 }
             },
-            
+
             //-----------------------------------------------------
             // Uglify
             // https://github.com/gruntjs/grunt-contrib-uglify
             //-----------------------------------------------------
-      
+
             uglify: {
                 dev: {
                     options: {
@@ -268,15 +267,15 @@
             // JSHint
             // https://github.com/gruntjs/grunt-contrib-jshint
             //-----------------------------------------------------
-            
+
             jshint: {
                 options: {
                     jshintrc: ".jshintrc"
                 },
                 "static": ["assets/_js/**/*.js", "!assets/_js/**/vendor/*"],
                 apps: [
-                    "../olcs-common/Common/src/Common/assets/js/inline/**/*.js", 
-                    "../olcs-internal/module/*/assets/js/inline/**/*.js", 
+                    "../olcs-common/Common/src/Common/assets/js/inline/**/*.js",
+                    "../olcs-internal/module/*/assets/js/inline/**/*.js",
                     "../olcs-selfserve/module/*/assets/js/inline/**/*.js"
                 ]
             },
@@ -285,7 +284,7 @@
             // SCSS-Lint
             // https://github.com/brigade/scss-lint
             //-----------------------------------------------------
-            
+
             scsslint: {
                 allFiles: [
                     'assets/_styles/**/*.scss',
@@ -298,7 +297,7 @@
             // Karma
             // https://github.com/karma-runner/grunt-karma
             //-----------------------------------------------------
-      
+
             karma: {
                 options: {
                     browsers: ["PhantomJS"],
@@ -312,77 +311,77 @@
                     colors: false
                 }
             }
-        
+
         }); // initConfig
-        
+
         //---------------------------------------------------------
         // Load NPM Tasks
         //---------------------------------------------------------
-           
+
         if (grunt.option("production")) {
             grunt.loadNpmTasks("grunt-sass");
             grunt.loadNpmTasks("grunt-contrib-uglify");
         } else {
             require('matchdep').filterAll(['grunt-*', 'assemble']).forEach(grunt.loadNpmTasks);
         }
-        
+
         //---------------------------------------------------------
         // Register Environments
         //---------------------------------------------------------
 
         grunt.registerTask('compile:dev', [
-            'lint', 
-            'sass:dev', 
-            'uglify:dev', 
+            'lint',
+            'sass:dev',
+            'uglify:dev',
             'assemble'
         ]);
-        
+
         grunt.registerTask('compile:staging', [
-            'lint', 
-            'sass:prod', 
-            'uglify:prod', 
+            'lint',
+            'sass:prod',
+            'uglify:prod',
             'assemble'
         ]);
-        
+
         grunt.registerTask('compile:live', [
-            'sass:prod', 
+            'sass:prod',
             'uglify:prod'
         ]);
-    
+
         //---------------------------------------------------------
         // Register General Grunt Tasks
         //---------------------------------------------------------
-    
+
         // JS/SCSS Linting
         //grunt.registerTask('lint', ['jshint:static', 'scsslint']);
         grunt.registerTask('lint', ['jshint:static']);
 
         // Browser Sync
         grunt.registerTask('serve', ['notify', 'compile:dev', 'browserSync', 'watch']);
-    
+
         // Karma
         grunt.registerTask('test', ['karma:test']);
         grunt.registerTask('test:ci', ['karma:ci']);
-    
+
         //---------------------------------------------------------
         // Prototype Tasks
         //---------------------------------------------------------
-        
+
         grunt.registerTask('tm-prototype', function(directory) {
             globalConfig.prototypeName = 'tm-prototype';
             grunt.task.run(['clean:prototype', 'copy:prototype']);
         });
-    
+
         grunt.registerTask('authentication-prototype', function(directory) {
             globalConfig.prototypeName = 'authentication-prototype';
             grunt.task.run(['clean:prototype', 'copy:prototype']);
         });
-    
+
         grunt.registerTask('submit-app-prototype', function(directory) {
             globalConfig.prototypeName = 'submit-app-prototype';
             grunt.task.run(['clean:prototype', 'copy:prototype']);
         });
-    
+
         grunt.registerTask('search-prototype', function(directory) {
             globalConfig.prototypeName = 'search-prototype';
             grunt.task.run(['clean:prototype', 'copy:prototype']);
@@ -396,11 +395,11 @@
         * so we don't have to update each job's configuration just to build some
         * new stuff; instead we just add it to this task and we're done
         */
-    
+
         grunt.registerTask('build:staging', ['test:ci', 'compile:staging']);
         grunt.registerTask('build:demo', ['test:ci', 'compile:live']);
         grunt.registerTask('build:live', ['compile:live']);
-        
+
     };
 
 }).call(this);
