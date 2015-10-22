@@ -20,7 +20,7 @@ describe("OLCS.cascadeInput", function() {
         '<div id="stub">',
           '<form action="/foo" method="get" class="js-form">',
             '<input name="bar" class="source" type="text" />',
-            '<select name="baz" class="dest" type="text"></select>',
+            '<select name="baz" class="dest"></select>',
             '<input type="submit" />',
           '</form>',
         '</div>'
