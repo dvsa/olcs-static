@@ -42,7 +42,7 @@
         };
         
         //---------------------------------------------------------
-        // Options
+        // Tasks
         //---------------------------------------------------------
 
         grunt.initConfig({
@@ -60,14 +60,35 @@
                         style: 'expanded',
                         sourcemap: true
                     },
-                    files: styles
+                    files: styles,
+                    tasks: ['postcss']
                 },
                 prod: {
                     options: {
                         style: 'compressed',
                         sourcemap: false
                     },
-                    files: styles
+                    files: styles,
+                    tasks: ['postcss']
+                }
+            },
+            
+            //-----------------------------------------------------
+            // Post CSS
+            // https://github.com/nDmitry/grunt-postcss
+            //-----------------------------------------------------
+            
+            postcss: {
+                options: {
+                    map: true,
+                    processors: [
+                        require('autoprefixer')({
+                            browsers: ['last 2 versions']
+                        })
+                    ]
+                },
+                build: {
+                    src: 'public/**/*.css'
                 }
             },
             
@@ -125,7 +146,7 @@
                     ]
                 }
             },
-            
+                        
             //-----------------------------------------------------
             // Notify
             // https://github.com/dylang/grunt-notify
