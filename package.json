@@ -32,7 +32,6 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-notify": "^0.4.1",
     "grunt-scss-lint": "^0.3.8",
-    "grunt-localscreenshots": "^1.0.0",
-    "phantomjs": "^1.9.18"
+    "grunt-localscreenshots": "^1.0.0"
   }
 }
