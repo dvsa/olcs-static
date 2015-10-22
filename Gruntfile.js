@@ -311,6 +311,31 @@
                 ci: {
                     colors: false
                 }
+            },
+
+            //-----------------------------------------------------
+            // grunt-localscreenshots
+            // https://github.com/danielhusar/grunt-localscreenshots
+            //
+            // @NOTE: You'll need PhantomJs install locally to get
+            // this task to work
+            //-----------------------------------------------------
+
+            localscreenshots: {
+                options: {
+                    path: 'styleguides/screenshots',
+                    type: 'png',
+                    local : {
+                        path: 'public',
+                        port: 3000
+                    },
+                    viewport: [
+                        '600x800',
+                        '768x1024',
+                        '1200x1024'
+                    ],
+                },
+                src: ['public/styleguides/**/*.html']
             }
 
         }); // initConfig
