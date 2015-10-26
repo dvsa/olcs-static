@@ -257,6 +257,9 @@ input[type="submit"] {
     text-decoration: none;
     color: $link-active-colour;
   }
+  b & {
+    font-weight: 600;
+  }
 }
 
 textarea,
