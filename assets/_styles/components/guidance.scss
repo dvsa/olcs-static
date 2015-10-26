@@ -26,6 +26,10 @@ fieldset + .field .help,
   margin-top: -20px;
 }
 
+summary {
+  display: block;
+}
+
 
 .help__summary {
   @extend %paragraph--large;

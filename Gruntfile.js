@@ -29,6 +29,7 @@
             return paths = [
                 "assets/_js/common/vendor/jquery.1.11.0.js",
                 "assets/_js/common/vendor/chosen.jquery.min.js",
+                "assets/_js/common/vendor/jquery.details.min.js",
                 "assets/_js/common/*.js",
                 "assets/_js/" + path + "/*.js",
                 "assets/_js/init/common.js",
