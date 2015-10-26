@@ -154,18 +154,24 @@ tfoot {
   margin-right: 5px;
 }
 
-.remove {
+.table-link {
+  text-align: right;
+}
+
+.remove,
+.table-link a {
   color: $grey-1;
-  float: right;
+  margin-right: 5px;
   &:hover {
     color: $black;
   }
 }
 
-/*
-  Some comment
-*/
-
+.table-search__input {
+  width: 200px;
+  height: 14px;
+  margin-top: -7px;
+}
 
 
 // Selfserve theme
