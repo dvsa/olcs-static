@@ -81,9 +81,6 @@ th {
   &.selectable {
     text-align: centre;
   }
-  &.right {
-    text-align: right;
-  }
 }
 
 tr {
@@ -153,18 +150,15 @@ tfoot {
   margin-right: 5px;
 }
 
-
-.table-row__actions {
+th.right,
+td.right {
   text-align: right;
-  padding-right: 0;
 }
 
-.table-row__actions a {
-  color: $grey-1;
-  margin-right: 7px;
-  &:hover {
-    color: $black;
-  }
+.right input[type="checkbox"],
+.right input[type="radio"] {
+  float: right;
+  margin: 3px 0 7px 7px;
 }
 
 .table-search__input {
