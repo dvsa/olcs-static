@@ -21,18 +21,26 @@ OLCS.toggleElement = (function(document, $, undefined) {
     }
 
     var trigger  = options.triggerSelector;
-    var target= options.targetSelector;
+    var target   = options.targetSelector;
+
+    function hide() {
+      $(trigger).removeClass('active');
+      $(target).removeAttr('style');
+    }
 
     $(document).on('click', trigger, function(e) {
       e.stopPropagation();
-      $(this).toggleClass('active');
-      $(target).toggle();
+      if ($(this).hasClass('active')) {
+        hide();
+      } else {
+        $(this).addClass('active');
+        $(target).show();
+      }
     });
 
     $(document).on('click', function() {
       if ($(trigger).hasClass('active')) {
-        $(target).hide();
-        $(trigger).removeClass('active');
+        hide();
       }
     });
 
