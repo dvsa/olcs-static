@@ -7,7 +7,7 @@ var OLCS = OLCS || {};
  * element. The revealed element is then hidden when the user clicks anywhere
  * else on the document. Particularly useful for custom dropdown
  * menus, such as the internal 'Admin menu'.
- *s
+ *
  */
 
 OLCS.toggleElement = (function(document, $, undefined) {
