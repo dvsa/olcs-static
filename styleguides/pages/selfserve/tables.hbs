@@ -99,8 +99,9 @@ breadcrumbs:
             <div class="more-actions">
               <p class="more-actions__button">More actions</p>
               <div class="more-actions__list">
+                <input type="submit" class="more-actions__item" value="Remove">
                 <button class="more-actions__item">Transfer</button>
-                <button class="more-actions__item" disabled="disabled">Reprint disc</button>
+                <button class="more-actions__item">Reprint disc</button>
                 <input type="submit" class="more-actions__item" value="Export">
               </div>
             </div>
@@ -135,6 +136,53 @@ breadcrumbs:
                 <td>1500kg</td>
                 <td>12 May 2014</td>
                 <td class="right"><a href="">Remove</a><input type="checkbox"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div><!-- .table__wrapper -->
+      </form>
+
+      <form style="margin-top: 60px">
+        <div class="table__header">
+          <h3>Directors</h3>
+          <div class="actions-container">
+            <a href="" class="action--primary">Add director</a>
+          </div>
+        </div><!-- .table__header -->
+        <div class="table__wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Other names</th>
+                <th>Date of birth</th>
+                <td></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b><a href="">Miss Cheryl Griffiths</a></b></td>
+                <td>no</td>
+                <td>12 Jan 1965</td>
+                <td class="right"><a href="">Remove</a></td>
+              </tr>
+              <tr>
+                <td><b><a href="">(Updated) Mr Tom Jones</a></b></td>
+                <td>no</td>
+                <td>12 May 1954</td>
+                <td class="right"><a href="">Remove</a></td>
+              </tr>
+              <tr class="disabled">
+                <td><input type="submit" class="" name="" value="(Current) Mr Tom Davies-Jones" disabled="disabled"></td>
+                <td>no</td>
+                <td>12 May 1954</td>
+                <td class="right"><a href="">Restore</a></td>
+              </tr>
+              <tr class="disabled">
+                <td><input type="submit" class="" name="" value="(Removed) Mrs Anita Juan" disabled="disabled"></td>
+                <td>no</td>
+                <td>2 Feb 1960</td>
+                <td class="right"><a href="">Restore</a></td>
               </tr>
             </tbody>
           </table>
