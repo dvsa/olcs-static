@@ -9,7 +9,7 @@ describe("OLCS.toggleElement", function() {
     expect(this.component).to.be.a("function");
   });
 
-  describe("Given a stubbed DOM with a trigger and a target element", function() {
+  describe("Given a stubbed DOM with a trigger and a hidden target element", function() {
     beforeEach(function() {
       $("body").append([
         "<div id=stub>",
@@ -80,23 +80,44 @@ describe("OLCS.toggleElement", function() {
         this.component(this.options);
       });
 
-      describe("When the trigger element is clicked and the target element his hidden", function() {
+      describe("When the trigger element is clicked and the target element is hidden", function() {
         beforeEach(function() {
           $("#target").hide();
-          $("#trigger").click();
+          $("#trigger").removeClass('active').click();
         });
 
-        it("Should show the target element", function() {
+        it("the trigger should now have the class 'active'", function() {
+          expect($("#trigger").hasClass("active")).to.be(true);
+        });
+
+        it("and the target element should be shown", function() {
           expect($("#target").is(":visible")).to.be(true);
         });
+      });
 
-        describe("When the document is clicked", function() {
+
+      describe("When the target element is showing", function() {
+        beforeEach(function() {
+          $("#target").css("display","block");
+          $("#trigger").addClass('active');
+        });
+
+        afterEach(function() {
+          $("#target").removeAttr("style");
+          $("#trigger").removeClass('active');
+        });
+
+        describe("and the document is clicked", function() {
           beforeEach(function() {
             $(document).click();
           });
 
-          it("It should hide the target element", function() {
-            expect($("#target").is(":visible")).to.be(false);
+          it("the target is no longer shown", function() {
+            expect($("#target").attr("style")).to.be.undefined;
+          });
+
+          it("and the trigger no longer has the class 'active'", function() {
+             expect($("#trigger").hasClass("active")).to.be(false);
           });
         });
 
