@@ -414,6 +414,11 @@
             grunt.task.run(['clean:prototype', 'copy:prototype']);
         });
 
+        grunt.registerTask('interim-prototype', function(directory) {
+            globalConfig.prototypeName = 'interim-prototype';
+            grunt.task.run(['clean:prototype', 'copy:prototype']);
+        });
+
         /*
         * Define a single Jenkins build task here for any relevant environments
         *

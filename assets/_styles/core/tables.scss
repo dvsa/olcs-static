@@ -70,6 +70,12 @@ tr.disabled {
     text-decoration: none;
     color: $grey-1;
   }
+  a {
+    text-decoration: underline;
+  }
+  a:hover {
+    color: $black;
+  }
 }
 
 th {
