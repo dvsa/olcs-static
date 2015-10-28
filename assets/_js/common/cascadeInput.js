@@ -18,7 +18,7 @@ OLCS.cascadeInput = (function(document, $, undefined) {
   return function init(options) {
     var trap = options.trap === undefined ? true : options.trap;
     var disableDestination = options.disableDestination === undefined ? true : options.disableDestination;
-    var loadingText = options.loadingText || "Loading&hellip;";
+    var loadingText = options.loadingText || "Loading...";
     var emptyLabel = options.emptyLabel || null;
     var process = options.process;
     var clearWhenEmpty = options.clearWhenEmpty || false;
@@ -62,11 +62,7 @@ OLCS.cascadeInput = (function(document, $, undefined) {
       function done(result) {
 
         if (destination.attr("type") === "text") {
-
-          if (result.value) {
-            destination.val(result.value);
-          }
-
+          destination.val(result.value);
         } else {
 
           // @NOTE it's pretty obvious we're making three huge assumptions here:
@@ -85,10 +81,6 @@ OLCS.cascadeInput = (function(document, $, undefined) {
 
           destination.html(str);
 
-          if (disableDestination) {
-            destination.removeAttr("disabled");
-          }
-
           // we assume that if we trapped the earlier change event, we want to
           // trigger one now. Note that the event is triggered on a different element
           // (dest rather than src); if this matters by all means tweak the component
@@ -96,10 +88,18 @@ OLCS.cascadeInput = (function(document, $, undefined) {
             destination.change();
           }
         }
+
+        if (disableDestination) {
+          destination.removeAttr("disabled");
+        }
       }
 
       if (disableDestination) {
-        destination.html("<option>" + loadingText + "</option>");
+        if (destination.attr("type") === "text") {
+          destination.val(loadingText);
+        } else {
+          destination.html("<option>" + loadingText + "</option>");
+        }
         destination.attr("disabled", true);
       }
 
