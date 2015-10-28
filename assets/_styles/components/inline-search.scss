@@ -5,12 +5,12 @@
 */
 
 .inline-search__button {
-	@extend .action--primary;
-	@include font-size(19px,14pt,16px);
-	margin-left: 3px;
+  @extend .action--primary;
+  @include font-size(19px,14pt,16px);
+  margin-left: 3px;
 
 }
 
 .inline-search__hint {
-	@extend .hint--small;
+  @extend .hint--small;
 }
