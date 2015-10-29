@@ -121,14 +121,17 @@ textarea {
   }
   ul {
     @extend %paragraph--large;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
   }
   li {
     margin-bottom: .25em;
   }
   p {
     @extend %paragraph--large;
-    margin-bottom: 20px;
+    margin-bottom: 1em;
+  }
+  p + ul {
+    margin-top: -.75em;
   }
 }
 

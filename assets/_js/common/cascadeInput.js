@@ -18,7 +18,7 @@ OLCS.cascadeInput = (function(document, $, undefined) {
   return function init(options) {
     var trap = options.trap === undefined ? true : options.trap;
     var disableDestination = options.disableDestination === undefined ? true : options.disableDestination;
-    var loadingText = options.loadingText || "Loading&hellip;";
+    var loadingText = options.loadingText || "Loading...";
     var emptyLabel = options.emptyLabel || null;
     var process = options.process;
     var clearWhenEmpty = options.clearWhenEmpty || false;
@@ -60,36 +60,46 @@ OLCS.cascadeInput = (function(document, $, undefined) {
       }
 
       function done(result) {
-        // @NOTE it's pretty obvious we're making three huge assumptions here:
-        // 1) That we get an array of values & labels back
-        // 2) We expect "options.dest" to be a select (because we build up
-        // some options)
-        // 3) We expect the first value, which will be selected, to be 'current'
-        // As and when this component is expanded, obviously we'll need to change this!
-        var str = "";
-        $.each(result, function(i, r) {
-          if (r.value === "" && emptyLabel) {
-            r.label = emptyLabel;
-          }
-          str += "<option value='" + r.value + "'>" + r.label + "</option>";
-        });
 
-        destination.html(str);
+        if (destination.attr("type") === "text") {
+          destination.val(result.value);
+        } else {
+
+          // @NOTE it's pretty obvious we're making three huge assumptions here:
+          // 1) That we get an array of values & labels back
+          // 2) We expect "options.dest" to be a select (because we build up
+          // some options)
+          // 3) We expect the first value, which will be selected, to be 'current'
+          // As and when this component is expanded, obviously we'll need to change this!
+          var str = "";
+          $.each(result, function(i, r) {
+            if (r.value === "" && emptyLabel) {
+              r.label = emptyLabel;
+            }
+            str += "<option value='" + r.value + "'>" + r.label + "</option>";
+          });
+
+          destination.html(str);
+
+          // we assume that if we trapped the earlier change event, we want to
+          // trigger one now. Note that the event is triggered on a different element
+          // (dest rather than src); if this matters by all means tweak the component
+          if (trap) {
+            destination.change();
+          }
+        }
 
         if (disableDestination) {
           destination.removeAttr("disabled");
         }
-
-        // we assume that if we trapped the earlier change event, we want to
-        // trigger one now. Note that the event is triggered on a different element
-        // (dest rather than src); if this matters by all means tweak the component
-        if (trap) {
-          destination.change();
-        }
       }
 
       if (disableDestination) {
-        destination.html("<option>" + loadingText + "</option>");
+        if (destination.attr("type") === "text") {
+          destination.val(loadingText);
+        } else {
+          destination.html("<option>" + loadingText + "</option>");
+        }
         destination.attr("disabled", true);
       }
 

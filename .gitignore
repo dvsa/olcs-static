@@ -11,3 +11,6 @@ public/js/
 public/styles/
 public/styleguides/
 public/assets
+styleguides/screenshots
+assets/_styles/vendor
+.idea
