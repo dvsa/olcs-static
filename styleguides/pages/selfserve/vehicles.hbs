@@ -132,8 +132,13 @@ breadcrumbs:
 
     $(document).on('click','.js-show-removed', function(e) {
       e.preventDefault();
-      $('.disabled').show();
-      $('.js-show-removed').text('Hide removed');
+      if ($(this).val() === 'Show removed') {
+        $('.disabled').show();
+        $(this).val('Hide removed');
+      } else {
+        $('.disabled').hide();
+        $(this).val('Show removed');
+      }
     });
   });
 
