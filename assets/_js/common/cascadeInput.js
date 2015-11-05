@@ -90,7 +90,7 @@ OLCS.cascadeInput = (function(document, $, undefined) {
         // trigger one now. Note that the event is triggered on a different element
         // (dest rather than src); if this matters by all means tweak the component
         if (trap) {
-          destination.trigger('change');
+          destination.trigger("change");
         }
       }
 
