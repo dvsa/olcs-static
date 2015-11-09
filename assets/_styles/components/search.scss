@@ -12,7 +12,7 @@
     width: 100%;
   }
   &__wrapper {
-    @include border-radius(2px);
+    border-radius: 2px;
     float: left;
     position: relative;
     height: 32px;
@@ -24,7 +24,7 @@
   }
   &__input {
     @extend %paragraph--small;
-    @include border-radius(2px);
+    border-radius: 2px;
     background: $white;
     position: absolute;
     display: table-cell;
@@ -56,7 +56,7 @@
     outline: none;
   }
   input[type="submit"] {
-    @include border-radius(0 3px 3px 0);
+    border-radius: 0 3px 3px 0;
     position: absolute;
     right: -3px;
     border: 0;
@@ -81,7 +81,7 @@
 }
 
 .search__select {
-  @include border-radius(3px);
+  border-radius: 3px;
   overflow: hidden;
   position: absolute;
   right: 34px;
@@ -90,11 +90,6 @@
   margin: 4px 5px 0;
   padding: 0 20px 0 7px;
   background: #EEE;
-  background: -webkit-gradient(linear, 0 0, 0 bottom, from(#FCFCFC), to(#EEE));
-  background: -webkit-linear-gradient(#FCFCFC, #EEE);
-  background: -moz-linear-gradient(#FCFCFC, #EEE);
-  background: -ms-linear-gradient(#FCFCFC, #EEE);
-  background: -o-linear-gradient(#FCFCFC, #EEE);
   background: linear-gradient(#FCFCFC, #EEE);
   &::after {
     content: ' ';
