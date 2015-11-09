@@ -309,11 +309,6 @@ input[type=submit].more-actions__item {
     color: $color;
     border: 1px solid $border-colour;
     background: $grad-dark;
-    background: -webkit-gradient(linear, 0 0, 0 bottom, from($grad-light), to($grad-dark));
-    background: -webkit-linear-gradient($grad-light, $grad-dark);
-    background: -moz-linear-gradient($grad-light, $grad-dark);
-    background: -ms-linear-gradient($grad-light, $grad-dark);
-    background: -o-linear-gradient($grad-light, $grad-dark);
     background: linear-gradient($grad-light, $grad-dark);
     &:hover {
       cursor: pointer;

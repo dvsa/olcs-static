@@ -37,19 +37,9 @@
     color: $black;
     font-size: 14px;
     vertical-align: middle;
-    &::-webkit-input-placeholder {
-      color: #767676;
-    }
-    &:-moz-placeholder {
+    &::placeholder {
       color: #767676;
       opacity:  1;
-    }
-    &::-moz-placeholder {
-      color: #767676;
-      opacity:  1;
-    }
-    &:-ms-input-placeholder {
-      color: #767676;
     }
   }
   &__input:focus {
