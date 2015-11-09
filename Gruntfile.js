@@ -203,7 +203,7 @@
                 },
                 styles: {
                     files: ['assets/_styles/**/*.scss'],
-                    tasks: ['sass:dev']
+                    tasks: ['sass:dev', 'postcss']
                 },
                 hbs: {
                     files: ['styleguides/**/*.hbs'],
