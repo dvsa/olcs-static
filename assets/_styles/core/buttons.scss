@@ -22,7 +22,7 @@ button {
 }
 
 @mixin action-colour ($colour: $button-colour) {
-  @include box-shadow(0 2px 0 darken($colour, 15%));
+  box-shadow: 0 2px 0 darken($colour, 15%);
   @include ie-lte(8) {
     border-bottom: 2px solid darken($colour, 15%);
   }
@@ -36,7 +36,7 @@ button {
     background-color: darken($colour, 5%);
   }
   &:active {
-    @include box-shadow(0 0 0 $colour);
+    box-shadow: 0 0 0 $colour;
     top: 2px;
   }
   &.disabled,
@@ -48,7 +48,7 @@ button {
       background-color: $colour;
     }
     &:active {
-      @include box-shadow(0 2px 0 darken($colour, 15%));
+      box-shadow: 0 2px 0 darken($colour, 15%);
       @include ie-lte(8) {
         border-bottom: 2px solid darken($colour, 15%);
       }
@@ -172,7 +172,7 @@ input.action,
     }
   }
   &__list {
-    @include box-shadow(0 1px 5px $grey-2);
+    box-shadow: 0 1px 5px $grey-2;
     display: none;
     position: absolute;
     top: 30px;
@@ -272,7 +272,7 @@ input[type=submit].more-actions__item {
   }
 
   %action-box {
-    @include border-radius(2px);
+    border-radius: 2px;
     display: inline-block;
     width: auto;
     overflow: visible;
@@ -309,11 +309,6 @@ input[type=submit].more-actions__item {
     color: $color;
     border: 1px solid $border-colour;
     background: $grad-dark;
-    background: -webkit-gradient(linear, 0 0, 0 bottom, from($grad-light), to($grad-dark));
-    background: -webkit-linear-gradient($grad-light, $grad-dark);
-    background: -moz-linear-gradient($grad-light, $grad-dark);
-    background: -ms-linear-gradient($grad-light, $grad-dark);
-    background: -o-linear-gradient($grad-light, $grad-dark);
     background: linear-gradient($grad-light, $grad-dark);
     &:hover {
       cursor: pointer;
