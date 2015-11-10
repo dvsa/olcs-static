@@ -49,9 +49,6 @@ fieldset + .field .help,
   padding: 15px 15px 5px;
   border-left: 4px solid $grey-2;
   margin-bottom: 10px;
-  ul {
-    margin-left: 20px;
-  }
   .no-details & {
     display: none;
   }
