@@ -24,7 +24,7 @@ a {
   font-weight: 600;
   padding: 4px 0 5px 34px;
   background: url('#{$assetPath}/download.png') no-repeat 0 0;
-  display: block;
+  display: inline-block;
   margin-top: 5px;
   cursor: pointer;
   @include device-pixel-ratio($ratio: 2) {

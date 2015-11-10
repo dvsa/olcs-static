@@ -3,29 +3,29 @@ title: Register, update or cancel a service
 layout: base.hbs
 user: bus operator
 breadcrumbs:
-  - link: bus-services.html
-    label: Back to bus registrations
+  - link: home.html
+    label: Home
+  - link: bus-registrations.html
+    label: Bus registrations
 ---
 
 <div class="two-thirds">
 
-  <div class="validation-summary">
+<!--   <div class="validation-summary">
     <h3>There was a problem uploading you files</h3>
     <p>Please try the following:</p>
     <ol class="validation-summary__list">
       <li class="validation-summary__item"><a href="#error1">Your attached file is too big</a></li>
       <li class="validation-summary__item"><a href="#error2">Your attached file is the wrong formate</a></li>
-    </ol><!-- .validation-summary__list -->
-  </div><!-- .validation-summary -->
+    </ol>
+  </div> -->
 
   <div class="article">
-    <p>To register a new service, update or cancel an existing service you need to updload an Electronic Bus Registration Service pack (EBSR) in .ZIP format.</p>
-    <h3>Please check the following</h3>
+    <p>Before you upload your EBSR pack check that:</p>
     <ul>
-      <li>Lorem ipsum dolor sit amet</li>
-      <li>Consectetur adipiscing elit tempor incididun</li>
-      <li>Aliquip ex ea commodo consequa</li>
-      <li>Ut enim ad minim veniam</li>
+      <li>it's an XML file in .ZIP format</li>
+      <li>you've included all details like maps, timetables and letters of support</li>
+      <li>you've paid all your fees</li>
     </ul>
   </div>
   <form>
@@ -41,19 +41,26 @@ breadcrumbs:
             <label><input type="radio" name="gender" value="male">Data refresh</label>
           </div>
       </fieldset>
+      <details class="help" style="margin-top:-20px;">
+        <summary class="help__summary">What's the difference?</summary>
+        <div class="help__text">
+          <p>Lorem ipsum sit dolor amet</p>
+        </div>
+      </details>
     </fieldset>
+
+
 
     <fieldset class="file-uploader" id="EBSRUploader" style="margin-top: -20px;">
       <ul class="attach-action__list">
         <li class="attach-action">
           <label class="attach-action__label">
-            Attach another file
+            Upload file(s)
             <input class="attach-action__input js-visually-hidden" type="file" name="fileUpload[]">
           </label>
-          <p class="attach-action__hint">20MB maximum file size. ZIP format only</p>
         </li>
       </ul><!-- attach-actions -->
-      <ul class="attached-file__list">
+     <!--  <ul class="attached-file__list">
           <p class="validation-message">This file is too big</p>
           <li class="file invalid">
             <p>Screen Shot 2015-03-18 at 16.29.25.png <span>59 kB</span></p> <a class="file__remove" href="#">Remove</a>
@@ -63,15 +70,20 @@ breadcrumbs:
             <p>Screen Shot 2015-03-18 at 16.29.25.png <span>59 kB</span></p> <a class="file__remove" href="#">Remove</a>
           </li>
         </div>
-      </ul>
+      </ul> -->
       <ul class="attached-file__list">
       </ul><!-- attached-file__list -->
       <input class="inline-upload js-hidden" type="submit" value="Upload">
     </fieldset><!-- .file-uploader -->
+    <div class="actions-container">
+      <a href="" class="action--primary large">Submit</a>
+      <a href="" class="action--tertiary list large">Back to all bus registrations</a>
+    </div>
 
   </form>
 
 </div><!-- .three-quarters -->
+
 <div class="one-third sidebar">
   {{> _support}}
 </div><!-- .one-quarter -->
