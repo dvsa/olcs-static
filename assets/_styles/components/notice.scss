@@ -65,7 +65,7 @@
 .notice--warning,
 .notice--info,
 .notice--danger {
-  @include border-radius(2px);
+  border-radius: 2px;
   overflow: auto;
   padding: 6px 15px;
   margin-bottom: .25em;
