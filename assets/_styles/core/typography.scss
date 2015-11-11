@@ -111,28 +111,33 @@ textarea {
  */
 
 .article {
+    
   overflow: auto;
+  
   h2 {
     margin-bottom: .25em;
   }
+  
   h3,
   h4 {
     margin-bottom: .5em;
   }
+  
   ul {
     @extend %paragraph--large;
     margin-bottom: 1em;
+    margin-left: 20px;
   }
+  
   li {
     margin-bottom: .25em;
   }
+  
   p {
     @extend %paragraph--large;
     margin-bottom: 1em;
   }
-  p + ul {
-    margin-top: -.75em;
-  }
+  
 }
 
 .article + .article {
