@@ -61,7 +61,6 @@ OLCS.tableRows = (function(document, $, undefined) {
         actionElement.get(0).click();
       }
 
-
     });
 
     // On hover of a table row
