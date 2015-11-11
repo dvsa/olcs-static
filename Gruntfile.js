@@ -59,7 +59,7 @@
                 dev: {
                     options: {
                         style: 'expanded',
-                        sourcemap: true
+                        sourceMap: true
                     },
                     files: styles,
                     tasks: ['postcss']
@@ -67,7 +67,7 @@
                 prod: {
                     options: {
                         style: 'compressed',
-                        sourcemap: false
+                        sourceMap: false
                     },
                     files: styles
                 }
@@ -203,7 +203,7 @@
                 },
                 styles: {
                     files: ['assets/_styles/**/*.scss'],
-                    tasks: ['sass:dev']
+                    tasks: ['sass:dev', 'postcss']
                 },
                 hbs: {
                     files: ['styleguides/**/*.hbs'],

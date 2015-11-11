@@ -171,7 +171,7 @@ tfoot {
 @if $app == 'internal' {
 
   .table__wrapper {
-    @include border-radius(3px);
+    border-radius: 3px;
   }
 
   .table__header {

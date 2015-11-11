@@ -21,7 +21,7 @@
 }
 
 .tooltip {
-  @include border-radius(2px);
+  border-radius: 2px;
   display: none;
   position: absolute;
   bottom: 20px;
