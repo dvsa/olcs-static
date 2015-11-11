@@ -38,6 +38,10 @@ OLCS.tableRows = (function(document, $, undefined) {
       var actionElement   = getActions(this);
       var targetSelectBox = target.children(selectBox);
 
+      if (target.is(actionElement)) {
+        return;
+      }
+
       // If the target element contains a select box, simulate a
       // click of its select box
       if (targetSelectBox.length) {
@@ -56,6 +60,7 @@ OLCS.tableRows = (function(document, $, undefined) {
       if (!target.is(selectBox) && !targetSelectBox.length) {
         actionElement.get(0).click();
       }
+
 
     });
 
