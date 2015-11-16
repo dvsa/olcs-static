@@ -118,6 +118,10 @@ td {
   overflow: visible;
   border-top: 1px solid $grey-2;
   vertical-align: top;
+  p,
+  li {
+    @extend %paragraph--small;
+  }
 }
 
 tfoot {
