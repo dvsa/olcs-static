@@ -47,43 +47,9 @@ table {
     text-align: center;
     display: block;
   }
-  input[type="submit"]
-  .action--primary {
-    float: right;
-    margin-bottom: 20px;
-  }
-}
-
-table input[type="submit"] {
-  font-weight: 600;
-  &:focus {
+  input[type="submit"]:focus {
     border: 0;
     background: $yellow;
-  }
-}
-
-td,
-th {
-  @extend %paragraph--small;
-  padding: .5em 10px .5em 0;
-  text-align: left;
-}
-
-th {
-  font-weight: 600;
-  border-top: 1px solid $grey-2;
-  height: 1.4em;
-  vertical-align: top;
-  &[scope="row"] {
-    border-top: 1px solid $grey-2;
-    font-weight: 400;
-    padding-right: 2em;
-  }
-  &.selectable {
-    text-align: centre;
-  }
-  &.right {
-    text-align: right;
   }
 }
 
@@ -104,31 +70,23 @@ tr.disabled {
     text-decoration: none;
     color: $grey-1;
   }
+  a {
+    text-decoration: underline;
+  }
+  a:hover {
+    color: $black;
+  }
 }
 
-
-td {
-  overflow: visible;
+th {
+  font-weight: 600;
   border-top: 1px solid $grey-2;
+  height: 1.4em;
   vertical-align: top;
-  &.right {
-    text-align: right;
-  }
-}
-
-tfoot {
-  tr {
+  &[scope="row"] {
     border-top: 1px solid $grey-2;
-    border-bottom: 0;
-  }
-  th,
-  td {
-    border: 0;
-    overflow: hidden;
-    font-weight: 600;
-  }
-  th {
-    background: none;
+    font-weight: 400;
+    padding-right: 2em;
   }
 }
 
@@ -149,33 +107,60 @@ tfoot {
   }
 }
 
+th,
+td {
+  @extend %paragraph--small;
+  padding: .5em 10px .5em 0;
+  text-align: left;
+}
+
+td {
+  overflow: visible;
+  border-top: 1px solid $grey-2;
+  vertical-align: top;
+}
+
+tfoot {
+  tr {
+    border-top: 1px solid $grey-2;
+    border-bottom: 0;
+  }
+  th,
+  td {
+    border: 0;
+    overflow: hidden;
+    font-weight: 600;
+  }
+  th {
+    background: none;
+  }
+}
+
+.right {
+  text-align: right;
+  input[type="checkbox"],
+  input[type="radio"] {
+    float: right;
+    margin: 3px 0 7px 7px;
+  }
+}
+
 .new {
   color: $primaryColour;
   margin-right: 5px;
 }
 
-.remove {
-  color: $grey-1;
-  float: right;
-  &:hover {
-    color: $black;
-  }
+.table-search__input {
+  width: 200px;
+  height: 14px;
+  margin-top: -7px;
 }
-
-/*
-  Some comment
-*/
-
 
 
 // Selfserve theme
 // ---------------
 
 @if $app == 'selfserve' {
-
-  td {
-    vertical-align: middle;
-  }
 
 }
 
@@ -186,7 +171,7 @@ tfoot {
 @if $app == 'internal' {
 
   .table__wrapper {
-    @include border-radius(3px);
+    border-radius: 3px;
   }
 
   .table__header {
@@ -240,7 +225,7 @@ tfoot {
     padding: .5em .75em;
     background: $grey-4;
     a {
-      padding: 0;
+      padding: 0 1.25em 0 0;
     }
     &:hover,
     &.ascending,

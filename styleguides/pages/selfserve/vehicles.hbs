@@ -1,0 +1,150 @@
+---
+title: Vehicle details
+user: operator
+layout: base.hbs
+breadcrumbs:
+  - link: licences.html
+    label: Home
+  - link: overview.html
+    label: Licence overview
+---
+
+<div class="two-thirds">
+  <form style="margin-top: -20px;">
+    <fieldset>
+      <div class="field inline-search">
+        <label>Search for a vehicle</label>
+        <input type="search" class="inline-search__input">
+        <button class="inline-search__button">Find vehicle</button>
+        <p class="inline-search__hint"><a href="vehicles.html">Clear search</a></p>
+      </div>
+    </fieldset>
+  </form>
+    <form>
+      <div class="table__header">
+        <h3>3 Vehicles</h3>
+        <div class="actions-container">
+          <a href="" class="action--primary">Add vehicle</a>
+          <div class="more-actions">
+            <p class="more-actions__button">More actions</p>
+            <div class="more-actions__list">
+              <input type="submit" class="more-actions__item" value="Remove">
+              <button class="more-actions__item">Transfer</button>
+              <button class="more-actions__item">Reprint disc</button>
+              <input type="submit" class="more-actions__item" value="Export">
+              <input type="submit" class="more-actions__item js-show-removed" value="Show removed">
+            </div>
+          </div>
+        </div>
+      </div><!-- .table__header -->
+      <div class="table__wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>VRM</th>
+              <th>Plated weight</th>
+              <th>Specified</th>
+              <td class="right"><input type="checkbox"></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b><a href="">LL09 URE</a></b></td>
+              <td>2500kg</td>
+              <td>12 May 2014</td>
+              <td class="right"><a href="">Remove</a><input type="checkbox"></td>
+            </tr>
+            <tr class="js-hide">
+              <td><b><a href="">SN15 BVC</a></b></td>
+              <td>3000kg</td>
+              <td>12 May 2014</td>
+              <td class="right"><a href="">Remove</a><input type="checkbox"></td>
+            </tr>
+            <tr class="js-hide">
+              <td><b><a href="">MN07 PNO</a></b></td>
+              <td>3000kg</td>
+              <td>12 May 2014</td>
+              <td class="right"><a href="">Remove</a><input type="checkbox"></td>
+            </tr>
+            <tr class="disabled">
+              <td>PT09 BBN</td>
+              <td>2500kg</td>
+              <td>5 Jan 2013</td>
+              <td class="right"><a href="">Restore</a><input type="checkbox"></td>
+            </tr>
+            <tr class="disabled">
+              <td>TY13 WSC</td>
+              <td>3000kg</td>
+              <td>5 Jan 2013</td>
+              <td class="right"><a href="">Restore</a><input type="checkbox"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div><!-- .table__wrapper -->
+</form>
+
+</div><!-- .two-thirds -->
+
+<div class="one-third sidebar">
+
+  <dl class="meta" style="border-bottom: 0; padding-bottom: 0;">
+    <dt>Licence number</dt>
+    <dd>OB12524/525</dd>
+    <dt>Status</dt>
+    <dd>Valid</dd>
+    <dt>Renewal date</dt>
+    <dd>16 March 2011</dd>
+    <dt>Start date</dt>
+    <dd>16 March 2016</dd>
+
+  </dl>
+
+
+<!--   <dl class="meta" style="border-bottom: 0; padding-bottom: 0;">
+    <dt>Application reference</dt>
+    <dd>OB12524/525</dd>
+    <dt>Progress</dt>
+    <dd>6 of 13 sections complete</dd>
+  </dl> -->
+
+<!--   <dl class="meta" style="border-bottom: 0; padding-bottom: 0;">
+    <dt>Licence number</dt>
+    <dd>OB12524625</dd>
+    <dt>Licence status</dt>
+    <dd>Curtailed</dd>
+    <dt>Renewal date</dt>
+    <dd>16 March 2011</dd>
+    <dt>Start date</dt>
+    <dd>16 March 2016</dd>
+  </dl> -->
+
+</div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+
+    $('.disabled').hide();
+
+    $(document).on('click','.inline-search__button', function(e) {
+      e.preventDefault();
+      $('.js-hide, .disabled').hide();
+    });
+
+    $(document).on('click','.js-show-removed', function(e) {
+      e.preventDefault();
+      if ($(this).val() === 'Show removed') {
+        $('.disabled').show();
+        $(this).val('Hide removed');
+      } else {
+        $('.disabled').hide();
+        $(this).val('Show removed');
+      }
+    });
+  });
+
+  OLCS.toggleElement({
+    triggerSelector: '.more-actions',
+    targetSelector: '.more-actions__list'
+  });
+</script>
+

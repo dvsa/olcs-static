@@ -60,6 +60,14 @@
       </div><!-- end .global-header__wrapper -->
     </div><!-- end .global-header -->
 
+    {{#if cookie-banner}}
+    <div class="cookie-banner">
+      <div class="cookie-banner__wrapper">
+        <p>Vehicle Operator Licensing uses cookies. <a href="">Find out more</a></p>
+      </div>
+    </div>
+    {{/if }}
+
     <div class="page-wrapper">
       <div class="user-header">
         <p class="phase">
@@ -116,9 +124,11 @@
     <div class="global-footer">
       <div class="global-footer__wrapper">
         <ul class="global-footer__links">
-          <li class="global-footer__link"><a href="">Helpdesk</a></li>
-          <li class="global-footer__link"><a href="">Privacy &amp; cookies</a></li>
-          <li class="global-footer__link">Built by <a href="https://www.gov.uk/government/organisations/driver-and-vehicle-standards-agency">Driver &amp; Vehicle Standards Agency</a></li>
+          <li class="global-footer__link"><a href="">Terms and conditions</a></li>
+          <li class="global-footer__link"><a href="privacy-policy.html">Privacy policy</a></li>
+          <li class="global-footer__link"><a href="">Feedback</a></li>
+          <li class="global-footer__link"><a href="">Cymraeg</a></li>
+          <li class="global-footer__link">Built by <a href="https://www.gov.uk/government/organisations/driver-and-vehicle-standards-agency">Driver and Vehicle Standards Agency</a></li>
         </ul>
         <div class="global-footer__copyright">
           <a href="">&copy; Crown copyright</a>

@@ -7,7 +7,7 @@ var OLCS = OLCS || {};
  * element. The revealed element is then hidden when the user clicks anywhere
  * else on the document. Particularly useful for custom dropdown
  * menus, such as the internal 'Admin menu'.
- *s
+ *
  */
 
 OLCS.toggleElement = (function(document, $, undefined) {
@@ -21,18 +21,26 @@ OLCS.toggleElement = (function(document, $, undefined) {
     }
 
     var trigger  = options.triggerSelector;
-    var target= options.targetSelector;
+    var target   = options.targetSelector;
+
+    function hide() {
+      $(trigger).removeClass('active');
+      $(target).removeAttr('style');
+    }
 
     $(document).on('click', trigger, function(e) {
       e.stopPropagation();
-      $(this).toggleClass('active');
-      $(target).toggle();
+      if ($(this).hasClass('active')) {
+        hide();
+      } else {
+        $(this).addClass('active');
+        $(target).show();
+      }
     });
 
     $(document).on('click', function() {
       if ($(trigger).hasClass('active')) {
-        $(target).hide();
-        $(trigger).removeClass('active');
+        hide();
       }
     });
 

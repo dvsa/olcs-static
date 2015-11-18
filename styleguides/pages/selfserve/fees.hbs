@@ -29,26 +29,26 @@ user: operator
       <thead>
         <tr>
           <th>Description</th>
-          <th>Licence No.</th>
-          <th>Amount</th>
+          <th>Licence number</th>
           <th>Invoiced</th>
-          <td><input type="checkbox"></td>
+          <th class="right">Amount</th>
+          <th class="right"><input type="checkbox"></th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td><b><a href="fee.html">GV/SN Variation fee</a></b><span class="status orange">Outstanding</span></td>
           <td><a href="">OB125422</a></td>
-          <td>£257</td>
           <td>16/4/2015</td>
-          <td><input type="checkbox"></td>
+          <td class="right">£257</td>
+          <td class="right"><a href="">Pay</a><input type="checkbox"></td>
         </tr>
         <tr>
           <td><b><a href="fee.html">GV/SN Variation fee</a></b><span class="status orange">Outstanding</span></td>
           <td><a href="">OB125422</a></td>
-          <td>£257</td>
           <td>16/4/2015</td>
-          <td><input type="checkbox"></td>
+          <td class="right">£257</td>
+          <td class="right"><a href="">Pay</a><input type="checkbox"></td>
         </tr>
       </tbody>
     </table>
@@ -74,17 +74,7 @@ user: operator
     </ul>
   </div><!-- .links -->
 
-  <div class="support">
-    <h3>Support</h3>
-    <b>Call: 0113 254 3200</b>
-    <p>Mon to Thurs: 8:30am – 5pm<br />
-       Fri: 8:30am – 4pm
-    </p>
-    <p>Closed at weekend and on public and bank holidays</p>
-    <p>Or email our support team at:<br/>
-    <a href="">operatorlicensing@otc.gov.uk</a>
-    </p>
-  </div>
+  {{> _support}}
 
 </div>
 

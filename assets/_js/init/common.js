@@ -11,7 +11,11 @@ OLCS.ready(function() {
   OLCS.selectBox();
   OLCS.formInit();
   OLCS.notices();
-  OLCS.detailsElement();
+
+  // uses the jquery.details.min.js plugin to enhance <details>
+  // element across browsers
+  $("details").details();
+
   var F = OLCS.formHelper;
 
   OLCS.characterCount({

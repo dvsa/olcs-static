@@ -38,7 +38,6 @@
   .support {
     border-top: 1px solid $grey-2;
     padding-top: 1em;
-    float: left;
     p {
       @extend %paragraph--small;
     }
@@ -77,7 +76,7 @@
 
   .latest-note {
     &__details {
-      @include border-radius(3px);
+      border-radius: 3px;
       padding: .6em 1em .75em;
       background: $yellow-25;
       border: 1px solid $yellow-50;

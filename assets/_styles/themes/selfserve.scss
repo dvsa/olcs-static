@@ -59,6 +59,8 @@ $app: selfserve;
 @import '../components/tooltip';
 @import '../components/review';
 @import '../components/preloader';
+@import '../components/cookie-banner';
+@import '../components/inline-search';
 
 // Views
 @import '../views/selfserve/overview';

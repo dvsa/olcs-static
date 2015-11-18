@@ -7,7 +7,7 @@
 
 .status {
   @extend %paragraph--tiny;
-  @include border-radius(2px);
+  border-radius: 2px;
   margin: 0 6px;
   padding: 1px 3px 0 3px;
   font-weight: 600;
@@ -41,9 +41,6 @@
 // ---------------
 
 @if $app == 'selfserve' {
-  .component {
-    background: red;
-  }
 }
 
 

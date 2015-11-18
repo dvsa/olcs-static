@@ -11,29 +11,54 @@ breadcrumbs:
 ---
 
 <div class="two-thirds">
+  <div class="article">
+    <p>To be granted a licence, you’ll need to show you have enough money to keep your vehicles and run your business. <a href="">Read more about financial evidence</a></p>
+    <h3>How much will you need?</h3>
+    <h2>£12,998</h2>
+    <p>This figure’s based on:</p>
+    <ul>
+      <li>an application for 20 vehicles</li>
+      <li>maintenance of 19 vehicles on your other licences</li>
+    </ul>
 
-    <div class="guidance">
-      <p>You need to demonstrates there are sufficient financial resources to maintain the vehicles and run the business.<br />
-      <a href="">More guidance on financial evidence</a>
-      <p>
-    </div>
-
+  </div>
     <form>
-      <fieldset>
-        <h3>Required finance</h3>
-        <p>Based on the total authority of <b>24 vehicles</b> and <b>14 trailers</b>, you are required to have the following finance available:</p>
-        <h2>£12,998</h2>
-      </fieldset>
 
       <fieldset>
-        <legend>Provide evidence</legend>
-        <fieldset class="">
-          <legend class="legend">Provide evidence that you have the required finances stated above in the form of company accounts, bank statements or ballance sheets.</legend>
+        <legend>Send a copy to us</legend>
+        <p>Once you have your financial evidence, you should either upload or post a copy to us. See the <a href="">types of evidence we accept</a>.</p><hr />
+        <fieldset>
+          <legend>How would you like to send your evidence?</legend>
           <div class="field inline checkbox">
-            <label><input type="radio" name="yes" checked>Upload files</label>
+            <label><input type="radio" name="evidence" value="upload">Upload files</label>
           </div>
           <div class="field inline checkbox">
-            <label><input type="radio" name="no">Send in the post</label>
+            <label><input type="radio" name="evidence" value="post">Send in the post</label>
+          </div>
+        </fieldset>
+        <fieldset class="js-upload">
+          <fieldset class="file-uploader" id="FileUploader2">
+            <ul class="attach-action__list">
+              <li class="attach-action">
+                <label class="attach-action__label">
+                  Attach file
+                  <input class="attach-action__input js-visually-hidden" type="file" name="fileUpload[]">
+                </label>
+                <p class="attach-action__hint">PDF, DOC, JPG, PNG or GIF</p>
+              </li>
+            </ul><!-- attach-actions -->
+          </fieldset><!-- .file-uploader -->
+        </fieldset>
+        <fieldset class="js-post">
+          <div class="article">
+            <p>If you’d rather post a copy, send it as soon as possible to:<p/>
+            <p>
+            Office of the Traffic Commissioner<br />
+            The Central Licensing Office<br />
+            Hillcrest House<br />
+            Leeds, LS9 6NF</p>
+            <p>Make sure you include your application reference: <b>OB1523424/133</b>.
+            </p>
           </div>
         </fieldset>
 
@@ -47,11 +72,33 @@ breadcrumbs:
 
 </div><!-- .two-thirds -->
 
-<script type="text/javascript">
-  OLCS.fileUploader({
-    selector: "#financialEvidenceUpload",
-    isMultiple: true
-  });
+<div class="one-third sidebar">
+  <dl class="meta" style="border-bottom: 0; padding-bottom: 0;">
+    <dt>Application reference</dt>
+    <dd>OB12524/525</dd>
+    <dt>Progress</dt>
+    <dd>4 of 13 sections complete</dd>
+    <dt>Status</dt>
+    <dd>Not submitted</dd>
+  </dl>
+</div>
 
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.js-upload, .js-post').hide();
+
+
+    $(document).on('change', 'input[name="evidence"]', function(e) {
+      e.preventDefault();
+      if ($(this).val() === 'upload') {
+        $('.js-upload').show();
+        $('.js-post').hide();
+      } else {
+        $('.js-post').show();
+        $('.js-upload').hide()
+      }
+    });
+
+  });
 </script>
 

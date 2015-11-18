@@ -116,7 +116,7 @@
 @if $app == 'internal' {
 
   .modal {
-    @include border-radius(3px);
+    border-radius: 3px;
     padding: 65px 20px 60px;
     &__title {
       @extend %h4;
@@ -134,7 +134,7 @@
   }
 
   .modal__header {
-    @include border-radius(3px 3px 0 0);
+    border-radius: 3px 3px 0 0;
     position: absolute;
     top: 0;
     right: 0;
@@ -145,7 +145,7 @@
   }
 
   .modal--alert {
-    @include border-radius(3px);
+    border-radius: 3px;
     padding: 75px 20px 20px;
     .modal__title {
       @extend %h4;

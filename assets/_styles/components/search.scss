@@ -12,7 +12,7 @@
     width: 100%;
   }
   &__wrapper {
-    @include border-radius(2px);
+    border-radius: 2px;
     float: left;
     position: relative;
     height: 32px;
@@ -24,7 +24,7 @@
   }
   &__input {
     @extend %paragraph--small;
-    @include border-radius(2px);
+    border-radius: 2px;
     background: $white;
     position: absolute;
     display: table-cell;
@@ -37,34 +37,22 @@
     color: $black;
     font-size: 14px;
     vertical-align: middle;
-    behavior: url('/htc/PIE.htc');
-    &::-webkit-input-placeholder {
-      color: #767676;
-    }
-    &:-moz-placeholder {
+    &::placeholder {
       color: #767676;
       opacity:  1;
-    }
-    &::-moz-placeholder {
-      color: #767676;
-      opacity:  1;
-    }
-    &:-ms-input-placeholder {
-      color: #767676;
     }
   }
   &__input:focus {
     outline: none;
   }
   input[type="submit"] {
-    @include border-radius(0 3px 3px 0);
+    border-radius: 0 3px 3px 0;
     position: absolute;
     right: -3px;
     border: 0;
     height: 32px;
     width: 38px;
     text-indent: -9999px;
-    behavior: url('/htc/PIE.htc');
     background: $primaryColour url('#{$assetPath}/search.png') no-repeat 50% 45%;
     @include device-pixel-ratio($ratio: 2) {
       background: $primaryColour url('#{$assetPath}/search-2x.png') no-repeat 50% 45%;
@@ -83,7 +71,7 @@
 }
 
 .search__select {
-  @include border-radius(3px);
+  border-radius: 3px;
   overflow: hidden;
   position: absolute;
   right: 34px;
@@ -92,11 +80,6 @@
   margin: 4px 5px 0;
   padding: 0 20px 0 7px;
   background: #EEE;
-  background: -webkit-gradient(linear, 0 0, 0 bottom, from(#FCFCFC), to(#EEE));
-  background: -webkit-linear-gradient(#FCFCFC, #EEE);
-  background: -moz-linear-gradient(#FCFCFC, #EEE);
-  background: -ms-linear-gradient(#FCFCFC, #EEE);
-  background: -o-linear-gradient(#FCFCFC, #EEE);
   background: linear-gradient(#FCFCFC, #EEE);
   &::after {
     content: ' ';
