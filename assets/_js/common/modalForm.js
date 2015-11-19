@@ -12,9 +12,6 @@ OLCS.modalForm = (function(document, $, undefined) {
   "use strict";
 
   return function init(options) {
-    // ... assume that the response we get back should be shown in
-    // a modal
-    OLCS.modal.show(options.body, options.title);
 
     OLCS.eventEmitter.on("render", function transform() {
       OLCS.transform({
@@ -31,6 +28,10 @@ OLCS.modalForm = (function(document, $, undefined) {
           }
       });
     });
+
+    // ... assume that the response we get back should be shown in
+    // a modal
+    OLCS.modal.show(options.body, options.title);
 
     // also assume that we've got a form within the rendered modal
     // and bind a form handler to it
