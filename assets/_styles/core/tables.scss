@@ -119,7 +119,8 @@ td {
   border-top: 1px solid $grey-2;
   vertical-align: top;
   ul {
-    list-style: disc;
+    list-style-type: disc;
+    margin-left: 20px;
   }
   p,
   li {

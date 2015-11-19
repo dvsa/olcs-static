@@ -4,7 +4,7 @@ subtitle: Step 13
 user: operator
 breadcrumbs:
   - link: transport-manager.html
-    label: Back to to application overview
+    label: Back to application overview
 ---
 
 
@@ -13,82 +13,94 @@ breadcrumbs:
   <p style="margin-bottom: 0;">Make sure all the details in your application are correct.</p>
   <p><a href="read-only-application.html" class="download" target="blank">View full application</a></p>
   <hr /><hr />
-  <div class="article">
-    <h3>Sign the declaration</h3>
-      <p>A business owner or director must sign the declaration.</p>
-    <p>They can do this by either:</p>
-    <ul>
-      <li>using GOV.UK Verify</li>
-      <li>printing out, signing and return the declaration</li>
-    </ul>
-  </div>
+
   <form action="">
     <fieldset>
-     <fieldset>
+      <fieldset>
+        <legend>Are you the business owner, Director or do you have authority to sign the the declaration?</legend>
         <div class="field checkbox inline">
-          <label><input type="radio" name="declarations" value="verify" checked>GOV.UK Verify</label>
+          <label><input type="radio" name="owner" value="yes">Yes</label>
         </div>
         <div class="field checkbox inline">
-          <label><input type="radio" name="declarations" value="post">Print, sign and return</label>
+          <label><input type="radio" name="owner" value="no">No</label>
         </div>
       </fieldset>
     </fieldset>
-
-    <div class="article js-verify">
-      <p>To use GOV.UK Verify you’ll need to:</p>
-      <ul>
-        <li>be a UK resident</li>
-        <li>have a valid passport or driving licence</li>
-      </ul>
-      <p>Northern Ireland residents won’t be able to use GOV.UK Verify.</p>
-      <p>I understand that by submitting this application online I am accepting the undertakings below; that they will be recorded on the licence; that failure to comply with the conditions or undertakings recorded on the licence may result in the licence being revoked, suspended or curtailed; and that failure to comply with these conditions is also a criminal offence.</p>
-      <ul>
-        <li>The laws relating to the driving and operation of vehicles used under this licence are observed;</li>
-        <li>The rules on drivers’ hours and tachographs are observed, proper records are kept and that these are made available on request;</li>
-        <li>Vehicles and trailers are not overloaded;</li>
-        <li>Vehicles operate within speed limits;</li>
-        <li>Vehicles and trailers, including hired vehicles and trailers, are kept in a fit and serviceable condition;</li>
-        <li>Drivers report promptly any defects or symptoms of defects that could prevent the safe operation of vehicles and/or trailers, and that any defects are recorded in writing;</li>
-        <li>Records are kept (for 15 months) of all driver reports which record defects, all safety inspections, routine maintenance and repairs to vehicles, and that these are made available on request;</li>
-        <li>In respect of each operating centre specified, that the number of vehicles and the number of trailers kept there will not exceed the maximum numbers authorised at each operating centre (which will be noted on the licence);</li>
-        <li>An unauthorised operating centre is not used in any traffic area;</li>
-        <li>Furthermore, I will notify the traffic commissioner of any convictions against myself, or the company, business partner(s), the company directors, nominated transport manager(s) named in this application, or employees or agents of the applicant for this licence and, if the licence is issued, convictions against the licence holder or employees or agents of the licence holder;</li>
-        <li>I will ensure that the traffic commissioner is notified within 28 days of any other changes, for example a change to the proposed maintenance arrangements; a change in the financial status of the licence holder (e.g. if placed in liquidation or receivership), or a change to Limited Company status or partnership, that might affect the licence, if issued.</li>
-      </ul>
-
-      <div class="field confirm">
-        <label>
-          <input type="checkbox">
-          I declare that the statements made in this application are true and that all supporting evidence supplied with regard to my application is correct. I understand that it is an offence to make a false declaration.
-        </label>
+    <fieldset class="js-owner">
+      <div class="article">
+        <h3>Sign the declaration</h3>
+        <p>You can sign your declaration online using GOV.UK Verify which can speed up your application decision.</p>
+        <p>To use GOV.UK Verify you’ll need to be a UK resident and have a valid passport or driving licence. Northern Ireland residents won’t be able to use this service.</p>
       </div>
-      <hr />
-      <div class="actions-container">
-        <a href="http://govuk-verify.herokuapp.com/intro?requestId=vehicle-operator-licensing" class="action--primary large">Continue to GOV.UK Verify</a>
-        <a href="application-overview-incomplete.html" class="action--tertiary large">Cancel</a>
-      </div>
-    </div><!-- js-verify -->
+      <fieldset>
+        <legend>How would you like to sign your declaration?</legend>
+        <div class="field checkbox">
+          <label><input type="radio" name="declarations" value="verify">use GOV.UK Verify</label>
+        </div>
+        <div class="field checkbox">
+          <label><input type="radio" name="declarations" value="post">print, sign and return</label>
+        </div>
+      </fieldset>
 
+      <div class="article js-verify">
+        <p>I understand that by submitting this application online I am accepting the undertakings below; that they will be recorded on the licence; that failure to comply with the conditions or undertakings recorded on the licence may result in the licence being revoked, suspended or curtailed; and that failure to comply with these conditions is also a criminal offence.</p>
+        <ul>
+          <li>The laws relating to the driving and operation of vehicles used under this licence are observed;</li>
+          <li>The rules on drivers’ hours and tachographs are observed, proper records are kept and that these are made available on request;</li>
+          <li>Vehicles and trailers are not overloaded;</li>
+          <li>Vehicles operate within speed limits;</li>
+          <li>Vehicles and trailers, including hired vehicles and trailers, are kept in a fit and serviceable condition;</li>
+          <li>Drivers report promptly any defects or symptoms of defects that could prevent the safe operation of vehicles and/or trailers, and that any defects are recorded in writing;</li>
+          <li>Records are kept (for 15 months) of all driver reports which record defects, all safety inspections, routine maintenance and repairs to vehicles, and that these are made available on request;</li>
+          <li>In respect of each operating centre specified, that the number of vehicles and the number of trailers kept there will not exceed the maximum numbers authorised at each operating centre (which will be noted on the licence);</li>
+          <li>An unauthorised operating centre is not used in any traffic area;</li>
+          <li>Furthermore, I will notify the traffic commissioner of any convictions against myself, or the company, business partner(s), the company directors, nominated transport manager(s) named in this application, or employees or agents of the applicant for this licence and, if the licence is issued, convictions against the licence holder or employees or agents of the licence holder;</li>
+          <li>I will ensure that the traffic commissioner is notified within 28 days of any other changes, for example a change to the proposed maintenance arrangements; a change in the financial status of the licence holder (e.g. if placed in liquidation or receivership), or a change to Limited Company status or partnership, that might affect the licence, if issued.</li>
+        </ul>
+        <div class="field confirm">
+          <label>
+            <input type="checkbox">
+            I declare that the statements made in this application are true and that all supporting evidence supplied with regard to my application is correct. I understand that it is an offence to make a false declaration.
+          </label>
+        </div>
+        <hr />
+        <div class="actions-container">
+          <a href="http://govuk-verify.herokuapp.com/intro?requestId=vehicle-operator-licensing" class="action--primary large">Continue to GOV.UK Verify</a>
+          <a href="application-overview-incomplete.html" class="action--tertiary large">Cancel</a>
+        </div>
+      </div><!-- js-verify -->
 
-    <div class="article js-print-sign">
-      <p style=>Post the signed declaration to the <a href="https://www.gov.uk/government/organisations/traffic-commissioners/about/access-and-opening">Central Licensing Office</a>.<br />
-      <a href="../print-declarations.html" class="download" target="blank">Print declaration</a></p>
-      <hr />
-      <div class="field confirm">
-        <label>
-          <input type="checkbox">
-          I understand that my application cannot be considered until I have returned my signed declaration.
-        </label>
+      <div class="article js-print-sign">
+        <p style=>Post the signed declaration to the <a href="https://www.gov.uk/government/organisations/traffic-commissioners/about/access-and-opening">Central Licensing Office</a>.<br />
+        <a href="../print-declarations.html" class="download" target="blank">Print declaration</a></p>
+        <hr />
+        <div class="field confirm">
+          <label>
+            <input type="checkbox">
+            I understand that my application cannot be considered until I have returned my signed declaration.
+          </label>
+        </div>
+        <hr />
+        <div class="actions-container">
+          <a href="application-overview-complete-print.html" class="action--primary large">Continue</a>
+          <a href="application-overview-incomplete.html" class="action--tertiary large">Cancel</a>
+        </div>
+      </div><!-- js-verify -->
+    </fieldset>
+
+    <fieldset class="js-employee">
+      <div class="article">
+        <h3>Sign the declaration</h3>
+        <p>As you cannot sign the declaration, you can either:</p>
+        <ul>
+          <li>get an authorised person to sign in and sign the declarations online using GOV.UK Verify</li>
+          <li><a href="">print the declaration</a> and get an authorised person to sign and return to the <a href="">Central Licensing Office</a></li>
+        </ul>
       </div>
-      <hr />
-      <div class="actions-container">
-        <a href="application-overview-complete-print.html" class="action--primary large">Continue</a>
-        <a href="application-overview-incomplete.html" class="action--tertiary large">Cancel</a>
-      </div>
-    </div><!-- js-verify -->
+    </fieldset>
+
 
   </form>
-
 
 </div><!-- .two-thirds -->
 
