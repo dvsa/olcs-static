@@ -14,4 +14,4 @@ public/assets
 styleguides/screenshots
 assets/_styles/vendor
 .idea
-settings.json
+.vscode/
