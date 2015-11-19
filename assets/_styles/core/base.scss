@@ -1,8 +1,19 @@
+// Base
+// -----------------------------------------------------------------
+//
+// The utmost core files required for building a modern webapp that 
+// may not necessarily be specific to OLCS.
+//
+// [1] - Document Wrapper
+// [2] - CSS Reset/Normalize
+// [3] - Selfserve only styles
+// [4] - Internal only styles
+//
+// -----------------------------------------------------------------
 
-/*
-  Base
-  ====
-*/
+// [1] - Document Wrapper
+//
+// The document/application wrapper which contains the entire app
 
 html {
   font-size: 100%;
@@ -24,6 +35,11 @@ body {
   text-transform: none;
   vertical-align: baseline;
 }
+
+// [2] - CSS Reset/Normalize
+//
+// Reset any default styles applied by the browser and render any 
+// inconsistencies as consistent
 
 pre {
   overflow: auto;
@@ -63,37 +79,8 @@ dd {
   float: left;
 }
 
-.hint {
-  display: block;
-  color: $grey-1;
-  margin: .5em 0 5px;
-  width: 90%;
-  max-width: 600px;
-  legend + & {
-    margin: 0 0 .75em;
-  }
-  &--small {
-    @extend %paragraph--small;
-    color: $grey-1;
-    margin: 5px 0;
-  }
-}
 
-.highlight-box {
-  background: $grey-4;
-  margin: 0 0 1.5em;
-  padding: 1em 0 .5em 1em;
-  border-left: 3px solid $grey-3;
-  .field.inline {
-    margin-bottom: 1em;
-  }
-}
-
-.disable-scroll {
-  overflow: hidden;
-}
-
-
+// [3] - Selfserve only styles
 // Selfserve theme
 // ---------------
 
@@ -108,6 +95,7 @@ dd {
 }
 
 
+// [4] - Internal only styles
 // Internal theme
 // ---------------
 

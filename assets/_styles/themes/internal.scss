@@ -20,6 +20,7 @@ $app: internal;
 // Core
 @import '../core/config';
 @import '../core/base';
+@import '../core/helpers';
 @import '../core/links';
 @import '../core/lists';
 @import '../core/typography';
@@ -27,6 +28,7 @@ $app: internal;
 @import '../core/forms';
 @import '../core/navigation';
 @import '../core/tables';
+@import '../core/tools';
 @import '../core/buttons';
 
 // Components
