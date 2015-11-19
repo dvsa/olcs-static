@@ -1,5 +1,5 @@
 ---
-title: Operating centres
+title: Operating centres and authorisation
 subtitle: Step 3 of 12
 layout: base.hbs
 user: operator
@@ -24,8 +24,8 @@ breadcrumbs:
           <thead>
             <tr>
               <th>Address</th>
-              <th>Vehicle spaces</th>
-              <th>Trailer spaces</th>
+              <th>Vehicles</th>
+              <th>Trailers</th>
               <th></th>
             </tr>
           </thead>
@@ -36,7 +36,7 @@ breadcrumbs:
               <td>4</td>
               <td class="right"><a href="">Remove</a></td>
             </tr>
-            <tr>
+<!--             <tr>
               <td><b><input type="submit" value="Unit 4, Battelfield Industrial Estate, Shrewsbury"></b></td>
               <td>10</td>
               <td>2</td>
@@ -47,13 +47,13 @@ breadcrumbs:
               <td>2</td>
               <td>0</td>
               <td class="right"><a href="">Remove</a></td>
-            </tr>
+            </tr> -->
           </tbody>
           <tfoot>
             <tr>
-              <td>Totals</td>
-              <td>24</td>
-              <td>6</td>
+              <td>Total</td>
+              <td>12</td>
+              <td>4</td>
               <td></td>
             </tr>
           </tfoot>
@@ -71,14 +71,14 @@ breadcrumbs:
 
       <fieldset>
         <legend>Authorisation</legend>
-        <p class="hint">Enter the total amount of vehicles and trailers you want authorised on the licence you are applying for.</p>
+        <p>How many vehicles and trailers do you want to authorise on this licence?</p>
         <div class="field">
           <label>Total number of vehicles</label>
-          <input type="text">
+          <input type="text" value="12">
         </div>
         <div class="field">
           <label>Total number of trailers</label>
-          <input type="text">
+          <input type="text" value="4">
         </div>
       </fieldset>
     </form>
