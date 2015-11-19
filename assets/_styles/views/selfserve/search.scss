@@ -2,10 +2,11 @@
 // -----------------------------------------------------------------
 
 .search-navigation {
-    @extend %list--reset;
-    &__item {
-        font-weight: 600;
-    }
+  @extend %list--reset;
+  @extend %paragraph--large;
+  &__item {
+    font-weight: 600;
+  }
 }
 
 .search-results {
