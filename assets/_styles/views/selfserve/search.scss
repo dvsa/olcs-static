@@ -1,15 +1,11 @@
-
-/*
-  Search
-  ======
-*/
+// Search
+// -----------------------------------------------------------------
 
 .search-navigation {
-  list-style: none;
-  font-size: 21px;
-  &__item {
-    font-weight: 600;
-  }
+    @extend %list--reset;
+    &__item {
+        font-weight: 600;
+    }
 }
 
 .search-results {
