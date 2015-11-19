@@ -1,0 +1,41 @@
+// Tools
+//
+// Reusable, abstract elements too small/insignificant for their
+// own partial
+
+.hint {
+  display: block;
+  color: $grey-1;
+  margin: .5em 0 5px;
+  width: 90%;
+  max-width: 600px;
+  legend + & {
+    margin: 0 0 .75em;
+  }
+  &--small {
+    @extend %paragraph--small;
+    color: $grey-1;
+    margin: 5px 0;
+  }
+}
+
+.highlight-box {
+  background: $grey-4;
+  margin: 0 0 1.5em;
+  padding: 1em 0 .5em 1em;
+  border-left: 3px solid $grey-3;
+  .field.inline {
+    margin-bottom: 1em;
+  }
+}
+
+// Internal theme
+
+@if $app == 'internal' {
+
+  .hint,
+  .hint--small {
+    @extend %paragraph--tiny;
+  }
+
+}
