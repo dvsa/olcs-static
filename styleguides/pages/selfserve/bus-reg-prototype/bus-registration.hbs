@@ -1,6 +1,6 @@
 ---
 title: Bus registration details
-subtitle: PD0000738/316
+subtitle: PC1057277/5
 layout: base.hbs
 user: bus operator
 breadcrumbs:
@@ -12,15 +12,15 @@ read-only:
     type: fields
     groups:
     - group:
-      - name: Service No.(s)
+      - name: Service number(s)
         value: 576, 570
       - name: Service type
-        value: Bus service
+        value: Rural bus service
     - group:
       - name: Registration type
         value: Electronic
     - group:
-      - name: Variation No.
+      - name: Variation number
         value: 5
       - name: Status
         value: Registered
@@ -39,12 +39,15 @@ read-only:
       - name: End date
         value: 30 Au 2015
     - group:
+      - name: Supported by subsidies?
+        value: No
+    - group:
       - name: TAOs covered by route
-        value: Lorem ipsum, sit dolor amet
+        value: North East of England <br /> Wales
       - name: Local authorities convered by route
-        value: Leeds City Council
+        value: Shropshire County Council
       - name: N&P reference
-        value: 1276135316H
+        value: 986
 table:
   - title: Service history
     headers:
@@ -75,7 +78,7 @@ table:
     <div class="table__wrapper">
       <table>
         <thead>
-          <th>Variation No.</th>
+          <th>Variation number</th>
           <th>Received</th>
           <th>Effective</th>
           <th>End</th>
@@ -90,14 +93,14 @@ table:
           <tr>
             <td><a href="licences.html"><b>4</b></a></td>
             <td>12 May 2012</td>
-            <td>12 August 2012</td>
-            <td>12 August 2013</td>
+            <td>12 Aug 2012</td>
+            <td>12 Aug 2013</td>
           </tr>
           <tr>
             <td><a href="licences.html"><b>3</b></a></td>
             <td>12 May 2012</td>
-            <td>12 August 2012</td>
-            <td>12 August 2013</td>
+            <td>12 Aug 2012</td>
+            <td>12 Aug 2013</td>
           </tr>
           <tr>
             <td><a href="licences.html"><b>2</b></a></td>
@@ -117,17 +120,10 @@ table:
   </form>
 
   <h3>Documents</h3>
-  <div class="files">
-    <div class="field file-upload">
-      <p><a href=""><b>Uploaded EBSR pack</b></a><span> (1.4MB)</span></p>
-    </div>
-    <div class="field file-upload">
-      <p><a href=""><b>Official VOSA record</b></a><span> (156KB)</span></p>
-    </div>
-    <div class="field file-upload">
-      <p><a href=""><b>Route track map</b></a><span> (1.2MB)</span></p>
-    </div>
-  </div><!-- .files -->
+  <p><a href="" class="download"><b>Uploaded EBSR pack</b></a><span> (1.4MB)</span><br />
+  <p><a href="" class="download"><b>Official VOSA record</b></a><span> (156KB)</span><br />
+  <p><a href="" class="download"><b>Route track map</b></a><span> (1.2MB)</span></p>
+
 
 </div><!-- .three-quarters -->
 

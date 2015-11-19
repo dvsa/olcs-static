@@ -1,5 +1,5 @@
 ---
-title: Vehicle details
+title: Trailer details
 user: operator
 layout: base.hbs
 breadcrumbs:
@@ -16,7 +16,7 @@ breadcrumbs:
       <a href="" class="modal__close">Close</a>
     </div>
     <div class="modal__content">
-      <p>If you want to remove this vehicle you must destroy the licence disc. You don’t need to return the disc to the Central Licence Office.</p>
+      <p>Are you sure your want to remove this trailer?</p>
       <div class="actions-container">
         <a href="" class="action--primary large js-remove">Remove</a>
         <a href="" class="action--secondary large">Cancel</a>
@@ -25,81 +25,48 @@ breadcrumbs:
   </div><!-- .modal -->
 </div><!-- .modal__wrapper -->
 
-
 <div class="two-thirds">
   <form style="margin-top: -20px;">
     <fieldset>
       <div class="field inline-search">
-        <label>Search for a vehicle</label>
+        <label>Search for a trailer</label>
         <input type="search" class="inline-search__input">
-        <button class="inline-search__button">Find vehicle</button>
+        <button class="inline-search__button">Find trailer</button>
         <p class="inline-search__hint"><a href="vehicles.html">Clear search</a></p>
       </div>
     </fieldset>
   </form>
     <form>
       <div class="table__header">
-        <h3>3 Vehicles</h3>
+        <h3>3 Trailers</h3>
         <div class="actions-container">
-          <a href="" class="action--primary">Add vehicle</a>
-          <div class="more-actions">
-            <p class="more-actions__button">More actions...</p>
-            <div class="more-actions__list">
-              <input type="submit" class="more-actions__item js-show-removed" value="Show removed vehicles">
-              <input type="submit" class="more-actions__item" value="Remove">
-              <button class="more-actions__item">Transfer</button>
-              <button class="more-actions__item">Replace disc</button>
-              <input type="submit" class="more-actions__item" value="Export list (.CSV)">
-            </div>
-          </div>
+          <a href="" class="action--primary">Add trailer</a>
         </div>
       </div><!-- .table__header -->
       <div class="table__wrapper">
         <table>
           <thead>
             <tr>
-              <th>Registration number</th>
-              <th>Disc number</th>
+              <th>Trailer number</th>
               <th>Added</th>
-              <th>Removed</th>
-              <td class="right"><input type="checkbox"></td>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><b><a href="">LL09 URE</a></b> (2500kg)</td>
-              <td>20515142</td>
+              <td><b><a href="">16252729</a></b></td>
               <td>12 May 2014</td>
-              <td></td>
-              <td class="right"><a href="" class="js-remove">Remove</a><input type="checkbox"></td>
+              <td class="right"><a href="" class="js-remove">Remove</a></td>
             </tr>
             <tr class="js-hide">
-              <td><b><a href="">SN15 BVC</a></b> (3000kg)<span class="status orange">Hired</span></td>
-              <td>20515141</td>
+              <td><b><a href="">16252729</a></b></td>
               <td>12 May 2014</td>
-              <td></td>
-              <td class="right" ><a href="" class="js-remove">Remove</a><input type="checkbox"></td>
+              <td class="right"><a href="" class="js-remove">Remove</a></td>
             </tr>
             <tr class="js-hide">
-              <td><b><a href="">MN07 PNO</a></b> (3000kg)</td>
-              <td>20515140</td>
+              <td><b><a href="">16252729</a></b></td>
               <td>12 May 2014</td>
-              <td></td>
-              <td class="right"><a href="" class="js-remove">Remove</a><input type="checkbox"></td>
-            </tr>
-            <tr class="disabled">
-              <td>PT09 BBN (3000kg)</td>
-              <td>20515139</td>
-              <td>5 Jan 2013</td>
-              <td>6 Feb 2013</td>
-              <td class="right" ><a href="">Restore</a><input type="checkbox"></td>
-            </tr>
-            <tr class="disabled">
-              <td>TY13 WSC (3000kg)</td>
-              <td>20515138</td>
-              <td>5 Jan 2013</td>
-              <td>6 Feb 2013</td>
-              <td class="right"><a href="">Restore</a><input type="checkbox"></td>
+              <td class="right"><a href="" class="js-remove">Remove</a></td>
             </tr>
           </tbody>
         </table>
