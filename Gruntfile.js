@@ -61,8 +61,7 @@
                         style: 'expanded',
                         sourceMap: true
                     },
-                    files: styles,
-                    tasks: ['postcss']
+                    files: styles
                 },
                 prod: {
                     options: {
@@ -80,15 +79,33 @@
 
             postcss: {
                 options: {
-                    map: true,
                     processors: [
                         require('autoprefixer')({
                             browsers: ['last 2 versions']
                         })
                     ]
                 },
-                build: {
-                    src: 'public/**/*.css'
+                internal: {
+                    options: {
+                        map: {
+                            inline: false,
+                            prev: 'public/styles/internal.css.map',
+                        }
+                    },
+                    build: {
+                        src: 'public/styles/internal.css'
+                    }
+                },
+                selfserve: {
+                    options: {
+                        map: {
+                            inline: false,
+                            prev: 'public/styles/selfserve.css.map',
+                        }
+                    },
+                    build: {
+                        src: 'public/styles/selfserve.css'
+                    }
                 }
             },
 

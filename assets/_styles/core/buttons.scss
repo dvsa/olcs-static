@@ -176,19 +176,17 @@ input.action,
     display: none;
     position: absolute;
     top: 30px;
-    right: 0;
+    left: 5px;
     background: #FFF;
     padding: 5px 0;
-    min-width: 100%;
   }
 }
 
 .more-actions__list .action--secondary,
 button.more-actions__item,
 input[type=submit].more-actions__item {
-  float: left;
   margin: 0;
-  padding: 6px 10%;
+  padding: 6px 10px;
   border: 0;
   background: none;
   width: 100%;

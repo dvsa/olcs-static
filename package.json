@@ -32,6 +32,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-notify": "^0.4.1",
     "grunt-scss-lint": "^0.3.8",
-    "grunt-localscreenshots": "^1.0.0"
+    "grunt-localscreenshots": "^1.0.0",
+    "cssnano": "^3.3.2"
   }
 }
