@@ -5,37 +5,43 @@ subtitle: Step 12 of 13
 layout: base.hbs
 breadcrumbs:
   - link: licences.html
-    label: Home
-  - link: overview.html
-    label: Licence overview
+    label: Back
 ---
 
 <div class="two-thirds">
-  <div class="article">
-    <p>Does anyone you’ve named in your application have a conviction that the Traffic Commissioner must be told about?</p>
-    <form action="">
+  <form action="">
+
+    <fieldset>
+      <p>Does anybody you've named in your application have a conviction related to roads or transport?</p>
       <fieldset>
-        <fieldset>
-          <div class="field inline checkbox">
-            <label><input type="radio">Yes</label>
-          </div>
-          <div class="field inline checkbox">
-            <label><input type="radio">No</label>
-          </div>
-        </fieldset>
+        <div class="field inline checkbox">
+          <label><input type="radio">Yes</label>
+        </div>
+        <div class="field inline checkbox">
+          <label><input type="radio">No</label>
+        </div>
       </fieldset>
-      <p>This question also applies to:</p>
+    </fieldset>
+
+    <div class="article">
+      <p>This applies to:</p>
       <ul>
-        <li>companies that are (or have been) directed by anybody you’ve named </li>
+        <li>companies directed by anybody you’ve named </li>
         <li>your parent company, if you’re a limited company</li>
         <li>your employees and agents</li>
       </ul>
-      <p>For help read our <a href="guides/convictions-penalties.html">convictions and penalties guidelines</a>.</p>
+
+      <h4>Offences outside the UK</h4>
+      <p>For Standard National or Standard International licences you must tell us about offences outside the UK.</p>
+      <h4>Spent convictions</h4>
+      <p>Under the <a href="" rel="external">Rehabilitation of Offenders Act 1974</a> you don't have to declare spent convictions.</p>
+
       <hr />
+      <hr />
+
       <div class="actions-container">
-        <a href="" class="action--primary large">Continue</a>
-        <a href="" class="action--secondary large">Save and return</a>
-        <a href="" class="action--tertiary large">Cancel</a>
+        <a href="" class="action--primary large">Save and continue</a>
+        <a href="" class="action--tertiary list large">Save and return to overview</a>
       </div>
     </form>
   </div><!-- .article -->
@@ -44,7 +50,7 @@ breadcrumbs:
 <div class="one-third sidebar">
   <dl class="meta" style="border-bottom: 0; padding-bottom: 0;">
     <dt>Application reference</dt>
-    <dd>OB12524/525</dd>
+    <dd>OB1252443</dd>
     <dt>Progress</dt>
     <dd>7 of 13 sections complete</dd>
     <dt>Status</dt>
@@ -55,7 +61,6 @@ breadcrumbs:
 <script type="text/javascript">
   $(document).ready(function() {
     $('.js-upload, .js-post').hide();
-
 
     $(document).on('change', 'input[name="evidence"]', function(e) {
       e.preventDefault();
