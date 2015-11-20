@@ -12,7 +12,6 @@
 // -----------------------------------------------------------------
 
 // [1] - Document Wrapper
-//
 // The document/application wrapper which contains the entire app
 
 html {
@@ -37,7 +36,6 @@ body {
 }
 
 // [2] - CSS Reset/Standardise
-//
 // Reset any default styles applied by the browser and render any 
 // inconsistencies as consistent
 
@@ -113,11 +111,6 @@ hr {
   body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 15px;
-  }
-
-  .hint,
-  .hint--small {
-    @extend %paragraph--tiny;
   }
 
 }
