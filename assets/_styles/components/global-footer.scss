@@ -51,5 +51,8 @@
     text-align: center;
     display: block;
     padding-top: 7em;
+    &:focus {
+      background-color: transparent;
+    }
   }
 }
