@@ -15,6 +15,15 @@ $gutter-m           : 10px;
 $gutter             : 15px;
 $gutter-2x          : ($gutter * 2);
 
+$breakpoints: (
+  'break-1' : 580px,
+  'break-2' : 640px,
+  'break-3' : 780px,
+  'break-4' : 880px,
+  'break-5' : 960px,
+  'break-6' : 1200px
+);
+
 // Internal theme
 
 @if $app == 'internal' {
