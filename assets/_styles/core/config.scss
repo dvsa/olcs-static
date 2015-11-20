@@ -49,6 +49,12 @@ $breakpoints: (
   'break-6' : 1200px
 );
 
+@function breakpoint($breakpoint) {
+  @return map-get($breakpoints, $breakpoint);
+}
+
+// breakpoint('break-3') => 780px
+
 // [5] - Internal theme
 
 @if $app == 'internal' {
