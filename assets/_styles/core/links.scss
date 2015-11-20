@@ -10,7 +10,15 @@ a {
   &:hover {
     color: $link-active-colour;
     outline: 0;
+    text-decoration: none;
   }
+}
+
+[rel="external"]:after {
+  @extend %fontello;
+  content: '\e800';
+  font-size: 80%;
+  margin-left: 4px;
 }
 
 .disabled,

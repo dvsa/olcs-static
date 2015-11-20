@@ -700,10 +700,12 @@ select:focus {
 
 .confirm {
   overflow: auto;
+  clear: both;
   max-width: 600px;
   padding: 15px 15px 7px;
   border: 1px solid $light-blue-50;
   background: $light-blue-25;
+
 }
 
 .terms--box {

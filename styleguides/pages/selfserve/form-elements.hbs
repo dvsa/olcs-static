@@ -99,18 +99,6 @@ breadcrumbs:
         <label for="last-name">Last name</label>
           <input id="last-name" name="name" type="text" class="long" />
       </div>
-      <div class="field">
-        <label>Date of birth</label>
-        <select id="day" name="date-of-birth">
-          <option value="Day">Day</option>
-        </select>
-        <select id="month" name="date-of-birth">
-          <option value="Month">Month</option>
-        </select>
-        <select id="year" name="date-of-birth">
-          <option value="Year">Year</option>
-        </select>
-      </div>
       <fieldset class="dob">
         <legend>Date of birth</legend>
         <div class="field inline-text">
@@ -137,17 +125,6 @@ breadcrumbs:
           <label><input type="radio" name="gender" value="female" disabled>Female</label>
         </div>
       </fieldset>
-      <div class="field">
-        <label>Interests</label>
-        <select multiple class="chosen-select-medium">
-          <option value="golf">Golf</option>
-          <option value="football">Football</option>
-          <option value="tennis">Tennis</option>
-          <option value="basketball">Basketball</option>
-          <option value="rugby">Rugby</option>
-          <option value="bowles">Bowles</option>
-        </select>
-      </div>
     </fieldset><!-- end #personal-information -->
 
     <fieldset id="about-you">
@@ -175,34 +152,9 @@ breadcrumbs:
       </div>
     </fieldset><!-- .additional-information -->
 
-    <fieldset class="file-uploader" id="FileUploader1">
-      <legend>Single file upload</legend>
-      <p class="hint">Upload any files which you feel may hep aid your application.</p>
-
-      <ul class="attach-action__list">
-        <li class="attach-action">
-          <label class="attach-action__label">
-            Attach file
-            <input class="attach-action__input js-visually-hidden" type="file" name="fileUpload[]">
-          </label>
-          <p class="attach-action__hint">20MB maximum file size. PDF, DOC, JPG, PNG or GIF</p>
-        </li>
-      </ul><!-- attach-actions -->
-
-      <ul class="uploaded-file__list">
-      </ul><!-- uploaded-file__list -->
-
-      <ul class="attached-file__list">
-      </ul><!-- attached-file__list -->
-
-      <input class="inline-upload js-hidden" type="submit" value="Upload">
-    </fieldset><!-- .file-uploader -->
-
-
     <fieldset class="file-uploader" id="FileUploader2">
-      <legend>Multiple file upload</legend>
+      <legend>File upload</legend>
       <p class="hint">An example of a mutliple file uploader with a file already uploaded</p>
-
       <ul class="attach-action__list">
         <li class="attach-action">
           <label class="attach-action__label">
@@ -212,29 +164,20 @@ breadcrumbs:
           <p class="attach-action__hint">20MB maximum file size. PDF, DOC, JPG, PNG or GIF</p>
         </li>
       </ul><!-- attach-actions -->
-
-      <ul class="uploaded-file__list">
-      </ul><!-- uploaded-files -->
-
-      <ul class="attached-file__list">
-      </ul><!-- attached-file__list -->
-
-      <input class="inline-upload js-hidden" type="submit" value="Upload">
     </fieldset><!-- .file-uploader -->
 
-
-
-    <div class="field confirm">
-      <label class="">
-        <input type="checkbox" name="" id="" placeholder="" value="Y">
-        By ticking this checkbox you are confirming that there are suitable arrangements in place to keep the vehicles in a fit and serviceable condition at all times
-      </label>
-    </div>
+    <fieldset>
+      <div class="field confirm">
+        <label class="">
+          <input type="checkbox" name="" id="" placeholder="" value="Y">
+          By ticking this checkbox you are confirming that there are suitable arrangements in place to keep the vehicles in a fit and serviceable condition at all times
+        </label>
+      </div>
+    </fieldset>
 
     <div class="actions-container">
-      <input class="action--primary large" type="submit" value="Continue">
-      <input class="action--secondary large" type="submit" value="Back">
-      <a class="action--tertiary large" href="/">Do something else</a>
+      <input class="action--primary large" type="submit" value="Save and continue">
+      <a class="action--tertiary large list" href="/">Do something else</a>
     </div><!-- end .actions -->
 
   </form>
