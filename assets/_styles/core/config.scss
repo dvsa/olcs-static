@@ -10,9 +10,6 @@ $summary-border     : #CDD7DC;
 $summary-background : #E6EFF5;
 $outline            : #FFBF47;
 
-$gutter-s           : 5px;
-$gutter-m           : 10px;
-$gutter             : 15px;
 $gutter-2x          : ($gutter * 2);
 
 $breakpoints: (
@@ -28,15 +25,15 @@ $breakpoints: (
 
 @if $app == 'internal' {
 
-  $gutter : 1.25%;
-  $grey-2 : #CCC;
-  $grey-3 : #DDD;
-  $black  : #222;
+  $col-gutter : 1.25%;
+  $grey-2     : #CCC;
+  $grey-3     : #DDD;
+  $black      : #222;
 
 }
 
 // Selfserve theme
 
 @if $app == 'selfserve' {
-  $gutter : 2.5%;
+  $col-gutter : 2.5%;
 }

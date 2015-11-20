@@ -6,7 +6,7 @@
 */
 
 .user-header {
-  width: 100% - ($gutter*2);
+  width: 100% - ($col-gutter * 2);
   overflow: auto;
   border-top: 10px solid $govuk-blue;
   padding: .6em 0;

@@ -160,7 +160,7 @@ input[type="radio"].js-visible {
 
   .full-width {
     @extend %container;
-    width: 100% - ($gutter*2);
+    width: 100% - ($col-gutter * 2);
   }
 
   .three-eigths {
@@ -175,7 +175,7 @@ input[type="radio"].js-visible {
 
   %container {
     float: left;
-    margin: 0 $gutter 1em;
+    margin: 0 $col-gutter 1em;
     @media (max-width: 640px){
       width: 92%;
       margin: 0 4% 1.5em;
