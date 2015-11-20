@@ -1,36 +1,56 @@
-
-/*
-  Global footer
-  =============
-*/
+// Global Footer
+// -----------------------------------------------------------------
+//
+// The global GOV.UK standard footer for all pages to contain the
+// GOV.UK crest logo as well as relevant navigation links
+//
 
 .global-footer {
+  
   border-top: 1px solid $grey-2;
   background: $grey-3;
-  color: #454a4c;
+  color: $dark-text;
   clear: both;
   margin-top: 1.5em;
+  
   a {
-    color: #454a4c;
+    color: $dark-text;
   }
+  
   &__wrapper {
     @extend .page-wrapper;
     overflow: visible;
     padding: $gutter-2x 0;
     display: table;
   }
+  
+  &__links,
+  &__copyright {
+    @media (min-width: 640px){
+      display: table-cell;
+      vertical-align: bottom;
+    }
+  }
+  
   &__links {
     @extend %list--reset;
   }
+  
   &__link {
-    float: left;
-    margin-right: $gutter-half;
+    @media (min-width: 640px){
+      display: inline-block;
+      margin-right: $gutter-half;
+    }
     @media (max-width: 640px){
-      display: block;
       text-align: center;
-      width: 90%;
+      margin-bottom: $gutter;
+    }
+    // 'Built by...' link
+    &:last-child {
+      display: block;
     }
   }
+  
   &__copyright {
     height: 150px;
     text-align: right;
@@ -49,9 +69,5 @@
       }
     }
   }
-  &__links,
-  &__copyright {
-    display: table-cell;
-    vertical-align: bottom;
-  }
+  
 }
