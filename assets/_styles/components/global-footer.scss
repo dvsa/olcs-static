@@ -29,7 +29,7 @@
   
   &__links,
   &__copyright {
-    @media (min-width: 640px){
+    @media (min-width: breakpoint('break-3')){
       display: table-cell;
       vertical-align: bottom;
       width: 95%;
@@ -41,11 +41,11 @@
   }
   
   &__link {
-    @media (min-width: 640px){
+    @media (min-width: breakpoint('break-3')){
       display: inline-block;
       margin-right: $gutter-half;
     }
-    @media (max-width: 640px){
+    @media (max-width: breakpoint('break-3')){
       text-align: center;
       margin-bottom: $gutter;
     }

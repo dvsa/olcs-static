@@ -41,12 +41,13 @@ $gutter-2x          : ($gutter * 2);
 // Defie the responsive breakpoints to be used by the grid system
 
 $breakpoints: (
-  'break-1' : 580px,
-  'break-2' : 640px,
-  'break-3' : 780px,
-  'break-4' : 880px,
-  'break-5' : 960px,
-  'break-6' : 1200px
+  'break-1' : 460px,
+  'break-2' : 580px,
+  'break-3' : 640px,
+  'break-4' : 780px,
+  'break-5' : 880px,
+  'break-6' : 960px,
+  'break-7' : 1200px
 );
 
 @function breakpoint($breakpoint) {
@@ -56,6 +57,8 @@ $breakpoints: (
 // breakpoint('break-3') => 780px
 
 // [5] - Internal theme
+//
+// Configuration for the Internal theme only
 
 @if $app == 'internal' {
 
@@ -67,6 +70,8 @@ $breakpoints: (
 }
 
 // [6] - Selfserve theme
+//
+// Configuration for the Selfserve theme only
 
 @if $app == 'selfserve' {
   $col-gutter : 2.5%;
