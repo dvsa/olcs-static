@@ -15,3 +15,34 @@
 .hidden {
   display: none !important;
 }
+
+.right-aligned {
+  float: right;
+}
+
+.inline {
+  float: left;
+  margin-right: .5em;
+}
+
+.centered {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+.js-visible {
+  display: none;
+}
+
+.js-enabled {
+  .js-visually-hidden {
+    @extend .visually-hidden;
+  }
+  .js-hidden {
+    display: none;
+  }
+  .js-visible {
+    display: block;
+  }
+}
