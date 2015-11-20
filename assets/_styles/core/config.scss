@@ -1,7 +1,27 @@
 // Config
 // -----------------------------------------------------------------
+//
+// Global configuration for OLCS styles, overriding any vendor set 
+// values
+//
+// [1] - Asset Path
+// [2] - Colours
+// [3] - layout
+// [4] - Responsive Breakpoints
+// [5] - Selfserve only config
+// [6] - Internal only config
+//
+// -----------------------------------------------------------------
+
+// [1] - Asset Path
+//
+// The path to any assets used by the styles
 
 $assetPath          : "../images";
+
+// [2] - Colours
+//
+// Override/define OLCS specific colours
 
 $primaryColour      : $department-for-transport;
 $dark-text          : #454a4c;
@@ -10,7 +30,15 @@ $summary-border     : #CDD7DC;
 $summary-background : #E6EFF5;
 $outline            : #FFBF47;
 
+// [3] - Layout
+//
+// Config for OLCS layout/skeleton
+
 $gutter-2x          : ($gutter * 2);
+
+// [4] - Responsive Breakpoints
+//
+// Defie the responsive breakpoints to be used by the grid system
 
 $breakpoints: (
   'break-1' : 580px,
@@ -21,7 +49,7 @@ $breakpoints: (
   'break-6' : 1200px
 );
 
-// Internal theme
+// [5] - Internal theme
 
 @if $app == 'internal' {
 
@@ -32,7 +60,7 @@ $breakpoints: (
 
 }
 
-// Selfserve theme
+// [6] - Selfserve theme
 
 @if $app == 'selfserve' {
   $col-gutter : 2.5%;
