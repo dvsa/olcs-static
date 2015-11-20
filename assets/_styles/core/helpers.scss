@@ -6,3 +6,12 @@
 .disable-scroll {
   overflow: hidden;
 }
+
+.visually-hidden {
+  position: absolute;
+  left: -9999em;
+}
+
+.hidden {
+  display: none !important;
+}
