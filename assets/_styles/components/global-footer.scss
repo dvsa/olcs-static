@@ -15,6 +15,9 @@
   
   a {
     color: $dark-text;
+    &:hover {
+      color: $text-colour;
+    }
   }
   
   &__wrapper {
@@ -29,6 +32,7 @@
     @media (min-width: 640px){
       display: table-cell;
       vertical-align: bottom;
+      width: 95%;
     }
   }
   
