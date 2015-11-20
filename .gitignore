@@ -12,6 +12,6 @@ public/styles/
 public/styleguides/
 public/assets
 styleguides/screenshots
-assets/_styles/vendor
+assets/_styles/vendor/govuk_toolkit
 .idea
 .vscode/
