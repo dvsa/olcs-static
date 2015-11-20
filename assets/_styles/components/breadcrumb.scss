@@ -45,7 +45,7 @@
 @if $app == 'selfserve' {
   .breadcrumbs {
     margin: -2.5em 0 2.5em;
-    @media(max-width: 640px) {
+    @media(max-width: breakpoint('break-3')) {
       margin: -1em 0 2em 0;
       font-size: 14px;
     }

@@ -11,7 +11,7 @@
   border-top: 10px solid $govuk-blue;
   padding: .6em 0;
   margin-bottom: .5em;
-  @media (max-width: 640px){
+  @media (max-width: breakpoint('break-3')){
     width: 92%;
     margin: 0 4% .4em;
   }

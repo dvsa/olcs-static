@@ -12,7 +12,7 @@
   }
 }
 
-@media(max-width: 640px) {
+@media(max-width: breakpoint('break-3')) {
   a[rel="Previous"],
   a[rel="Next"] {
     display: none;

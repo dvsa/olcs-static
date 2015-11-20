@@ -10,7 +10,7 @@
   } @else {
     font-size: $print-font-size;
   }
-  @media (max-width: 640px) {
+  @media (max-width: breakpoint('break-3')) {
     font-size: $font-size-640;
   }
 }

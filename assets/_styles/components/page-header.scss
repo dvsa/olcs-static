@@ -15,7 +15,7 @@
     position: relative;
     margin-top: 3em;
     margin-bottom: 2.5em;
-    @media (max-width: 640px){
+    @media (max-width: breakpoint('break-3')){
       margin-top: 1.5em;
       margin-bottom: 1.5em;
     }
@@ -38,7 +38,7 @@
       bottom: 9px;
       list-style: none;
       width: 30%;
-      @media (max-width: 640px){
+      @media (max-width: breakpoint('break-3')){
         position: relative;
         float: left;
         top: 0;
@@ -57,7 +57,7 @@
     margin: 30px 0 0;
     max-width: 600px;
     width: 100%;
-    @media (max-width: 640px){
+    @media (max-width: breakpoint('break-3')){
       margin-top: 15px;
     }
   }
@@ -80,7 +80,7 @@
       @extend .page-wrapper;
       margin: 0 $gutter .75em;
       width: 97.5%;
-      @media(max-width: 640px) {
+      @media(max-width: breakpoint('break-3')) {
         width: 92%;
         margin: 0 4% 1em;
       }
@@ -90,7 +90,7 @@
       color: $grey-1;
       font-weight: 400;
       display: inline;
-      @media(max-width: 640px) {
+      @media(max-width: breakpoint('break-3')) {
         display: block;
         margin: 5px 0 0;
       }
