@@ -15,15 +15,12 @@
   }
   &__wrapper {
     @extend .page-wrapper;
-    padding: 2em 0 0 0;
+    overflow: visible;
+    padding: $gutter-2x 0;
+    display: table;
   }
   &__links {
-    @extend .two-thirds;
-    padding-top: 90px;
-    list-style: none;
-    @media (max-width: 640px){
-      padding: 0 5% 1.5em;
-    }
+    @extend %list--reset;
   }
   &__link {
     float: left;
@@ -34,25 +31,27 @@
       width: 90%;
     }
   }
-}
-
-
-.global-footer__copyright {
-  @extend .one-third;
-  height: 150px;
-  float: right;
-  display: block;
-  background: url('#{$assetPath}/footer-crest.png') no-repeat 50% 0;
-  @include device-pixel-ratio($ratio: 2) {
-    background: url('#{$assetPath}/footer-crest-2x.png') no-repeat 50% 0;
-    background-size: 125px 102px;
-  }
-  a {
-    text-align: center;
-    display: block;
-    padding-top: 7em;
-    &:focus {
-      background-color: transparent;
+  &__copyright {
+    height: 150px;
+    text-align: right;
+    background: url('#{$assetPath}/footer-crest.png') no-repeat 50% 0;
+    @include device-pixel-ratio($ratio: 2) {
+      background: url('#{$assetPath}/footer-crest-2x.png') no-repeat 50% 0;
+      background-size: 125px 102px;
     }
+    a {
+      padding-top: 130px;
+      white-space: nowrap;
+      text-align: center;
+      display: block;
+      &:focus {
+        background-color: transparent;
+      }
+    }
+  }
+  &__links,
+  &__copyright {
+    display: table-cell;
+    vertical-align: bottom;
   }
 }
