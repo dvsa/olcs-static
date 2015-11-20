@@ -36,7 +36,7 @@ body {
   vertical-align: baseline;
 }
 
-// [2] - CSS Reset/Normalize
+// [2] - CSS Reset/Standardise
 //
 // Reset any default styles applied by the browser and render any 
 // inconsistencies as consistent
@@ -81,10 +81,9 @@ dd {
 
 
 // [3] - Selfserve only styles
-// Selfserve theme
-// ---------------
 
 @if $app == 'selfserve' {
+  
   html {
     background: $grey-3;
   }
@@ -92,12 +91,11 @@ dd {
   body {
     font-family: $NTA-Light;
   }
+  
 }
 
 
 // [4] - Internal only styles
-// Internal theme
-// ---------------
 
 @if $app == 'internal' {
 
