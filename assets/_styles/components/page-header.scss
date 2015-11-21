@@ -9,7 +9,6 @@
 // ---------------
 
 @if $app == 'selfserve' {
-
   .page-header {
     @extend .full-width;
     position: relative;
@@ -76,14 +75,9 @@
     background: $grey-4;
     overflow: hidden;
     margin-bottom: 10px;
+    padding-bottom: 10px;
     &__wrapper {
       @extend .page-wrapper;
-      margin: 0 $gutter .75em;
-      width: 97.5%;
-      @media(max-width: 640px) {
-        width: 92%;
-        margin: 0 4% 1em;
-      }
     }
     &__subtitle {
       @include font-size(15px,11pt,15px);

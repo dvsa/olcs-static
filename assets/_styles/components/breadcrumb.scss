@@ -28,7 +28,6 @@
   }
 }
 
-
 // Selfserve theme
 // ---------------
 
@@ -43,39 +42,50 @@
   .breadcrumbs a {
     color: $black;
     line-height: .75;
-    text-decoration: none;
-    border-bottom: 1px solid $black;
-    &:hover {
-      margin-bottom: 1px;
-    }
+    // text-decoration: none;
+    // border-bottom: 1px solid $black;
+    // &:hover {
+    //   margin-bottom: 1px;
+    // }
   }
 
-  .breadcrumbs a:before {
-    @extend %fontello;
-    content: '\e801';
-    padding-right: .25em;
-  }
+  // .breadcrumbs a:before {
+  //   @extend %fontello;
+  //   content: '\e801';
+  //   padding-right: .25em;
+  // }
 }
 
 
+
 // Internal theme
+// ---------------
+
 // ---------------
 
 @if $app == 'internal' {
 
   .breadcrumbs a {
     color: $grey-1;
-    padding-right: 1em;
-    background: url('#{$assetPath}/breadcrumb-arrow.png') no-repeat 100% 70%;
-    @include device-pixel-ratio($ratio: 2) {
-      background: url('#{$assetPath}/breadcrumb-arrow-2x.png') no-repeat 95% 45%;
-      background-size: 100%;
-    }
   }
 
-  .breadcrumbs .current {
-    background: none;
-    color: $grey-1;
-  }
+// }
 
+// The below needs moving to 'internal' once selfserve breadcrumbs have gone live
+//
+
+.breadcrumbs a {
+  // color: $grey-1;
+  padding-right: 1em;
+  background: url('#{$assetPath}/breadcrumb-arrow.png') no-repeat 100% 70%;
+  @include device-pixel-ratio($ratio: 2) {
+    background: url('#{$assetPath}/breadcrumb-arrow-2x.png') no-repeat 95% 45%;
+    background-size: 100%;
+  }
 }
+
+.breadcrumbs .current {
+  background: none;
+  color: $grey-1;
+}
+
