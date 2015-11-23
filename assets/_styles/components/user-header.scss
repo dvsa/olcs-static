@@ -31,7 +31,6 @@
 
 @if $app == 'selfserve' {
   .user-header {
-    @extend .full-width;
     @extend %paragraph--small;
     border-bottom: 1px solid $grey-2;
   }

@@ -5,7 +5,6 @@
 */
 
 .breadcrumbs {
-  float: left;
   list-style: none;
   margin-bottom: 0;
   overflow: visible;
@@ -17,7 +16,7 @@
 }
 
 .breadcrumbs__item {
-  float: left;
+  display: inline-block;
   margin-right: .5em;
   color: $black;
   &:last-child a {
@@ -44,7 +43,6 @@
 
 @if $app == 'selfserve' {
   .breadcrumbs {
-    margin: -2.5em 0 2.5em;
     @media(max-width: breakpoint('break-3')) {
       margin: -1em 0 2em 0;
       font-size: 14px;
