@@ -1,33 +1,70 @@
 // Config
 // -----------------------------------------------------------------
+//
+// Global configuration for OLCS styles, overriding any vendor set 
+// values
+//
+// [1] - Asset Path
+// [2] - Colours
+// [3] - layout
+// [4] - Responsive Breakpoints
+// [5] - Selfserve only config
+// [6] - Internal only config
+//
+// -----------------------------------------------------------------
+
+// [1] - Asset Path
+// The path to any assets used by the styles
 
 $assetPath          : "../images";
 
+// [2] - Colours
+// Override/define OLCS specific colours
+
 $primaryColour      : $department-for-transport;
+$dark-text          : #454a4c;
 $warning-background : #FEF7F7;
 $summary-border     : #CDD7DC;
 $summary-background : #E6EFF5;
 $outline            : #FFBF47;
 
-$gutter-s           : 5px;
-$gutter-m           : 10px;
-$gutter             : 15px;
+// [3] - Layout
+// Config for OLCS layout/skeleton
+
 $gutter-2x          : ($gutter * 2);
 
+// [4] - Responsive Breakpoints
+// Define the responsive breakpoints to be used by the grid system
 
-// Internal theme
+$breakpoints: (
+  'break-1' : 460px,
+  'break-2' : 580px,
+  'break-3' : 640px,
+  'break-4' : 780px,
+  'break-5' : 880px,
+  'break-6' : 960px,
+  'break-7' : 1200px
+);
 
-@if $app == 'internal' {
-
-  $gutter : 1.25%;
-  $grey-2 : #CCC;
-  $grey-3 : #DDD;
-  $black  : #222;
-
+@function breakpoint($breakpoint) {
+  @return map-get($breakpoints, $breakpoint);
 }
 
-// Selfserve theme
+// breakpoint('break-3') => 780px
+
+// [5] - Internal theme
+// Configuration for the Internal theme only
+
+@if $app == 'internal' {
+  $col-gutter : 1.25%;
+  $grey-2     : #CCC;
+  $grey-3     : #DDD;
+  $black      : #222;
+}
+
+// [6] - Selfserve theme
+// Configuration for the Selfserve theme only
 
 @if $app == 'selfserve' {
-  $gutter : 2.5%;
+  $col-gutter : 2.5%;
 }

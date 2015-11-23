@@ -1,7 +1,7 @@
 // Base
 // -----------------------------------------------------------------
 //
-// The utmost core files required for building a modern webapp that 
+// The utmost core styles required for building a modern webapp that 
 // may not necessarily be specific to OLCS.
 //
 // [1] - Document Wrapper
@@ -12,7 +12,6 @@
 // -----------------------------------------------------------------
 
 // [1] - Document Wrapper
-//
 // The document/application wrapper which contains the entire app
 
 html {
@@ -36,8 +35,7 @@ body {
   vertical-align: baseline;
 }
 
-// [2] - CSS Reset/Normalize
-//
+// [2] - CSS Reset/Standardise
 // Reset any default styles applied by the browser and render any 
 // inconsistencies as consistent
 
@@ -79,12 +77,18 @@ dd {
   float: left;
 }
 
+hr {
+  width: 100%;
+  height: .25em;
+  display: block;
+  border: 0;
+  clear: both;
+}
 
 // [3] - Selfserve only styles
-// Selfserve theme
-// ---------------
 
 @if $app == 'selfserve' {
+  
   html {
     background: $grey-3;
   }
@@ -92,12 +96,11 @@ dd {
   body {
     font-family: $NTA-Light;
   }
+  
 }
 
 
 // [4] - Internal only styles
-// Internal theme
-// ---------------
 
 @if $app == 'internal' {
 
@@ -108,11 +111,6 @@ dd {
   body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 15px;
-  }
-
-  .hint,
-  .hint--small {
-    @extend %paragraph--tiny;
   }
 
 }

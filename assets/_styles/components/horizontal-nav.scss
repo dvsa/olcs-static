@@ -23,7 +23,7 @@
     color: $black;
     border-bottom: 3px solid $primaryColour;
     padding: 2px 15px 10px 10px;
-    @media(max-width: 880px) {
+    @media(max-width: breakpoint('break-5')) {
       border: 0;
       border-bottom: 3px solid $primaryColour;
     }

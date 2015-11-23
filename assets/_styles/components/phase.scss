@@ -20,7 +20,7 @@
     position: relative;
   }
   &__message {
-    @media (max-width: 780px){
+    @media (max-width: breakpoint('break-4')){
       display: none;
     }
   }
