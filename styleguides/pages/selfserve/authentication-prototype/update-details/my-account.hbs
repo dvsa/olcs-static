@@ -29,18 +29,22 @@ form:
 
 ---
 
-<div class="two-thirds">
-  {{#each form }}{{> _forms }}{{/each }}
+<div class="row">
 
-  <div class="actions-container">
-    <a href="#" class="action--primary large js-save-changes">Save</a>
-    <a href="change-your-password.html" class="action--secondary large">Change your password</a>
-    <a href="#" class="action--tertiary large">Cancel</a>
+  <div class="two-thirds">
+    {{#each form }}{{> _forms }}{{/each }}
+  
+    <div class="actions-container">
+      <a href="#" class="action--primary large js-save-changes">Save</a>
+      <a href="change-your-password.html" class="action--secondary large">Change your password</a>
+      <a href="#" class="action--tertiary large">Cancel</a>
+    </div>
+  </div><!-- .two-thirds -->
+  
+  <div class="one-third">
+    {{> _support}}
   </div>
-</div><!-- .two-thirds -->
 
-<div class="one-third">
-  {{> _support}}
 </div>
 
 <script type="text/javascript" src="/js/authentication-prototype.js"></script>
