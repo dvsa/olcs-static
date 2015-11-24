@@ -11,7 +11,6 @@
 
 .breadcrumbs__item {
   float: left;
-  margin-right: .5em;
   &:last-child a {
     background: none;
   }
@@ -38,6 +37,9 @@
       margin: -1em 0 3.5em;
     }
   }
+
+  // TODO: Uncomment the lines below once selfserve breadcrumbs have b
+  // been marged
 
   .breadcrumbs a {
     color: $black;
@@ -67,15 +69,15 @@
 }
 
 // TODO: Move the styles below into the internal them for this componenet
-// once selfserve breadcrumbs have been
+// once selfserve breadcrumbs have been merged
 
 .breadcrumbs a {
   // color: $grey-1;
-  padding-right: 1em;
+  padding-right: 20px;
   background: url('#{$assetPath}/breadcrumb-arrow.png') no-repeat 100% 70%;
   @include device-pixel-ratio($ratio: 2) {
-    background: url('#{$assetPath}/breadcrumb-arrow-2x.png') no-repeat 95% 45%;
-    background-size: 100%;
+    background: url('#{$assetPath}/breadcrumb-arrow-2x.png') no-repeat 95% 50%;
+    background-size: 6px 11px;
   }
 }
 
