@@ -19,7 +19,6 @@
   margin: 0 auto;
   overflow: hidden;
   width: 95%;
-  max-width: 1010px;
   clear: both;
   padding: 0 1.25%;
   @media (max-width: breakpoint('break-3')){
@@ -74,6 +73,10 @@
 // [3] - Selfserve only styles
 
 @if $app == 'selfserve' {
+  
+  .page-wrapper {
+    max-width: 1010px;
+  }
 
   // TODO: find out about this
   #main:focus {
