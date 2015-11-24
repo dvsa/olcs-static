@@ -231,6 +231,9 @@ input[type=submit].more-actions__item {
   button:focus,
   input[type="submit"]:focus {
     outline: 3px solid $outline;
+  }
+  
+  a:focus {
     background-color: $outline;
   }
 

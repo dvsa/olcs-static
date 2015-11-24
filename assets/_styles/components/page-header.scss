@@ -11,34 +11,42 @@
 @if $app == 'selfserve' {
 
   .page-header {
-    @extend .full-width;
+    
     position: relative;
-    margin-top: 3em;
     margin-bottom: 2.5em;
-    @media (max-width: 640px){
+    
+    @media (max-width: breakpoint('break-3')){
       margin-top: 1.5em;
       margin-bottom: 1.5em;
     }
+    
+    &__wrapper {
+      margin-top: 3em;
+    }
+    
     &.two-thirds {
       @extend .two-thirds;
       border-bottom: 1px solid $grey-2;
       margin-top: 3em;
       padding-bottom: 2em;
     }
+    
     h1 {
       max-width: 540px;
     }
+    
     &__subtitle {
       color: $grey-1;
       font-weight: 400;
     }
+    
     &__actions {
       position: absolute;
       right: 0;
       bottom: 9px;
       list-style: none;
       width: 30%;
-      @media (max-width: 640px){
+      @media (max-width: breakpoint('break-3')){
         position: relative;
         float: left;
         top: 0;
@@ -46,20 +54,22 @@
         width: 100%;
       }
     }
+    
     &__action {
       @extend %h4;
       text-decoration: none;
       font-weight: 600;
     }
-  }
-
-  .page-header__text {
-    margin: 30px 0 0;
-    max-width: 600px;
-    width: 100%;
-    @media (max-width: 640px){
-      margin-top: 15px;
+    
+    &__text {
+      margin: 30px 0 0;
+      max-width: 600px;
+      width: 100%;
+      @media (max-width: breakpoint('break-3')){
+        margin-top: 15px;
+      }
     }
+    
   }
 
 }
@@ -80,7 +90,7 @@
       @extend .page-wrapper;
       margin: 0 $gutter .75em;
       width: 97.5%;
-      @media(max-width: 640px) {
+      @media(max-width: breakpoint('break-3')) {
         width: 92%;
         margin: 0 4% 1em;
       }
@@ -90,7 +100,7 @@
       color: $grey-1;
       font-weight: 400;
       display: inline;
-      @media(max-width: 640px) {
+      @media(max-width: breakpoint('break-3')) {
         display: block;
         margin: 5px 0 0;
       }
