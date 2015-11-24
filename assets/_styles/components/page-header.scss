@@ -87,8 +87,7 @@
     margin-bottom: 10px;
     &__wrapper {
       @extend .page-wrapper;
-      margin: 0 $gutter .75em;
-      width: 97.5%;
+      margin-bottom: 0.75em;
       @media(max-width: breakpoint('break-3')) {
         width: 92%;
         margin: 0 4% 1em;

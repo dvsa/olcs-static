@@ -82,8 +82,7 @@
     position: relative;
     overflow: visible;
     &__wrapper {
-      margin: 0 $gutter;
-      padding: .5em $gutter 0;
+      padding: 0.25em 1.25% 0;
       overflow: hidden;
       @media(max-width: breakpoint('break-3')) {
         height: 72px;
