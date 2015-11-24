@@ -57,22 +57,17 @@
 }
 
 
-
 // Internal theme
 // ---------------
 
-// ---------------
-
 @if $app == 'internal' {
-
   .breadcrumbs a {
     color: $grey-1;
   }
+}
 
-// }
-
-// The below needs moving to 'internal' once selfserve breadcrumbs have gone live
-//
+// TODO: Move the styles below into the internal them for this componenet
+// once selfserve breadcrumbs have been
 
 .breadcrumbs a {
   // color: $grey-1;
@@ -88,4 +83,3 @@
   background: none;
   color: $grey-1;
 }
-
