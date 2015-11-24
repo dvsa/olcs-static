@@ -23,7 +23,7 @@
     margin: 0 auto;
     padding: 4px 0 7px 0;
     overflow: auto;
-    @media (max-width: 640px) {
+    @media (max-width: breakpoint('break-3')) {
       width: 92%;
       padding: 4px 4% 7px;
     }
@@ -34,7 +34,7 @@
     float: left;
     clear: none;
     margin: 5px 0 0 180px;
-    @media (max-width: 640px) {
+    @media (max-width: breakpoint('break-3')) {
       font-size: 18px;
       margin: 5px 0 0 0;
       clear: both;
@@ -49,8 +49,7 @@
     font-size: 30px;
     line-height: 1;
     text-decoration: none;
-    margin-left: $gutter;
-    @media (max-width: 640px) {
+    @media (max-width: breakpoint('break-3')) {
       padding-top: 10px;
       margin-left: 0;
     }
@@ -83,10 +82,9 @@
     position: relative;
     overflow: visible;
     &__wrapper {
-      margin: 0 $gutter;
-      padding: .5em $gutter 0;
+      padding: 0.25em 1.25% 0;
       overflow: hidden;
-      @media(max-width: 640px) {
+      @media(max-width: breakpoint('break-3')) {
         height: 72px;
         padding-bottom: 1em;
         width: 92%;

@@ -24,7 +24,7 @@
   z-index: 2;
   padding: 30px;
   overflow: hidden;
-  @media (max-width:640px) {
+  @media (max-width: breakpoint('break-3')) {
     padding: 20px;
   }
   &:focus {
@@ -62,7 +62,7 @@
   width: 600px;
   overflow: visible;
   float: left;
-  @media(max-width: 700px) {
+  @media(max-width: breakpoint('break-3')) {
     margin: 46px 0 5%;
     width: auto;
     left: 0;
