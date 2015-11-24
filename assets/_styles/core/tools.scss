@@ -1,0 +1,75 @@
+// Tools
+//
+// Reusable, abstract elements too small/insignificant for their
+// own partial
+
+.hint {
+  display: block;
+  color: $grey-1;
+  margin: .5em 0 5px;
+  width: 90%;
+  max-width: 600px;
+  legend + & {
+    margin: 0 0 .75em;
+  }
+  &--small {
+    @extend %paragraph--small;
+    color: $grey-1;
+    margin: 5px 0;
+  }
+}
+
+.highlight-box {
+  background: $grey-4;
+  margin: 0 0 1.5em;
+  padding: 1em 0 .5em 1em;
+  border-left: 3px solid $grey-3;
+  .field.inline {
+    margin-bottom: 1em;
+  }
+}
+
+%fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+%header-with-actions {
+  float: left;
+  width: 100%;
+  padding-bottom: 8px;
+  h3,
+  h4 {
+    float: left;
+    display: block;
+    margin: 0;
+  }
+  .actions-container {
+    margin: -5px 0 -1px;
+    display: block;
+    float: right;
+  }
+  .action--primary,
+  .action--secondary {
+    float: left;
+    display: inline-block;
+    margin: 0 0 0 5px;
+  }
+  select {
+    margin: 3px 3px 0 0;
+  }
+}
+
+// Internal theme
+
+@if $app == 'internal' {
+
+  .hint,
+  .hint--small {
+    @extend %paragraph--tiny;
+  }
+
+}
