@@ -166,6 +166,11 @@ fieldset fieldset .field:last-child {
   }
 }
 
+p + .field {
+  margin-top: 1.25em;
+}
+
+
 .field.inline {
   margin-bottom: 0;
   label {
