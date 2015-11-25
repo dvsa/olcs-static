@@ -88,10 +88,6 @@
     &__wrapper {
       @extend .page-wrapper;
       margin-bottom: 0.75em;
-      @media(max-width: breakpoint('break-3')) {
-        width: 92%;
-        margin: 0 4% 1em;
-      }
     }
     &__subtitle {
       @include font-size(15px,11pt,15px);

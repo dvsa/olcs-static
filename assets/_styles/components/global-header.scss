@@ -1,8 +1,9 @@
-
-/*
-  Global header
-  =============
-*/
+// Global Header
+// -----------------------------------------------------------------
+//
+// The global GOV.UK standard header to contain the GOV.UK logo,
+// page title and relevant navigation links
+//
 
 .global-header {
   background: $black;
@@ -12,15 +13,13 @@
   }
 }
 
-
 // Selfserve theme
 // ---------------
 
 @if $app == 'selfserve' {
 
-  .global-header__wrapper {
-    @media (max-width: breakpoint('break-3')) {
-    }
+  .global-header {
+    padding: 6px 0;
   }
 
   .global-header__title {
@@ -76,13 +75,8 @@
     position: relative;
     overflow: visible;
     &__wrapper {
-      padding: 0.25em 1.25% 0;
-      overflow: hidden;
       @media(max-width: breakpoint('break-3')) {
-        height: 72px;
         padding-bottom: 1em;
-        width: 92%;
-        margin: 0 4%;
       }
     }
     &__title {
@@ -91,13 +85,12 @@
       font-weight: bold;
       margin-right: $gutter;
     }
-  }
-
-  .global-header a {
-    color: $white;
-    text-decoration: none;
-    &:hover {
-      text-decoration: underline;
+    a {
+      color: $white;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 

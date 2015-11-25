@@ -70,7 +70,7 @@
 @if $app == 'selfserve' {
   
   .page-wrapper {
-    max-width: 1010px;
+    max-width: $base-width;
   }
 
   // TODO: find out about this
