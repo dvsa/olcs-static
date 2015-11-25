@@ -6,182 +6,177 @@ breadcrumbs:
     label: Back to index
 ---
 
-<div class="two-thirds">
-  <form>
-    <div class="validation-summary">
-      <h3>There was a problem submitting the form</h3>
-      <p>Please try the following:</p>
-      <ol class="validation-summary__list">
-        <li class="validation-summary__item"><a href="#error1">Enter a town or city</a></li>
-        <li class="validation-summary__item"><a href="#error2">Enter a date of birth</a></li>
-        <li class="validation-summary__item"><a href="#error3">Enter a biography</a></li>
-      </ol><!-- .validation-summary__list -->
-    </div><!-- .validation-summary -->
+<div class="row">
 
-  <fieldset class="address js-postcode-search" data-group="correspondence_address">
-    <legend>Establishment address</legend>
-    <p class="hint">This is where you usually keep your operator licence records.</p>
+  <div class="two-thirds">
+    <form>
+      <div class="validation-summary">
+        <h3>There was a problem submitting the form</h3>
+        <p>Please try the following:</p>
+        <ol class="validation-summary__list">
+          <li class="validation-summary__item"><a href="#error1">Enter a town or city</a></li>
+          <li class="validation-summary__item"><a href="#error2">Enter a date of birth</a></li>
+          <li class="validation-summary__item"><a href="#error3">Enter a biography</a></li>
+        </ol><!-- .validation-summary__list -->
+      </div><!-- .validation-summary -->
 
-    <fieldset data-group="address[searchPostcode]">
-      <legend>Postcode search</legend>
-      <div class="field inline">
-        <input type="text" name="address[searchPostcode][postcode]" class="short js-input" data-container-class="inline" id="address[searchPostcode][postcode]" value="">
-      </div>
-      <div class="field inline">
-        <button type="submit" name="address[searchPostcode][search]" class="action--primary large js-find" value="search">Find address</button>
-<!--         <div class="address__preloader"></div> -->
-      </div>
-      <div class="field js-visible">
-        <p class="hint--small"><a href="#">Enter address manually</a></p>
-      </div>
-    </fieldset>
+      <fieldset class="address js-postcode-search" data-group="correspondence_address">
+        <legend>Establishment address</legend>
+        <p class="hint">This is where you usually keep your operator licence records.</p>
 
-    <div class="field ">
-      <label for="">Address lines</label>
-      <input type="text" name="" class="long" value="Solway Business Centre">
-    </div>
-    <div class="field ">
-      <label class="visually-hidden" for="">Address line 2</label>
-      <input type="text" name="" class="long" value="Kingstown">
-    </div>
-    <div class="field ">
-      <label class="visually-hidden" for="">Address line 3</label>
-      <input type="text" name="" class="long" value="">
-    </div>
-    <div class="field ">
-      <label class="visually-hidden" for="">Address line 4</label>
-      <input type="text" name="" class="long" value="">
-    </div>
-    <div class="field ">
-      <label for="">Town/City</label>
-      <input type="text" class="long" value="Carlisle">
-    </div>
-    <div class="field ">
-      <label for="">Postcode</label>
-      <input type="text" name="" value="CA6 4BY">
-    </div>
-    <div class="field">
-      <label for="">Country</label>
-      <select name="">
-        <option value="">Please Select</option>
-        <option value="AF">Afghanistan</option>
-        <option value="AX">Aland Islands</option>
-      </select>
-    </div>
-    </fieldset><!-- .address -->
+        <fieldset data-group="address[searchPostcode]">
+          <legend>Postcode search</legend>
+          <div class="field inline">
+            <input type="text" name="address[searchPostcode][postcode]" class="short js-input" data-container-class="inline" id="address[searchPostcode][postcode]" value="">
+          </div>
+          <div class="field inline">
+            <button type="submit" name="address[searchPostcode][search]" class="action--primary large js-find" value="search">Find address</button>
+            <!-- <div class="address__preloader"></div> -->
+          </div>
+          <div class="field js-visible">
+            <p class="hint--small"><a href="#">Enter address manually</a></p>
+          </div>
+        </fieldset>
 
-    <fieldset class="trading-names">
-      <div class="field">
-        <label for="trading-name-1" >Trading names</label>
-        <input id="trading-name-1" name="address" type="text" class="long">
-      </div>
-      <div class="field">
-        <label for="trading-name-2" class="visually-hidden">Trading name 2</label>
-        <input id="trading-name-2" name="address" type="text" class="long">
-        <p class="hint--small"><a href="">Add another</a></p>
-      </div>
-    </fieldset>
-
-    <fieldset>
-      <legend>Personal information</legend>
-      <div class="field">
-        <label for="title">Title</label>
-        <select id="title" name="title">
-          <option value="Please select">Mr.</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="first-name">First name (if applicable)</label>
-          <input id="first-name" name="name" class="long">
-          <p class="hint">This is your first christian name</p>
-      </div>
-      <div class="field">
-        <label for="last-name">Last name</label>
-          <input id="last-name" name="name" type="text" class="long" />
-      </div>
-      <fieldset class="dob">
-        <legend>Date of birth</legend>
-        <div class="field inline-text">
-          <label>Day</label>
-          <input type="text" maxlength="2">
+        <div class="field ">
+          <label for="">Address lines</label>
+          <input type="text" name="" class="long" value="Solway Business Centre">
         </div>
-        <div class="field inline-text">
-          <label>Month</label>
-          <input type="text" maxlength="2">
+        <div class="field ">
+          <label class="visually-hidden" for="">Address line 2</label>
+          <input type="text" name="" class="long" value="Kingstown">
         </div>
-        <div class="field inline-text">
-          <label>Year</label>
-          <input type="text" maxlength="4">
+        <div class="field ">
+          <label class="visually-hidden" for="">Address line 3</label>
+          <input type="text" name="" class="long" value="">
         </div>
-        <p class="hint--small">E.g. 12, 6, 2014</p>
+        <div class="field ">
+          <label class="visually-hidden" for="">Address line 4</label>
+          <input type="text" name="" class="long" value="">
+        </div>
+        <div class="field ">
+          <label for="">Town/City</label>
+          <input type="text" class="long" value="Carlisle">
+        </div>
+        <div class="field ">
+          <label for="">Postcode</label>
+          <input type="text" name="" value="CA6 4BY">
+        </div>
+        <div class="field">
+          <label for="first-name">First name (if applicable)</label>
+            <input id="first-name" name="name" class="long">
+            <p class="hint">This is your first christian name</p>
+        </div>
+        <div class="field">
+          <label for="last-name">Last name</label>
+            <input id="last-name" name="name" type="text" class="long" />
+        </div>
+
+        <fieldset>
+          <legend>Personal information</legend>
+          <div class="field">
+            <label for="title">Title</label>
+            <select id="title" name="title">
+              <option value="Please select">Mr.</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="first-name">First name (if applicable)</label>
+              <input id="first-name" name="name" class="long">
+              <p class="hint">This is your first christian name</p>
+          </div>
+        </fieldset>
       </fieldset>
+
+      <fieldset id="about-you">
+        <legend>About you</legend>
+        <fieldset class="dob">
+          <legend>Date of birth</legend>
+          <div class="field inline-text">
+            <label>Day</label>
+            <input type="text" maxlength="2">
+          </div>
+          <div class="field inline-text">
+            <label>Month</label>
+            <input type="text" maxlength="2">
+          </div>
+          <div class="field inline-text">
+            <label>Year</label>
+            <input type="text" maxlength="4">
+          </div>
+          <p class="hint--small">E.g. 12, 6, 2014</p>
+        </fieldset>
+
+        <fieldset>
+          <legend class="legend">Gender</legend>
+          <div class="field checkbox inline">
+            <label><input type="radio" name="gender" value="male">Male</label>
+          </div>
+          <div class="field checkbox inline">
+            <label><input type="radio" name="gender" value="female" disabled>Female</label>
+          </div>
+        </fieldset>
+
+      </fieldset>
+
+      <fieldset id="about-you">
+        <legend>About you</legend>
+        <fieldset>
+          <legend>I am interested in</legend>
+          <div class="field--list checkbox">
+            <label for="jobs"><input type="checkbox" id="jobs">Job offers</label>
+          </div>
+          <div class="field--list checkbox">
+            <label for="networking"><input type="checkbox" id="networking">Networking</label>
+          </div>
+          <div class="field--list checkbox">
+            <label for="business"><input type="checkbox" id="business">Business opportunities</label>
+          </div>
+        </fieldset>
+      </fieldset><!-- #about-you -->
+
+      <fieldset id="additional-information">
+        <legend>Additional information</legend>
+        <p class="hint">Please provide additional information relating to any prior insolvency proceedings. You may also upload evidence such as legal documents.</p>
+        <div class="field">
+          <label for="additional-info" class="visually-hidden">Additional information</label>
+          <textarea id="additional-info" class="extra-long" placeholder="Enter text here"></textarea>
+        </div>
+      </fieldset><!-- .additional-information -->
+
+
+      <fieldset class="file-uploader" id="FileUploader2">
+        <legend>File upload</legend>
+        <p class="hint">An example of a mutliple file uploader with a file already uploaded</p>
+        <ul class="attach-action__list">
+          <li class="attach-action">
+            <label class="attach-action__label">
+              Attach file
+              <input class="attach-action__input js-visually-hidden" type="file" name="fileUpload[]">
+            </label>
+            <p class="attach-action__hint">20MB maximum file size. PDF, DOC, JPG, PNG or GIF</p>
+          </li>
+        </ul><!-- attach-actions -->
+      </fieldset><!-- .file-uploader -->
 
       <fieldset>
-        <legend class="legend">Gender</legend>
-        <div class="field checkbox inline">
-          <label><input type="radio" name="gender" value="male">Male</label>
-        </div>
-        <div class="field checkbox inline">
-          <label><input type="radio" name="gender" value="female" disabled>Female</label>
-        </div>
-      </fieldset>
-    </fieldset><!-- end #personal-information -->
-
-    <fieldset id="about-you">
-      <legend>About you</legend>
-      <fieldset>
-        <legend>I am interested in</legend>
-        <div class="field--list checkbox">
-          <label for="jobs"><input type="checkbox" id="jobs">Job offers</label>
-        </div>
-        <div class="field--list checkbox">
-          <label for="networking"><input type="checkbox" id="networking">Networking</label>
-        </div>
-        <div class="field--list checkbox">
-          <label for="business"><input type="checkbox" id="business">Business opportunities</label>
-        </div>
-      </fieldset>
-    </fieldset><!-- #about-you -->
-
-    <fieldset id="additional-information">
-      <legend>Additional information</legend>
-      <p class="hint">Please provide additional information relating to any prior insolvency proceedings. You may also upload evidence such as legal documents.</p>
-      <div class="field">
-        <label for="additional-info" class="visually-hidden">Additional information</label>
-        <textarea id="additional-info" class="extra-long" placeholder="Enter text here"></textarea>
-      </div>
-    </fieldset><!-- .additional-information -->
-
-    <fieldset class="file-uploader" id="FileUploader2">
-      <legend>File upload</legend>
-      <p class="hint">An example of a mutliple file uploader with a file already uploaded</p>
-      <ul class="attach-action__list">
-        <li class="attach-action">
-          <label class="attach-action__label">
-            Attach file
-            <input class="attach-action__input js-visually-hidden" type="file" name="fileUpload[]">
+        <div class="field confirm">
+          <label class="">
+            <input type="checkbox" name="" id="" placeholder="" value="Y">
+            By ticking this checkbox you are confirming that there are suitable arrangements in place to keep the vehicles in a fit and serviceable condition at all times
           </label>
-          <p class="attach-action__hint">20MB maximum file size. PDF, DOC, JPG, PNG or GIF</p>
-        </li>
-      </ul><!-- attach-actions -->
-    </fieldset><!-- .file-uploader -->
+        </div>
+      </fieldset>
 
-    <fieldset>
-      <div class="field confirm">
-        <label class="">
-          <input type="checkbox" name="" id="" placeholder="" value="Y">
-          By ticking this checkbox you are confirming that there are suitable arrangements in place to keep the vehicles in a fit and serviceable condition at all times
-        </label>
-      </div>
-    </fieldset>
+      <div class="actions-container">
+        <input class="action--primary large" type="submit" value="Save and continue">
+        <a class="action--tertiary large list" href="/">Do something else</a>
+      </div><!-- .actions-container -->
 
-    <div class="actions-container">
-      <input class="action--primary large" type="submit" value="Save and continue">
-      <a class="action--tertiary large list" href="/">Do something else</a>
-    </div><!-- end .actions -->
+    </form>
 
-  </form>
+  </div><!-- .two-thirds -->
 
-</div><!-- end .two-thirds -->
+</div><!-- .row -->
 
 
