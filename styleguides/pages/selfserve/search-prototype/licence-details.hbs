@@ -189,48 +189,50 @@ table:
       - 12 May 2012
     rows: 3
 ---
-<!-- <div class="one-quarter">
-  <h4>On this page</h4>
-  <ul class="vertical-navigation">
-    <li><a href="">Licence details</a></li>
-    <li><a href="">Operator details</a></li>
-    <li><a href="">Contact details</a></li>
-    <li><a href="">Directors</a></li>
-    <li><a href="">Transport managers</a></li>
-    <li><a href="">Operating centers </a></li>
-    <li><a href="">Vehicles</a></li>
-    <li><a href="">Applications</a></li>
-    <li><a href="">Coditions &amp; undertakings</a></li>
-    <li><a href="">Other licences</a></li>
-  </ul>
-</div> -->
 
-<div class="full-width">
-    {{#each read-only}}
-      {{#is @index 0 }}
-        {{> _read-only }}
-      {{/is }}
-    {{/each}}
-    {{#each read-only}}
-      {{#is @index 1 }}
-        {{> _read-only }}
-      {{/is }}
-    {{/each}}
-    {{#each read-only}}
-      {{#is @index 2 }}
-        {{> _read-only }}
-      {{/is }}
-    {{/each}}
+<div class="row">
+  
+  <!-- <div class="one-quarter">
+    <h4>On this page</h4>
+    <ul class="vertical-navigation">
+      <li><a href="">Licence details</a></li>
+      <li><a href="">Operator details</a></li>
+      <li><a href="">Contact details</a></li>
+      <li><a href="">Directors</a></li>
+      <li><a href="">Transport managers</a></li>
+      <li><a href="">Operating centers </a></li>
+      <li><a href="">Vehicles</a></li>
+      <li><a href="">Applications</a></li>
+      <li><a href="">Coditions &amp; undertakings</a></li>
+      <li><a href="">Other licences</a></li>
+    </ul>
+  </div> -->
+  
+  <div class="full-width">
+      {{#each read-only}}
+        {{#is @index 0 }}
+          {{> _read-only }}
+        {{/is }}
+      {{/each}}
+      {{#each read-only}}
+        {{#is @index 1 }}
+          {{> _read-only }}
+        {{/is }}
+      {{/each}}
+      {{#each read-only}}
+        {{#is @index 2 }}
+          {{> _read-only }}
+        {{/is }}
+      {{/each}}
+  
+      {{#each table}}
+          {{> _table }}
+      {{/each}}
+  
+    <div class="actions-container">
+      <a class="action--tertiary large" href="" style="padding-left: 0">Back to top</a>
+      <a class="action--tertiary large" href="operator-results.html">Back to operator search</a>
+    </div>
+  </div><!-- .three-quarters -->
 
-    {{#each table}}
-        {{> _table }}
-    {{/each}}
-
-  <div class="actions-container">
-    <a class="action--tertiary large" href="" style="padding-left: 0">Back to top</a>
-    <a class="action--tertiary large" href="operator-results.html">Back to operator search</a>
-  </div>
-</div><!-- .three-quarters -->
-
-
-
+</div>
