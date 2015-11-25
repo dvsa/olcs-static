@@ -49,12 +49,12 @@
   @include grid-column( 3/8 );
 }
 
-.two-thirds {
-  @include grid-column( 2/3 );
-}
-
 .five-eigths {
   @include grid-column( 5/8 );
+}
+
+.two-thirds {
+  @include grid-column( 2/3 );
 }
 
 .three-quarters {
