@@ -51,7 +51,7 @@ $breakpoints: (
   @return map-get($breakpoints, $breakpoint);
 }
 
-// breakpoint('break-3') => 780px
+// breakpoint('break-3') => 640px
 
 // [5] - Internal theme
 // Configuration for the Internal theme only
