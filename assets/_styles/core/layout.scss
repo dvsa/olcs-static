@@ -16,14 +16,10 @@
 // The document/application wrapper which contains the entire app
 
 .page-wrapper {
-  margin: 0 auto;
   overflow: hidden;
-  width: 95%;
   clear: both;
-  padding: 0 1.25%;
-  @media (max-width: breakpoint('break-3')){
-    width: 100%;
-  }
+  margin: 0 auto;
+  padding: 0 $gutter-half;
 }
 
 .row {

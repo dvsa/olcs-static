@@ -7,7 +7,6 @@
 .global-header {
   background: $black;
   color: $white;
-  overflow: hidden;
   &__wrapper {
     @extend .page-wrapper;
   }
@@ -20,12 +19,7 @@
 @if $app == 'selfserve' {
 
   .global-header__wrapper {
-    margin: 0 auto;
-    padding: 4px 0 7px 0;
-    overflow: auto;
     @media (max-width: breakpoint('break-3')) {
-      width: 92%;
-      padding: 4px 4% 7px;
     }
   }
 
