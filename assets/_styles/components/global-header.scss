@@ -8,6 +8,7 @@
 .global-header {
   background: $black;
   color: $white;
+  padding: 6px 0;
   &__wrapper {
     @extend .page-wrapper;
   }
@@ -17,10 +18,6 @@
 // ---------------
 
 @if $app == 'selfserve' {
-
-  .global-header {
-    padding: 6px 0;
-  }
 
   .global-header__title {
     font-size: 24px;
@@ -84,6 +81,7 @@
       font-size: 26px;
       font-weight: bold;
       margin-right: $gutter;
+      margin-bottom: 0;
     }
     a {
       color: $white;
