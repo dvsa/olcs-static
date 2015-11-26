@@ -85,6 +85,9 @@ button {
   -webkit-font-smoothing: antialiased;
   -webkit-appearance: none;
   cursor: pointer;
+  display: inline-block;
+  vertical-align: top;
+  line-height: 1.4;
   @include ie-lte(8) {
     &[type="submit"],
     &[type="reset"],
@@ -107,10 +110,16 @@ button {
     @include action-colour($grey-3);
   }
   &--tertiary {
+    display: inline-block;
+    vertical-align: top;
     background: none;
     border: 0;
     text-decoration: underline;
-    padding: 10px 15px 5px 5px;
+    line-height: 2;
+    padding: 0 0.25em;
+    &:focus {
+      outline: 0;
+    }
   }
 }
 
@@ -122,8 +131,6 @@ button {
 
 .action--tertiary.large {
   @extend %paragraph--large;
-  padding: 7px 15px 5px 5px;
-  line-height: 1.5;
 }
 
 
@@ -211,9 +218,6 @@ input[type=submit].more-actions__item {
   }
 
   .action--tertiary {
-    &.large {
-      padding: 0 15px 0;
-    }
     &.list {
       @extend %paragraph--large;
       display: block;
