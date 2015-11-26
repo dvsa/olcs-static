@@ -80,7 +80,6 @@ button {
   margin: 0 .3em 0 0;
   padding: 5px 10px 3px;
   padding: .3em .5em .4em .5em\9;
-  font-family: $NTA-Light;
   text-decoration: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -98,7 +97,6 @@ button {
   }
 }
 
-input.action,
 .action {
   &--primary {
     @extend %action-box;
@@ -109,15 +107,10 @@ input.action,
     @include action-colour($grey-3);
   }
   &--tertiary {
-    @extend a;
     background: none;
     border: 0;
-    font-family: $NTA-Light;
     text-decoration: underline;
     padding: 10px 15px 5px 5px;
-    &:hover {
-      text-decoration: none;
-    }
   }
 }
 
@@ -125,16 +118,6 @@ input.action,
 .action--secondary.large {
   @extend %paragraph--large;
   padding: 7px 15px 5px;
-}
-
-.lookup .action--primary.large,
-.lookup .action--secondary.large {
-	padding: 4px 12px;
-}
-
-.js-postcode-search .action--primary.large,
-.js-postcode-search .action--secondary.large {
-	padding: 4px 12px;
 }
 
 .action--tertiary.large {
@@ -212,15 +195,11 @@ input[type=submit].more-actions__item {
   }
 }
 
-
 // A temporary fix until we are able to do this
 // when the page is assembled in the backend.
 .lva-details .actions-container .large:first-child {
-  @extend .action--primary;
   font-size: 19px;
 }
-
-
 
 // Selfserve theme
 // ---------------
