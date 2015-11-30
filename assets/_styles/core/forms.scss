@@ -246,7 +246,8 @@ input[type="checkbox"] {
   border: 0;
 }
 
-input[type="submit"] {
+[type="submit"],
+.input--submit {
   background: none;
   border: 0;
   padding: 0;
@@ -257,7 +258,6 @@ input[type="submit"] {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   &:hover {
-    text-decoration: none;
     color: $link-active-colour;
   }
   b & {
