@@ -18,6 +18,9 @@
     float: none;
     overflow: auto;
   }
+  p:last-child {
+    margin-bottom: 0;
+  }
 }
 
 fieldset + .field .help,

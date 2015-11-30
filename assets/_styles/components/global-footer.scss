@@ -23,7 +23,7 @@
   &__wrapper {
     @extend .page-wrapper;
     overflow: visible;
-    padding: $gutter-2x 0;
+    padding: $gutter 0;
     display: table;
   }
   
