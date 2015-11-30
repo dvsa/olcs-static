@@ -83,6 +83,10 @@
 // [4] - Internal only styles
 
 @if $app == 'internal' {
+  
+  .page-wrapper {
+    padding: 0 $gutter;
+  }
 
   #main {
     display: table;
