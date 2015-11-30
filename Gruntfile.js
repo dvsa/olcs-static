@@ -58,14 +58,14 @@
             sass: {
                 dev: {
                     options: {
-                        style: 'expanded',
+                        outputStyle: 'expanded',
                         sourceMap: true
                     },
                     files: styles
                 },
                 prod: {
                     options: {
-                        style: 'compressed',
+                        outputStyle: 'compressed',
                         sourceMap: false
                     },
                     files: styles
