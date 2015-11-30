@@ -86,9 +86,12 @@ OLCS.modal = (function(document, $, undefined) {
 
     if ($('.modal__content').length) {
       $(document).keyup(function(e) {
+        // On escape
         if (e.keyCode === 27) {
           e.preventDefault();
-          exports.hide();
+          if (exports.isVisible()) {
+            exports.hide();
+          }
         }
       });
     }
