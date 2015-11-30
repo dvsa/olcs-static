@@ -3,8 +3,8 @@ title: Review and declaration
 subtitle: Step 13
 user: operator
 breadcrumbs:
-  - link: transport-manager.html
-    label: Back to application overview
+  - link: index.html
+    label: Back
 ---
 
 <div class="row">
@@ -20,7 +20,7 @@ breadcrumbs:
       <p>They can either:</p>
       <ul>
         <li>do this online through GOV.UK Verify</li>
-        <li>print, sign and return the declaration to the <a href="" rel="external">Central Licensing Office</a></li>
+        <li>print, sign and return the declaration to the <a target="blank" href="https://www.gov.uk/government/organisations/traffic-commissioners/about/access-and-opening" rel="external">Central Licensing Office</a></li>
       </ul>
       <p>GOV.UK Verify can speed up the application process. To use it they must be a UK resident with a valid passport.</p>
       <hr />
@@ -34,7 +34,9 @@ breadcrumbs:
             <label><input type="radio" name="declarations" value="post">print, sign and return</label>
           </div>
         </fieldset>
-      </fieldset>
+
+        <p class="js-action"><a href="index.html">Back to overview</a></p>
+
 
       <div class="js-verify">
         <h3 class="important">Important</h3>
@@ -90,8 +92,8 @@ breadcrumbs:
           </label>
         </div>
         <div class="actions-container">
-          <a href="application-overview-complete-print.html" class="action--primary large" rel="external">Save and continue to Verify</a>
-          <a href="application-overview-incomplete.html" class="action--tertiary large">Cancel</a>
+          <a href="http://govuk-verify.herokuapp.com/intro?requestId=vehicle-operator-licensing" class="action--primary large" rel="external">Save and continue to Verify</a>
+          <a href="index.html" class="action--tertiary large list">Back to overview</a>
         </div>
       </div><!-- .js-verify -->
 
@@ -106,9 +108,11 @@ breadcrumbs:
         </div>
         <div class="actions-container">
           <a href="application-overview-complete-print.html" class="action--primary large">Save and continue</a>
-          <a href="application-overview-incomplete.html" class="action--tertiary large">Cancel</a>
+          <a href="index.html" class="action--tertiary large list">Back to overview</a>
         </div>
       </div><!-- .js-print-sign -->
+
+    </fieldset>
 
     </form>
 
