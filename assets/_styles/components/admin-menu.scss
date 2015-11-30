@@ -11,9 +11,13 @@
   }
 }
 
+.admin__menu {
+  right: 0;
+}
+
 .admin {
   position: absolute;
-  right: 0;
+  right: $gutter;
   list-style: none;
   &__arrow {
     display: block;
