@@ -137,6 +137,11 @@
                             cwd: 'public/images/',
                             src: ['**/*.png', '**/*.gif'],
                             dest: '../prototypes/<%= globalConfig.prototypeName %>/images/'
+                        }, {
+                            expand: true,
+                            cwd: 'public/fonts/',
+                            src: ['**/*'],
+                            dest: '../prototypes/<%= globalConfig.prototypeName %>/fonts/'
                         }
                     ]
                 }

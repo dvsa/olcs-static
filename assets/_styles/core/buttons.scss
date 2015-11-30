@@ -207,6 +207,10 @@ input[type=submit].more-actions__item {
 
 @if $app == 'selfserve' {
 
+  .actions-container {
+    margin: 1em 0 1em 0;
+  }
+
   a:focus,
   button:focus,
   input[type="submit"]:focus {
