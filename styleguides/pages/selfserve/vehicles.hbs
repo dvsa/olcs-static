@@ -4,7 +4,7 @@ user: operator
 layout: base.hbs
 breadcrumbs:
   - link: licences.html
-    label: Back to licence overview
+    label: Back to overview
 ---
 
 
@@ -38,116 +38,90 @@ breadcrumbs:
         </div>
       </fieldset>
     </form>
-      <form>
-        <div class="table__header">
-          <h3>3 Vehicles</h3>
-          <div class="actions-container">
-            <a href="" class="action--primary">Add vehicle</a>
-            <div class="more-actions">
-              <p class="more-actions__button">More actions...</p>
-              <div class="more-actions__list">
-                <input type="submit" class="more-actions__item js-show-removed" value="Show removed vehicles">
-                <input type="submit" class="more-actions__item" value="Remove">
-                <button class="more-actions__item">Transfer</button>
-                <button class="more-actions__item">Replace disc</button>
-                <input type="submit" class="more-actions__item" value="Export list (.CSV)">
-              </div>
+    <form>
+      <div class="table__header">
+        <h3>3 Vehicles</h3>
+        <div class="actions-container">
+          <a href="" class="action--primary">Add vehicle</a>
+          <div class="more-actions">
+            <p class="more-actions__button">More actions...</p>
+            <div class="more-actions__list">
+              <input type="submit" class="more-actions__item js-show-removed" value="Show removed vehicles">
+              <input type="submit" class="more-actions__item" value="Remove">
+              <button class="more-actions__item">Transfer</button>
+              <button class="more-actions__item">Replace disc</button>
+              <input type="submit" class="more-actions__item" value="Export list (.CSV)">
             </div>
           </div>
-        </div><!-- .table__header -->
-        <div class="table__wrapper">
-          <table>
-            <thead>
-              <tr>
-                <th>Registration number</th>
-                <th>Disc number</th>
-                <th>Added</th>
-                <th>Removed</th>
-                <td class="right"><input type="checkbox"></td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><b><a href="">LL09 URE</a></b> (2500kg)</td>
-                <td>20515142</td>
-                <td>12 May 2014</td>
-                <td></td>
-                <td class="right"><a href="" class="js-remove">Remove</a><input type="checkbox"></td>
-              </tr>
-              <tr class="js-hide">
-                <td><b><a href="">SN15 BVC</a></b> (3000kg)<span class="status orange">Hired</span></td>
-                <td>20515141</td>
-                <td>12 May 2014</td>
-                <td></td>
-                <td class="right" ><a href="" class="js-remove">Remove</a><input type="checkbox"></td>
-              </tr>
-              <tr class="js-hide">
-                <td><b><a href="">MN07 PNO</a></b> (3000kg)</td>
-                <td>20515140</td>
-                <td>12 May 2014</td>
-                <td></td>
-                <td class="right"><a href="" class="js-remove">Remove</a><input type="checkbox"></td>
-              </tr>
-              <tr class="disabled">
-                <td>PT09 BBN (3000kg)</td>
-                <td>20515139</td>
-                <td>5 Jan 2013</td>
-                <td>6 Feb 2013</td>
-                <td class="right" ><a href="">Restore</a><input type="checkbox"></td>
-              </tr>
-              <tr class="disabled">
-                <td>TY13 WSC (3000kg)</td>
-                <td>20515138</td>
-                <td>5 Jan 2013</td>
-                <td>6 Feb 2013</td>
-                <td class="right"><a href="">Restore</a><input type="checkbox"></td>
-              </tr>
-            </tbody>
-          </table>
-        </div><!-- .table__wrapper -->
-  </form>
-  
+        </div>
+      </div><!-- .table__header -->
+      <div class="table__wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Registration number</th>
+              <th>Disc number</th>
+              <th>Added</th>
+              <th>Removed</th>
+              <td class="right"><input type="checkbox"></td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b><a href="">LL09 URE</a></b> (2500kg)</td>
+              <td>20515142</td>
+              <td>12 May 2014</td>
+              <td></td>
+              <td class="right"><a href="" class="js-remove">Remove</a><input type="checkbox"></td>
+            </tr>
+            <tr class="js-hide">
+              <td><b><a href="">SN15 BVC</a></b> (3000kg)<span class="status orange">Hired</span></td>
+              <td>20515141</td>
+              <td>12 May 2014</td>
+              <td></td>
+              <td class="right" ><a href="" class="js-remove">Remove</a><input type="checkbox"></td>
+            </tr>
+            <tr class="js-hide">
+              <td><b><a href="">MN07 PNO</a></b> (3000kg)</td>
+              <td>20515140</td>
+              <td>12 May 2014</td>
+              <td></td>
+              <td class="right"><a href="" class="js-remove">Remove</a><input type="checkbox"></td>
+            </tr>
+            <tr class="disabled">
+              <td>PT09 BBN (3000kg)</td>
+              <td>20515139</td>
+              <td>5 Jan 2013</td>
+              <td>6 Feb 2013</td>
+              <td class="right" ><a href="">Restore</a><input type="checkbox"></td>
+            </tr>
+            <tr class="disabled">
+              <td>TY13 WSC (3000kg)</td>
+              <td>20515138</td>
+              <td>5 Jan 2013</td>
+              <td>6 Feb 2013</td>
+              <td class="right"><a href="">Restore</a><input type="checkbox"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div><!-- .table__wrapper -->
+    </form>
   </div><!-- .two-thirds -->
-  
-  <div class="one-third">
-    
-    <div class="sidebar">
-  
-    <dl class="meta" style="border-bottom: 0; padding-bottom: 0;">
-      <dt>Licence number</dt>
-      <dd>OB12524/525</dd>
-      <dt>Status</dt>
-      <dd>Valid</dd>
-      <dt>Renewal date</dt>
-      <dd>16 March 2011</dd>
-      <dt>Start date</dt>
-      <dd>16 March 2016</dd>
-  
-    </dl>
-  
-  
-  <!--   <dl class="meta" style="border-bottom: 0; padding-bottom: 0;">
-      <dt>Application reference</dt>
-      <dd>OB12524/525</dd>
-      <dt>Progress</dt>
-      <dd>6 of 13 sections complete</dd>
-    </dl> -->
-  
-  <!--   <dl class="meta" style="border-bottom: 0; padding-bottom: 0;">
-      <dt>Licence number</dt>
-      <dd>OB12524625</dd>
-      <dt>Licence status</dt>
-      <dd>Curtailed</dd>
-      <dt>Renewal date</dt>
-      <dd>16 March 2011</dd>
-      <dt>Start date</dt>
-      <dd>16 March 2016</dd>
-    </dl> -->
-    
-    </div>
-  
-  </div>
 
+  <div class="one-third">
+    <div class="sidebar">
+      <dl class="meta" style="border-bottom: 0; padding-bottom: 0;">
+        <dt>Licence number</dt>
+        <dd>OB12524/525</dd>
+        <dt>Status</dt>
+        <dd>Valid</dd>
+        <dt>Renewal date</dt>
+        <dd>16 March 2011</dd>
+        <dt>Start date</dt>
+        <dd>16 March 2016</dd>
+      </dl>
+    </div>
+  </div>
 </div>
 
 <script type="text/javascript">
