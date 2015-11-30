@@ -165,6 +165,13 @@ tfoot {
 }
 
 
+// This hack is to break any long safety inspector names onto 
+// two lines as per OLCS-11334
+td > [type="submit"] {
+  word-break: break-word;
+  text-align: left;
+}
+
 // Selfserve theme
 // ---------------
 
