@@ -166,6 +166,11 @@ fieldset fieldset .field:last-child {
   }
 }
 
+p + .field {
+  margin-top: 1.25em;
+}
+
+
 .field.inline {
   margin-bottom: 0;
   label {
@@ -700,10 +705,12 @@ select:focus {
 
 .confirm {
   overflow: auto;
+  clear: both;
   max-width: 600px;
   padding: 15px 15px 7px;
   border: 1px solid $light-blue-50;
   background: $light-blue-25;
+
 }
 
 .terms--box {

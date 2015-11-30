@@ -5,14 +5,8 @@
 */
 
 .breadcrumbs {
-  list-style: none;
-  margin-bottom: 0;
   overflow: visible;
-  width: 70%;
-  .current {
-    background: none;
-    color: $grey-1;
-  }
+  list-style: none;
 }
 
 .breadcrumbs__item {
@@ -25,29 +19,38 @@
 }
 
 .breadcrumbs a {
-  color: $black;
-  padding-right: 1em;
-  background: url('#{$assetPath}/breadcrumb-arrow.png') no-repeat 100% 70%;
-  @include device-pixel-ratio($ratio: 2) {
-    background: url('#{$assetPath}/breadcrumb-arrow-2x.png') no-repeat 95% 45%;
-    background-size: 6px 11px;
-  }
   &:focus {
     outline: none;
   }
+  &:hover {
+    text-decoration: none;
+    border-bottom: 0;
+  }
 }
-
 
 // Selfserve theme
 // ---------------
 
 @if $app == 'selfserve' {
-  .breadcrumbs {
-    @media(max-width: breakpoint('break-3')) {
-      margin: -1em 0 2em 0;
-      font-size: 14px;
-    }
+
+  // TODO: Uncomment the lines below once selfserve breadcrumbs have b
+  // been marged
+
+  .breadcrumbs a {
+    color: $black;
+    line-height: .75;
+    // text-decoration: none;
+    // border-bottom: 1px solid $black;
+    // &:hover {
+    //   margin-bottom: 1px;
+    // }
   }
+
+  // .breadcrumbs a:before {
+  //   @extend %fontello;
+  //   content: '\e801';
+  //   padding-right: .25em;
+  // }
 }
 
 
@@ -55,13 +58,29 @@
 // ---------------
 
 @if $app == 'internal' {
-
   .breadcrumbs {
     float: left;
   }
-  
+
   .breadcrumbs a {
     color: $grey-1;
   }
+}
 
+// TODO: Move the styles below into the internal them for this componenet
+// once selfserve breadcrumbs have been merged
+
+.breadcrumbs a {
+  // color: $grey-1;
+  padding-right: 20px;
+  background: url('#{$assetPath}/breadcrumb-arrow.png') no-repeat 100% 70%;
+  @include device-pixel-ratio($ratio: 2) {
+    background: url('#{$assetPath}/breadcrumb-arrow-2x.png') no-repeat 95% 50%;
+    background-size: 6px 11px;
+  }
+}
+
+.breadcrumbs .current {
+  background: none;
+  color: $grey-1;
 }
