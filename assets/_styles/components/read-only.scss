@@ -121,6 +121,9 @@
       max-width: 700px;
       margin-bottom: .6em;
     }
+    dd {
+      word-break: break-word;
+    }
   }
 
   dl {
