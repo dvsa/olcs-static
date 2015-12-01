@@ -272,6 +272,7 @@ textarea,
 }
 
 select {
+  max-width: 500px;
   margin: 0 .25em 0 1px;
   .filters & {
     width: 99%;
