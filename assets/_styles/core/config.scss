@@ -31,6 +31,7 @@ $outline            : #FFBF47;
 // [3] - Layout
 // Config for OLCS layout/skeleton
 
+$base-width         : 1010px;
 $gutter-2x          : ($gutter * 2);
 
 // [4] - Responsive Breakpoints
@@ -50,7 +51,7 @@ $breakpoints: (
   @return map-get($breakpoints, $breakpoint);
 }
 
-// breakpoint('break-3') => 780px
+// breakpoint('break-3') => 640px
 
 // [5] - Internal theme
 // Configuration for the Internal theme only

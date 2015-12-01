@@ -11,12 +11,14 @@
   }
 }
 
+.admin__menu {
+  right: 0;
+}
+
 .admin {
   position: absolute;
-  top: .5em;
-  right: 0;
+  right: $gutter;
   list-style: none;
-  margin-right: 2.5%;
   &__arrow {
     display: block;
     height: 20px;
@@ -35,14 +37,13 @@
     box-shadow: 0 1px 5px $grey-3;
     display: none;
     top: 35px;
-    right: 0;
     background: $white;
     border: 1px solid $grey-3;
     z-index: 3;
     width: 420px;
     position: absolute;
     padding: 10px 0;
-    cursor: normal;
+    cursor: default;
   }
   &__submenu {
     float: left;
