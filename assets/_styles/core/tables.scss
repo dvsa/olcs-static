@@ -165,6 +165,20 @@ tfoot {
 }
 
 
+// This hack is to break any long safety inspector names onto 
+// two lines as per OLCS-11334
+
+#lva-safety { // ensure we are only affecting the desired table
+  td > [type="submit"] {
+    word-break: break-word;
+    text-align: left;
+    max-width: 100%;
+  } 
+  td {
+    max-width: 250px;
+  }
+}
+
 // Selfserve theme
 // ---------------
 
