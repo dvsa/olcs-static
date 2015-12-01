@@ -13,6 +13,13 @@ a {
   }
 }
 
+[rel="external"]:after {
+  @extend %fontello;
+  content: '\e800';
+  font-size: 80%;
+  margin: 0 1em 0 4px;
+}
+
 .disabled,
 .disabled a {
   text-decoration: none;

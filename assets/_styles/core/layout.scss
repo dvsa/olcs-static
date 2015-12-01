@@ -16,15 +16,10 @@
 // The document/application wrapper which contains the entire app
 
 .page-wrapper {
-  margin: 0 auto;
   overflow: hidden;
-  width: 95%;
   clear: both;
-  padding: 0 1.25%;
-  @media (max-width: breakpoint('break-3')){
-    padding: 0;
-    width: 100%;
-  }
+  margin: 0 auto;
+  padding: 0 $gutter-half;
 }
 
 .row {
@@ -54,12 +49,12 @@
   @include grid-column( 3/8 );
 }
 
-.two-thirds {
-  @include grid-column( 2/3 );
-}
-
 .five-eigths {
   @include grid-column( 5/8 );
+}
+
+.two-thirds {
+  @include grid-column( 2/3 );
 }
 
 .three-quarters {
@@ -75,7 +70,7 @@
 @if $app == 'selfserve' {
   
   .page-wrapper {
-    max-width: 1010px;
+    max-width: $base-width;
   }
 
   // TODO: find out about this
@@ -88,6 +83,10 @@
 // [4] - Internal only styles
 
 @if $app == 'internal' {
+  
+  .page-wrapper {
+    padding: 0 $gutter;
+  }
 
   #main {
     display: table;
