@@ -37,6 +37,9 @@ $outline            : #FFBF47;
 $base-width         : 1010px;
 $gutter-2x          : ($gutter * 2);
 
+// Used by GDS toolkit
+$site-width         : $base-width;
+
 // [4] - Responsive Breakpoints
 // Define the responsive breakpoints to be used by the grid system
 // -----------------------------------------------------------------
