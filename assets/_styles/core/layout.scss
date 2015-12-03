@@ -35,17 +35,17 @@
 
 // Re-define the GDS grid-column mixin
 
-@mixin grid-column($width, $full-width: tablet, $float: left, $mobile-first: false) {
+@mixin grid-column($width, $full-width: breakpoint('break-5'), $float: left, $mobile-first: false) {
   
   @if $mobile-first {
-    @include media($full-width){
+    @media (min-width: $full-width) {
       float: $float;
       width: percentage($width);
     }
   } @else {
     float: $float;
     width: percentage($width);
-    @include media('mobile') {
+    @media (max-width: $full-width) {
       float: none;
       width: 100%;
     }
