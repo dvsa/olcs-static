@@ -33,6 +33,35 @@
 
 // [2] - Individual Columns
 
+// Re-define the GDS grid-column mixin
+
+@mixin grid-column($width, $full-width: tablet, $float: left, $mobile-first: false) {
+  
+  @if $mobile-first {
+    @include media($full-width){
+      float: $float;
+      width: percentage($width);
+    }
+  } @else {
+    float: $float;
+    width: percentage($width);
+    @include media('mobile') {
+      float: none;
+      width: 100%;
+    }
+  }
+  
+  @include ie-lte(7){
+    width: (($site-width + $gutter) * $width) - $gutter;
+  }
+
+  padding: 0 $gutter-half;
+  @include box-sizing(border-box);
+  
+}
+
+// Create individual columns
+
 .one-quarter {
   @include grid-column( 1/4 );
 }
@@ -86,6 +115,7 @@
   
   .page-wrapper {
     padding: 0 $gutter;
+    overflow-x: scroll;
   }
 
   #main {
