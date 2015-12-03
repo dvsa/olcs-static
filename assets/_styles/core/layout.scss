@@ -35,7 +35,7 @@
 
 // Re-define the GDS grid-column mixin
 
-@mixin grid-column($width, $full-width: breakpoint('break-5'), $float: left, $mobile-first: false) {
+@mixin grid-column($width, $full-width: $core-stack, $float: left, $mobile-first: false) {
   
   @if $mobile-first {
     @media (min-width: $full-width) {

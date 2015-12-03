@@ -51,6 +51,9 @@ $breakpoints: (
   @return map-get($breakpoints, $breakpoint);
 }
 
+// Set the default width for column stacking
+$core-stack: breakpoint('break-4');
+
 // breakpoint('break-3') => 640px
 
 // [5] - Internal theme

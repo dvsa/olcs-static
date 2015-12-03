@@ -25,7 +25,7 @@
     overflow: visible;
     padding: $gutter 0;
     display: table;
-    @media (max-width: breakpoint('break-3')){
+    @media (max-width: $core-stack){
       width: 100%;
     }
   }
@@ -35,7 +35,7 @@
     display: table-cell;
     vertical-align: bottom;
     width: 95%;
-    @media (max-width: breakpoint('break-3')){
+    @media (max-width: $core-stack){
       width: 100%;
       display: block;
     }
@@ -48,7 +48,7 @@
   &__link {
     display: inline-block;
     margin-right: $gutter-half;
-    @media (max-width: breakpoint('break-3')){
+    @media (max-width: $core-stack){
       text-align: center;
       margin-bottom: $gutter;
       margin-right: 0;
