@@ -16,6 +16,7 @@ OLCS.dataTooltip = (function(document, $, undefined) {
     // iterate through each occurance
     $('[data-tooltip]').each(function() {
       
+      // get the content of the attribute to act as the tooltip content
       var $tooltipContent = $(this).attr('data-tooltip');
       
       // add parent tooltip class to target element
