@@ -7,11 +7,9 @@
 
 .global-footer {
   
-  @extend .page-wrapper;
   border-top: 1px solid $grey-2;
   background: $grey-3;
   color: $dark-text;
-  clear: both;
   margin-top: 1.5em;
   
   a {
@@ -22,9 +20,9 @@
   }
   
   &__wrapper {
-    overflow: visible;
-    padding: $gutter 0;
-    display: table;
+    max-width: $base-width;
+    padding: $gutter $gutter-half;
+    margin: 0 auto;
     @media (max-width: $core-stack){
       width: 100%;
     }
