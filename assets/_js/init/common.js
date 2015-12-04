@@ -8,6 +8,7 @@ OLCS.ready(function() {
 
   OLCS.tableCheckAll();
   OLCS.tableRows();
+  OLCS.dataTooltip();
   OLCS.selectBox();
   OLCS.formInit();
   OLCS.notices();
