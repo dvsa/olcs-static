@@ -24,7 +24,8 @@
   border-radius: 2px;
   display: none;
   position: absolute;
-  bottom: 20px;
+  top: -20px;
+  transform: translateY(-50%);
   left: -38px;
   opacity: .9; /* IE :after bug prevents using opacity mixin */
   padding: .75em;
