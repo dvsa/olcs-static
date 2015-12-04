@@ -8,6 +8,7 @@
 .status {
   @extend %paragraph--tiny;
   display: inline-block;
+  vertical-align: middle;
   border-radius: 2px;
   margin: 0 6px;
   padding: 1px 3px 0 3px;
