@@ -23,7 +23,8 @@
     max-width: $base-width;
     padding: $gutter $gutter-half;
     margin: 0 auto;
-    @media (max-width: $core-stack){
+    box-sizing: border-box;
+    @media (max-width: $core-stack) {
       width: 100%;
     }
   }
@@ -33,7 +34,7 @@
     display: table-cell;
     vertical-align: bottom;
     width: 95%;
-    @media (max-width: $core-stack){
+    @media (max-width: $core-stack) {
       width: 100%;
       display: block;
     }
@@ -46,7 +47,7 @@
   &__link {
     display: inline-block;
     margin-right: $gutter-half;
-    @media (max-width: $core-stack){
+    @media (max-width: $core-stack) {
       text-align: center;
       margin-bottom: $gutter;
       margin-right: 0;
