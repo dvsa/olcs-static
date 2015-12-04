@@ -9,7 +9,7 @@ describe("OLCS.dataTooltip", function() {
     expect(this.component).to.be.a("function");
   });
   
-  describe("Given a stubbed DOM with an element with the 'data-tooltip' attribute", function() {
+  describe("Given a stubbed DOM with the tooltip data attribute", function() {
     
     beforeEach(function() {
       $("body").append([
@@ -34,7 +34,7 @@ describe("OLCS.dataTooltip", function() {
         });
   
         it("and the tooltip content should be created", function() {
-          expect($("#stub .tooltip").length).to.be(1);
+          expect($("#stub .tooltip").length).to.be.greaterThan(0);
         });
         
       });
