@@ -27,7 +27,7 @@ describe("OLCS.dataTooltip", function() {
         this.component();
       });
       
-      describe("Test that the tooltip setup is correctly created", function() {
+      describe("Test that the tooltip is correctly created", function() {
   
         it("the parent should now have the class 'tooltip-parent'", function() {
           expect($("#stub").hasClass("tooltip-parent")).to.be(true);
