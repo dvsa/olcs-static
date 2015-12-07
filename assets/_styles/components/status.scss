@@ -7,6 +7,8 @@
 
 .status {
   @extend %paragraph--tiny;
+  display: inline-block;
+  vertical-align: middle;
   border-radius: 2px;
   margin: 0 6px;
   padding: 1px 3px 0 3px;
@@ -15,6 +17,7 @@
   line-height: 1;
   text-transform: uppercase;
   white-space: nowrap;
+  text-align: left;
   &.red {
     border:  1px solid $red;
     color: $red;
