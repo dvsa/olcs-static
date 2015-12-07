@@ -154,7 +154,7 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
         }
 
 
-        $("<div class=address__preloader></div>").insertAfter(button);
+        $("<div class=address__preloader></div>").insertAfter(submitSelector);
 
         OLCS.submitForm({
           form: form,
