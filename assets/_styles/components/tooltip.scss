@@ -16,7 +16,7 @@
   position: relative;
   overflow: visible;
   &:hover .tooltip {
-    display: inline-block;
+    display: block;
   }
 }
 
@@ -34,9 +34,9 @@
   font-size: 14px;
   text-transform: none;
   font-weight: 400;
+  white-space: normal;
   color: white;
   background: $black;
-  white-space: normal;
   &:hover {
     cursor: default;
   }
