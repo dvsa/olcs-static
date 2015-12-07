@@ -16,7 +16,8 @@
 
 .overview-item {
   border-bottom: 1px solid $grey-2;
-  overflow: auto;
+  display: inline-block;
+  width: 100%;
   h4 {
     float: left;
     width: 40%;
