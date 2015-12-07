@@ -42,5 +42,5 @@ describe("OLCS.dataTooltip", function() {
     });
 
   });
-  
+
 });
