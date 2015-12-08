@@ -8,6 +8,7 @@
   list-style: none;
   margin-bottom: 2em;
   border-top: 1px solid $grey-2;
+  @extend %clearfix;
 }
 
 .disabled .overflow-item:hover {
@@ -67,7 +68,6 @@
   h4 {
     color: $grey-1;
   }
-
   p {
     text-indent: -9999px;
     width: 20px;
@@ -78,5 +78,4 @@
       background-size: 20px 20px;
     }
   }
-
 }
