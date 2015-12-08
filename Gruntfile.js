@@ -272,7 +272,9 @@
                 dev: {
                     options: {
                         sourceMap: true,
-                        mangle: false
+                        mangle: false,
+                        compress: false,
+                        beautify: true
                     },
                     files: scripts
                 },

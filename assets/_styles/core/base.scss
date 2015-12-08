@@ -75,6 +75,11 @@ dd {
 dd {
   margin: 0 0 1em;
   float: left;
+  // for some reason Firefox seems to automatically add a :before 
+  // pseudo element to dd items, which causes alignment issues
+  &:before {
+    display: none;
+  }
 }
 
 hr {

@@ -70,7 +70,7 @@ overview-items:
       <li class="overview-item">
         <a href="/styleguides/selfserve/operating-centres.html" class="overview-item__link">
           <h4>{{ name }}</h4>
-          <span class="status orange">{{ status }}</span>
+          <span class="status orange" data-tooltip="You still need to complete some information">{{ status }}</span>
           <p>{{ edit-link }}</p>
         </a>
       </li>
@@ -107,7 +107,7 @@ overview-items:
 
 
   <div class="one-third">
-    
+
     <div class="sidebar">
 
       <dl class="meta" style="border-bottom: 0; padding-bottom: 0;">
@@ -118,7 +118,7 @@ overview-items:
         <dt>Status</dt>
         <dd>Incomplete</dd>
       </dl>
-  
+
       <div class="links">
         <h3>Applying for a new licence</h3>
         <ul class="links-list">
@@ -129,9 +129,9 @@ overview-items:
           <li class="links-list__item"><a href="">How to draw up a maintenance contract</a></li>
         </ul>
       </div><!-- .links -->
-  
+
       {{> _support }}
-    
+
     </div>
 
   </div>
