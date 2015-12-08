@@ -5,9 +5,9 @@
 */
 
 .list-navigation {
+  @extend %clearfix;
   list-style: none;
   margin-bottom: 40px;
-  @extend %clearfix;
   &__item {
     @extend %paragraph--large;
     margin-bottom: 5px;
