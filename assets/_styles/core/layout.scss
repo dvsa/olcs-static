@@ -143,9 +143,9 @@
     margin: 0 0 4em;
   }
 
-  .content {
+  .content,
+  .full-width {
     @extend %table-row;
-    padding-top: 5px;
   }
 
   .content__header {
@@ -168,10 +168,6 @@
     @media(max-width: breakpoint('break-7')) {
       display: none;
     }
-  }
-
-  .full-width {
-    @extend .content;
   }
 
   .ui-box {
