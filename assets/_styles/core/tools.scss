@@ -3,6 +3,15 @@
 // Reusable, abstract elements too small/insignificant for their
 // own partial
 
+%clearfix,
+.clearfix {
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
 .hint {
   display: block;
   color: $grey-1;
