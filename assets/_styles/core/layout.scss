@@ -12,7 +12,6 @@
 // -----------------------------------------------------------------
 
 // [1] - Page/Content/Row Wrappers
-//
 // The document/application wrapper which contains the entire app
 
 .page-wrapper {
@@ -32,6 +31,8 @@
 }
 
 // [2] - Individual Columns
+// Create unsemantic class names for reusable columns of various 
+// widths and proportions
 
 // Re-define the GDS grid-column mixin
 
@@ -50,13 +51,9 @@
       width: 100%;
     }
   }
-  
-  @include ie-lte(7){
-    width: (($site-width + $gutter) * $width) - $gutter;
-  }
 
   padding: 0 $gutter-half;
-  @include box-sizing(border-box);
+  box-sizing: border-box;
   
 }
 
@@ -94,22 +91,47 @@
   @include grid-column( 1/1 );
 }
 
+// Create layout for table columns
+
+.table-row,
+%table-row {
+  display: table;
+  width: 100%;
+}
+  
+.table-col,
+%table-col {
+  display: table-cell;
+  vertical-align: top;
+}
+
+@mixin table-column($width, $side: left, $padding: $gutter) {
+  @extend %table-col;
+  width: $width;
+  @if $side == 'left' {
+    padding-right: $padding;
+  } @else if $side == 'right' {
+    padding-left: $padding;
+  }
+}
+
 // [3] - Selfserve only styles
+// Overwrite the main layout styles for the Selfserve application
 
 @if $app == 'selfserve' {
   
   .page-wrapper {
     max-width: $base-width;
   }
-
-  // TODO: find out about this
+  
   #main:focus {
     outline: 0;
   }
-
+  
 }
 
 // [4] - Internal only styles
+// Overwrite the main layout styles for the Intetnal aplication
 
 @if $app == 'internal' {
   
@@ -124,9 +146,9 @@
     margin: 0 0 4em;
   }
 
-  .content {
-    display: table;
-    width: 100%;
+  .content,
+  .full-width {
+    @extend %table-row;
     padding-top: 5px;
   }
 
@@ -136,44 +158,20 @@
     margin: 5px 0 12px;
   }
 
-  %table-cell {
-    display: table-cell;
-    vertical-align: top;
-  }
-
-  .one-fifth--left {
-    @extend %table-cell;
-    width: 200px;
-    padding: 0 30px 0 0;
+  .sidebar--left {
+    @include table-column(200px);
     h4 {
       @extend %header-with-actions;
       margin: 3px 0 0;
       border-bottom: 1px solid $grey-3;
-      padding-bottom: 10px;
     }
   }
 
-  .one-fifth--right {
-    @extend %table-cell;
-    width: 220px;
-    padding-left: 30px;
+  .sidebar--right {
+    @include table-column(220px, right);
     @media(max-width: breakpoint('break-7')) {
       display: none;
     }
-  }
-
-  //Needs refactoring
-  .three-fifths {
-    @extend %table-cell;
-  }
-
-  .four-fifths--left,
-  .four-fifths--right {
-    @extend %table-cell;
-  }
-
-  .full-width {
-    @extend .content;
   }
 
   .ui-box {
