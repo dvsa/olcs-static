@@ -119,12 +119,15 @@
 // Overwrite the main layout styles for the Selfserve application
 
 @if $app == 'selfserve' {
+  
   .page-wrapper {
     max-width: $base-width;
   }
+  
   #main:focus {
     outline: 0;
   }
+  
 }
 
 // [4] - Internal only styles
