@@ -18,60 +18,105 @@ breadcrumbs:
         <li>partners</li>
         <li>Transport Managers</li>
       </ul>
-      <hr />
-      <form action="">
+    </div>
+    <hr />
+    <form action="">
+      <fieldset>
         <fieldset>
-          <fieldset>
-            <legend>Has anyone you’ve named ever been declared bankrupt or had their estate seized?</legend>
-            <div class="field inline checkbox">
-              <label><input type="radio">Yes</label>
-            </div>
-            <div class="field inline checkbox">
-              <label><input type="radio">No</label>
-            </div>
-          </fieldset>
-          <fieldset>
-            <legend>Has anyone you’ve named ever been involved with a business that has gone (or is going) into liquidation, owing money?</legend>
-            <div class="field inline checkbox">
-              <label><input type="radio">Yes</label>
-            </div>
-            <div class="field inline checkbox">
-              <label><input type="radio">No</label>
-            </div>
-          </fieldset>
-          <fieldset>
-            <legend>Has anyone you’ve named ever been involved with a business that has gone (or is going) into receivership?</legend>
-            <div class="field inline checkbox">
-              <label><input type="radio">Yes</label>
-            </div>
-            <div class="field inline checkbox">
-              <label><input type="radio">No</label>
-            </div>
-          </fieldset>
-          <fieldset>
-            <legend>Has anyone you’ve named ever been involved with a business that has gone (or is going) into administration?</legend>
-            <div class="field inline checkbox">
-              <label><input type="radio">Yes</label>
-            </div>
-            <div class="field inline checkbox">
-              <label><input type="radio">No</label>
-            </div>
-          </fieldset>
-          <div class="field confirm">
-            <label class="">
-              <input type="checkbox" name="" id="" placeholder="" value="Y">
-              I’ll tell the Traffic Commissioner straight away if anyone’s involved in an insolvency between applying for this licence and a decision being made
-            </label>
+          <legend>Has anyone you’ve named ever been declared bankrupt or had their estate seized?</legend>
+          <div class="field inline checkbox">
+            <label><input type="radio">Yes</label>
+          </div>
+          <div class="field inline checkbox">
+            <label><input type="radio">No</label>
           </div>
         </fieldset>
+        <fieldset>
+          <legend>Has anyone you’ve named ever been involved with a business that has gone or is going into liquidation, owing money?</legend>
+          <div class="field inline checkbox">
+            <label><input type="radio">Yes</label>
+          </div>
+          <div class="field inline checkbox">
+            <label><input type="radio">No</label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Has anyone you’ve named ever been involved with a business that has gone or is going into receivership?</legend>
+          <div class="field inline checkbox">
+            <label><input type="radio">Yes</label>
+          </div>
+          <div class="field inline checkbox">
+            <label><input type="radio">No</label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Has anyone you’ve named ever been involved with a business that has gone or is going into administration?</legend>
+          <div class="field inline checkbox">
+            <label><input type="radio">Yes</label>
+          </div>
+          <div class="field inline checkbox">
+            <label><input type="radio">No</label>
+          </div>
+        </fieldset>
+       </fieldset>
 
-        <div class="actions-container">
-          <a href="" class="action--primary large">Save and continue</a>
-          <a href="" class="action--tertiary list large">Save and return to overview</a>
-        </div>
+       <div class="article">
+        <h3>Insolvency</h3>
+        <p>Use the box below to tell us about any insolvency proceedings you’ve been involved in.</p>
+        <details class="help">
+          <summary class="help__summary"> What do you need to tell us about?</summary>
+          <div class="help__text">
+            <p>Let us know:</p>
+            <ul>
+              <li>how the insolvency came about</li>
+              <li>when it happened</li>
+              <li>who was involved</li>
+              <li>which courts were involved</li>
+              <li>which operator’s licences were affected, if any</li>
+              <li>any other information you think’s relevant </li>
+            </ul>
+            <p>You should also upload your:</p>
+            <ul>
+              <li>certificate of discharge from bankruptcy</li>
+              <li>liquidator’s report</li>
+              <li>receiver’s report</li>
+              <li>administrator’s report</li>
+              <li>disqualification orders</li>
+            </ul>
+          </div>
+        </details>
+        <hr />
+      </div>
 
-      </form>
-    </div><!-- .article -->
+      <div class="field">
+        <label for="additional-info" class="visually-hidden">Additional information</label>
+        <textarea id="additional-info" class="extra-long js-financial-history" placeholder="Enter text here"></textarea>
+      </div>
+
+      <fieldset class="file-uploader">
+        <ul class="attach-action__list">
+          <li class="attach-action">
+            <label class="attach-action__label">
+              Attach files
+              <input class="attach-action__input js-visually-hidden" type="file" name="fileUpload[]">
+            </label>
+            <p class="attach-action__hint">20MB maximum file size. PDF, DOC, JPG, PNG or GIF</p>
+          </li>
+        </ul><!-- attach-actions -->
+      </fieldset><!-- .file-uploader -->
+
+      <div class="field confirm">
+        <label class="">
+          <input type="checkbox" name="" id="" placeholder="" value="Y">
+          I’ll tell the Traffic Commissioner straight away if anyone’s involved in an insolvency between applying for this licence and a decision being made
+        </label>
+      </div>
+
+      <div class="actions-container">
+        <a href="" class="action--primary large">Save and continue</a>
+        <a href="" class="action--tertiary list large">Save and return to overview</a>
+      </div>
+    </form>
   </div><!-- .two-thirds -->
 
   <div class="one-third">
