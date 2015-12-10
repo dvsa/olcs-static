@@ -29,10 +29,11 @@ OLCS.formSubmit = (function(document, $, undefined) {
       // When a submit button is clicked
       $($submit).on('click', function() {
         
-        // Disable all the submit buttons
+        // Disable all the submit buttons in the current form
         $($submit).addClass('disabled');
         
         // Replace the clicked button text with an appropriate message
+        // If no message is set, the button text will remain as normal
         if ($loadText !== undefined) {
           $(this).html($loadText);
         }
