@@ -17,7 +17,10 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
-  background: theme($internal: $grey-4, $selfserve: $grey-3);
+  background: theme(
+    $internal: $grey-4, 
+    $selfserve: $grey-3
+  );
 }
 
 body {
