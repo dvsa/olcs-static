@@ -14,8 +14,8 @@ OLCS.ready(function() {
   OLCS.notices();
   
   OLCS.formSubmit({
-    form : 'form',
-    submit : '[type="submit"]',
+    form: 'form',
+    submit: '[type="submit"]',
     loadText: 'loading...'
   });
 
