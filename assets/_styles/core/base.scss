@@ -33,6 +33,7 @@ body {
   line-height: 1.31579;
   text-transform: none;
   vertical-align: baseline;
+  font-family: $NTA-Light;
 }
 
 // [2] - CSS Reset/Standardise
@@ -97,13 +98,8 @@ hr {
   html {
     background: $grey-3;
   }
-
-  body {
-    font-family: $NTA-Light;
-  }
   
 }
-
 
 // [4] - Internal only styles
 
@@ -111,11 +107,6 @@ hr {
 
   html {
     background: $grey-4;
-  }
-
-  body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 15px;
   }
 
 }
