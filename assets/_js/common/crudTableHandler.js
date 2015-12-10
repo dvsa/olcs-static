@@ -30,15 +30,13 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
      */
     function reloadParent() {
 
-      // Show our preloader
-      OLCS.preloader.show();
-
       OLCS.ajax({
         url: window.location.href,
         success: OLCS.normaliseResponse(function(response) {
           F.render(mainBodySelector, response.body);
           OLCS.preloader.hide();
-        })
+        }),
+        preloader: 'table'
       });
     }
 

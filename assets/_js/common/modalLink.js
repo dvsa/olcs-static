@@ -30,6 +30,7 @@ OLCS.modalLink = (function(document, $, undefined) {
       e.stopPropagation();
 
       var key = $(this).attr('href');
+      var form = ""
 
       // Because we can only have one modal, it's fair to assume we can hide all
       // this was added to cater for when we need to trigger a new modal, when
@@ -39,12 +40,13 @@ OLCS.modalLink = (function(document, $, undefined) {
       // this when the modal is invoked was causing the parent to reload uneccessarily.
       //
       // OLCS.modal.hide();
-      OLCS.preloader.show();
+      // OLCS.preloader.show();
 
       OLCS.ajax({
         url: key,
         // bear in mind this component will create a modalForm wrapper
-        success: OLCS.modalResponse()
+        success: OLCS.modalResponse(),
+        preloader: 'modal'
       });
     });
   };

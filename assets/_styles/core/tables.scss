@@ -9,6 +9,7 @@
   width: 100%;
   overflow: auto;
   float: left;
+  position: relative;
   + .table__header {
     margin-top: 2em;
   }
@@ -128,6 +129,7 @@ td {
   }
 }
 
+
 tfoot {
   tr {
     border-top: 1px solid $grey-2;
@@ -164,8 +166,27 @@ tfoot {
   margin-top: -7px;
 }
 
+.table-preloader__overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: $white;
+  opacity: .75;
+}
 
-// This hack is to break any long safety inspector names onto 
+.table-preloader__icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 39px;
+  left: 50%;
+  background-image: url('../images/address-preloader-2x.gif');
+  background-size: 20px 20px;
+}
+
+// This hack is to break any long safety inspector names onto
 // two lines as per OLCS-11334
 
 #lva-safety { // ensure we are only affecting the desired table
@@ -173,7 +194,7 @@ tfoot {
     word-break: break-word;
     text-align: left;
     max-width: 100%;
-  } 
+  }
   td {
     max-width: 250px;
   }

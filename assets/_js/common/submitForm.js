@@ -17,7 +17,7 @@ OLCS.submitForm = (function(document, $, undefined) {
   "use strict";
 
   return function submit(options) {
-    
+
     var form = options.form;
     var success = options.success;
     var error = options.error || function(/*jqXHR, status, err*/) {
@@ -30,6 +30,7 @@ OLCS.submitForm = (function(document, $, undefined) {
     var data = form.serialize();
     var enabledElements;
     var url;
+    var preloader;
 
     if (disableOnSubmit) {
       enabledElements = form.find(":input").not(":disabled");
@@ -37,11 +38,11 @@ OLCS.submitForm = (function(document, $, undefined) {
     }
 
     function complete() {
-      /*
+
       if (disableOnSubmit) {
         enabledElements.removeAttr("disabled");
       }
-      */
+
       if (options.complete) {
         options.complete();
       }
@@ -56,6 +57,19 @@ OLCS.submitForm = (function(document, $, undefined) {
       url = window.location.pathname;
     }
 
+
+    if (form.hasClass("filters")) {
+      preloader = "table";
+    }
+
+    if (form.hasClass("table__form")) {
+      preloader = "modal";
+    }
+
+    if (data.indexOf("address") >= 0) {
+      preloader = "inline";
+    }
+
     return OLCS.ajax({
       url: url,
       method: form.attr("method"),
@@ -63,7 +77,7 @@ OLCS.submitForm = (function(document, $, undefined) {
       success: success,
       error: error,
       complete: complete,
-      beforeSend: OLCS.preloader.show()
+      preloader: preloader
     });
   };
 

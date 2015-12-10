@@ -19,7 +19,6 @@
 %preloader-icon {
   height: 32px;
   width: 32px;
-
   z-index: 30;
   @include device-pixel-ratio($ratio: 2) {
     background-size: 30px 30px;

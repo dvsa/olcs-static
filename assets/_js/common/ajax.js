@@ -26,6 +26,8 @@ OLCS.ajax = (function(document, $, undefined) {
 
   return function ajax(options) {
 
+
+
     var requestId = ++lastRequestId;
 
     // although jQuery doesn't care about missing defauts, we do
@@ -66,6 +68,8 @@ OLCS.ajax = (function(document, $, undefined) {
         if (options.beforeSend) {
           options.beforeSend.apply(null, arguments);
         }
+
+        OLCS.preloader.show();
       },
       success: function(data, textStatus, jqXHR) {
         OLCS.logger
