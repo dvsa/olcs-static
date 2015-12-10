@@ -55,7 +55,7 @@ OLCS.notices = (function(document, $, undefined) {
       // right hand column
       // @NOTE: This needs to be more specific
       $(noticeContainerSelector).each(function() {
-        if (!$(this).parents().is('.modal, .one-fifth--right')) {
+        if (!$(this).parents().is('.modal, .sidebar--right')) {
           fadeOut($(this));
         }
       });
