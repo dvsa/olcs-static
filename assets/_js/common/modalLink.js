@@ -46,7 +46,7 @@ OLCS.modalLink = (function(document, $, undefined) {
         url: key,
         // bear in mind this component will create a modalForm wrapper
         success: OLCS.modalResponse(),
-        preloader: 'modal'
+        preloaderType: 'modal'
       });
     });
   };

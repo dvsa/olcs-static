@@ -473,17 +473,6 @@ select:focus {
 */
 
 .address {
-  &__preloader {
-    float: right;
-    margin-top: 8px;
-    height: 20px;
-    width: 20px;
-    background: url('../images/address-preloader.gif') no-repeat 0 0;
-    @include device-pixel-ratio($ratio: 2) {
-      background-image: url('../images/address-preloader-2x.gif');
-      background-size: 20px 20px;
-    }
-  }
   fieldset {
     margin-bottom: 15px;
   }

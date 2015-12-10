@@ -166,26 +166,6 @@ tfoot {
   margin-top: -7px;
 }
 
-.table-preloader__overlay {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: $white;
-  opacity: .75;
-}
-
-.table-preloader__icon {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  top: 39px;
-  left: 50%;
-  background-image: url('../images/address-preloader-2x.gif');
-  background-size: 20px 20px;
-}
-
 // This hack is to break any long safety inspector names onto
 // two lines as per OLCS-11334
 

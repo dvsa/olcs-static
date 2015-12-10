@@ -34,7 +34,6 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
         url: window.location.href,
         success: OLCS.normaliseResponse(function(response) {
           F.render(mainBodySelector, response.body);
-          OLCS.preloader.hide();
         }),
         preloader: 'table'
       });

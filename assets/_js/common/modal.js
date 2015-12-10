@@ -121,7 +121,7 @@ OLCS.modal = (function(document, $, undefined) {
     $(wrapper).hide();
 
     // Show the preloader until the content has been rendered
-    OLCS.preloader.show();
+    OLCS.preloader.show('modal');
 
     // now obliterate them completely
     $(wrapper).prev().remove();

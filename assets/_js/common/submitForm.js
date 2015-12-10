@@ -30,7 +30,7 @@ OLCS.submitForm = (function(document, $, undefined) {
     var data = form.serialize();
     var enabledElements;
     var url;
-    var preloader;
+    var preloaderType;
 
     if (disableOnSubmit) {
       enabledElements = form.find(":input").not(":disabled");
@@ -57,17 +57,14 @@ OLCS.submitForm = (function(document, $, undefined) {
       url = window.location.pathname;
     }
 
-
     if (form.hasClass("filters")) {
-      preloader = "table";
-    }
-
-    if (form.hasClass("table__form")) {
-      preloader = "modal";
+      preloaderType = "table";
+    } else if (data.indexOf("table") >= 0) {
+      preloaderType = "modal";
     }
 
     if (data.indexOf("address") >= 0) {
-      preloader = "inline";
+      preloaderType = "inline";
     }
 
     return OLCS.ajax({
@@ -77,7 +74,7 @@ OLCS.submitForm = (function(document, $, undefined) {
       success: success,
       error: error,
       complete: complete,
-      preloader: preloader
+      preloaderType: preloaderType
     });
   };
 
