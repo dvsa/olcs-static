@@ -13,10 +13,12 @@ OLCS.ready(function() {
   OLCS.formInit();
   OLCS.notices();
   
+  // this currently targets ALL forms; perhaps we should 
+  // selectively target forms with a unique class?
   OLCS.formSubmit({
     form: 'form',
     submit: '[type="submit"]',
-    loadText: 'loading...'
+    loadText: 'Loading...'
   });
 
   // uses the jquery.details.min.js plugin to enhance <details>
