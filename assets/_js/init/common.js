@@ -12,6 +12,12 @@ OLCS.ready(function() {
   OLCS.selectBox();
   OLCS.formInit();
   OLCS.notices();
+  
+  OLCS.formSubmit({
+    form : 'form',
+    submit : '[type="submit"]',
+    loadText: 'loading...'
+  });
 
   // uses the jquery.details.min.js plugin to enhance <details>
   // element across browsers
