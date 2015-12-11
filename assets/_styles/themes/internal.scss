@@ -21,6 +21,7 @@ $app: internal;
 
 // Core
 @import '../core/config';
+@import '../core/tools';
 @import '../core/base';
 @import '../core/helpers';
 @import '../core/links';
@@ -30,7 +31,6 @@ $app: internal;
 @import '../core/forms';
 @import '../core/navigation';
 @import '../core/tables';
-@import '../core/tools';
 @import '../core/buttons';
 
 // Components

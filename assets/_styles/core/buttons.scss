@@ -7,7 +7,6 @@
 .actions-container {
   float: left;
   margin: 10px 0;
-  padding-bottom: 2px;
   a,
   input,
   button {
@@ -22,40 +21,35 @@ button {
   font-family: $NTA-Light;
 }
 
-@mixin action-colour ($colour: $button-colour) {
-  box-shadow: 0 2px 0 darken($colour, 15%);
-  @include ie-lte(8) {
-    border-bottom: 2px solid darken($colour, 15%);
-  }
+@mixin action-colour($colour: $button-colour) {
+  
   background: $colour;
-  &:visited {
-    background-color: $colour;
-  }
+  box-shadow: 0 2px 0 darken($colour, 15%);
+  
   &:hover,
   &:focus {
     text-decoration: none;
     background-color: darken($colour, 5%);
   }
   &:active {
-    box-shadow: 0 0 0 $colour;
-    top: 2px;
+    box-shadow: none;
   }
+  
   &.disabled,
   &[disabled="disabled"],
   &[disabled] {
-    @include opacity(.5);
+    opacity: 0.5;
     &:hover {
       cursor: default;
       background-color: $colour;
     }
-    &:active {
+    &:active,
+    &:focus {
+      outline: none;
       box-shadow: 0 2px 0 darken($colour, 15%);
-      @include ie-lte(8) {
-        border-bottom: 2px solid darken($colour, 15%);
-      }
-      top: 0;
     }
   }
+  
   @if lightness($colour) < 50% {
     color: $white;
     &:link,
@@ -73,14 +67,14 @@ button {
       color: $text-colour;
     }
   }
+  
 }
 
 %action-box {
   @extend %paragraph--small;
   border: 0;
-  margin: 0 .3em 0 0;
-  padding: 5px 10px 3px;
-  padding: .3em .5em .4em .5em\9;
+  margin-right: 0.3em;
+  padding: 0.4em 0.6em 0.3em;
   text-decoration: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -89,16 +83,6 @@ button {
   display: inline-block;
   vertical-align: top;
   line-height: 1.4;
-  @include ie-lte(8) {
-    &[type="submit"],
-    &[type="reset"],
-    &[type="button"] {
-      filter: chroma(color=#000000);
-    }
-    &[type=submit].button {
-      filter: none;
-    }
-  }
 }
 
 .action {
@@ -288,57 +272,22 @@ input[type=submit].more-actions__item {
       }
     }
   }
-
-  @mixin actionColour (
-    $color,
-    $border-colour,
-    $grad-light,
-    $grad-dark,
-    $hover-bg,
-    $disabled-text-color,
-    $disabled-bg,
-    $disabled-border ) {
-    color: $color;
-    border: 1px solid $border-colour;
-    background: $grad-dark;
-    background: linear-gradient($grad-light, $grad-dark);
-    &:hover {
-      cursor: pointer;
-      color: $color;
-      background: $hover-bg;
-    }
-    &.disabled,
-    &[disabled],
-    &[disabled="disabled"] {
-      cursor: default;
-      border: 1px solid $disabled-border;
-      background: $disabled-bg;
-      color: $disabled-text-color;
-      &:hover {
-        background: $disabled-bg;
-      }
-    }
-  }
-
-  input.action--primary,
+  
   .action--primary {
     @extend %action-box;
-    @include actionColour(#FFF, #10654E, #178B6C, $primaryColour, #146C55, #FFF, #8BB5AA, #8BB5AA);
+    @include action-colour(#10654E);
   }
 
-  input.action--secondary,
   .action--secondary {
     @extend %action-box;
-    @include actionColour(#222, $grey-2, #FCFCFC, #EEE, $grey-3, $grey-2, #FCFCFC, $grey-3);
+    @include action-colour(#EEE);
   }
 
-  input.action--delete,
   .action--delete {
     @extend %action-box;
-    @include actionColour($white, #990917, $red, #990917, #87000D, $red, #FCFCFC, $red);
+    @include action-colour($red);
   }
 
-  input.action--tertiary,
   .action--tertiary {
     @extend %action-box;
     @extend a;
@@ -350,7 +299,6 @@ input[type=submit].more-actions__item {
        padding-left: 7px;
     }
   }
-
 
   .record-actions {
     margin-top: .75em;
