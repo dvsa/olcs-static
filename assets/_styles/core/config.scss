@@ -8,8 +8,9 @@
 // [2] - Colours
 // [3] - layout
 // [4] - Responsive Breakpoints
-// [5] - Selfserve only config
-// [6] - Internal only config
+// [5] - Theme Helper
+// [6] - Selfserve only config
+// [7] - Internal only config
 //
 // -----------------------------------------------------------------
 
@@ -60,9 +61,24 @@ $breakpoints: (
 }
 
 // Set the default width for column stacking
-$core-stack: breakpoint('break-4');
+$mobile-column-stack: breakpoint('break-4');
 
-// [5] - Internal theme
+// [5] - Theme Helper
+// Function to output a CSS value based on which theme is being used
+// -----------------------------------------------------------------
+
+// background: theme($internal: white, $selfserve: black);
+// background: theme(white, black);
+
+@function theme($internal, $selfserve) {
+  @if $app == 'internal' {
+    @return $internal;
+  } @else if $app == 'selfserve' {
+    @return $selfserve;
+  }
+}
+
+// [6] - Internal theme
 // Configuration for the Internal theme only
 // -----------------------------------------------------------------
 
@@ -73,7 +89,7 @@ $core-stack: breakpoint('break-4');
   $black      : #222;
 }
 
-// [6] - Selfserve theme
+// [7] - Selfserve theme
 // Configuration for the Selfserve theme only
 // -----------------------------------------------------------------
 

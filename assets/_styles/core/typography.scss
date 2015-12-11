@@ -10,7 +10,7 @@
   } @else {
     font-size: $print-font-size;
   }
-  @media (max-width: $core-stack) {
+  @media (max-width: $mobile-column-stack) {
     font-size: $font-size-640;
   }
 }
