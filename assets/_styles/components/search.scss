@@ -6,9 +6,9 @@
 
 .search {
   float: left;
+  margin-top: 1px;
   width: 460px;
-  margin-top: 2px;
-  @media (max-width: 640px) {
+  @media (max-width: breakpoint('break-3')) {
     width: 100%;
   }
   &__wrapper {
@@ -18,7 +18,7 @@
     height: 32px;
     width: 75%;
     background: $white;
-    @media (max-width: 640px) {
+    @media (max-width: breakpoint('break-3')) {
       width: 100%;
     }
   }
@@ -64,7 +64,7 @@
     color: $white;
     margin: .5em 1em;
     float: left;
-    @media(max-width: 640px) {
+    @media(max-width: breakpoint('break-3')) {
       display: none;
     }
   }

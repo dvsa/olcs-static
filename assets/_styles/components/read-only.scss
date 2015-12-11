@@ -96,7 +96,7 @@
 
 .definition-list .full-width {
   width: 100%;
-  padding-top: 0;
+  padding: 0 15px 0 0;
   dt {
     width: 22.5%;
   }
@@ -120,6 +120,9 @@
     li {
       max-width: 700px;
       margin-bottom: .6em;
+    }
+    dd {
+      word-break: break-word;
     }
   }
 

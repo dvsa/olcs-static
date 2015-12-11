@@ -1,19 +1,29 @@
+// Layout
+// -----------------------------------------------------------------
+//
+// Styles to provide the foundation skeleton and grid system for the
+// app. Uses vendor/govuk_toolkit to generate grid related styles.
+//
+// [1] - Page/Content/Row Wrappers
+// [2] - Individual Columns
+// [3] - Selfserve only styles
+// [4] - Internal only styles
+//
+// -----------------------------------------------------------------
 
-/*
-  Layout
-  ======
-*/
+// [1] - Page/Content/Row Wrappers
+//
+// The document/application wrapper which contains the entire app
 
 .page-wrapper {
-  margin: 0 auto;
   overflow: hidden;
-  width: 95%;
   clear: both;
-  padding: 0 1.25%;
-  @media (max-width: 640px){
-    padding: 0;
-    width: 100%;
-  }
+  margin: 0 auto;
+  padding: 0 $gutter-half;
+}
+
+.row {
+  @extend %grid-row;
 }
 
 #main {
@@ -21,174 +31,92 @@
   min-height: 450px;
 }
 
-%fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
+// [2] - Individual Columns
 
-.visually-hidden {
-  position: absolute;
-  left: -9999em;
-}
+// Re-define the GDS grid-column mixin
 
-.hidden {
-  display: none !important;
-}
-
-.right-aligned {
-  float: right;
-}
-
-.inline {
-  float: left;
-  margin-right: .5em;
-}
-
-.centered {
-  text-align: center;
-  margin: 0 auto;
-  max-width: 700px;
-}
-
-
-hr {
-  width: 100%;
-  height: .25em;
-  display: block;
-  border: 0;
-  clear: both;
-}
-
-.js-visible,
-input[type="checkbox"].js-visible,
-input[type="radio"].js-visible {
-  display: none;
-}
-
-.js-enabled {
-  .js-visually-hidden {
-    @extend .visually-hidden;
+@mixin grid-column($width, $full-width: $core-stack, $float: left, $mobile-first: false) {
+  
+  @if $mobile-first {
+    @media (min-width: $full-width) {
+      float: $float;
+      width: percentage($width);
+    }
+  } @else {
+    float: $float;
+    width: percentage($width);
+    @media (max-width: $full-width) {
+      float: none;
+      width: 100%;
+    }
   }
-  .js-hidden {
-    display: none;
+  
+  @include ie-lte(7){
+    width: (($site-width + $gutter) * $width) - $gutter;
   }
-  .js-visible,
-  input[type="checkbox"].js-visible,
-  input[type="radio"].js-visible {
-    display: block;
-  }
+
+  padding: 0 $gutter-half;
+  @include box-sizing(border-box);
+  
 }
 
-%header-with-actions {
-  float: left;
-  width: 100%;
-  padding-bottom: 8px;
-  h3,
-  h4 {
-    float: left;
-    display: block;
-    margin: 0;
-  }
-  .actions-container {
-    margin: -5px 0 -1px;
-    display: block;
-    float: right;
-  }
-  .action--primary,
-  .action--secondary {
-    float: left;
-    display: inline-block;
-    margin: 0 0 0 5px;
-  }
-  select {
-    margin: 3px 3px 0 0;
-  }
+// Create individual columns
+
+.one-quarter {
+  @include grid-column( 1/4 );
 }
 
+.one-third {
+  @include grid-column( 1/3 );
+}
 
-/*
-  Some comment
-*/
+.one-half {
+  @include grid-column( 1/2 );
+}
 
+.three-eigths {
+  @include grid-column( 3/8 );
+}
 
+.five-eigths {
+  @include grid-column( 5/8 );
+}
 
-// Selfserve theme
-// ---------------
+.two-thirds {
+  @include grid-column( 2/3 );
+}
+
+.three-quarters {
+  @include grid-column( 3/4 );
+}
+
+.full-width {
+  @include grid-column( 1/1 );
+}
+
+// [3] - Selfserve only styles
 
 @if $app == 'selfserve' {
-
+  
   .page-wrapper {
-    max-width: 1010px;
+    max-width: $base-width;
   }
 
+  // TODO: find out about this
   #main:focus {
     outline: 0;
   }
 
-  .one-third {
-    @extend %container;
-    width: 28.3333333333%;
-    width : 27.4%\9; /* lt IE9  */
-  }
-
-  .one-quarter {
-    @extend %container;
-    width: 20%;
-  }
-
-  .one-half {
-    @extend %container;
-    width: 45%;
-  }
-
-  .two-thirds {
-    @extend %container;
-    width: 61.6666666667%;
-    &.border {
-      border-top: 1px solid $grey-2;
-      padding-top: 2em;
-    }
-  }
-
-  .three-quarters {
-    @extend %container;
-    width: 70%;
-  }
-
-  .full-width {
-    @extend %container;
-    width: 100% - ($gutter*2);
-  }
-
-  .three-eigths {
-    @extend %container;
-    width: 24%;
-  }
-
-  .five-eigths {
-    @extend %container;
-    width: 66%;
-  }
-
-  %container {
-    float: left;
-    margin: 0 $gutter 1em;
-    @media (max-width: 640px){
-      width: 92%;
-      margin: 0 4% 1.5em;
-    }
-  }
-
 }
 
-
-// Internal theme
-// ---------------
+// [4] - Internal only styles
 
 @if $app == 'internal' {
+  
+  .page-wrapper {
+    padding: 0 $gutter;
+    overflow-x: auto;
+  }
 
   #main {
     display: table;
@@ -229,7 +157,7 @@ input[type="radio"].js-visible {
     @extend %table-cell;
     width: 220px;
     padding-left: 30px;
-    @media(max-width: 1200px) {
+    @media(max-width: breakpoint('break-7')) {
       display: none;
     }
   }
