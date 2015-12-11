@@ -161,7 +161,7 @@
   .sidebar--left {
     @include table-column(200px);
     h4 {
-      @extend %header-with-actions;
+      padding-bottom: 8px;
       margin: 3px 0 0;
       border-bottom: 1px solid $grey-3;
     }
