@@ -13,6 +13,7 @@
 
 // [1] - Page/Content/Row Wrappers
 // The document/application wrapper which contains the entire app
+// -----------------------------------------------------------------
 
 .page-wrapper {
   overflow: hidden;
@@ -33,6 +34,7 @@
 // [2] - Individual Columns
 // Create unsemantic class names for reusable columns of various 
 // widths and proportions
+// -----------------------------------------------------------------
 
 // Re-define the GDS grid-column mixin
 
@@ -117,6 +119,7 @@
 
 // [3] - Selfserve only styles
 // Overwrite the main layout styles for the Selfserve application
+// -----------------------------------------------------------------
 
 @if $app == 'selfserve' {
   
@@ -132,6 +135,7 @@
 
 // [4] - Internal only styles
 // Overwrite the main layout styles for the Intetnal aplication
+// -----------------------------------------------------------------
 
 @if $app == 'internal' {
   

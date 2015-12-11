@@ -919,12 +919,6 @@ select:focus {
     font-size: 14px;
   }
 
-  .js-postcode-search .inline .action--primary.large,
-  .lookup button.action--primary.large {
-    margin-left: 5px;
-    padding: 7px 12px;
-  }
-
   .hint,
   .hint--small {
     @extend %paragraph--tiny;

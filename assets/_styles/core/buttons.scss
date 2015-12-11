@@ -108,21 +108,12 @@ button {
   }
 }
 
-.action--primary.large,
-.action--secondary.large {
-  @extend %paragraph--large;
-  padding: 7px 15px 5px;
-}
-
 .action--tertiary.large {
   @extend %paragraph--large;
 }
 
 
-/*
-  More actions styles a select element
-  to look like a button
- */
+//  More actions styles a select element to look like a button
 
 .more-actions:hover .more-actions__list {
   display: block;
@@ -130,7 +121,6 @@ button {
     display: none;
   }
 }
-
 
 .more-actions {
   position: relative;
@@ -158,8 +148,7 @@ button {
 }
 
 .more-actions__list .action--secondary,
-button.more-actions__item,
-input[type=submit].more-actions__item {
+.more-actions__item {
   margin: 0;
   padding: 6px 10px;
   border: 0;
@@ -265,7 +254,6 @@ input[type=submit].more-actions__item {
     &.large {
       font-weight: 600;
       font-size: 17px;
-      padding: 7px 13px 7px 13px;
       .inline & {
         font-size: 15px;
         padding: 8px 12px;
@@ -290,14 +278,9 @@ input[type=submit].more-actions__item {
 
   .action--tertiary {
     @extend %action-box;
-    @extend a;
     background: none;
     border: 0;
-    font-size: 15px;
     text-decoration: underline;
-    &.large {
-       padding-left: 7px;
-    }
   }
 
   .record-actions {
