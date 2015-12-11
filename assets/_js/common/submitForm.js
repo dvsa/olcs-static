@@ -17,6 +17,7 @@ OLCS.submitForm = (function(document, $, undefined) {
   "use strict";
 
   return function submit(options) {
+    
     var form = options.form;
     var success = options.success;
     var error = options.error || function(/*jqXHR, status, err*/) {
@@ -36,10 +37,11 @@ OLCS.submitForm = (function(document, $, undefined) {
     }
 
     function complete() {
+      
       if (disableOnSubmit) {
         enabledElements.removeAttr("disabled");
       }
-
+      
       if (options.complete) {
         options.complete();
       }
