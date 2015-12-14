@@ -47,23 +47,26 @@
       outline: none;
     }
     select {
+      -moz-appearance:none;
       -webkit-appearance: none;
       border: none;
       margin: 0;
-      line-height: 2.3rem;
+      cursor: pointer;
       padding: 0 1rem;
       color: #767676;
+      display: inline-block;
+      height: 36px;
     }
   }
   &__input {
     float: left;
     background: $white;
-    line-height: 2.3rem;
     padding: 0 1rem;
     background: $white;
     color: $black;
     width: 165px;
     border: 0;
+    height: 36px;
     &::placeholder {
       color: #767676;
       opacity:  1;
@@ -76,7 +79,7 @@
   [type="submit"] {
     float: left;
     width: 2.5rem;
-    line-height: 2.25rem;
+    height: 36px;
     border-radius: 0 3px 3px 0;
     border: 0;
     text-indent: -9999px;
