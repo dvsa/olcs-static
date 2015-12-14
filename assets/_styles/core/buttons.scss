@@ -240,6 +240,13 @@ button {
   .action--secondary {
     @include action-colour(#EEE);
   }
+  
+  .action--tertiary {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 
   .action--delete {
     @include action-colour($red);
