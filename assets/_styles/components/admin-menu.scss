@@ -57,6 +57,7 @@
   overflow: visible;
   padding: 7px 30px .3em .75em;
   background: url('../images/down-arrow.png') no-repeat 85% 13px;
+  border: 1px solid darken($grey-1, 10%);
   @include device-pixel-ratio($ratio: 2) {
     background-image: url('../images/down-arrow-2x.png');
     background-size: 12px 112px;
@@ -67,6 +68,7 @@
   }
   &.active {
     background-color: #151515;
+    border-color: transparent;
   }
 }
 
