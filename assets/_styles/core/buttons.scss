@@ -238,7 +238,9 @@ button {
   }
 
   .action--secondary {
-    @include action-colour(#EEE);
+    @include action-colour(#f9f9f9);
+    border: 1px solid #e5e5e5;
+    color: $govuk-blue;
   }
   
   .action--tertiary {
@@ -255,6 +257,7 @@ button {
   .record-actions {
     margin-top: .75em;
     display: block;
+    font-size: 15px;
     &__group {
       list-style: none;
       margin: .5em 0 1.1em 0;
@@ -263,9 +266,8 @@ button {
       margin-bottom: .5em;
     }
     a {
-      color: $black;
-      text-decoration: none;
       display: block;
+      font-size: 15px;
     }
   }
 

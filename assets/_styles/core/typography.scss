@@ -4,6 +4,17 @@
   ==========
 */
 
+$font-sizes: (
+  'size-1' : 14px,
+  'size-2' : 15px,
+  'size-3' : 17px,
+  'size-4' : 27px
+);
+
+@function font-size($size) {
+  @return map-get($font-sizes, 'size-#{$size}');
+}
+
 @mixin font-size($font-size, $print-font-size, $font-size-640) {
   @if $is-print == false {
     font-size: $font-size;
@@ -160,26 +171,21 @@ textarea {
 
 @if $app == 'internal' {
 
-  %h2 {
-    @include font-size(24px,16pt,20px);
+  .title {
+    font-size: font-size(3);
+    border-bottom: 1px solid $grey-2;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
   }
 
-  %h4 {
-    @include font-size(16px,13pt,15px);
+  p {
+    font-size: font-size(2);
   }
 
   h1 {
     @include font-size(26px,15pt,24px);
     display: inline;
     padding-right: .25em;
-  }
-
-  h3 {
-    @extend %h4;
-  }
-
-  p {
-    font-size: 15px;
   }
 
 }

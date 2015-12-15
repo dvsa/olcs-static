@@ -72,11 +72,19 @@
   .breadcrumbs {
     float: left;
     color: $grey-1;
+    a {
+      text-decoration: none;
+    }
     &__item {
       &:after {
         content: "/";
         margin-right: 0.5em;
         margin-left: 0.65em;
+      }
+      &:hover {
+        a {
+          text-decoration: underline;
+        }
       }
       &.current {
         &:after {
