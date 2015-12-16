@@ -187,5 +187,13 @@ textarea {
     display: inline;
     padding-right: .25em;
   }
+  
+  .article {
+    p, 
+    ul,
+    ol {
+      font-size: font-size(2);
+    }
+  }
 
 }
