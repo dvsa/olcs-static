@@ -13,7 +13,6 @@ OLCS.filterResponse = (function(document, $, undefined) {
     return OLCS.normaliseResponse(function(response) {
       var content = response.body;
 
-
       if (filter) {
         /**
          * we MUST wrap the plain content in a container so that

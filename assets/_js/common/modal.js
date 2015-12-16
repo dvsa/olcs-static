@@ -116,7 +116,6 @@ OLCS.modal = (function(document, $, undefined) {
       url: window.location.href,
       success: OLCS.normaliseResponse(function(response) {
         OLCS.formHelper.render('.js-body', response.body);
-        console.log(response.body);
       }),
       preloaderType: 'modal'
     });
