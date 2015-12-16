@@ -14,7 +14,7 @@ OLCS.preloader = (function(document, $, undefined) {
    * private interface
    */
 
-  var preloaderSelectors = 'div[class*=preloader]'
+  var preloaderSelectors = 'div[class*=preloader]';
   var template;
 
   function modalPreloader () {
@@ -37,7 +37,7 @@ OLCS.preloader = (function(document, $, undefined) {
   }
 
   function inlinePreloader () {
-    $("<div class=preloader-icon--inline></div>").insertAfter('.js-find');
+    $('<div class=preloader-icon--inline></div>').insertAfter('.js-find');
   }
 
   /**
@@ -45,7 +45,11 @@ OLCS.preloader = (function(document, $, undefined) {
    */
   exports.show = function(type) {
 
-    console.log('SHOWING MODAL')
+    // Dont show another preloader if there's
+    // already one on the screen
+    if ($(preloaderSelectors).length) {
+      return;
+    }
 
     switch (type) {
       case 'modal':

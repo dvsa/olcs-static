@@ -5,11 +5,11 @@
 */
 
 %preloader-icon {
-  height: 32px;
-  width: 32px;
+  height: 28px;
+  width: 28px;
   z-index: 30;
   @include device-pixel-ratio($ratio: 2) {
-    background-size: 30px 30px;
+    background-size: 100%;
   }
 }
 
@@ -19,23 +19,19 @@
   left: 49%;
   top: 52%;
   background: url('../images/preloader.gif') no-repeat 0 0;
-  background-size: 100%;
   @include device-pixel-ratio($ratio: 2) {
     background-image: url('../images/preloader-2x.gif');
   }
 }
 
 .preloader-overlay--modal {
+  @include opacity(.7);
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  width: 100%;
+  height: 100%;
   background: $black;
-  opacity: .7;
   z-index: 20;
 }
-
 
 .preloader-icon--table {
   position: absolute;
@@ -44,19 +40,16 @@
   top: 39px;
   left: 50%;
   background-image: url('../images/address-preloader-2x.gif');
-  background-size: 20px 20px;
+  background-size: 100%;
 }
 
 .preloader-overlay--table {
+  @include opacity(.6);
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  width: 100%;
+  height: 100%;
   background: $white;
-  opacity: .75;
 }
-
 
 .preloader-icon--inline {
   float: right;
@@ -69,7 +62,3 @@
     background-size: 20px 20px;
   }
 }
-
-
-
-

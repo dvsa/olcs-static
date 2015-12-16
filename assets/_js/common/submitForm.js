@@ -63,7 +63,7 @@ OLCS.submitForm = (function(document, $, undefined) {
       preloaderType = "modal";
     }
 
-    if (data.indexOf("address") >= 0) {
+    if (data.match(/(=search|=select)/)) {
       preloaderType = "inline";
     }
 

@@ -67,7 +67,6 @@ OLCS.ajax = (function(document, $, undefined) {
           options.beforeSend.apply(null, arguments);
         }
 
-        console.log("////////////////// TYPE: "+options.preloaderType);
         OLCS.preloader.show(options.preloaderType);
 
       },

@@ -50,7 +50,6 @@ OLCS.ready(function() {
     success: OLCS.normaliseResponse(function(data) {
       if (data.hasErrors) {
         F.render(".js-body", data.body);
-
         return;
       }
       OLCS.modalForm(data);

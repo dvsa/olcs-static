@@ -30,7 +30,6 @@ OLCS.modalLink = (function(document, $, undefined) {
       e.stopPropagation();
 
       var key = $(this).attr('href');
-      var form = ""
 
       // Because we can only have one modal, it's fair to assume we can hide all
       // this was added to cater for when we need to trigger a new modal, when
