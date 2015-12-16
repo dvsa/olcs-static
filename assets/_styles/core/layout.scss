@@ -160,6 +160,7 @@
     @include table-column(200px);
     .title {
       @extend .content_header;
+      margin-bottom: 0.25em;
     }
   }
 
