@@ -127,13 +127,6 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
      * still trigger a spinner and a refresh which might confuse them. However, it's
      * still necessary because they've actually POSTed the original form and possibly
      * updated the version, so if they try and view another modal they'll get a version conflict
-     *
-     * We could 'optimistically' reload the parent as soon as the modal is rendered, but
-     * you'd end up with a spinner on top of an otherwise ready modal form, and you'd
-     * still have to update the parent if the user added / edited something in the modal
-     * since the underlying table would need an update. This will do for now
-     * and at least means the reload only happens once, and always at the same point in
-     * the flow
      */
     OLCS.eventEmitter.on("hide:modal", reloadParent);
   };
