@@ -51,7 +51,6 @@ button {
   
   @if lightness($colour) < 50% {
     color: $white;
-    &:link,
     &:hover,
     &:focus,
     &:visited {
@@ -59,7 +58,6 @@ button {
     }
   } @else {
     color: $text-colour;
-    &:link,
     &:hover,
     &:focus,
     &:visited{
@@ -242,6 +240,9 @@ button {
     @include action-colour(#f9f9f9);
     border: 1px solid #e5e5e5;
     color: $govuk-blue;
+    &:hover {
+      color: $govuk-blue;
+    }
   }
   
   .action--tertiary {
