@@ -110,16 +110,6 @@ OLCS.modal = (function(document, $, undefined) {
     // let other components know that the modal is hidden
     OLCS.eventEmitter.emit('hide:modal');
 
-    // refresh the parent container to ensure it's up
-    // to date
-    OLCS.ajax({
-      url: window.location.href,
-      success: OLCS.normaliseResponse(function(response) {
-        OLCS.formHelper.render('.js-body', response.body);
-      }),
-      preloaderType: 'modal'
-    });
-
   };
 
   exports.isVisible = function() {
