@@ -57,7 +57,7 @@ OLCS.submitForm = (function(document, $, undefined) {
       url = window.location.pathname;
     }
 
-    if (form.hasClass("filters")) {
+    if ($(form).hasClass("filters")) {
       preloaderType = "table";
     } else if (data.indexOf("table") >= 0) {
       preloaderType = "modal";

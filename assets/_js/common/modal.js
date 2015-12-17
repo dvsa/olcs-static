@@ -43,19 +43,6 @@ OLCS.modal = (function(document, $, undefined) {
     '</div>'
   ].join('\n');
 
-
-  $(document).on('click', closeSelectors, function(e) {
-    e.preventDefault();
-    exports.hide();
-  });
-
-  $(document).keyup(function(e) {
-    if (e.keyCode === 27 && exports.isVisible()) {
-      e.preventDefault();
-      exports.hide();
-    }
-  });
-
   /**
    * public interface
    */
@@ -87,14 +74,24 @@ OLCS.modal = (function(document, $, undefined) {
     // needs resetting
     $(wrapper).scrollTop(0);
 
+    $(document).on('click', closeSelectors, function(e) {
+      e.preventDefault();
+      exports.hide();
+    });
+
+    $(document).keyup(function(e) {
+      if (e.keyCode === 27 && exports.isVisible()) {
+        e.preventDefault();
+        exports.hide();
+      }
+    });
+
   };
 
   exports.hide = function() {
 
     // sometimes we want to trigger a different action when we
     // hide the modal, such as showing a confirmation box.
-    // If form has a data attribute of close-trigger
-    // then trigger a click of the specified selector
     var form = $(content).find('form[data-close-trigger]');
 
     if (form.length) {
@@ -103,7 +100,7 @@ OLCS.modal = (function(document, $, undefined) {
       return;
     }
 
-    // clean things uo
+    // clean things up
     $('body').removeClass(bodyClass);
     $(wrapper +','+overlay).remove();
 

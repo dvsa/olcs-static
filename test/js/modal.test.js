@@ -12,6 +12,8 @@ describe("OLCS.modal", function() {
   it("should expose the correct public interface", function() {
     expect(this.component.show).to.be.a("function");
     expect(this.component.hide).to.be.a("function");
+    expect(this.component.isVisible).to.be.a("function");
+    expect(this.component.updateBody).to.be.a("function");
   });
 
   describe("show", function() {

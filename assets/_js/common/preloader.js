@@ -18,7 +18,6 @@ OLCS.preloader = (function(document, $, undefined) {
   var template;
 
   function modalPreloader () {
-
     template = [
       '<div class="preloader-overlay--modal"></div>',
       '<div class="preloader-icon--modal"></div>',
