@@ -29,7 +29,6 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
      * Helper to reload the parent window behind the modal
      */
     function reloadParent() {
-
       OLCS.ajax({
         url: window.location.href,
         success: OLCS.normaliseResponse(function(response) {
