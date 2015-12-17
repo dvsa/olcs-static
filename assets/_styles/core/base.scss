@@ -6,8 +6,6 @@
 //
 // [1] - Document Wrapper
 // [2] - CSS Reset/Normalize
-// [3] - Selfserve only styles
-// [4] - Internal only styles
 //
 // -----------------------------------------------------------------
 
@@ -19,6 +17,10 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
+  background: theme(
+    $selfserve: $grey-3,
+    $internal: $grey-4
+  );
 }
 
 body {
@@ -33,6 +35,7 @@ body {
   line-height: 1.31579;
   text-transform: none;
   vertical-align: baseline;
+  font-family: $NTA-Light;
 }
 
 // [2] - CSS Reset/Standardise
@@ -88,34 +91,4 @@ hr {
   display: block;
   border: 0;
   clear: both;
-}
-
-// [3] - Selfserve only styles
-
-@if $app == 'selfserve' {
-  
-  html {
-    background: $grey-3;
-  }
-
-  body {
-    font-family: $NTA-Light;
-  }
-  
-}
-
-
-// [4] - Internal only styles
-
-@if $app == 'internal' {
-
-  html {
-    background: $grey-4;
-  }
-
-  body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 15px;
-  }
-
 }

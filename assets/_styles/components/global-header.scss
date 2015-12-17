@@ -24,7 +24,7 @@
     float: left;
     clear: none;
     margin: 5px 0 0 180px;
-    @media (max-width: $core-stack) {
+    @media (max-width: $mobile-column-stack) {
       font-size: 18px;
       margin: 5px 0 0 0;
       clear: both;
@@ -39,7 +39,7 @@
     font-size: 30px;
     line-height: 1;
     text-decoration: none;
-    @media (max-width: $core-stack) {
+    @media (max-width: $mobile-column-stack) {
       padding-top: 10px;
       margin-left: 0;
     }
@@ -72,7 +72,7 @@
     position: relative;
     overflow: visible;
     &__wrapper {
-      @media(max-width: $core-stack) {
+      @media(max-width: $mobile-column-stack) {
         padding-bottom: 1em;
       }
     }
