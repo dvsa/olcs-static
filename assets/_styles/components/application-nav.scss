@@ -42,9 +42,6 @@ $mobile-statuses: (
       background: url('#{$assetPath}/application-navigation-2x.png') no-repeat 100% -192px;
       background-size: 15px 1015px;
     }
-    &:first-child {
-      padding-top: 0;
-    }
   }
   @each $status in $mobile-statuses {
     .#{nth($status, 1)} {
