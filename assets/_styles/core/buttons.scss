@@ -22,9 +22,9 @@ button {
 }
 
 @mixin action-colour($colour: $button-colour) {
-  
+
   background: $colour;
-  
+
   &:hover,
   &:focus {
     text-decoration: none;
@@ -33,7 +33,7 @@ button {
   &:active {
     box-shadow: none;
   }
-  
+
   &.disabled,
   &[disabled="disabled"],
   &[disabled] {
@@ -48,7 +48,7 @@ button {
       box-shadow: 0 2px 0 darken($colour, 15%);
     }
   }
-  
+
   @if lightness($colour) < 50% {
     color: $white;
     &:link,
@@ -65,22 +65,22 @@ button {
     &:visited{
       color: $text-colour;
     }
-  }  
-  
+  }
+
   @if $app == 'selfserve' {
     box-shadow: 0 2px 0 darken($colour, 15%);
   }
   @if $app == 'internal' {
-    border-radius: 0.25em;
+    border-radius: 3px;
   }
-  
+
 }
 
 %action-box {
   @extend %paragraph--small;
   border: 0;
-  margin-right: 0.3em;
-  padding: 0.4em 0.75em 0.3em;
+  margin-right: .3em;
+  padding: .4em .75em .3em;
   text-decoration: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -122,7 +122,7 @@ button {
   }
 }
 
-// More actions 
+// More actions
 // styles a select element to look like a button
 
 .more-actions:hover .more-actions__list {
@@ -195,7 +195,7 @@ button {
   button:focus {
     outline: 3px solid $outline;
   }
-  
+
   a:focus {
     background-color: $outline;
   }
@@ -223,6 +223,13 @@ button {
 
 @if $app == 'internal' {
 
+  %action-box {
+    padding: 4px 10px 3px;
+    &.large {
+      padding: 7px 15px 6px;
+    }
+  }
+
   .actions-container select {
     float: left;
   }
@@ -232,7 +239,7 @@ button {
     outline: none;
     background-color: none;
   }
-  
+
   .action--primary {
     @include action-colour(#10654E);
     border: 1px solid transparent;
@@ -249,7 +256,7 @@ button {
       color: $govuk-blue;
     }
   }
-  
+
   .action--tertiary {
     text-decoration: none;
     &:hover {

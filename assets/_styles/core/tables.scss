@@ -165,7 +165,7 @@ tfoot {
 }
 
 
-// This hack is to break any long safety inspector names onto 
+// This hack is to break any long safety inspector names onto
 // two lines as per OLCS-11334
 
 #lva-safety { // ensure we are only affecting the desired table
@@ -173,7 +173,7 @@ tfoot {
     word-break: break-word;
     text-align: left;
     max-width: 100%;
-  } 
+  }
   td {
     max-width: 250px;
   }
@@ -198,9 +198,10 @@ tfoot {
 
   .table__header {
     @extend %header-with-actions;
-    margin-bottom: 0;
+    margin-top: -8px;
     h3 {
       font-size: font-size(3);
+      margin-top: 8px;
     }
     h3 + form & {
       margin-top: .2em !important;
