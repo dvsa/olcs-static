@@ -64,20 +64,10 @@
     @extend %paragraph--tiny;
   }
 
-  .small-module {
-    margin-bottom: 1.5em;
-    &__title {
-      @extend %paragraph--small;
-      border-bottom: 1px solid $grey-3;
-      padding-bottom: .5em;
-      margin: .4em 0 .5em;
-    }
-  }
-
   .latest-note {
     &__details {
       border-radius: 3px;
-      padding: .6em 1em .75em;
+      padding: 0.5em 0.75em 0.4em;
       background: $yellow-25;
       border: 1px solid $yellow-50;
     }

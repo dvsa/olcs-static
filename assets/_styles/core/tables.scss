@@ -200,7 +200,7 @@ tfoot {
     @extend %header-with-actions;
     margin-bottom: 0;
     h3 {
-      margin-top: 3px;
+      font-size: font-size(3);
     }
     h3 + form & {
       margin-top: .2em !important;
@@ -226,7 +226,7 @@ tfoot {
 
   th,
   td {
-    @extend %paragraph--tiny;
+    font-size: font-size(2);
     padding: .5em .75em;
   }
 

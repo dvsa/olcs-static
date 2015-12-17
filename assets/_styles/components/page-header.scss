@@ -9,6 +9,7 @@
 // ---------------
 
 @if $app == 'selfserve' {
+  
   .page-header {
 
     position: relative;
@@ -72,7 +73,6 @@
 
 }
 
-
 // Internal theme
 // ---------------
 
@@ -83,11 +83,9 @@
     border-bottom: 1px solid $grey-3;
     background: $grey-4;
     overflow: hidden;
-    margin-bottom: 10px;
     padding-bottom: 10px;
     &__wrapper {
       @extend .page-wrapper;
-      margin-bottom: 0.75em;
     }
     &__subtitle {
       @include font-size(15px,11pt,15px);
