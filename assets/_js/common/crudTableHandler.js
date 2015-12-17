@@ -34,7 +34,7 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
         success: OLCS.normaliseResponse(function(response) {
           F.render(mainBodySelector, response.body);
         }),
-        preloaderType: 'modal'
+        preloaderType: "modal"
       });
     }
 
