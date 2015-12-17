@@ -36,5 +36,6 @@
 @if $app == 'internal' {
   .user-header {
     @extend %paragraph--tiny;
+    padding: .9em 0 .6em;
   }
 }

@@ -46,7 +46,7 @@
   //   content: '\e801';
   //   padding-right: .25em;
   // }
-  
+
   .breadcrumbs a {
     // color: $grey-1;
     background: url('#{$assetPath}/breadcrumb-arrow.png') no-repeat 100% 70%;
@@ -55,7 +55,7 @@
       background-size: 6px 11px;
     }
   }
-  
+
   .breadcrumbs .current {
     background: none;
     color: $grey-1;
@@ -68,7 +68,7 @@
 // ---------------
 
 @if $app == 'internal' {
-  
+
   .breadcrumbs {
     float: left;
     color: $grey-1;
@@ -78,8 +78,9 @@
     &__item {
       &:after {
         content: "/";
-        margin-right: 0.5em;
-        margin-left: 0.65em;
+        margin-right: 0.25em;
+        margin-left: 0.5em;
+        color: $grey-2;
       }
       &:hover {
         a {
@@ -87,11 +88,12 @@
         }
       }
       &.current {
+        color: $grey-1;
         &:after {
           display: none;
         }
       }
     }
   }
-  
+
 }
