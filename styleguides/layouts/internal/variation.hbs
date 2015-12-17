@@ -25,17 +25,17 @@ recordActions:
       - Create case
 ---
 
-<div class="four-fifths--left">
+<div class="sidebar--left">
   {{> _horizontal-navigation}}
   <div class="content">
   {{> body }}  
   </div>
 </div>
 
-<div class="one-fifth--right">
+<div class="sidebar--right">
   <div class="record-actions">
     {{#each recordActions }}
-    <h5>{{ this.title }}</h5> 
+    <h5 class="title">{{ this.title }}</h5> 
     <ul class="record-actions__group">
       {{#each this.actions }} 
       <li class="record-actions__item actions--secondary"><a href="">{{ this }}</a></li>

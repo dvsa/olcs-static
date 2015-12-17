@@ -1,7 +1,33 @@
 // Tools
+// -----------------------------------------------------------------
 //
-// Reusable, abstract elements too small/insignificant for their
-// own partial
+// Utility helpers to speed up and improve development, typically
+// in the form of placeholders and mixins.
+//
+// [1] - Theme Helper
+// [2] - Clearfix
+// [3] - Header With Actions
+//
+// -----------------------------------------------------------------
+
+// [1] - Theme Helper
+// Function to output a CSS value based on which theme is being used
+// -----------------------------------------------------------------
+
+// background: theme($internal: white, $selfserve: black);
+// background: theme(white, black);
+
+@function theme($internal, $selfserve) {
+  @if $app == 'internal' {
+    @return $internal;
+  } @else if $app == 'selfserve' {
+    @return $selfserve;
+  }
+}
+
+// [2] Clearfix
+// https://css-tricks.com/snippets/css/clear-fix/
+// -----------------------------------------------------------------
 
 %clearfix,
 .clearfix {
@@ -12,39 +38,9 @@
   }
 }
 
-.hint {
-  display: block;
-  color: $grey-1;
-  margin: .5em 0 5px;
-  width: 90%;
-  max-width: 600px;
-  legend + & {
-    margin: 0 0 .75em;
-  }
-  &--small {
-    @extend %paragraph--small;
-    color: $grey-1;
-    margin: 5px 0;
-  }
-}
-
-.highlight-box {
-  background: $grey-4;
-  margin: 0 0 1.5em;
-  padding: 1em 0 .5em 1em;
-  border-left: 3px solid $grey-3;
-  .field.inline {
-    margin-bottom: 1em;
-  }
-}
-
-%fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
+// [3] Header With Actions
+// Create an actionable header bar with right-side actions-container
+// -----------------------------------------------------------------
 
 %header-with-actions {
   float: left;
@@ -57,28 +53,11 @@
     margin: 0;
   }
   .actions-container {
-    margin: -5px 0 -1px;
-    display: block;
     float: right;
-  }
-  .action--primary,
-  .action--secondary {
-    float: left;
-    display: inline-block;
-    margin: 0 0 0 5px;
+    margin: 0 -5px 0 0;
+    display: block;
   }
   select {
     margin: 3px 3px 0 0;
   }
-}
-
-// Internal theme
-
-@if $app == 'internal' {
-
-  .hint,
-  .hint--small {
-    @extend %paragraph--tiny;
-  }
-
 }

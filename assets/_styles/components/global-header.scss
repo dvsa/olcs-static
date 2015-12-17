@@ -71,6 +71,7 @@
     background: #111;
     position: relative;
     overflow: visible;
+    padding: 0.6em 0;
     &__wrapper {
       @media(max-width: $mobile-column-stack) {
         padding-bottom: 1em;

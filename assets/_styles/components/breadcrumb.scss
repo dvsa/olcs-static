@@ -11,7 +11,6 @@
 
 .breadcrumbs__item {
   display: inline-block;
-  margin-right: .5em;
   color: $black;
   &:last-child a {
     background: none;
@@ -21,10 +20,6 @@
 .breadcrumbs a {
   &:focus {
     outline: none;
-  }
-  &:hover {
-    text-decoration: none;
-    border-bottom: 0;
   }
 }
 
@@ -51,6 +46,21 @@
   //   content: '\e801';
   //   padding-right: .25em;
   // }
+  
+  .breadcrumbs a {
+    // color: $grey-1;
+    background: url('#{$assetPath}/breadcrumb-arrow.png') no-repeat 100% 70%;
+    @include device-pixel-ratio($ratio: 2) {
+      background: url('#{$assetPath}/breadcrumb-arrow-2x.png') no-repeat 95% 50%;
+      background-size: 6px 11px;
+    }
+  }
+  
+  .breadcrumbs .current {
+    background: none;
+    color: $grey-1;
+  }
+
 }
 
 
@@ -58,29 +68,30 @@
 // ---------------
 
 @if $app == 'internal' {
+  
   .breadcrumbs {
     float: left;
-  }
-
-  .breadcrumbs a {
     color: $grey-1;
+    a {
+      text-decoration: none;
+    }
+    &__item {
+      &:after {
+        content: "/";
+        margin-right: 0.5em;
+        margin-left: 0.65em;
+      }
+      &:hover {
+        a {
+          text-decoration: underline;
+        }
+      }
+      &.current {
+        &:after {
+          display: none;
+        }
+      }
+    }
   }
-}
-
-// TODO: Move the styles below into the internal them for this componenet
-// once selfserve breadcrumbs have been merged
-
-.breadcrumbs a {
-  // color: $grey-1;
-  padding-right: 20px;
-  background: url('#{$assetPath}/breadcrumb-arrow.png') no-repeat 100% 70%;
-  @include device-pixel-ratio($ratio: 2) {
-    background: url('#{$assetPath}/breadcrumb-arrow-2x.png') no-repeat 95% 50%;
-    background-size: 6px 11px;
-  }
-}
-
-.breadcrumbs .current {
-  background: none;
-  color: $grey-1;
+  
 }

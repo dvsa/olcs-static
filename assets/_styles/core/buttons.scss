@@ -6,8 +6,7 @@
 
 .actions-container {
   float: left;
-  margin: 10px 0;
-  padding-bottom: 2px;
+  margin: 1em 0;
   a,
   input,
   button {
@@ -22,40 +21,34 @@ button {
   font-family: $NTA-Light;
 }
 
-@mixin action-colour ($colour: $button-colour) {
-  box-shadow: 0 2px 0 darken($colour, 15%);
-  @include ie-lte(8) {
-    border-bottom: 2px solid darken($colour, 15%);
-  }
+@mixin action-colour($colour: $button-colour) {
+  
   background: $colour;
-  &:visited {
-    background-color: $colour;
-  }
+  
   &:hover,
   &:focus {
     text-decoration: none;
     background-color: darken($colour, 5%);
   }
   &:active {
-    box-shadow: 0 0 0 $colour;
-    top: 2px;
+    box-shadow: none;
   }
+  
   &.disabled,
   &[disabled="disabled"],
   &[disabled] {
-    @include opacity(.5);
+    opacity: 0.5;
     &:hover {
       cursor: default;
       background-color: $colour;
     }
-    &:active {
+    &:active,
+    &:focus {
+      outline: none;
       box-shadow: 0 2px 0 darken($colour, 15%);
-      @include ie-lte(8) {
-        border-bottom: 2px solid darken($colour, 15%);
-      }
-      top: 0;
     }
   }
+  
   @if lightness($colour) < 50% {
     color: $white;
     &:link,
@@ -72,15 +65,22 @@ button {
     &:visited{
       color: $text-colour;
     }
+  }  
+  
+  @if $app == 'selfserve' {
+    box-shadow: 0 2px 0 darken($colour, 15%);
   }
+  @if $app == 'internal' {
+    border-radius: 0.25em;
+  }
+  
 }
 
 %action-box {
   @extend %paragraph--small;
   border: 0;
-  margin: 0 .3em 0 0;
-  padding: 5px 10px 3px;
-  padding: .3em .5em .4em .5em\9;
+  margin-right: 0.3em;
+  padding: 0.4em 0.75em 0.3em;
   text-decoration: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -89,15 +89,8 @@ button {
   display: inline-block;
   vertical-align: top;
   line-height: 1.4;
-  @include ie-lte(8) {
-    &[type="submit"],
-    &[type="reset"],
-    &[type="button"] {
-      filter: chroma(color=#000000);
-    }
-    &[type=submit].button {
-      filter: none;
-    }
+  &.large {
+    font-size: 17px;
   }
 }
 
@@ -111,6 +104,7 @@ button {
     @include action-colour($grey-3);
   }
   &--tertiary {
+    color: $link-colour;
     display: inline-block;
     vertical-align: top;
     background: none;
@@ -122,23 +116,14 @@ button {
       outline: 0;
     }
   }
+  &--delete {
+    @extend %action-box;
+    @include action-colour($red);
+  }
 }
 
-.action--primary.large,
-.action--secondary.large {
-  @extend %paragraph--large;
-  padding: 7px 15px 5px;
-}
-
-.action--tertiary.large {
-  @extend %paragraph--large;
-}
-
-
-/*
-  More actions styles a select element
-  to look like a button
- */
+// More actions 
+// styles a select element to look like a button
 
 .more-actions:hover .more-actions__list {
   display: block;
@@ -146,7 +131,6 @@ button {
     display: none;
   }
 }
-
 
 .more-actions {
   position: relative;
@@ -174,8 +158,7 @@ button {
 }
 
 .more-actions__list .action--secondary,
-button.more-actions__item,
-input[type=submit].more-actions__item {
+.more-actions__item {
   margin: 0;
   padding: 6px 10px;
   border: 0;
@@ -208,10 +191,6 @@ input[type=submit].more-actions__item {
 
 @if $app == 'selfserve' {
 
-  .actions-container {
-    margin: 1em 0 1em 0;
-  }
-
   a:focus,
   button:focus {
     outline: 3px solid $outline;
@@ -222,28 +201,19 @@ input[type=submit].more-actions__item {
   }
 
   .action--tertiary {
-    color: $link-colour;
-    
     &:active,
     &:hover {
       color: $link-active-colour;
     }
-  
     &:focus {
       background-color: $outline;
     }
-    
     &.list {
       @extend %paragraph--large;
       display: block;
       margin: 30px 0 -20px;
       padding: 0;
     }
-  }
-
-  .more-actions button,
-  .more-actions input[type=submit] {
-    font-family: $NTA-Light;
   }
 
 }
@@ -262,110 +232,53 @@ input[type=submit].more-actions__item {
     outline: none;
     background-color: none;
   }
-
-  %action-box {
-    border-radius: 2px;
-    display: inline-block;
-    width: auto;
-    overflow: visible;
-    position: relative;
-    vertical-align: middle;
-    margin-right: 5px;
-    padding: 4px 10px 5px 10px;
-    line-height: 1.2;
-    text-align: center;
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 15px;
-    box-shadow: none;
-    &.large {
-      font-weight: 600;
-      font-size: 17px;
-      padding: 7px 13px 7px 13px;
-      .inline & {
-        font-size: 15px;
-        padding: 8px 12px;
-      }
-    }
-  }
-
-  @mixin actionColour (
-    $color,
-    $border-colour,
-    $grad-light,
-    $grad-dark,
-    $hover-bg,
-    $disabled-text-color,
-    $disabled-bg,
-    $disabled-border ) {
-    color: $color;
-    border: 1px solid $border-colour;
-    background: $grad-dark;
-    background: linear-gradient($grad-light, $grad-dark);
-    &:hover {
-      cursor: pointer;
-      color: $color;
-      background: $hover-bg;
-    }
-    &.disabled,
-    &[disabled],
-    &[disabled="disabled"] {
-      cursor: default;
-      border: 1px solid $disabled-border;
-      background: $disabled-bg;
-      color: $disabled-text-color;
-      &:hover {
-        background: $disabled-bg;
-      }
-    }
-  }
-
-  input.action--primary,
+  
   .action--primary {
-    @extend %action-box;
-    @include actionColour(#FFF, #10654E, #178B6C, $primaryColour, #146C55, #FFF, #8BB5AA, #8BB5AA);
+    @include action-colour(#10654E);
+    border: 1px solid transparent;
   }
 
-  input.action--secondary,
   .action--secondary {
-    @extend %action-box;
-    @include actionColour(#222, $grey-2, #FCFCFC, #EEE, $grey-3, $grey-2, #FCFCFC, $grey-3);
+    @include action-colour(#f9f9f9);
+    border: 1px solid #e5e5e5;
+    color: $govuk-blue;
+    &:link,
+    &:hover,
+    &:focus,
+    &:visited {
+      color: $govuk-blue;
+    }
   }
-
-  input.action--delete,
-  .action--delete {
-    @extend %action-box;
-    @include actionColour($white, #990917, $red, #990917, #87000D, $red, #FCFCFC, $red);
-  }
-
-  input.action--tertiary,
+  
   .action--tertiary {
-    @extend %action-box;
-    @extend a;
-    background: none;
-    border: 0;
-    font-size: 15px;
-    text-decoration: underline;
-    &.large {
-       padding-left: 7px;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
     }
   }
 
+  .action--delete {
+    @include action-colour($red);
+  }
 
   .record-actions {
     margin-top: .75em;
     display: block;
+    font-size: 15px;
     &__group {
       list-style: none;
       margin: .5em 0 1.1em 0;
     }
     &__item {
       margin-bottom: .5em;
+      text-align: center;
     }
     a {
-      color: $black;
-      text-decoration: none;
       display: block;
+      font-size: 15px;
+    }
+    h5 {
+      font-size: font-size(3);
     }
   }
 

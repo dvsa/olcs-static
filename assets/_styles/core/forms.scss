@@ -713,7 +713,22 @@ select:focus {
   margin-bottom: -20px;
 }
 
-
+// Hints
+.hint {
+  display: block;
+  color: $grey-1;
+  margin: .5em 0 5px;
+  width: 90%;
+  max-width: 600px;
+  legend + & {
+    margin-bottom: 0.75em;
+  }
+  &--small {
+    @extend %paragraph--small;
+    color: $grey-1;
+    margin: 5px 0;
+  }
+}
 
 
 // Selfserve theme
@@ -879,10 +894,9 @@ select:focus {
     font-size: 14px;
   }
 
-  .js-postcode-search .inline .action--primary.large,
-  .lookup button.action--primary.large {
-    margin-left: 5px;
-    padding: 7px 12px;
+  .hint,
+  .hint--small {
+    @extend %paragraph--tiny;
   }
 
 }
