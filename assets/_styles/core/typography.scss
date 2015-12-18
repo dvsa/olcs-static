@@ -174,8 +174,8 @@ textarea {
   .title {
     font-size: font-size(3);
     border-bottom: 1px solid $grey-2;
-    margin-bottom: 1em;
-    padding-bottom: 0.5em;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
   }
 
   p {
@@ -186,6 +186,14 @@ textarea {
     @include font-size(26px,15pt,24px);
     display: inline;
     padding-right: .25em;
+  }
+
+  h2 {
+    font-size: font-size(5);
+  }
+
+  h3 {
+    font-size: font-size(3);
   }
 
   .article {
