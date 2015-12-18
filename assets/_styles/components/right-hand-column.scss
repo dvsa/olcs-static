@@ -59,10 +59,15 @@
 
 @if $app == 'internal' {
 
-  .one-fifth--right,
-  .one-fifth--right p {
-    @extend %paragraph--tiny;
+  .sidebar--right p {
+    font-size: font-size(1);
   }
+
+  .small-module {
+    font-size: font-size(1);
+    margin-bottom: 20px;
+  }
+
 
   .latest-note {
     &__details {

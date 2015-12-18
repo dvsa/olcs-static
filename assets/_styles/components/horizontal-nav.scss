@@ -14,7 +14,7 @@
   }
   a {
     @extend %navigation__link;
-    padding: 8px .75em 12px;
+    padding: 6px .75em 12px;
     text-decoration: none;
     white-space: nowrap;
     overflow: hidden;
@@ -28,7 +28,7 @@
     color: $black;
     border-bottom: 2px solid $primaryColour;
     margin: 0 .75em;
-    padding: .5em .2em 10px;
+    padding: 6px .2em 10px;
     &:first-child {
       margin-left: 0;
     }
