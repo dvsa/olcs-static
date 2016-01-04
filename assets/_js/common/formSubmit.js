@@ -3,8 +3,7 @@ var OLCS = OLCS || {};
 /**
  * OLCS.formSubmit
  * 
- * @author: edmund.reed@valtech.co.uk, Valtech Ltd
- * @description: Tools to provide disabling buttons and changing submit button 
+ * Tools to provide disabling buttons and changing submit button 
  * text when form is submitted
  * 
  */
