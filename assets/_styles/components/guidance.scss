@@ -67,4 +67,7 @@ fieldset + .field .help,
       margin-bottom: 5px;
     }
   }
+  .help__summary {
+    font-size: font-size(2);
+  }
 }

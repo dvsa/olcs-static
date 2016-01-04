@@ -32,14 +32,14 @@
 }
 
 // [2] - Individual Columns
-// Create unsemantic class names for reusable columns of various 
+// Create unsemantic class names for reusable columns of various
 // widths and proportions
 // -----------------------------------------------------------------
 
 // Re-define the GDS grid-column mixin
 
 @mixin grid-column($width, $full-width: $mobile-column-stack, $float: left, $mobile-first: false) {
-  
+
   @if $mobile-first {
     @media (min-width: $full-width) {
       float: $float;
@@ -56,7 +56,7 @@
 
   padding: 0 $gutter-half;
   box-sizing: border-box;
-  
+
 }
 
 // Create individual columns
@@ -100,7 +100,7 @@
   display: table;
   width: 100%;
 }
-  
+
 .table-col,
 %table-col {
   display: table-cell;
@@ -122,15 +122,15 @@
 // -----------------------------------------------------------------
 
 @if $app == 'selfserve' {
-  
+
   .page-wrapper {
     max-width: $base-width;
   }
-  
+
   #main:focus {
     outline: 0;
   }
-  
+
 }
 
 // [4] - Internal only styles
@@ -138,7 +138,7 @@
 // -----------------------------------------------------------------
 
 @if $app == 'internal' {
-  
+
   .page-wrapper {
     padding: 0 $gutter;
     overflow-x: auto;
@@ -160,7 +160,7 @@
     @include table-column(200px);
     .title {
       @extend .content_header;
-      margin-bottom: 0.25em;
+      margin-bottom: 10px;
     }
   }
 

@@ -157,10 +157,20 @@
 @if $app == 'internal' {
 
   .read-only {
-    font-size: 15px;
+    font-size: font-size(1);
     dt {
       color: #555;
     }
+  }
+
+  .read-only__header {
+    margin-top: -8px;
+  }
+
+  h3.read-only__title,
+  h4.read-only__title {
+    font-size: font-size(3);
+    margin-top: 8px;
   }
 
 }

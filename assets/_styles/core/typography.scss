@@ -5,10 +5,10 @@
 */
 
 $font-sizes: (
-  'size-1' : 14px,
-  'size-2' : 15px,
-  'size-3' : 17px,
-  'size-4' : 27px
+  'size-1' : 15px,
+  'size-2' : 16px,
+  'size-3' : 18px,
+  'size-4' : 28px
 );
 
 @function font-size($size) {
@@ -174,8 +174,8 @@ textarea {
   .title {
     font-size: font-size(3);
     border-bottom: 1px solid $grey-2;
-    margin-bottom: 1em;
-    padding-bottom: 0.5em;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
   }
 
   p {
@@ -187,9 +187,17 @@ textarea {
     display: inline;
     padding-right: .25em;
   }
-  
+
+  h2 {
+    font-size: font-size(5);
+  }
+
+  h3 {
+    font-size: font-size(3);
+  }
+
   .article {
-    p, 
+    p,
     ul,
     ol {
       font-size: font-size(2);

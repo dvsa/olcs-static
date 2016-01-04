@@ -21,7 +21,7 @@ $mobile-statuses: (
   .disabled {
     display: block;
     width: 90%;
-    padding: 12px 20px 12px 0;
+    padding: 9px 20px 10px 0;
     border-bottom: 1px solid $grey-3;
     text-decoration: none;
   }
@@ -41,9 +41,6 @@ $mobile-statuses: (
     @include device-pixel-ratio($ratio: 2) {
       background: url('#{$assetPath}/application-navigation-2x.png') no-repeat 100% -192px;
       background-size: 15px 1015px;
-    }
-    &:first-child {
-      padding-top: 0;
     }
   }
   @each $status in $mobile-statuses {

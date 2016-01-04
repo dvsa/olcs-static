@@ -147,7 +147,6 @@ fieldset fieldset .field:last-child {
   }
   &.inline-text  input {
     width: 3.85em;
-    text-align: center;
     margin: 0 10px 10px 0;
   }
   &--two-col {
@@ -845,7 +844,6 @@ select:focus {
     }
   }
 
-
   .medium {
     min-width: 300px;
     max-width: 450px;
@@ -859,7 +857,7 @@ select:focus {
   }
 
   .field {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     &.inline-text,
     &.legend {
       margin-bottom: 10px;
@@ -867,7 +865,7 @@ select:focus {
   }
 
   legend {
-    @extend %h4;
+    font-size: font-size(3);
     margin: .5em 0;
   }
 
@@ -883,7 +881,7 @@ select:focus {
   }
 
   label {
-    font-size: 15px;
+    font-size: font-size(2);
     .inline & {
       @extend %paragraph--tiny;
     }
@@ -905,6 +903,7 @@ select:focus {
   input,
   textarea,
   .terms--box {
+    font-size: font-size(2);
     border: 1px solid $grey-2;
     background: $grey-4;
   }
@@ -920,8 +919,19 @@ select:focus {
   }
 
   .hint,
-  .hint--small {
-    @extend %paragraph--tiny;
+  .hint--small,
+  .hint input {
+    font-size: font-size(1);
+    margin-top: 0;
+  }
+
+  .attach-action__hint {
+    margin-top: 8px;
+  }
+
+  .traffic-area  a {
+    font-size: font-size(2);
+    margin-bottom: 20px;
   }
 
 }
