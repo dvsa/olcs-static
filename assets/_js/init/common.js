@@ -17,7 +17,7 @@ OLCS.ready(function() {
   // selectively target forms with a unique class?
   OLCS.formSubmit({
     form: "form",
-    submit: "[type=submit]",
+    submit: "[type=submit], .js-modal-ajax",
     loadText: "Loading..."
   });
 
