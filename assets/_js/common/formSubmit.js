@@ -25,11 +25,20 @@ OLCS.formSubmit = (function(document, $, undefined) {
     var $dataLoadText = $($submit).attr('data-onclick-become');
     var $loadText = $dataLoadText ? $dataLoadText : options.loadText;
     
+    // Create a variable to store the submit button text
+    var $submitText;
+        
     // Iterate through each occurance
     $($form).each(function() {
       
       // When a submit button is clicked
-      $($submit).on('click', function() {
+      $($submit).unbind().on('click', function() {
+        
+        // Add class to identify the clicked submit button
+        $(this).addClass('submit-clicked');
+        
+        // Cache the clicked button's original text
+        $submitText = $(this).html();
         
         // Disable all the submit buttons in the current form
         $($submit).addClass('disabled');
@@ -41,6 +50,22 @@ OLCS.formSubmit = (function(document, $, undefined) {
         }
         
       });
+      
+      // Revert buttons to their original state
+      function revertFormSubmit() {
+        
+        // Re-enable all the submit buttons in the current form
+        $($submit).removeClass('disabled');
+        
+        // Replace the loading text with the original text
+        $('.submit-clicked').html($submitText).removeClass('submit-clicked');
+        
+      }
+      
+      // If submitting the form opens a modal instead of loading a new 
+      // page, we need to revert the buttons to their original state,
+      // ready for when the modal closes   
+      OLCS.eventEmitter.on("show:modal", revertFormSubmit);
       
     });
     
