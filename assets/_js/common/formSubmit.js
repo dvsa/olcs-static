@@ -18,12 +18,6 @@ OLCS.formSubmit = (function(document, $, undefined) {
     var $form = options.form;
     var $submit = options.submit;
     
-    // Set appropriate button replacement message
-    // If clicked element has attirbute 'data-onclick-become',
-    // use that, otherwise use the default message
-    var $dataLoadText = $($submit).attr('data-onclick-become');
-    var $loadText = $dataLoadText ? $dataLoadText : options.loadText;
-    
     // Create a variable to store the submit button text
     var $submitText;
         
@@ -35,6 +29,12 @@ OLCS.formSubmit = (function(document, $, undefined) {
       
       // When a submit button is clicked
       $($submit).unbind().on('click', function() {
+    
+        // Set appropriate button replacement message
+        // If clicked element has attirbute 'data-onclick-become',
+        // use that, otherwise use the default message
+        var $dataLoadText = $(this).attr('data-onclick-become');
+        var $loadText = $dataLoadText ? $dataLoadText : options.loadText;
         
         // Add class to identify the clicked submit button
         $(this).addClass('submit-clicked');
@@ -67,7 +67,7 @@ OLCS.formSubmit = (function(document, $, undefined) {
       // If submitting the form opens a modal instead of loading a new 
       // page, we need to revert the buttons to their original state,
       // ready for when the modal closes   
-      OLCS.eventEmitter.on("show:modal", revertFormSubmit);
+      OLCS.eventEmitter.on('show:modal', revertFormSubmit);
       
     });
     
