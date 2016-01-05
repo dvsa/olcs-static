@@ -43,6 +43,7 @@ OLCS.modal = (function(document, $, undefined) {
     '</div>'
   ].join('\n');
 
+
   /**
    * public interface
    */
@@ -74,11 +75,6 @@ OLCS.modal = (function(document, $, undefined) {
     // needs resetting
     $(wrapper).scrollTop(0);
 
-    $(document).on('click', closeSelectors, function(e) {
-      e.preventDefault();
-      exports.hide();
-    });
-
     $(document).keyup(function(e) {
       if (e.keyCode === 27 && exports.isVisible()) {
         e.preventDefault();
@@ -89,7 +85,6 @@ OLCS.modal = (function(document, $, undefined) {
   };
 
   exports.hide = function() {
-
     // sometimes we want to trigger a different action when we
     // hide the modal, such as showing a confirmation box.
     var form = $(content).find('form[data-close-trigger]');
@@ -118,6 +113,15 @@ OLCS.modal = (function(document, $, undefined) {
     OLCS.formHelper.render(content, body);
     $(wrapper).scrollTop(position);
   };
+
+  exports.isVisible = function() {
+    return $(wrapper).is(':visible');
+  };
+
+  $('body').on('click', closeSelectors, function(e) {
+    e.preventDefault();
+    exports.hide();
+  });
 
   return exports;
 
