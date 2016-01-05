@@ -9,6 +9,7 @@
   width: 100%;
   overflow: auto;
   float: left;
+  position: relative;
   + .table__header {
     margin-top: 2em;
   }
@@ -128,6 +129,7 @@ td {
   }
 }
 
+
 tfoot {
   tr {
     border-top: 1px solid $grey-2;
@@ -163,7 +165,6 @@ tfoot {
   height: 14px;
   margin-top: -7px;
 }
-
 
 // This hack is to break any long safety inspector names onto
 // two lines as per OLCS-11334

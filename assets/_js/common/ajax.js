@@ -66,6 +66,9 @@ OLCS.ajax = (function(document, $, undefined) {
         if (options.beforeSend) {
           options.beforeSend.apply(null, arguments);
         }
+
+        OLCS.preloader.show(options.preloaderType);
+
       },
       success: function(data, textStatus, jqXHR) {
         OLCS.logger
@@ -84,6 +87,9 @@ OLCS.ajax = (function(document, $, undefined) {
         if (options.error) {
           options.error.apply(null, arguments);
         }
+
+        OLCS.preloader.hide();
+
       },
       // this fires *after* success or error
       complete: function() {

@@ -153,9 +153,6 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
           formatUKPostcode(input);
         }
 
-
-        $("<div class=address__preloader></div>").insertAfter(submitSelector);
-
         OLCS.submitForm({
           form: form,
           success: OLCS.normaliseResponse(function(response) {

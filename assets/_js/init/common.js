@@ -27,9 +27,6 @@ OLCS.ready(function() {
     container: ".js-postcode-search"
   });
 
-
-  $(document).bind("ajaxError", OLCS.preloader.hide);
-
   // A safe assumption that when the page is rendered
   // this preloader should be hidden
   OLCS.eventEmitter.on("render", function() {
@@ -51,7 +48,6 @@ OLCS.ready(function() {
     success: OLCS.normaliseResponse(function(data) {
       if (data.hasErrors) {
         F.render(".js-body", data.body);
-
         return;
       }
       OLCS.modalForm(data);
