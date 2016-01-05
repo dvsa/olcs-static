@@ -30,6 +30,9 @@ OLCS.formSubmit = (function(document, $, undefined) {
     // Iterate through each occurance
     $($form).each(function() {
       
+      // Cache each individual form
+      var $thisForm = $(this);
+      
       // When a submit button is clicked
       $($submit).unbind().on('click', function() {
         
@@ -40,7 +43,7 @@ OLCS.formSubmit = (function(document, $, undefined) {
         $submitText = $(this).html();
         
         // Disable all the submit buttons in the current form
-        $($submit).addClass('disabled');
+        $thisForm.find($submit).addClass('disabled');
         
         // Replace the clicked button text with an appropriate message
         // If no message is set, the button text will remain as normal
