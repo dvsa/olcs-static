@@ -7,8 +7,7 @@
 
 .user-header {
   overflow: auto;
-  border-top: 10px solid $govuk-blue;
-  padding: .6em 0;
+  padding: 1em 0;
   margin-bottom: .5em;
 }
 
@@ -27,6 +26,7 @@
   .user-header {
     @extend %paragraph--small;
     border-bottom: 1px solid $grey-2;
+    border-top: 10px solid $govuk-blue;
   }
 }
 
@@ -36,6 +36,6 @@
 @if $app == 'internal' {
   .user-header {
     @extend %paragraph--tiny;
-    border-top: 6px solid $primaryColour;
+    padding: .9em 0 10px;
   }
 }

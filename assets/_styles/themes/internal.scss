@@ -18,9 +18,11 @@ $app: internal;
 @import '../vendor/govuk_toolkit/stylesheets/_typography';
 @import '../vendor/chosen';
 @import '../vendor/fontello';
+@import '../vendor/pace';
 
 // Core
 @import '../core/config';
+@import '../core/tools';
 @import '../core/fonts';
 @import '../core/base';
 @import '../core/helpers';
@@ -31,7 +33,6 @@ $app: internal;
 @import '../core/forms';
 @import '../core/navigation';
 @import '../core/tables';
-@import '../core/tools';
 @import '../core/buttons';
 
 // Components
@@ -49,6 +50,7 @@ $app: internal;
 @import '../components/result-settings';
 @import '../components/filters';
 @import '../components/status';
+@import '../components/highlight-box';
 @import '../components/comment';
 @import '../components/empty';
 @import '../components/guidance';

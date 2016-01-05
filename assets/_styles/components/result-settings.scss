@@ -23,11 +23,4 @@
 // Internal theme
 // ---------------
 
-@if $app == 'internal' {
-
-  .results-settings p,
-  .results-settings__item {
-    font-size: 15px
-  }
-
-}
+@if $app == 'internal' {}

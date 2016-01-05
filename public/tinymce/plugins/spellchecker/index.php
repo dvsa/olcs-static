@@ -20,7 +20,7 @@ $tinymceSpellCheckerConfig = array(
 	// "enchant_dicts_path" => "./dicts",
 
 	// PSpell options
-	"pspelsl.mode" => "fast",
+	"PSpell.mode" => "fast",
 	"pspell.spelling" => "British",
 	"pspell.jargon" => "",
 	"pspell.encoding" => "utf-8"

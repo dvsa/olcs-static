@@ -1,14 +1,14 @@
-<ol class="vertical-navigation" role="menu">
+<ol class="app-navigation" role="menu">
 {{#each verticalNavItems }}
   {{#ifeq label compare=../subSectionTitle }}
-  <li class="vertical-navigation__item current">
+  <li class="app-navigation__item current">
     {{ label }}
     {{#if filterList }}{{> _filters }}{{/if}}
   </li>
   {{else }}
-  <li class="vertical-navigation__item">
+  <li class="app-navigation__item">
     <a href="{{ link }}">{{ label }}</a>
   </li>
   {{/ifeq }}
 {{/each}}
-</ol><!-- end .vertical-navigation -->
+</ol><!-- .vertical-navigation -->
