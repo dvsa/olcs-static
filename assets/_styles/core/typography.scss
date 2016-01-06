@@ -1,6 +1,9 @@
 // Typography
 // -----------------------------------------------------------------
 
+// Adaptive Font Mixin
+// -----------------------------------------------------------------
+
 @mixin font-size($font-size, $small-font-size: null, $print-font-size: null) {
   @if $is-print {
     font-size: $print-font-size;
@@ -15,7 +18,8 @@
 }
 
 // Patterns
-// Responsive, reusable font-size patterns for text copy only
+// Responsive, reusable font-size patterns for headings and
+// paragraph text copy only
 // -----------------------------------------------------------------
 
 %h1 {
@@ -42,20 +46,30 @@
   );
 }
 
-%paragraph--large {
-  @extend %h4;
-}
-
-%paragraph--small {
+%h5 {
   @include font-size(
     font-size(3), font-size(2), font-size(1, true)
   );
 }
 
-%paragraph--tiny {
+%h6 {
   @include font-size(
     font-size(2), font-size(1), font-size(1, true)
   );
+}
+
+// -----------------------------------------------------------------
+
+%paragraph--large {
+  @extend %h4;
+}
+
+%paragraph--small {
+  @extend %h5;
+}
+
+%paragraph--tiny {
+  @extend %h6;
 }
 
 h1,

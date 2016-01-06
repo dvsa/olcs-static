@@ -6,7 +6,7 @@
 
 .inline-search__button {
   @extend .action--primary;
-  @include font-size(19px,16px,14pt);
+  @extend %h4;
   margin-left: 3px;
 }
 
