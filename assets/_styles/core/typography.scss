@@ -1,6 +1,5 @@
 // Typography
 // -----------------------------------------------------------------
-//
 
 @mixin font-size($font-size, $print-font-size: null, $small-font-size: null) {
   @if $is-print {
@@ -32,8 +31,7 @@
 }
 
 %paragraph--large {
-  @include font-size(19px,14pt,16px);
-  font-weight: 400;
+  @extend %h4;
 }
 
 %paragraph--small {
@@ -58,7 +56,7 @@ p {
 
 h1 {
   @extend %h1;
-  margin: 0 0 .15em;
+  margin-bottom: 0.15em;
   line-height: 1.1;
 }
 
