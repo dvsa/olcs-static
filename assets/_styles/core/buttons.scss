@@ -86,7 +86,7 @@ button {
   vertical-align: top;
   line-height: 1.4;
   &.large {
-    @include font-size(19px,14pt,16px);
+    @include font-size(19px,16px,14pt);
   }
 }
 
