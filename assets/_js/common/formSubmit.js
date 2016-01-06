@@ -43,7 +43,7 @@ OLCS.formSubmit = (function(document, $, undefined) {
         submitText = $(this).html();
         
         // Disable all the submit buttons in the current form
-        thisForm.find(submit).addClass('disabled').prop('disabled', true);
+        thisForm.find(submit).addClass('disabled');
         
         // Replace the clicked button text with an appropriate message
         // If no message is set, the button text will remain as normal
