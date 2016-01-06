@@ -48,7 +48,11 @@ OLCS.formSubmit = (function(document, $, undefined) {
         // Replace the clicked button text with an appropriate message
         // If no message is set, the button text will remain as normal
         if ($loadText !== undefined) {
-          $(this).html($loadText);
+          if ($(this).is('button', 'a')) {
+            $(this).html($loadText);
+          } else if ($(this).is('input')) {
+            $(this).val($loadText);
+          }
         }
         
       });
