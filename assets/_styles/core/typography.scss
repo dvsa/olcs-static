@@ -5,7 +5,7 @@
 // -----------------------------------------------------------------
 
 @mixin font-size($font-size, $small-font-size: null, $print-font-size: null) {
-  @if $is-print {
+  @if $is-print and $print-font-size {
     font-size: $print-font-size;
   } @else {
     font-size: $font-size;
