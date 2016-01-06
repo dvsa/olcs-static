@@ -42,8 +42,11 @@ OLCS.formSubmit = (function(document, $, undefined) {
         // Cache the clicked button's original text
         submitText = $(this).html();
         
-        // Disable all the submit buttons in the current form
-        thisForm.find(submit).addClass('disabled');
+        // Disable all the submit buttons in the current form,
+        // only after the form has actually been submitted
+        $(thisForm).submit(function() {
+          thisForm.find(submit).addClass('disabled').prop('disabled', true);
+        });
         
         // Replace the clicked button text with an appropriate message
         // If no message is set, the button text will remain as normal
@@ -61,7 +64,7 @@ OLCS.formSubmit = (function(document, $, undefined) {
       function revertFormSubmit() {
         
         // Re-enable all the submit buttons in the current form
-        $(submit).removeClass('disabled');
+        $(submit).removeClass('disabled').prop('disabled', false);
         
         // Replace the loading text with the original text
         $('.submit-clicked').html(submitText).removeClass('submit-clicked');
