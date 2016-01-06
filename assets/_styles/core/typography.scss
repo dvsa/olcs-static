@@ -1,28 +1,17 @@
+// Typography
+// -----------------------------------------------------------------
+//
 
-/*
-  Typography
-  ==========
-*/
-
-$font-sizes: (
-  'size-1' : 15px,
-  'size-2' : 16px,
-  'size-3' : 18px,
-  'size-4' : 28px
-);
-
-@function font-size($size) {
-  @return map-get($font-sizes, 'size-#{$size}');
-}
-
-@mixin font-size($font-size, $print-font-size, $font-size-640) {
-  @if $is-print == false {
-    font-size: $font-size;
-  } @else {
+@mixin font-size($font-size, $print-font-size: null, $small-font-size: null) {
+  @if $is-print {
     font-size: $print-font-size;
+  } @else {
+    font-size: $font-size;
   }
-  @media (max-width: $mobile-column-stack) {
-    font-size: $font-size-640;
+  @if $small-font-size {
+    @media (max-width: $mobile-column-stack) {
+      font-size: $small-font-size;
+    }
   }
 }
 

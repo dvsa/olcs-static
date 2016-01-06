@@ -7,9 +7,10 @@
 // [1] - Asset Path
 // [2] - Colours
 // [3] - layout
-// [4] - Responsive Breakpoints
-// [5] - Selfserve only config
-// [6] - Internal only config
+// [4] - Typography
+// [5] - Responsive Breakpoints
+// [6] - Selfserve only config
+// [7] - Internal only config
 //
 // -----------------------------------------------------------------
 
@@ -40,7 +41,27 @@ $gutter-2x          : ($gutter * 2);
 // Used by GDS toolkit
 $site-width         : $base-width;
 
-// [4] - Responsive Breakpoints
+// [4] - Typography
+// Declare the font sizes to be used throughout the app
+// -----------------------------------------------------------------
+
+$core-sizes: (
+  'size-1' : 12px,
+  'size-2' : 14px,
+  'size-3' : 16px,
+  'size-4' : 19px,
+  'size-5' : 24px,
+  'size-6' : 28px,
+  'size-7' : 36px,
+  'size-8' : 48px
+);
+
+// Custom function to return font size
+@function font-size($size) {
+  @return map-get($core-sizes, 'size-#{$size}');
+}
+
+// [5] - Responsive Breakpoints
 // Define the responsive breakpoints to be used by the grid system
 // -----------------------------------------------------------------
 
@@ -62,19 +83,25 @@ $breakpoints: (
 // Set the default width for column stacking
 $mobile-column-stack: breakpoint('break-4');
 
-// [5] - Internal theme
+// [6] - Internal theme
 // Configuration for the Internal theme only
 // -----------------------------------------------------------------
 
 @if $app == 'internal' {
   $col-gutter : 1.25%;
-  $grey-1     : #71767C;
-  $grey-2     : #CCC;
-  $grey-3     : #DDD;
-  $black      : #222;
+  $black  : #222;
+  $grey-1 : #71767C;
+  $grey-2 : #CCC;
+  $grey-3 : #DDD;
+  $core-sizes: (
+    'size-1' : 15px,
+    'size-2' : 16px,
+    'size-3' : 18px,
+    'size-4' : 28px
+  );
 }
 
-// [6] - Selfserve theme
+// [7] - Selfserve theme
 // Configuration for the Selfserve theme only
 // -----------------------------------------------------------------
 
