@@ -27,7 +27,6 @@ html {
 body {
   margin: 0;
   background: #FFF;
-  font-size: 100%;
   font-weight: 400;
   color: $black;
   text-rendering: optimizeLegibility;
@@ -37,6 +36,10 @@ body {
   text-transform: none;
   vertical-align: baseline;
   font-family: $NTA-Light;
+  font-size: theme(
+    $selfserve: 100%,
+    $internal: font-size(3)
+  );
 }
 
 // [2] - CSS Reset/Standardise
