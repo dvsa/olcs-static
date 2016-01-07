@@ -91,7 +91,6 @@ p {
 
 h1 {
   @extend %h1;
-  margin-bottom: 0.15em;
   line-height: 1.1;
 }
 
@@ -167,7 +166,6 @@ textarea {
 @if $app == 'internal' {
 
   .title {
-    font-size: font-size(3);
     border-bottom: 1px solid $grey-2;
     margin-bottom: 12px;
     padding-bottom: 8px;
@@ -178,7 +176,9 @@ textarea {
   }
 
   h1 {
-    @include font-size(26px,15pt,24px);
+    @include font-size(
+      font-size(6), font-size(5), font-size(4, true)
+    );
     display: inline;
     padding-right: .25em;
   }
@@ -189,14 +189,6 @@ textarea {
 
   h3 {
     font-size: font-size(3);
-  }
-
-  .article {
-    p,
-    ul,
-    ol {
-      font-size: font-size(2);
-    }
   }
 
 }

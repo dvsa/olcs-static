@@ -1,3 +1,6 @@
+// Article
+// -----------------------------------------------------------------
+
 .article {
 
   h2,
@@ -17,11 +20,11 @@
   }
 
   p {
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
+  }
+  
+  & + & {
+    margin-top: 40px;
   }
 
-}
-
-.article + .article {
-  margin-top: 40px;
 }

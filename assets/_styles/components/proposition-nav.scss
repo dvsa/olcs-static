@@ -13,7 +13,6 @@
   }
   &__title {
     float: left;
-    font-size: 24px;
     display: block;
     margin: 4px 0 2px;
   }
@@ -53,7 +52,6 @@
   }
   &__item {
     float: left;
-    font-size: 16px;
     font-weight: 600;
     margin: 0 1em 4px 0;
   }
@@ -71,9 +69,6 @@
     width: 100%;
     margin: .5em 0 .25em 0;
   }
-  .proposition__title {
-    font-size: 18px;
-  }
   .proposition-nav {
     display: none;
     padding-top: 10px
@@ -86,7 +81,6 @@
     display: block;
     padding: 10px 0;
     width: 100%;
-    font-size: 14px;
     border-top: 1px solid #222;
   }
   .proposition-nav__item a:focus {

@@ -62,7 +62,6 @@
   }
 }
 
-
 /*
   Fake definition list
 */
@@ -150,14 +149,12 @@
 
 }
 
-
 // Internal theme
 // ---------------
 
 @if $app == 'internal' {
 
   .read-only {
-    font-size: font-size(1);
     dt {
       color: #555;
     }
@@ -169,7 +166,6 @@
 
   h3.read-only__title,
   h4.read-only__title {
-    font-size: font-size(3);
     margin-top: 8px;
   }
 

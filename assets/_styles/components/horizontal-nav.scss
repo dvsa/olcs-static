@@ -8,7 +8,6 @@
   @extend %navigation;
   margin-top: .5em;
   border-bottom: 1px solid $grey-3;
-  font-size: font-size(2);
   &__item {
     @extend %navigation__item;
   }

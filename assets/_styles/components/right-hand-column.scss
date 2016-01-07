@@ -53,21 +53,14 @@
 
 }
 
-
 // Internal theme
 // ---------------
 
 @if $app == 'internal' {
 
-  .sidebar--right p {
-    font-size: font-size(1);
-  }
-
   .small-module {
-    font-size: font-size(1);
     margin-bottom: 20px;
   }
-
 
   .latest-note {
     &__details {
