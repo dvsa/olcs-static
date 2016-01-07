@@ -1,0 +1,27 @@
+.article {
+
+  h2,
+  h3,
+  h4 {
+    margin: 1em 0 .25em 0;
+  }
+
+  ul {
+    @extend %paragraph;
+    margin-bottom: 1em;
+    margin-left: 20px;
+  }
+
+  li {
+    margin-bottom: .125em;
+  }
+
+  p {
+    margin-bottom: .5em;
+  }
+
+}
+
+.article + .article {
+  margin-top: 40px;
+}

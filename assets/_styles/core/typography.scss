@@ -17,7 +17,7 @@
   }
 }
 
-// Patterns
+// Size Patterns
 // Responsive, reusable font-size patterns for headings and
 // paragraph text copy only
 // -----------------------------------------------------------------
@@ -58,9 +58,14 @@
   );
 }
 
+// Paragraphs
 // -----------------------------------------------------------------
 
 %paragraph--large {
+  @extend %h3;
+}
+
+%paragraph {
   @extend %h4;
 }
 
@@ -79,9 +84,9 @@ h4,
 h5,
 p {
   clear: both;
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 0.25em;
   font-weight: 700;
-  margin-bottom: .25em;
 }
 
 h1 {
@@ -108,7 +113,7 @@ h5 {
 }
 
 p {
-  @extend %paragraph--large;
+  @extend %paragraph;
   font-weight: 400;
 }
 
@@ -138,34 +143,7 @@ textarea {
   Article styling
  */
 
-.article {
 
-  h2,
-  h3,
-  h4 {
-    margin: 1em 0 .25em 0;
-  }
-
-  ul {
-    @extend %paragraph--large;
-    margin-bottom: 1em;
-    margin-left: 20px;
-  }
-
-  li {
-    margin-bottom: .125em;
-  }
-
-  p {
-    @extend %paragraph--large;
-    margin-bottom: .5em;
-  }
-
-}
-
-.article + .article {
-  margin-top: 40px;
-}
 
 // Selfserve theme
 // ---------------
