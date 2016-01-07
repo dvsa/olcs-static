@@ -17,7 +17,7 @@
 .table__header {
   @extend %header-with-actions;
   span {
-    @extend %paragraph--large;
+    @extend %paragraph;
     font-weight: 400;
     color: $grey-1;
   }

@@ -14,7 +14,7 @@
     display: inline-block;
   }
   p {
-    @extend %paragraph--large;
+    @extend %paragraph;
   }
   a {
   	color: #FFF;

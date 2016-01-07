@@ -199,13 +199,13 @@ legend {
 }
 
 label {
-  @extend %paragraph--large;
+  @extend %paragraph;
   display: block;
   margin: 0 10px 7px 0;
   max-width: 600px;
   clear: both;
   .inline & {
-    @extend %paragraph--small;
+    @extend %paragraph;
     display: inline;
   }
 }
@@ -213,7 +213,7 @@ label {
 /* Nested fieldsets */
 
 fieldset fieldset legend {
-  @extend %paragraph--large;
+  @extend %paragraph;
   max-width: 600px;
   clear: both;
   width: 100%;
@@ -529,7 +529,7 @@ select:focus {
 
 .traffic-area {
   .field {
-    @extend %paragraph--large;
+    @extend %paragraph;
     margin-bottom: 5px;
   }
 }
