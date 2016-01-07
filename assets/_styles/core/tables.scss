@@ -197,16 +197,8 @@ tfoot {
 
   .table__header {
     @extend %header-with-actions;
-    margin-top: -8px;
     h3 {
-      font-size: font-size(3);
       margin-top: 8px;
-    }
-    h3 + form & {
-      margin-top: .2em !important;
-    }
-    .field & {
-      margin-top: -4px;
     }
   }
 

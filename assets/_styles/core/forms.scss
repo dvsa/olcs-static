@@ -176,14 +176,16 @@ legend {
 }
 
 label {
-  @extend %paragraph;
   display: block;
   margin: 0 10px 7px 0;
   max-width: 600px;
   clear: both;
   .inline & {
-    @extend %paragraph--small;
+    @extend %h5;
     display: inline;
+  }
+  @if $app == 'selfserve' {
+    @extend %h4;
   }
 }
 

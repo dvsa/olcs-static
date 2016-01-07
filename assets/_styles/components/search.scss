@@ -33,8 +33,8 @@
       height: 20px;
       width: 10px;
       position: absolute;
-      top: 0.6em;
-      right: 0.75em;
+      top: 8px;
+      right: 8px;
       pointer-events: none;
       background: url('../images/down-arrow.png') no-repeat 100% 4px;
       @include device-pixel-ratio($ratio: 2) {

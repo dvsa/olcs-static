@@ -222,10 +222,6 @@ button {
 
   %action-box {
     padding: 4px 10px 3px;
-    &.large {
-      padding: 6px 12px 5px;
-      font-size: font-size(2);
-    }
   }
 
   .actions-container select {
@@ -272,7 +268,6 @@ button {
   .record-actions {
     margin-top: .75em;
     display: block;
-
     &__group {
       list-style: none;
       margin: .5em 0 1.1em 0;
@@ -283,11 +278,7 @@ button {
     }
     a {
       display: block;
-      font-size: font-size(2);
       padding: 6px 12px 5px;
-    }
-    h5 {
-      font-size: font-size(3);
     }
   }
 
