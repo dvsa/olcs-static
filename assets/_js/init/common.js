@@ -35,21 +35,6 @@ OLCS.ready(function() {
     container: ".js-postcode-search"
   });
 
-
-  /*
-   * By default, opt-in to showing a preloader for
-   * all AJAX requests. If this proves to be a bit greedy
-   * we can make it more selective :)
-   */
-
-  // $(document).on("ajaxStart", function(){
-  //   if (!$(".modal__wrapper").length && !$(".preloader").length) {
-
-  //   }
-  // });
-
-  $(document).bind("ajaxError", OLCS.preloader.hide);
-
   // A safe assumption that when the page is rendered
   // this preloader should be hidden
   OLCS.eventEmitter.on("render", function() {
@@ -71,7 +56,6 @@ OLCS.ready(function() {
     success: OLCS.normaliseResponse(function(data) {
       if (data.hasErrors) {
         F.render(".js-body", data.body);
-
         return;
       }
       OLCS.modalForm(data);

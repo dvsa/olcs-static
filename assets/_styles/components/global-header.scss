@@ -66,11 +66,11 @@
 
 @if $app == 'internal' {
 
-
   .global-header {
     background: #111;
     position: relative;
     overflow: visible;
+    padding: 7px 0 6px;
     &__wrapper {
       @media(max-width: $mobile-column-stack) {
         padding-bottom: 1em;
@@ -80,7 +80,7 @@
       float: left;
       font-size: 26px;
       font-weight: bold;
-      margin-right: $gutter;
+      margin-right: $gutter-half;
       margin-bottom: 0;
     }
     a {

@@ -59,25 +59,20 @@
 
 @if $app == 'internal' {
 
-  .one-fifth--right,
-  .one-fifth--right p {
-    @extend %paragraph--tiny;
+  .sidebar--right p {
+    font-size: font-size(1);
   }
 
   .small-module {
-    margin-bottom: 1.5em;
-    &__title {
-      @extend %paragraph--small;
-      border-bottom: 1px solid $grey-3;
-      padding-bottom: .5em;
-      margin: .4em 0 .5em;
-    }
+    font-size: font-size(1);
+    margin-bottom: 20px;
   }
+
 
   .latest-note {
     &__details {
       border-radius: 3px;
-      padding: .6em 1em .75em;
+      padding: 0.5em 0.75em 0.4em;
       background: $yellow-25;
       border: 1px solid $yellow-50;
     }

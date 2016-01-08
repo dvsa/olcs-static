@@ -21,6 +21,7 @@ $app: selfserve;
 
 // Core
 @import '../core/config';
+@import '../core/tools';
 @import '../core/fonts';
 @import '../core/base';
 @import '../core/helpers';
@@ -31,7 +32,6 @@ $app: selfserve;
 @import '../core/forms';
 @import '../core/navigation';
 @import '../core/tables';
-@import '../core/tools';
 @import '../core/buttons';
 
 // Components
@@ -53,6 +53,7 @@ $app: selfserve;
 @import '../components/filters';
 @import '../components/tabs';
 @import '../components/status';
+@import '../components/highlight-box';
 @import '../components/right-hand-column';
 @import '../components/confirmation';
 @import '../components/verify';

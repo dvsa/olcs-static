@@ -147,7 +147,6 @@ fieldset fieldset .field:last-child {
   }
   &.inline-text  input {
     width: 3.85em;
-    text-align: center;
     margin: 0 10px 10px 0;
   }
   &--two-col {
@@ -419,15 +418,9 @@ select:focus {
   padding: 15px 2.5% 10px;
   margin-top: 5px;
   &__preloader {
+    @extend %light-preloader;
     float: left;
-    height: 20px;
-    width: 20px;
     margin: 0 10px 0 0;
-    background: url('../images/address-preloader.gif') no-repeat 0 0;
-    @include device-pixel-ratio($ratio: 2) {
-      background-image: url('../images/address-preloader-2x.gif');
-      background-size: 20px 20px;
-    }
   }
   &__remove {
     position: absolute;
@@ -473,17 +466,6 @@ select:focus {
 */
 
 .address {
-  &__preloader {
-    float: right;
-    margin-top: 8px;
-    height: 20px;
-    width: 20px;
-    background: url('../images/address-preloader.gif') no-repeat 0 0;
-    @include device-pixel-ratio($ratio: 2) {
-      background-image: url('../images/address-preloader-2x.gif');
-      background-size: 20px 20px;
-    }
-  }
   fieldset {
     margin-bottom: 15px;
   }
@@ -589,15 +571,9 @@ select:focus {
 }
 
 .inline-search__loading {
-  height: 20px;
-  width: 20px;
+  @extend %light-preloader;
   float: left;
   margin: 8px 5px;
-  background: url('../images/address-preloader.gif') no-repeat 0 0;
-  @include device-pixel-ratio($ratio: 2) {
-    background-image: url('../images/address-preloader-2x.gif');
-    background-size: 20px 20px;
-  }
 }
 
 .inline-search__message {
@@ -612,8 +588,6 @@ select:focus {
     color: $mellow-red;
   }
 }
-
-
 
 
 /*
@@ -738,7 +712,22 @@ select:focus {
   margin-bottom: -20px;
 }
 
-
+// Hints
+.hint {
+  display: block;
+  color: $grey-1;
+  margin: .5em 0 5px;
+  width: 90%;
+  max-width: 600px;
+  legend + & {
+    margin-bottom: 0.75em;
+  }
+  &--small {
+    @extend %paragraph--small;
+    color: $grey-1;
+    margin: 5px 0;
+  }
+}
 
 
 // Selfserve theme
@@ -830,7 +819,6 @@ select:focus {
     }
   }
 
-
   .medium {
     min-width: 300px;
     max-width: 450px;
@@ -844,7 +832,7 @@ select:focus {
   }
 
   .field {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     &.inline-text,
     &.legend {
       margin-bottom: 10px;
@@ -852,7 +840,7 @@ select:focus {
   }
 
   legend {
-    @extend %h4;
+    font-size: font-size(3);
     margin: .5em 0;
   }
 
@@ -868,7 +856,7 @@ select:focus {
   }
 
   label {
-    font-size: 15px;
+    font-size: font-size(2);
     .inline & {
       @extend %paragraph--tiny;
     }
@@ -890,6 +878,7 @@ select:focus {
   input,
   textarea,
   .terms--box {
+    font-size: font-size(2);
     border: 1px solid $grey-2;
     background: $grey-4;
   }
@@ -904,10 +893,20 @@ select:focus {
     font-size: 14px;
   }
 
-  .js-postcode-search .inline .action--primary.large,
-  .lookup button.action--primary.large {
-    margin-left: 5px;
-    padding: 7px 12px;
+  .hint,
+  .hint--small,
+  .hint input {
+    font-size: font-size(1);
+    margin-top: 0;
+  }
+
+  .attach-action__hint {
+    margin-top: 8px;
+  }
+
+  .traffic-area  a {
+    font-size: font-size(2);
+    margin-bottom: 20px;
   }
 
 }

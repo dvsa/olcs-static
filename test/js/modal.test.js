@@ -12,6 +12,8 @@ describe("OLCS.modal", function() {
   it("should expose the correct public interface", function() {
     expect(this.component.show).to.be.a("function");
     expect(this.component.hide).to.be.a("function");
+    expect(this.component.isVisible).to.be.a("function");
+    expect(this.component.updateBody).to.be.a("function");
   });
 
   describe("show", function() {
@@ -61,11 +63,33 @@ describe("OLCS.modal", function() {
         expect(this.eventSpy.firstCall.args[0]).to.equal("hide:modal");
       });
     });
+  });
+
+  describe("Given a stubbed DOM with a modal close button", function() {
+    beforeEach(function() {
+      $("body").append([
+        "<div class=modal__wrapper>",
+          "<a href=# class=modal__close>Close</a>",
+        "</div>"
+      ].join("\n"));
+    });
+
+    afterEach(function() {
+      $(".modal__wrapper").remove();
+    });
+
+    it("should have a close button", function() {
+      expect($(".modal__close").length).to.be(1);
+    });
+
+    it("should have a modal wrapper", function() {
+      expect($(".modal__wrapper").length).to.be(1);
+    });
 
     describe("When clicking the modal close button", function() {
       beforeEach(function() {
         this.spy = sinon.stub(this.component, "hide");
-        $(".modal__close").click();
+        $(".modal__close").trigger('click');
       });
 
       afterEach(function() {
@@ -76,5 +100,11 @@ describe("OLCS.modal", function() {
         expect(this.spy.called).to.be(true);
       });
     });
+
+      // it("should remove the modal", function() {
+      //   expect($(".modal__wrapper").length).to.be(0);
+      // });
+    //});
   });
+
 });

@@ -13,6 +13,7 @@
 
 // [1] - Page/Content/Row Wrappers
 // The document/application wrapper which contains the entire app
+// -----------------------------------------------------------------
 
 .page-wrapper {
   overflow: hidden;
@@ -31,13 +32,14 @@
 }
 
 // [2] - Individual Columns
-// Create unsemantic class names for reusable columns of various 
+// Create unsemantic class names for reusable columns of various
 // widths and proportions
+// -----------------------------------------------------------------
 
 // Re-define the GDS grid-column mixin
 
 @mixin grid-column($width, $full-width: $mobile-column-stack, $float: left, $mobile-first: false) {
-  
+
   @if $mobile-first {
     @media (min-width: $full-width) {
       float: $float;
@@ -54,7 +56,7 @@
 
   padding: 0 $gutter-half;
   box-sizing: border-box;
-  
+
 }
 
 // Create individual columns
@@ -98,7 +100,7 @@
   display: table;
   width: 100%;
 }
-  
+
 .table-col,
 %table-col {
   display: table-cell;
@@ -117,24 +119,26 @@
 
 // [3] - Selfserve only styles
 // Overwrite the main layout styles for the Selfserve application
+// -----------------------------------------------------------------
 
 @if $app == 'selfserve' {
-  
+
   .page-wrapper {
     max-width: $base-width;
   }
-  
+
   #main:focus {
     outline: 0;
   }
-  
+
 }
 
 // [4] - Internal only styles
 // Overwrite the main layout styles for the Intetnal aplication
+// -----------------------------------------------------------------
 
 @if $app == 'internal' {
-  
+
   .page-wrapper {
     padding: 0 $gutter;
     overflow-x: auto;
@@ -144,26 +148,19 @@
     display: table;
     position: relative;
     margin: 0 0 4em;
+    margin-top: 1em;
   }
 
   .content,
   .full-width {
     @extend %table-row;
-    padding-top: 5px;
-  }
-
-  .content__header {
-    @extend %header-with-actions;
-    border-bottom: 1px solid $grey-3;
-    margin: 5px 0 12px;
   }
 
   .sidebar--left {
     @include table-column(200px);
-    h4 {
-      @extend %header-with-actions;
-      margin: 3px 0 0;
-      border-bottom: 1px solid $grey-3;
+    .title {
+      @extend .content_header;
+      margin-bottom: 10px;
     }
   }
 

@@ -30,6 +30,7 @@
                 "assets/_js/common/vendor/jquery.1.11.0.js",
                 "assets/_js/common/vendor/chosen.jquery.min.js",
                 "assets/_js/common/vendor/jquery.details.min.js",
+                "assets/_js/common/vendor/pace.min.js",
                 "assets/_js/common/*.js",
                 "assets/_js/" + path + "/*.js",
                 "assets/_js/init/common.js",
@@ -81,7 +82,7 @@
                 options: {
                     processors: [
                         require('autoprefixer')({
-                            browsers: ['last 2 versions']
+                            browsers: ['last 2 versions','IE 8','IE9','IE10']
                         })
                     ]
                 },
@@ -383,6 +384,7 @@
         grunt.registerTask('compile:dev', [
             'lint',
             'sass:dev',
+            'postcss',
             'uglify:dev',
             'assemble'
         ]);
@@ -390,12 +392,14 @@
         grunt.registerTask('compile:staging', [
             'lint',
             'sass:prod',
+            'postcss',
             'uglify:prod',
             'assemble'
         ]);
 
         grunt.registerTask('compile:live', [
             'sass:prod',
+            'postcss',
             'uglify:prod'
         ]);
 

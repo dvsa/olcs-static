@@ -28,7 +28,7 @@
   }
 }
 
-.one-fifth--right .notice-container {
+.sidebar--right .notice-container {
   margin: 0 0 1em;
   position: relative;
   float: left;
@@ -85,12 +85,9 @@
 
 @if $app == 'internal' {
 
-  .notice-container p {
-    font-size: 15px;
-  }
-
-  .one-fifth--right .notice-container p {
-    font-size: 14px;
+  .notice-container p,
+  .sidebar--right .notice-container p {
+    font-size: font-size(1);
   }
 
 }

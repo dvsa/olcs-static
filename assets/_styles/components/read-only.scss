@@ -70,8 +70,8 @@
 .definition-list {
   float: left;
   border-bottom: 1px solid $grey-3;
-  margin: 0 0 12px;
-  padding: 0 0 3px;
+  margin: 0 0 11px;
+  padding: 0 0 1px;
   width: 100%;
   &:last-child {
     border-bottom: 0;
@@ -157,10 +157,20 @@
 @if $app == 'internal' {
 
   .read-only {
-    font-size: 15px;
+    font-size: font-size(1);
     dt {
       color: #555;
     }
+  }
+
+  .read-only__header {
+    margin-top: -8px;
+  }
+
+  h3.read-only__title,
+  h4.read-only__title {
+    font-size: font-size(3);
+    margin-top: 8px;
   }
 
 }

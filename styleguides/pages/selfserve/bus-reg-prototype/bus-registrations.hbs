@@ -2,40 +2,32 @@
 title: Bus registrations
 layout: base.hbs
 user: bus operator
-table:
-  - headers:
-      - label: Registration number
-        class: sortable descending
-      - label: Variation
-        class: sortable
-      - label: Service numbers
-        class: sortable
-      - label: Submitted
-        class: sortable
-      - label: Type
-        class: sortable
-    columns:
-      - <strong><a href="bus-registration.html">PC1057277/232</a></strong><span class="status green">Registered</span>
-      - 3
-      - 576,570
-      - 12:02 13 May 2013
-      - EBSR live
-    rows: 20
 ---
 
 <div class="row">
 
   <div class="three-quarters">
     <!-- Registered bus services -->
-  
-    <div class="article" style="margin: -20px 0 20px">
+
+<!--     <div class="article" style="margin: -20px 0 20px">
       <p>You can register, update or cancel a bus service by either:<br />
       <ul>
         <li>printing off and filling in the <a href="">application forms</a></li>
         <li><a href="register-update-cancel-service.html">uploading an EBSR pack</a></li>
       </ul>
-    </div>
-  
+    </div> -->
+
+    <form style="margin-top: -20px;">
+      <fieldset>
+        <div class="field inline-search">
+          <label>Search for a registration</label>
+          <input type="search" class="inline-search__input">
+          <button class="inline-search__button">Find vehicle</button>
+          <p class="inline-search__hint"><a href="vehicles.html">Clear search</a></p>
+        </div>
+      </fieldset>
+    </form>
+
     <div class="table__wrapper">
       <table>
         <thead>
@@ -93,9 +85,9 @@ table:
         </tbody>
       </table>
     </div><!-- .table__wrapper -->
-  
+
   </div><!-- .five-eights -->
-  
+
   <div class="one-quarter">
     {{>_support}}
   </div>

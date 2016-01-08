@@ -21,43 +21,4 @@
 %navigation__link {
   display: block;
   position: relative;
-  padding: .75em;
-}
-
-
-// Selfserve theme
-// ---------------
-
-@if $app == 'selfserve' {
-  .list-navigation {
-    list-style: none;
-    margin-bottom: 40px;
-    &__item {
-      @extend %paragraph--large;
-      margin-bottom: 5px;
-    }
-  }
-}
-
-
-// Internal theme
-// ---------------
-
-@if $app == 'internal' {
-
-  .horizontal-navigation__item,
-  .vertical-navigation__item,
-  .app-navigation__item {
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 500;
-    a {
-      text-decoration: none;
-    }
-    &.current {
-      font-size: 15px;
-      font-weight: 500;
-    }
-  }
-
 }

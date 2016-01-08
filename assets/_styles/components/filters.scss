@@ -46,7 +46,7 @@
   .filters {
     margin: .5em 0 -7px;
     label {
-      @extend %paragraph--tiny;
+      font-size: font-size(1);
     }
   }
 }

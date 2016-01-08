@@ -9,6 +9,7 @@
   width: 100%;
   overflow: auto;
   float: left;
+  position: relative;
   + .table__header {
     margin-top: 2em;
   }
@@ -128,6 +129,7 @@ td {
   }
 }
 
+
 tfoot {
   tr {
     border-top: 1px solid $grey-2;
@@ -164,8 +166,7 @@ tfoot {
   margin-top: -7px;
 }
 
-
-// This hack is to break any long safety inspector names onto 
+// This hack is to break any long safety inspector names onto
 // two lines as per OLCS-11334
 
 #lva-safety { // ensure we are only affecting the desired table
@@ -173,7 +174,7 @@ tfoot {
     word-break: break-word;
     text-align: left;
     max-width: 100%;
-  } 
+  }
   td {
     max-width: 250px;
   }
@@ -198,12 +199,16 @@ tfoot {
 
   .table__header {
     @extend %header-with-actions;
-    margin-bottom: 0;
+    margin-top: -8px;
     h3 {
-      margin-top: 3px;
+      font-size: font-size(3);
+      margin-top: 8px;
     }
     h3 + form & {
       margin-top: .2em !important;
+    }
+    .field & {
+      margin-top: -4px;
     }
   }
 
@@ -226,7 +231,7 @@ tfoot {
 
   th,
   td {
-    @extend %paragraph--tiny;
+    font-size: font-size(1);
     padding: .5em .75em;
   }
 
