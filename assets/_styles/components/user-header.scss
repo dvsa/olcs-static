@@ -15,6 +15,9 @@
   float: right;
   &__item {
     display: inline;
+    & + & {
+      margin-left: 0.5em;
+    }
   }
 }
 
