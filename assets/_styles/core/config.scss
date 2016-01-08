@@ -56,6 +56,16 @@ $core-sizes: (
   'size-8' : 48
 );
 
+// Custom function to return font size
+@function font-size($size, $print: false) {
+  $size: map-get($core-sizes, 'size-#{$size}');
+  @if $print {
+    @return #{$size} + 'pt';
+  } @else {
+    @return #{$size} + 'px';
+  }
+}
+
 // [5] - Responsive Breakpoints
 // Define the responsive breakpoints to be used by the grid system
 // -----------------------------------------------------------------
@@ -99,14 +109,4 @@ $mobile-column-stack: breakpoint('break-4');
 
 @if $app == 'selfserve' {
   $col-gutter : 2.5%;
-}
-
-// Custom function to return font size
-@function font-size($size, $print: false) {
-  $size: map-get($core-sizes, 'size-#{$size}');
-  @if $print {
-    @return #{$size} + 'pt';
-  } @else {
-    @return #{$size} + 'px';
-  }
 }

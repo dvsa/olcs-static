@@ -99,6 +99,16 @@ fieldset {
   }
   fieldset {
     margin-bottom: 30px;
+    legend {
+      @extend %paragraph;
+      max-width: 600px;
+      font-weight: 400;
+      clear: both;
+      width: 100%;
+    }
+    label {
+      @extend %paragraph--small;
+    }
   }
 }
 
@@ -113,7 +123,7 @@ fieldset {
   }
 }
 
-form fieldset:last-child,
+fieldset:last-child,
 fieldset .field:last-child,
 fieldset fieldset .field:last-child {
   margin-bottom: 0;
@@ -167,7 +177,6 @@ legend {
   *margin-left: -7px;
   margin-bottom: 7px;
   padding: 0;
-  color: $black;
   font-weight: 700;
   .highlight-box & {
     float: left;
@@ -187,19 +196,6 @@ label {
   @if $app == 'selfserve' {
     @extend %h4;
   }
-}
-
-/* Nested fieldsets */
-
-fieldset fieldset legend {
-  @extend %paragraph;
-  max-width: 600px;
-  clear: both;
-  width: 100%;
-}
-
-fieldset fieldset label {
-  @extend %paragraph--small;
 }
 
 /*

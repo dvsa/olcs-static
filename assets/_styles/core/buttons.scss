@@ -75,8 +75,8 @@ button {
 %action-box {
   @extend %paragraph--small;
   border: 0;
-  margin-right: .3em;
-  padding: .4em .75em .3em;
+  margin-right: 0.3em;
+  padding: 0.4em 0.75em 0.3em;
   text-decoration: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -106,10 +106,12 @@ button {
     background: none;
     border: 0;
     text-decoration: underline;
-    line-height: 2;
-    padding: 0 0.25em;
+    padding: 0.4em 0.75em 0.3em;
     &:focus {
       outline: 0;
+    }
+    &.large {
+      @extend %h4;
     }
   }
   &--delete {

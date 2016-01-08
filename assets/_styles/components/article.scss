@@ -3,12 +3,6 @@
 
 .article {
 
-  h2,
-  h3,
-  h4 {
-    margin: 1em 0 .25em 0;
-  }
-
   ul {
     @extend %paragraph;
     margin-bottom: 1em;
@@ -19,7 +13,7 @@
     margin-bottom: .125em;
   }
 
-  p {
+  p:not(:last-child) {
     margin-bottom: 0.5em;
   }
   
