@@ -15,9 +15,6 @@
   &:last-child a {
     background: none;
   }
-  a {
-    padding-right: 1em;
-  }
 }
 
 .breadcrumbs a {
@@ -52,6 +49,7 @@
 
   .breadcrumbs a {
     // color: $grey-1;
+    padding-right: 1em;
     background: url('#{$assetPath}/breadcrumb-arrow.png') no-repeat 100% 70%;
     @include device-pixel-ratio($ratio: 2) {
       background: url('#{$assetPath}/breadcrumb-arrow-2x.png') no-repeat 95% 50%;
