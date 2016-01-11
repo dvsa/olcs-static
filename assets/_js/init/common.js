@@ -15,7 +15,7 @@ OLCS.ready(function() {
   
   // this currently targets ALL forms; perhaps we should 
   // selectively target forms with a unique class?
-  OLCS.formSubmit({
+  OLCS.disableForm({
     form: "form",
     submit: "[type=submit], .js-modal-ajax"
   });

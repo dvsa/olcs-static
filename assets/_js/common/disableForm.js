@@ -1,14 +1,14 @@
 var OLCS = OLCS || {};
 
 /**
- * OLCS.formSubmit
+ * OLCS.disableForm
  * 
  * Tools to provide disabling buttons and changing submit button 
  * text when form is submitted
  * 
  */
 
-OLCS.formSubmit = (function(document, $, undefined) {
+OLCS.disableForm = (function(document, $, undefined) {
 
   'use strict';
 

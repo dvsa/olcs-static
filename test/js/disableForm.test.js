@@ -1,9 +1,9 @@
-describe("OLCS.formSubmit", function() {
+describe("OLCS.disableForm", function() {
   
   "use strict";
 
   beforeEach(function() {
-    this.component = OLCS.formSubmit;
+    this.component = OLCS.disableForm;
   });
 
   it("should be a function", function() {
