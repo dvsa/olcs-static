@@ -107,7 +107,9 @@ fieldset {
       width: 100%;
     }
     label {
-      @extend %paragraph--small;
+      @if $app == 'selfserve' {
+        @extend %paragraph--small;
+      }
     }
   }
 }
@@ -803,6 +805,9 @@ select:focus {
     margin-bottom: 30px;
     fieldset {
       margin-bottom: 20px;
+      legend {
+        @extend %paragraph--small;
+      }
     }
   }
 
