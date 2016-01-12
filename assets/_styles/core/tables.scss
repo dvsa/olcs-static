@@ -16,6 +16,7 @@
 
 .table__header {
   @extend %header-with-actions;
+  line-height: 1.75;
   span {
     @extend %paragraph;
     font-weight: 400;
@@ -193,13 +194,6 @@ tfoot {
 
   .table__wrapper {
     border-radius: 3px;
-  }
-
-  .table__header {
-    @extend %header-with-actions;
-    h3 {
-      margin-top: 8px;
-    }
   }
 
   table {
