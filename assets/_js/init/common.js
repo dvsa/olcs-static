@@ -13,10 +13,7 @@ OLCS.ready(function() {
   OLCS.formInit();
   OLCS.notices();
   
-  // this currently targets ALL forms; perhaps we should 
-  // selectively target forms with a unique class?
   OLCS.disableForm({
-    form: "form",
     submit: "[type=submit], .js-modal-ajax"
   });
 

@@ -15,7 +15,6 @@ OLCS.disableForm = (function(document, $, undefined) {
   return function init(options) {
     
     // Get the selectors of interest
-    var form = options.form;
     var submit = options.submit;
     
     // Create a variable to store the submit button text
