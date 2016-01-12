@@ -30,7 +30,9 @@
   }
   th,
   td {
-    @extend %paragraph--small;
+    @if $app == 'selfserve' {
+      @extend %paragraph--small;
+    }
     vertical-align: middle;
   }
   th {
