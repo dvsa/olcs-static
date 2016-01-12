@@ -15,7 +15,9 @@
     margin: 0 45px 0 15px;
   }
   > p {
-    @extend %paragraph--tiny;
+    @if $app == 'selfserve' {
+      @extend %paragraph--tiny;
+    }
     margin-bottom: 1em;
   }
   ul,
