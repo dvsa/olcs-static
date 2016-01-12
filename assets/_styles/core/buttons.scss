@@ -35,6 +35,7 @@ button {
   &[disabled="disabled"],
   &[disabled] {
     opacity: 0.5;
+    pointer-events: none;
     &:hover {
       cursor: default;
       background-color: $colour;
@@ -110,6 +111,15 @@ button {
     padding: 0 0.25em;
     &:focus {
       outline: 0;
+    }
+    &.disabled,
+    &[disabled="disabled"],
+    &[disabled] {
+      opacity: 0.5;
+      pointer-events: none;
+      &:hover {
+        cursor: default;
+      }
     }
   }
   &--delete {

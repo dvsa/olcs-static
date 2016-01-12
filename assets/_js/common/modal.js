@@ -66,6 +66,8 @@ OLCS.modal = (function(document, $, undefined) {
 
     // focus on the modal itself
     $(selector).focus();
+    
+    OLCS.eventEmitter.emit('show:modal');
 
     // let other potentially interested components know
     // there's been a render event
