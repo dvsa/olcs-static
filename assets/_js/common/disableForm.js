@@ -21,69 +21,63 @@ OLCS.disableForm = (function(document, $, undefined) {
     // Create a variable to store the submit button text
     var submitText;
       
-    // Iterate through each form
-    $(form).each(function() {
+    function disableFormSubmit() {
       
-      function disableFormSubmit() {
-      
-        // Cache each individual form
-        var thisForm = $(this);
+      // When a submit button is clicked
+      $(submit).on('click', function() {
         
-        // When a submit button is clicked
-        $(submit).unbind().on('click', function() {
+        var thisForm = $(this).parents('form:first');
+    
+        // Set appropriate button replacement message
+        // If clicked element has attirbute 'data-onclick-become',
+        // use that, otherwise use the default message
+        var dataLoadText = $(this).attr('data-onclick-become');
+        var loadText = dataLoadText ? dataLoadText : options.loadText;
+        
+        // Add class to identify the clicked submit button
+        $(this).addClass('submit-clicked');
+        
+        // Cache the clicked button's original text
+        submitText = $(this).html();
       
-          // Set appropriate button replacement message
-          // If clicked element has attirbute 'data-onclick-become',
-          // use that, otherwise use the default message
-          var dataLoadText = $(this).attr('data-onclick-become');
-          var loadText = dataLoadText ? dataLoadText : options.loadText;
-          
-          // Add class to identify the clicked submit button
-          $(this).addClass('submit-clicked');
-          
-          // Cache the clicked button's original text
-          submitText = $(this).html();
-          
-          // Disable all the submit buttons in the current form,
-          // only after the form has actually been submitted
-          $(thisForm).submit(function() {
-            thisForm.find(submit).addClass('disabled').prop('disabled', true);
-          });
-          
-          // Replace the clicked button text with an appropriate message
-          // If no message is set, the button text will remain as normal
-          if (loadText !== undefined) {
-            if ($(this).is('button', 'a')) {
-              $(this).html(loadText);
-            } else if ($(this).is('input')) {
-              $(this).val(loadText);
-            }
-          }
-          
+        // Disable all the submit buttons in the current form,
+        // only after the form has actually been submitted
+        $(thisForm).submit(function() {
+          thisForm.find(submit).addClass('disabled').prop('disabled', true);
         });
-      
-      }
-      
-      // Revert buttons to their original state
-      function revertFormSubmit() {
         
-        // Re-enable all the submit buttons in the current form
-        $(submit).removeClass('disabled').prop('disabled', false);
+        // Replace the clicked button text with an appropriate message
+        // If no message is set, the button text will remain as normal
+        if (loadText !== undefined) {
+          if ($(this).is('button', 'a')) {
+            $(this).html(loadText);
+          } else if ($(this).is('input')) {
+            $(this).val(loadText);
+          }
+        }
         
-        // Replace the loading text with the original text
-        $('.submit-clicked').html(submitText).removeClass('submit-clicked');
-        
-      }
+      });
+    
+    }
+    
+    // Revert buttons to their original state
+    function revertFormSubmit() {
       
-      // Ensure the function will always work on page re-rendering
-      OLCS.eventEmitter.on('render', disableFormSubmit);
+      // Re-enable all the submit buttons in the current form
+      $(submit).removeClass('disabled').prop('disabled', false);
       
-      // If submitting the form opens a modal instead of loading a new 
-      // page, we need to revert the buttons to their original state,
-      // ready for when the modal closes   
-      OLCS.eventEmitter.on('show:modal', revertFormSubmit);
+      // Replace the loading text with the original text
+      $('.submit-clicked').html(submitText).removeClass('submit-clicked');
       
-    });
+    }
+    
+    // Ensure the function will always work on page re-rendering
+    OLCS.eventEmitter.on('render', disableFormSubmit);
+    
+    // If submitting the form opens a modal instead of loading a new 
+    // page, we need to revert the buttons to their original state,
+    // ready for when the modal closes   
+    OLCS.eventEmitter.on('show:modal', revertFormSubmit);
     
   };
 
