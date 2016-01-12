@@ -99,8 +99,7 @@ $mobile-column-stack: breakpoint('break-4');
   $grey-2 : #CCC;
   $grey-3 : #DDD;
   $core-sizes: map-merge($core-sizes, (
-    'size-3' : 15,
-    'size-4' : 18,
+    'size-4' : 18
   ));
 }
 
