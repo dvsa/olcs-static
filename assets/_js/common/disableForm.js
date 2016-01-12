@@ -20,45 +20,49 @@ OLCS.disableForm = (function(document, $, undefined) {
     
     // Create a variable to store the submit button text
     var submitText;
-        
-    // Iterate through each occurance
+      
+    // Iterate through each form
     $(form).each(function() {
       
-      // Cache each individual form
-      var thisForm = $(this);
+      function disableFormSubmit() {
       
-      // When a submit button is clicked
-      $(submit).unbind().on('click', function() {
-    
-        // Set appropriate button replacement message
-        // If clicked element has attirbute 'data-onclick-become',
-        // use that, otherwise use the default message
-        var dataLoadText = $(this).attr('data-onclick-become');
-        var loadText = dataLoadText ? dataLoadText : options.loadText;
+        // Cache each individual form
+        var thisForm = $(this);
         
-        // Add class to identify the clicked submit button
-        $(this).addClass('submit-clicked');
-        
-        // Cache the clicked button's original text
-        submitText = $(this).html();
-        
-        // Disable all the submit buttons in the current form,
-        // only after the form has actually been submitted
-        $(thisForm).submit(function() {
-          thisForm.find(submit).addClass('disabled').prop('disabled', true);
-        });
-        
-        // Replace the clicked button text with an appropriate message
-        // If no message is set, the button text will remain as normal
-        if (loadText !== undefined) {
-          if ($(this).is('button', 'a')) {
-            $(this).html(loadText);
-          } else if ($(this).is('input')) {
-            $(this).val(loadText);
+        // When a submit button is clicked
+        $(submit).unbind().on('click', function() {
+      
+          // Set appropriate button replacement message
+          // If clicked element has attirbute 'data-onclick-become',
+          // use that, otherwise use the default message
+          var dataLoadText = $(this).attr('data-onclick-become');
+          var loadText = dataLoadText ? dataLoadText : options.loadText;
+          
+          // Add class to identify the clicked submit button
+          $(this).addClass('submit-clicked');
+          
+          // Cache the clicked button's original text
+          submitText = $(this).html();
+          
+          // Disable all the submit buttons in the current form,
+          // only after the form has actually been submitted
+          $(thisForm).submit(function() {
+            thisForm.find(submit).addClass('disabled').prop('disabled', true);
+          });
+          
+          // Replace the clicked button text with an appropriate message
+          // If no message is set, the button text will remain as normal
+          if (loadText !== undefined) {
+            if ($(this).is('button', 'a')) {
+              $(this).html(loadText);
+            } else if ($(this).is('input')) {
+              $(this).val(loadText);
+            }
           }
-        }
-        
-      });
+          
+        });
+      
+      }
       
       // Revert buttons to their original state
       function revertFormSubmit() {
@@ -70,6 +74,9 @@ OLCS.disableForm = (function(document, $, undefined) {
         $('.submit-clicked').html(submitText).removeClass('submit-clicked');
         
       }
+      
+      // Ensure the function will always work on page re-rendering
+      OLCS.eventEmitter.on('render', disableFormSubmit);
       
       // If submitting the form opens a modal instead of loading a new 
       // page, we need to revert the buttons to their original state,
