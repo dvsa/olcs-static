@@ -12,10 +12,11 @@
         // Config
         //---------------------------------------------------------
 
-        var pubStyles, scriptPaths, scripts, srcAssets, styles, prototypeName, globalConfig;
+        var pubStyles, scriptPaths, scripts, srcAssets, svgPath, styles, prototypeName, globalConfig;
 
         srcAssets = 'assets/_styles';
         pubStyles = 'public/styles';
+        svgPath   = 'assets/_images/svg';
 
         styles = {
             'public/styles/selfserve.css': srcAssets + '/themes/selfserve.scss',
@@ -353,7 +354,7 @@
 
             //-----------------------------------------------------
             // grunt-svg-sprite
-            // https://github.com/danielhusar/grunt-localscreenshots
+            // https://github.com/drdk/grunt-dr-svg-sprites
             //-----------------------------------------------------
             
             "dr-svg-sprites": {
@@ -362,15 +363,38 @@
                     cssPath: "css",
                     prefix: "svg"
                 },
+                navigation: {
+                    options: {
+                        spriteElementPath: [
+                          svgPath + "/internal-application-complete.svg",
+                          svgPath + "/internal-application-updated.svg",
+                          svgPath + "/internal-application-warning.svg",
+                        ],
+                        spritePath: svgPath + "/sprites/application-navigation.svg",
+                        cssPath: svgPath + "/sprites/application-navigation.css"
+                    }
+                },
+                dropdown: {
+                    options: {
+                        spriteElementPath: [
+                          svgPath + "/dropdown-down.svg",
+                          svgPath + "/dropdown-up.svg"
+                        ],
+                        spritePath: svgPath + "/sprites/dropdown.svg",
+                        cssPath: svgPath + "/sprites/dropdown.css"
+                    }
+                },
                 iframeControls: {
                     options: {
                         spriteElementPath: [
-                          "assets/_images/svg/internal-application-complete.svg",
-                          "assets/_images/svg/internal-application-updated.svg",
-                          "assets/_images/svg/internal-application-warning.svg",
+                          svgPath + "/internal-split-screen-close.svg",
+                          svgPath + "/internal-split-screen-down.svg",
+                          svgPath + "/internal-split-screen-left.svg",
+                          svgPath + "/internal-split-screen-pin-bottom.svg",
+                          svgPath + "/internal-split-screen-pin-down.svg"
                         ],
-                        spritePath: "assets/_images/svg/application-navigation.svg",
-                        cssPath: "assets/_images/svg/application-navigation.css"
+                        spritePath: svgPath + "/sprites/iframeControls.svg",
+                        cssPath: svgPath + "/sprites/iframeControls.css"
                     }
                 }
             },
