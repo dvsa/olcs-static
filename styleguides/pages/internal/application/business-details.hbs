@@ -4,11 +4,11 @@ sectionTitle: Licence details
 subSectionTitle: Business details
 verticalNavItems:
   - label: Overview
-    link:  
+    link:
   - label: Type of licence
-    link:  
+    link:
   - label: Business details
-    link:  
+    link:
   - label: Addresses
     link:
   - label: People
@@ -27,29 +27,29 @@ verticalNavItems:
     link:
   - label: Convictions & penalties
     link:
-form: 
+form:
   - title: Business details
     fieldsets:
     - legend:
       fields:
         - label: Business type
           type: select
-          options:      
+          options:
             - Limited company
           class:
         - label: Registered company number
           type: text
-          options: 
+          options:
             - Goods app
           class:
         - label: Company name
           type: text
-          options: 
+          options:
             - Goods app
           class:
         - label: Trading names (optional)
           type: text
-          options: 
+          options:
             - Goods app
           class:
     actions:
@@ -57,8 +57,6 @@ form:
         class: primary large
       - label: Cancel
         class: secondary large
-      - label: Back to home
-        class: tertiary large
 
 ---
 
@@ -69,5 +67,8 @@ form:
 </div>
 
 <div class="table-col">
+  <div class="content__headere">
+    <h4 class="title">Business details</h4>
+  </div>
   {{#each form }}{{> _forms }}{{/each }}
 </div>
