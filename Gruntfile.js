@@ -12,15 +12,16 @@
         // Config
         //---------------------------------------------------------
 
-        var pubStyles, scriptPaths, scripts, srcAssets, svgPath, styles, prototypeName, globalConfig;
+        var srcStyles, pubStyles, pubImages, srcSvg, scriptPaths, scripts, styles, prototypeName, globalConfig;
 
-        srcAssets = 'assets/_styles';
+        srcStyles = 'assets/_styles';
+        srcSvg    = 'assets/_images/svg';
         pubStyles = 'public/styles';
-        svgPath   = 'assets/_images/svg';
+        pubImages = 'public/images';
 
         styles = {
-            'public/styles/selfserve.css': srcAssets + '/themes/selfserve.scss',
-            'public/styles/internal.css' : srcAssets + '/themes/internal.scss'
+            'public/styles/selfserve.css': srcStyles + '/themes/selfserve.scss',
+            'public/styles/internal.css' : srcStyles + '/themes/internal.scss'
         };
 
         globalConfig = {};
@@ -176,6 +177,9 @@
                         '../prototypes/<%= globalConfig.prototypeName %>/**/*.js',
                         '../prototypes/<%= globalConfig.prototypeName %>/**/*.png'
                     ]
+                },
+                sprites: {
+                    src: srcSvg + "/sprites"
                 }
             },
 
@@ -190,6 +194,55 @@
                 }
             },
 
+            //-----------------------------------------------------
+            // grunt-svg-sprite
+            // https://github.com/drdk/grunt-dr-svg-sprites
+            //-----------------------------------------------------
+            
+            "dr-svg-sprites": {
+                options: {
+                    cssPath: "css",
+                    previewPath: srcSvg + "/sprites"
+                },
+                navigation: {
+                    options: {
+                        spriteElementPath: [
+                          srcSvg + "/internal-application-complete.svg",
+                          srcSvg + "/internal-application-updated.svg",
+                          srcSvg + "/internal-application-warning.svg",
+                        ],
+                        spritePath: pubImages + "/sprites/navigation/application-navigation.svg",
+                        cssPath: pubImages + "/sprites/navigation/application-navigation.css",
+                        previewPath: pubImages + "/sprites/navigation/application-navigation.html"
+                    }
+                },
+                dropdown: {
+                    options: {
+                        spriteElementPath: [
+                          srcSvg + "/dropdown-down.svg",
+                          srcSvg + "/dropdown-up.svg"
+                        ],
+                        spritePath: pubImages + "/sprites/dropdown/dropdown.svg",
+                        cssPath: pubImages + "/sprites/dropdown/dropdown.css",
+                        previewPath: pubImages + "/sprites/navigation/dropdown.html"
+                    }
+                },
+                iframeControls: {
+                    options: {
+                        spriteElementPath: [
+                          srcSvg + "/internal-split-screen-close.svg",
+                          srcSvg + "/internal-split-screen-down.svg",
+                          srcSvg + "/internal-split-screen-left.svg",
+                          srcSvg + "/internal-split-screen-pin-bottom.svg",
+                          srcSvg + "/internal-split-screen-pin-down.svg"
+                        ],
+                        spritePath: pubImages + "/sprites/iframeControls/iframeControls.svg",
+                        cssPath: pubImages + "/sprites/iframeControls/iframeControls.css",
+                        previewPath: pubImages + "/sprites/navigation/iframeControls.html"
+                    }
+                }
+            },
+            
             //-----------------------------------------------------
             // Assemble
             // https://github.com/assemble/grunt-assemble
@@ -247,7 +300,7 @@
                 },
                 images: {
                     files: ['assets/_images/*.{png,jpg,svg}'],
-                    tasks: ['copy:images']
+                    tasks: ['copy:images', 'dr-svg-sprites']
                 }
             },
 
@@ -349,53 +402,6 @@
                 },
                 ci: {
                     colors: false
-                }
-            },
-
-            //-----------------------------------------------------
-            // grunt-svg-sprite
-            // https://github.com/drdk/grunt-dr-svg-sprites
-            //-----------------------------------------------------
-            
-            "dr-svg-sprites": {
-                options: {
-                    spritePath: "public/images/svg",
-                    cssPath: "css",
-                    previewPath: svgPath + "/sprites"
-                },
-                navigation: {
-                    options: {
-                        spriteElementPath: [
-                          svgPath + "/internal-application-complete.svg",
-                          svgPath + "/internal-application-updated.svg",
-                          svgPath + "/internal-application-warning.svg",
-                        ],
-                        spritePath: svgPath + "/sprites/application-navigation.svg",
-                        cssPath: svgPath + "/sprites/application-navigation.css"
-                    }
-                },
-                dropdown: {
-                    options: {
-                        spriteElementPath: [
-                          svgPath + "/dropdown-down.svg",
-                          svgPath + "/dropdown-up.svg"
-                        ],
-                        spritePath: svgPath + "/sprites/dropdown.svg",
-                        cssPath: svgPath + "/sprites/dropdown.css"
-                    }
-                },
-                iframeControls: {
-                    options: {
-                        spriteElementPath: [
-                          svgPath + "/internal-split-screen-close.svg",
-                          svgPath + "/internal-split-screen-down.svg",
-                          svgPath + "/internal-split-screen-left.svg",
-                          svgPath + "/internal-split-screen-pin-bottom.svg",
-                          svgPath + "/internal-split-screen-pin-down.svg"
-                        ],
-                        spritePath: svgPath + "/sprites/iframeControls.svg",
-                        cssPath: svgPath + "/sprites/iframeControls.css"
-                    }
                 }
             },
 
