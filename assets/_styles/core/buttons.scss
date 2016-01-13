@@ -35,6 +35,7 @@ button {
   &[disabled="disabled"],
   &[disabled] {
     opacity: 0.5;
+    pointer-events: none;
     &:hover {
       cursor: default;
       background-color: $colour;
@@ -112,6 +113,15 @@ button {
     }
     &.large {
       @extend %h4;
+    }
+    &.disabled,
+    &[disabled="disabled"],
+    &[disabled] {
+      opacity: 0.5;
+      pointer-events: none;
+      &:hover {
+        cursor: default;
+      }
     }
   }
   &--delete {

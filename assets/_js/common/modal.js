@@ -49,23 +49,24 @@ OLCS.modal = (function(document, $, undefined) {
    */
   exports.show = function(body, title) {
 
+    // if there isn't a modal showing already,
+    // insert the template and give the body a special class
     if ($('body').find(overlay).length === 0) {
-      $('body').prepend(template);
+      $('body')
+        .prepend(template)
+        .addClass(bodyClass);
     }
 
+    // insert the title and content into the modal
     $(header).html(title || '');
     $(content).html(body);
 
-    $('body').addClass(bodyClass);
+    // now we've got everything we need it's time to show it
+    $(wrapper +','+overlay).show();
 
-    // overlay first...
-    $(wrapper).prev().show();
-    // ... then the modal itself
-    $(wrapper).show();
-
+    // focus on the modal itself
     $(selector).focus();
-
-    // @TODO: does anything care about this anymore? a grep is in order
+    
     OLCS.eventEmitter.emit('show:modal');
 
     // let other potentially interested components know
@@ -76,58 +77,33 @@ OLCS.modal = (function(document, $, undefined) {
     // needs resetting
     $(wrapper).scrollTop(0);
 
-    // @NOTE: why does the listener have to be set up here?
-    // it can be done on bootstrap and we can do away with
-    // the constant on/off stuff...
-    $(document).on('click', closeSelectors, function(e) {
-      e.preventDefault();
-      exports.hide();
+    $(document).keyup(function(e) {
+      if (e.keyCode === 27 && exports.isVisible()) {
+        e.preventDefault();
+        exports.hide();
+      }
     });
 
-    if ($('.modal__content').length) {
-      $(document).keyup(function(e) {
-        // On escape
-        if (e.keyCode === 27) {
-          e.preventDefault();
-          if (exports.isVisible()) {
-            exports.hide();
-          }
-        }
-      });
-    }
-
-    // if we've previously opened a modal and scrolled it our modal wrapper
-    // needs resetting
-    $(wrapper).scrollTop(0);
   };
 
   exports.hide = function() {
-
+    // sometimes we want to trigger a different action when we
+    // hide the modal, such as showing a confirmation box.
     var form = $(content).find('form[data-close-trigger]');
 
-    if (form.length > 0) {
+    if (form.length) {
       var selector = form.data('close-trigger');
       $(selector).trigger('click');
       return;
     }
 
-    $(document).off('click', closeSelectors);
-
+    // clean things up
     $('body').removeClass(bodyClass);
+    $(wrapper +','+overlay).remove();
 
-    // ... hide the overlay first...
-    $(wrapper).prev().hide();
-    // ... then the modal itself
-    $(wrapper).hide();
-
-    // Show the preloader until the content has been rendered
-    OLCS.preloader.show();
-
-    // now obliterate them completely
-    $(wrapper).prev().remove();
-    $(wrapper).remove();
-
+    // let other components know that the modal is hidden
     OLCS.eventEmitter.emit('hide:modal');
+
   };
 
   exports.isVisible = function() {
@@ -139,6 +115,15 @@ OLCS.modal = (function(document, $, undefined) {
     OLCS.formHelper.render(content, body);
     $(wrapper).scrollTop(position);
   };
+
+  exports.isVisible = function() {
+    return $(wrapper).is(':visible');
+  };
+
+  $('body').on('click', closeSelectors, function(e) {
+    e.preventDefault();
+    exports.hide();
+  });
 
   return exports;
 

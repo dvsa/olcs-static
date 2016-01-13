@@ -34,7 +34,6 @@ OLCS.url = (function(document, $, undefined) {
     },
 
     load: function(url) {
-      // OLCS.preloader.show();
       window.location.href = url;
     }
   };

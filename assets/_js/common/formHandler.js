@@ -76,8 +76,6 @@ OLCS.formHandler = (function(document, $, undefined) {
      */
     $(document).on("click", actionSelector, function(e) {
 
-      // OLCS.preloader.show();
-
       var form   = $(this).parents(selector);
       var button = $(this);
 

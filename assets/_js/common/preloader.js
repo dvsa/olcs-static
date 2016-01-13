@@ -13,56 +13,59 @@ OLCS.preloader = (function(document, $, undefined) {
   /**
    * private interface
    */
-  var wrapper      = '.preloader__wrapper';
-  var showStack    = 0;
 
-  var template = [
-    '<div class="preloader__wrapper" style="display:none;">',
-      '<div class="preloader"></div>',
-      '<div class="preloader__icon"></div>',
-    '</div>'
-  ].join('\n');
+  var preloaderSelectors = 'div[class*=preloader]';
+  var template;
+
+  function modalPreloader () {
+    template = [
+      '<div class="preloader-overlay--modal"></div>',
+      '<div class="preloader-icon--modal"></div>',
+    ].join('\n');
+
+    $('body').prepend(template);
+  }
+
+  function tablePreloader () {
+    template = [
+      '<div class="preloader-overlay--table"></div>',
+      '<div class="preloader-icon--table"></div>',
+    ].join('\n');
+
+    $('.table__wrapper').prepend(template);
+  }
+
+  function inlinePreloader () {
+    $('<div class=preloader-icon--inline></div>').insertAfter('.js-find');
+  }
 
   /**
    * public interface
    */
-  exports.show = function() {
-    // if there's already a modal on the page, or an address preloader
-    // then don't show another preloader
-    if ($('.modal__wrapper, .address__preloader').length) {
+  exports.show = function(type) {
+
+    // Dont show another preloader if there's
+    // already one on the screen
+    if ($(preloaderSelectors).length) {
       return;
     }
 
-    // @NOTE: temporary fix to prevent the modal showing
-    // in the 'Type of licence' section on LVA
-    // 4/8/15
-    if ($('.js-title').text() === 'Type of licence') {
-      return;
+    switch (type) {
+      case 'modal':
+        modalPreloader();
+        break;
+      case 'table':
+        tablePreloader();
+        break;
+      case 'inline':
+        inlinePreloader();
+        break;
     }
 
-    if ($('body').find(wrapper).length === 0) {
-      $('body').prepend(template);
-      showStack = 0;
-    }
-
-    showStack ++;
-
-    $(wrapper).show();
   };
 
-  exports.hide = function(options) {
-
-    options = options || {};
-
-    // we need to allow for the fact we might have multiple requests
-    // outstanding to show the preloader. As such, only the last one
-    // to ask for hide wins
-    if (--showStack === 0) {
-
-      // @NOTE: in time we might want an options.instant boolean or
-      // similar
-      $(wrapper).hide().remove();
-    }
+  exports.hide = function() {
+    $(preloaderSelectors).remove();
   };
 
   return exports;
