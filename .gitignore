@@ -9,6 +9,7 @@ vendor/*
 composer.lock
 public/js/
 public/styles/
+public/images/
 public/styleguides/
 public/assets
 styleguides/screenshots
