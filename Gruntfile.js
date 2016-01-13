@@ -361,7 +361,6 @@
                 options: {
                     spritePath: "public/images/svg",
                     cssPath: "css",
-                    prefix: "svg",
                     previewPath: svgPath + "/sprites"
                 },
                 navigation: {
