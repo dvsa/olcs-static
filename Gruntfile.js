@@ -352,6 +352,30 @@
             },
 
             //-----------------------------------------------------
+            // grunt-svg-sprite
+            // https://github.com/danielhusar/grunt-localscreenshots
+            //-----------------------------------------------------
+            
+            "dr-svg-sprites": {
+                options: {
+                    spritePath: "public/images/svg",
+                    cssPath: "css",
+                    prefix: "svg"
+                },
+                iframeControls: {
+                    options: {
+                        spriteElementPath: [
+                          "assets/_images/svg/internal-application-complete.svg",
+                          "assets/_images/svg/internal-application-updated.svg",
+                          "assets/_images/svg/internal-application-warning.svg",
+                        ],
+                        spritePath: "assets/_images/svg/application-navigation.svg",
+                        cssPath: "assets/_images/svg/application-navigation.css"
+                    }
+                }
+            },
+
+            //-----------------------------------------------------
             // grunt-localscreenshots
             // https://github.com/danielhusar/grunt-localscreenshots
             //
