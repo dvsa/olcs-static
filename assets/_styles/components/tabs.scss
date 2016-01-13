@@ -16,7 +16,7 @@
   float: left;
   width: 100%;
   &__item {
-    @extend %paragraph--large;
+    @extend %paragraph;
     float: left;
   }
   a {

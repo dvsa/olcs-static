@@ -15,9 +15,11 @@
   float: right;
   &__item {
     display: inline;
+    & + & {
+      margin-left: 0.5em;
+    }
   }
 }
-
 
 // Selfserve theme
 // ---------------
@@ -35,7 +37,6 @@
 
 @if $app == 'internal' {
   .user-header {
-    @extend %paragraph--tiny;
-    padding: .9em 0 10px;
+    padding: 10px 0;
   }
 }

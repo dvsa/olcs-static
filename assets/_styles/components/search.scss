@@ -5,7 +5,6 @@
 */
 
 .search {
-  font-size: font-size(2);
   @media (max-width: breakpoint('break-3')) {
     width: 100%;
   }
@@ -25,7 +24,6 @@
     float: left;
     border-right: 1px solid rgba(black, 0.1);
     background-color: $grey-4;
-    font-size: 14px;
     position: relative;
     &::after {
       content: ' ';
@@ -35,8 +33,8 @@
       height: 20px;
       width: 10px;
       position: absolute;
-      top: 0.6em;
-      right: 0.75em;
+      top: 8px;
+      right: 8px;
       pointer-events: none;
       background: url('../images/down-arrow.png') no-repeat 100% 4px;
       @include device-pixel-ratio($ratio: 2) {
@@ -58,6 +56,7 @@
       display: inline-block;
       height: 32px;
       min-width: 150px;
+      font-family: $NTA-Light;
       // hack for IE8
       padding: 7px 12px\9;
       height: auto\9;
@@ -72,7 +71,7 @@
     width: 220px;
     border: 0;
     height: 32px;
-    font-size: font-size(1);
+    font-family: $NTA-Light;
     &::placeholder {
       color: #767676;
       opacity:  1;
@@ -101,11 +100,10 @@
       outline: 0;
     }
     // hack for IE8
-    text-indent: 0\9; 
+    text-indent: 0\9;
     width: 36px\9;
   }
   &__advanced {
-    font-size: 14px;
     color: $white;
     float: left;
     margin-left: 1em;
