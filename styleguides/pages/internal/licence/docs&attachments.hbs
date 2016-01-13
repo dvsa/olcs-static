@@ -31,14 +31,17 @@ table:
         class: sortable
       - label: Date
         class: sortable
+      - label: SLA
+        class: not-sortable
       - label: <input type="checkbox">
         class: non-sortable
     columns:
-      - <a href="">December-accounts.PDF</a>
+      - <a href=""><b>December-accounts.PDF</b></a>
       - Bus registration
       - Sub category (digital)
       - PDF
       - 13/3/13 14:02
+      - <a href="sla.html">Not set</a>
       - <input type="checkbox">
     rows: 10
     actions:
@@ -53,16 +56,16 @@ table:
 
 ---
 
-  <div class="one-fifth--left">
-    <h4>Filter by:</h4>
+  <div class="sidebar--left">
+    <h4 class="title">Filter by:</h4>
     {{> _filters}}
   </div>
 
-  <div class="three-fifths">
+  <div class="table-col">
     {{#each table}}
-      {{#is @index 0 }} 
+      {{#is @index 0 }}
         {{> _table }}
-      {{/is }} 
+      {{/is }}
     {{/each}}
   </div>
 

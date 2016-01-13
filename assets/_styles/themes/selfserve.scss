@@ -1,5 +1,4 @@
 
-
 /*
   OLCS - Selfserve SCSS
   =====================
@@ -10,18 +9,23 @@
 $app: selfserve;
 
 // Vendor
-@import '../vendor/govuk_toolkit/_device-pixels';
-@import '../vendor/govuk_toolkit/_measurements';
-@import '../vendor/govuk_toolkit/_css3';
-@import '../vendor/govuk_toolkit/_colours';
-@import '../vendor/govuk_toolkit/_typography';
+@import '../vendor/govuk_toolkit/stylesheets/_device-pixels';
+@import '../vendor/govuk_toolkit/stylesheets/_measurements';
+@import '../vendor/govuk_toolkit/stylesheets/_css3';
+@import '../vendor/govuk_toolkit/stylesheets/_colours';
+@import '../vendor/govuk_toolkit/stylesheets/_grid_layout';
+@import '../vendor/govuk_toolkit/stylesheets/_typography';
 @import '../vendor/chosen';
+@import '../vendor/fontello';
 
 // Core
 @import '../core/config';
+@import '../core/tools';
 @import '../core/fonts';
 @import '../core/base';
+@import '../core/helpers';
 @import '../core/links';
+@import '../core/lists';
 @import '../core/typography';
 @import '../core/layout';
 @import '../core/forms';
@@ -31,6 +35,7 @@ $app: selfserve;
 
 // Components
 @import '../components/version-header';
+@import '../components/article';
 @import '../components/global-header';
 @import '../components/search';
 @import '../components/user-header';
@@ -48,6 +53,7 @@ $app: selfserve;
 @import '../components/filters';
 @import '../components/tabs';
 @import '../components/status';
+@import '../components/highlight-box';
 @import '../components/right-hand-column';
 @import '../components/confirmation';
 @import '../components/verify';

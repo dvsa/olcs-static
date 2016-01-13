@@ -8,9 +8,14 @@ OLCS.ready(function() {
 
   OLCS.tableCheckAll();
   OLCS.tableRows();
+  OLCS.dataTooltip();
   OLCS.selectBox();
   OLCS.formInit();
   OLCS.notices();
+
+  // OLCS.disableForm({
+  //   submit: "[type=submit], .js-modal-ajax"
+  // });
 
   // uses the jquery.details.min.js plugin to enhance <details>
   // element across browsers
@@ -25,21 +30,6 @@ OLCS.ready(function() {
   OLCS.postcodeSearch({
     container: ".js-postcode-search"
   });
-
-
-  /*
-   * By default, opt-in to showing a preloader for
-   * all AJAX requests. If this proves to be a bit greedy
-   * we can make it more selective :)
-   */
-
-  // $(document).on("ajaxStart", function(){
-  //   if (!$(".modal__wrapper").length && !$(".preloader").length) {
-
-  //   }
-  // });
-
-  $(document).bind("ajaxError", OLCS.preloader.hide);
 
   // A safe assumption that when the page is rendered
   // this preloader should be hidden
@@ -62,7 +52,6 @@ OLCS.ready(function() {
     success: OLCS.normaliseResponse(function(data) {
       if (data.hasErrors) {
         F.render(".js-body", data.body);
-
         return;
       }
       OLCS.modalForm(data);

@@ -1,41 +1,29 @@
-
-/*
-  Global header
-  =============
-*/
+// Global Header
+// -----------------------------------------------------------------
+//
+// The global GOV.UK standard header to contain the GOV.UK logo,
+// page title and relevant navigation links
+//
 
 .global-header {
   background: $black;
   color: $white;
-  overflow: hidden;
+  padding: 6px 0;
   &__wrapper {
     @extend .page-wrapper;
   }
 }
-
 
 // Selfserve theme
 // ---------------
 
 @if $app == 'selfserve' {
 
-  .global-header__wrapper {
-    margin: 0 auto;
-    padding: 4px 0 7px 0;
-    overflow: auto;
-    @media (max-width: 640px) {
-      width: 92%;
-      padding: 4px 4% 7px;
-    }
-  }
-
   .global-header__title {
-    font-size: 24px;
     float: left;
     clear: none;
     margin: 5px 0 0 180px;
-    @media (max-width: 640px) {
-      font-size: 18px;
+    @media (max-width: $mobile-column-stack) {
       margin: 5px 0 0 0;
       clear: both;
     }
@@ -49,8 +37,7 @@
     font-size: 30px;
     line-height: 1;
     text-decoration: none;
-    margin-left: $gutter;
-    @media (max-width: 640px) {
+    @media (max-width: $mobile-column-stack) {
       padding-top: 10px;
       margin-left: 0;
     }
@@ -77,35 +64,29 @@
 
 @if $app == 'internal' {
 
-
   .global-header {
     background: #111;
     position: relative;
     overflow: visible;
+    padding: 7px 0;
     &__wrapper {
-      margin: 0 $gutter;
-      padding: .5em $gutter 0;
-      overflow: hidden;
-      @media(max-width: 640px) {
-        height: 72px;
+      @media(max-width: $mobile-column-stack) {
         padding-bottom: 1em;
-        width: 92%;
-        margin: 0 4%;
       }
     }
     &__title {
       float: left;
-      font-size: 26px;
       font-weight: bold;
-      margin-right: $gutter;
+      margin-right: $gutter-half;
+      margin-bottom: 0;
+      font-size: 25px;
     }
-  }
-
-  .global-header a {
-    color: $white;
-    text-decoration: none;
-    &:hover {
-      text-decoration: underline;
+    a {
+      color: $white;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 

@@ -1,0 +1,63 @@
+// Tools
+// -----------------------------------------------------------------
+//
+// Utility helpers to speed up and improve development, typically
+// in the form of placeholders and mixins.
+//
+// [1] - Theme Helper
+// [2] - Clearfix
+// [3] - Header With Actions
+//
+// -----------------------------------------------------------------
+
+// [1] - Theme Helper
+// Function to output a CSS value based on which theme is being used
+// -----------------------------------------------------------------
+
+// background: theme($internal: white, $selfserve: black);
+// background: theme(white, black);
+
+@function theme($internal, $selfserve) {
+  @if $app == 'internal' {
+    @return $internal;
+  } @else if $app == 'selfserve' {
+    @return $selfserve;
+  }
+}
+
+// [2] Clearfix
+// https://css-tricks.com/snippets/css/clear-fix/
+// -----------------------------------------------------------------
+
+%clearfix,
+.clearfix {
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+// [3] Header With Actions
+// Create an actionable header bar with right-side actions-container
+// -----------------------------------------------------------------
+
+%header-with-actions {
+  float: left;
+  width: 100%;
+  padding-bottom: 8px;
+  h3,
+  h4 {
+    float: left;
+    display: block;
+    margin: 0;
+  }
+  .actions-container {
+    float: right;
+    margin: -7px -5px 0 0;
+    display: block;
+  }
+  select {
+    margin: 3px 3px 0 0;
+  }
+}

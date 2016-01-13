@@ -5,10 +5,11 @@
 */
 
 .list-navigation {
+  @extend %clearfix;
   list-style: none;
   margin-bottom: 40px;
   &__item {
-    @extend %paragraph--large;
+    @extend %paragraph;
     margin-bottom: 5px;
   }
 }

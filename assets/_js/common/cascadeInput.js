@@ -80,17 +80,17 @@ OLCS.cascadeInput = (function(document, $, undefined) {
           });
 
           destination.html(str);
-
-          // we assume that if we trapped the earlier change event, we want to
-          // trigger one now. Note that the event is triggered on a different element
-          // (dest rather than src); if this matters by all means tweak the component
-          if (trap) {
-            destination.change();
-          }
         }
 
         if (disableDestination) {
           destination.removeAttr("disabled");
+        }
+
+        // we assume that if we trapped the earlier change event, we want to
+        // trigger one now. Note that the event is triggered on a different element
+        // (dest rather than src); if this matters by all means tweak the component
+        if (trap) {
+          destination.trigger("change");
         }
       }
 

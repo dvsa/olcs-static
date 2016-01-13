@@ -5,7 +5,8 @@ layout: base.hbs
 user: operator
 ---
 
-<div class="two-thirds">
+<div class="row">
+  <div class="two-thirds">
 
     <div class="tabs">
       <ul class="tab-list">
@@ -24,16 +25,19 @@ user: operator
         <thead>
           <tr>
             <th>Licence number</th>
+            <th>Licence type</th>
             <th>Area</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td><b><a href="">OB1352622</a></b><span class="status green">Valid</span></td>
+            <td>Standard International</td>
             <td>Northern Ireland</td>
           </tr>
           <tr>
             <td><b><a href="">PC1816262</a></b><span class="status green">Valid</span></td>
+            <td>Restricted</td>
             <td>North East of England</td>
           </tr>
         </tbody>
@@ -58,7 +62,7 @@ user: operator
         </thead>
         <tbody>
           <tr>
-            <td><b><a href="">OB135262/82</a></b><span class="status orange">Under review</span></td>
+            <td><b><a href="">OB135262</a></b><span class="status orange">Under review</span></td>
             <td>13 Oct 2014</td>
             <td>13 Oct 2014</td>
           </tr>
@@ -81,35 +85,34 @@ user: operator
         </thead>
         <tbody>
           <tr>
-            <td><b><a href="/styleguides/selfserve/overview.html">OB135262/7</a></b><span class="status orange">Incomplete</span></td>
+            <td><b><a href="/styleguides/selfserve/overview.html">OB135262</a></b><span class="status orange">Incomplete</span></td>
             <td>25 Oct 2013</td>
             <td>25 Oct 2014</td>
           </tr>
           <tr>
-            <td><b><a href="/styleguides/selfserve/overview.html">OB135261/6</a></b><span class="status orange">Awaiting TM forms</span></td>
+            <td><b><a href="/styleguides/selfserve/overview.html">OB135261</a></b><span class="status orange">Awaiting TM forms</span></td>
             <td>25 Oct 2013</td>
             <td>12 Oct 2014</td>
           </tr>
         </tbody>
       </table>
     </div><!-- .table__wrapper -->
+  </div><!-- .two-thirds -->
 
-</div><!-- .two-thirds -->
-
-<div class="one-third sidebar" style="margin-top: 45px;">
-
-  <div class="links">
-    <h3>Useful information for vehcile operators</h3>
-    <ul class="links-list">
-      <li class="links-list__item"><a href="">Complete your applications for a goods vehicle operator's licence</a></li>
-      <li class="links-list__item"><a href="">Advertise your application for a licence</a></li>
-      <li class="links-list__item"><a href="">Financial information</a></li>
-      <li class="links-list__item"><a href="">A guide to operator fees</a></li>
-      <li class="links-list__item"><a href="">How to draw up a maintenance contract</a></li>
-    </ul>
-  </div><!-- .links -->
-
-  {{> _support}}
+  <div class="one-third" style="margin-top: 45px;">
+    <div class="sidebar">
+      <div class="links">
+        <h3>Useful information for vehcile operators</h3>
+        <ul class="links-list">
+          <li class="links-list__item"><a href="">Complete your applications for a goods vehicle operator's licence</a></li>
+          <li class="links-list__item"><a href="">Advertise your application for a licence</a></li>
+          <li class="links-list__item"><a href="">Financial information</a></li>
+          <li class="links-list__item"><a href="">A guide to operator fees</a></li>
+          <li class="links-list__item"><a href="">How to draw up a maintenance contract</a></li>
+        </ul>
+      </div><!-- .links -->
+      {{> _support}}
+    </div>
+  </div>
 
 </div>
-

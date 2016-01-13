@@ -4,12 +4,10 @@
   ==============
 */
 
-
 .guidance {
   background: $grey-4;
   border-left: 4px solid $grey-2;
   padding: 15px;
-  float: left;
   margin-bottom: 40px;
   .page-header & {
     margin-bottom: 0;
@@ -19,44 +17,37 @@
     float: none;
     overflow: auto;
   }
-}
-
-fieldset + .field .help,
-.field + .field .help {
-  margin-top: -20px;
+  p:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .help__summary {
-  @extend %paragraph--large;
+  @extend %paragraph;
   display: inline-block;
   color: $link-colour;
   text-decoration: underline;
-  margin-bottom: 3px;
+  border: 3px solid transparent;
   &:hover {
     color: $link-hover-colour;
     cursor: pointer;
   }
   &:active,
   &:focus {
-    outline: none;
-    border: 3px solid $yellow;
-    margin: -3px 0 0 -3px;
+    outline: 0;
+    border-color: $yellow;
   }
 }
 
 .help__text {
-  @extend %paragraph--large;
+  @extend %paragraph;
   padding: 15px 15px 5px;
   border-left: 4px solid $grey-2;
   margin-bottom: 10px;
-  ul {
-    margin-left: 20px;
-  }
   .no-details & {
     display: none;
   }
 }
-
 
 // Internal theme
 // ---------------

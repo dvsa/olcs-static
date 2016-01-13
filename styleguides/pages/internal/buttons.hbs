@@ -75,76 +75,83 @@ table:
 
 
 <div class="content">
-
-  <div class="one-fifth--left">
-    <h4>Filter by:</h4>
+      
+  <div class="sidebar--left">
+    <h4 class="title">Filter by:</h4>
     {{> _filters }}
   </div>
 
-  <div class="four-fifths--right">
+  <div class="table-col">
 
-      <h3>Buttons</h3>
-      <div class="actions-container">
-        <button class="action--primary" value="Edit" type="submit">Generate</button>
-        <input class="action--primary" value="Close" type="submit">
-        <a href="" class="action--primary">Reassign</a>
-      </div><!-- end .actions-container -->
+    <h3>Primary Buttons</h3>
 
-      <hr />
+    <div class="actions-container">
+      
+      <button class="action--primary" value="Edit" type="submit">Button</button>
+      <input class="action--primary" value="Input" type="submit">
+      <a href="" class="action--primary">Anchor</a>
+      <button class="action--primary disabled" value="Edit" type="submit" disabled="disabled">Disabled</button>
+      
+    </div>
+      
+    <hr />
+      
+    <h3>Secondary Buttons</h3>
+    
+    <div class="actions-container">
+      
+      <button class="action--secondary" value="Edit" type="submit">Button</button>
+      <input class="action--secondary" value="Input" type="submit">
+      <a href="" class="action--secondary">Anchor</a>
+      <button class="action--secondary" value="Edit" type="submit" disabled="disabled">Disabled</button>
+      
+    </div>
+      
+    <hr />
+    
+    <h3>Delete Buttons</h3>
+    
+    <div class="actions-container">
+      
+      <button class="action--delete" value="Edit" type="submit">Button</button>
+      <input class="action--delete" value="Input" type="submit">
+      <a href="" class="action--delete">Anchor</a>
+      <button class="action--delete disabled" value="Edit" type="submit" disabled="disabled">Disabled</button>
+      
+    </div>
+    
+    <hr />
+    
+    <h3>Tertiary Buttons</h3>
+    
+    <div class="actions-container">
+      
+      <button class="action--tertiary" value="Edit" type="submit">Button</button>
+      <input class="action--tertiary" value="Input" type="submit">
+      <a href="" class="action--tertiary">Anchor</a>
+      <button class="action--tertiary" value="Edit" type="submit">Disabled</button>
+      
+    </div>
+    
+    <hr />
+    
+    <h3>Large Buttons</h3>
+    
+    <div class="actions-container">
 
-      <div class="actions-container">
-        <button class="action--primary disabled" value="Edit" type="submit" disabled="disabled">Generate</button>
-        <input class="action--primary disabled" value="Close" type="submit" disabled="disabled">
-        <a href="" class="action--primary disabled">Reassign</a>
-      </div><!-- end .actions-container -->
-
-      <hr />
-
-      <div class="actions-container">
-        <button class="action--secondary" value="Edit" type="submit">Generate</button>
-        <input class="action--secondary" value="Close" type="submit">
-        <a href="" class="action--secondary">Reassign</a>
-      </div><!-- end .actions-container -->
-
-      <hr />
-
-      <div class="actions-container">
-        <button class="action--tertiary" value="Edit" type="submit">Generate</button>
-        <input class="action--tertiary" value="Close" type="submit">
-        <a href="" class="action--tertiary">Reassign</a>
-      </div><!-- end .actions-container -->
-
-      <hr />
-
-      <div class="actions-container">
-        <button class="action--secondary" value="Edit" type="submit" disabled="disabled">Generate</button>
-        <input class="action--secondary" value="Close" type="submit" disabled="disabled">
-        <a href="" class="action--secondary disabled">Reassign</a>
-      </div><!-- end .actions-container -->
-
-      <hr />
-
-      <div class="actions-container">
-        <button class="action--secondary large" value="Edit" type="submit">Generate</button>
-        <input class="action--secondary large" value="Close" type="submit">
-        <a href="" class="action--secondary large">Reassign</a>
-      </div><!-- end .actions-container -->
-
-      <hr />
-
-      <div class="actions-container">
-        <button class="action--primary large" value="Edit" type="submit">Generate</button>
-        <input class="action--primary large" value="Close" type="submit">
-        <a href="" class="action--primary large">Reassign</a>
-      </div><!-- end .actions-container -->
-
-      <hr />
-
-      <div class="actions-container">
-        <button class="action--tertiary large" value="Edit" type="submit">Generate</button>
-        <input class="action--tertiary large" value="Close" type="submit">
-        <a href="" class="action--tertiary large">Reassign</a>
-      </div><!-- end .actions-container -->
+      <button class="action--primary large" value="Edit" type="submit">Generate</button>
+      <button class="action--secondary large" value="Edit" type="submit">Generate</button>
+      <button class="action--delete large" value="Edit" type="submit">Generate</button>
+      <button class="action--tertiary large" value="Edit" type="submit">Generate</button>
+      
+      <br /><br />
+      
+      <button class="action--primary large" value="Edit" type="submit" disabled="disabled">Generate</button>
+      <button class="action--secondary large" value="Edit" type="submit" disabled="disabled">Generate</button>
+      <button class="action--delete large" value="Edit" type="submit" disabled="disabled">Generate</button>
+      <button class="action--tertiary large" value="Edit" type="submit" disabled="disabled">Generate</button>
+      
+    </div>
 
   </div>
 

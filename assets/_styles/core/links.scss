@@ -10,8 +10,14 @@ a {
   &:hover {
     color: $link-active-colour;
     outline: 0;
-    text-decoration: none;
   }
+}
+
+[rel="external"]:after {
+  @extend %fontello;
+  content: '\e800';
+  font-size: 80%;
+  margin: 0 1em 0 4px;
 }
 
 .disabled,
@@ -24,8 +30,7 @@ a {
   font-weight: 600;
   padding: 4px 0 5px 34px;
   background: url('#{$assetPath}/download.png') no-repeat 0 0;
-  display: block;
-  margin-top: 5px;
+  display: inline-block;
   cursor: pointer;
   @include device-pixel-ratio($ratio: 2) {
     background: url('#{$assetPath}/download-2x.png') no-repeat 0 0;

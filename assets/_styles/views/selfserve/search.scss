@@ -1,12 +1,9 @@
-
-/*
-  Search
-  ======
-*/
+// Search
+// -----------------------------------------------------------------
 
 .search-navigation {
-  list-style: none;
-  font-size: 21px;
+  @extend %list--reset;
+  @extend %paragraph;
   &__item {
     font-weight: 600;
   }

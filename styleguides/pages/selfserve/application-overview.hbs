@@ -49,6 +49,8 @@ overview-items:
     edit-link:
 ---
 
+<div class="row">
+
   <div class="two-thirds border">
     <ul class="overview-navigation">
 
@@ -68,7 +70,7 @@ overview-items:
       <li class="overview-item">
         <a href="/styleguides/selfserve/operating-centres.html" class="overview-item__link">
           <h4>{{ name }}</h4>
-          <span class="status orange">{{ status }}</span>
+          <span class="status orange" data-tooltip="You still need to complete some information">{{ status }}</span>
           <p>{{ edit-link }}</p>
         </a>
       </li>
@@ -104,29 +106,34 @@ overview-items:
   </div><!-- .two-thirds -->
 
 
-  <div class="one-third sidebar">
+  <div class="one-third">
 
-    <dl class="meta" style="border-bottom: 0; padding-bottom: 0;">
-      <dt>Application reference</dt>
-      <dd>OB12524/525</dd>
-      <dt>Progress</dt>
-      <dd>2 of 13 sections complete</dd>
-      <dt>Status</dt>
-      <dd>Incomplete</dd>
-    </dl>
+    <div class="sidebar">
 
-    <div class="links">
-      <h3>Applying for a new licence</h3>
-      <ul class="links-list">
-        <li class="links-list__item"><a href="">Complete your applications for a goods vehicle operator's licence</a></li>
-        <li class="links-list__item"><a href="">Advertise your application for a licence</a></li>
-        <li class="links-list__item"><a href="">Financial information</a></li>
-        <li class="links-list__item"><a href="">A guide to operator fees</a></li>
-        <li class="links-list__item"><a href="">How to draw up a maintenance contract</a></li>
-      </ul>
-    </div><!-- .links -->
+      <dl class="meta" style="border-bottom: 0; padding-bottom: 0;">
+        <dt>Application reference</dt>
+        <dd>OB12524/525</dd>
+        <dt>Progress</dt>
+        <dd>2 of 13 sections complete</dd>
+        <dt>Status</dt>
+        <dd>Incomplete</dd>
+      </dl>
 
-    {{> _support }}
+      <div class="links">
+        <h3>Applying for a new licence</h3>
+        <ul class="links-list">
+          <li class="links-list__item"><a href="">Complete your applications for a goods vehicle operator's licence</a></li>
+          <li class="links-list__item"><a href="">Advertise your application for a licence</a></li>
+          <li class="links-list__item"><a href="">Financial information</a></li>
+          <li class="links-list__item"><a href="">A guide to operator fees</a></li>
+          <li class="links-list__item"><a href="">How to draw up a maintenance contract</a></li>
+        </ul>
+      </div><!-- .links -->
+
+      {{> _support }}
+
+    </div>
 
   </div>
 
+</div>

@@ -11,12 +11,14 @@
   }
 }
 
+.admin__menu {
+  right: 0;
+}
+
 .admin {
   position: absolute;
-  top: .5em;
-  right: 0;
+  right: $gutter;
   list-style: none;
-  margin-right: 2.5%;
   &__arrow {
     display: block;
     height: 20px;
@@ -31,18 +33,17 @@
     }
   }
   &__menu {
-    @include border-radius(3px);
-    @include box-shadow(0 1px 5px $grey-3);
+    border-radius: 3px;
+    box-shadow: 0 1px 5px $grey-3;
     display: none;
     top: 35px;
-    right: 0;
     background: $white;
     border: 1px solid $grey-3;
     z-index: 3;
     width: 420px;
     position: absolute;
     padding: 10px 0;
-    cursor: normal;
+    cursor: default;
   }
   &__submenu {
     float: left;
@@ -51,32 +52,34 @@
 }
 
 .admin__title {
-  @include border-radius(3px);
+  border-radius: 3px;
   position: relative;
   overflow: visible;
-  padding: 7px 30px .3em .75em;
-  background: url('../images/down-arrow.png') no-repeat 85% 13px;
+  padding: 6px 25px 4px .75em;
+  background: url('../images/down-arrow.png') no-repeat 90% 12px;
+  border: 1px solid darken($grey-1, 20%);
   @include device-pixel-ratio($ratio: 2) {
     background-image: url('../images/down-arrow-2x.png');
     background-size: 12px 112px;
   }
   &:hover {
-    background-color: #111;
+    border: 1px solid darken($grey-1, 10%);
     cursor: pointer;
   }
   &.active {
-    background-color: #151515;
+    border: 1px solid #080808;
+    background-color: #080808;
   }
 }
 
 .admin__item {
   width: 100%;
   list-style: none;
+  font-size: font-size(4);
 }
 
 .admin__item a {
   display: block;
-  font-size: 15px;
   font-weight: 500;
   color: $link-colour;
   padding: 8px 20px;

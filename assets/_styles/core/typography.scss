@@ -1,47 +1,86 @@
+// Typography
+// -----------------------------------------------------------------
 
-/*
-  Typography
-  ==========
-*/
+// Adaptive Font Mixin
+// -----------------------------------------------------------------
 
-@mixin font-size($font-size, $print-font-size, $font-size-640) {
-  @if $is-print == false {
-    font-size: $font-size;
-  } @else {
+@mixin font-size($font-size, $small-font-size: null, $print-font-size: null) {
+  @if $is-print and $print-font-size {
     font-size: $print-font-size;
+  } @else {
+    font-size: $font-size;
   }
-  @media (max-width: 640px) {
-    font-size: $font-size-640;
+  @if $small-font-size {
+    @media (max-width: $mobile-column-stack) {
+      font-size: $small-font-size;
+    }
   }
 }
 
-%h1 {
-  @include font-size(48px,18pt,32px);
+// Size Patterns
+// Responsive, reusable font-size patterns for headings and
+// paragraph text copy only
+// -----------------------------------------------------------------
+
+%h1,
+.h1 {
+  @include font-size(
+    font-size(9), font-size(8), font-size(5, true)
+  );
 }
 
-%h2 {
-  @include font-size(36px,18pt,24px);
+%h2,
+.h2 {
+  @include font-size(
+    font-size(8), font-size(6), font-size(5, true)
+  );
 }
 
-%h3 {
-  @include font-size(24px,16pt,20px);
+%h3,
+.h3 {
+  @include font-size(
+    font-size(6), font-size(5), font-size(4, true)
+  );
 }
 
-%h4 {
-  @include font-size(19px,14pt,16px);
+%h4,
+.h4 {
+  @include font-size(
+    font-size(5), font-size(4), font-size(2, true)
+  );
 }
+
+%h5,
+.h5 {
+  @include font-size(
+    font-size(4), font-size(2), font-size(1, true)
+  );
+}
+
+%h6,
+.h6 {
+  @include font-size(
+    font-size(2), font-size(1), font-size(1, true)
+  );
+}
+
+// Paragraphs
+// -----------------------------------------------------------------
 
 %paragraph--large {
-  @include font-size(19px,14pt,16px);
-  font-weight: 400;
+  @extend %h3;
+}
+
+%paragraph {
+  @extend %h4;
 }
 
 %paragraph--small {
-  @include font-size(16px,12pt,14px);
+  @extend %h5;
 }
 
 %paragraph--tiny {
-  @include font-size(14px,10pt,12px);
+  @extend %h6;
 }
 
 h1,
@@ -51,14 +90,13 @@ h4,
 h5,
 p {
   clear: both;
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 0.25em;
   font-weight: 700;
-  margin-bottom: .25em;
 }
 
 h1 {
   @extend %h1;
-  margin: 0 0 .15em;
   line-height: 1.1;
 }
 
@@ -76,11 +114,11 @@ h4 {
 }
 
 h5 {
-  @extend %paragraph--small;
+  @extend %h5;
 }
 
 p {
-  @extend %paragraph--large;
+  @extend %paragraph;
   font-weight: 400;
 }
 
@@ -106,39 +144,6 @@ textarea {
   padding: 40px 0 10px;
 }
 
-/*
-  Article styling
- */
-
-.article {
-  overflow: auto;
-  h2 {
-    margin-bottom: .25em;
-  }
-  h3,
-  h4 {
-    margin-bottom: .5em;
-  }
-  ul {
-    @extend %paragraph--large;
-    margin-bottom: 1em;
-  }
-  li {
-    margin-bottom: .25em;
-  }
-  p {
-    @extend %paragraph--large;
-    margin-bottom: 1em;
-  }
-  p + ul {
-    margin-top: -.75em;
-  }
-}
-
-.article + .article {
-  margin-top: 40px;
-}
-
 // Selfserve theme
 // ---------------
 
@@ -160,26 +165,28 @@ textarea {
 
 @if $app == 'internal' {
 
-  %h2 {
-    @include font-size(24px,16pt,20px);
+  .title {
+    border-bottom: 1px solid $grey-2;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
   }
 
-  %h4 {
-    @include font-size(16px,13pt,15px);
+  p, 
+  th,
+  td {
+    font-size: font-size(3);
   }
 
   h1 {
-    @include font-size(26px,15pt,24px);
+    @include font-size(
+      font-size(6), font-size(5), font-size(4, true)
+    );
     display: inline;
     padding-right: .25em;
   }
 
-  h3 {
-    @extend %h4;
-  }
-
-  p {
-    font-size: 15px;
+  h2 {
+    font-size: font-size(5);
   }
 
 }

@@ -1,55 +1,33 @@
-
-/*
-  Status
-  ==============
-  Component decription
-*/
+// Status
+// -----------------------------------------------------------------
 
 .status {
   @extend %paragraph--tiny;
-  @include border-radius(2px);
+  display: inline-block;
+  border: 1px solid;
+  vertical-align: middle;
+  border-radius: 2px;
   margin: 0 6px;
-  padding: 1px 3px 0 3px;
+  padding: 2px 3px 1px;
   font-weight: 600;
   font-size: 11px;
   line-height: 1;
   text-transform: uppercase;
   white-space: nowrap;
+  text-align: left;
   &.red {
-    border:  1px solid $red;
     color: $red;
   }
   &.orange {
-    border: 1px solid $orange;
     color: $orange;
   }
   &.green {
-    border: 1px solid $primaryColour;
     color: $primaryColour;
   }
   &.grey {
-    border: 1px solid $grey-1;
     color: $grey-1;
   }
   .definition-list & {
     margin: 0;
-  }
-}
-
-
-// Selfserve theme
-// ---------------
-
-@if $app == 'selfserve' {
-}
-
-
-// Internal theme
-// ---------------
-
-@if $app == 'internal' {
-  .status {
-    font-size: 11px;
-    padding: 0 3px 1px;
   }
 }

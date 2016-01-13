@@ -4,35 +4,53 @@ user: operator
 layout: base.hbs
 breadcrumbs:
   - link: licences.html
-    label: Home
-  - link: overview.html
-    label: Licence overview
+    label: Back to overview
 ---
 
-<div class="two-thirds">
-  <form style="margin-top: -20px;">
-    <fieldset>
-      <div class="field inline-search">
-        <label>Search for a vehicle</label>
-        <input type="search" class="inline-search__input">
-        <button class="inline-search__button">Find vehicle</button>
-        <p class="inline-search__hint"><a href="vehicles.html">Clear search</a></p>
+
+<div class="overlay js-confirm-modal" style="display:none;"></div>
+<div class="modal__wrapper js-confirm-modal" style="display:none;">
+  <div class="modal--alert">
+    <div class="modal__header">
+      <h2 class="modal__title">Remove vehicle</h2>
+      <a href="" class="modal__close">Close</a>
+    </div>
+    <div class="modal__content">
+      <p>If you want to remove this vehicle you must destroy the licence disc. You don’t need to return the disc to the Central Licence Office.</p>
+      <div class="actions-container">
+        <a href="" class="action--primary large js-remove">Remove</a>
+        <a href="" class="action--secondary large">Cancel</a>
       </div>
-    </fieldset>
-  </form>
+    </div><!-- .modal__content -->
+  </div><!-- .modal -->
+</div><!-- .modal__wrapper -->
+
+<div class="row">
+
+  <div class="two-thirds">
+    <form style="margin-top: -20px;">
+      <fieldset>
+        <div class="field inline-search">
+          <label>Search for a vehicle</label>
+          <input type="search" class="inline-search__input">
+          <button class="inline-search__button">Find vehicle</button>
+          <p class="inline-search__hint"><a href="vehicles.html">Clear search</a></p>
+        </div>
+      </fieldset>
+    </form>
     <form>
       <div class="table__header">
         <h3>3 Vehicles</h3>
         <div class="actions-container">
           <a href="" class="action--primary">Add vehicle</a>
           <div class="more-actions">
-            <p class="more-actions__button">More actions</p>
+            <p class="more-actions__button">More actions...</p>
             <div class="more-actions__list">
+              <input type="submit" class="more-actions__item js-show-removed" value="Show removed vehicles">
               <input type="submit" class="more-actions__item" value="Remove">
               <button class="more-actions__item">Transfer</button>
-              <button class="more-actions__item">Reprint disc</button>
-              <input type="submit" class="more-actions__item" value="Export">
-              <input type="submit" class="more-actions__item js-show-removed" value="Show removed">
+              <button class="more-actions__item">Replace disc</button>
+              <input type="submit" class="more-actions__item" value="Export list (.CSV)">
             </div>
           </div>
         </div>
@@ -41,83 +59,69 @@ breadcrumbs:
         <table>
           <thead>
             <tr>
-              <th>VRM</th>
-              <th>Plated weight</th>
-              <th>Specified</th>
+              <th>Registration number</th>
+              <th>Disc number</th>
+              <th>Added</th>
+              <th>Removed</th>
               <td class="right"><input type="checkbox"></td>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><b><a href="">LL09 URE</a></b></td>
-              <td>2500kg</td>
+              <td><b><a href="">LL09 URE</a></b> (2500kg)</td>
+              <td>20515142</td>
               <td>12 May 2014</td>
-              <td class="right"><a href="">Remove</a><input type="checkbox"></td>
+              <td></td>
+              <td class="right"><a href="" class="js-remove">Remove</a><input type="checkbox"></td>
             </tr>
             <tr class="js-hide">
-              <td><b><a href="">SN15 BVC</a></b></td>
-              <td>3000kg</td>
+              <td><b><a href="">SN15 BVC</a></b> (3000kg)<span class="status orange">Hired</span></td>
+              <td>20515141</td>
               <td>12 May 2014</td>
-              <td class="right"><a href="">Remove</a><input type="checkbox"></td>
+              <td></td>
+              <td class="right" ><a href="" class="js-remove">Remove</a><input type="checkbox"></td>
             </tr>
             <tr class="js-hide">
-              <td><b><a href="">MN07 PNO</a></b></td>
-              <td>3000kg</td>
+              <td><b><a href="">MN07 PNO</a></b> (3000kg)</td>
+              <td>20515140</td>
               <td>12 May 2014</td>
-              <td class="right"><a href="">Remove</a><input type="checkbox"></td>
+              <td></td>
+              <td class="right"><a href="" class="js-remove">Remove</a><input type="checkbox"></td>
             </tr>
             <tr class="disabled">
-              <td>PT09 BBN</td>
-              <td>2500kg</td>
+              <td>PT09 BBN (3000kg)</td>
+              <td>20515139</td>
               <td>5 Jan 2013</td>
-              <td class="right"><a href="">Restore</a><input type="checkbox"></td>
+              <td>6 Feb 2013</td>
+              <td class="right" ><a href="">Restore</a><input type="checkbox"></td>
             </tr>
             <tr class="disabled">
-              <td>TY13 WSC</td>
-              <td>3000kg</td>
+              <td>TY13 WSC (3000kg)</td>
+              <td>20515138</td>
               <td>5 Jan 2013</td>
+              <td>6 Feb 2013</td>
               <td class="right"><a href="">Restore</a><input type="checkbox"></td>
             </tr>
           </tbody>
         </table>
       </div><!-- .table__wrapper -->
-</form>
+    </form>
+  </div><!-- .two-thirds -->
 
-</div><!-- .two-thirds -->
-
-<div class="one-third sidebar">
-
-  <dl class="meta" style="border-bottom: 0; padding-bottom: 0;">
-    <dt>Licence number</dt>
-    <dd>OB12524/525</dd>
-    <dt>Status</dt>
-    <dd>Valid</dd>
-    <dt>Renewal date</dt>
-    <dd>16 March 2011</dd>
-    <dt>Start date</dt>
-    <dd>16 March 2016</dd>
-
-  </dl>
-
-
-<!--   <dl class="meta" style="border-bottom: 0; padding-bottom: 0;">
-    <dt>Application reference</dt>
-    <dd>OB12524/525</dd>
-    <dt>Progress</dt>
-    <dd>6 of 13 sections complete</dd>
-  </dl> -->
-
-<!--   <dl class="meta" style="border-bottom: 0; padding-bottom: 0;">
-    <dt>Licence number</dt>
-    <dd>OB12524625</dd>
-    <dt>Licence status</dt>
-    <dd>Curtailed</dd>
-    <dt>Renewal date</dt>
-    <dd>16 March 2011</dd>
-    <dt>Start date</dt>
-    <dd>16 March 2016</dd>
-  </dl> -->
-
+  <div class="one-third">
+    <div class="sidebar">
+      <dl class="meta" style="border-bottom: 0; padding-bottom: 0;">
+        <dt>Licence number</dt>
+        <dd>OB12524/525</dd>
+        <dt>Status</dt>
+        <dd>Valid</dd>
+        <dt>Renewal date</dt>
+        <dd>16 March 2011</dd>
+        <dt>Start date</dt>
+        <dd>16 March 2016</dd>
+      </dl>
+    </div>
+  </div>
 </div>
 
 <script type="text/javascript">
@@ -130,14 +134,20 @@ breadcrumbs:
       $('.js-hide, .disabled').hide();
     });
 
+    $(document).on('click','.js-remove', function(e) {
+      e.preventDefault();
+      $('.js-confirm-modal').show();
+    });
+
+
     $(document).on('click','.js-show-removed', function(e) {
       e.preventDefault();
-      if ($(this).val() === 'Show removed') {
+      if ($(this).val() === 'Show removed vehicles') {
         $('.disabled').show();
-        $(this).val('Hide removed');
+        $(this).val('Hide removed vehicles');
       } else {
         $('.disabled').hide();
-        $(this).val('Show removed');
+        $(this).val('Show removed vehicles');
       }
     });
   });

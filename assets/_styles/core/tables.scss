@@ -9,6 +9,7 @@
   width: 100%;
   overflow: auto;
   float: left;
+  position: relative;
   + .table__header {
     margin-top: 2em;
   }
@@ -17,7 +18,7 @@
 .table__header {
   @extend %header-with-actions;
   span {
-    @extend %paragraph--large;
+    @extend %paragraph;
     font-weight: 400;
     color: $grey-1;
   }
@@ -118,7 +119,16 @@ td {
   overflow: visible;
   border-top: 1px solid $grey-2;
   vertical-align: top;
+  ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  p,
+  li {
+    @extend %paragraph--small;
+  }
 }
+
 
 tfoot {
   tr {
@@ -156,6 +166,19 @@ tfoot {
   margin-top: -7px;
 }
 
+// This hack is to break any long safety inspector names onto
+// two lines as per OLCS-11334
+
+#lva-safety { // ensure we are only affecting the desired table
+  td > [type="submit"] {
+    word-break: break-word;
+    text-align: left;
+    max-width: 100%;
+  }
+  td {
+    max-width: 250px;
+  }
+}
 
 // Selfserve theme
 // ---------------
@@ -164,25 +187,13 @@ tfoot {
 
 }
 
-
 // Internal theme
 // ---------------
 
 @if $app == 'internal' {
 
   .table__wrapper {
-    @include border-radius(3px);
-  }
-
-  .table__header {
-    @extend %header-with-actions;
-    margin-bottom: 0;
-    h3 {
-      margin-top: 3px;
-    }
-    h3 + form & {
-      margin-top: .2em !important;
-    }
+    border-radius: 3px;
   }
 
   table {
@@ -204,8 +215,7 @@ tfoot {
 
   th,
   td {
-    @extend %paragraph--tiny;
-    padding: .5em .75em;
+    padding: 0.5em 0.75em;
   }
 
   th {

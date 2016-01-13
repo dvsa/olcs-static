@@ -21,18 +21,22 @@
 }
 
 .tooltip {
-  @include border-radius(2px);
+  border-radius: 2px;
   display: none;
   position: absolute;
-  bottom: 20px;
-  left: -38px;
-  opacity: .9; /* IE :after bug prevents using opacity mixin */
   padding: .75em;
-  font-size: .8em;
-  line-height: 1.2;
   width: 200px;
+  top: -14px;
+  transform: translateY(-100%);
+  left: -38px;
+  opacity: 0.9;
+  line-height: 1.2;
+  text-transform: none;
+  font-weight: 400;
+  white-space: normal;
   color: white;
   background: $black;
+  font-size: font-size(2);
   &:hover {
     cursor: default;
   }
