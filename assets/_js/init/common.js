@@ -12,10 +12,10 @@ OLCS.ready(function() {
   OLCS.selectBox();
   OLCS.formInit();
   OLCS.notices();
-  
-  OLCS.disableForm({
-    submit: "[type=submit], .js-modal-ajax"
-  });
+
+  // OLCS.disableForm({
+  //   submit: "[type=submit], .js-modal-ajax"
+  // });
 
   // uses the jquery.details.min.js plugin to enhance <details>
   // element across browsers

@@ -14,6 +14,9 @@ OLCS.disableForm = (function(document, $, undefined) {
 
   return function init(options) {
 
+
+    OLCS.logger.debug(options);
+
     // Get the selectors of interest
     // var submit = options.submit;
 
