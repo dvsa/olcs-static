@@ -150,7 +150,7 @@
                   files: [{ 
                       expand: true,
                       cwd: 'assets/_images/', 
-                      src: ['**/*.{png,jpg,svg}'], 
+                      src: ['**/*.{png,jpg,gif,svg}'], 
                       dest:'public/images/' 
                     }]
                 }
@@ -245,7 +245,7 @@
                     tasks: ['uglify:dev']
                 },
                 images: {
-                    files: ['assets/_images/*.{png,jpg,svg}'],
+                    files: ['assets/_images/*.{png,jpg,gif,svg}'],
                     tasks: ['copy:images']
                 }
             },
