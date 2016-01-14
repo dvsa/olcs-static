@@ -195,15 +195,11 @@
             },
 
             //-----------------------------------------------------
-            // grunt-svg-sprite
+            // grunt-dr-svg-sprites
             // https://github.com/drdk/grunt-dr-svg-sprites
             //-----------------------------------------------------
             
             "dr-svg-sprites": {
-                options: {
-                    cssPath: "css",
-                    previewPath: srcSvg + "/sprites"
-                },
                 navigation: {
                     options: {
                         spriteElementPath: [
@@ -224,7 +220,7 @@
                         ],
                         spritePath: pubImages + "/sprites/dropdown/dropdown.svg",
                         cssPath: pubImages + "/sprites/dropdown/dropdown.css",
-                        previewPath: pubImages + "/sprites/navigation/dropdown.html"
+                        previewPath: pubImages + "/sprites/dropdown/dropdown.html"
                     }
                 },
                 iframeControls: {
@@ -238,7 +234,7 @@
                         ],
                         spritePath: pubImages + "/sprites/iframeControls/iframeControls.svg",
                         cssPath: pubImages + "/sprites/iframeControls/iframeControls.css",
-                        previewPath: pubImages + "/sprites/navigation/iframeControls.html"
+                        previewPath: pubImages + "/sprites/iframeControls/iframeControls.html"
                     }
                 }
             },
@@ -451,6 +447,7 @@
             'lint',
             'sass:dev',
             'postcss',
+            'dr-svg-sprites',
             'uglify:dev',
             'copy:images',
             'assemble'
