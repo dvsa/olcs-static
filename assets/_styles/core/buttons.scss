@@ -145,15 +145,12 @@ button {
   display: inline-block;
   &__button {
     @extend .action--secondary;
+    @include svg(
+      ('bitmap/dropdown-down.png', 'svg/dropdown-down.svg'), right 8px center, 
+      $bgColor: $grey-3
+    );
     margin: 0 !important;
     padding-right: 25px;
-    background-image: url('../images/down-arrow.png');
-    background-repeat: no-repeat;
-    background-position: 92.5% 11px;
-    @include device-pixel-ratio($ratio: 2) {
-      background-image: url('../images/down-arrow-2x.png');
-      background-size: 12px 112px;
-    }
   }
   &__list {
     box-shadow: 0 1px 5px $grey-2;
@@ -163,6 +160,7 @@ button {
     left: 5px;
     background: #FFF;
     padding: 5px 0;
+    z-index: 3;
   }
 }
 
