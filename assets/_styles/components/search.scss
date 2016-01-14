@@ -37,7 +37,7 @@
       right: 8px;
       pointer-events: none;
       @include svg(
-        'dropdown-down.png', center 7px
+        'dropdown-down', center 7px
       );
     }
     &:focus {

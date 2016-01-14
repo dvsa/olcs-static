@@ -627,7 +627,7 @@ select:focus {
 
 .locked-icon {
   @include svg(
-    'lock.png', center 11px
+    'lock', center 11px
   );
   margin-left: 5px;
   height: 24px;
