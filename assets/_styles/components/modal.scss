@@ -102,13 +102,11 @@
       @extend %h2;
     }
     &__close {
+      @include svg(
+        ('bitmap/selfserve-modal-close.png', 'svg/selfserve-modal-close.svg'), center center
+      );
       height: 38px;
       width: 38px;
-      background: url('../images/selfserve-close.png') no-repeat 10px 5px;
-      @include device-pixel-ratio($ratio: 2) {
-        background: url('../images/selfserve-close-2x.png') no-repeat 10px 5px;
-        background-size: 19px 19px;
-      }
     }
   }
 
@@ -169,15 +167,9 @@
     text-indent: -9999px;
     height: 22px;
     width: 22px;
-    background: url('../images/close.png') no-repeat 0 0;
-    @include device-pixel-ratio($ratio: 2) {
-      background: url('../images/close-2x.png') no-repeat 0 0;
-      background-size: 60px 22px;
-    }
-
-    &:hover {
-      background-position: -39px 0;
-    }
+    @include svg(
+      ('bitmap/internal-modal-close.png', 'svg/internal-modal-close.svg'), center center
+    );
   }
 
 }
