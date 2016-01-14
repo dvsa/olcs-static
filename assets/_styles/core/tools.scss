@@ -67,11 +67,20 @@
 // Generate an SVG background image with PNG fallback
 // -----------------------------------------------------------------
 
-@mixin svg-sprite($src, $position: 0px 0px, $size: null) {
-  // Old browsers (no SVG)
-  background: url('#{$assetPath}/sprites/#{$src}.png');
-  // New browsers (SVG)
-  background-image: url('#{$assetPath}/sprites/#{$src}.svg'), none;
+@mixin svg($src, $position: 0px 0px, $size: null) {
+  @if type-of($src) == 'string' {
+    // Old browsers (no SVG)
+    background: url('#{$assetPath}/#{$src}.png');
+    // New browsers (SVG)
+    background-image: url('#{$assetPath}/#{$src}.svg'), none;
+  } @else if type-of($src) == 'list' {
+    // Old browsers (no SVG)
+    background: url('#{$assetPath}/#{nth($src, 1)}');
+    // New browsers (SVG)
+    background-image: url('#{$assetPath}/#{nth($src, 2)}'), none;
+  } @else {
+    @warn '$src should be either a string or a list'
+  }
   background-position: $position;
   // Sizing
   @if ($size) {

@@ -47,12 +47,12 @@ $mobile-statuses: (
     text-align: left;
     position: relative;
     &:before {
+      @include svg(
+        'sprites/navigation/application-navigation', 1px 3px, 20px 20px
+      );
       position: absolute;
       right: 0;
       top: 11px;
-      @include svg-sprite(
-        'navigation/application-navigation', 1px 3px, 20px 20px
-      );
     }
   }
   

@@ -48,13 +48,14 @@
   // }
 
   .breadcrumbs a {
+    @include svg(
+      ('bitmap/selfserve-breadcrumb.png', 'svg/selfserve-breadcrumb.svg'), right 4px
+    );
     // color: $grey-1;
+    background-size: 8px;
+    background-repeat: no-repeat;
     padding-right: 1em;
-    background: url('#{$assetPath}/breadcrumb-arrow.png') no-repeat 100% 70%;
-    @include device-pixel-ratio($ratio: 2) {
-      background: url('#{$assetPath}/breadcrumb-arrow-2x.png') no-repeat 95% 50%;
-      background-size: 6px 11px;
-    }
+    margin-right: 0.25em;
   }
 
   .breadcrumbs .current {
@@ -63,7 +64,6 @@
   }
 
 }
-
 
 // Internal theme
 // ---------------
