@@ -103,7 +103,7 @@
     }
     &__close {
       @include svg(
-        'selfserve-modal-close.png', center center
+        'selfserve-modal-close', center center
       );
       height: 38px;
       width: 38px;
@@ -168,7 +168,7 @@
     height: 22px;
     width: 22px;
     @include svg(
-      'internal-modal-close.png', center center
+      'internal-modal-close', center center
     );
   }
 
