@@ -7,6 +7,7 @@
 // [1] - Theme Helper
 // [2] - Clearfix
 // [3] - Header With Actions
+// [4] - SVG Fallback
 //
 // -----------------------------------------------------------------
 
@@ -59,5 +60,22 @@
   }
   select {
     margin: 3px 3px 0 0;
+  }
+}
+
+// [4] SVG Fallack
+// Generate an SVG background image with PNG fallback
+// -----------------------------------------------------------------
+
+@mixin svg-sprite($src, $position: 0px 0px, $size: null) {
+  // Old browsers (no SVG)
+  background: url('#{$assetPath}/sprites/#{$src}.png');
+  // New browsers (SVG)
+  background-image: url('#{$assetPath}/sprites/#{$src}.svg'), none;
+  background-position: $position;
+  // Sizing
+  @if ($size) {
+    height: nth($size, 1);
+    width: nth($size, 2);
   }
 }

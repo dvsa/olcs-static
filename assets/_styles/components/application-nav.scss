@@ -50,13 +50,9 @@ $mobile-statuses: (
       position: absolute;
       right: 0;
       top: 11px;
-      height: 20px;
-      width: 20px;
-      // Old browsers (no SVG)
-      background: url('#{$assetPath}/sprites/navigation/application-navigation.png');
-      // New browsers (SVG)
-      background-image: url('#{$assetPath}/sprites/navigation/application-navigation.svg'), none;
-      background-position: 1px 3px;
+      @include svg-sprite(
+        'navigation/application-navigation', 1px 3px, 20px 20px
+      );
     }
   }
   
