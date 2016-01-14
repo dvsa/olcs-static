@@ -36,11 +36,9 @@
       top: 8px;
       right: 8px;
       pointer-events: none;
-      background: url('../images/down-arrow.png') no-repeat 100% 4px;
-      @include device-pixel-ratio($ratio: 2) {
-        background-image: url('../images/down-arrow-2x.png');
-        background-size: 12px 112px;
-      }
+      @include svg(
+        ('bitmap/dropdown-down.png', 'svg/dropdown-down.svg'), center 7px
+      );
     }
     &:focus {
       outline: none;
