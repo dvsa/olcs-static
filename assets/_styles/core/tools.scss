@@ -67,7 +67,7 @@
 // Generate an SVG background image with PNG fallback
 // -----------------------------------------------------------------
 
-@mixin svg($src, $position: 0px 0px, $size: null) {
+@mixin svg($src, $position: 0px 0px, $size: null, $bgColor: null) {
   @if type-of($src) == 'string' {
     // Old browsers (no SVG)
     background: url('#{$assetPath}/#{$src}.png');
@@ -83,6 +83,10 @@
   }
   background-position: $position;
   background-repeat: no-repeat;
+  // Optional background color
+  @if ($bgColor) {
+    background-color: $bgColor;
+  }
   // Sizing
   @if ($size) {
     height: nth($size, 1);
