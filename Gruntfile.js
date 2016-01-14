@@ -152,7 +152,7 @@
                   files: [{ 
                       expand: true,
                       cwd: 'assets/_images/', 
-                      src: ['**/*.{png,jpg,svg}'], 
+                      src: ['**/*.{png,jpg,gif,svg}'], 
                       dest:'public/images/' 
                     }]
                 }
