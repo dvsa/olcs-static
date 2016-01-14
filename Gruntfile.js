@@ -193,7 +193,22 @@
                     sucess: false
                 }
             },
+            
+            //-----------------------------------------------------
+            // grunt-svg2png
+            // https://github.com/dbushell/grunt-svg2png
+            //-----------------------------------------------------
 
+            svg2png: {
+                all: {
+                    files: [{ 
+                        cwd: srcSvg, 
+                        src: ['**/*.svg'], 
+                        dest: pubImages + '/png' 
+                    }]
+                }
+            },
+    
             //-----------------------------------------------------
             // grunt-dr-svg-sprites
             // https://github.com/drdk/grunt-dr-svg-sprites
