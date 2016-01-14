@@ -28,7 +28,7 @@ a {
 
 .download {
   @include svg(
-    ('bitmap/selfserve-document.png', 'svg/selfserve-document.svg'), center left
+    'selfserve-document', center left
   );
   font-weight: 600;
   padding: 4px 0 5px 34px;

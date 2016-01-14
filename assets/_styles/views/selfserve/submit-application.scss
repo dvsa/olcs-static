@@ -57,7 +57,7 @@
   border: 3px solid $grey-3;
   &.checked {
     @include svg(
-      ('bitmap/internal-application-complete.png', 'svg/internal-application-complete.svg'), center center
+      'bitmap/internal-application-complete.png', center center
     );
   }
 }

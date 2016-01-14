@@ -151,7 +151,7 @@ textarea {
 
   .important {
     @include svg(
-      ('bitmap/selfserve-important.png', 'svg/selfserve-important.svg'), left 0.15em
+      'selfserve-important.png', left 0.15em
     );
     background-size: 21px;
     padding-left: 30px;

@@ -49,7 +49,7 @@
 
   .breadcrumbs a {
     @include svg(
-      ('bitmap/selfserve-breadcrumb.png', 'svg/selfserve-breadcrumb.svg'), right 4px
+      'selfserve-breadcrumb', right 4px
     );
     // color: $grey-1;
     background-size: 8px;

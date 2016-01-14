@@ -146,7 +146,7 @@ button {
   &__button {
     @extend .action--secondary;
     @include svg(
-      ('bitmap/dropdown-down.png', 'svg/dropdown-down.svg'), right 8px center, 
+      '/dropdown-down.png', right 8px center, 
       $bgColor: $grey-3
     );
     margin: 0 !important;

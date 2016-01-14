@@ -98,7 +98,7 @@ th {
     color: $black;
     text-decoration: none;
     @include svg(
-      ('bitmap/dropdown-down.png', 'svg/dropdown-down.svg'), right center
+      'dropdown-down.png', right center
     );
   }
   a:active {

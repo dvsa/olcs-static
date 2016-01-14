@@ -21,7 +21,7 @@
   list-style: none;
   &__arrow {
     @include svg(
-      ('bitmap/dropdown-down.png', 'svg/dropdown-up.svg'), center center
+      'dropdown-down', center center
     );
     display: block;
     height: 20px;
@@ -51,7 +51,7 @@
 
 .admin__title {
   @include svg(
-    ('bitmap/dropdown-down.png', 'svg/dropdown-down.svg'), right 7px center
+    'dropdown-down', right 7px center
   );
   border-radius: 3px;
   position: relative;

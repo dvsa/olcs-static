@@ -37,7 +37,7 @@
       right: 8px;
       pointer-events: none;
       @include svg(
-        ('bitmap/dropdown-down.png', 'svg/dropdown-down.svg'), center 7px
+        'dropdown-down.png', center 7px
       );
     }
     &:focus {
@@ -83,7 +83,7 @@
   &__button,
   [type="submit"] {
     @include svg(
-      ('bitmap/internal-search.png', 'svg/internal-search.svg'), center 7px
+      'internal-search', center 7px
     );
     background-color: $primaryColour;
     float: left;
