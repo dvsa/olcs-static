@@ -150,12 +150,11 @@ textarea {
 @if $app == 'selfserve' {
 
   .important {
+    @include svg(
+      ('bitmap/selfserve-important.png', 'svg/selfserve-important.svg'), top left
+    );
+    background-size: 21px;
     padding-left: 30px;
-    background: url('#{$assetPath}/important.png') no-repeat 0 0;
-    @include device-pixel-ratio($ratio: 2) {
-      background: url('#{$assetPath}/important-2x.png') no-repeat 0 0;
-      background-size: 25px 25px;
-    }
   }
 
 }
