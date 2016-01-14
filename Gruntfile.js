@@ -194,7 +194,7 @@
                     flatten: true,
                     cwd: srcSvg + '/',
                     src: '*.svg', 
-                    dest: pubImages + '/png' 
+                    dest: pubImages + '/bitmap' 
                   }]
               }
             },
