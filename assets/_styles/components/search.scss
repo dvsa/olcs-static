@@ -84,17 +84,17 @@
   }
   &__button,
   [type="submit"] {
+    @include svg(
+      ('bitmap/internal-search.png', 'svg/internal-search.svg'), center 7px
+    );
+    background-color: $primaryColour;
+    background-repeat: no-repeat;
     float: left;
     width: 2.5rem;
     height: 32px;
     border-radius: 0 3px 3px 0;
     border: 0;
     text-indent: -9999px;
-    background: $primaryColour url('#{$assetPath}/search.png') no-repeat 50% 45%;
-    @include device-pixel-ratio($ratio: 2) {
-      background: $primaryColour url('#{$assetPath}/search-2x.png') no-repeat 50% 45%;
-      background-size: 17px 17px;
-    }
     &:focus {
       outline: 0;
     }
