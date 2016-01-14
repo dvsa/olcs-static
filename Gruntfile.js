@@ -182,17 +182,6 @@
                     src: srcSvg + "/sprites"
                 }
             },
-
-            //-----------------------------------------------------
-            // Notify
-            // https://github.com/dylang/grunt-notify
-            //-----------------------------------------------------
-
-            notify: {
-                options: {
-                    sucess: false
-                }
-            },
             
             //-----------------------------------------------------
             // grunt-svg2png
@@ -202,9 +191,10 @@
             svg2png: {
                 all: {
                     files: [{ 
-                        cwd: srcSvg, 
-                        src: ['**/*.svg'], 
-                        dest: pubImages + '/png' 
+                      flatten: true,
+                      cwd: 'assets/_images/svg/',
+                      src: '*.svg', 
+                      dest:'public/images/png' 
                     }]
                 }
             },
@@ -288,34 +278,6 @@
             },
 
             //-----------------------------------------------------
-            // Watch
-            // https://github.com/gruntjs/grunt-contrib-watch
-            //-----------------------------------------------------
-
-            watch: {
-                options: {
-                    livereload: true,
-                    spawn: false
-                },
-                styles: {
-                    files: ['assets/_styles/**/*.scss'],
-                    tasks: ['sass:dev', 'postcss']
-                },
-                hbs: {
-                    files: ['styleguides/**/*.hbs'],
-                    tasks: ['assemble']
-                },
-                scripts: {
-                    files: ['assets/_js/**/*.js'],
-                    tasks: ['uglify:dev']
-                },
-                images: {
-                    files: ['assets/_images/*.{png,jpg,svg}'],
-                    tasks: ['copy:images', 'dr-svg-sprites']
-                }
-            },
-
-            //-----------------------------------------------------
             // Browser Sync
             // https://github.com/BrowserSync/grunt-browser-sync
             //-----------------------------------------------------
@@ -395,6 +357,45 @@
                     '!assets/_styles/vendor/**/*'
                 ],
                 options: {}
+            },
+
+            //-----------------------------------------------------
+            // Notify
+            // https://github.com/dylang/grunt-notify
+            //-----------------------------------------------------
+
+            notify: {
+                options: {
+                    sucess: false
+                }
+            },
+
+            //-----------------------------------------------------
+            // Watch
+            // https://github.com/gruntjs/grunt-contrib-watch
+            //-----------------------------------------------------
+
+            watch: {
+                options: {
+                    livereload: true,
+                    spawn: false
+                },
+                styles: {
+                    files: ['assets/_styles/**/*.scss'],
+                    tasks: ['sass:dev', 'postcss']
+                },
+                hbs: {
+                    files: ['styleguides/**/*.hbs'],
+                    tasks: ['assemble']
+                },
+                scripts: {
+                    files: ['assets/_js/**/*.js'],
+                    tasks: ['uglify:dev']
+                },
+                images: {
+                    files: ['assets/_images/*.{png,jpg,svg}'],
+                    tasks: ['copy:images', 'dr-svg-sprites']
+                }
             },
 
             //-----------------------------------------------------
