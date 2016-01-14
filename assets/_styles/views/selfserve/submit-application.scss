@@ -56,10 +56,8 @@
   height: 20px;
   border: 3px solid $grey-3;
   &.checked {
-    background: url('#{$assetPath}/green-tick.png') no-repeat 0 0;
-    @include device-pixel-ratio($ratio: 2) {
-      background: url('#{$assetPath}/green-tick-2x.png') no-repeat 0 0;
-      background-size: 20px 20px;
-    }
+    @include svg(
+      ('bitmap/internal-application-complete.png', 'svg/internal-application-complete.svg'), center center
+    );
   }
 }
