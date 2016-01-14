@@ -1,5 +1,4 @@
 
-
 /*
   OLCS - Selfserve SCSS
   =====================
@@ -36,6 +35,7 @@ $app: selfserve;
 
 // Components
 @import '../components/version-header';
+@import '../components/article';
 @import '../components/global-header';
 @import '../components/search';
 @import '../components/user-header';

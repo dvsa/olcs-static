@@ -40,7 +40,7 @@
   }
 }
 
-@mixin notice($background,$border,$color) {
+@mixin notice($background, $border, $color) {
   background: $background;
   border: 1px solid $border;
   color: $color;
@@ -79,15 +79,9 @@
   }
 }
 
-
 // Internal theme
 // ---------------
 
 @if $app == 'internal' {
-
-  .notice-container p,
-  .sidebar--right .notice-container p {
-    font-size: font-size(1);
-  }
 
 }
