@@ -62,9 +62,9 @@
   &__copyright {
     height: 150px;
     text-align: right;
-    background: url('#{$assetPath}/footer-crest.png') no-repeat 50% 0;
+    background: url('#{$assetPath}/bitmap/footer-crest.png') no-repeat 50% 0;
     @include device-pixel-ratio($ratio: 2) {
-      background: url('#{$assetPath}/footer-crest-2x.png') no-repeat 50% 0;
+      background: url('#{$assetPath}/bitmap/footer-crest-2x.png') no-repeat 50% 0;
       background-size: 125px 102px;
     }
     a {
