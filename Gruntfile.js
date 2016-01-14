@@ -189,14 +189,14 @@
             //-----------------------------------------------------
 
             svg2png: {
-                all: {
-                    files: [{ 
-                      flatten: true,
-                      cwd: 'assets/_images/svg/',
-                      src: '*.svg', 
-                      dest:'public/images/png' 
-                    }]
-                }
+              all: {
+                  files: [{ 
+                    flatten: true,
+                    cwd: srcSvg + '/',
+                    src: '*.svg', 
+                    dest: pubImages + '/png' 
+                  }]
+              }
             },
     
             //-----------------------------------------------------
@@ -394,7 +394,7 @@
                 },
                 images: {
                     files: ['assets/_images/*.{png,jpg,svg}'],
-                    tasks: ['copy:images', 'dr-svg-sprites']
+                    tasks: ['copy:images', 'svg2png', 'dr-svg-sprites']
                 }
             },
 
@@ -463,6 +463,7 @@
             'lint',
             'sass:dev',
             'postcss',
+            'svg2png',
             'dr-svg-sprites',
             'uglify:dev',
             'copy:images',
