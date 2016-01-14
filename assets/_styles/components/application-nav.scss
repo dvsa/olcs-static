@@ -1,54 +1,72 @@
+// Application Navigation
+// -----------------------------------------------------------------
 
-/*
-  Application navigation
-  ======================
-*/
+// Config
+// -----------------------------------------------------------------
 
-// status class, 1x Y value, 2x Y value
+// status class background position
 $mobile-statuses: (
-  complete 11px 11px,
-  incomplete -990px -990px,
-  edited -489px -489px
+  'complete'   : 1px 3px,
+  'incomplete' : 26px 3px,
+  'edited'     : 48px 3px
 );
 
+// Component
+// -----------------------------------------------------------------
+
 .app-navigation {
+  
   @extend %navigation;
   overflow: hidden;
   border-top: 0;
   margin: 0;
+  
   a,
   .current,
   .disabled {
     display: block;
     width: 90%;
-    padding: 9px 20px 10px 0;
+    padding: 11px 20px 10px 0;
     border-bottom: 1px solid $grey-3;
     text-decoration: none;
   }
+  
   .current {
     border-bottom: 3px solid $primaryColour;
   }
+  
   .current.no-background {
     background: none;
   }
+  
   &__item {
     @extend %navigation__item;
     padding: 0;
     margin: 0;
     width: 100%;
     text-align: left;
-    background: url('#{$assetPath}/application-navigation.png') no-repeat 100% -192px;
-    @include device-pixel-ratio($ratio: 2) {
-      background: url('#{$assetPath}/application-navigation-2x.png') no-repeat 100% -192px;
-      background-size: 15px 1015px;
+    position: relative;
+    &:before {
+      position: absolute;
+      right: 0;
+      top: 11px;
+      height: 20px;
+      width: 20px;
+      // Old browsers (no SVG)
+      background: url('#{$assetPath}/sprites/navigation/application-navigation.png');
+      // New browsers (SVG)
+      background-image: url('#{$assetPath}/sprites/navigation/application-navigation.svg'), none;
+      background-position: 1px 3px;
     }
   }
+  
   @each $status in $mobile-statuses {
     .#{nth($status, 1)} {
-      background-position: 98% nth($status, 2);
-      @include device-pixel-ratio($ratio: 2) {
-        background-position: 98% nth($status, 3);
+      &:before {
+        content: "";
+        background-position: nth($status, 2);
       }
     }
   }
+  
 }
