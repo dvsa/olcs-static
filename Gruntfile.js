@@ -178,8 +178,8 @@
                         '../prototypes/<%= globalConfig.prototypeName %>/**/*.png'
                     ]
                 },
-                sprites: {
-                    src: srcSvg + "/sprites"
+                images: {
+                    src: pubImages
                 }
             },
             
@@ -205,43 +205,15 @@
             //-----------------------------------------------------
             
             "dr-svg-sprites": {
-                navigation: {
-                    options: {
-                        spriteElementPath: [
-                          srcSvg + "/internal-application-complete.svg",
-                          srcSvg + "/internal-application-updated.svg",
-                          srcSvg + "/internal-application-warning.svg",
-                        ],
-                        spritePath: pubImages + "/sprites/navigation/application-navigation.svg",
-                        cssPath: pubImages + "/sprites/navigation/application-navigation.css",
-                        previewPath: pubImages + "/sprites/navigation/application-navigation.html"
-                    }
-                },
-                dropdown: {
-                    options: {
-                        spriteElementPath: [
-                          srcSvg + "/dropdown-down.svg",
-                          srcSvg + "/dropdown-up.svg"
-                        ],
-                        spritePath: pubImages + "/sprites/dropdown/dropdown.svg",
-                        cssPath: pubImages + "/sprites/dropdown/dropdown.css",
-                        previewPath: pubImages + "/sprites/dropdown/dropdown.html"
-                    }
-                },
-                iframeControls: {
-                    options: {
-                        spriteElementPath: [
-                          srcSvg + "/internal-split-screen-close.svg",
-                          srcSvg + "/internal-split-screen-down.svg",
-                          srcSvg + "/internal-split-screen-left.svg",
-                          srcSvg + "/internal-split-screen-pin-bottom.svg",
-                          srcSvg + "/internal-split-screen-pin-down.svg"
-                        ],
-                        spritePath: pubImages + "/sprites/iframeControls/iframeControls.svg",
-                        cssPath: pubImages + "/sprites/iframeControls/iframeControls.css",
-                        previewPath: pubImages + "/sprites/iframeControls/iframeControls.html"
-                    }
+              application: {
+                options: {
+                  cssPath: srcStyles + '/core',
+                  previewPath: 'styleguides',
+                  spriteElementPath: srcSvg,
+                  spritePath: pubImages + "/application-sprite.svg",
+                  cssSuffix: 'scss'
                 }
+              }
             },
             
             //-----------------------------------------------------
@@ -463,6 +435,7 @@
             'lint',
             'sass:dev',
             'postcss',
+            'clean:images',
             'svg2png',
             'dr-svg-sprites',
             'uglify:dev',
