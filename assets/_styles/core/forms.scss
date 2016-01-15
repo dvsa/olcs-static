@@ -628,8 +628,6 @@ select:focus {
 .locked-icon {
   @include svg('lock');
   margin-left: 5px;
-  height: 24px;
-  width: 12px;
   display: inline-block;
 }
 

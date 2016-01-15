@@ -5,9 +5,9 @@
 // -----------------------------------------------------------------
 
 $mobile-statuses: (
-  'internal-application-complete',
-  'internal-application-incomplete',
-  'internal-application-warning'
+  'complete'   : 'internal-application-complete',
+  'incomplete' : 'internal-application-incomplete',
+  'warning'    : 'internal-application-warning'
 );
 
 // Component
@@ -54,9 +54,9 @@ $mobile-statuses: (
   }
   
   @each $status in $mobile-statuses {
-    .#{$status} {
+    .#{nth($status, 1)} {
       &:before {
-        @include svg($status);
+        @include svg(nth($status, 2));
       }
     }
   }

@@ -26,17 +26,13 @@
     background-color: $grey-4;
     position: relative;
     &::after {
-      content: ' ';
+      @include svg('dropdown-down');
+      content: "";
       display: block;
-      background: red;
-      float: left;
-      height: 20px;
-      width: 10px;
       position: absolute;
-      top: 8px;
+      top: 12px;
       right: 8px;
       pointer-events: none;
-      @include svg('dropdown-down');
     }
     &:focus {
       outline: none;
