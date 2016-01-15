@@ -27,9 +27,7 @@ a {
 }
 
 .download {
-  @include svg(
-    'selfserve-document', center left
-  );
+  @include svg('selfserve-document');
   font-weight: 600;
   padding: 4px 0 5px 34px;
   display: inline-block;

@@ -4,11 +4,10 @@
 // Config
 // -----------------------------------------------------------------
 
-// status class background position
 $mobile-statuses: (
-  'complete'   : 1px 3px,
-  'incomplete' : 26px 3px,
-  'edited'     : 48px 3px
+  'internal-application-complete',
+  'internal-application-incomplete',
+  'internal-application-warning'
 );
 
 // Component
@@ -47,9 +46,7 @@ $mobile-statuses: (
     text-align: left;
     position: relative;
     &:before {
-      @include svg(
-        'sprites/navigation/application-navigation', 1px 3px, 20px 20px
-      );
+      content: "";
       position: absolute;
       right: 0;
       top: 11px;
@@ -57,10 +54,9 @@ $mobile-statuses: (
   }
   
   @each $status in $mobile-statuses {
-    .#{nth($status, 1)} {
+    .#{$status} {
       &:before {
-        content: "";
-        background-position: nth($status, 2);
+        @include svg($status);
       }
     }
   }

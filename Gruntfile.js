@@ -208,9 +208,9 @@
               application: {
                 options: {
                   cssPath: srcStyles + '/core',
-                  previewPath: 'styleguides',
+                  previewPath: 'public/styleguides',
                   spriteElementPath: srcSvg,
-                  spritePath: pubImages + "/application-sprite.svg",
+                  spritePath: pubImages + "/svg/application-sprite.svg",
                   cssSuffix: 'scss'
                 }
               }

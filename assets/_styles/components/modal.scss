@@ -101,11 +101,7 @@
       @extend %h2;
     }
     &__close {
-      @include svg(
-        'selfserve-modal-close', center center
-      );
-      height: 38px;
-      width: 38px;
+      @include svg('selfserve-modal-close');
     }
   }
 
@@ -166,9 +162,7 @@
     text-indent: -9999px;
     height: 22px;
     width: 22px;
-    @include svg(
-      'internal-modal-close', center center
-    );
+    @include svg('internal-modal-close');
   }
 
 }

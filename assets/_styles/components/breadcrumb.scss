@@ -48,9 +48,7 @@
   // }
 
   .breadcrumbs a {
-    @include svg(
-      'selfserve-breadcrumb', right 4px
-    );
+    @include svg('selfserve-breadcrumb');
     // color: $grey-1;
     background-size: 8px;
     padding-right: 1em;

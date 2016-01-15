@@ -145,10 +145,7 @@ button {
   display: inline-block;
   &__button {
     @extend .action--secondary;
-    @include svg(
-      'dropdown-down', right 8px center, 
-      $bgColor: $grey-3
-    );
+    @include svg('dropdown-down');
     margin: 0 !important;
     padding-right: 25px;
   }

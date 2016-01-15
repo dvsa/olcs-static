@@ -150,9 +150,7 @@ textarea {
 @if $app == 'selfserve' {
 
   .important {
-    @include svg(
-      'selfserve-important.png', left 0.15em
-    );
+    @include svg('selfserve-important');
     background-size: 21px;
     padding-left: 30px;
   }

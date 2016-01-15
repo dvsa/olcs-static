@@ -36,9 +36,7 @@
       top: 8px;
       right: 8px;
       pointer-events: none;
-      @include svg(
-        'dropdown-down', center 7px
-      );
+      @include svg('dropdown-down');
     }
     &:focus {
       outline: none;
@@ -82,9 +80,7 @@
   }
   &__button,
   [type="submit"] {
-    @include svg(
-      'internal-search', center 7px
-    );
+    @include svg('internal-search');
     background-color: $primaryColour;
     float: left;
     width: 2.5rem;

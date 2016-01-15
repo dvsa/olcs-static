@@ -56,8 +56,6 @@
   height: 20px;
   border: 3px solid $grey-3;
   &.checked {
-    @include svg(
-      'internal-application-complete.png', center center
-    );
+    @include svg('internal-application-complete');
   }
 }

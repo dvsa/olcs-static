@@ -63,31 +63,10 @@
   }
 }
 
-// [4] SVG Fallack
-// Generate an SVG background image with PNG fallback
+// [4] SVG Icon
+// Load an SVG image from the global sprite with PNG fallback
 // -----------------------------------------------------------------
 
-@mixin svg($src, $position: 0px 0px, $size: null, $bgColor: null, $sprite: false) {
-  @if ($sprite) {
-    // Old browsers (no SVG)
-    background: url('#{$assetPath}/#{nth($src, 1)}');
-    // New browsers (SVG)
-    background-image: url('#{$assetPath}/#{nth($src, 2)}'), none;
-  } @else {
-    // Old browsers (no SVG)
-    background: url('#{$assetPath}/bitmap/#{$src}.png');
-    // New browsers (SVG)
-    background-image: url('#{$assetPath}/svg/#{$src}.svg'), none;
-  }
-  background-position: $position;
-  background-repeat: no-repeat;
-  // Optional background color
-  @if ($bgColor) {
-    background-color: $bgColor;
-  }
-  // Sizing
-  @if ($size) {
-    height: nth($size, 1);
-    width: nth($size, 2);
-  }
+@mixin svg($src) {
+  @extend .#{$src};
 }

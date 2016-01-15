@@ -97,9 +97,7 @@ th {
     padding-right: 1em;
     color: $black;
     text-decoration: none;
-    @include svg(
-      'dropdown-down', right center
-    );
+    @include svg('dropdown-down');
   }
   a:active {
     color: $grey-1;
