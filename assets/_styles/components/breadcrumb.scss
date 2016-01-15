@@ -48,11 +48,16 @@
   // }
 
   .breadcrumbs a {
-    @include svg('selfserve-breadcrumb');
     // color: $grey-1;
-    background-size: 8px;
-    padding-right: 1em;
     margin-right: 0.25em;
+    position: relative;
+    &:after {
+      @include svg('selfserve-breadcrumb');
+      content: "";
+      display: inline-block;
+      margin-left: 0.5em;
+      margin-top: 0.1em;
+    }
   }
 
   .breadcrumbs .current {
