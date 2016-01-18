@@ -5,13 +5,14 @@
 	 width="11.914px" height="7.595px" viewBox="0 0 11.914 7.595" style="enable-background:new 0 0 11.914 7.595;"
 	 xml:space="preserve">
 <style type="text/css">
-	.st0{clip-path:url(#SVGID_2_);fill-rule:evenodd;clip-rule:evenodd;fill:#7D7E86;}
+	.st0{clip-path:url(#SVGID_2_);fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
 </style>
 <g>
 	<g>
 		<defs>
-			<polygon id="SVGID_1_" points="5.92,6.277 1.157,1.027 10.683,1.027 			"/>
+			<polygon id="SVGID_1_" points="5.92,1.027 10.683,6.277 1.157,6.277 			"/>
 		</defs>
+		<use xlink:href="#SVGID_1_"  style="overflow:visible;fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;"/>
 		<clipPath id="SVGID_2_">
 			<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
 		</clipPath>

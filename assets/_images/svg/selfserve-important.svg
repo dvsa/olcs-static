@@ -1,1 +1,12 @@
-<svg width="25" height="25" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg"><title>selfserve-important</title><path d="M12.472 0C5.572 0 0 5.57 0 12.472c0 6.9 5.57 12.472 12.472 12.472 6.9 0 12.472-5.57 12.472-12.472C24.944 5.572 19.374 0 12.472 0zm1.712 20.283H10.76V11.29h3.39l.034 8.993zM12.472 9.8a2.266 2.266 0 0 1 0-4.535 2.266 2.266 0 0 1 0 4.536z" fill="#222" fill-rule="evenodd"/></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.0.3 (7891) - http://www.bohemiancoding.com/sketch -->
+    <title>selfserve-important</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Artboard-2" sketch:type="MSArtboardGroup" transform="translate(-351.000000, -117.000000)" fill="#222222">
+            <path d="M363.472171,117 C356.570936,117 351,122.570936 351,129.472171 C351,136.373405 356.570936,141.944342 363.472171,141.944342 C370.373405,141.944342 375.944342,136.373405 375.944342,129.472171 C375.944342,122.570936 370.373405,117 363.472171,117 L363.472171,117 Z M365.184105,137.28287 L361.760237,137.28287 L361.760237,128.289043 L365.151183,128.289043 L365.184105,137.28287 L365.184105,137.28287 Z M363.472171,126.801389 C362.238992,126.801389 361.204681,125.806893 361.204681,124.533899 C361.204681,123.30072 362.199177,122.266409 363.472171,122.266409 C364.70535,122.266409 365.73966,123.260905 365.73966,124.533899 C365.73966,125.806893 364.70535,126.801389 363.472171,126.801389 L363.472171,126.801389 Z" id="selfserve-important" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

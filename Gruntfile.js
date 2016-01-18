@@ -138,7 +138,7 @@
                         }, {
                             expand: true,
                             cwd: 'public/images/',
-                            src: ['**/*.png', '**/*.gif'],
+                            src: ['**/*.{png,jpg,gif,svg}'],
                             dest: '../prototypes/<%= globalConfig.prototypeName %>/images/'
                         }, {
                             expand: true,
@@ -207,11 +207,11 @@
             "dr-svg-sprites": {
               application: {
                 options: {
-                  cssPath: srcStyles + '/core',
                   previewPath: 'public/styleguides',
                   spriteElementPath: srcSvg,
                   spritePath: pubImages + "/svg/application-sprite.svg",
-                  cssSuffix: 'scss'
+                  cssPath: pubStyles,
+                  //cssSuffix: 'scss'
                 }
               }
             },
@@ -365,7 +365,7 @@
                     tasks: ['uglify:dev']
                 },
                 images: {
-                    files: ['assets/_images/*.{png,jpg,svg}'],
+                    files: ['assets/_images/*.{png,jpg,gif,svg}'],
                     tasks: ['copy:images', 'svg2png', 'dr-svg-sprites']
                 }
             },
