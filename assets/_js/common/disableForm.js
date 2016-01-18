@@ -14,7 +14,6 @@ OLCS.disableForm = (function(document, $, undefined) {
 
   return function init(options) {
 
-
     OLCS.logger.debug(options);
 
     // Get the selectors of interest
@@ -79,6 +78,7 @@ OLCS.disableForm = (function(document, $, undefined) {
     // If submitting the form opens a modal instead of loading a new
     // page, we need to revert the buttons to their original state,
     // ready for when the modal closes
+
     // OLCS.eventEmitter.on('show:modal', revertFormSubmit);
 
   };
