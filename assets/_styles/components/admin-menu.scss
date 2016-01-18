@@ -20,7 +20,7 @@
   right: $gutter;
   list-style: none;
   &__arrow {
-    @include svg('dropdown-down');
+    @include svg('internal-admin-menu-arrow');
     position: absolute;
     display: block;
     top: -6px;

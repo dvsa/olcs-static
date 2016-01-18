@@ -211,7 +211,7 @@
                   spriteElementPath: srcSvg,
                   spritePath: pubImages + "/svg/application-sprite.svg",
                   cssPath: pubStyles,
-                  //cssSuffix: 'scss'
+                  layout: 'vertical'
                 }
               }
             },
@@ -365,7 +365,7 @@
                     tasks: ['uglify:dev']
                 },
                 images: {
-                    files: ['assets/_images/*.{png,jpg,gif,svg}'],
+                    files: ['assets/_images/**/*.{png,jpg,gif,svg}'],
                     tasks: ['copy:images', 'svg2png', 'dr-svg-sprites']
                 }
             },
