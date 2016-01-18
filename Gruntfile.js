@@ -210,8 +210,9 @@
                   previewPath: 'public/styleguides',
                   spriteElementPath: srcSvg,
                   spritePath: pubImages + "/svg/application-sprite.svg",
-                  cssPath: pubStyles,
-                  layout: 'vertical'
+                  cssPath: srcStyles + '/core/icon-sprite.scss',
+                  layout: 'vertical',
+                  cssSuffix: 'scss'
                 }
               }
             },
@@ -432,12 +433,12 @@
         //---------------------------------------------------------
 
         grunt.registerTask('compile:dev', [
+            'svg2png',
+            'dr-svg-sprites',
             'lint',
             'sass:dev',
             'postcss',
             'clean:images',
-            'svg2png',
-            'dr-svg-sprites',
             'uglify:dev',
             'copy:images',
             'assemble'

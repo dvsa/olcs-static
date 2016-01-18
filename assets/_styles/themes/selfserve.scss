@@ -19,8 +19,7 @@ $app: selfserve;
 @import '../vendor/fontello';
 
 // Core
-//@import '../core/application-sprite';
-@import '../../../public/styles/application-sprite';
+@import '../core/icon-sprite';
 @import '../core/config';
 @import '../core/tools';
 @import '../core/fonts';

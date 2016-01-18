@@ -7,8 +7,7 @@
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
         <g id="Artboard-2" sketch:type="MSArtboardGroup" transform="translate(-223.000000, -367.000000)" fill="#7D7E86">
             <g id="selfserve-modal-close" sketch:type="MSLayerGroup" transform="translate(210.000000, 367.000000)">
-                <path d="M13.6261865,2.76960479 L16.3166627,0.0791286017 L27.1589666,10.9214326 L16.1595278,21.9208714 L13.4690516,19.2303952 L21.7780143,10.9214326 L13.6261865,2.76960479 Z" id="Rectangle-7" sketch:type="MSShapeGroup"></path>
-                <path d="M35.6261865,2.76960479 L38.3166627,0.0791286017 L49.1589666,10.9214326 L38.1595278,21.9208714 L35.4690516,19.2303952 L43.7780143,10.9214326 L35.6261865,2.76960479 Z" id="Rectangle-9" sketch:type="MSShapeGroup" transform="translate(35.500000, 11.000000) scale(-1, 1) translate(-35.500000, -11.000000) "></path>
+                <path d="M35.5309484,19.2303952 L32.8404722,21.9208714 L24.5,13.5803992 L16.1595278,21.9208714 L13.4690516,19.2303952 L21.7780143,10.9214326 L13.6261865,2.76960479 L13.6261865,2.76960479 L16.3166627,0.0791286017 L24.5,8.26246594 L24.5,8.26246594 L32.6833373,0.0791286017 L35.3738135,2.76960479 L27.2219857,10.9214326 L35.5309484,19.2303952 Z" id="Rectangle-7" sketch:type="MSShapeGroup"></path>
             </g>
         </g>
     </g>

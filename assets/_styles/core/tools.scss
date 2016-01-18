@@ -68,5 +68,7 @@
 // -----------------------------------------------------------------
 
 @mixin svg($src) {
-  @extend .#{$src};
+  @extend .#{$src};	
+	background-image: url("/images/svg/application-sprite.png");
+	background-image: url("/images/svg/application-sprite.svg");
 }
