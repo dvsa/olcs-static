@@ -71,6 +71,7 @@
 	background-image: url("/images/svg/icon-sprite.png");
 	background-image: url("/images/svg/icon-sprite.svg"),
     linear-gradient(transparent, transparent);
+  display: inline-block;
 }
 
 @mixin svg($src) {

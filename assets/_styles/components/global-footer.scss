@@ -78,4 +78,8 @@
     }
   }
   
+  [rel="external"]:after {
+    @include svg('selfserve-external-footer');
+  }
+  
 }

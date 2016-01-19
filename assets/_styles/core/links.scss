@@ -14,10 +14,12 @@ a {
 }
 
 [rel="external"]:after {
-  @extend %fontello;
-  content: '\e800';
-  font-size: 80%;
-  margin: 0 1em 0 4px;
+  @include svg('selfserve-external-link');
+  margin-left: 0.5em;
+  content: "";
+  &:hover {
+    @include svg('selfserve-external-link-hover');
+  }
 }
 
 .disabled,
