@@ -10,11 +10,11 @@ describe("OLCS.textareaPlaceholder", function() {
     expect(this.component).to.be.a("function");
   });
   
-  describe("Given a textarea element that has a value attribute equal to the placeholder attribute", function() {
+  describe("Given a textarea element with a value equal to the placeholder attribute", function() {
     
     beforeEach(function() {
       $("body").append([
-        "<textarea id='stub' value='Lorem Ipsum' placeholder='Lorem Ipsum'></textarea>"
+        "<textarea id='stub' placeholder='Lorem Ipsum'>Lorem Ipsum</textarea>"
       ].join("\n"));
     });
     
@@ -26,10 +26,19 @@ describe("OLCS.textareaPlaceholder", function() {
       
       beforeEach(function() {
         this.component();
+        OLCS.eventEmitter.emit("render");
+      });
+      
+      it("The textarea should now have no value", function() {
+          expect($("#stub").val()).to.be('');
+      });
+      
+      it("The textarea should have an appropriate placeholder", function() {
+          expect($("#stub").attr('placeholder')).to.be('Lorem Ipsum');
       });
     
     });
-         
+      
   });
   
 });
