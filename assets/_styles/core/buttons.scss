@@ -143,6 +143,7 @@ button {
 .more-actions {
   position: relative;
   display: inline-block;
+  z-index: 1;
   &__button {
     @extend .action--secondary;
     margin: 0 !important;
