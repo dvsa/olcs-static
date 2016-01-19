@@ -1,8 +1,8 @@
+(function() {
+  
 //=================================================================
 // OLCS - Grunt Setup
 //=================================================================
-
-(function() {
 
     "use strict";
 
@@ -433,12 +433,12 @@
         //---------------------------------------------------------
 
         grunt.registerTask('compile:dev', [
+            'clean:images',
             'svg2png',
             'dr-svg-sprites',
             'lint',
             'sass:dev',
             'postcss',
-            'clean:images',
             'uglify:dev',
             'copy:images',
             'assemble'
