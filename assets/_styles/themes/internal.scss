@@ -1,5 +1,4 @@
 
-
 /*
   OLCS - Internal application SCSS
   ================================
@@ -37,6 +36,7 @@ $app: internal;
 
 // Components
 @import '../components/version-header';
+@import '../components/article';
 @import '../components/global-header';
 @import '../components/search';
 @import '../components/admin-menu';
@@ -64,6 +64,7 @@ $app: internal;
 @import '../components/tinymce';
 @import '../components/preloader';
 @import '../components/void';
+@import '../components/verify';
 
 // Views
 @import '../views/internal/sign-in';

@@ -88,7 +88,7 @@
       @extend .page-wrapper;
     }
     &__subtitle {
-      @include font-size(15px,11pt,15px);
+      @include font-size(15px,15px,11pt);
       color: $grey-1;
       font-weight: 400;
       display: inline;

@@ -1,8 +1,8 @@
+// Config
+// -----------------------------------------------------------------
 
-/*
-  Forms
-  =====
-*/
+// Reset/Normalize
+// -----------------------------------------------------------------
 
 button,
 input,
@@ -66,13 +66,14 @@ input::-moz-focus-inner {
 */
 
 form {
-  margin: 0 0 2em;
+  margin-bottom: 2em;
   width: 100%;
   float: left;
 }
 
 fieldset {
-  margin: 0 0 40px;
+  margin-bottom: 40px;
+  margin-left: 0;
   padding: 0;
   border: 0;
   clear: both;
@@ -85,7 +86,7 @@ fieldset {
   }
   &.multiple a {
     @extend %paragraph--tiny;
-    margin: -.75em 0 0;
+    margin: -0.75em 0 0;
     display: block;
   }
   &.question {
@@ -99,16 +100,18 @@ fieldset {
   }
   fieldset {
     margin-bottom: 30px;
-  }
-}
-
-
-.fieldset--primary {
-  legend {
-    @extend legend;
-  }
-  label {
-    @extend label;
+    legend {
+      @extend %paragraph;
+      max-width: 600px;
+      font-weight: 400;
+      clear: both;
+      width: 100%;
+    }
+    label {
+      @if $app == 'selfserve' {
+        @extend %paragraph--small;
+      }
+    }
   }
 }
 
@@ -123,14 +126,14 @@ fieldset {
   }
 }
 
-form fieldset:last-child,
+fieldset:last-child,
 fieldset .field:last-child,
 fieldset fieldset .field:last-child {
   margin-bottom: 0;
 }
 
 .field {
-  margin: 0 0 30px;
+  margin-bottom: 30px;
   overflow: visible;
   @media (max-width: breakpoint('break-3')) {
     margin-bottom: .5em;
@@ -154,20 +157,7 @@ fieldset fieldset .field:last-child {
     float: left;
     margin-right: 2.5%;
   }
-  &.two-col {
-    width: 50%;
-    float: left;
-  }
-  &.three-col {
-    width: 33.3%;
-    float: left;
-  }
 }
-
-p + .field {
-  margin-top: 1.25em;
-}
-
 
 .field.inline {
   margin-bottom: 0;
@@ -190,7 +180,6 @@ legend {
   *margin-left: -7px;
   margin-bottom: 7px;
   padding: 0;
-  color: $black;
   font-weight: 700;
   .highlight-box & {
     float: left;
@@ -199,28 +188,17 @@ legend {
 }
 
 label {
-  @extend %paragraph--large;
   display: block;
   margin: 0 10px 7px 0;
   max-width: 600px;
   clear: both;
   .inline & {
-    @extend %paragraph--small;
+    @extend %h5;
     display: inline;
   }
-}
-
-/* Nested fieldsets */
-
-fieldset fieldset legend {
-  @extend %paragraph--large;
-  max-width: 600px;
-  clear: both;
-  width: 100%;
-}
-
-fieldset fieldset label {
-  @extend %paragraph--small;
+  @if $app == 'selfserve' {
+    @extend %h4;
+  }
 }
 
 /*
@@ -388,7 +366,6 @@ select:focus {
   .attach-action__label {
     @extend .action--secondary;
     @extend .large;
-    font-size: 19px;
     float: left;
     margin-bottom: 10px;
   }
@@ -459,7 +436,6 @@ select:focus {
   }
 }
 
-
 /*
   Address
   -------
@@ -495,7 +471,6 @@ select:focus {
   -------
 */
 
-
 .lookup {
   button {
     margin-left: 5px;
@@ -512,11 +487,10 @@ select:focus {
 
 .traffic-area {
   .field {
-    @extend %paragraph--large;
+    @extend %paragraph;
     margin-bottom: 5px;
   }
 }
-
 
 /*
   Trading names
@@ -527,7 +501,6 @@ select:focus {
   margin-top: -10px;
 }
 
-
 /*
   Add another
   -----------
@@ -537,11 +510,7 @@ select:focus {
   .field {
     margin-bottom: 15px;
   }
-  .hint {
-    font-size: 16px;
-  }
 }
-
 
 /*
   DOB
@@ -556,7 +525,6 @@ select:focus {
     padding-top: 0;
   }
 }
-
 
 /*
   Inline search
@@ -588,7 +556,6 @@ select:focus {
     color: $mellow-red;
   }
 }
-
 
 /*
   Validation
@@ -651,7 +618,6 @@ select:focus {
   color: $mellow-red;
 }
 
-
 /*
   Locked
   ------
@@ -691,12 +657,10 @@ select:focus {
   height: 200px;
 }
 
-
 /*
   Character count
   ---------------
 */
-
 
 .character-count {
   color: $grey-1;
@@ -729,17 +693,10 @@ select:focus {
   }
 }
 
-
 // Selfserve theme
 // ---------------
 
 @if $app == 'selfserve' {
-
-  // fieldset fieldset.checkbox {
-  //   margin-bottom: 0;
-  // }
-  //
-
 
   .checkbox {
     &.inline label {
@@ -797,10 +754,17 @@ select:focus {
 
 @if $app == 'internal' {
 
+  .field.checkbox {
+    margin-bottom: 0;
+  }
 
   .extra-long {
     max-width: 500px;
     width: 100%;
+  }
+
+  legend {
+    @extend %h4;
   }
 
   .long {
@@ -819,15 +783,13 @@ select:focus {
     }
   }
 
-  .medium {
-    min-width: 300px;
-    max-width: 450px;
-  }
-
   fieldset {
     margin-bottom: 30px;
     fieldset {
       margin-bottom: 20px;
+      legend {
+        @extend %paragraph--small;
+      }
     }
   }
 
@@ -839,24 +801,7 @@ select:focus {
     }
   }
 
-  legend {
-    font-size: font-size(3);
-    margin: .5em 0;
-  }
-
-  fieldset fieldset legend {
-    font-size: 15px;
-    font-weight: 400;
-    margin-bottom: 7px;
-  }
-
-  fieldset fieldset label {
-    @extend %paragraph--tiny;
-    font-weight: 400;
-  }
-
   label {
-    font-size: font-size(2);
     .inline & {
       @extend %paragraph--tiny;
     }
@@ -878,7 +823,6 @@ select:focus {
   input,
   textarea,
   .terms--box {
-    font-size: font-size(2);
     border: 1px solid $grey-2;
     background: $grey-4;
   }
@@ -889,14 +833,9 @@ select:focus {
     outline: 2px solid #ffbf47;
   }
 
-  .chosen-container {
-    font-size: 14px;
-  }
-
   .hint,
   .hint--small,
   .hint input {
-    font-size: font-size(1);
     margin-top: 0;
   }
 
@@ -904,9 +843,12 @@ select:focus {
     margin-top: 8px;
   }
 
-  .traffic-area  a {
-    font-size: font-size(2);
+  .traffic-area a {
     margin-bottom: 20px;
+  }
+
+  .chosen-container {
+    font-size: 14px;
   }
 
 }
