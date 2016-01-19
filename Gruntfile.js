@@ -209,7 +209,7 @@
                 options: {
                   previewPath: 'public/styleguides',
                   spriteElementPath: srcSvg,
-                  spritePath: pubImages + "/svg/application-sprite.svg",
+                  spritePath: pubImages + '/svg/icon-sprite.svg',
                   cssPath: srcStyles + '/core/icon-sprite.scss',
                   layout: 'vertical',
                   cssSuffix: 'scss'

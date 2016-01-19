@@ -67,8 +67,13 @@
 // Load an SVG image from the global sprite with PNG fallback
 // -----------------------------------------------------------------
 
+%sprite-bg {
+	background-image: url("/images/svg/icon-sprite.png");
+	background-image: url("/images/svg/icon-sprite.svg"),
+    linear-gradient(transparent, transparent);
+}
+
 @mixin svg($src) {
   @extend .#{$src};	
-	background-image: url("/images/svg/application-sprite.png");
-	background-image: url("/images/svg/application-sprite.svg");
+	@extend %sprite-bg;
 }
