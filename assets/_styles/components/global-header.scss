@@ -20,12 +20,10 @@
 @if $app == 'selfserve' {
 
   .global-header__title {
-    font-size: 24px;
     float: left;
     clear: none;
     margin: 5px 0 0 180px;
     @media (max-width: $mobile-column-stack) {
-      font-size: 18px;
       margin: 5px 0 0 0;
       clear: both;
     }
@@ -70,7 +68,7 @@
     background: #111;
     position: relative;
     overflow: visible;
-    padding: 7px 0 6px;
+    padding: 7px 0;
     &__wrapper {
       @media(max-width: $mobile-column-stack) {
         padding-bottom: 1em;
@@ -78,10 +76,10 @@
     }
     &__title {
       float: left;
-      font-size: 26px;
       font-weight: bold;
       margin-right: $gutter-half;
       margin-bottom: 0;
+      font-size: 25px;
     }
     a {
       color: $white;

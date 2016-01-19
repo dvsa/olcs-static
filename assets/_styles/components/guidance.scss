@@ -4,7 +4,6 @@
   ==============
 */
 
-
 .guidance {
   background: $grey-4;
   border-left: 4px solid $grey-2;
@@ -23,31 +22,25 @@
   }
 }
 
-fieldset + .field .help,
-.field + .field .help {
-  margin-top: -20px;
-}
-
 .help__summary {
-  @extend %paragraph--large;
+  @extend %paragraph;
   display: inline-block;
   color: $link-colour;
   text-decoration: underline;
-  margin-bottom: 3px;
+  border: 3px solid transparent;
   &:hover {
     color: $link-hover-colour;
     cursor: pointer;
   }
   &:active,
   &:focus {
-    outline: none;
-    border: 3px solid $yellow;
-    margin: -3px 0 0 -3px;
+    outline: 0;
+    border-color: $yellow;
   }
 }
 
 .help__text {
-  @extend %paragraph--large;
+  @extend %paragraph;
   padding: 15px 15px 5px;
   border-left: 4px solid $grey-2;
   margin-bottom: 10px;
@@ -55,7 +48,6 @@ fieldset + .field .help,
     display: none;
   }
 }
-
 
 // Internal theme
 // ---------------
@@ -66,8 +58,5 @@ fieldset + .field .help,
     p {
       margin-bottom: 5px;
     }
-  }
-  .help__summary {
-    font-size: font-size(2);
   }
 }

@@ -31,7 +31,6 @@
   }
 }
 
-
 // Selfserve theme
 // ---------------
 
@@ -47,22 +46,16 @@
       padding: 0;
     }
   }
-
 }
-
 
 // Internal theme
 // ---------------
 
 @if $app == 'internal' {
   .empty {
-    padding: 15px 15px 19px 15px;
-  }
-  .empty__title {
-    font-size: font-size(3);
+    padding: 15px 15px 19px;
   }
   .empty .actions-container {
     margin-top: 5px;
-
   }
 }
