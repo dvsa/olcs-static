@@ -10,12 +10,12 @@ breadcrumbs:
 <div class="row">
 
   <div class="two-thirds">
-
-    <h3>Check your details</h3>
-    <p>Make sure all the details in your application are correct.</p>
-    <p><a href="read-only-application.html" class="download" target="blank">View full application</a></p>
-
-    <form class="article">
+    <div class="article">
+      <h3>Check your details</h3>
+      <p>Make sure all the details in your application are correct.</p>
+      <p><a href="read-only-application.html" class="download" target="blank">View full application</a></p>
+    </div>
+    <div class="article">
       <h3>Sign the declaration</h3>
       <p>The declaration must be signed by a business owner or director.</p>
       <p>They can either:</p>
@@ -24,10 +24,12 @@ breadcrumbs:
         <li>print, sign and return the declaration to the <a target="blank" href="https://www.gov.uk/government/organisations/traffic-commissioners/about/access-and-opening" rel="external">Central Licensing Office</a></li>
       </ul>
       <p>GOV.UK Verify can speed up the application process. To use it they must be a UK resident with a valid passport.</p>
-      <hr />
+    </div>
+
+    <form class="article">
       <fieldset>
+        <legend>How would you like to sign the declaration?</legend>
         <fieldset>
-          <legend><b>How would you like to sign the declaration?</b></legend>
           <div class="field checkbox">
             <label><input type="radio" name="declarations" value="verify">use GOV.UK Verify</label>
           </div>
@@ -44,6 +46,7 @@ breadcrumbs:
           <h3>Declarations signed through GOV.UK Verify</h3>
           <p>Verified user: Katy Hasley</p>
           <p>Date: 12 May 2015</p>
+          <p class="small"><a href="" rel="external">I want to verify again</a></p>
         </div>
         <h3 class="important">Important</h3>
         <p>By applying I agree to follow the rules below, and I’m aware that:</p>
@@ -98,7 +101,7 @@ breadcrumbs:
           </label>
         </div>
         <div class="actions-container">
-          <a href="http://govuk-verify.herokuapp.com/intro?requestId=vehicle-operator-licensing" class="action--primary large" rel="external">Save and continue to GOV.UK Verify</a>
+          <a href="http://govuk-verify.herokuapp.com/intro?requestId=vehicle-operator-licensing" class="action--primary large">Save and continue</a>
           <a href="index.html" class="action--tertiary large list">Back to overview</a>
         </div>
       </div><!-- .js-verify -->
@@ -144,8 +147,8 @@ breadcrumbs:
 <script type="text/javascript" src="/js/submit-app-prototype.js"></script>
 
 <script type="text/javascript">
-  $(document).on('ready', function() {
-    $('input[value="verify"]').click();
+  $('document').ready(function() {
+    $('input[value="verify"').click();
   });
 </script>
 

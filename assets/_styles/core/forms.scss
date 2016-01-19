@@ -748,6 +748,10 @@ select:focus {
 
 @if $app == 'internal' {
 
+  .field.checkbox {
+    margin-bottom: 0;
+  }
+
   .extra-long {
     max-width: 500px;
     width: 100%;
