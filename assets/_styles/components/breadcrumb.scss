@@ -55,7 +55,9 @@
       content: "";
       display: inline-block;
       margin-left: 0.5em;
-      margin-top: 0.1em;
+      position: relative;
+      top: 2px;
+      opacity: 0.8;
     }
   }
 
