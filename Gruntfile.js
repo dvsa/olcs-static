@@ -145,6 +145,14 @@
                             dest: '../prototypes/<%= globalConfig.prototypeName %>/fonts/'
                         }
                     ]
+                },
+                images: {
+                  files: [{ 
+                      expand: true,
+                      cwd: 'assets/_images/', 
+                      src: ['**/*.{png,jpg,gif,svg}'], 
+                      dest:'public/images/' 
+                    }]
                 }
             },
 
@@ -235,6 +243,10 @@
                 scripts: {
                     files: ['assets/_js/**/*.js'],
                     tasks: ['uglify:dev']
+                },
+                images: {
+                    files: ['assets/_images/*.{png,jpg,gif,svg}'],
+                    tasks: ['copy:images']
                 }
             },
 
@@ -343,7 +355,7 @@
             // grunt-localscreenshots
             // https://github.com/danielhusar/grunt-localscreenshots
             //
-            // @NOTE: You'll need PhantomJs install locally to get
+            // @NOTE: You'll need PhantomJs installed locally to get
             // this task to work
             //-----------------------------------------------------
 
@@ -386,6 +398,7 @@
             'sass:dev',
             'postcss',
             'uglify:dev',
+            'copy:images',
             'assemble'
         ]);
 
