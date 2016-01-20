@@ -8,6 +8,7 @@ test/js/reports
 vendor/*
 composer.lock
 public/js/
+public/images/
 public/styles/
 public/styleguides/
 public/assets
