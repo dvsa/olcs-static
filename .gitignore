@@ -10,6 +10,7 @@ composer.lock
 public/js/
 public/styles/
 public/styleguides/
+public/images
 public/assets
 styleguides/screenshots
 .idea
