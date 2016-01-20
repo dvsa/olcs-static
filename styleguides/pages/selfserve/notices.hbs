@@ -1,25 +1,30 @@
 ---
 title: Notices
+breadcrumbs:
+  - link: index.html
+    label: Back to index
 ---
 
-<div class="full-width">
+<div class="row">
   
-  <!-- Notices -->
-  <h3>Notice</h3>
-  <div class="notice-container">  
-    <div class="notice--success">
-      <p><b>Well done!</b> You successfully read <a href="#" class="alert-link">this important alert message</a></p>
+  <div class="two-thirds">
+  
+    <!-- Notices -->
+    <div class="article">
+      <p>Notices (or Flash messages) are you to provide feedback to the user when an action has made some kind of interaction</p>
     </div>
-    <div class="notice--info">
-      <p><b>Heads up!</b> This <a href="#" class="alert-link">alert needs your attention</a>, but it's not super important.
-    </div>
-    <div class="notice--warning">
-      <p><b>Warning!</b> Better check yourself, you're not <a href="#">looking too good.</a></p>
-    </div>
-    <div class="notice--danger">
-      <p><b>Oh snap!</b> <a href="#">Change a few things up</a> and try submitting again.</p>
-    </div>
-  </div><!-- end .notice-container -->
+    <div class="notice-container">
+      <div class="notice--success">
+        <p role="alert">You successfully did something</p>
+      </div>
+      <div class="notice--warning">
+        <p role="alert">This alert needs your attention</p>
+      </div>
+      <div class="notice--danger">
+        <p role="alert">You have done something wrong, try submitting again</p>
+      </div>
+    </div><!-- end .notice-container -->
+  
+  </div><!-- end .full-width -->
 
-</div><!-- end .full-width -->
-
+</div>

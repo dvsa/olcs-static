@@ -1,0 +1,71 @@
+
+/*
+  Preloader
+  =========
+*/
+
+%preloader-overlay {
+  @include opacity(.7);
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+}
+
+%preloader-icon {
+  z-index: 30;
+  background-size: 100%;
+  background-repeat: none;
+  background-position: 0 0;
+}
+
+%dark-preloader {
+  @extend %preloader-icon;
+  height: 28px;
+  width: 28px;
+  background-image: url('../images/dark-preloader.gif');
+  @include device-pixel-ratio($ratio: 2) {
+    background-image: url('../images/dark-preloader-2x.gif');
+  }
+}
+
+%light-preloader {
+  @extend %preloader-icon;
+  height: 20px;
+  width: 20px;
+  background-image: url('../images/light-preloader.gif');
+  @include device-pixel-ratio($ratio: 2) {
+    background-image: url('../images/light-preloader-2x.gif');
+  }
+}
+
+.preloader-overlay--modal {
+  @extend %preloader-overlay;
+  position: fixed;
+  background: $black;
+}
+
+.preloader-icon--modal {
+  @extend %dark-preloader;
+  position: fixed;
+  left: 49%;
+  top: 52%;
+}
+
+.preloader-overlay--table {
+  @extend %preloader-overlay;
+  position: absolute;
+  background: $white;
+}
+
+.preloader-icon--table {
+  @extend %light-preloader;
+  position: absolute;
+  top: 42px;
+  left: 50%;
+}
+
+.preloader-icon--inline {
+  @extend %light-preloader;
+  float: right;
+  margin-top: 8px;
+}

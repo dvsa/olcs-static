@@ -1,0 +1,81 @@
+// Global Footer
+// -----------------------------------------------------------------
+//
+// The global GOV.UK standard footer for all pages to contain the
+// GOV.UK crest logo as well as relevant navigation links
+//
+
+.global-footer {
+  
+  border-top: 1px solid $grey-2;
+  background: $grey-3;
+  color: $dark-text;
+  margin-top: 1.5em;
+  
+  a {
+    color: $dark-text;
+    &:hover {
+      color: $text-colour;
+    }
+  }
+  
+  &__wrapper {
+    max-width: $base-width;
+    padding: $gutter $gutter-half;
+    margin: 0 auto;
+    box-sizing: border-box;
+    @media (max-width: $mobile-column-stack) {
+      width: 100%;
+    }
+  }
+  
+  &__links,
+  &__copyright {
+    display: table-cell;
+    vertical-align: bottom;
+    width: 95%;
+    @media (max-width: $mobile-column-stack) {
+      width: 100%;
+      display: block;
+    }
+  }
+  
+  &__links {
+    @extend %list--reset;
+  }
+  
+  &__link {
+    display: inline-block;
+    margin-right: $gutter-half;
+    @media (max-width: $mobile-column-stack) {
+      text-align: center;
+      margin-bottom: $gutter;
+      margin-right: 0;
+      display: block;
+    }
+    // 'Built by...' link
+    &:last-child {
+      display: block;
+    }
+  }
+  
+  &__copyright {
+    height: 150px;
+    text-align: right;
+    background: url('#{$assetPath}/footer-crest.png') no-repeat 50% 0;
+    @include device-pixel-ratio($ratio: 2) {
+      background: url('#{$assetPath}/footer-crest-2x.png') no-repeat 50% 0;
+      background-size: 125px 102px;
+    }
+    a {
+      padding-top: 130px;
+      white-space: nowrap;
+      text-align: center;
+      display: block;
+      &:focus {
+        background-color: transparent;
+      }
+    }
+  }
+  
+}

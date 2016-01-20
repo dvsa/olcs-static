@@ -1,49 +1,65 @@
 ---
-title: Selfserve styleguide
-subtitle: OLCS 
+title: Vehicle Operator Licensing Styleguide
+header-text: <p>This guide explains how to make Vehicle Operator Licensing look consistent with the rest of GOV.UK</p>
 ---
 
-  <div class="one-third">
-    <h4><a href="typography.html">Typography</a></h4>
-    <p>A typographic system based on the Alphagov toolkit</p>
-  </div><!-- end .one-third -->
+  <h3>Resuable elements</h3>
 
-  <div class="one-third">
-    <h4><a href="form-elements.html">Form elements</a></h4>
-    <p>Includes form wrapper elements, labelling, inputs and actions</p>
-  </div><!-- end .one-third -->
-
-  <div class="one-third">
-    <h4><a href="navigation-elements.html">Navigation elements</a></h4>
-    <p>Includes a standard set of vertical and horizontal navigation mechanisms</p>
-  </div><!-- end .one-third -->
-
-  <div class="one-third">
-    <h4><a href="modal-windows.html">Modals and messaging</a></h4>
-    <p>Includes JavaScript and none-JavaScript versions of pop-ups, alerts and notices</p>
-  </div><!-- end .one-third -->
-
-  <div class="one-third">
-    <h4><a href="tables.html">Tables</a></h4>
-    <p>Standard styling for CRUD and read-only tables and surrounding elements</p>
-  </div><!-- end .one-third -->
-
-  <hr />
-
-  <div class="one-third">
-    <h3>Naming conventions</h3>
-    <p>We have used <a href="http://bem.info/method/">BEM</a> as a methodology for naming and classifying CSS selectors, in order to make them more strict, efficient and informative. <a href="http://csswizardry.com/2011/09/writing-efficient-css-selectors/">Over-qualified</a> selectors and excessive wrappers elements should be avoided.</p>
-  </div><!-- end .one-third -->
-
-  <div class="one-third">
-    <h3>Alphagov</h3>
-    <p>The primary SASS file (main.scss) has a dependency on various functions, variables &amp; mixins within the <a href="https://github.com/alphagov/govuk_frontend_toolkit">Alphagov frontend toolkit</a>. This toolkit should never be edited and should be updated with extreme caution. </p>
-  </div><!-- end .one-third -->
-
-  <div class="one-third">
-    <h3>Requirements</h3>
-    <ul>
-      <li><a href="http://sass-lang.com/">Sass 3.3.3 (Maptastic Maple)</a></li>
-      <li><a href="http://nodejs.org/">Node v0.10.26</a></li>
+  <div class="row">
+    <ul class="list-navigation">
+      <li class="list-navigation__item one-third"><a href="alert.html">Alert</a></li>
+      <li class="list-navigation__item one-third"><a href="form-elements.html">Form elements</a></li>
+      <li class="list-navigation__item one-third"><a href="layout.html">Grid layout</a></li>
+      <li class="list-navigation__item one-third"><a href="guidance-help.html">Guidance and help</a></li>
+      <li class="list-navigation__item one-third"><a href="modal.html">Modal</a></li>
+      <li class="list-navigation__item one-third"><a href="navigation-elements.html">Navigation elements</a></li>
+      <li class="list-navigation__item one-third"><a href="notices.html">Notices</a></li>
+      <li class="list-navigation__item one-third"><a href="tables.html">Tables</a></li>
+      <li class="list-navigation__item one-third"><a href="typography.html">Typography</a></li>
     </ul>
-  </div><!-- end .one-third -->
+  </div>
+
+  <h3>Example pages</h3>
+
+  <div class="row">
+
+    <ul class="list-navigation">
+      <li class="list-navigation__item one-third"><a href="home.html">Home</a></li>
+      <li class="list-navigation__item one-third"><a href="application-overview.html">Application overview</a></li>
+      <li class="list-navigation__item one-third"><a href="operating-centres.html">Operating centres</a></li>
+      <li class="list-navigation__item one-third"><a href="operating-centre.html">Operating centres</a></li>
+      <li class="list-navigation__item one-third"><a href="financial-evidence.html">Financial evidence</a></li>
+      <li class="list-navigation__item one-third"><a href="vehicles.html">Vehicles</a></li>
+      <li class="list-navigation__item one-third"><a href="discs.html">Discs</a></li>
+      <li class="list-navigation__item one-third"><a href="correspondence.html">Correspondence</a></li>
+      <li class="list-navigation__item one-third"><a href="fees.html">Fees</a></li>
+      <li class="list-navigation__item one-third"><a href="fee.html">Individual fee</a></li>
+      <li class="list-navigation__item one-third"><a href="read-only-application.html">Read only application</a></li>
+      <li class="list-navigation__item one-third"><a href="print-declarations.html">Printable declarations</a></li>
+      <li class="list-navigation__item one-third"><a href="application-submitted.html">Application submitted</a></li>
+      <li class="list-navigation__item one-third"><a href="payment-successful.html">Payment successful</a></li>
+      <li class="list-navigation__item one-third"><a href="tm-home.html">Transport manager home</a></li>
+      <li class="list-navigation__item one-third"><a href="bus-registrations.html">Bus registrations</a></li>
+      <li class="list-navigation__item one-third"><a href="bus-service-detail.html">Bus registration details</a></li>
+      <li class="list-navigation__item one-third"><a href="register-update-cancel-service.html">Register a bus service</a></li>
+      <li class="list-navigation__item one-third"><a href="privacy-policy.html">Financial evidence guide</a></li>
+      <li class="list-navigation__item one-third"><a href="privacy-policy.html">Advertisement guide</a></li>
+      <li class="list-navigation__item one-third"><a href="400.html">404</a></li>
+      <li class="list-navigation__item one-third"><a href="500.html">500</a></li>
+    </ul>
+
+  </div>
+
+  <h3>Prototypes</h3>
+
+  <div class="row">
+
+    <ul class="list-navigation">
+      <li class="list-navigation__item one-third"><a href="authentication-prototype">Authentication</a></li>
+      <li class="list-navigation__item one-third"><a href="interim-prototype">Request an interim</a></li>
+      <li class="list-navigation__item one-third"><a href="search-prototype">Search</a></li>
+      <li class="list-navigation__item one-third"><a href="submit-app-prototype">Submit your application</a></li>
+      <li class="list-navigation__item one-third"><a href="tm-prototype">Transport Managers</a></li>
+    </ul>
+
+  </div>

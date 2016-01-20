@@ -7,3 +7,11 @@ test/js/coverage-xml
 test/js/reports
 vendor/*
 composer.lock
+public/js/
+public/styles/
+public/styleguides/
+public/assets
+styleguides/screenshots
+.idea
+.vscode/
+*.cfg

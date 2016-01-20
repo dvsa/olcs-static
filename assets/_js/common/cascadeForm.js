@@ -1,7 +1,7 @@
 var OLCS = OLCS || {};
 
 /**
- * Cascade Form
+ * OLCS.cascadeForm
  *
  * This component should be bound to a form in which each section
  * (usually defined by a top-level fieldset) relates to the one which
@@ -14,11 +14,12 @@ OLCS.cascadeForm = (function(document, $, undefined) {
   "use strict";
 
   return function init(options) {
-    var form = $(options.form);
+    var selector = options.form || "form";
+    var formSelector = selector;
     var previousFieldset;
-    var cascade = options.cascade || true;
+    var cascade = options.cascade !== undefined ? options.cascade : true;
     var onSubmit = options.submit;
-    //var ignoreElements = options.ignoreElements || ["id", "version"];
+    var errorWrapper = options.errorWrapper || ".validation-wrapper";
 
     /**
      * by using a closure we ensure this function is safe
@@ -29,7 +30,7 @@ OLCS.cascadeForm = (function(document, $, undefined) {
        * the actual event handler simply finds all inputs in the
        * target fieldset and clears them out
        *
-       * @TODO only checkboxes are supported at the moment, easy to
+       * @TODO only checkboxes and radios are supported at the moment, easy to
        * change though
        */
       return function clear() {
@@ -57,8 +58,8 @@ OLCS.cascadeForm = (function(document, $, undefined) {
       for (var fieldset in options.rulesets) {
         var ruleset = options.rulesets[fieldset];
 
-        // if the rule value is a string, basically. I know
-        // having an inverted test for an object is a bit confusing...
+        // if the rule value is a string or a function then assume
+        // it applies to the fieldset as a whole
         if (!$.isPlainObject(ruleset)) {
           triggerRule(fieldset, "*", ruleset);
           continue;
@@ -77,23 +78,48 @@ OLCS.cascadeForm = (function(document, $, undefined) {
      * invoke a rule against an element or fieldset. The
      * end result will be the showing or hiding of the
      * relevant element
+     *
+     * Usually traverses up the DOM tree to see if the matched container
+     * itself sits within an error message and treats that as the parent
+     * if so; although currently there are exceptions to this
      */
     function triggerRule(group, selector, rule) {
       var show;
       var elem;
+      var action = "none";
 
       if ($.isFunction(rule)) {
-        show = rule.call(form);
+        show = rule.call($(formSelector));
       } else {
         show = rule;
       }
 
       elem = findContainer(group, selector);
 
-      if (show) {
-        elem.show();
-      } else {
-        elem.hide();
+      // are we currently sat inside a validation error wrapper? If
+      // so that becomes the top-level element
+      // note that key=val selectors are an exception to this rule
+      // and as such we never check their containers
+      if (selector.search("=") === -1 && elem.parents(errorWrapper).length) {
+        elem = elem.parents(errorWrapper);
+      }
+
+      if (show && elem.is(":hidden")) {
+        action = "show";
+      } else if (!show && elem.is(":visible")) {
+        action = "hide";
+      }
+      OLCS.logger.verbose(
+        group + " > " + selector +
+          ", should show? (" + show + "), is visible? (" +
+          elem.is(":visible") + "), action: (" +
+          action + ")",
+        "cascadeForm"
+      );
+
+      if (action !== "none") {
+        elem[action]();
+        OLCS.eventEmitter.emit(action + ":" + group + ":" + selector);
       }
     }
 
@@ -104,19 +130,53 @@ OLCS.cascadeForm = (function(document, $, undefined) {
      */
     function findContainer(group, selector) {
       if (selector === "*") {
-        return form.find("[name^="+group+"]").parents("fieldset:last");
+        return OLCS.formHelper(group);
       }
 
-      // the only other selector we support for now is a name=value pair,
-      // e.g. "get me element X with value Y". This is *very* specifically
-      // for the first use case of this component; add to it as necessary
+      var parts;
+
+      // shorthands for ID and class selectors
+      if (selector.substring(0, 1) === "#" || selector.substring(0, 1) === ".") {
+        selector = "selector:" + selector;
+      }
+
+      if (selector.search(":") !== -1) {
+
+        parts = selector.split(":");
+
+        switch (parts[0]) {
+          case "label":
+            // @NOTE: we make some assumptions about the markup surrounding labels
+            // feel free to update as and when
+            return $(formSelector).find("label[for=" + parts[1] + "]").parents(".field");
+          case "selector":
+            return $(formSelector).find(parts[1]);
+          case "date":
+            return $(formSelector).find("[name*=" + parts[1] + "]").parents(".field");
+          case "parent":
+            return $(formSelector).find(parts[1]).parent();
+          default:
+            throw new Error("Unsupported left-hand selector: " + parts[0]);
+        }
+      }
+
       if (selector.search("=") !== -1) {
-        var parts = selector.split("=");
-        var str = "[name=" + group + "\\[" + parts[0] + "\\]][value=" + parts[1] + "]";
-        return form.find(str).parents("label:last");
+
+        // assume a name=value pair specifies a radio button with a given value
+        parts = selector.split("=");
+
+        // @TODO `group` isn't always right here; it can be an arbitrary selector
+        // not just a data-group=xxx name. This needs fixing at some point
+        return OLCS.formHelper.findInput(group, parts[0])
+        .filter("[value=" + parts[1] + "]")
+        // radios are always wrapped inside a label
+        .parents("label:last");
+
       }
 
-      throw new Error("Unsupported selector: '" + selector + "'");
+      // otherwise assume a straight input name which we assume is inside a field container
+      return OLCS.formHelper(group, selector).parents(".field");
+
     }
 
     /*
@@ -138,12 +198,17 @@ OLCS.cascadeForm = (function(document, $, undefined) {
     }
 
     if (onSubmit) {
-      form.on("submit", onSubmit.bind(form));
+      // we'd like to use bind, but IE8 won't let us
+      $(document).on("submit", formSelector, function(e) {
+        onSubmit.call($(formSelector), e);
+      });
     }
 
-    checkForm();
+    $(document).on("change", formSelector, checkForm);
 
-    $(document).on("change", form, checkForm);
+    // hmm. This will outlive the component, which means when the component re-binds (if it's in a modal and uses jquery.onReady)
+    // then this will stack multiple listeners
+    OLCS.eventEmitter.on("render", checkForm);
   };
 
 }(document, window.jQuery));

@@ -20,7 +20,7 @@ describe("OLCS.cascadeInput", function() {
         '<div id="stub">',
           '<form action="/foo" method="get" class="js-form">',
             '<input name="bar" class="source" type="text" />',
-            '<select name="baz" class="dest" type="text"></select>',
+            '<select name="baz" class="dest"></select>',
             '<input type="submit" />',
           '</form>',
         '</div>'
@@ -51,7 +51,7 @@ describe("OLCS.cascadeInput", function() {
       });
 
       it("throws the correct error", function() {
-        expect(this.error.message).to.equal("Please provide a process option");
+        expect(this.error.message).to.equal("Please provide a 'process' function or 'url' string");
       });
     });
 
@@ -89,10 +89,14 @@ describe("OLCS.cascadeInput", function() {
           });
 
           it("updates the destination options", function() {
-            expect($(".dest").html()).to.equal(
-              "<option value=\"1\">One</option>" +
-              "<option value=\"2\">Two</option>"
-            );
+            var options = $(".dest option");
+            expect(options.length).to.equal(2);
+
+            expect(options.eq(0).val()).to.equal("1");
+            expect(options.eq(1).val()).to.equal("2");
+
+            expect(options.eq(0).html()).to.equal("One");
+            expect(options.eq(1).html()).to.equal("Two");
           });
         });
       });
@@ -115,7 +119,7 @@ describe("OLCS.cascadeInput", function() {
 
       describe("Given a stubbed ajax mechanism", function() {
         beforeEach(function() {
-          this.get = sinon.stub($, "get");
+          this.get = sinon.stub(OLCS, "ajax");
         });
 
         afterEach(function() {
@@ -132,7 +136,8 @@ describe("OLCS.cascadeInput", function() {
           });
 
           it("with the correct arguments", function() {
-            expect(this.get.firstCall.args[0]).to.equal("/foo/test123");
+            expect(this.get.firstCall.args[0].url).to.equal("/foo/test123");
+            expect(this.get.firstCall.args[0].success).to.be.a("function");
           });
         });
       });

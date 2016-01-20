@@ -10,24 +10,25 @@ actions:
   - label: Delete
     class: secondary disabled
 table:
-  title: <strong>89</strong> Notes
-  headers:
-    - label: Type 
-      class: sortable
-    - label: Note
-      class: sortable
-    - label: Author
-      class: sortable
-    - label: Created
-      class: sortable descending
-    - label: <input name="row" type="checkbox">
-      class: not-sortable
-  columns:
-    - Licence
-    - Lorem ipsum sit dolor amet peso dosa limi
-    - Gillian Fox
-    - 12/3/13
-    - <input name="row" type="checkbox">
+  - title: <strong>10</strong> Notes
+    headers:
+      - label: Type 
+        class: sortable
+      - label: Note
+        class: sortable
+      - label: Author
+        class: sortable
+      - label: Created
+        class: sortable descending
+      - label: <input name="row" type="checkbox">
+        class: not-sortable
+    columns:
+      - Licence
+      - Lorem ipsum sit dolor amet peso dosa limi
+      - Gillian Fox
+      - 12/3/13
+      - <input name="row" type="checkbox">
+    rows: 10
 verticalNavItems:
   - label: Decisions
     link:  decisions.html
@@ -44,13 +45,17 @@ verticalNavItems:
           - Licence
 ---
 
-<div class="one-fifth--left">
-  <h4>Processing</h4>
+<div class="sidebar--left">
+  <h4 class="title">Processing</h4>
   {{> _vertical-navigation }}
 </div>
 
-<div class="three-fifths">
-  {{> _table}}
+<div class="table-col">
+  {{#each table}}
+    {{#is @index 0 }} 
+      {{> _table }}
+    {{/is }} 
+  {{/each}}
 </div>
 
 

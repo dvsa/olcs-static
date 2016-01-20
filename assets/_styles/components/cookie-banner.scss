@@ -1,0 +1,24 @@
+
+/*
+  Cookie banner
+  =============
+*/
+
+.cookie-banner {
+  width: 100%;
+  background: $light-blue-25;
+  overflow: auto;
+  padding: 10px 0 8px;
+  p {
+    @extend %paragraph--small;
+  }
+}
+
+.cookie-banner__wrapper {
+  @extend .page-wrapper;
+  width: 92%;
+  padding: 0 4%;
+  max-width: 960px;
+}
+
+

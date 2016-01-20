@@ -1,12 +1,12 @@
 var OLCS = OLCS || {};
 
-/*
-OLCS.modal.init({
-  trigger: '.js-modal',
-  selector: '.modal',
-  content: '#main'
-});
-*/
+/**
+ * Modal
+ *
+ * Must be provided with content and an optional title.
+ * Currently only allows for one modal to be displayed at
+ * a time (may need addressing in future).
+ */
 
 OLCS.modal = (function(document, $, undefined) {
 
@@ -21,55 +21,109 @@ OLCS.modal = (function(document, $, undefined) {
   /**
    * private interface
    */
-  function hide(selector) {
-    $(selector).hide();
-    $(selector).prev().hide();
-  }
+  var selector  = '.modal';
+  var wrapper   = '.modal__wrapper';
+  var overlay   = '.overlay';
+  var header    = '.modal__title';
+  var content   = '.modal__content';
+  var bodyClass = 'disable-scroll';
 
-  function show(data, wrapper, selector, content) {
-    if (content) {
-      data = $(data).find(content).html();
-    }
-    $(selector).append(data);
+  var closeSelectors = selector + '__close, ' + content + ' #cancel';
 
-    $(wrapper).prev().show();
-    $(wrapper).show();
-  }
+  var template = [
+    '<div class="overlay" style="display:none;"></div>',
+    '<div class="modal__wrapper" style="display:none;">',
+      '<div class="modal" role="dialog" aria-labelledby="modal-title" tabindex="1">',
+        '<div class="modal__header">',
+          '<h1 class="modal__title" id="modal-title"></h1>',
+        '</div>',
+        '<div class="modal__content"></div>',
+        '<a href="" class="modal__close" aria-label="close">Close</a>',
+      '</div>',
+    '</div>'
+  ].join('\n');
+
 
   /**
    * public interface
    */
-  exports.init = function(options) {
-    var trigger  = options.trigger;
-    var selector = options.selector;
-    var wrapper  = options.wrapper || options.selector + '__wrapper';
-    var cache    = {};
+  exports.show = function(body, title) {
 
-    hide(wrapper);
+    // if there isn't a modal showing already,
+    // insert the template and give the body a special class
+    if ($('body').find(overlay).length === 0) {
+      $('body')
+        .prepend(template)
+        .addClass(bodyClass);
+    }
 
-    $(document).on('click', trigger, function(e) {
-      e.preventDefault();
+    // insert the title and content into the modal
+    $(header).html(title || '');
+    $(content).html(body);
 
-      var key = $(this).attr('href');
+    // now we've got everything we need it's time to show it
+    $(wrapper +','+overlay).show();
 
-      if (cache[key]) {
-        return show(cache[key], wrapper, selector, options.content);
+    // focus on the modal itself
+    $(selector).focus();
+    
+    OLCS.eventEmitter.emit('show:modal');
+
+    // let other potentially interested components know
+    // there's been a render event
+    OLCS.eventEmitter.emit('render');
+
+    // if we've previously opened a modal and scrolled it our modal wrapper
+    // needs resetting
+    $(wrapper).scrollTop(0);
+
+    $(document).keyup(function(e) {
+      if (e.keyCode === 27 && exports.isVisible()) {
+        e.preventDefault();
+        exports.hide();
       }
-
-      $.ajax({
-        url: key,
-        success: function(data) {
-          cache[key] = data;
-          show(data, wrapper, selector, options.content);
-        }
-      });
     });
 
-    $(document).on('click', selector + '__close', function(e) {
-      e.preventDefault();
-      hide(wrapper);
-    });
   };
+
+  exports.hide = function() {
+    // sometimes we want to trigger a different action when we
+    // hide the modal, such as showing a confirmation box.
+    var form = $(content).find('form[data-close-trigger]');
+
+    if (form.length) {
+      var selector = form.data('close-trigger');
+      $(selector).trigger('click');
+      return;
+    }
+
+    // clean things up
+    $('body').removeClass(bodyClass);
+    $(wrapper +','+overlay).remove();
+
+    // let other components know that the modal is hidden
+    OLCS.eventEmitter.emit('hide:modal');
+
+  };
+
+  exports.isVisible = function() {
+    return $(wrapper).is(':visible');
+  };
+
+  exports.updateBody = function(body) {
+    var position = $(wrapper).scrollTop();
+    OLCS.formHelper.render(content, body);
+    $(wrapper).scrollTop(position);
+  };
+
+  exports.isVisible = function() {
+    return $(wrapper).is(':visible');
+  };
+
+  $('body').on('click', closeSelectors, function(e) {
+    e.preventDefault();
+    exports.hide();
+  });
 
   return exports;
 

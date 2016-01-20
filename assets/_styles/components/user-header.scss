@@ -1,0 +1,42 @@
+
+/*
+  User header
+  ==============
+  Component decription
+*/
+
+.user-header {
+  overflow: auto;
+  padding: 1em 0;
+  margin-bottom: .5em;
+}
+
+.user-menu {
+  float: right;
+  &__item {
+    display: inline;
+    & + & {
+      margin-left: 0.5em;
+    }
+  }
+}
+
+// Selfserve theme
+// ---------------
+
+@if $app == 'selfserve' {
+  .user-header {
+    @extend %paragraph--small;
+    border-bottom: 1px solid $grey-2;
+    border-top: 10px solid $govuk-blue;
+  }
+}
+
+// Internal theme
+// ---------------
+
+@if $app == 'internal' {
+  .user-header {
+    padding: 10px 0;
+  }
+}

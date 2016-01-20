@@ -1,5 +1,5 @@
 <div class="actions-container">
   {{#each actions }}
-  <input class="action--{{ this.class }}" type="submit" value="{{ this.label }}">
+  <a class="action--{{ this.class }}" href="{{ this.link }}">{{ this.label }}</a>
   {{/each}}
 </div><!-- end .actions-container -->
