@@ -58,4 +58,6 @@ OLCS.ready(function() {
     })
   });
 
+  OLCS.textareaPlaceholder();
+
 });
