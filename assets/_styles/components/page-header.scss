@@ -42,7 +42,7 @@
 
     &__actions {
       position: absolute;
-      right: 0;
+      right: -5px;
       bottom: 9px;
       list-style: none;
       @media (max-width: $mobile-column-stack){
