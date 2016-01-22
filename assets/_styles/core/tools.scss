@@ -7,6 +7,7 @@
 // [1] - Theme Helper
 // [2] - Clearfix
 // [3] - Header With Actions
+// [4] - SVG Icon With Fallback
 //
 // -----------------------------------------------------------------
 
@@ -60,4 +61,20 @@
   select {
     margin: 3px 3px 0 0;
   }
+}
+
+// [4] SVG Icon
+// Load an SVG image from the global sprite with PNG fallback
+// -----------------------------------------------------------------
+
+%sprite-bg {
+	background-image: url("/images/svg/icon-sprite.png");
+	background-image: url("/images/svg/icon-sprite.svg"),
+    linear-gradient(transparent, transparent);
+  display: inline-block;
+}
+
+@mixin svg($src) {
+  @extend .#{$src};	
+	@extend %sprite-bg;
 }

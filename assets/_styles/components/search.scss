@@ -5,9 +5,11 @@
 */
 
 .search {
+  
   @media (max-width: breakpoint('break-3')) {
     width: 100%;
   }
+  
   &__wrapper {
     float: left;
     position: relative;
@@ -17,6 +19,7 @@
       width: 100%;
     }
   }
+  
   &__select {
     border: none;
     border-radius: 0;
@@ -26,21 +29,13 @@
     background-color: $grey-4;
     position: relative;
     &::after {
-      content: ' ';
+      @include svg('dropdown-down');
+      content: "";
       display: block;
-      background: red;
-      float: left;
-      height: 20px;
-      width: 10px;
       position: absolute;
-      top: 8px;
+      top: 12px;
       right: 8px;
       pointer-events: none;
-      background: url('../images/down-arrow.png') no-repeat 100% 4px;
-      @include device-pixel-ratio($ratio: 2) {
-        background-image: url('../images/down-arrow-2x.png');
-        background-size: 12px 112px;
-      }
     }
     &:focus {
       outline: none;
@@ -62,6 +57,7 @@
       height: auto\9;
     }
   }
+  
   &__input {
     float: left;
     background: $white;
@@ -79,29 +75,34 @@
     padding: 8px 12px 7px\9;
     height: auto\9;
   }
+  
   &__input:focus {
     outline: none;
   }
+  
   &__button,
   [type="submit"] {
+    @include svg('internal-search');
+    background-color: $primaryColour;
     float: left;
     width: 2.5rem;
     height: 32px;
     border-radius: 0 3px 3px 0;
     border: 0;
     text-indent: -9999px;
-    background: $primaryColour url('#{$assetPath}/search.png') no-repeat 50% 45%;
-    @include device-pixel-ratio($ratio: 2) {
-      background: $primaryColour url('#{$assetPath}/search-2x.png') no-repeat 50% 45%;
-      background-size: 17px 17px;
-    }
     &:focus {
       outline: 0;
     }
     // hack for IE8
     text-indent: 0\9;
     width: 36px\9;
+    // temp hardcoded hack until internal search input is replaced 
+    // with a button tag
+    @if $app == 'internal' {
+      background-position: 11px -139px;
+    }
   }
+  
   &__advanced {
     color: $white;
     float: left;
@@ -111,7 +112,9 @@
       display: none;
     }
   }
+  
   form {
     margin: 0;
   }
+  
 }

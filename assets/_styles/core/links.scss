@@ -14,10 +14,12 @@ a {
 }
 
 [rel="external"]:after {
-  @extend %fontello;
-  content: '\e800';
-  font-size: 80%;
-  margin: 0 1em 0 4px;
+  @include svg('selfserve-external-link');
+  margin-left: 0.5em;
+  content: "";
+  &:hover {
+    @include svg('selfserve-external-link-hover');
+  }
 }
 
 .disabled,
@@ -27,15 +29,11 @@ a {
 }
 
 .download {
+  @include svg('selfserve-document');
   font-weight: 600;
   padding: 4px 0 5px 34px;
-  background: url('#{$assetPath}/download.png') no-repeat 0 0;
   display: inline-block;
   cursor: pointer;
-  @include device-pixel-ratio($ratio: 2) {
-    background: url('#{$assetPath}/download-2x.png') no-repeat 0 0;
-    background-size: 27px 30px;
-  }
   &:hover {
     text-decoration: underline;
   }

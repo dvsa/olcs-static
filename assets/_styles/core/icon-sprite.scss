@@ -1,0 +1,141 @@
+.dropdown-down {
+	width: 12px;
+	height: 8px;
+	background-position: 0 0;
+}
+
+.dropdown-up {
+	width: 12px;
+	height: 8px;
+	background-position: 0 -15.000000000000002px;
+}
+
+.external-link-white {
+	width: 12px;
+	height: 12px;
+	background-position: 0 -30.000000000000004px;
+}
+
+.internal-admin-menu-arrow {
+	width: 12px;
+	height: 8px;
+	background-position: 0 -50px;
+}
+
+.internal-application-complete {
+	width: 17px;
+	height: 13px;
+	background-position: 0 -65px;
+}
+
+.internal-application-updated {
+	width: 15px;
+	height: 15px;
+	background-position: 0 -85px;
+}
+
+.internal-application-warning {
+	width: 18px;
+	height: 15px;
+	background-position: 0 -105px;
+}
+
+.internal-modal-close {
+	width: 16px;
+	height: 14px;
+	background-position: 0 -125px;
+}
+
+.internal-search {
+	width: 16px;
+	height: 17px;
+	background-position: 0 -145px;
+}
+
+.internal-split-screen-close {
+	width: 11px;
+	height: 12px;
+	background-position: 0 -170px;
+}
+
+.internal-split-screen-down {
+	width: 13px;
+	height: 9px;
+	background-position: 0 -190px;
+}
+
+.internal-split-screen-left {
+	width: 8px;
+	height: 13px;
+	background-position: 0 -205px;
+}
+
+.internal-split-screen-pin-bottom {
+	width: 12px;
+	height: 12px;
+	background-position: 0 -225px;
+}
+
+.internal-split-screen-pin-left {
+	width: 12px;
+	height: 12px;
+	background-position: 0 -245px;
+}
+
+.lock {
+	width: 10px;
+	height: 12px;
+	background-position: 0 -265px;
+}
+
+.selfserve-breadcrumb {
+	width: 9px;
+	height: 14px;
+	background-position: 0 -285px;
+}
+
+.selfserve-document {
+	width: 27px;
+	height: 30px;
+	background-position: 0 -305px;
+}
+
+.selfserve-external-footer {
+	width: 12px;
+	height: 12px;
+	background-position: 0 -340px;
+}
+
+.selfserve-external-link {
+	width: 12px;
+	height: 12px;
+	background-position: 0 -360px;
+}
+
+.selfserve-external-link-hover {
+	width: 12px;
+	height: 12px;
+	background-position: 0 -380px;
+}
+
+.selfserve-important {
+	width: 25px;
+	height: 25px;
+	background-position: 0 -400px;
+}
+
+.selfserve-modal-close {
+	width: 23px;
+	height: 22px;
+	background-position: 0 -430px;
+}
+
+.dropdown-down, .dropdown-up, .external-link-white, .internal-admin-menu-arrow, .internal-application-complete, .internal-application-updated, .internal-application-warning, .internal-modal-close, .internal-search, .internal-split-screen-close, .internal-split-screen-down, .internal-split-screen-left, .internal-split-screen-pin-bottom, .internal-split-screen-pin-left, .lock, .selfserve-breadcrumb, .selfserve-document, .selfserve-external-footer, .selfserve-external-link, .selfserve-external-link-hover, .selfserve-important, .selfserve-modal-close {
+	background-size: 35px 460px;
+	background-repeat: no-repeat;
+	background-image: url("../../../public/images/svg/icon-sprite.png");
+}
+
+.svg .dropdown-down, .svg .dropdown-up, .svg .external-link-white, .svg .internal-admin-menu-arrow, .svg .internal-application-complete, .svg .internal-application-updated, .svg .internal-application-warning, .svg .internal-modal-close, .svg .internal-search, .svg .internal-split-screen-close, .svg .internal-split-screen-down, .svg .internal-split-screen-left, .svg .internal-split-screen-pin-bottom, .svg .internal-split-screen-pin-left, .svg .lock, .svg .selfserve-breadcrumb, .svg .selfserve-document, .svg .selfserve-external-footer, .svg .selfserve-external-link, .svg .selfserve-external-link-hover, .svg .selfserve-important, .svg .selfserve-modal-close {
+	background-image: url("../../../public/images/svg/icon-sprite.svg");
+}

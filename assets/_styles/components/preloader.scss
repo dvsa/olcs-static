@@ -22,9 +22,9 @@
   @extend %preloader-icon;
   height: 28px;
   width: 28px;
-  background-image: url('../images/dark-preloader.gif');
+  background-image: url('#{$assetPath}/bitmap/preloader.gif');
   @include device-pixel-ratio($ratio: 2) {
-    background-image: url('../images/dark-preloader-2x.gif');
+    background-image: url('#{$assetPath}/bitmap/preloader.gif');
   }
 }
 
@@ -32,9 +32,9 @@
   @extend %preloader-icon;
   height: 20px;
   width: 20px;
-  background-image: url('../images/light-preloader.gif');
+  background-image: url('#{$assetPath}/bitmap/preloader--dark.gif');
   @include device-pixel-ratio($ratio: 2) {
-    background-image: url('../images/light-preloader-2x.gif');
+    background-image: url('#{$assetPath}/bitmap/preloader--dark.gif');
   }
 }
 
