@@ -5,9 +5,11 @@
 */
 
 .search {
+  
   @media (max-width: breakpoint('break-3')) {
     width: 100%;
   }
+  
   &__wrapper {
     float: left;
     position: relative;
@@ -17,6 +19,7 @@
       width: 100%;
     }
   }
+  
   &__select {
     border: none;
     border-radius: 0;
@@ -54,6 +57,7 @@
       height: auto\9;
     }
   }
+  
   &__input {
     float: left;
     background: $white;
@@ -71,9 +75,11 @@
     padding: 8px 12px 7px\9;
     height: auto\9;
   }
+  
   &__input:focus {
     outline: none;
   }
+  
   &__button,
   [type="submit"] {
     @include svg('internal-search');
@@ -93,9 +99,10 @@
     // temp hardcoded hack until internal search input is replaced 
     // with a button tag
     @if $app == 'internal' {
-      background-position: 11px -118px;
+      background-position: 11px -139px;
     }
   }
+  
   &__advanced {
     color: $white;
     float: left;
@@ -105,7 +112,9 @@
       display: none;
     }
   }
+  
   form {
     margin: 0;
   }
+  
 }

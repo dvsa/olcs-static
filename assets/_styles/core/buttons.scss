@@ -128,6 +128,13 @@ button {
     @extend %action-box;
     @include action-colour($red);
   }
+  &--external {
+    &:after {
+      @include svg('external-link-white');
+      content: "";
+      margin-left: 0.5em;
+    }
+  }
 }
 
 // More actions

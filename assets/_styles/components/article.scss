@@ -24,14 +24,11 @@
 }
 
 @if $app == 'internal' {
+  
   .article {
 
     li {
       font-size: font-size(3);
-    }
-
-    & + & {
-      margin-top: 1.5em;
     }
 
   }
