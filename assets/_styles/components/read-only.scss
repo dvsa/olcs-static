@@ -65,6 +65,7 @@
   }
 }
 
+
 /*
   Fake definition list
 */
@@ -72,84 +73,64 @@
 .definition-list {
   float: left;
   border-bottom: 1px solid $grey-3;
-  margin: 0 0 11px;
-  padding: 0 0 1px;
+  margin: 0 0 7px;
+  padding: 0 0 5px;
   width: 100%;
-  &:last-child {
-    border-bottom: 0;
-  }
-  &__item {
-    float: left;
-    width: 50%;
-    list-style: none;
+}
+
+
+.definition-list__item {
+  width: 50%;
+  float: left;
+  list-style: none;
+  li {
+    max-width: 700px;
+    margin-bottom: .5em;
   }
   a {
     font-weight: 400;
   }
-  dt,
+}
+
+
+dt,
+dd {
+  float: left;
+  overflow: auto;
+  margin: 0;
+  padding: 5px 0;
+  width: 47.5%;
+}
+
+dd {
+  word-break: break-word;
+}
+
+.definition-list__item.full-width {
+  width: 100%;
+  display: block;
+  padding: 0;
+  dt {
+    width: 23.75%;
+  }
   dd {
-    float: left;
-    overflow: auto;
-    margin: 0;
-    padding: 0 2.5% 10px 0;
-    width: 47.5%;
+    width: 75%;
   }
 }
 
-.definition-list .full-width {
-  width: 100%;
-  padding: 0 15px 0 0;
-  dt {
-    width: 22.5%;
-  }
-  dd {
-    width: 72.5%;
-  }
-}
+
 
 
 // Selfserve theme
 // ---------------
 
 @if $app == 'selfserve' {
-
   .read-only h4 {
     @extend %h3;
   }
-
-  .definition-list__item {
-    width: 100%;
-    li {
-      max-width: 700px;
-      margin-bottom: .6em;
-    }
-    dd {
-      word-break: break-word;
-    }
-  }
-
-  dl {
-    border-top: 1px solid $grey-2;
-    overflow: auto;
-  }
-
-  dt,
   dd {
-    float: left;
-    margin: 0;
-    padding: .5em 0;
-  }
-
-  dt {
-    width: 47.5%;
-    font-weight: 400;
-  }
-
-  dd {
-    width: 47.5%;
     font-weight: 700;
   }
-
 }
 
 // Internal theme
@@ -157,10 +138,8 @@
 
 @if $app == 'internal' {
 
-  .read-only {
-    dt {
-      color: #555;
-    }
+  dt {
+    color: #555;
   }
 
   .read-only__header {

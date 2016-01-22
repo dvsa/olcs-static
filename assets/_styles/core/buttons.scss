@@ -143,6 +143,7 @@ button {
 .more-actions {
   position: relative;
   display: inline-block;
+  z-index: 1;
   &__button {
     @extend .action--secondary;
     margin: 0 !important;
@@ -222,7 +223,7 @@ button {
     &.list {
       @extend %paragraph;
       display: block;
-      margin: 30px 0 -20px;
+      margin-top: 30px;
       padding: 0;
     }
   }

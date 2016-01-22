@@ -1,5 +1,5 @@
 (function() {
-  
+
 //=================================================================
 // OLCS - Grunt Setup
 //=================================================================
@@ -32,7 +32,6 @@
                 "assets/_js/common/vendor/jquery.1.11.0.js",
                 "assets/_js/common/vendor/chosen.jquery.min.js",
                 "assets/_js/common/vendor/jquery.details.min.js",
-                "assets/_js/common/vendor/pace.min.js",
                 "assets/_js/common/*.js",
                 "assets/_js/" + path + "/*.js",
                 "assets/_js/init/common.js",
@@ -41,7 +40,10 @@
         };
 
         scripts = {
-            "public/js/internal.js" : scriptPaths("internal"),
+            "public/js/internal.js" : [
+              scriptPaths("internal"),
+              "assets/_js/common/vendor/pace.min.js"
+            ],
             "public/js/selfserve.js": scriptPaths("selfserve")
         };
 
@@ -149,11 +151,11 @@
                     ]
                 },
                 images: {
-                  files: [{ 
+                  files: [{
                       expand: true,
-                      cwd: 'assets/_images/', 
-                      src: ['**/*.{png,jpg,gif,svg}'], 
-                      dest:'public/images/' 
+                      cwd: 'assets/_images/',
+                      src: ['**/*.{png,jpg,gif,svg}'],
+                      dest:'public/images/'
                     }]
                 }
             },
@@ -182,7 +184,7 @@
                     src: pubImages
                 }
             },
-            
+
             //-----------------------------------------------------
             // grunt-svg2png
             // https://github.com/dbushell/grunt-svg2png
@@ -190,20 +192,20 @@
 
             svg2png: {
               all: {
-                  files: [{ 
+                  files: [{
                     flatten: true,
                     cwd: srcSvg + '/',
-                    src: '*.svg', 
-                    dest: pubImages + '/bitmap' 
+                    src: '*.svg',
+                    dest: pubImages + '/bitmap'
                   }]
               }
             },
-    
+
             //-----------------------------------------------------
             // grunt-dr-svg-sprites
             // https://github.com/drdk/grunt-dr-svg-sprites
             //-----------------------------------------------------
-            
+
             "dr-svg-sprites": {
               application: {
                 options: {
@@ -216,7 +218,7 @@
                 }
               }
             },
-            
+
             //-----------------------------------------------------
             // Assemble
             // https://github.com/assemble/grunt-assemble
