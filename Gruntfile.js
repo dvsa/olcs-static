@@ -214,7 +214,8 @@
                   spritePath: pubImages + '/svg/icon-sprite.svg',
                   cssPath: srcStyles + '/core/icon-sprite.scss',
                   layout: 'vertical',
-                  cssSuffix: 'scss'
+                  cssSuffix: 'scss',
+                  unit: 50
                 }
               }
             },
