@@ -5,8 +5,8 @@
 
   ul {
     @extend %paragraph;
-    margin-bottom: 1em;
     margin-left: 20px;
+    margin-bottom: .5em;
   }
 
   li {
@@ -16,9 +16,21 @@
   p:not(:last-child) {
     margin-bottom: 0.5em;
   }
-  
+
   & + & {
-    margin-top: 40px;
+    margin-top: 1.5em;
+  }
+
+}
+
+@if $app == 'internal' {
+  
+  .article {
+
+    li {
+      font-size: font-size(3);
+    }
+
   }
 
 }
