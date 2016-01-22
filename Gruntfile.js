@@ -448,9 +448,6 @@
         ]);
 
         grunt.registerTask('compile:staging', [
-            'clean:images',
-            'svg2png',
-            'dr-svg-sprites',
             'lint',
             'sass:prod',
             'postcss',
