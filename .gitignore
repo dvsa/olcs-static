@@ -15,15 +15,14 @@ test/js/reports
 # Generated and compiled files
 #============================================================
 
-public/images/
+# public/images/
 public/js/
-public/images/
 public/styles/
 public/styleguides/
 
 styleguides/screenshots
 
-icon-sprite.scss
+# icon-sprite.scss
 
 # Third party/config
 #============================================================
