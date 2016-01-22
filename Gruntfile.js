@@ -214,7 +214,8 @@
                   spritePath: pubImages + '/svg/icon-sprite.svg',
                   cssPath: srcStyles + '/core/icon-sprite.scss',
                   layout: 'vertical',
-                  cssSuffix: 'scss'
+                  cssSuffix: 'scss',
+                  unit: 50
                 }
               }
             },
@@ -447,6 +448,9 @@
         ]);
 
         grunt.registerTask('compile:staging', [
+            'clean:images',
+            'svg2png',
+            'dr-svg-sprites',
             'lint',
             'sass:prod',
             'postcss',
