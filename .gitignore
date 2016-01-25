@@ -31,8 +31,8 @@ vendor/
 node_modules/
 
 # Force add these modules
-!/node_modules/grunt-sass
-!/node_modules/grunt-dr-svg-sprites
+!node_modules/grunt-sass
+!node_modules/grunt-dr-svg-sprites
 
 .idea/
 .vscode/
