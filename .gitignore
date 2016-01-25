@@ -28,7 +28,8 @@ styleguides/screenshots
 #============================================================
 
 vendor/
-# node_modules/
+node_modules/
+!node_modules/grunt-sass/
 
 .idea/
 .vscode/
