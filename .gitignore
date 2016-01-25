@@ -15,7 +15,7 @@ test/js/reports
 # Generated and compiled files
 #============================================================
 
-# public/images/
+public/images/
 public/js/
 public/styles/
 public/styleguides/
