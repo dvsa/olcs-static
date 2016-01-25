@@ -42,18 +42,22 @@
   }
 
   // .breadcrumbs a:before {
-  //   @extend %fontello;
   //   content: '\e801';
   //   padding-right: .25em;
   // }
 
   .breadcrumbs a {
     // color: $grey-1;
-    padding-right: 1em;
-    background: url('#{$assetPath}/breadcrumb-arrow.png') no-repeat 100% 70%;
-    @include device-pixel-ratio($ratio: 2) {
-      background: url('#{$assetPath}/breadcrumb-arrow-2x.png') no-repeat 95% 50%;
-      background-size: 6px 11px;
+    margin-right: 0.25em;
+    position: relative;
+    &:after {
+      @include svg('selfserve-breadcrumb');
+      content: "";
+      display: inline-block;
+      margin-left: 0.5em;
+      position: relative;
+      top: 2px;
+      opacity: 0.8;
     }
   }
 
@@ -63,7 +67,6 @@
   }
 
 }
-
 
 // Internal theme
 // ---------------

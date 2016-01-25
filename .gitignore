@@ -1,18 +1,39 @@
+# OS generated files
+#============================================================
+
 .DS_Store
+
+# Logs and databases
+#============================================================
+
 .sass-cache/
-node_modules/
-editorconfig.org
+
 test/js/coverage
 test/js/coverage-xml
 test/js/reports
-vendor/*
-composer.lock
+
+# Generated and compiled files
+#============================================================
+
+# public/images/
 public/js/
-public/images/
 public/styles/
 public/styleguides/
-public/assets
+
 styleguides/screenshots
-.idea
+
+# icon-sprite.scss
+
+# Third party/config
+#============================================================
+
+vendor/
+node_modules/
+
+.idea/
 .vscode/
+
 *.cfg
+
+composer.lock
+editorconfig.org

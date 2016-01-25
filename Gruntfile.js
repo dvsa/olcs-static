@@ -1,8 +1,8 @@
+(function() {
+
 //=================================================================
 // OLCS - Grunt Setup
 //=================================================================
-
-(function() {
 
     "use strict";
 
@@ -12,14 +12,16 @@
         // Config
         //---------------------------------------------------------
 
-        var pubStyles, scriptPaths, scripts, srcAssets, styles, prototypeName, globalConfig;
+        var srcStyles, pubStyles, pubImages, srcSvg, scriptPaths, scripts, styles, prototypeName, globalConfig;
 
-        srcAssets = 'assets/_styles';
+        srcStyles = 'assets/_styles';
+        srcSvg    = 'assets/_images/svg';
         pubStyles = 'public/styles';
+        pubImages = 'public/images';
 
         styles = {
-            'public/styles/selfserve.css': srcAssets + '/themes/selfserve.scss',
-            'public/styles/internal.css' : srcAssets + '/themes/internal.scss'
+            'public/styles/selfserve.css': srcStyles + '/themes/selfserve.scss',
+            'public/styles/internal.css' : srcStyles + '/themes/internal.scss'
         };
 
         globalConfig = {};
@@ -30,7 +32,6 @@
                 "assets/_js/common/vendor/jquery.1.11.0.js",
                 "assets/_js/common/vendor/chosen.jquery.min.js",
                 "assets/_js/common/vendor/jquery.details.min.js",
-                "assets/_js/common/vendor/pace.min.js",
                 "assets/_js/common/*.js",
                 "assets/_js/" + path + "/*.js",
                 "assets/_js/init/common.js",
@@ -39,7 +40,10 @@
         };
 
         scripts = {
-            "public/js/internal.js" : scriptPaths("internal"),
+            "public/js/internal.js" : [
+              scriptPaths("internal"),
+              "assets/_js/common/vendor/pace.min.js"
+            ],
             "public/js/selfserve.js": scriptPaths("selfserve")
         };
 
@@ -136,7 +140,7 @@
                         }, {
                             expand: true,
                             cwd: 'public/images/',
-                            src: ['**/*.png', '**/*.gif'],
+                            src: ['**/*.{png,jpg,gif,svg}'],
                             dest: '../prototypes/<%= globalConfig.prototypeName %>/images/'
                         }, {
                             expand: true,
@@ -147,11 +151,11 @@
                     ]
                 },
                 images: {
-                  files: [{ 
+                  files: [{
                       expand: true,
-                      cwd: 'assets/_images/', 
-                      src: ['**/*.{png,jpg,gif,svg}'], 
-                      dest:'public/images/' 
+                      cwd: 'assets/_images/',
+                      src: ['**/*.{png,jpg,gif,svg}'],
+                      dest:'public/images/'
                     }]
                 }
             },
@@ -175,18 +179,45 @@
                         '../prototypes/<%= globalConfig.prototypeName %>/**/*.js',
                         '../prototypes/<%= globalConfig.prototypeName %>/**/*.png'
                     ]
+                },
+                images: {
+                    src: pubImages
                 }
             },
 
             //-----------------------------------------------------
-            // Notify
-            // https://github.com/dylang/grunt-notify
+            // grunt-svg2png
+            // https://github.com/dbushell/grunt-svg2png
             //-----------------------------------------------------
 
-            notify: {
+            svg2png: {
+              all: {
+                  files: [{
+                    flatten: true,
+                    cwd: srcSvg + '/',
+                    src: '*.svg',
+                    dest: pubImages + '/bitmap'
+                  }]
+              }
+            },
+
+            //-----------------------------------------------------
+            // grunt-dr-svg-sprites
+            // https://github.com/drdk/grunt-dr-svg-sprites
+            //-----------------------------------------------------
+
+            "dr-svg-sprites": {
+              application: {
                 options: {
-                    sucess: false
+                  previewPath: 'public/styleguides',
+                  spriteElementPath: srcSvg,
+                  spritePath: pubImages + '/svg/icon-sprite.svg',
+                  cssPath: srcStyles + '/core/icon-sprite.scss',
+                  layout: 'vertical',
+                  cssSuffix: 'scss',
+                  unit: 50
                 }
+              }
             },
 
             //-----------------------------------------------------
@@ -219,34 +250,6 @@
                     dest: 'public/styleguides/selfserve',
                     expand: true,
                     src: '**/*.hbs'
-                }
-            },
-
-            //-----------------------------------------------------
-            // Watch
-            // https://github.com/gruntjs/grunt-contrib-watch
-            //-----------------------------------------------------
-
-            watch: {
-                options: {
-                    livereload: true,
-                    spawn: false
-                },
-                styles: {
-                    files: ['assets/_styles/**/*.scss'],
-                    tasks: ['sass:dev', 'postcss']
-                },
-                hbs: {
-                    files: ['styleguides/**/*.hbs'],
-                    tasks: ['assemble']
-                },
-                scripts: {
-                    files: ['assets/_js/**/*.js'],
-                    tasks: ['uglify:dev']
-                },
-                images: {
-                    files: ['assets/_images/*.{png,jpg,gif,svg}'],
-                    tasks: ['copy:images']
                 }
             },
 
@@ -333,6 +336,45 @@
             },
 
             //-----------------------------------------------------
+            // Notify
+            // https://github.com/dylang/grunt-notify
+            //-----------------------------------------------------
+
+            notify: {
+                options: {
+                    sucess: false
+                }
+            },
+
+            //-----------------------------------------------------
+            // Watch
+            // https://github.com/gruntjs/grunt-contrib-watch
+            //-----------------------------------------------------
+
+            watch: {
+                options: {
+                    livereload: true,
+                    spawn: false
+                },
+                styles: {
+                    files: ['assets/_styles/**/*.scss'],
+                    tasks: ['sass:dev', 'postcss']
+                },
+                hbs: {
+                    files: ['styleguides/**/*.hbs'],
+                    tasks: ['assemble']
+                },
+                scripts: {
+                    files: ['assets/_js/**/*.js'],
+                    tasks: ['uglify:dev']
+                },
+                images: {
+                    files: ['assets/_images/**/*.{png,jpg,gif,svg}'],
+                    tasks: ['copy:images', 'svg2png', 'dr-svg-sprites']
+                }
+            },
+
+            //-----------------------------------------------------
             // Karma
             // https://github.com/karma-runner/grunt-karma
             //-----------------------------------------------------
@@ -394,6 +436,9 @@
         //---------------------------------------------------------
 
         grunt.registerTask('compile:dev', [
+            'clean:images',
+            'svg2png',
+            'dr-svg-sprites',
             'lint',
             'sass:dev',
             'postcss',

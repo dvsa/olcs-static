@@ -32,3 +32,12 @@
 .version {
   margin-left: 10px;
 }
+
+// Selfserve theme
+// ---------------
+
+@if $app == 'selfserve' {
+  .version-header p {
+    font-size: font-size(3);
+  }
+}

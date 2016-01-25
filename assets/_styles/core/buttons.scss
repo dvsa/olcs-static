@@ -128,6 +128,13 @@ button {
     @extend %action-box;
     @include action-colour($red);
   }
+  &--external {
+    &:after {
+      @include svg('external-link-white');
+      content: "";
+      margin-left: 0.5em;
+    }
+  }
 }
 
 // More actions
@@ -148,12 +155,13 @@ button {
     @extend .action--secondary;
     margin: 0 !important;
     padding-right: 25px;
-    background-image: url('../images/down-arrow.png');
-    background-repeat: no-repeat;
-    background-position: 92.5% 11px;
-    @include device-pixel-ratio($ratio: 2) {
-      background-image: url('../images/down-arrow-2x.png');
-      background-size: 12px 112px;
+    position: relative;
+    &:after {
+      @include svg('dropdown-down');
+      content: "";
+      position: absolute;
+      right: 0.5em;
+      top: 0.8em;
     }
   }
   &__list {
@@ -164,6 +172,7 @@ button {
     left: 5px;
     background: #FFF;
     padding: 5px 0;
+    z-index: 3;
   }
 }
 
@@ -221,7 +230,7 @@ button {
     &.list {
       @extend %paragraph;
       display: block;
-      margin: 30px 0 -20px;
+      margin-top: 30px;
       padding: 0;
     }
   }
