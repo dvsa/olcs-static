@@ -472,7 +472,6 @@
     } else {
         require('matchdep').filterAll(['grunt-*', 'assemble']).forEach(grunt.loadNpmTasks);
     }
-
     
     /**
      * Register Compilation Environments
@@ -529,7 +528,6 @@
     // To run an idividual component spec use: 
     // $ grunt test:single --target=componentName
     grunt.registerTask('test:single', ['karma:single:' + target]);
-
     
     /**
      * Prototype Tasks
