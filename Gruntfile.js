@@ -570,8 +570,8 @@
      */
 
     grunt.registerTask('build:staging', ['test:ci', 'compile:staging']);
-    grunt.registerTask('build:demo'   , ['test:ci', 'compile:live']);
-    grunt.registerTask('build:live'   , ['compile:live']);
+    grunt.registerTask('build:demo', ['test:ci', 'compile:live']);
+    grunt.registerTask('build:live', ['compile:live']);
 
   };
 
