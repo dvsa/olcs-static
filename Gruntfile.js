@@ -46,6 +46,30 @@
             ],
             "public/js/selfserve.js": scriptPaths("selfserve")
         };
+        
+        //---------------------------------------------------------
+        // Unit Testing
+        //---------------------------------------------------------
+        
+        var testFiles;
+        
+        testFiles = function(path) {
+          var paths;
+          return paths = [
+            // test helpers
+            "node_modules/sinon/lib/sinon.js",
+            "node_modules/sinon/lib/sinon/spy.js",
+            "node_modules/sinon/lib/sinon/**/*.js",
+            // common dependencies, jQuery always first
+            "assets/_js/common/vendor/jquery.1.11.0.js",
+            "assets/_js/common/vendor/**/*.js",
+            // source files...
+            "assets/_js/common/*.js",
+            "test/js/setup.js",
+            // test files
+            "test/js/**/" + path +  ".test.js"
+          ];
+        }
 
         //---------------------------------------------------------
         // Tasks
@@ -383,13 +407,25 @@
                 options: {
                     browsers: ["PhantomJS"],
                     configFile: "karma.conf.js",
-                    singleRun: true
+                    singleRun: true,
+                    files: testFiles("*"),
+                    reporters: ["mocha", "coverage", "junit"]
                 },
                 test: {
                     reporters: ["mocha", "coverage", "junit"]
                 },
                 ci: {
                     colors: false
+                },
+                // Individual tests
+                cascadeForm: {
+                  options: { files: testFiles("cascadeForm") }
+                },
+                cascadeInput: {
+                  options: { files: testFiles("cascadeInput") }
+                },
+                characterCount: {
+                  options: { files: testFiles("characterCount") }
                 }
             },
 

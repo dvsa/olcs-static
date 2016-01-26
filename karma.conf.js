@@ -16,8 +16,6 @@ module.exports = function(config) {
 
       // source files...
       "assets/_js/common/*.js",
-      // "assets/_js/internal/*.js",  <-- none yet, triggers a warning
-      // "assets/_js/selfserve/*.js", <-- none yet, triggers a warning
 
       "test/js/setup.js",
 
