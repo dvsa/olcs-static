@@ -1,11 +1,11 @@
 ---
-title: Bus registration details
+title: Bus service details
 subtitle: PC1057277/5
 layout: base.hbs
 user: bus operator
 breadcrumbs:
   - link: bus-services.html
-    label: Back to bus registrations
+    label: Back to bus services
 read-only:
   - title:
     editable: false
@@ -68,11 +68,11 @@ table:
 ---
 
 <div class="row">
-  
+
   <div class="three-quarters">
     {{#each read-only }}{{> _read-only }}{{/each }}
     <hr />
-  
+
     <form action="">
       <div class="table__header">
         <h3>Variation history</h3>
@@ -120,12 +120,12 @@ table:
         </table>
       </div><!-- .table__wrapper -->
     </form>
-  
+
     <h3>Documents</h3>
     <p><a href="" class="download"><b>Uploaded EBSR pack</b></a><span> (1.4MB)</span><br />
     <p><a href="" class="download"><b>Official VOSA record</b></a><span> (156KB)</span><br />
     <p><a href="" class="download"><b>Route track map</b></a><span> (1.2MB)</span></p>
-  
+
   </div><!-- .three-quarters -->
 
 </div>
