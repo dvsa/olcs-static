@@ -6,7 +6,6 @@
    * OLCS automated front-end build processes to setup the 
    * OLCS-Static repo using the Grunt build tool. Ensure to 
    * read documentation on the Wiki @ https://wiki.i-env.net/
-   *
    */
 
   "use strict";
@@ -19,7 +18,6 @@
      * General reusable variables and functions for use with
      * all Grunt tasks. You can pass any desired global config
      * to the 'globalConfig' variable.
-     * 
      */
 
     // Set any global grunt configuration
@@ -80,7 +78,6 @@
      * List of all separate Grunt tasks used by OLCS-Static,
      * including a link to the public repo and minimum required
      * version number.
-     * 
      */
 
     grunt.initConfig({
@@ -88,10 +85,10 @@
       // Set any global configuration
       globalConfig: globalConfig,
 
-      //-----------------------------------------------------
-      // Sass
-      // https://github.com/sindresorhus/grunt-sass
-      //-----------------------------------------------------
+      /**
+       * Sass
+       * https://github.com/sindresorhus/grunt-sass
+       */
 
       sass: {
         dev: {
@@ -110,10 +107,10 @@
         }
       },
 
-      //-----------------------------------------------------
-      // Post CSS
-      // https://github.com/nDmitry/grunt-postcss
-      //-----------------------------------------------------
+      /**
+       * Post CSS
+       * https://github.com/nDmitry/grunt-postcss
+       */
 
       postcss: {
         options: {
@@ -147,10 +144,10 @@
         }
       },
 
-      //-----------------------------------------------------
-      // Copy
-      // https://github.com/gruntjs/grunt-contrib-copy
-      //-----------------------------------------------------
+      /**
+       * Copy
+       * https://github.com/gruntjs/grunt-contrib-copy
+       */
 
       copy: {
         prototype: {
@@ -193,10 +190,10 @@
         }
       },
 
-      //-----------------------------------------------------
-      // Clean
-      // https://github.com/gruntjs/grunt-contrib-clean
-      //-----------------------------------------------------
+      /**
+       * Clean
+       * https://github.com/gruntjs/grunt-contrib-clean
+       */
 
       clean: {
         styleguide: {
@@ -218,10 +215,10 @@
         }
       },
 
-      //-----------------------------------------------------
-      // grunt-svg2png
-      // https://github.com/dbushell/grunt-svg2png
-      //-----------------------------------------------------
+      /**
+       * grunt-svg2png
+       * https://github.com/dbushell/grunt-svg2png
+       */
 
       svg2png: {
         all: {
@@ -234,10 +231,10 @@
         }
       },
 
-      //-----------------------------------------------------
-      // grunt-dr-svg-sprites
-      // https://github.com/drdk/grunt-dr-svg-sprites
-      //-----------------------------------------------------
+      /**
+       * grunt-dr-svg-sprites
+       * https://github.com/drdk/grunt-dr-svg-sprites
+       */
 
       "dr-svg-sprites": {
         application: {
@@ -253,10 +250,10 @@
         }
       },
 
-      //-----------------------------------------------------
-      // Assemble
-      // https://github.com/assemble/grunt-assemble
-      //-----------------------------------------------------
+      /**
+       * Assemble
+       * https://github.com/assemble/grunt-assemble
+       */
 
       assemble: {
         options: {
@@ -286,10 +283,10 @@
         }
       },
 
-      //-----------------------------------------------------
-      // Browser Sync
-      // https://github.com/BrowserSync/grunt-browser-sync
-      //-----------------------------------------------------
+      /**
+       * Browser Sync
+       * https://github.com/BrowserSync/grunt-browser-sync
+       */
 
       browserSync: {
         bsFiles: {
@@ -312,10 +309,10 @@
         }
       },
 
-      //-----------------------------------------------------
-      // Uglify
-      // https://github.com/gruntjs/grunt-contrib-uglify
-      //-----------------------------------------------------
+      /**
+       * Uglify
+       * https://github.com/gruntjs/grunt-contrib-uglify
+       */
 
       uglify: {
         dev: {
@@ -338,10 +335,10 @@
         }
       },
 
-      //-----------------------------------------------------
-      // JSHint
-      // https://github.com/gruntjs/grunt-contrib-jshint
-      //-----------------------------------------------------
+      /**
+       * JSHint
+       * https://github.com/gruntjs/grunt-contrib-jshint
+       */
 
       jshint: {
         options: {
@@ -355,10 +352,10 @@
         ]
       },
 
-      //-----------------------------------------------------
-      // SCSS-Lint
-      // https://github.com/brigade/scss-lint
-      //-----------------------------------------------------
+      /**
+       * SCSS-Lint
+       * https://github.com/brigade/scss-lint
+       */
 
       scsslint: {
         allFiles: [
@@ -368,10 +365,10 @@
         options: {}
       },
 
-      //-----------------------------------------------------
-      // Notify
-      // https://github.com/dylang/grunt-notify
-      //-----------------------------------------------------
+      /**
+       * Notify
+       * https://github.com/dylang/grunt-notify
+       */
 
       notify: {
         options: {
@@ -379,10 +376,10 @@
         }
       },
 
-      //-----------------------------------------------------
-      // Watch
-      // https://github.com/gruntjs/grunt-contrib-watch
-      //-----------------------------------------------------
+      /**
+       * Watch
+       * https://github.com/gruntjs/grunt-contrib-watch
+       */
 
       watch: {
         options: {
@@ -407,10 +404,10 @@
         }
       },
 
-      //-----------------------------------------------------
-      // Karma
-      // https://github.com/karma-runner/grunt-karma
-      //-----------------------------------------------------
+      /**
+       * Karma
+       * https://github.com/karma-runner/grunt-karma
+       */
 
       karma: {
         options: {
@@ -433,13 +430,13 @@
         },
       },
 
-      //-----------------------------------------------------
-      // grunt-localscreenshots
-      // https://github.com/danielhusar/grunt-localscreenshots
-      //
-      // @NOTE: You'll need PhantomJs installed locally to get
-      // this task to work
-      //-----------------------------------------------------
+      /**
+       * grunt-localscreenshots
+       * https://github.com/danielhusar/grunt-localscreenshots
+       *
+       * @NOTE: You'll need PhantomJs installed locally to get
+       * this task to work
+       */
 
       localscreenshots: {
         options: {
@@ -463,7 +460,6 @@
      * 
      * This uses 'matchdep' to get all availalbe grunt tasks and
      * loads them automatically.
-     * 
      */
 
     if (grunt.option("production")) {
@@ -478,7 +474,6 @@
      * 
      * The below tasks are for compiling the app for various
      * scenarios and environments.
-     * 
      */
 
     grunt.registerTask('compile:dev', [
@@ -511,7 +506,6 @@
      * Register General Tasks
      * 
      * Register tasks for compiling, serving and testing code
-     * 
      */
 
     // JS/SCSS Linting
