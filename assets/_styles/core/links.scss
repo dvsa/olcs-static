@@ -29,11 +29,17 @@ a {
 }
 
 .download {
-  @include svg('selfserve-document');
   font-weight: 600;
-  padding: 4px 0 5px 34px;
+  padding: 5px 0;
   display: inline-block;
   cursor: pointer;
+  &:before {
+    @include svg('selfserve-document');
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.5em;
+  }
   &:hover {
     text-decoration: underline;
   }
