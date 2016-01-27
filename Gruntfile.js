@@ -470,7 +470,7 @@
         grunt.loadNpmTasks("grunt-sass");
         grunt.loadNpmTasks("grunt-contrib-uglify");
     } else {
-        require('matchdep').filterAll(['grunt-*', 'assemble']).forEach(grunt.loadNpmTasks);
+        require('matchdep').filterAll(['grunt-*', '!grunt-cli', 'assemble']).forEach(grunt.loadNpmTasks);
     }
     
     /**
