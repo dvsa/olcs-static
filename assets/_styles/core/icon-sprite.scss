@@ -10,132 +10,138 @@
 	background-position: 0 -100px;
 }
 
-.external-link-white {
+.external-link-dark {
 	width: 12px;
 	height: 12px;
 	background-position: 0 -200px;
 }
 
+.external-link-white {
+	width: 12px;
+	height: 12px;
+	background-position: 0 -300px;
+}
+
 .internal-admin-menu-arrow {
 	width: 12px;
 	height: 8px;
-	background-position: 0 -300px;
+	background-position: 0 -400px;
 }
 
 .internal-application-complete {
 	width: 17px;
 	height: 13px;
-	background-position: 0 -400px;
+	background-position: 0 -500px;
 }
 
 .internal-application-edited {
 	width: 15px;
 	height: 15px;
-	background-position: 0 -500px;
+	background-position: 0 -600px;
 }
 
 .internal-application-warning {
 	width: 18px;
 	height: 15px;
-	background-position: 0 -600px;
+	background-position: 0 -700px;
 }
 
 .internal-modal-close {
 	width: 16px;
 	height: 14px;
-	background-position: 0 -700px;
+	background-position: 0 -800px;
 }
 
 .internal-search {
 	width: 15px;
 	height: 15px;
-	background-position: 0 -800px;
+	background-position: 0 -900px;
 }
 
 .internal-split-screen-close {
 	width: 11px;
 	height: 12px;
-	background-position: 0 -900px;
+	background-position: 0 -1000px;
 }
 
 .internal-split-screen-down {
 	width: 13px;
 	height: 9px;
-	background-position: 0 -1000px;
+	background-position: 0 -1100px;
 }
 
 .internal-split-screen-left {
 	width: 8px;
 	height: 13px;
-	background-position: 0 -1100px;
+	background-position: 0 -1200px;
 }
 
 .internal-split-screen-pin-bottom {
 	width: 12px;
 	height: 12px;
-	background-position: 0 -1200px;
+	background-position: 0 -1300px;
 }
 
 .internal-split-screen-pin-left {
 	width: 12px;
 	height: 12px;
-	background-position: 0 -1300px;
+	background-position: 0 -1400px;
 }
 
 .lock {
 	width: 10px;
 	height: 12px;
-	background-position: 0 -1400px;
+	background-position: 0 -1500px;
 }
 
 .selfserve-breadcrumb {
 	width: 9px;
 	height: 14px;
-	background-position: 0 -1500px;
+	background-position: 0 -1600px;
 }
 
 .selfserve-document {
 	width: 27px;
 	height: 30px;
-	background-position: 0 -1600px;
+	background-position: 0 -1700px;
 }
 
 .selfserve-external-footer {
 	width: 12px;
 	height: 12px;
-	background-position: 0 -1700px;
+	background-position: 0 -1800px;
 }
 
 .selfserve-external-link {
 	width: 12px;
 	height: 12px;
-	background-position: 0 -1800px;
+	background-position: 0 -1900px;
 }
 
 .selfserve-external-link-hover {
 	width: 12px;
 	height: 12px;
-	background-position: 0 -1900px;
+	background-position: 0 -2000px;
 }
 
 .selfserve-important {
 	width: 25px;
 	height: 25px;
-	background-position: 0 -2000px;
+	background-position: 0 -2100px;
 }
 
 .selfserve-modal-close {
 	width: 23px;
 	height: 22px;
-	background-position: 0 -2100px;
+	background-position: 0 -2200px;
 }
 
-.dropdown-down, .dropdown-up, .external-link-white, .internal-admin-menu-arrow, .internal-application-complete, .internal-application-edited, .internal-application-warning, .internal-modal-close, .internal-search, .internal-split-screen-close, .internal-split-screen-down, .internal-split-screen-left, .internal-split-screen-pin-bottom, .internal-split-screen-pin-left, .lock, .selfserve-breadcrumb, .selfserve-document, .selfserve-external-footer, .selfserve-external-link, .selfserve-external-link-hover, .selfserve-important, .selfserve-modal-close {
-	background-size: 100px 2200px;
+.dropdown-down, .dropdown-up, .external-link-dark, .external-link-white, .internal-admin-menu-arrow, .internal-application-complete, .internal-application-edited, .internal-application-warning, .internal-modal-close, .internal-search, .internal-split-screen-close, .internal-split-screen-down, .internal-split-screen-left, .internal-split-screen-pin-bottom, .internal-split-screen-pin-left, .lock, .selfserve-breadcrumb, .selfserve-document, .selfserve-external-footer, .selfserve-external-link, .selfserve-external-link-hover, .selfserve-important, .selfserve-modal-close {
+	background-size: 100px 2300px;
 	background-repeat: no-repeat;
 	background-image: url("../../../public/images/svg/icon-sprite.png");
 }
 
-.svg .dropdown-down, .svg .dropdown-up, .svg .external-link-white, .svg .internal-admin-menu-arrow, .svg .internal-application-complete, .svg .internal-application-edited, .svg .internal-application-warning, .svg .internal-modal-close, .svg .internal-search, .svg .internal-split-screen-close, .svg .internal-split-screen-down, .svg .internal-split-screen-left, .svg .internal-split-screen-pin-bottom, .svg .internal-split-screen-pin-left, .svg .lock, .svg .selfserve-breadcrumb, .svg .selfserve-document, .svg .selfserve-external-footer, .svg .selfserve-external-link, .svg .selfserve-external-link-hover, .svg .selfserve-important, .svg .selfserve-modal-close {
+.svg .dropdown-down, .svg .dropdown-up, .svg .external-link-dark, .svg .external-link-white, .svg .internal-admin-menu-arrow, .svg .internal-application-complete, .svg .internal-application-edited, .svg .internal-application-warning, .svg .internal-modal-close, .svg .internal-search, .svg .internal-split-screen-close, .svg .internal-split-screen-down, .svg .internal-split-screen-left, .svg .internal-split-screen-pin-bottom, .svg .internal-split-screen-pin-left, .svg .lock, .svg .selfserve-breadcrumb, .svg .selfserve-document, .svg .selfserve-external-footer, .svg .selfserve-external-link, .svg .selfserve-external-link-hover, .svg .selfserve-important, .svg .selfserve-modal-close {
 	background-image: url("../../../public/images/svg/icon-sprite.svg");
 }
