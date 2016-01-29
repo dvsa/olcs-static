@@ -1,0 +1,120 @@
+
+/*
+  Search
+  ======
+*/
+
+.search {
+
+  @media (max-width: breakpoint('break-3')) {
+    width: 100%;
+  }
+
+  &__wrapper {
+    float: left;
+    position: relative;
+    border-radius: 3px;
+    overflow: hidden;
+    @media (max-width: breakpoint('break-3')) {
+      width: 100%;
+    }
+  }
+
+  &__select {
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    float: left;
+    border-right: 1px solid rgba(black, 0.1);
+    background-color: $grey-4;
+    position: relative;
+    &::after {
+      @include svg('dropdown-down');
+      content: "";
+      display: block;
+      position: absolute;
+      top: 12px;
+      right: 8px;
+      pointer-events: none;
+    }
+    &:focus {
+      outline: none;
+    }
+    select {
+      -moz-appearance:none;
+      -webkit-appearance: none;
+      border: none;
+      margin: 0;
+      cursor: pointer;
+      padding: 0 12px;
+      color: #767676;
+      display: inline-block;
+      height: 32px;
+      min-width: 150px;
+      font-family: $NTA-Light;
+      // hack for IE8
+      padding: 7px 12px\9;
+      height: auto\9;
+    }
+  }
+
+  &__input {
+    float: left;
+    background: $white;
+    padding: 0 12px;
+    color: $black;
+    width: 220px;
+    border: 0;
+    height: 32px;
+    font-family: $NTA-Light;
+    &::placeholder {
+      color: #767676;
+      opacity:  1;
+    }
+    // hack for IE8
+    padding: 8px 12px 7px\9;
+    height: auto\9;
+  }
+
+  &__input:focus {
+    outline: none;
+  }
+
+  &__button,
+  [type="submit"] {
+    @include svg('internal-search');
+    background-color: $primaryColour;
+    float: left;
+    width: 2.5rem;
+    height: 32px;
+    border-radius: 0 3px 3px 0;
+    border: 0;
+    text-indent: -9999px;
+    &:focus {
+      outline: 0;
+    }
+    // hack for IE8
+    text-indent: 0\9;
+    width: 36px\9;
+    // temp hardcoded hack until internal search input is replaced
+    // with a button tag
+    @if $app == 'internal' {
+      background-position: 12px -792px;
+    }
+  }
+
+  &__advanced {
+    color: $white;
+    float: left;
+    margin-left: 1em;
+    margin-top: 0.75em;
+    @media(max-width: breakpoint('break-3')) {
+      display: none;
+    }
+  }
+
+  form {
+    margin: 0;
+  }
+
+}

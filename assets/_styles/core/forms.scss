@@ -1,0 +1,848 @@
+// Config
+// -----------------------------------------------------------------
+
+// Reset/Normalize
+// -----------------------------------------------------------------
+
+button,
+input,
+select,
+textarea,
+.terms--box {
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+  *vertical-align: middle;
+  text-transform: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+  *overflow: visible;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="password"] {
+  box-sizing: border-box;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+  *height: 13px;
+  *width: 13px;
+}
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  box-sizing: content-box;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+input[type="hidden"] {
+  display: none;
+  height: 0;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/*
+  Wrapping elements
+  -----------------
+*/
+
+form {
+  margin-bottom: 2em;
+  width: 100%;
+  float: left;
+}
+
+fieldset {
+  margin-bottom: 40px;
+  margin-left: 0;
+  padding: 0;
+  border: 0;
+  clear: both;
+  width: 100%;
+  &.table {
+    margin-bottom: 0;
+  }
+  &.inline {
+    margin-bottom: 30px;
+  }
+  &.multiple a {
+    @extend %paragraph--tiny;
+    margin: -0.75em 0 0;
+    display: block;
+  }
+  &.question {
+    margin: 20px 0 40px !important;
+  }
+  &.subquestion {
+    margin: 0 0 30px 1em;
+  }
+  &.add-another .hint {
+    margin-top: -5px;
+  }
+  fieldset {
+    margin-bottom: 30px;
+    legend {
+      @extend %paragraph;
+      max-width: 600px;
+      font-weight: 400;
+      clear: both;
+      width: 100%;
+    }
+    label {
+      @if $app == 'selfserve' {
+        @extend %paragraph--small;
+      }
+    }
+  }
+}
+
+.fieldset--secondary {
+  margin-bottom: 0;
+  fieldset {
+    margin-left: 20px;
+  }
+  .empty__wrapper {
+    margin: -10px 0 60px;
+    float: left;
+  }
+}
+
+fieldset:last-child,
+fieldset .field:last-child,
+fieldset fieldset .field:last-child {
+  margin-bottom: 0;
+}
+
+.field {
+  margin-bottom: 30px;
+  overflow: visible;
+  @media (max-width: breakpoint('break-3')) {
+    margin-bottom: .5em;
+  }
+  &.legend {
+    margin-bottom: 0;
+  }
+  &.inline-text {
+    float: left;
+    margin-bottom: 0;
+  }
+  &.inline-text label {
+    margin-top: .5em;
+  }
+  &.inline-text  input {
+    width: 3.85em;
+    margin: 0 10px 10px 0;
+  }
+  &--two-col {
+    width: 47.5%;
+    float: left;
+    margin-right: 2.5%;
+  }
+}
+
+.field.inline {
+  margin-bottom: 0;
+  label {
+    margin-bottom: 0;
+  }
+}
+
+.pre-selected {
+  background: $grey-3;
+}
+
+/*
+  Labelling
+  ---------
+*/
+
+legend {
+  @extend %h3;
+  *margin-left: -7px;
+  margin-bottom: 7px;
+  padding: 0;
+  font-weight: 700;
+  .highlight-box & {
+    float: left;
+    width: 100%;
+  }
+}
+
+label {
+  display: block;
+  margin: 0 10px 7px 0;
+  max-width: 600px;
+  clear: both;
+  .inline & {
+    @extend %h5;
+    display: inline;
+  }
+  @if $app == 'selfserve' {
+    @extend %h4;
+  }
+}
+
+/*
+  Inputs
+  ------
+*/
+
+input,
+textarea,
+.terms--box {
+  padding: .5em .75em;
+  background-color: #F9F9F9;
+  border: 1px solid #A2A2A2;
+  max-width: 560px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  display: inline;
+  margin-right: .5em;
+  border: 0;
+}
+
+[type="submit"],
+.input--submit {
+  background: none;
+  border: 0;
+  padding: 0;
+  text-decoration: underline;
+  color: $link-colour;
+  font-family: $NTA-Light;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  &:hover {
+    color: $link-active-colour;
+  }
+  b & {
+    font-weight: 600;
+  }
+}
+
+textarea,
+.terms--box {
+  min-height: 10em;
+  padding-top: .5em;
+  overflow: auto;
+  vertical-align: top;
+}
+
+select {
+  max-width: 500px;
+  margin: 0 .25em 0 1px;
+  .filters & {
+    width: 99%;
+    margin-right: 0;
+  }
+}
+
+select[multiple] {
+  @extend %paragraph--tiny;
+  min-width: 200px;
+  width: $one-quarter;
+  padding: .25em;
+  display: block;
+  background-color: #F9F9F9;
+  &.tall {
+    height: 10em;
+  }
+  &.extra-long {
+    @extend .extra-long;
+  }
+  &.long {
+    @extend .long;
+  }
+  &.medium {
+    @extend .medium;
+  }
+  &.short {
+    @extend .short;
+  }
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 3px solid #FFBF47;
+}
+
+.extra-long {
+  width: 100%;
+}
+
+.long {
+  width: $two-thirds;
+}
+
+.medium {
+  width: $half;
+}
+
+.short {
+  width: 140px;
+  @media (max-width: breakpoint('break-3')){
+    width: $half;
+  }
+}
+
+@media (max-width: breakpoint('break-3')){
+  .extra-long,
+  .long,
+  .medium {
+    width: 100%;
+  }
+}
+
+/*
+  File uploader
+  -----------
+*/
+
+.file-uploader {
+  max-width: 600px;
+  ul {
+    list-style: none;
+    clear: both;
+  }
+  > .hint {
+    width: 100%;
+  }
+  input[type="submit"] {
+    float: left;
+  }
+  .validation-wrapper {
+    clear: both;
+  }
+}
+
+.attach-action {
+  &__list {
+    clear: right;
+  }
+  input[type="file"] {
+    width: 100%;
+    border: 0;
+    background: $grey-4;
+    padding: 15px 15px 10px;
+    border-left: 4px solid $grey-3;
+    margin-top: .25em;
+  }
+  &__hint {
+    @extend .hint;
+    @extend %paragraph--small;
+  }
+}
+
+.js-enabled {
+  .attach-action__list {
+    float: left;
+    margin-bottom: 15px;
+  }
+  .attach-action {
+    float: left;
+  }
+  .attach-action__label {
+    @extend .action--secondary;
+    @extend .large;
+    float: left;
+    margin-bottom: 10px;
+  }
+  .attach-action__hint {
+    @extend %paragraph--small;
+    float: left;
+    clear: none;
+    width: auto;
+    margin-left: 10px;
+  }
+}
+
+.attached-files__list,
+.uploaded-files__list {
+  display: block;
+  max-width: 700px;
+  clear: both;
+}
+
+.file {
+  position: relative;
+  overflow: auto;
+  display: block;
+  width: 95%;
+  border-left: 3px solid $grey-3;
+  background: $grey-4;
+  padding: 15px 2.5% 10px;
+  margin-top: 5px;
+  &__preloader {
+    @extend %light-preloader;
+    float: left;
+    margin: 0 10px 0 0;
+  }
+  &__remove {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+  }
+  p {
+    @extend %paragraph--small;
+    float: left;
+    clear: none;
+  }
+  span {
+    color: $grey-1;
+  }
+  img {
+    width: 100%;
+    height: auto;
+    margin: 10px 0;
+  }
+  &.invalid {
+    border-left: 3px solid $mellow-red;
+    background-color: $warning-background;
+  }
+}
+
+.validation-wrapper .file p {
+  color: $black;
+}
+
+.inline-upload {
+  @extend .action--primary;
+  clear: both;
+  margin-top: 15px !important;
+  .selfserve & {
+    @extend .large;
+  }
+}
+
+/*
+  Address
+  -------
+*/
+
+.address {
+  fieldset {
+    margin-bottom: 15px;
+  }
+  button {
+    margin-left: 5px;
+  }
+  .hint--small {
+    margin-top: 0;
+    float: left;
+  }
+  .field {
+    margin-bottom: 20px;
+  }
+  .field.inline {
+    margin-bottom: 10px;
+  }
+}
+
+.field.address__select {
+  float: left;
+  clear: both;
+  margin: 5px 0 10px;
+}
+
+/*
+  Address
+  -------
+*/
+
+.lookup {
+  button {
+    margin-left: 5px;
+  }
+  .field.inline {
+    margin-bottom: 10px;
+  }
+}
+
+/*
+  Traffic area
+  ------------
+*/
+
+.traffic-area {
+  .field {
+    @extend %paragraph;
+    margin-bottom: 5px;
+  }
+}
+
+/*
+  Trading names
+  -------------
+*/
+
+.trading-names .visually-hidden + input {
+  margin-top: -10px;
+}
+
+/*
+  Add another
+  -----------
+*/
+
+.add-another {
+  .field {
+    margin-bottom: 15px;
+  }
+}
+
+/*
+  DOB
+  ---
+*/
+
+.dob {
+  legend {
+    margin-bottom: 0;
+  }
+  label {
+    padding-top: 0;
+  }
+}
+
+/*
+  Inline search
+  -------------
+  Prototype code only - will need tidying up
+*/
+
+.manage-users #username,
+.create-account #username,
+.add-tm #username {
+  float: left;
+}
+
+.inline-search__loading {
+  @extend %light-preloader;
+  float: left;
+  margin: 8px 5px;
+}
+
+.inline-search__message {
+  @extend %paragraph--small;
+  float: left;
+  clear: left;
+  margin: 5px 0 -5px;
+  &.green {
+    color: $green;
+  }
+  &.red {
+    color: $mellow-red;
+  }
+}
+
+/*
+  Validation
+  ----------
+*/
+
+%validation-box {
+  padding: 1em 1em .5em;
+  margin-bottom: 20px;
+  overflow: visible;
+  background: $warning-background;
+  clear: both;
+  @media (max-width: breakpoint('break-3')){
+    margin-left: -1em;
+    margin-right: -1em;
+  }
+}
+
+.validation-summary {
+  @extend %validation-box;
+  overflow: auto;
+  margin-bottom: 30px;
+  border: 3px solid $mellow-red;
+  &__list {
+    margin: 0 0 1em 1.5em;
+  }
+  &__item {
+    color: $mellow-red;
+    margin: 0 0 .25em;
+  }
+  &__item  a {
+    color: $mellow-red;
+  }
+}
+
+.validation-wrapper {
+  @extend %validation-box;
+  border-left: 3px solid $mellow-red;
+  fieldset {
+    margin-bottom: 0;
+  }
+  ul {
+    list-style: none;
+  }
+  li {
+    @extend %paragraph--small;
+    display: block;
+    margin-bottom: .5em;
+    color: $mellow-red;
+  }
+  .active-result {
+    color: $black;
+  }
+}
+
+.validation-message {
+  @extend %paragraph--small;
+  display: block;
+  margin: 15px 0 5px;
+  color: $mellow-red;
+}
+
+/*
+  Locked
+  ------
+  This is used to indidcate that a field or fieldset cannot be updated
+  without creating a variation or new application
+*/
+
+.locked-icon {
+  @include svg('lock');
+  margin-left: 5px;
+  display: inline-block;
+}
+
+/*
+  Confirmation
+  ------------
+  Confirm checkboxes
+*/
+
+.confirm {
+  overflow: auto;
+  clear: both;
+  max-width: 600px;
+  padding: 15px 15px 7px;
+  border: 1px solid $light-blue-50;
+  background: $light-blue-25;
+
+}
+
+.terms--box {
+  height: 200px;
+}
+
+/*
+  Character count
+  ---------------
+*/
+
+.character-count {
+  color: $grey-1;
+  margin: 5px 0 0 0;
+  clear: both;
+  display: block;
+  text-align: left;
+  width: 100%;
+}
+
+.js-financial-history + .character-count {
+  display: block;
+  margin-bottom: -20px;
+}
+
+// Hints
+.hint {
+  display: block;
+  color: $grey-1;
+  margin: .5em 0 5px;
+  width: 90%;
+  max-width: 600px;
+  legend + & {
+    margin-bottom: 0.75em;
+  }
+  &--small {
+    @extend %paragraph--small;
+    color: $grey-1;
+    margin: 5px 0;
+  }
+}
+
+// Selfserve theme
+// ---------------
+
+@if $app == 'selfserve' {
+
+  .checkbox {
+    &.inline label {
+      clear: none;
+    }
+    label {
+      background: $grey-3;
+      padding: 14px 17px 14px 17px;
+      float: left;
+      clear: both;
+      &:hover {
+        background: $grey-2;
+        cursor: pointer;
+      }
+      &.selected {
+        background: #FFF;
+        border: 1px solid $black;
+        padding: 13px 16px 13px 16px;
+      }
+      &.disabled {
+        cursor: default;
+      }
+      &.disabled:hover {
+        background: $grey-3;
+      }
+      &.selected.disabled:hover {
+        background: $white;
+      }
+    }
+    input:focus {
+      border: none;
+      outline: none;
+    }
+    .hint {
+      float: left;
+    }
+  }
+
+  .chosen-container {
+    max-width: 440px;
+  }
+
+  .send-by-post {
+    margin-top: -40px;
+    p {
+      margin-bottom: 15px;
+    }
+  }
+
+}
+
+
+// Internal theme
+// ---------------
+
+@if $app == 'internal' {
+
+  .field.checkbox {
+    margin-bottom: 0;
+  }
+
+  .extra-long {
+    max-width: 500px;
+    width: 100%;
+  }
+
+  legend {
+    @extend %h4;
+  }
+
+  .long {
+    max-width: 350px;
+  }
+
+  .medium {
+    max-width: 300px;
+    width: $half;
+  }
+
+  .short {
+    width: 140px;
+    @media (max-width: breakpoint('break-3')){
+      width: $half;
+    }
+  }
+
+  fieldset {
+    margin-bottom: 30px;
+    fieldset {
+      margin-bottom: 20px;
+      legend {
+        @extend %paragraph--small;
+      }
+    }
+  }
+
+  .field {
+    margin-bottom: 20px;
+    &.inline-text,
+    &.legend {
+      margin-bottom: 10px;
+    }
+  }
+
+  label {
+    .inline & {
+      @extend %paragraph--tiny;
+    }
+  }
+
+  .tracking {
+    .field {
+      width: 50%;
+      float: left;
+      margin-bottom: 15px;
+    }
+    label {
+      float: left;
+      width: 150px;
+      margin-right: 10px;
+    }
+  }
+
+  input,
+  textarea,
+  .terms--box {
+    border: 1px solid $grey-2;
+    background: $grey-4;
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: 2px solid #ffbf47;
+  }
+
+  .hint,
+  .hint--small,
+  .hint input {
+    margin-top: 0;
+  }
+
+  .attach-action__hint {
+    margin-top: 8px;
+  }
+
+  .traffic-area a {
+    margin-bottom: 20px;
+  }
+
+  .chosen-container {
+    font-size: 14px;
+  }
+
+}

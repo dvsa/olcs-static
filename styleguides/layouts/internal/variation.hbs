@@ -1,0 +1,47 @@
+---
+layout: base.hbs
+title: <a href="">OB1262526</a> / 2983837
+breadcrumb: Application
+subtitle: Don Tarmacadam Ltd.  <span class="page-header__status suspended">Under consideration</span>
+status: Suspended
+horizontalNavItems:
+  - label: Application details
+    link:  index.html
+  - label: Cases
+    link:  cases.html
+  - label: Environmental
+    link:  environmental.html
+  - label: Docs & attachments
+    link:  docs&attachments.html
+  - label: Processing
+    link:  tasks.html
+  - label: Fees
+    link:  fees.html
+recordActions:
+  - title: Quick actions
+    actions:
+      - Generate publication
+      - Add recommendation
+      - Create case
+---
+
+<div class="sidebar--left">
+  {{> _horizontal-navigation}}
+  <div class="content">
+  {{> body }}  
+  </div>
+</div>
+
+<div class="sidebar--right">
+  <div class="record-actions">
+    {{#each recordActions }}
+    <h5 class="title">{{ this.title }}</h5> 
+    <ul class="record-actions__group">
+      {{#each this.actions }} 
+      <li class="record-actions__item actions--secondary"><a href="">{{ this }}</a></li>
+      {{/each }}
+    </ul>
+    {{/each }}
+  </div>
+</div>
+

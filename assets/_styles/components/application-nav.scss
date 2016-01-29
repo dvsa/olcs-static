@@ -1,0 +1,64 @@
+// Application Navigation
+// -----------------------------------------------------------------
+
+// Config
+// -----------------------------------------------------------------
+
+$mobile-statuses: (
+  'complete'   : 'internal-application-complete',
+  'edited'     : 'internal-application-edited',
+  'warning'    : 'internal-application-warning'
+);
+
+// Component
+// -----------------------------------------------------------------
+
+.app-navigation {
+  
+  @extend %navigation;
+  overflow: hidden;
+  border-top: 0;
+  margin: 0;
+  
+  a,
+  .current,
+  .disabled {
+    display: block;
+    width: 90%;
+    padding: 11px 20px 10px 0;
+    border-bottom: 1px solid $grey-3;
+    text-decoration: none;
+  }
+  
+  .current {
+    border-bottom: 3px solid $primaryColour;
+  }
+  
+  .current.no-background {
+    background: none;
+  }
+  
+  &__item {
+    @extend %navigation__item;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: left;
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 11px;
+    }
+  }
+  
+  @each $status in $mobile-statuses {
+    .#{nth($status, 1)} {
+      &:before {
+        @include svg(nth($status, 2));
+      }
+    }
+  }
+  
+}

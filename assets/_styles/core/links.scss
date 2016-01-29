@@ -1,0 +1,46 @@
+
+/*
+  Links
+  =====
+*/
+
+a {
+  color: $link-colour;
+  &:active,
+  &:hover {
+    color: $link-active-colour;
+    outline: 0;
+  }
+}
+
+[rel="external"]:after {
+  @include svg('selfserve-external-link');
+  margin-left: 0.5em;
+  content: "";
+  &:hover {
+    @include svg('selfserve-external-link-hover');
+  }
+}
+
+.disabled,
+.disabled a {
+  text-decoration: none;
+  color: $grey-1;
+}
+
+.download {
+  font-weight: 600;
+  padding: 5px 0;
+  display: inline-block;
+  cursor: pointer;
+  &:before {
+    @include svg('selfserve-document');
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.5em;
+  }
+  &:hover {
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,81 @@
+
+/*
+  Right-hand column
+  =================
+*/
+
+
+// Selfserve theme
+// ---------------
+
+@if $app == 'selfserve' {
+
+  .sidebar {
+    border-top: 6px solid $govuk-blue;
+  }
+
+  .meta {
+    float: left;
+    border: none;
+    margin: 1em 0;
+    padding-bottom: 1em;
+    border-bottom: 1px solid $grey-2;
+    dt, dd {
+      border: none;
+      display: block;
+      width: 100%;
+      padding: 0;
+    }
+    dd {
+      @extend %h4;
+      padding: 0 0 .5em 0;
+    }
+  }
+
+  .links {
+    padding: 1em 0 2em 0;
+  }
+
+  .support {
+    border-top: 1px solid $grey-2;
+    padding-top: 1em;
+    p {
+      @extend %paragraph--small;
+    }
+  }
+
+  .links-list {
+    margin-top: 1.25em;
+    list-style: none;
+    &__item {
+      margin-bottom: .5em;
+    }
+  }
+
+}
+
+// Internal theme
+// ---------------
+
+@if $app == 'internal' {
+
+  .small-module {
+    margin-bottom: 20px;
+  }
+
+  .latest-note {
+    &__details {
+      border-radius: 3px;
+      padding: 0.5em 0.75em 0.4em;
+      background: $yellow-25;
+      border: 1px solid $yellow-50;
+    }
+    &__link {
+      @extend %paragraph--tiny;
+      text-align: right;
+      display: block;
+      margin-top: 1em;
+    }
+  }
+
+}

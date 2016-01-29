@@ -1,0 +1,26 @@
+
+/*
+  Results-settings
+  ================
+*/
+
+.results-settings {
+  float: left;
+  &__list {
+    list-style: none;
+    float: left;
+  }
+  p,
+  &__item {
+    @extend %paragraph--small;
+    float: left;
+    margin-right: .5em;
+    clear: none;
+  }
+}
+
+
+// Internal theme
+// ---------------
+
+@if $app == 'internal' {}
