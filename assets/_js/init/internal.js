@@ -22,7 +22,6 @@ OLCS.ready(function() {
     targetSelector: ".admin__menu"
   });
 
-
   OLCS.eventEmitter.on("render", function() {
     if (typeof(tinymce) === "undefined") {
       return;
