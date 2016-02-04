@@ -5,5 +5,9 @@ OLCS.ready(function() {
     triggerSelector: ".proposition__toggle",
     targetSelector: ".proposition-nav"
   });
+  
+  OLCS.tooltip({
+    parent: ".tooltip-parent"
+  });
 
 });
