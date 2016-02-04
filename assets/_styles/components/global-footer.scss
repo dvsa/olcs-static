@@ -20,7 +20,7 @@
   }
   
   &__wrapper {
-    max-width: $base-width;
+    max-width: $base-width + $gutter;
     padding: $gutter $gutter-half;
     margin: 0 auto;
     box-sizing: border-box;
