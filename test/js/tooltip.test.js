@@ -54,9 +54,6 @@ describe("OLCS.tooltip", function() {
       describe("When the tooltip is un-hovered", function() {
         
         beforeEach(function() {
-          this.component({
-            parent: '.tooltip-parent'
-          });
           $('#stub').trigger('mouseleave');
         });
         
