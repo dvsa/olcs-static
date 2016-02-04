@@ -429,6 +429,30 @@
           }
         },
       },
+      
+      /**
+       * Replace
+       * https://github.com/yoniholmes/grunt-text-replace
+       */
+      
+      replace: {
+        istanbulIgnore: {
+          src: ['assets/_js/common/*.js'],
+          dest: 'assets/_js/common/',
+          replacements: [{
+            from: 'var OLCS = OLCS ||',
+            to: 'var OLCS = OLCS || /* istanbul ignore next */'
+          }]
+        },
+        undoIstanbulIgnore: {
+          src: ['assets/_js/common/*.js'],
+          dest: 'assets/_js/common/',
+          replacements: [{
+            from: 'var OLCS = OLCS || /* istanbul ignore next */',
+            to: 'var OLCS = OLCS ||'
+          }]
+        }
+      },
 
       /**
        * grunt-localscreenshots
@@ -516,7 +540,12 @@
     grunt.registerTask('serve', ['notify', 'compile:dev', 'browserSync', 'watch']);
 
     // Karma
-    grunt.registerTask('test', ['karma:test']);
+    grunt.registerTask('test', [
+      'replace:istanbulIgnore',
+      'karma:test',
+      'replace:undoIstanbulIgnore'
+    ]);
+    
     grunt.registerTask('test:ci', ['karma:ci']);
     
     // To run an idividual component spec use: 
