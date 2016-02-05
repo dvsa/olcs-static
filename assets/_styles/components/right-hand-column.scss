@@ -37,8 +37,9 @@
   }
 
   .support {
-    border-top: 1px solid $grey-2;
-    padding-top: 1em;
+    &:first-child {
+      margin-top: $gutter-half;
+    }
     p {
       @extend %paragraph--small;
     }
