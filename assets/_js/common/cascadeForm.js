@@ -122,10 +122,10 @@ OLCS.cascadeForm = (function(document, $, undefined) {
         OLCS.eventEmitter.emit(action + ":" + group + ":" + selector);
       }
       
-      if (action == 'show') {
-        elem.attr('aria-hidden', 'false');
-      } else if (action == 'hide') {
-        elem.attr('aria-hidden', 'true');
+      if (action === "show") {
+        elem.attr("aria-hidden", "false");
+      } else if (action === "hide") {
+        elem.attr("aria-hidden", "true");
       }
     }
 
