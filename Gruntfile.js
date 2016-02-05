@@ -116,7 +116,7 @@
         options: {
           processors: [
             require('autoprefixer')({
-              browsers: ['last 2 versions','IE 8','IE9','IE10']
+              browsers: ['last 2 versions', 'ie >= 8']
             })
           ]
         },
@@ -533,11 +533,18 @@
      */
 
     // JS/SCSS Linting
-    //grunt.registerTask('lint', ['jshint:static', 'scsslint']);
-    grunt.registerTask('lint', ['jshint:static']);
+    grunt.registerTask('lint', [
+      'jshint:static',
+      //'scsslint'
+    ]);
 
     // Browser Sync
-    grunt.registerTask('serve', ['notify', 'compile:dev', 'browserSync', 'watch']);
+    grunt.registerTask('serve', [
+      'notify', 
+      'compile:dev', 
+      'browserSync', 
+      'watch'
+    ]);
 
     // Karma
     grunt.registerTask('test', [
@@ -550,7 +557,9 @@
     
     // To run an idividual component spec use: 
     // $ grunt test:single --target=componentName
-    grunt.registerTask('test:single', ['karma:single:' + target]);
+    grunt.registerTask('test:single', [
+      'karma:single:' + target
+    ]);
     
     /**
      * Prototype Tasks
