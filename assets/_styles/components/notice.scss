@@ -1,8 +1,33 @@
+// Notices
+// -----------------------------------------------------------------
 
-/*
-  Notices
-  =======
-*/
+%notice {
+  border-radius: 2px;
+  overflow: auto;
+  padding: 6px 15px;
+  margin-bottom: .25em;
+  p {
+    @extend %paragraph--small;
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    float: right;
+  }
+}
+
+@mixin notice($color) {
+  
+  $background : desaturate(lighten($color, 50%), 10%);
+  $border     : lighten($color, 10%);
+  
+  @extend %notice;
+  
+  background: $background;
+  border: 1px solid $border;
+  color: $color;
+  
+}
 
 .notice-container {
   overflow: auto;
@@ -26,62 +51,30 @@
     width: 100%;
     margin: -10px 0 30px;
   }
-}
-
-.sidebar--right .notice-container {
-  margin: 0 0 1em;
-  position: relative;
-  float: left;
-  left: 0;
-  top: 0;
-  z-index: 0;
-  a {
+  .sidebar--right & {
+    margin: 0 0 1em;
+    position: relative;
     float: left;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    a {
+      float: left;
+    }
   }
-}
-
-@mixin notice($background, $border, $color) {
-  background: $background;
-  border: 1px solid $border;
-  color: $color;
 }
 
 .notice {
   &--success {
-    @include notice(#DFF0D8,#98BF73,#3C763D);
+    @include notice(#3C763D);
   }
   &--warning {
-    @include notice(#FCF8E3,#E5BE71,#8A6D3B);
+    @include notice(#8A6D3B);
   }
   &--info {
-    @include notice(#D9EDF7, #BCE8F1,#31708F);
+    @include notice(#31708F);
   }
   &--danger {
-    @include notice(#F2DEDE,#EBCCD1,#A94442);
+    @include notice(#A94442);
   }
-}
-
-.notice--success,
-.notice--warning,
-.notice--info,
-.notice--danger {
-  border-radius: 2px;
-  overflow: auto;
-  padding: 6px 15px;
-  margin-bottom: .25em;
-  p {
-    @extend %paragraph--small;
-    margin: 0;
-    padding: 0;
-  }
-  a {
-    float: right;
-  }
-}
-
-// Internal theme
-// ---------------
-
-@if $app == 'internal' {
-
 }
