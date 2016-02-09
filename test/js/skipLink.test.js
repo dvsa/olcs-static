@@ -44,10 +44,6 @@ describe("OLCS.skipLink", function() {
         });
       });
       
-      it("The skip link sould not be visible", function() {
-        expect($("#stub").is(":visible")).to.be("false");
-      });
-      
       describe("And the trigger element is clicked", function() {
         
         beforeEach(function() {
