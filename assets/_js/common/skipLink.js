@@ -6,9 +6,10 @@ var OLCS = OLCS || {};
  * Gives focus to the content that is "skipped" to using the
  * skipToContent accessibility link
  * 
- * https://code.google.com/p/chromium/issues/detail?id=37721
  * https://code.google.com/p/chromium/issues/detail?id=262171
  * http://stackoverflow.com/questions/6280399/skip-links-not-working-in-chrome
+ * 
+ * grunt test:single --target=skipLink
  */
 
 OLCS.skipLink = (function(document, $, undefined) {
