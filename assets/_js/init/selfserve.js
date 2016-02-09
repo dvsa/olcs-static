@@ -9,5 +9,10 @@ OLCS.ready(function() {
   OLCS.tooltip({
     parent: ".tooltip-parent"
   });
+  
+  OLCS.skipLink({
+    trigger: "#skipToContent",
+    target: "#main"
+  });
 
 });
