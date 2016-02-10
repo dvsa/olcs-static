@@ -458,7 +458,7 @@
     /**
      * Load NPM Tasks
      * 
-     * This uses 'matchdep' to get all availalbe grunt tasks and
+     * This uses 'matchdep' to get all available grunt tasks and
      * loads them automatically.
      */
 

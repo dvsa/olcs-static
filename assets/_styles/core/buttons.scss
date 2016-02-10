@@ -137,6 +137,11 @@ button {
   }
 }
 
+// Anchors which are also buttons and external links
+a[class*="action--"][rel="external"] {
+  @extend .action--external
+}
+
 // More actions
 // styles a select element to look like a button
 
