@@ -363,6 +363,10 @@ select:focus {
     @extend .large;
     float: left;
     margin-bottom: 10px;
+    &:active,
+    &:focus {
+      outline: 3px solid $outline;
+    }
   }
   .attach-action__hint {
     @extend %paragraph--small;
