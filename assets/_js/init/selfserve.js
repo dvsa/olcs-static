@@ -11,13 +11,6 @@ OLCS.ready(function() {
     parent: ".tooltip-parent"
   });
   
-  OLCS.skipLink({
-    trigger: "#skipToContent",
-    target: "#main"
-  });
-  
-  OLCS.formErrors({
-    container: "#validationSummary"
-  });
+  OLCS.accessibility();
 
 });

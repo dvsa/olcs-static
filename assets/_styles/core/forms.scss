@@ -279,8 +279,9 @@ select[multiple] {
 
 input:focus,
 textarea:focus,
-select:focus {
-  outline: 3px solid #FFBF47;
+select:focus,
+%focused {
+  outline: 3px solid $outline;
 }
 
 .extra-long {
@@ -363,7 +364,6 @@ select:focus {
     @extend .large;
     float: left;
     margin-bottom: 10px;
-    &:active,
     &:focus {
       outline: 3px solid $outline;
     }
@@ -698,10 +698,10 @@ select:focus {
         background: $grey-2;
         cursor: pointer;
       }
-      &.selected {
-        background: #FFF;
-        border: 1px solid $black;
-        padding: 13px 16px 13px 16px;
+      &.selected,
+      &:focus {
+        background: $white;
+        outline: 3px solid $outline;
       }
       &.disabled {
         cursor: default;
@@ -812,12 +812,6 @@ select:focus {
   .terms--box {
     border: 1px solid $grey-2;
     background: $grey-4;
-  }
-
-  input:focus,
-  textarea:focus,
-  select:focus {
-    outline: 2px solid #ffbf47;
   }
 
   .hint,
