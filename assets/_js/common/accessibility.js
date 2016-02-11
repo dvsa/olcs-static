@@ -3,7 +3,7 @@ var OLCS = OLCS || {};
 /**
  * OLCS.accessibility
  *
- * Various functions and helpers to aid with accessibility
+ * Various tools and helpers to aid with accessibility
  * 
  * grunt test:single --target=accessibility
  */
@@ -14,20 +14,13 @@ var OLCS = OLCS || {};
 
   return function init(options) {
     
-    /*
-    var errorContainer = options.errorContainer || '#validationSummary';
-    var skipTrigger    = options.skipTrigger    || '#skipToContent';
-    var skipTarget     = options.skipTarget     || '#main';
-    var inputLabels    = options.inputLabels    || '[type="radio"], [type="checkbox"], [type="file"]';
-    */
-    
     var errorContainer = '#validationSummary';
     var skipTrigger    = '#skipToContent';
     var skipTarget     = '#main';
     var inputLabels    = '[type="radio"], [type="checkbox"], [type="file"]';
     
     /**
-     * OLCS.accessibility.formErrors
+     * Validation Error Messages
      *
      * Automatically set focus to and scroll to form errors
      */
@@ -39,7 +32,11 @@ var OLCS = OLCS || {};
     window.location.hash = errorContainer;
     
     /** 
-     * Input labels 
+     * Input labels
+     * 
+     * Allows focus to be given to label elements which contain child
+     * input elements, and removes ability to focus on said child elements 
+     * to prevent double tabbing
      */
     
     // Make input labels focusable with the tab key
@@ -49,7 +46,7 @@ var OLCS = OLCS || {};
     $('label').find(inputLabels).attr('tabindex', -1);
     
     /**
-     * OLCS.accessibility.skipLink
+     * Skip To Main Content
      *
      * Gives focus to the content that is "skipped" to using the
      * skipToContent accessibility link
