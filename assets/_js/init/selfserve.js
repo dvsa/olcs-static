@@ -1,4 +1,5 @@
 OLCS.ready(function() {
+  
   "use strict";
 
   OLCS.toggleElement({
@@ -13,6 +14,10 @@ OLCS.ready(function() {
   OLCS.skipLink({
     trigger: "#skipToContent",
     target: "#main"
+  });
+  
+  OLCS.formErrors({
+    container: "#validationSummary"
   });
 
 });
