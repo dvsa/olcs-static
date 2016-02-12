@@ -18,7 +18,9 @@ var OLCS = OLCS || {};
     var skipTrigger    = '#skipToContent';
     var skipTarget     = '#main';
     var inputLabels    = '[type="radio"], [type="checkbox"], [type="file"]';
-    var inactivityTime = 1000
+    var inactivityTime = 1000;
+    var countdownTimer = '#countdownTimer';
+    var countdownAlert = '#countdownAlert';
     
     /**
      * Validation Error Messages
@@ -62,67 +64,72 @@ var OLCS = OLCS || {};
     
     /**
      * Auto-Logout Countdown
+     * 
+     * Will probably move this to own JS component ultimately
      *
      * Alert a message to let users know that they will soon be automatically
      * logged out if they continue to be idle
      */
     
-    // Check each second whether the content needs updating 
-    setTimeout(function(){ 
+    // Cache the variable which will store allowed idle time remaining
+    var idleTime;
+    var timerSelector = countdownTimer.substring(1);
+    var alertSelector = countdownAlert.substring(1);
+    
+    // Create the HTML content for the idle modal
+    var idleTemplate = [
+      'Due to inactivity you will soon be automatically logged out. To remain logged in, simply dismiss this alert message.',
+      '<div id="' + timerSelector + '" data-seconds="32400">09:00:00</div>',
+      '<div id="' + alertSelector + '" role="alert" aria-live="assertive" class="visually-hidden"></div>'
+    ].join('\n');
+    
+    function idleRemaining() {
       
-      // Update the content every minute
-      setInterval(function() {
+      // Check each second whether the content needs updating 
+      setTimeout(function(){ 
         
-        // Get the current time left
-        var timeLeft = $('#timer').text();
+        // Update the content every minute
+        setInterval(function() {
+          
+          // Get the current time left
+          var timeLeft = $(countdownTimer).text();
+          
+          // Append to the hidden screen-reader div
+          $(countdownAlert).html("Time Left To Save: " + timeLeft);
+          
+        }, 1000 * 60); 
         
-        // Append to the hidden screen-reader div
-        $('#alert').html("Time Left To Save: " + timeLeft);
-        
-      }, 1000 * 60); 
-      
-    }, 1000);
+      }, 1000);
 
-    // Each second update the visual countdown
-    setInterval(function(){
-      
-      // For whatever reason there might be more than one countdown
-      $(".countdown").each(function(){
-        
+      // Each second update the visual countdown
+      setInterval(function(){
+          
         // Get the original total time of the countdown
-        var seconds = $(this).data('seconds');
+        var seconds = $(countdownTimer).data('seconds');
         
         // If we still have some time left
         if (seconds > 0) {
           
-          // No idea why 0.5 is needed instead of 1, but it works...
-          var second = seconds - 0.5;
+          var second = seconds - 1;
           
-          $(this).data('seconds', second);
+          $(countdownTimer).data('seconds', second);
+          
           var date = new Date(null);
+          
           date.setSeconds(second); 
-          $(this).html(date.toISOString().substr(11, 8));
+          
+          $(countdownTimer).html(date.toISOString().substr(11, 8));
           
         } 
         
         // Or if we've run our of time
         else {
-          $(this).html('Logging Out...');
+          $(countdownTimer).html('Logging Out...');
         }
         
-      });
-      
-    }, 1000);
+      }, 1000);
     
-    // Cache the variable which will store allowed idle time remaining
-    var time;
-    
-    // Create the HTML content for the idle modal
-    var idleTemplate = [
-      'Due to inactivity you will soon be automatically logged out. To remain logged in, simply dismiss this alert message.',
-      '<div id="timer" data-seconds="32400" class="countdown">09:00:00</div>',
-      '<div id="alert" role="alert" aria-live="assertive" class="visually-hidden"></div>'
-    ].join('\n');
+    }
 
     // Function to appropriately show the idle modal
     function alertLogout() {
@@ -133,13 +140,15 @@ var OLCS = OLCS || {};
           idleTemplate, 
           'You will soon be logged out'
         );
+        // Call the idleRemaining countdown
+        idleRemaining();
       }
     }
 
     // Function to reset the idle timer if user becomes un-idle
     function resetTimer() {
-      clearTimeout(time);
-      time = setTimeout(alertLogout, inactivityTime)
+      clearTimeout(idleTime);
+      idleTime = setTimeout(alertLogout, inactivityTime);
     }
     
     window.onload        = resetTimer; // reset on page load
