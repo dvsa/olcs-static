@@ -12,7 +12,7 @@ var OLCS = OLCS || {};
 
   'use strict';
 
-  return function init(options) {
+  return function init() {
     
     var errorContainer = '#validationSummary';
     var skipTrigger    = '#skipToContent';

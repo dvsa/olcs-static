@@ -160,7 +160,7 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
             F.render(root, response.body);
             // focus the address select box when it becomes rendered -
             // we target the first element, but there should only ever be one
-            $(container).find('select:first').focus();
+            $(container).find("select:first").focus();
           })
         });
         
