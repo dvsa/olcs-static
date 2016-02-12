@@ -12,15 +12,6 @@
 .breadcrumbs__item {
   display: inline-block;
   color: $black;
-  &:last-child a {
-    background: none;
-  }
-}
-
-.breadcrumbs a {
-  &:focus {
-    outline: none;
-  }
 }
 
 // Selfserve theme
