@@ -18,6 +18,7 @@ var OLCS = OLCS || {};
     var skipTrigger    = '#skipToContent';
     var skipTarget     = '#main';
     var inputLabels    = '[type="radio"], [type="checkbox"], [type="file"]';
+    var inactivityTime = 1000
     
     /**
      * Validation Error Messages
@@ -58,6 +59,32 @@ var OLCS = OLCS || {};
     $(skipTrigger).click(function () {
       $(skipTarget).attr('tabIndex', -1).focus();
     });
+    
+    /**
+     * Auto-Logout Countdown
+     *
+     * Alert a message to let users know that they will soon be automatically
+     * logged out if they continue to be inactive
+     */
+    
+    var time;
+
+    function alertLogout() {
+      if ($('.modal').length === 0) {
+        OLCS.modal.show('this is the body', 'You are now logged out');
+      }
+    }
+
+    function resetTimer() {
+      clearTimeout(time);
+      time = setTimeout(alertLogout, inactivityTime)
+    }
+    
+    window.onload        = resetTimer;
+    document.onmousemove = resetTimer;
+    document.onkeypress  = resetTimer;
+    
+    OLCS.eventEmitter.on('hide:modal', resetTimer)
     
   };
 

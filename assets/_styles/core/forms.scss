@@ -698,10 +698,16 @@ select:focus,
         background: $grey-2;
         cursor: pointer;
       }
-      &.selected,
       &:focus {
         background: $white;
         outline: 3px solid $outline;
+      }
+      &.selected {
+        background: $white;
+        outline: 1px solid $black;
+        &:focus {
+          outline: 3px solid $outline;
+        }
       }
       &.disabled {
         cursor: default;
