@@ -85,6 +85,9 @@ td {
   @extend %paragraph--small;
   padding: 0.7em 10px 0.7em 0;
   text-align: left;
+  > label {
+    margin: 0;
+  }
 }
 
 th {
