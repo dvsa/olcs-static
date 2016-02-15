@@ -78,12 +78,14 @@ var OLCS = OLCS || {};
     
     // Create the HTML content for the idle modal
     var idleTemplate = [
-      'Due to inactivity you will soon be automatically logged out. To remain logged in, simply dismiss this alert message.',
-      '<div id="' + timerSelector + '" data-seconds="32400">09:00:00</div>',
-      '<div id="' + alertSelector + '" role="alert" aria-live="assertive" class="visually-hidden"></div>'
+      '<p>Due to inactivity you will soon be automatically logged out. To remain logged in, simply dismiss this alert message.</p>',
+      '<h2 id="' + timerSelector + '" data-seconds="32400">09:00:00</h2>',
+      '<div id="' + alertSelector + '" role="alert" aria-live="assertive" class="visually-hidden"></div>',
+      '<p><button class="action--primary" id="idlePopupDismiss">Dismiss</button></p>',
     ].join('\n');
     
-    function idleRemaining() {
+    // Inject an updated countdown for screen readers every 60 seconds
+    function countdownInject() {
       
       // Check each second whether the content needs updating 
       setTimeout(function(){ 
@@ -95,12 +97,16 @@ var OLCS = OLCS || {};
           var timeLeft = $(countdownTimer).text();
           
           // Append to the hidden screen-reader div
-          $(countdownAlert).html("Time Left To Save: " + timeLeft);
+          $(countdownAlert).html('Time Left To Save: ' + timeLeft);
           
         }, 1000 * 60); 
         
       }, 1000);
-
+      
+    }
+    
+    function counter() {
+      
       // Each second update the visual countdown
       setInterval(function(){
           
@@ -122,13 +128,15 @@ var OLCS = OLCS || {};
           
         } 
         
-        // Or if we've run our of time
+        // Or if we've run out of time
         else {
           $(countdownTimer).html('Logging Out...');
         }
         
       }, 1000);
-    
+      
+      countdownInject();
+      
     }
 
     // Function to appropriately show the idle modal
@@ -137,11 +145,9 @@ var OLCS = OLCS || {};
       if ($('.modal').length === 0) {
         // Open it
         OLCS.modal.show(
-          idleTemplate, 
-          'You will soon be logged out'
+          idleTemplate, 'You will soon be logged out'
         );
-        // Call the idleRemaining countdown
-        idleRemaining();
+        counter();
       }
     }
 
@@ -157,6 +163,11 @@ var OLCS = OLCS || {};
     
     // reset if modal closes
     OLCS.eventEmitter.on('hide:modal', resetTimer);
+    
+    // Close modal on dismiss button click
+    $('#idlePopupDismiss').click(function() {
+      OLCS.modal.hide();
+    });
     
   };
 
