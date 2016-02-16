@@ -15,21 +15,29 @@ var OLCS = OLCS || {};
 
   return function init() {
     
-    var inactivityTime      = 4; // minutes
+    // Options
+    var inactivityTime      = 4.06; // minutes
     var inactivityRemaining = 4; // minutes
     var countdownTimer      = '#countdownTimer';
     var countdownAlert      = '#countdownAlert';
+    var modalTitle          = 'You will soon be logged out';
+    var modalMessage        = 'Due to inactivity you will soon be automatically logged out. To remain logged in, simply dismiss this alert message.';
+    var dismissMessage      = 'Dismiss';
+    var alertMessage        = 'Time Left To Save'
     
     // Convert the passed time's to appropriate units
-    inactivityTime = inactivityTime * 1000;
+    inactivityTime = inactivityTime - inactivityRemaining;
+    inactivityTime = inactivityTime * 1000 * 60;
     inactivityRemaining = inactivityRemaining * 60;
     
     // Cache the variable which will store allowed idle time remaining
     var idleTime;
+    
+    // Get the raw selectors to render the HTML
     var timerSelector = countdownTimer.substring(1);
     var alertSelector = countdownAlert.substring(1);
     
-    // Convert the inactivity remaining time (seconds) into HH:MM:SS
+    // Convert the inactivity remaining time (minutes) into HH:MM:SS
     var totalSec = inactivityRemaining;
     var hours = parseInt(totalSec/3600) % 24;
     var minutes = parseInt(totalSec/60) % 60;
@@ -38,10 +46,10 @@ var OLCS = OLCS || {};
     
     // Create the HTML content for the idle modal
     var idleTemplate = [
-      '<p>Due to inactivity you will soon be automatically logged out. To remain logged in, simply dismiss this alert message.</p>',
+      '<p>' + modalMessage + '</p>',
       '<h2 id="' + timerSelector + '" data-seconds="' + inactivityRemaining + '">' + result + '</h2>',
       '<div id="' + alertSelector + '" role="alert" aria-live="assertive" class="visually-hidden"></div>',
-      '<p><button class="action--primary" id="idlePopupDismiss">Dismiss</button></p>',
+      '<p><button class="action--primary" id="idlePopupDismiss">' + dismissMessage + '</button></p>'
     ].join('\n');
     
     // Inject an updated countdown for screen readers every 60 seconds
@@ -57,7 +65,7 @@ var OLCS = OLCS || {};
           var timeLeft = $(countdownTimer).text();
           
           // Append to the hidden screen-reader div
-          $(countdownAlert).html('Time Left To Save: ' + timeLeft);
+          $(countdownAlert).html(alertMessage + ' : ' + timeLeft);
           
         }, 1000 * 60); 
         
@@ -106,11 +114,10 @@ var OLCS = OLCS || {};
 
     // Function to appropriately show the idle modal
     function alertLogout() {
-      // If a (read: the) modal is not already open
+      // If a (read: the) modal is not already open, open it
       if ($('.modal').length === 0) {
-        // Open it
         OLCS.modal.show(
-          idleTemplate, 'You will soon be logged out'
+          idleTemplate, modalTitle
         );
         counter();
       }
