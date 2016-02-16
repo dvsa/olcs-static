@@ -12,7 +12,7 @@ OLCS.ready(function() {
   });
   
   OLCS.eventEmitter.on("render", function() {
-    //OLCS.accessibility();
+    OLCS.accessibility();
   });
 
 });

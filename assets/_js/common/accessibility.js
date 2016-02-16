@@ -18,7 +18,7 @@ var OLCS = OLCS || {};
     var skipTrigger    = '#skipToContent';
     var skipTarget     = '#main';
     var inputLabels    = '[type="radio"], [type="checkbox"], [type="file"]';
-    var inactivityTime = 1000;
+    var inactivityTime = 4000;
     var countdownTimer = '#countdownTimer';
     var countdownAlert = '#countdownAlert';
     
@@ -108,7 +108,7 @@ var OLCS = OLCS || {};
     function counter() {
       
       // Each second update the visual countdown
-      setInterval(function(){
+      var updateCountdown = setInterval(function() {
           
         // Get the original total time of the countdown
         var seconds = $(countdownTimer).data('seconds');
@@ -136,6 +136,11 @@ var OLCS = OLCS || {};
       }, 1000);
       
       countdownInject();
+      
+      // We need to stop the setInterval from accumulating after each modal close
+      OLCS.eventEmitter.on('hide:modal', function() {
+        clearInterval(updateCountdown);
+      });
       
     }
 
