@@ -23,7 +23,8 @@ var OLCS = OLCS || {};
     var modalTitle          = 'You will soon be logged out';
     var modalMessage        = 'Due to inactivity you will soon be automatically logged out. To remain logged in, simply dismiss this alert message.';
     var dismissMessage      = 'Dismiss';
-    var alertMessage        = 'Time Left To Save'
+    var alertMessage        = 'Time Left To Save';
+    var loggingOutMessage   = 'Logging Out...';
     
     // Convert the passed time's to appropriate units
     inactivityTime = inactivityTime - inactivityRemaining;
@@ -94,11 +95,8 @@ var OLCS = OLCS || {};
           
           $(countdownTimer).html(date.toISOString().substr(11, 8));
           
-        } 
-        
-        // Or if we've run out of time
-        else {
-          $(countdownTimer).html('Logging Out...');
+        } else {
+          $(countdownTimer).html(loggingOutMessage);
         }
         
       }, 1000);
