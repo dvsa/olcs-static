@@ -164,7 +164,9 @@
           {{#is type "radios" }}
           <fieldset class="{{ type }}">
             <legend class="legend">{{ label }}</legend>
+            {{#if hint}}
             <p class="hint">{{hint}}</p>
+            {{/if}}
             {{#each values }}
             <div class="field--list">
               <label><input type="radio" name="{{ this }}">{{ this }}</label>

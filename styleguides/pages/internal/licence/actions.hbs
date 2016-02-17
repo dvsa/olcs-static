@@ -1,6 +1,6 @@
 ---
 sectionTitle: Processing
-subSectionTitle: History
+subSectionTitle: Actions
 layout: licence.hbs
 actions:
   - label: New task
@@ -14,22 +14,25 @@ actions:
 table:
   - title: <strong>64</strong> Actions
     headers:
-      - label: Actions
+      - label: Action
+        class: sortable descending
+      - label: Info
         class: sortable descending
       - label: Date
         class: sortable
       - label: By
         class: sortable
     columns:
-      - Ammended business details
+      - <a href="">Operating centre change</a>
+      - 15 Pasture Road, Leeds
       - 13:01 12/03/13
       - Gillian Fogal
     rows: 4
 verticalNavItems:
   - label: Decisions
     link:  decisions.html
-  - label: History
-    link:  history.html
+  - label: Actions
+    link:  actions.html
   - label: Tasks
     link:  tasks.html
   - label: Notes
@@ -43,9 +46,9 @@ verticalNavItems:
 
 <div class="table-col">
   {{#each table}}
-    {{#is @index 0 }} 
+    {{#is @index 0 }}
       {{> _table }}
-    {{/is }} 
+    {{/is }}
   {{/each}}
 </div>
 
