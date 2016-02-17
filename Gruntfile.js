@@ -429,30 +429,6 @@
           }
         },
       },
-      
-      /**
-       * Replace
-       * https://github.com/yoniholmes/grunt-text-replace
-       */
-      
-      replace: {
-        istanbulIgnore: {
-          src: ['assets/_js/common/*.js'],
-          dest: 'assets/_js/common/',
-          replacements: [{
-            from: 'var OLCS = OLCS ||',
-            to: 'var OLCS = OLCS || /* istanbul ignore next */'
-          }]
-        },
-        undoIstanbulIgnore: {
-          src: ['assets/_js/common/*.js'],
-          dest: 'assets/_js/common/',
-          replacements: [{
-            from: 'var OLCS = OLCS || /* istanbul ignore next */',
-            to: 'var OLCS = OLCS ||'
-          }]
-        }
-      },
 
       /**
        * grunt-localscreenshots
@@ -550,9 +526,7 @@
 
     // Karma
     grunt.registerTask('test', [
-      'replace:istanbulIgnore',
-      'karma:test',
-      'replace:undoIstanbulIgnore'
+      'karma:test'
     ]);
     
     grunt.registerTask('test:ci', ['karma:ci']);
