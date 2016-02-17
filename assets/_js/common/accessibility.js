@@ -17,33 +17,38 @@ var OLCS = OLCS || {};
     var errorContainer      = '#validationSummary';
     var skipTrigger         = '#skipToContent';
     var skipTarget          = '#main';
-    var inputLabels         = '[type="radio"], [type="checkbox"], [type="file"]';
-    
-    /**
-     * Validation Error Messages
-     *
-     * Automatically set focus to and scroll to form errors
-     */
+    var inputLabels         = '[type="radio"], [type="checkbox"], [type="file"]';   
   
-    // Make error messages container focusable and set focus
-    $(errorContainer).attr('tabIndex', -1).focus();
+    // Run the code on each "render" of the page
+    OLCS.eventEmitter.on('render', function() {
+      
+      /**
+       * Validation Error Messages
+       *
+       * Automatically set focus to and scroll to form errors
+       */
+      
+      // Make error messages container focusable and set focus
+      $(errorContainer).attr('tabIndex', -1).focus();
+      
+      // Scroll to the error messages
+      window.location.hash = errorContainer;
     
-    // Scroll to the error messages
-    window.location.hash = errorContainer;
+      /** 
+       * Input labels
+       * 
+       * Allows focus to be given to label elements which contain child
+       * input elements, and removes ability to focus on said child elements 
+       * to prevent double tabbing
+       */
+      
+      // Make input labels focusable with the tab key
+      $('label').has(inputLabels).attr('tabindex', 0);
+      
+      // Prevent child inputs from being tab-able
+      $('label').find(inputLabels).attr('tabindex', -1);
     
-    /** 
-     * Input labels
-     * 
-     * Allows focus to be given to label elements which contain child
-     * input elements, and removes ability to focus on said child elements 
-     * to prevent double tabbing
-     */
-    
-    // Make input labels focusable with the tab key
-    $('label').has(inputLabels).attr('tabindex', 0);
-    
-    // Prevent child inputs from being tab-able
-    $('label').find(inputLabels).attr('tabindex', -1);
+    }); // OLCS.eventEmitter
     
     /**
      * Skip To Main Content
