@@ -11,7 +11,7 @@ table:
         class: sortable
       - label: Description
         class: sortable
-      - label: Date 
+      - label: Date
         class: sortable
       - label: Owner
         class: sortable
@@ -36,9 +36,9 @@ table:
       class: secondary disabled
 verticalNavItems:
   - label: Decisions
-    link:  
+    link:
   - label: History
-    link:  
+    link:
   - label: Tasks
     link:
     filterList:
@@ -71,7 +71,7 @@ verticalNavItems:
         - All
         - Open
         - Closed
-    - header: 
+    - header:
       type: checkboxes
       filters:
         - Urgent only
@@ -86,9 +86,9 @@ verticalNavItems:
 
 <div class="table-col">
   {{#each table}}
-    {{#is @index 0 }} 
+    {{#is @index 0 }}
       {{> _table }}
-    {{/is }} 
+    {{/is }}
   {{/each}}
 </div>
 

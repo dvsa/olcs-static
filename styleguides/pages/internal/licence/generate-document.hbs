@@ -51,37 +51,37 @@ table:
       - label: Delete
         class: secondary disabled
 
-form: 
+form:
   - fieldsets:
     - legend:
       fields:
         - label: Category
           type: select
-          values:      
+          values:
             - GV publishable application
           class:
         - label: Sub-category
           type: select
-          values: 
+          values:
             - GV var app - wrong TOA
           class:
     - legend: Bookmarks
       fields:
         - label: Bookmarks 1
           type: checkboxes
-          values:      
+          values:
             - Lorem ipsum dolor sit amet, consectetur adipiscing elit
             - Lorem ipsum dolor sit amet, consectetur adipiscing elit
             - Lorem ipsum dolor sit amet, consectetur adipiscing elit
         - label: Bookmarks 2
           type: checkboxes
-          values:      
+          values:
             - Lorem ipsum dolor sit amet, consectetur adipiscing elit
             - Lorem ipsum dolor sit amet, consectetur adipiscing elit
             - Lorem ipsum dolor sit amet, consectetur adipiscing elit
         - label: Bookmarks 3
           type: checkboxes
-          values:      
+          values:
             - Lorem ipsum dolor sit amet, consectetur adipiscing elit
             - Lorem ipsum dolor sit amet, consectetur adipiscing elit
             - Lorem ipsum dolor sit amet, consectetur adipiscing elit
@@ -96,7 +96,7 @@ form:
   <div class="overlay  js-hidden"></div>
   <div class="modal__wrapper js-hidden">
     <div class="modal">
-      <div class="modal__header"> 
+      <div class="modal__header">
         <h2 class="modal__title">Generate document</h2>
         <a href="" class="modal__close">Close</a>
       </div>
@@ -113,9 +113,9 @@ form:
 
   <div class="table-col">
     {{#each table}}
-      {{#is @index 0 }} 
+      {{#is @index 0 }}
         {{> _table }}
-      {{/is }} 
+      {{/is }}
     {{/each}}
   </div>
 
