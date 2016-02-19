@@ -43,19 +43,19 @@ var OLCS = OLCS || {};
        */
       
       // Make input labels focusable with the tab key
-      $('label').has(inputLabels).attr('tabindex', 0);
+      $('label:not(.disabled)').has(inputLabels).attr('tabindex', 0);
       
       // Prevent child inputs from being tab-able
       //$('label').find(inputLabels).attr('tabindex', -1);
       
       // When a label is 'focused', shift focus to the child input
-      $('label').has(inputLabels).focus(function() {
+      $('label:not(.disabled)').has(inputLabels).focus(function() {
         $(this).attr('tabindex', -1);
         $(this).addClass('focused').blur().find(inputLabels).focus();
       });
       
       // When an input is blured, remove simulated focus from parent label
-      $('label').find(inputLabels).blur(function () {
+      $('label:not(.disabled)').find(inputLabels).blur(function () {
         $(this).parent('label').removeClass('focused');
         $(this).parent('label').attr('tabindex', 0);
       });
