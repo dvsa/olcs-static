@@ -38,10 +38,6 @@
   .active a {
     color: $black;
     background: #FFF;
-    cursor: default;
     padding: 8px 13px 9px 13px;
-  }
-  .active a:focus {
-    outline: none;
   }
 }
