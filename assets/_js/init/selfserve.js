@@ -11,8 +11,6 @@ OLCS.ready(function() {
     parent: ".tooltip-parent"
   });
   
-  OLCS.eventEmitter.on("render", function() {
-    OLCS.accessibility();
-  });
+  OLCS.accessibility();
 
 });

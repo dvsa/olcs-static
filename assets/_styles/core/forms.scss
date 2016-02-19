@@ -709,6 +709,9 @@ select:focus,
           outline: 3px solid $outline;
         }
       }
+      &.focused {
+        outline: 3px solid $outline;
+      }
       &.disabled {
         cursor: default;
       }
