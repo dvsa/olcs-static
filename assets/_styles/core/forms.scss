@@ -710,7 +710,7 @@ select:focus,
         }
       }
       &.focused {
-        outline: 3px solid $outline;
+        @extend .attach-action__label.focused;
       }
       &.disabled {
         cursor: default;
@@ -740,6 +740,10 @@ select:focus,
     p {
       margin-bottom: 15px;
     }
+  }
+  
+  .attach-action__label.focused {
+    outline: 3px solid $outline;
   }
 
 }
