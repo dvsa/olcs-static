@@ -9,16 +9,19 @@ var OLCS = OLCS || {};
  */
 OLCS.formInit = (function(document, $, undefined) {
 
-  "use strict";
+  'use strict';
 
   return function init() {
+    
     function setup() {
-      // initialise Chosen
-      $(".chosen-select-medium").select2({width: "53%"});
-      $(".chosen-select-large").select2({width: "97%"});
+      //$('.chosen-select-medium').select2({ width: '53%' });
+      //$('.chosen-select-large').select2({ width: '97%' });
+      $('.chosen-select-medium').chosen({ width: '53%' });
+      $('.chosen-select-large').chosen({ width: '97%' });
     }
 
-    OLCS.eventEmitter.on("render", setup);
+    OLCS.eventEmitter.on('render', setup);
+    
   };
 
 }(document, window.jQuery));

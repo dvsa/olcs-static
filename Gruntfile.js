@@ -40,7 +40,8 @@
       var paths;
       return paths = [
         "assets/_js/common/vendor/jquery.1.11.0.js",
-        "assets/_js/common/vendor/select2.full.min.js",
+        //"assets/_js/common/vendor/select2.full.min.js",
+        "assets/_js/common/vendor/chosen.jquery.min.js",
         "assets/_js/common/vendor/jquery.details.min.js",
         "assets/_js/common/*.js",
         "assets/_js/" + path + "/*.js",
