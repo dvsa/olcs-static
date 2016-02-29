@@ -22,6 +22,7 @@
   h4 {
     float: left;
     width: 40%;
+    margin: 0;
   }
   p {
     @extend %paragraph--small;
@@ -45,7 +46,7 @@
 
 .overview-item__link {
   width: 96%;
-  padding: .8em 2% 0 2%;
+  padding: 0.8em 2%;
   color: $black;
   text-decoration: none;
   float: left;
@@ -53,7 +54,7 @@
   .disabled &  {
     color: $grey-1;
   }
-  &:hover {
+  &:hover { 
     background: $grey-3;
     color: $black;
     .disabled &  {
@@ -61,15 +62,14 @@
       color: $grey-1;
     }
   }
-}
-
-.overview-item__link:focus {
-  background: $grey-4;
-  h4 {
-    color: $grey-1;
-  }
-  p {
-    @extend %light-preloader;
-    text-indent: -9999px;
+  &:focus {
+    background: $grey-4;
+    h4 {
+      color: $grey-1;
+    }
+    p {
+      @extend %light-preloader;
+      text-indent: -9999px;
+    }
   }
 }

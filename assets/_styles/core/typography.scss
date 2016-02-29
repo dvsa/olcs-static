@@ -93,6 +93,9 @@ p {
   margin-top: 0;
   margin-bottom: 0.25em;
   font-weight: 700;
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 h1 {
@@ -129,14 +132,6 @@ strong {
 
 small {
   font-size: 80%;
-}
-
-html,
-button,
-input,
-select,
-textarea {
-  font-family: sans-serif;
 }
 
 .divider {

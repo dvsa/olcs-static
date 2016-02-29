@@ -47,6 +47,7 @@ table {
     margin: .25em auto 0;
     text-align: center;
     display: block;
+    cursor: pointer;
   }
   input[type="submit"]:focus {
     border: 0;
@@ -79,9 +80,18 @@ tr.disabled {
   }
 }
 
+th,
+td {
+  @extend %paragraph--small;
+  padding: 0.7em 10px 0.7em 0;
+  text-align: left;
+  > label {
+    margin: 0;
+  }
+}
+
 th {
   font-weight: 600;
-  border-top: 1px solid $grey-2;
   vertical-align: top;
   &[scope="row"] {
     border-top: 1px solid $grey-2;
@@ -90,38 +100,9 @@ th {
   }
 }
 
-.sortable {
-  padding: .5em 15px .5em 0;
-  a {
-    padding-right: 1em;
-    color: $black;
-    text-decoration: none;
-    position: relative;
-    &:after {
-      @include svg('dropdown-down');
-      content: "";
-      position: absolute;
-      display: inline-block;
-      right: 0;
-      top: 7px;
-    }
-  }
-  a:active {
-    color: $grey-1;
-  }
-}
-
-th,
-td {
-  @extend %paragraph--small;
-  padding: .5em 10px .5em 0;
-  text-align: left;
-}
-
 td {
   overflow: visible;
   border-top: 1px solid $grey-2;
-  vertical-align: top;
   ul {
     list-style-type: disc;
     margin-left: 20px;
@@ -169,10 +150,31 @@ tfoot {
   margin-top: -7px;
 }
 
+.sortable {
+  padding: .5em 15px .5em 0;
+  a {
+    padding-right: 1em;
+    color: $black;
+    text-decoration: none;
+    position: relative;
+    &:after {
+      @include svg('dropdown-down');
+      content: "";
+      position: absolute;
+      display: inline-block;
+      right: 0;
+      top: 7px;
+    }
+  }
+  a:active {
+    color: $grey-1;
+  }
+}
+
 // This hack is to break any long safety inspector names onto
 // two lines as per OLCS-11334
 
-#lva-safety { // ensure we are only affecting the desired table
+#lva-safety {
   td > [type="submit"] {
     word-break: break-word;
     text-align: left;
