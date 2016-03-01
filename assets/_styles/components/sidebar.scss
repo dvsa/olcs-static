@@ -1,12 +1,8 @@
-
-/*
-  Right-hand column
-  =================
-*/
-
+// Sidebar
+// -----------------------------------------------------------------
 
 // Selfserve theme
-// ---------------
+// -----------------------------------------------------------------
 
 @if $app == 'selfserve' {
 
@@ -37,8 +33,9 @@
   }
 
   .support {
-    border-top: 1px solid $grey-2;
-    padding-top: 1em;
+    &:first-child {
+      margin-top: $gutter-half;
+    }
     p {
       @extend %paragraph--small;
     }
@@ -55,7 +52,7 @@
 }
 
 // Internal theme
-// ---------------
+// -----------------------------------------------------------------
 
 @if $app == 'internal' {
 

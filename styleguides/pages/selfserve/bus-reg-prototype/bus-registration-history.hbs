@@ -67,6 +67,25 @@ table:
     rows: 4
 ---
 
+ <div class="overlay"></div>
+    <div class="modal__wrapper">
+        <div class="modal">
+            <div class="modal__header">
+                <h2 class="modal__title">Variation 4</h2>
+                <a href="" class="modal__close">Close</a>
+            </div>
+            <div class="modal__content">
+              {{#each read-only }}{{> _read-only }}{{/each }}
+              <hr />
+            </div>
+            <div class="actions-container">
+              <a href="" class="action--primary large">Close</a>
+            </div>
+            <!-- .modal__content -->
+        </div>
+        <!-- .modal -->
+    </div>
+
 <div class="row">
 
   <div class="three-quarters">

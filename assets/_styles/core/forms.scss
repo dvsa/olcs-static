@@ -1,4 +1,4 @@
-// Config
+// Forms
 // -----------------------------------------------------------------
 
 // Reset/Normalize
@@ -60,10 +60,9 @@ input::-moz-focus-inner {
   padding: 0;
 }
 
-/*
-  Wrapping elements
-  -----------------
-*/
+
+// Wrapping Elements
+// -----------------------------------------------------------------
 
 form {
   margin-bottom: 2em;
@@ -170,10 +169,8 @@ fieldset fieldset .field:last-child {
   background: $grey-3;
 }
 
-/*
-  Labelling
-  ---------
-*/
+// Legends & Labels
+// -----------------------------------------------------------------
 
 legend {
   @extend %h3;
@@ -201,10 +198,8 @@ label {
   }
 }
 
-/*
-  Inputs
-  ------
-*/
+// Inputs
+// -----------------------------------------------------------------
 
 input,
 textarea,
@@ -284,8 +279,9 @@ select[multiple] {
 
 input:focus,
 textarea:focus,
-select:focus {
-  outline: 3px solid #FFBF47;
+select:focus,
+%focused {
+  outline: 3px solid $outline;
 }
 
 .extra-long {
@@ -368,6 +364,9 @@ select:focus {
     @extend .large;
     float: left;
     margin-bottom: 10px;
+    &:focus {
+      outline: 3px solid $outline;
+    }
   }
   .attach-action__hint {
     @extend %paragraph--small;
@@ -651,30 +650,17 @@ select:focus {
   height: 200px;
 }
 
-/*
-  Character count
-  ---------------
-*/
-
+// character count
 .character-count {
   color: $grey-1;
-  margin: 5px 0 0 0;
-  clear: both;
-  display: block;
-  text-align: left;
-  width: 100%;
-}
-
-.js-financial-history + .character-count {
-  display: block;
-  margin-bottom: -20px;
+  margin-top: 5px;
 }
 
 // Hints
 .hint {
   display: block;
   color: $grey-1;
-  margin: .5em 0 5px;
+  margin-top: 0.5em;
   width: 90%;
   max-width: 600px;
   legend + & {
@@ -684,6 +670,13 @@ select:focus {
     @extend %paragraph--small;
     color: $grey-1;
     margin: 5px 0;
+  }
+}
+
+.form__filter {
+  float: none;
+  label {
+    @extend %paragraph--small;
   }
 }
 
@@ -705,10 +698,19 @@ select:focus {
         background: $grey-2;
         cursor: pointer;
       }
+      &:focus {
+        background: $white;
+        outline: 3px solid $outline;
+      }
       &.selected {
-        background: #FFF;
-        border: 1px solid $black;
-        padding: 13px 16px 13px 16px;
+        background: $white;
+        outline: 1px solid $black;
+        &:focus {
+          outline: 3px solid $outline;
+        }
+      }
+      &.focused {
+        @extend .attach-action__label.focused;
       }
       &.disabled {
         cursor: default;
@@ -738,6 +740,10 @@ select:focus {
     p {
       margin-bottom: 15px;
     }
+  }
+  
+  .attach-action__label.focused {
+    outline: 3px solid $outline;
   }
 
 }
@@ -819,12 +825,6 @@ select:focus {
   .terms--box {
     border: 1px solid $grey-2;
     background: $grey-4;
-  }
-
-  input:focus,
-  textarea:focus,
-  select:focus {
-    outline: 2px solid #ffbf47;
   }
 
   .hint,

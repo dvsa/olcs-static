@@ -28,17 +28,11 @@ var OLCS = OLCS || {};
        * Automatically set focus to and scroll to form errors
        */
 
+      // Make error messages container focusable and set focus
+      $(errorContainer).attr('tabIndex', -1).focus();
 
-      // If there are validation errors
-
-      if( $(errorContainer).length) {
-
-        // Make error messages container focusable and set focus
-        $(errorContainer).attr('tabIndex', -1).focus();
-
-        // Scroll to the error messages
-        window.location.hash = errorContainer;
-      }
+      // Scroll to the error messages
+      window.location.hash = errorContainer;
 
       /**
        * Input labels

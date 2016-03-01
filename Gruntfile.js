@@ -40,6 +40,7 @@
       var paths;
       return paths = [
         "assets/_js/common/vendor/jquery.1.11.0.js",
+        //"assets/_js/common/vendor/select2.full.min.js",
         "assets/_js/common/vendor/chosen.jquery.min.js",
         "assets/_js/common/vendor/jquery.details.min.js",
         "assets/_js/common/*.js",
@@ -116,7 +117,7 @@
         options: {
           processors: [
             require('autoprefixer')({
-              browsers: ['last 2 versions','IE 8','IE9','IE10']
+              browsers: ['last 2 versions', 'ie >= 8']
             })
           ]
         },
@@ -466,7 +467,9 @@
         grunt.loadNpmTasks("grunt-sass");
         grunt.loadNpmTasks("grunt-contrib-uglify");
     } else {
-        require('matchdep').filterAll(['grunt-*', '!grunt-cli', 'assemble']).forEach(grunt.loadNpmTasks);
+        require('matchdep').filterAll([
+          'grunt-*', '!grunt-cli', 'assemble'
+        ]).forEach(grunt.loadNpmTasks);
     }
     
     /**
@@ -509,19 +512,31 @@
      */
 
     // JS/SCSS Linting
-    //grunt.registerTask('lint', ['jshint:static', 'scsslint']);
-    grunt.registerTask('lint', ['jshint:static']);
+    grunt.registerTask('lint', [
+      'jshint:static',
+      //'scsslint'
+    ]);
 
     // Browser Sync
-    grunt.registerTask('serve', ['notify', 'compile:dev', 'browserSync', 'watch']);
+    grunt.registerTask('serve', [
+      'notify', 
+      'compile:dev', 
+      'browserSync', 
+      'watch'
+    ]);
 
     // Karma
-    grunt.registerTask('test', ['karma:test']);
+    grunt.registerTask('test', [
+      'karma:test'
+    ]);
+    
     grunt.registerTask('test:ci', ['karma:ci']);
     
     // To run an idividual component spec use: 
     // $ grunt test:single --target=componentName
-    grunt.registerTask('test:single', ['karma:single:' + target]);
+    grunt.registerTask('test:single', [
+      'karma:single:' + target
+    ]);
     
     /**
      * Prototype Tasks

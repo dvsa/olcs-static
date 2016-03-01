@@ -8,7 +8,7 @@
 .empty {
   background: $grey-4;
   overflow: auto;
-  padding: 1.25em 1em 1.75em;
+  padding: 1.25em 1em;
   display: block;
   border-left: 4px solid $grey-2;
   clear: left;
@@ -36,9 +36,6 @@
 
 @if $app == 'selfserve' {
   .empty {
-    p {
-      margin-bottom: 10px;
-    }
     .action--tertiary {
       clear: both;
       display: block;

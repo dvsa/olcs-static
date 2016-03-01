@@ -93,6 +93,9 @@ p {
   margin-top: 0;
   margin-bottom: 0.25em;
   font-weight: 700;
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 h1 {
@@ -131,17 +134,9 @@ small {
   font-size: 80%;
 }
 
-html,
-button,
-input,
-select,
-textarea {
-  font-family: sans-serif;
-}
-
 .divider {
   border-top: 1px solid $grey-2;
-  padding: 40px 0 10px;
+  padding: 1.5em 0 10px;
 }
 
 // Selfserve theme
@@ -173,7 +168,6 @@ textarea {
     margin-bottom: 12px;
     padding-bottom: 8px;
   }
-
 
   p,
   th,

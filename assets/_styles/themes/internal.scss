@@ -15,6 +15,7 @@ $app: internal;
 @import '../vendor/govuk_toolkit/stylesheets/_colours';
 @import '../vendor/govuk_toolkit/stylesheets/_grid_layout';
 @import '../vendor/govuk_toolkit/stylesheets/_typography';
+//@import '../vendor/select2';
 @import '../vendor/chosen';
 @import '../vendor/pace';
 
@@ -57,7 +58,7 @@ $app: internal;
 @import '../components/split-screen';
 @import '../components/modal';
 @import '../components/read-only';
-@import '../components/right-hand-column';
+@import '../components/sidebar';
 @import '../components/notice';
 @import '../components/tooltip';
 @import '../components/review';

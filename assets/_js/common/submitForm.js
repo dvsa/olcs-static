@@ -34,13 +34,16 @@ OLCS.submitForm = (function(document, $, undefined) {
 
     if (disableOnSubmit) {
       enabledElements = form.find(":input").not(":disabled");
-      enabledElements.attr("disabled", true);
+      enabledElements.attr({
+        "disabled"    : true,
+        "aria-hidden" : true
+      });
     }
 
     function complete() {
 
       if (disableOnSubmit) {
-        enabledElements.removeAttr("disabled");
+        enabledElements.removeAttr("disabled", "aria-hidden");
       }
 
       if (options.complete) {
