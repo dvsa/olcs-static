@@ -27,8 +27,6 @@ styleguides/screenshots
 
 # Third party/config
 #============================================================
-
-vendor/
 node_modules/
 
 .idea/
