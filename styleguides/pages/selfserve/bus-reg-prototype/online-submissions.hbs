@@ -80,16 +80,22 @@ user: bus operator
 
 <script type="text/javascript">
 
-  // Fake search functionality
-  window.onload=function() {
-    $('form.filters').submit(function() {
-      if ($('#showCancelledServices input').prop('checked')) {
-        window.location.replace('services--search.html');
-      } else {
-        window.location.replace('services--search--no-cancelled.html');
-      }
-      return false;
-    });
+  function fooSearch() {
+    var response = document.getElementById('search').value;
+    if (response == 'PB0000092/28') {
+      location = 'services--search--single.html';
+    } else {
+      location = 'services--search.html';
+    }
+    return false;
   }
+  
+  $('#showCancelledServices input').change(function() {
+    if ($(this).prop('checked')) {
+      $('tr.cancelled').show();
+    } else {
+      $('tr.cancelled').hide();
+    }
+  });
   
 </script>
