@@ -393,7 +393,7 @@
         },
         hbs: {
           files: ['styleguides/**/*.hbs'],
-          tasks: ['assemble']
+          tasks: ['clean:styleguide', 'assemble']
         },
         scripts: {
           files: ['assets/_js/**/*.js'],
@@ -549,6 +549,11 @@
 
     grunt.registerTask('authentication-prototype', function(directory) {
         globalConfig.prototypeName = 'authentication-prototype';
+        grunt.task.run(['clean:prototype', 'copy:prototype']);
+    });
+
+    grunt.registerTask('bus-reg-prototype', function(directory) {
+        globalConfig.prototypeName = 'bus-reg-prototype';
         grunt.task.run(['clean:prototype', 'copy:prototype']);
     });
 

@@ -4,7 +4,7 @@ subtitle: PC1057277/5
 layout: base.hbs
 user: bus operator
 breadcrumbs:
-  - link: bus-services.html
+  - link: services.html
     label: Back to bus services
 read-only:
   - title:
@@ -70,10 +70,12 @@ table:
 <div class="row">
 
   <div class="three-quarters">
+    
     {{#each read-only }}{{> _read-only }}{{/each }}
+    
     <hr />
 
-    <form action="">
+    <form action="" id="variationHistory">
       <div class="table__header">
         <h3>Variation history</h3>
       </div><!-- .table__header -->
@@ -93,32 +95,32 @@ table:
               <td>12 August 2013</td>
             </tr>
             <tr>
-              <td><a href="licences.html"><b>4</b></a></td>
+              <td>4</td>
               <td>12 May 2012</td>
               <td>12 Aug 2012</td>
               <td>12 Aug 2013</td>
             </tr>
             <tr>
-              <td><a href="licences.html"><b>3</b></a></td>
+              <td>3</td>
               <td>12 May 2012</td>
               <td>12 Aug 2012</td>
               <td>12 Aug 2013</td>
             </tr>
             <tr>
-              <td><a href="licences.html"><b>2</b></a></td>
+              <td>2</td>
               <td>2 Jan 2013</td>
               <td>7 Jan 2013</td>
               <td>24 Apr 2012</td>
             </tr>
             <tr>
-              <td><a href="licences.html">1</a></td>
+              <td>1</td>
               <td>12 May 2012</td>
               <td>12 Aug 2012</td>
               <td>1 Jan 2012</td>
             </tr>
           </tbody>
         </table>
-      </div><!-- .table__wrapper -->
+      </div>
     </form>
 
     <h3>Documents</h3>
@@ -129,3 +131,39 @@ table:
   </div><!-- .three-quarters -->
 
 </div>
+
+<!-- Fake Functionality -->
+
+<div class="hidden" id="fakeModal">
+  
+  <div class="overlay"></div>
+
+  <div class="modal__wrapper">
+    <div class="modal">
+      <div class="modal__header">
+        <h2 class="modal__title">Variation 4</h2>
+        <a href="" class="modal__close">Close</a>
+      </div>
+      <div class="modal__content">
+        {{#each read-only }}{{> _read-only }}{{/each }}
+        <hr />
+      </div>
+      <div class="actions-container">
+        <a href="" class="action--primary large">Close</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<style>
+  #variationHistory tr {
+    cursor: pointer;
+  }
+</style>
+
+<script type="text/javascript">
+  $('#variationHistory tr').click(function(){
+    $('#fakeModal').removeClass('hidden');
+  });
+</script>

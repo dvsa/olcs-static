@@ -12,9 +12,8 @@ user: bus operator
         <li class="tab-list__item"><a href="services.html" aria-select="false" tabindex="-1">Services</a></li>
         <li class="tab-list__item active"><a href="Online-submissions.html" aria-select="true" tabindex="0">Online submissions</a></li>
       </ul>
-    </div><!-- tabs -->
+    </div>
   </div>
-
 
   <div class="one-quarter">
     <form class="filters">
@@ -27,9 +26,10 @@ user: bus operator
       </fieldset>
     </form>
     {{> _support }}
-  </div><!-- three-eights -->
+  </div>
 
   <div class="three-quarters">
+    
     <!-- Registered bus services -->
 
     <div class="table__header">
@@ -37,7 +37,7 @@ user: bus operator
       <div class="actions-container">
         <a href="register-change.html" class="action--primary">Register, change or cancel</a>
       </div>
-    </div><!-- .table__header -->
+    </div>
      <div class="table__wrapper">
       <table>
         <thead>
@@ -70,8 +70,26 @@ user: bus operator
           <tr>
         </tbody>
       </table>
-    </div><!-- .table__wrapper -->
-  </div><!-- .five-eights -->
+    </div>
+    
+  </div>
 
 </div>
 
+<!-- Fake Functionality -->
+
+<script type="text/javascript">
+
+  // Fake search functionality
+  window.onload=function() {
+    $('form.filters').submit(function() {
+      if ($('#showCancelledServices input').prop('checked')) {
+        window.location.replace('services--search.html');
+      } else {
+        window.location.replace('services--search--no-cancelled.html');
+      }
+      return false;
+    });
+  }
+  
+</script>
