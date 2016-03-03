@@ -67,24 +67,23 @@ table:
     rows: 4
 ---
 
- <div class="overlay"></div>
-    <div class="modal__wrapper">
-        <div class="modal">
-            <div class="modal__header">
-                <h2 class="modal__title">Variation 4</h2>
-                <a href="" class="modal__close">Close</a>
-            </div>
-            <div class="modal__content">
-              {{#each read-only }}{{> _read-only }}{{/each }}
-              <hr />
-            </div>
-            <div class="actions-container">
-              <a href="" class="action--primary large">Close</a>
-            </div>
-            <!-- .modal__content -->
-        </div>
-        <!-- .modal -->
+<div class="overlay"></div>
+
+<div class="modal__wrapper">
+  <div class="modal">
+    <div class="modal__header">
+      <h2 class="modal__title">Variation 4</h2>
+      <a href="" class="modal__close">Close</a>
     </div>
+    <div class="modal__content">
+      {{#each read-only }}{{> _read-only }}{{/each }}
+      <hr />
+    </div>
+    <div class="actions-container">
+      <a href="" class="action--primary large">Close</a>
+    </div>
+  </div>
+</div>
 
 <div class="row">
 
@@ -137,10 +136,11 @@ table:
             </tr>
           </tbody>
         </table>
-      </div><!-- .table__wrapper -->
+      </div>
     </form>
 
     <h3>Documents</h3>
+    
     <p><a href="" class="download"><b>Uploaded EBSR pack</b></a><span> (1.4MB)</span><br />
     <p><a href="" class="download"><b>Official VOSA record</b></a><span> (156KB)</span><br />
     <p><a href="" class="download"><b>Route track map</b></a><span> (1.2MB)</span></p>

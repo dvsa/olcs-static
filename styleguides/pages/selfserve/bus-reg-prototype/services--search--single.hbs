@@ -9,19 +9,25 @@ user: bus operator
   <div class="full-width">
     <div class="tabs">
       <ul class="tab-list">
-        <li class="tab-list__item"><a href="services.html" aria-select="false" tabindex="-1">Services</a></li>
-        <li class="tab-list__item active"><a href="Online-submissions.html" aria-select="true" tabindex="0">Online submissions</a></li>
+        <li class="tab-list__item active"><a href="services.html" aria-select="false" tabindex="0">Services</a></li>
+        <li class="tab-list__item"><a href="online-submissions.html" aria-select="false" tabindex="-1">Online submissions</a></li>
       </ul>
     </div>
   </div>
 
   <div class="one-quarter">
-    <form class="filters">
+    <form class="filters" onSubmit="return fooSearch();">
       <fieldset>
         <legend>Search</legend>
         <div class="field">
           <label for="search">Enter keywords</label>
           <input id="search" name="search" type="search" class="extra-long">
+        </div>
+        <div class="field inline">
+          <label for="" id="showCancelledServices">
+            Show cancelled services
+            <input type="checkbox" class="checkbox inline">
+          </label>
         </div>
       </fieldset>
     </form>
@@ -33,11 +39,12 @@ user: bus operator
     <!-- Registered bus services -->
 
     <div class="table__header">
-      <h3>3 Online submissions</h3>
+      <h3>1 Service</h3>
       <div class="actions-container">
         <a href="register-change.html" class="action--primary">Register, change or cancel</a>
       </div>
     </div>
+    
      <div class="table__wrapper">
       <table>
         <thead>
@@ -50,33 +57,25 @@ user: bus operator
         </thead>
         <tbody>
           <tr>
-            <td><strong><a href="bus-registration.html">PC1057277</a></strong><span class="status orange">Processing</span></td>
-            <td>1</td>
-            <td>576,570</td>
-            <td>13 May 2013</td>
+            <td><strong><a href="bus-registration.html">PB0000092/28</a></strong><span class="status green">Registered</span></td>
+            <td>41</td>
+            <td>59 (57)</td>
+            <td>22 April 2002</td>
           </tr>
-          <tr>
-            <td><strong><a href="bus-registration.html">PC1057276</a></strong><span class="status orange">Processing</span></td>
-            <td>1</td>
-            <td>8,11,55</td>
-            <td>13 May 2013</td>
-          </tr>
-          <tr>
-            <td><strong><a href="bus-registration.html">PC1057275</a></strong><span class="status red">Failed</span></td>
-            <td>3</td>
-            <td>128,925</td>
-            <td>13 May 2013</td>
-          </tr>
-          <tr>
-        </tbody>
       </table>
     </div>
     
-  </div>
+  </div><!-- column -->
 
-</div>
+</div><!-- row -->
 
 <!-- Fake Functionality -->
+
+<style>
+  tr.cancelled {
+    display: none;
+  }
+</style>
 
 <script type="text/javascript">
 
