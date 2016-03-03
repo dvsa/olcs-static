@@ -592,6 +592,7 @@ select:focus,
 
 .validation-wrapper {
   @extend %validation-box;
+  @extend %clearfix;
   border-left: 3px solid $mellow-red;
   fieldset {
     margin-bottom: 0;
