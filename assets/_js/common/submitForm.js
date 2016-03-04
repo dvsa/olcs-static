@@ -64,6 +64,7 @@ OLCS.submitForm = (function(document, $, undefined) {
       preloaderType = "table";
     } else if (data.indexOf("table") >= 0) {
       preloaderType = "modal";
+      console.log("YEEEEEEEEEAAAAAAAAAAAHHHHHHH");
     }
 
     if (data.match(/(=search|=select)/)) {
