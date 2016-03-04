@@ -21,10 +21,12 @@ OLCS.fileUpload = (function(document, $, undefined) {
     var numUploaded        = 0;
     var totalUploads       = 0;
     var MULTI_UPLOAD_DELAY = 1000;
-
+ 
     var handleResponse = OLCS.normaliseResponse(function(response) {
       if (OLCS.modal.isVisible()) {
-        OLCS.modal.updateBody(response.body);
+        var fileUploader = $(response.body).find('.file-uploader');
+        $('.file-uploader').html(fileUploader);
+        $(submitSelector).hide();
       } else {
         F.render(mainBodySelector, response.body);
       }
