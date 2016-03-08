@@ -51,6 +51,8 @@ OLCS.preloader = (function(document, $, undefined) {
     }
 
     switch (type) {
+      case undefined:
+        break;
       case 'modal':
         modalPreloader();
         break;

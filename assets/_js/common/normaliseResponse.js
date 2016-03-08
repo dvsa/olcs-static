@@ -153,7 +153,10 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
         // Fake the modal.hide functionality to avoid reloading
         // the parent
         $(".modal__wrapper, .overlay").remove();
-        OLCS.preloader.show("modal");
+
+        if (OLCS.modal.isVisible()) {
+          OLCS.preloader.show("modal");
+        }
 
         OLCS.logger.debug(
           "caught 302 redirect; followRedirects=true; redirecting to " + response.location,
