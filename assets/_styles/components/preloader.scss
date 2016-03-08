@@ -24,7 +24,7 @@
   width: 28px;
   background-image: url('#{$assetPath}/bitmap/preloader.gif');
   @include device-pixel-ratio($ratio: 2) {
-    background-image: url('#{$assetPath}/bitmap/preloader.gif');
+    background-image: url('#{$assetPath}/bitmap/preloader-2x.gif');
   }
 }
 
@@ -34,9 +34,10 @@
   width: 20px;
   background-image: url('#{$assetPath}/bitmap/preloader--dark.gif');
   @include device-pixel-ratio($ratio: 2) {
-    background-image: url('#{$assetPath}/bitmap/preloader--dark.gif');
+    background-image: url('#{$assetPath}/bitmap/preloader--dark-2x.gif');
   }
 }
+
 
 .preloader-overlay--modal {
   @extend %preloader-overlay;
@@ -68,4 +69,13 @@
   @extend %light-preloader;
   float: right;
   margin-top: 8px;
+}
+
+
+.preloader-icon--large {
+  @extend %light-preloader;
+  margin: 20px auto;
+  display: block;
+  height: 34px;
+  width: 34px;
 }

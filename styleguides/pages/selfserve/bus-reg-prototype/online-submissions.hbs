@@ -1,5 +1,5 @@
 ---
-title: Bus services
+title: Bus registrations
 layout: base.hbs
 user: bus operator
 ---
@@ -9,8 +9,8 @@ user: bus operator
   <div class="full-width">
     <div class="tabs">
       <ul class="tab-list">
-        <li class="tab-list__item"><a href="services.html" aria-select="false" tabindex="-1">Services</a></li>
-        <li class="tab-list__item active"><a href="Online-submissions.html" aria-select="true" tabindex="0">Online submissions</a></li>
+        <li class="tab-list__item"><a href="services.html" aria-select="false" tabindex="-1">Registrations</a></li>
+        <li class="tab-list__item active"><a href="Online-submissions.html" aria-select="true" tabindex="0">Applications</a></li>
       </ul>
     </div>
   </div>
@@ -29,11 +29,11 @@ user: bus operator
   </div>
 
   <div class="three-quarters">
-    
+
     <!-- Registered bus services -->
 
     <div class="table__header">
-      <h3>3 Online submissions</h3>
+      <h3>3 Applications</h3>
       <div class="actions-container">
         <a href="register-change.html" class="action--primary">Register, change or cancel</a>
       </div>
@@ -71,7 +71,7 @@ user: bus operator
         </tbody>
       </table>
     </div>
-    
+
   </div>
 
 </div>
@@ -89,7 +89,7 @@ user: bus operator
     }
     return false;
   }
-  
+
   $('#showCancelledServices input').change(function() {
     if ($(this).prop('checked')) {
       $('tr.cancelled').show();
@@ -97,5 +97,5 @@ user: bus operator
       $('tr.cancelled').hide();
     }
   });
-  
+
 </script>
