@@ -69,13 +69,21 @@ tr.disabled {
   cursor: default;
   input[type="submit"] {
     cursor: default;
+    color: $grey-1;
+  }
+  input[disabled="disabled"] {
     text-decoration: none;
+  }
+  input[type="submit"] {
+    cursor: default;
     color: $grey-1;
   }
   a {
     text-decoration: underline;
   }
+  input[type="submit"]:hover,
   a:hover {
+    cursor: pointer;
     color: $black;
   }
 }
