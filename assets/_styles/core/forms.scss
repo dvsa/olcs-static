@@ -681,15 +681,18 @@ select:focus,
   }
 }
 
+.checkbox {
+  &.inline label {
+    clear: none;
+  }
+}
+
 // Selfserve theme
 // ---------------
 
 @if $app == 'selfserve' {
 
   .checkbox {
-    &.inline label {
-      clear: none;
-    }
     label {
       background: $grey-3;
       padding: 14px 17px 14px 17px;

@@ -15,7 +15,8 @@ $app: selfserve;
 @import '../vendor/govuk_toolkit/stylesheets/_colours';
 @import '../vendor/govuk_toolkit/stylesheets/_grid_layout';
 @import '../vendor/govuk_toolkit/stylesheets/_typography';
-@import '../vendor/select2';
+//@import '../vendor/select2';
+@import '../vendor/chosen';
 
 // Core
 @import '../core/icon-sprite';
