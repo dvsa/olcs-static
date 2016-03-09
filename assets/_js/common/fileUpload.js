@@ -24,8 +24,8 @@ OLCS.fileUpload = (function(document, $, undefined) {
  
     var handleResponse = OLCS.normaliseResponse(function(response) {
       if (OLCS.modal.isVisible()) {
-        var fileUploader = $(response.body).find('.file-uploader');
-        $('.file-uploader').html(fileUploader);
+        var fileUploader = $(response.body).find(".file-uploader");
+        $(".file-uploader").html(fileUploader);
         $(submitSelector).hide();
       } else {
         F.render(mainBodySelector, response.body);
