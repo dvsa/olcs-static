@@ -6,8 +6,9 @@
 */
 
 .user-header {
-  overflow: auto;
-  padding: 1em 0;
+  display: inline-block;
+  width: 100%;
+  padding: .8em 0;
   margin-bottom: .5em;
 }
 
@@ -16,7 +17,7 @@
   &__item {
     display: inline;
     & + & {
-      margin-left: 0.5em;
+      margin-left: .5em;
     }
   }
 }

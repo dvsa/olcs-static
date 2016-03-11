@@ -19,7 +19,7 @@
     position: relative;
   }
   &__message {
-    @media (max-width: breakpoint('break-4')){
+    @media (max-width: breakpoint('break-3')){
       display: none;
     }
   }
