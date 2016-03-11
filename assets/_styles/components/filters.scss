@@ -1,13 +1,14 @@
-
-/*
-  Filters
-  =======
-*/
+/**
+ * Filters
+ */
 
 .filters {
   padding-top: .5em;
   background: #FFF;
   font-weight: 400;
+  @if $app == 'internal' {
+    margin: 0.5em 0 -7px;
+  }
   .field {
     background: none !important;
     margin-bottom: 20px;
@@ -15,7 +16,9 @@
   label {
     margin-bottom: 5px;
   }
-  select { width: 100%; }
+  select { 
+    width: 100%; 
+  }
   input[type="search"] {
     width: 95%;
     padding: .5em 2%;
@@ -26,22 +29,12 @@
       @extend .hint--small;
       width: 100%;
   }
-}
-
-.vertical-navigation .fiters,
-.app-navigation .fiters {
-  border-top: 3px solid $primaryColour;
-  padding-top: .75em;
-  form {
-    margin: 0;
-  }
-}
-
-// Internal theme
-// ---------------
-
-@if $app == 'internal' {
-  .filters {
-    margin: 0.5em 0 -7px;
+  .vertical-navigation &,
+  .app-navigation & {
+    border-top: 3px solid $primaryColour;
+    padding-top: .75em;
+    form {
+      margin: 0;
+    }
   }
 }

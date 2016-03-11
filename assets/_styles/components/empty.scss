@@ -1,9 +1,8 @@
-
-/*
-  Empty
-  =====
-  Styling for empty tables
-*/
+/**
+ * Empty
+ *
+ * Styling for empty tables
+ */
 
 .empty {
   background: $grey-4;
@@ -31,8 +30,9 @@
   }
 }
 
-// Selfserve theme
-// ---------------
+/**
+ * Selfserve only styles
+ */
 
 @if $app == 'selfserve' {
   .empty {
@@ -45,14 +45,15 @@
   }
 }
 
-// Internal theme
-// ---------------
+/**
+ * Internal only styles
+ */
 
 @if $app == 'internal' {
   .empty {
     padding: 15px 15px 19px;
-  }
-  .empty .actions-container {
-    margin-top: 5px;
+    .actions-container {
+      margin-top: 5px;
+    }
   }
 }

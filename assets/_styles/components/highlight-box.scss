@@ -1,10 +1,11 @@
-// Highlight Box
-// -----------------------------------------------------------------
-
-// This is visually similar to the comment module, at some point 
-// they should become combined into one module. 'highlighx-box' 
-// is a more abstract name than 'comment' so recommend to rename 
-// this file from 'comment' to 'highlight-box'
+/**
+ * Highlight Box
+ *
+ * This is visually similar to the comment component, at some point 
+ * they should become combined into one module. 'highlighx-box' 
+ * is a more abstract name than 'comment' so recommend to rename 
+ * that file from 'comment' to 'highlight-box'
+ */
 
 .highlight-box {
   background: $grey-4;

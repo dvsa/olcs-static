@@ -1,70 +1,67 @@
-// Global Header
-// -----------------------------------------------------------------
-//
-// The global GOV.UK standard header to contain the GOV.UK logo,
-// page title and relevant navigation links
-//
+/**
+ * Global Header
+ *
+ * The global GOV.UK standard header to contain the GOV.UK logo,
+ * page title and relevant navigation links
+ */
 
 .global-header {
+  
   background: $black;
   color: $white;
   padding: 6px 0;
+  
   &__wrapper {
     @extend .page-wrapper;
   }
-}
 
-// Selfserve theme
-// ---------------
+  /**
+   * Selfserve only styles
+   */
 
-@if $app == 'selfserve' {
-
-  .global-header__title {
-    float: left;
-    clear: none;
-    margin: 5px 0 0 180px;
-    @media (max-width: $mobile-column-stack) {
-      margin: 5px 0 0 0;
-      clear: both;
-    }
-  }
-
-  .global-header__logo {
-    float: left;
-    padding-top: 6px;
-    color: white;
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 1;
-    text-decoration: none;
-    @media (max-width: $mobile-column-stack) {
-      padding-top: 10px;
-      margin-left: 0;
-    }
-    img {
-      margin-top: -3px;
-      width: 35px;
-      height: 31px;
-      padding-right: 6px;
+  @if $app == 'selfserve' {
+    &__title {
       float: left;
+      clear: none;
+      margin: 5px 0 0 180px;
+      @media (max-width: $mobile-column-stack) {
+        margin: 5px 0 0 0;
+        clear: both;
+      }
     }
-    &:hover {
+    &__logo {
+      float: left;
+      padding-top: 6px;
+      color: white;
+      font-weight: 700;
+      font-size: 30px;
+      line-height: 1;
       text-decoration: none;
-      border-bottom: 1px solid #FFF;
-      margin-bottom: -1px;
-      color: #FFF;
+      @media (max-width: $mobile-column-stack) {
+        padding-top: 10px;
+        margin-left: 0;
+      }
+      img {
+        margin-top: -3px;
+        width: 35px;
+        height: 31px;
+        padding-right: 6px;
+        float: left;
+      }
+      &:hover {
+        text-decoration: none;
+        border-bottom: 1px solid #FFF;
+        margin-bottom: -1px;
+        color: #FFF;
+      }
     }
   }
 
-}
+  /**
+   * Internal only styles
+   */
 
-
-// Internal theme
-// ---------------
-
-@if $app == 'internal' {
-
-  .global-header {
+  @if $app == 'internal' {
     background: #111;
     position: relative;
     overflow: visible;
@@ -89,5 +86,5 @@
       }
     }
   }
-
-}
+  
+}// .global-header

@@ -1,9 +1,6 @@
-
-/*
-  User header
-  ==============
-  Component decription
-*/
+/**
+ * User Header
+ */
 
 .user-header {
   overflow: auto;
@@ -21,8 +18,9 @@
   }
 }
 
-// Selfserve theme
-// ---------------
+/**
+ * Selfserve only styles
+ */
 
 @if $app == 'selfserve' {
   .user-header {
@@ -32,8 +30,9 @@
   }
 }
 
-// Internal theme
-// ---------------
+/**
+ * Internal only styles
+ */
 
 @if $app == 'internal' {
   .user-header {

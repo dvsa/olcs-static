@@ -1,8 +1,6 @@
-
-/*
-  Comment
-  =======
-*/
+/**
+ * Comment
+ */
 
 %comment {
   float: left;
@@ -73,19 +71,18 @@
   &__edit {
     @extend %edit-link;
   }
-}
-
-.submission-item__meta {
-  width: 100%;
-  float: left;
-  margin: 0 0 .5em 1em;
-  p {
+  &__meta {
+    width: 100%;
     float: left;
-    width: 20%;
-    margin-right: 5%;
-    clear: none;
-  }
-  b {
-    display: block;
+    margin: 0 0 .5em 1em;
+    p {
+      float: left;
+      width: 20%;
+      margin-right: 5%;
+      clear: none;
+    }
+    b {
+      display: block;
+    }
   }
 }

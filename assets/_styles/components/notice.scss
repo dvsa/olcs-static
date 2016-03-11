@@ -1,5 +1,6 @@
-// Notices
-// -----------------------------------------------------------------
+/**
+ * Notices
+ */
 
 %notice {
   border-radius: 2px;
@@ -17,7 +18,6 @@
 }
 
 @mixin notice($color) {
-  
   $background : desaturate(lighten($color, 50%), 10%);
   $border     : lighten($color, 10%);
   
@@ -26,7 +26,6 @@
   background: $background;
   border: 1px solid $border;
   color: $color;
-  
 }
 
 .notice-container {

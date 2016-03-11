@@ -1,8 +1,6 @@
-
-/*
-  Results-settings
-  ================
-*/
+/**
+ * Result Settings
+ */
 
 .results-settings {
   float: left;
@@ -18,9 +16,3 @@
     clear: none;
   }
 }
-
-
-// Internal theme
-// ---------------
-
-@if $app == 'internal' {}

@@ -1,8 +1,6 @@
-
-/*
-  Read only
-  =========
-*/
+/**
+ * Read Only
+ */
 
 .read-only {
   display: block;
@@ -118,11 +116,9 @@ dd {
   }
 }
 
-
-
-
-// Selfserve theme
-// ---------------
+/**
+ * Selfserve only styles
+ */
 
 @if $app == 'selfserve' {
   .read-only h4 {
@@ -133,8 +129,9 @@ dd {
   }
 }
 
-// Internal theme
-// ---------------
+/**
+ * Internal only styles
+ */
 
 @if $app == 'internal' {
 

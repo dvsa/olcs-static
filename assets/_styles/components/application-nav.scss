@@ -1,17 +1,22 @@
-// Application Navigation
-// -----------------------------------------------------------------
+/**
+ * Application Navigation
+ *
+ * Used for Internal application sidebar navigation
+ */
 
-// Config
-// -----------------------------------------------------------------
-
+/**
+ * Configuration
+ */
+ 
 $mobile-statuses: (
-  'complete'   : 'internal-application-complete',
-  'edited'     : 'internal-application-edited',
-  'warn'       : 'internal-application-warning'
+  'complete' : 'internal-application-complete',
+  'edited'   : 'internal-application-edited',
+  'warn'     : 'internal-application-warning'
 );
 
-// Component
-// -----------------------------------------------------------------
+/**
+ * Component
+ */
 
 .app-navigation {
   
@@ -32,10 +37,9 @@ $mobile-statuses: (
   
   .current {
     border-bottom: 3px solid $primaryColour;
-  }
-  
-  .current.no-background {
-    background: none;
+    &.no-background {
+      background: none;
+    }
   }
   
   &__item {
@@ -61,4 +65,4 @@ $mobile-statuses: (
     }
   }
   
-}
+} // .app-navigation

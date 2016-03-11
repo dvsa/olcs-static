@@ -1,8 +1,6 @@
-
-/*
-  Pagination
-  ==========
-*/
+/**
+ * Pagination
+ */
 
 .pagination {
   &__item {
@@ -17,12 +15,4 @@
   a[rel="Next"] {
     display: none;
   }
-}
-
-// Internal theme
-// ---------------
-
-@if $app == 'internal' {
-
-
 }

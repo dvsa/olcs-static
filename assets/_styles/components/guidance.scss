@@ -1,8 +1,6 @@
-
-/*
-  Guidance
-  ==============
-*/
+/**
+ * Guidance
+ */
 
 .guidance {
   background: $grey-4;
@@ -49,8 +47,9 @@
   }
 }
 
-// Internal theme
-// ---------------
+/**
+ * Internal only styles
+ */
 
 @if $app == 'internal' {
   .guidance {

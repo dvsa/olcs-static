@@ -1,8 +1,6 @@
-
-/*
-  Preloader
-  =========
-*/
+/**
+ * Preloader
+ */
 
 %preloader-overlay {
   @include opacity(.7);
@@ -38,7 +36,6 @@
   }
 }
 
-
 .preloader-overlay--modal {
   @extend %preloader-overlay;
   position: fixed;
@@ -70,7 +67,6 @@
   float: right;
   margin-top: 8px;
 }
-
 
 .preloader-icon--large {
   @extend %light-preloader;

@@ -1,25 +1,25 @@
-
-/*
-  Breadcrumb
-  ==========
-*/
+/**
+ * Breadcrumb
+ *
+ * Used for both Internal & Selfserve applications
+ */
 
 .breadcrumbs {
   overflow: visible;
   list-style: none;
+  &__item {
+    display: inline-block;
+    color: $black;
+  }
 }
 
-.breadcrumbs__item {
-  display: inline-block;
-  color: $black;
-}
-
-// Selfserve theme
-// ---------------
+/**
+ * Selfserve only styles
+ */
 
 @if $app == 'selfserve' {
 
-  // TODO: Uncomment the lines below once selfserve breadcrumbs have b
+  // TODO: Uncomment the lines below once selfserve breadcrumbs have
   // been marged
 
   .breadcrumbs a {
@@ -59,9 +59,10 @@
 
 }
 
-// Internal theme
-// ---------------
-
+/**
+ * Internal only styles
+ */
+ 
 @if $app == 'internal' {
 
   .breadcrumbs {

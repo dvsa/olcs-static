@@ -1,16 +1,14 @@
+/**
+ * Page Header
+ */
 
-/*
-  Page header
-  ============
-*/
-
-
-// Selfserve theme
-// ---------------
-
-@if $app == 'selfserve' {
+.page-header {
+ 
+  /**
+  * Selfserve only styles
+  */
   
-  .page-header {
+  @if $app == 'selfserve' {
 
     position: relative;
     margin-bottom: 2.5em;
@@ -69,16 +67,13 @@
       }
     }
 
-  }
+  }// selfserve
 
-}
+  /**
+  * Internal only styles
+  */
 
-// Internal theme
-// ---------------
-
-@if $app == 'internal' {
-
-  .page-header {
+  @if $app == 'internal' {
     width: 100%;
     border-bottom: 1px solid $grey-3;
     background: $grey-4;
@@ -97,6 +92,6 @@
         margin: 5px 0 0;
       }
     }
-  }
-
-}
+  }// internal
+  
+}// .page-header
