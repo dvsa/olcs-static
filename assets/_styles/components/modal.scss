@@ -24,10 +24,50 @@
   width: 600px;
   overflow: visible;
   float: left;
+  
   @media(max-width: breakpoint('break-3')) {
     margin: 46px 0 5%;
     width: auto;
     left: 0;
+  }
+  
+  &, &--alert {
+    position: relative;
+    background: $white;
+    z-index: 2;
+    padding: 30px;
+    overflow: hidden;
+    @media (max-width: breakpoint('break-3')) {
+      padding: 20px;
+    }
+    &:focus {
+      outline: none;
+    }
+    &__close {
+      position: absolute;
+      text-indent: -9999px;
+      top: 20px;
+      right: 20px;
+    }
+    &__title {
+      margin-bottom: 20px;
+    }
+    form {
+      overflow: visible;
+      width: 100%;
+      margin-bottom: 0;
+      
+    }
+    form + form {
+      margin-top: -4.5em;
+    }
+    table {
+      margin-bottom: 1.5em;
+    }
+    .actions-container {
+      display: block;
+      margin: 3px 0;
+    }
   }
   
   &__wrapper {
@@ -54,46 +94,7 @@
     }
   }
   
-}
-
-.modal,
-.modal--alert {
-  position: relative;
-  background: $white;
-  z-index: 2;
-  padding: 30px;
-  overflow: hidden;
-  @media (max-width: breakpoint('break-3')) {
-    padding: 20px;
-  }
-  &:focus {
-    outline: none;
-  }
-  &__close {
-    position: absolute;
-    text-indent: -9999px;
-    top: 20px;
-    right: 20px;
-  }
-  &__title {
-    margin-bottom: 20px;
-  }
-  form {
-    overflow: visible;
-    width: 100%;
-    margin-bottom: 0;
-  }
-  form + form {
-    margin-top: -4.5em;
-  }
-  table {
-    margin-bottom: 1.5em;
-  }
-  .actions-container {
-    display: block;
-    margin: 3px 0;
-  }
-}
+}// .modal
 
 /**
  * Selfserve only styles
@@ -113,7 +114,7 @@
     }
   }
 
-}
+}// selfserve
 
 /**
  * Internal only styles
@@ -127,6 +128,34 @@
     &__title {
       @extend %h4;
     }
+    &__header {
+      border-radius: 3px 3px 0 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      padding: 12px 15px;
+      background: $grey-4;
+      border-bottom: 1px solid $grey-3;
+    }
+    &__close {
+      top: 11px;
+      text-indent: -9999px;
+      height: 22px;
+      width: 22px;
+      @include svg('internal-modal-close');
+    }
+    &--alert {
+      border-radius: 3px;
+      padding: 75px 20px 20px;
+      .modal__title {
+        @extend %h4;
+        margin-bottom: 0;
+      }
+      p {
+        @extend %paragraph--small;
+      }
+    }
     .actions-container {
       position: absolute;
       bottom: 0;
@@ -139,35 +168,4 @@
     }
   }
 
-  .modal__header {
-    border-radius: 3px 3px 0 0;
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    padding: 12px 15px;
-    background: $grey-4;
-    border-bottom: 1px solid $grey-3;
-  }
-
-  .modal--alert {
-    border-radius: 3px;
-    padding: 75px 20px 20px;
-    .modal__title {
-      @extend %h4;
-      margin-bottom: 0;
-    }
-    p {
-      @extend %paragraph--small;
-    }
-  }
-
-  .modal__close {
-    top: 11px;
-    text-indent: -9999px;
-    height: 22px;
-    width: 22px;
-    @include svg('internal-modal-close');
-  }
-
-}
+}// internal
