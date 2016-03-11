@@ -39,11 +39,11 @@
     var scriptPaths = function(path) {
       var paths;
       return paths = [
-        "assets/_js/common/vendor/jquery.1.11.0.js",
-        //"assets/_js/common/vendor/select2.full.min.js",
-        "assets/_js/common/vendor/chosen.jquery.min.js",
-        "assets/_js/common/vendor/jquery.details.min.js",
-        "assets/_js/common/*.js",
+        "assets/_js/vendor/jquery.1.11.0.js",
+        //"assets/_js/vendor/select2.full.min.js",
+        "assets/_js/vendor/chosen.jquery.min.js",
+        "assets/_js/vendor/jquery.details.min.js",
+        "assets/_js/components/*.js",
         "assets/_js/" + path + "/*.js",
         "assets/_js/init/common.js",
         "assets/_js/init/" + path + ".js"
@@ -53,7 +53,7 @@
     // Define the main JS files for each theme, using the above function
     var scripts = {
       "public/js/internal.js"  : [
-        scriptPaths("internal"), "assets/_js/common/vendor/pace.min.js"
+        scriptPaths("internal"), "assets/_js/vendor/pace.min.js"
       ],
       "public/js/selfserve.js" : scriptPaths("selfserve")
     };
@@ -65,9 +65,9 @@
         "node_modules/sinon/lib/sinon.js",
         "node_modules/sinon/lib/sinon/spy.js",
         "node_modules/sinon/lib/sinon/**/*.js",
-        "assets/_js/common/vendor/jquery.1.11.0.js",
-        "assets/_js/common/vendor/**/*.js",
-        "assets/_js/common/*.js",
+        "assets/_js/vendor/jquery.1.11.0.js",
+        "assets/_js/vendor/**/*.js",
+        "assets/_js/components/*.js",
         "test/js/setup.js",
         "test/js/**/" + path +  ".test.js"
       ];
