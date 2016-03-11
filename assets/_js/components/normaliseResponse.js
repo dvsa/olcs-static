@@ -81,7 +81,6 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
         status: 200,
         title: "",
         body: responseString,
-        // @TODO populate actual array of errors too
         //errors: [],
         hasErrors: false,
         hasWarnings: false
@@ -131,8 +130,6 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
         response.body += script.html();
       } else {
         OLCS.logger.debug("no matching inline script for " + scriptSelector, "normaliseResponse");
-        // @TODO: if the original body contained inline script but we filtered it via js-body
-        // or js-body__main, we'll have 'lost' the inline script on the page. Try and find it here
       }
 
       return response;
@@ -150,8 +147,7 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
       // is a straightforward redirect
       if (response.status === 302 && followRedirects) {
 
-        // Fake the modal.hide functionality to avoid reloading
-        // the parent
+        // Fake the modal.hide functionality to avoid reloading the parent
         $(".modal__wrapper, .overlay").remove();
 
         if (OLCS.modal.isVisible()) {

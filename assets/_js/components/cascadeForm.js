@@ -14,6 +14,7 @@ OLCS.cascadeForm = (function(document, $, undefined) {
   "use strict";
 
   return function init(options) {
+    
     var selector = options.form || "form";
     var formSelector = selector;
     var previousFieldset;
@@ -29,9 +30,6 @@ OLCS.cascadeForm = (function(document, $, undefined) {
       /**
        * the actual event handler simply finds all inputs in the
        * target fieldset and clears them out
-       *
-       * @TODO only checkboxes and radios are supported at the moment, easy to
-       * change though
        */
       return function clear() {
         var elems = $(target).find(":input");
@@ -84,6 +82,7 @@ OLCS.cascadeForm = (function(document, $, undefined) {
      * if so; although currently there are exceptions to this
      */
     function triggerRule(group, selector, rule) {
+      
       var show;
       var elem;
       var action = "none";
@@ -127,6 +126,7 @@ OLCS.cascadeForm = (function(document, $, undefined) {
       } else if (action === "hide") {
         elem.attr("aria-hidden", "true");
       }
+      
     }
 
     /**
@@ -135,6 +135,7 @@ OLCS.cascadeForm = (function(document, $, undefined) {
      * the group itself rather than a child
      */
     function findContainer(group, selector) {
+      
       if (selector === "*") {
         return OLCS.formHelper(group);
       }
@@ -152,8 +153,6 @@ OLCS.cascadeForm = (function(document, $, undefined) {
 
         switch (parts[0]) {
           case "label":
-            // @NOTE: we make some assumptions about the markup surrounding labels
-            // feel free to update as and when
             return $(formSelector).find("label[for=" + parts[1] + "]").parents(".field");
           case "selector":
             return $(formSelector).find(parts[1]);
@@ -167,17 +166,12 @@ OLCS.cascadeForm = (function(document, $, undefined) {
       }
 
       if (selector.search("=") !== -1) {
-
         // assume a name=value pair specifies a radio button with a given value
         parts = selector.split("=");
-
-        // @TODO `group` isn't always right here; it can be an arbitrary selector
-        // not just a data-group=xxx name. This needs fixing at some point
         return OLCS.formHelper.findInput(group, parts[0])
         .filter("[value=" + parts[1] + "]")
         // radios are always wrapped inside a label
         .parents("label:last");
-
       }
 
       // otherwise assume a straight input name which we assume is inside a field container
