@@ -12,12 +12,16 @@ var OLCS = OLCS || {};
 
   'use strict';
 
-  return function init() {
-
-    var errorContainer      = '#validationSummary';
-    var skipTrigger         = '#skipToContent';
-    var skipTarget          = '#main';
-    var inputLabels         = '[type="radio"], [type="checkbox"], [type="file"]';
+  return function init(custom) {
+    
+    var options = $.extend({
+      
+      errorContainer : '#validationSummary',
+      skipTrigger    : '#skipToContent',
+      skipTarget     : '#main',
+      inputLabels    : '[type="radio"], [type="checkbox"], [type="file"]'
+      
+    }, custom);
 
     // Run the code on each "render" of the page
     OLCS.eventEmitter.on('render', function() {
@@ -28,15 +32,12 @@ var OLCS = OLCS || {};
        * Automatically set focus to and scroll to form errors
        */
 
-      if ($(errorContainer).length) {
+      if ($(options.errorContainer).length) {
         // Make error messages container focusable and set focus
-        $(errorContainer).attr('tabIndex', -1).focus();
-
+        $(options.errorContainer).attr('tabIndex', -1).focus();
         // Scroll to the error messages
-        window.location.hash = errorContainer;
+        window.location.hash = options.errorContainer;
       }
-
-
 
       /**
        * Input labels
@@ -47,19 +48,19 @@ var OLCS = OLCS || {};
        */
 
       // Make input labels focusable with the tab key
-      $('label:not(.disabled)').has(inputLabels).attr('tabindex', 0);
+      $('label:not(.disabled)').has(options.inputLabels).attr('tabindex', 0);
 
       // Prevent child inputs from being tab-able
-      //$('label').find(inputLabels).attr('tabindex', -1);
+      //$('label').find(options.inputLabels).attr('tabindex', -1);
 
       // When a label is 'focused', shift focus to the child input
-      $('label:not(.disabled)').has(inputLabels).focus(function() {
+      $('label:not(.disabled)').has(options.inputLabels).focus(function() {
         $(this).attr('tabindex', -1);
-        $(this).addClass('focused').blur().find(inputLabels).focus();
+        $(this).addClass('focused').blur().find(options.inputLabels).focus();
       });
 
       // When an input is blured, remove simulated focus from parent label
-      $('label:not(.disabled)').find(inputLabels).blur(function () {
+      $('label:not(.disabled)').find(options.inputLabels).blur(function () {
         $(this).parent('label').removeClass('focused');
         $(this).parent('label').attr('tabindex', 0);
       });
@@ -76,8 +77,8 @@ var OLCS = OLCS || {};
      * http://stackoverflow.com/questions/6280399/skip-links-not-working-in-chrome
      */
 
-    $(skipTrigger).click(function () {
-      $(skipTarget).attr('tabIndex', -1).focus();
+    $(options.skipTrigger).click(function () {
+      $(options.skipTarget).attr('tabIndex', -1).focus();
     });
 
   };
