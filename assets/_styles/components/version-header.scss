@@ -7,17 +7,18 @@
   margin: 0;
   overflow: hidden;
   padding: 5px 10px 2px;
-}
-
-.version-header p {
-  clear: none;
-  color: $grey-2;
-  float: left;
-}
-
-.version-header span {
-  color: #FFF;
-  font-weight: 600;
+  p {
+    clear: none;
+    color: $grey-2;
+    float: left;
+    @if $app == 'selfserve' {
+      font-size: font-size(3);
+    }
+  }
+  span {
+    color: #FFF;
+    font-weight: 600;
+  }
 }
 
 .environment-marker {
@@ -29,14 +30,4 @@
 
 .version {
   margin-left: 10px;
-}
-
-/**
- * Selfserve only styles
- */
-
-@if $app == 'selfserve' {
-  .version-header p {
-    font-size: font-size(3);
-  }
 }

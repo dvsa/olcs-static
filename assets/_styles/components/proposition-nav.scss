@@ -15,31 +15,30 @@
     margin: 4px 0 2px;
     font-size: font-size(6);
   }
-}
-
-.proposition__toggle {
-  display: none;
-  float: right;
-  color: #FFF;
-  text-decoration: none;
-  margin-top: 5px;
-  @media (max-width: breakpoint('break-4')) {
-    display: block;
-  }
-  &:hover {
+  &__toggle {
+    display: none;
+    float: right;
     color: #FFF;
-    text-decoration: underline;
-  }
-  &:focus {
-    color: #FFF;
-  }
-  &::after {
-    display: inline-block;
-    font-size: 8px;
-    height: 8px;
-    padding-left: 5px;
-    vertical-align: middle;
-    content: " \25BC";
+    text-decoration: none;
+    margin-top: 5px;
+    @media (max-width: breakpoint('break-4')) {
+      display: block;
+    }
+    &:hover {
+      color: #FFF;
+      text-decoration: underline;
+    }
+    &:focus {
+      color: #FFF;
+    }
+    &::after {
+      display: inline-block;
+      font-size: 8px;
+      height: 8px;
+      padding-left: 5px;
+      vertical-align: middle;
+      content: " \25BC";
+    }
   }
 }
 
