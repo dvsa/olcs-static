@@ -1,8 +1,10 @@
-// Typography
-// -----------------------------------------------------------------
+/**
+ * Typography
+ */
 
-// Adaptive Font Mixin
-// -----------------------------------------------------------------
+/**
+ * Adaptive Font Mixin
+ */
 
 @mixin font-size($font-size, $small-font-size: null, $print-font-size: null) {
   @if $is-print and $print-font-size {
@@ -17,10 +19,11 @@
   }
 }
 
-// Size Patterns
-// Responsive, reusable font-size patterns for headings and
-// paragraph text copy only
-// -----------------------------------------------------------------
+/**
+ * Size Patterns
+ * Responsive, reusable font-size patterns for headings and
+ * paragraph text copy only
+ */
 
 %h1,
 .h1 {
@@ -64,8 +67,9 @@
   );
 }
 
-// Paragraphs
-// -----------------------------------------------------------------
+/**
+ * Paragraphs
+ */
 
 %paragraph--large {
   @extend %h3;
@@ -139,8 +143,9 @@ small {
   padding: 1.5em 0 10px;
 }
 
-// Selfserve theme
-// ---------------
+/**
+ * Selfserve Theme
+ */
 
 @if $app == 'selfserve' {
 
@@ -158,8 +163,9 @@ small {
 
 }
 
-// Internal theme
-// ---------------
+/**
+ * Internal Theme
+ */
 
 @if $app == 'internal' {
 

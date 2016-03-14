@@ -1,17 +1,17 @@
-// Base
-// -----------------------------------------------------------------
-//
-// The utmost core styles required for building a modern webapp that 
-// may not necessarily be specific to OLCS.
-//
-// [1] - Document Wrapper
-// [2] - CSS Reset/Normalize
-//
-// -----------------------------------------------------------------
-
-// [1] - Document Wrapper
-// The document/application wrapper which contains the entire app
-// -----------------------------------------------------------------
+/**
+ * Base
+ *
+ * The utmost core styles required for building a modern webapp that 
+ * may not necessarily be specific to OLCS.
+ *
+ * [1] = Document Wrapper
+ * [2] = CSS Reset/Normalize
+ */
+ 
+/**
+ * [1] - Document Wrapper
+ * The document/application wrapper which contains the entire app
+ */
 
 html {
   font-size: 100%;
@@ -42,11 +42,13 @@ body {
   );
 }
 
-// [2] - CSS Reset/Standardise
-// Reset any default styles applied by the browser and render any 
-// inconsistencies as consistent
-// -----------------------------------------------------------------
-
+ 
+/**
+ * [2] - CSS Reset/Standardise
+ * Reset any default styles applied by the browser and render any 
+ * inconsistencies as consistent
+ */
+ 
 pre {
   overflow: auto;
 }

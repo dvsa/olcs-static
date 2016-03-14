@@ -1,19 +1,19 @@
-// Tools
-// -----------------------------------------------------------------
-//
-// Utility helpers to speed up and improve development, typically
-// in the form of placeholders and mixins.
-//
-// [1] - Theme Helper
-// [2] - Clearfix
-// [3] - Header With Actions
-// [4] - SVG Icon With Fallback
-//
-// -----------------------------------------------------------------
+/**
+ * Tools
+ *
+ * Utility helpers to speed up and improve development, typically
+ * in the form of placeholders and mixins.
+ *
+ * [1] - Theme Helper
+ * [2] - Clearfix
+ * [3] - Header With Actions
+ * [4] - SVG Icon With Fallback
+ */
 
-// [1] - Theme Helper
-// Function to output a CSS value based on which theme is being used
-// -----------------------------------------------------------------
+/**
+ * [1] - Theme Helper
+ * Function to output a CSS value based on which theme is being used
+ */
 
 // background: theme($internal: white, $selfserve: black);
 // background: theme(white, black);
@@ -26,9 +26,10 @@
   }
 }
 
-// [2] Clearfix
-// https://css-tricks.com/snippets/css/clear-fix/
-// -----------------------------------------------------------------
+/**
+ * [2] Clearfix
+ * https://css-tricks.com/snippets/css/clear-fix/
+ */
 
 %clearfix,
 .clearfix {
@@ -39,9 +40,10 @@
   }
 }
 
-// [3] Header With Actions
-// Create an actionable header bar with right-side actions-container
-// -----------------------------------------------------------------
+/**
+ * [3] Header With Actions
+ * Create an actionable header bar with right-side actions-container
+ */
 
 %header-with-actions {
   float: left;
@@ -63,9 +65,10 @@
   }
 }
 
-// [4] SVG Icon
-// Load an SVG image from the global sprite with PNG fallback
-// -----------------------------------------------------------------
+/**
+ * [4] SVG Icon
+ * Load an SVG image from the global sprite with PNG fallback
+ */
 
 %sprite-bg {
 	background-image: url("/images/svg/icon-sprite.png");

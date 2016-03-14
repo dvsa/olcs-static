@@ -1,20 +1,20 @@
-// Layout
-// -----------------------------------------------------------------
-//
-// Styles to provide the foundation skeleton and grid system for the
-// app. Uses vendor/govuk_toolkit to generate grid related styles.
-//
-// [1] - Page/Content/Row Wrappers
-// [2] - Individual Columns
-// [3] - Selfserve only styles
-// [4] - Internal only styles
-//
-// -----------------------------------------------------------------
+/**
+ * Layout
+ *
+ * Styles to provide the foundation skeleton and grid system for the
+ * app. Uses vendor/govuk_toolkit to generate grid related styles.
+ *
+ * [1] - Page/Content/Row Wrappers
+ * [2] - Individual Columns
+ * [3] - Selfserve only styles
+ * [4] - Internal only styles
+ */
 
-// [1] - Page/Content/Row Wrappers
-// The document/application wrapper which contains the entire app
-// -----------------------------------------------------------------
-
+/**
+ * [1] - Page/Content/Row Wrappers
+ * The document/application wrapper which contains the entire app
+ */
+ 
 .page-wrapper {
   overflow: hidden;
   clear: both;
@@ -31,10 +31,11 @@
   min-height: 450px;
 }
 
-// [2] - Individual Columns
-// Create unsemantic class names for reusable columns of various
-// widths and proportions
-// -----------------------------------------------------------------
+/**
+ * [2] - Individual Columns
+ * Create unsemantic class names for reusable columns of various
+ * widths and proportions
+ */
 
 // Re-define the GDS grid-column mixin
 
@@ -117,9 +118,10 @@
   }
 }
 
-// [3] - Selfserve only styles
-// Overwrite the main layout styles for the Selfserve application
-// -----------------------------------------------------------------
+/**
+ * [3] - Selfserve only styles
+ * Overwrite the main layout styles for the Selfserve application
+ */
 
 @if $app == 'selfserve' {
 
@@ -133,9 +135,10 @@
 
 }
 
-// [4] - Internal only styles
-// Overwrite the main layout styles for the Intetnal aplication
-// -----------------------------------------------------------------
+/**
+ * [4] - Internal only styles
+ *  Overwrite the main layout styles for the Intetnal aplication
+ */
 
 @if $app == 'internal' {
 

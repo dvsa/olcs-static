@@ -1,8 +1,10 @@
-// Forms
-// -----------------------------------------------------------------
+/**
+ * Forms
+ */
 
-// Reset/Normalize
-// -----------------------------------------------------------------
+/**
+ * Reset/Normalize
+ */
 
 button,
 input,
@@ -60,9 +62,9 @@ input::-moz-focus-inner {
   padding: 0;
 }
 
-
-// Wrapping Elements
-// -----------------------------------------------------------------
+/**
+ * Wrapping Elements
+ */
 
 form {
   margin-bottom: 2em;
@@ -169,8 +171,9 @@ fieldset fieldset .field:last-child {
   background: $grey-3;
 }
 
-// Legends & Labels
-// -----------------------------------------------------------------
+/**
+ * Legends & Labels
+ */
 
 legend {
   @extend %h3;
@@ -198,8 +201,9 @@ label {
   }
 }
 
-// Inputs
-// -----------------------------------------------------------------
+/**
+ * Inputs
+ */
 
 input,
 textarea,
@@ -311,10 +315,9 @@ select:focus,
   }
 }
 
-/*
-  File uploader
-  -----------
-*/
+/**
+ * File Uploader
+ */
 
 .file-uploader {
   max-width: 600px;
@@ -435,10 +438,9 @@ select:focus,
   }
 }
 
-/*
-  Address
-  -------
-*/
+/**
+ * Address
+ */
 
 .address {
   fieldset {
@@ -465,11 +467,6 @@ select:focus,
   margin: 5px 0 10px;
 }
 
-/*
-  Address
-  -------
-*/
-
 .lookup {
   button {
     margin-left: 5px;
@@ -479,10 +476,9 @@ select:focus,
   }
 }
 
-/*
-  Traffic area
-  ------------
-*/
+/**
+ * Traffic Area
+ */
 
 .traffic-area {
   .field {
@@ -491,10 +487,9 @@ select:focus,
   }
 }
 
-/*
-  Trading names
-  -------------
-*/
+/**
+ * Trading Names
+ */
 
 .trading-names .visually-hidden + input {
   margin-top: -10px;
@@ -511,10 +506,9 @@ select:focus,
   }
 }
 
-/*
-  DOB
-  ---
-*/
+/**
+ * Date of Birth
+ */
 
 .dob {
   legend {
@@ -525,11 +519,9 @@ select:focus,
   }
 }
 
-/*
-  Inline search
-  -------------
-  Prototype code only - will need tidying up
-*/
+/**
+ * Inline Search
+ */
 
 .manage-users #username,
 .create-account #username,
@@ -556,10 +548,9 @@ select:focus,
   }
 }
 
-/*
-  Validation
-  ----------
-*/
+/**
+ * Validation
+ */
 
 %validation-box {
   padding: 1em 1em .5em;
@@ -618,12 +609,13 @@ select:focus,
   color: $mellow-red;
 }
 
-/*
-  Locked
-  ------
-  This is used to indidcate that a field or fieldset cannot be updated
-  without creating a variation or new application
-*/
+
+/**
+ * Locked
+ *
+ * This is used to indidcate that a field or fieldset cannot be updated
+ * without creating a variation or new application
+ */
 
 .locked-icon {
   @include svg('lock');
@@ -631,11 +623,9 @@ select:focus,
   display: inline-block;
 }
 
-/*
-  Confirmation
-  ------------
-  Confirm checkboxes
-*/
+/**
+ * Confirmation
+ */
 
 .confirm {
   overflow: auto;
@@ -651,13 +641,19 @@ select:focus,
   height: 200px;
 }
 
-// character count
+/**
+ * Character Count
+ */
+ 
 .character-count {
   color: $grey-1;
   margin-top: 5px;
 }
 
-// Hints
+/**
+ * Hints
+ */
+ 
 .hint {
   display: block;
   color: $grey-1;
@@ -687,8 +683,9 @@ select:focus,
   }
 }
 
-// Selfserve theme
-// ---------------
+/**
+ * Selfserve only styles
+ */
 
 @if $app == 'selfserve' {
 
@@ -752,9 +749,9 @@ select:focus,
 
 }
 
-
-// Internal theme
-// ---------------
+/**
+ * Internal only styles
+ */
 
 @if $app == 'internal' {
 
