@@ -5,7 +5,6 @@ var OLCS = OLCS || {};
  *
  * Makes table rows with a single anchor link or
  * input[type=submit] more clickable
- *
  */
 
 OLCS.tableRows = (function(document, $, undefined) {

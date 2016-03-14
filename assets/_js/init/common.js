@@ -30,16 +30,17 @@ OLCS.ready(function() {
   OLCS.postcodeSearch({
     container: ".js-postcode-search"
   });
-
-  // A safe assumption that when the page is rendered
-  // this preloader should be hidden
+  
   OLCS.eventEmitter.on("render", function() {
+    // A safe assumption that when the page is rendered
+    // this preloader should be hidden
     OLCS.preloader.hide();
+    // Call the plugin to improve select dropdowns
+    //$('.chosen-select-medium').select2({ width: '53%' });
+    //$('.chosen-select-large').select2({ width: '97%' });
+    $('.chosen-select-medium').chosen({ width: '53%' });
+    $('.chosen-select-large').chosen({ width: '97%' });
   });
-
-  // @TODO why don't we emit "render" here? It would
-  // make things line up neatly between initial page render
-  // and modal re-render etc
 
   OLCS.fileUpload({
     multiple: true

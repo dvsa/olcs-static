@@ -6,9 +6,6 @@ var OLCS = OLCS || {};
  * Given a source and destination input, and a process callback
  * invoked when the source value changes, apply those changes
  * to the destination input.
- *
- * Currently assumes destination is a select (which obviously
- * won't be true once this component is adopted a bit more).
  */
 
 OLCS.cascadeInput = (function(document, $, undefined) {
@@ -16,6 +13,7 @@ OLCS.cascadeInput = (function(document, $, undefined) {
   "use strict";
 
   return function init(options) {
+    
     var trap = options.trap === undefined ? true : options.trap;
     var disableDestination = options.disableDestination === undefined ? true : options.disableDestination;
     var loadingText = options.loadingText || "Loading...";
@@ -28,11 +26,9 @@ OLCS.cascadeInput = (function(document, $, undefined) {
     if (options.url) {
       process = function(value, callback) {
 
-        // @NOTE this is an assumption which is valid for now but might
-        // not always be so feel free to change it. Essentially if the
-        // component asks to clear the select values when the empty value is
-        // chosen we short-circuit the AJAX request and invoke the callback
-        // with one empty value instead
+        // If the component asks to clear the select values when the empty
+        // value is chosen we short-circuit the AJAX request and invoke the 
+        // callback with one empty value instead
         if (value === "" && clearWhenEmpty) {
           return callback([{value: ""}]);
         }
@@ -64,13 +60,6 @@ OLCS.cascadeInput = (function(document, $, undefined) {
         if (destination.attr("type") === "text") {
           destination.val(result.value);
         } else {
-
-          // @NOTE it's pretty obvious we're making three huge assumptions here:
-          // 1) That we get an array of values & labels back
-          // 2) We expect "options.dest" to be a select (because we build up
-          // some options)
-          // 3) We expect the first value, which will be selected, to be 'current'
-          // As and when this component is expanded, obviously we'll need to change this!
           var str = "";
           $.each(result, function(i, r) {
             if (r.value === "" && emptyLabel) {
@@ -85,10 +74,7 @@ OLCS.cascadeInput = (function(document, $, undefined) {
         if (disableDestination) {
           destination.removeAttr("disabled");
         }
-
-        // we assume that if we trapped the earlier change event, we want to
-        // trigger one now. Note that the event is triggered on a different element
-        // (dest rather than src); if this matters by all means tweak the component
+        
         if (trap) {
           destination.trigger("change");
         }

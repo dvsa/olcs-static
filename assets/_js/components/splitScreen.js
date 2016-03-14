@@ -22,10 +22,8 @@ OLCS.splitScreen = (function(document, $, undefined) {
     var sideFrame = $('#iframe-two');
     var panel = $('.iframe-controls');
 
-    /**
-     * Splits the hash fragment into the relevant variables, format is
-     *  #base64encode(url1|url2|orientation|isVisible)
-     */
+    // Splits the hash fragment into the relevant variables, format is
+    // #base64encode(url1|url2|orientation|isVisible)
     function splitHashFragment() {
       var parts = window.atob(window.location.hash.substring(1)).split('|');
 
@@ -35,9 +33,7 @@ OLCS.splitScreen = (function(document, $, undefined) {
       isVisible = parts[3] === '0' ? false : true;
     }
 
-    /**
-     * Checks whether we can access local storage for preferences
-     */
+    // Checks whether we can access local storage for preferences
     function checkStore() {
       try {
         localStorage.setItem('checkStore', true);
@@ -51,11 +47,9 @@ OLCS.splitScreen = (function(document, $, undefined) {
       return $.inArray(orientation, ['vertical', 'horizontal', 'closed']) !== -1;
     }
 
-    /**
-     * Grabs the default orientation,
-     *  - checks the hash fragment first
-     *  - then checks local storage preferences
-     */
+    // Grabs the default orientation,
+    //  - checks the hash fragment first
+    //  - then checks local storage preferences
     function getDefaultOrientation() {
 
       var defaultOrientation;
@@ -73,35 +67,27 @@ OLCS.splitScreen = (function(document, $, undefined) {
       return defaultOrientation;
     }
 
-    /**
-     * Grab the orientation preference from local storage if we can
-     */
+    // Grab the orientation preference from local storage if we can
     function getOrientationPreference() {
       if (canStore) {
         return localStorage.getItem(orientationPreferenceIndex);
       }
     }
 
-    /**
-     * Save our current orientation to the preferences local storage if we can
-     *
-     * @param {string} orientation
-     */
+    // Save our current orientation to the preferences local storage if we can
     function setOrientationPreference(orientation) {
       if (canStore) {
         localStorage.setItem(orientationPreferenceIndex, orientation);
       }
     }
 
-    /**
-     * Called when the close button is clicked
-     */
+    // Called when the close button is clicked
     function close() {
       // Resize the iframe
       mainFrame.attr('class', 'iframe--full');
 
       // We need to update the hash to remember that we are closed
-      //  in case someone refreshes the page
+      // in case someone refreshes the page
       orientation = 'closed';
       updateHashFragment();
 
@@ -118,19 +104,13 @@ OLCS.splitScreen = (function(document, $, undefined) {
       OLCS.preloader.hide();
     }
 
-    /**
-     * Update the has fragment in the url
-     */
+    // Update the has fragment in the url
     function updateHashFragment() {
       var string = url1 + '|' + url2 + '|' + orientation + '|' + (isVisible ? '1' : '0');
       window.location.hash = '#' + window.btoa(string);
     }
 
-    /**
-     * Set the orientation of the split screen
-     *
-     * @param {string} newOrientation
-     */
+    // @param {string} newOrientation
     function setOrientation(newOrientation) {
       orientation = newOrientation;
 
@@ -143,9 +123,7 @@ OLCS.splitScreen = (function(document, $, undefined) {
       updateHashFragment();
     }
 
-    /**
-     * Called when we toggle collapsing the split screen
-     */
+    // Called when we toggle collapsing the split screen
     function toggleVisible() {
       isVisible = !isVisible;
       updateHashFragment();
@@ -167,8 +145,8 @@ OLCS.splitScreen = (function(document, $, undefined) {
         OLCS.preloader.show();
         mainFrame.attr('class', 'iframe--full');
         panel.remove();
-        // In this case, we have to wait for the mainFrame to load before calling close, otherwise it won't
-        //  set target parent on anything
+        // In this case, we have to wait for the mainFrame to load before calling close,
+        // otherwise it won't set target parent on anything
         $(mainFrame).on('load', function() {
           close();
         });

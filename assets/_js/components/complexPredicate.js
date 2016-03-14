@@ -37,7 +37,6 @@ OLCS.complexPredicate = (function(document, $, undefined) {
       var rows = $.map(selectedInputs, options.attr);
 
       enable(
-        // as long as we don't have any rows NOT in the allowed list; go for it
         $(rows).not(options.allow).length === 0
       );
     };

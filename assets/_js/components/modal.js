@@ -13,8 +13,7 @@ OLCS.modal = (function(document, $, undefined) {
   'use strict';
 
   /**
-   * local variable declarations
-   * and public export
+   * local variable declarations and public export
    */
   var exports = {};
 
@@ -49,8 +48,8 @@ OLCS.modal = (function(document, $, undefined) {
    */
   exports.show = function(body, title) {
 
-    // if there isn't a modal showing already,
-    // insert the template and give the body a special class
+    // if there isn't a modal showing already, insert the 
+    // template and give the body a special class
     if ($('body').find(overlay).length === 0) {
       $('body')
         .prepend(template)

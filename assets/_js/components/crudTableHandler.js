@@ -3,6 +3,7 @@ var OLCS = OLCS || {};
 /**
  * CRUD Table Handler
  */
+
 OLCS.crudTableHandler = (function(document, $, undefined) {
 
   "use strict";
@@ -25,9 +26,7 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
 
     var F = OLCS.formHelper;
 
-    /**
-     * Helper to reload the parent window behind the modal
-     */
+    //reload the parent window behind the modal
     function reloadParent() {
       OLCS.ajax({
         url: window.location.href,
@@ -44,13 +43,8 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
       var button = $(this);
       var form   = $(this).parents("form");
 
-      /**
-       * We manually handle rendering the modal because we need to intercept
-       * any errors triggered when the user clicks a CRUD button. This isn't
-       * ideal because we have to inspect the HTML (nasty) but in the absence
-       * of a proper JSON payload or a better status code, it's our only
-       * choice
-       */
+      // manually handle rendering the modal because we need to intercept
+      // any errors triggered when the user clicks a CRUD button
       function handleCrudAction(response) {
         // if we find any errors or flash warnings, completely
         // re-render our main body
@@ -63,11 +57,9 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
 
         var options = {
           success: OLCS.normaliseResponse({
-            /**
-             * We trap redirects and handle them ourselves, because if the redirect
-             * URL is the current page we want to ignore it and just hide the modal
-             * instead
-             */
+            // We trap redirects and handle them ourselves, because if the 
+            // redirect URL is the current page we want to ignore it and 
+            // just hide the modal instead
             followRedirects: false,
             callback: handleCrudResponse
           })
@@ -76,12 +68,8 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
         OLCS.modalForm($.extend(response, options));
       }
 
-      /**
-       * We manually handle any responses or redirects
-       * inside the modal; this means we have to do a bit more
-       * heavy lifting than is ideal, but it gives us the flexibility
-       * we need
-       */
+      // Manually handle any responses or redirects
+      // inside the modal
       function handleCrudResponse(response) {
 
         // if the original response was a redirect then be sure to respect

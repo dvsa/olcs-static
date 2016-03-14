@@ -5,11 +5,6 @@ var OLCS = OLCS || {};
  *
  * A simple component to listen for form submissions and
  * make them asynchronous by using OLCS.submitForm to submit them.
- *
- * This is a handy component which abstracts a lot of nuances
- * related to form submissions via JS; things like ensuring
- * the correct button is pressed and not interfering for file
- * uploads (which we can't handle due to IE8 compatibility)
  */
 
 OLCS.formHandler = (function(document, $, undefined) {
@@ -26,6 +21,7 @@ OLCS.formHandler = (function(document, $, undefined) {
     var onChange = options.onChange !== undefined ? options.onChange : function() {
       $(this).submit();
     };
+    
     var submitButton = options.submit || $(selector).find("[type=submit]");
     var actionSelector = selector + " [type=submit]";
 
@@ -68,12 +64,10 @@ OLCS.formHandler = (function(document, $, undefined) {
       });
     }
 
-    /**
-     * we need to hook into click events to make sure we set the
-     * correct input name when submitting the form via AJAX. Normally
-     * these don't get set, but some backend logic acts based on
-     * which button was clicked
-     */
+    // we need to hook into click events to make sure we set the
+    // correct input name when submitting the form via AJAX. Normally
+    // these don't get set, but some backend logic acts based on
+    // which button was clicked
     $(document).on("click", actionSelector, function(e) {
 
       var form   = $(this).parents(selector);
@@ -87,6 +81,7 @@ OLCS.formHandler = (function(document, $, undefined) {
 
         // got any file inputs populated?
         var isDirty = false;
+        
         $.each(form.find("input[type=file]"), function(i, e) {
           if ($(e).val() !== "") {
             isDirty = true;
@@ -94,7 +89,8 @@ OLCS.formHandler = (function(document, $, undefined) {
         });
 
         // if the user has pressed upload we *always* want to unbind
-        // otherwise if any file inputs have values and the form has been submitted, unbind too
+        // otherwise if any file inputs have values and the form has been 
+        // submitted, unbind too
         if (F.buttonPressed(form, "[upload]") || (isDirty && F.buttonPressed(form, "[submit]"))) {
           handler.unbind();
           return;
@@ -113,9 +109,7 @@ OLCS.formHandler = (function(document, $, undefined) {
       form.submit();
     });
 
-    /**
-     * bind a simple submit handler to send the form via * AJAX
-     */
+    // bind a simple submit handler to send the form via * AJAX
     $(document).on("submit", selector, function(e) {
       e.preventDefault();
 

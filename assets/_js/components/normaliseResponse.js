@@ -26,15 +26,6 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
     var rootSelector    = options.root || ".js-response";
     var followRedirects = options.followRedirects !== undefined ? options.followRedirects : true;
 
-
-    /**
-     * This method is used to paper over the cracks present in our wildly inconsistent views.
-     * Ideally it wouldn't exist as every title would be rendered in a proper header view
-     * and thus be placed automatically inside js-title when rendered asynchronously but that's
-     * often not the case on olcs-internal. As such this method is a bit of a catch-all workhorse
-     * which tries to rummage through what *should* be the body of the response and look for
-     * a title-esque field
-     */
     function findTitle(body) {
       var title;
       var text = "";
@@ -73,10 +64,8 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
         OLCS.logger.debug("Caught error parsing response", "normaliseResponse");
       }
 
-      /**
-       * We set up some sensible defaults here so that if we can't parse anything else
-       * of use we at least turn a usable response
-       */
+      // We set up some sensible defaults here so that if we can't parse anything else
+      // of use we at least turn a usable response
       response = {
         status: 200,
         title: "",
@@ -102,8 +91,8 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
         var deepest = null;
         var depth = -1;
 
-        // our templates, particularly on olcs-internal, are a bit of a mess - we sometimes find multiple .js-body tags and
-        // sometimes even have a .js-body within a .js-body__main (which should never be right).
+        // we sometimes find multiple .js-body tags and sometimes even have a 
+        // .js-body within a .js-body__main
         $.each(body, function(_, v) {
           var dist = $(v).parentsUntil(rootSelector).length;
           if (dist > depth) {
@@ -114,8 +103,8 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
 
         OLCS.logger.debug("got response body matching ." + deepest.attr("class") + " at depth " + depth, "normaliseResponse");
 
-        // js-script will often live within js-body; we want to lift it out as it'll be appended
-        // afterwards
+        // js-script will often live within js-body; we want to lift it 
+        // out as it'll be appended afterwards
         deepest.find(scriptSelector).remove();
         response.body = deepest.html();
 
@@ -123,8 +112,7 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
         OLCS.logger.debug("no matching response body for " + bodySelector, "normaliseResponse");
       }
 
-      // ensure scripts are injected too. If we want, we can
-      // add an options.disableScripts or whatever to ignore them
+      // ensure scripts are injected too
       if (script.length) {
         OLCS.logger.debug("found inline script matching " + scriptSelector, "normaliseResponse");
         response.body += script.html();
@@ -162,8 +150,6 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
           "caught 302 redirect; followRedirects=true; redirecting to " + response.location,
           "normaliseResponse"
         );
-
-
 
         return OLCS.url.load(response.location);
       }

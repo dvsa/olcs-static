@@ -28,6 +28,7 @@ OLCS.submitForm = (function(document, $, undefined) {
     // cache the form data before we disable it, otherwise
     // we'll serialize nothing
     var data = form.serialize();
+    
     var enabledElements;
     var url;
     var preloaderType;

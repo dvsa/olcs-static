@@ -42,10 +42,10 @@ OLCS.preloader = (function(document, $, undefined) {
   /**
    * public interface
    */
+  
   exports.show = function(type) {
 
-    // Dont show another preloader if there's
-    // already one on the screen
+    // Dont show another preloader if there's already one on the screen
     if ($(preloaderSelectors).length) {
       return;
     }

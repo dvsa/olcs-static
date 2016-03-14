@@ -46,21 +46,18 @@ OLCS.notices = (function(document, $, undefined) {
       }
     });
 
-
     OLCS.eventEmitter.on('render', function() {
       addCloseButton();
 
       // fade out any notice containers on render,
       // so long as they're not in a modal or in the
       // right hand column
-      // @NOTE: This needs to be more specific
       $(noticeContainerSelector).each(function() {
         if (!$(this).parents().is('.modal, .sidebar--right')) {
           fadeOut($(this));
         }
       });
     });
-
 
   };
 

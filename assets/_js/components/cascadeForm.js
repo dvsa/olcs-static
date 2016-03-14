@@ -22,15 +22,9 @@ OLCS.cascadeForm = (function(document, $, undefined) {
     var onSubmit = options.submit;
     var errorWrapper = options.errorWrapper || ".validation-wrapper";
 
-    /**
-     * by using a closure we ensure this function is safe
-     * to bind inside loops etc
-     */
     function clearFieldset(target) {
-      /**
-       * the actual event handler simply finds all inputs in the
-       * target fieldset and clears them out
-       */
+      // the actual event handler simply finds all inputs in the
+      // target fieldset and clears them out
       return function clear() {
         var elems = $(target).find(":input");
         $.each(elems, function(i, elem) {
@@ -180,9 +174,9 @@ OLCS.cascadeForm = (function(document, $, undefined) {
     }
 
     /*
-     * first things first, find the top-level fieldsets and bind some
-     * handlers such that when they change, the event cascades to
-     * all subsequent fieldsets emptying them out
+     * find the top-level fieldsets and bind some handlers such that 
+     * when they change, the event cascades to all subsequent fieldsets 
+     * emptying them out
      */
     if (cascade) {
       for (var fieldset in options.rulesets) {
@@ -206,8 +200,6 @@ OLCS.cascadeForm = (function(document, $, undefined) {
 
     $(document).on("change", formSelector, checkForm);
 
-    // hmm. This will outlive the component, which means when the component re-binds (if it's in a modal and uses jquery.onReady)
-    // then this will stack multiple listeners
     OLCS.eventEmitter.on("render", checkForm);
   };
 

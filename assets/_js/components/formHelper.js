@@ -4,11 +4,9 @@ OLCS.formHelper = (function(document, $, undefined) {
 
   "use strict";
 
-  /**
-   * the class we apply to a hidden input used to
-   * simulate which button was clicked when submitting
-   * a form
-   */
+  // the class we apply to a hidden input used to
+  // simulate which button was clicked when submitting
+  // a form
   var formClickAction = "form__action";
 
   var errorSelectors = [
@@ -18,12 +16,9 @@ OLCS.formHelper = (function(document, $, undefined) {
 
   var warningSelector = ".notice--warning";
 
-  /**
-   * Expose a jQuery-esque function which tries to work
-   * out which actual public property to invoke purely
-   * based off argument length. Pretty crude, but a
-   * handy shorthand
-   */
+  // Expose a jQuery-esque function which tries to work
+  // out which actual public property to invoke purely
+  // based off argument length.
   var exports = function() {
     switch (arguments.length) {
       case 1:
@@ -33,9 +28,7 @@ OLCS.formHelper = (function(document, $, undefined) {
     }
   };
 
-  /**
-   * public interface
-   */
+  // public interface
   exports.fieldset = function(selector) {
     selector = selector
       .replace("[", "\\[")
@@ -115,8 +108,8 @@ OLCS.formHelper = (function(document, $, undefined) {
   };
 
   exports.render = function(container, body) {
-    // the fact we redraw means we sometimes lose our
-    // scroll position; so cache it and re-apply it immediately after render
+    // the fact we redraw means we sometimes lose our scroll position; 
+    // so cache it and re-apply it immediately after render
     var scrollTop = $(window).scrollTop();
     $(container).html(body);
     $(window).scrollTop(scrollTop);

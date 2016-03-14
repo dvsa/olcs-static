@@ -13,22 +13,18 @@ OLCS.ajax = (function(document, $, undefined) {
 
   var lastRequestId = 0;
 
-  /**
-   * This will hold a date object to compare POST timestamps
-   */
+  //This will hold a date object to compare POST timestamps
   var lastTimestamp = 0;
 
-  /**
-   * If we trap two POSTs within this number of msec we'll throw
-   * a warning
-   */
+   // If we trap two POSTs within this number of msec we'll throw
+  // a warning
   var minPostThreshold = 50;
 
   return function ajax(options) {
 
     var requestId = ++lastRequestId;
 
-    // although jQuery doesn't care about missing defauts, we do
+    // although jQuery doesn't care about missing defaults, we do
     // for the purposes of logging
     options = $.extend({
       method: "GET"

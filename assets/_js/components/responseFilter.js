@@ -14,15 +14,14 @@ OLCS.filterResponse = (function(document, $, undefined) {
       var content = response.body;
 
       if (filter) {
-        /**
-         * we MUST wrap the plain content in a container so that
-         * .find() works consistently; without this if the top-level
-         * element was the one we wanted to filter the find would fail
-         *
-         * Adding this container has no impact since we never actually
-         * mutate content with it; we're just temporarily adding it
-         * so we can search its children
-         */
+        
+        // we MUST wrap the plain content in a container so that
+        // .find() works consistently; without this if the top-level
+        // element was the one we wanted to filter the find would fail
+        //
+        // Adding this container has no impact since we never actually
+        // mutate content with it; we're just temporarily adding it
+        // so we can search its children
         var filtered = $("<div>")
           .append(content)
           .find(filter)

@@ -18,13 +18,11 @@ OLCS.multiFilter = (function(document, $, undefined) {
 
     var cachedOptions = {};
 
-    /**
-     * unfortunately we can't avoid having to loop over our
-     * destination element since we assume it contains *all*
-     * possible options on load. We need a copy of them
-     * because we'll selectively remove/add them back in based
-     * on interaction with options.from
-     */
+    // unfortunately we can't avoid having to loop over our
+    // destination element since we assume it contains *all*
+    // possible options on load. We need a copy of them
+    // because we'll selectively remove/add them back in based
+    // on interaction with options.from
     $(options.to).find("option").each(function(_, v) {
       var option = $(v);
       var group  = option.parent().prop("label");
@@ -33,11 +31,9 @@ OLCS.multiFilter = (function(document, $, undefined) {
         cachedOptions[group] = [];
       }
 
-      /**
-       * build up an object keyed by the containing optgroup
-       * we need each element per group to be an object as we
-       * use both keys and values later
-       */
+      // build up an object keyed by the containing optgroup
+      // we need each element per group to be an object as we
+      // use both keys and values later
       cachedOptions[group].push({
         text: option.text(),
         value: option.val()
@@ -45,14 +41,13 @@ OLCS.multiFilter = (function(document, $, undefined) {
     });
 
     function setup() {
-      /**
-       * we'll have an array of strings after this with the
-       * contents of each option's text. We have to use this
-       * awkward loop here because $.val() would give us an
-       * array of values which are effectively keys (IDs etc).
-       * They're no use because our optgroups are assumed to be
-       * grouped by "label", e.g. text value
-       */
+
+      // we'll have an array of strings after this with the
+      // contents of each option's text. We have to use this
+      // awkward loop here because $.val() would give us an
+      // array of values which are effectively keys (IDs etc).
+      // They're no use because our optgroups are assumed to be
+      // grouped by "label", e.g. text value=
       var available = [];
       $(options.from).find(":selected").each(function(_, v) {
         available.push($(v).text());
@@ -74,9 +69,7 @@ OLCS.multiFilter = (function(document, $, undefined) {
       $(options.to).html(groupStr).trigger("chosen:updated");
     }
 
-    /**
-     * Helper to render a single <optgroup> and all child <option> elems
-     */
+    // Helper to render a single <optgroup> and all child <option> elems
     function renderOptGroup(label, current) {
       var opts = cachedOptions[label];
       var optStr = "";

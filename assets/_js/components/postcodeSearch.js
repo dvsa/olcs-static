@@ -13,10 +13,8 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
   return function init(options) {
     var container = options.container;
 
-    /**
-     * store a list of fields considered to make up the
-     * 'address' part of a postcode component
-     */
+    // store a list of fields considered to make up the
+    // 'address' part of a postcode component
     var fields = options.fields || [
       "addressLine1",
       "addressLine2",
@@ -27,11 +25,9 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       "countryCode"
     ];
 
-    /*
-     * store a list of possible root elements within which we'll render
-     * the result of our lookup. These should be in order of likely DOM
-     * proximity because the first match will win
-     */
+    // store a list of possible root elements within which we'll render
+    // the result of our lookup. These should be in order of likely DOM
+    // proximity because the first match will win
     var roots = [
       // if we're in a modal, render in there...
       ".modal__content",
@@ -49,9 +45,7 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
 
     var F = OLCS.formHelper;
 
-    /**
-     * Does the component contain any data or errors?
-     */
+    //Does the component contain any data or errors?
     function isClean(component) {
       var group = $(component).data("group");
 
@@ -71,10 +65,8 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       .children(".field").length === 0;  // which *also* have direct field children
     }
 
-    /**
-     * Is the component currently in its interim state of showing the
-     * user a list of matching addresses?
-     */
+    // Is the component currently in its interim state of showing the
+    // user a list of matching addresses?
     function inProgress(component) {
       return $(component).find(selectClass).length > 0;
     }
@@ -82,7 +74,6 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
     function hasSearchField(component) {
       return $(component).find(".js-find").length > 0;
     }
-
 
     function formatUKPostcode(element) {
       var val =  element.val().toUpperCase();
@@ -99,10 +90,8 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
 
     }
 
-    /**
-     * Work out what our most appropriate root element is in which
-     * we should render our AJAX response
-     */
+    // Work out what our most appropriate root element is in which
+    // we should render our AJAX response
     function getRootSelector(component) {
       var root = null;
       var distance = Infinity;
@@ -126,10 +115,8 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       throw new Error("No valid root selector found");
     }
 
-    /**
-     * Handle either the click of the 'find' button or the change
-     * of the 'select' input; either way, we perform the same action
-     */
+    // Handle either the click of the 'find' button or the change
+    // of the 'select' input; either way, we perform the same action
     function handleInput(selector) {
       return function(e) {
         e.preventDefault();
@@ -158,8 +145,8 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
           success: OLCS.normaliseResponse(function(response) {
             var root = getRootSelector(fieldset);
             F.render(root, response.body);
-            // focus the address select box when it becomes rendered -
-            // we target the first element, but there should only ever be one
+            // focus the address select box when it becomes rendered - we 
+            // target the first element, but there should only ever be one
             $(container).find("select:first").focus();
           })
         });
@@ -167,11 +154,9 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       };
     }
 
-    /**
-     * Simple method to iterate through all address components on the page
-     * and initialise their state. We call this on initialisation and on
-     * each render to keep things in sync
-     */
+    // Simple method to iterate through all address components on the page
+    // and initialise their state. We call this on initialisation and on
+    // each render to keep things in sync
     function setup() {
       $(container).each(function(i, component) {
         if (!hasSearchField(component)) {
@@ -191,10 +176,8 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       });
     }
 
-    /**
-     * Ensure any time the page is re-rendered we resolve our components' state
-     * properly
-     */
+    // Ensure any time the page is re-rendered we resolve our components' state
+    // properly
     OLCS.eventEmitter.on("render", setup);
 
     // when we click 'find'...
@@ -224,8 +207,10 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       var inputs = fieldset.children(".field");
       inputs.find("[type=text]").val("");
       inputs.show();
+      
       // ditch the address options, if present...
       fieldset.find(selectClass).remove();
+      
       // and finally, remove this button's container
       $(this).parent().remove();
     });
