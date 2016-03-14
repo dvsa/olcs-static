@@ -1,9 +1,10 @@
 OLCS.ready(function() {
-  "use strict";
+  
+  'use strict';
 
   // allow any links to opt-in to ajax modals
   OLCS.modalLink({
-    trigger: ".js-modal-ajax"
+    trigger: '.js-modal-ajax'
   });
 
   OLCS.tableCheckAll();
@@ -14,24 +15,43 @@ OLCS.ready(function() {
   OLCS.notices();
 
   // OLCS.disableForm({
-  //   submit: "[type=submit], .js-modal-ajax"
+  //   submit: '[type=submit], .js-modal-ajax'
   // });
 
   // uses the jquery.details.min.js plugin to enhance <details>
   // element across browsers
-  $("details").details();
+  $('details').details();
 
   var F = OLCS.formHelper;
 
   OLCS.characterCount({
-    selector: "textarea.js-financial-history"
+    selector: 'textarea.js-financial-history'
   });
 
   OLCS.postcodeSearch({
-    container: ".js-postcode-search"
+    container: '.js-postcode-search'
   });
+
+  OLCS.fileUpload({
+    multiple: true
+  });
+
+  OLCS.formHandler({
+    form: '.js-form-ajax-submit',
+    onChange: false,
+    disable: false,
+    success: OLCS.normaliseResponse(function(data) {
+      if (data.hasErrors) {
+        F.render('.js-body', data.body);
+        return;
+      }
+      OLCS.modalForm(data);
+    })
+  });
+
+  OLCS.textareaPlaceholder();
   
-  OLCS.eventEmitter.on("render", function() {
+  OLCS.eventEmitter.on('render', function() {
     // A safe assumption that when the page is rendered
     // this preloader should be hidden
     OLCS.preloader.hide();
@@ -41,24 +61,5 @@ OLCS.ready(function() {
     $('.chosen-select-medium').chosen({ width: '53%' });
     $('.chosen-select-large').chosen({ width: '97%' });
   });
-
-  OLCS.fileUpload({
-    multiple: true
-  });
-
-  OLCS.formHandler({
-    form: ".js-form-ajax-submit",
-    onChange: false,
-    disable: false,
-    success: OLCS.normaliseResponse(function(data) {
-      if (data.hasErrors) {
-        F.render(".js-body", data.body);
-        return;
-      }
-      OLCS.modalForm(data);
-    })
-  });
-
-  OLCS.textareaPlaceholder();
 
 });
