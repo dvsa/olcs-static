@@ -28,8 +28,7 @@ styleguides/screenshots
 # Third party/config
 #============================================================
 
-node_modules/*
-!node_modules/grunt-sass/
+node_modules
 
 npm-debug.log
 

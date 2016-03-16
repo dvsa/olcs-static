@@ -1,4 +1,3 @@
-#include "sass.hpp"
 #include "base64vlq.hpp"
 
 namespace Sass {
