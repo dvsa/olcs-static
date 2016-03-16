@@ -1,0 +1,41 @@
+# OS generated files
+#============================================================
+
+.DS_Store
+
+# Logs and databases
+#============================================================
+
+.sass-cache/
+
+test/js/coverage
+test/js/coverage-xml
+test/js/reports
+
+# Generated and compiled files
+#============================================================
+
+#public/images/
+public/js/
+public/styles/
+public/styleguides/
+public/unit-testing
+
+styleguides/screenshots
+
+#icon-sprite.scss
+
+# Third party/config
+#============================================================
+
+node_modules/
+!node_modules/grunt-sass/node_modules/node-sass
+npm-debug.log
+
+.idea/
+.vscode/
+
+*.cfg
+
+composer.lock
+editorconfig.org

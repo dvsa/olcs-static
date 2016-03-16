@@ -1,0 +1,20 @@
+/**
+ * Confirmation
+ */
+
+.confirmation {
+  color: #FFF;
+  background: $turquoise;
+  padding: 30px 30px 15px;
+  margin-bottom: 40px;
+  h2 {
+  	margin-top: -.25em;
+    display: inline-block;
+  }
+  p {
+    @extend %paragraph;
+  }
+  a {
+  	color: #FFF;
+  }
+}

@@ -1,0 +1,33 @@
+/**
+ * Version Header
+ */
+
+.version-header {
+  background: #333;
+  margin: 0;
+  overflow: hidden;
+  padding: 5px 10px 2px;
+  p {
+    clear: none;
+    color: $grey-2;
+    float: left;
+    @if $app == 'selfserve' {
+      font-size: font-size(3);
+    }
+  }
+  span {
+    color: #FFF;
+    font-weight: 600;
+  }
+}
+
+.environment-marker {
+  background: green;
+  padding: 1px 5px;
+  border-radius: 2px;
+  color: #FFF;
+}
+
+.version {
+  margin-left: 10px;
+}

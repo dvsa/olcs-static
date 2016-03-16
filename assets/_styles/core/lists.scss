@@ -1,0 +1,16 @@
+/**
+ * Lists
+ */
+ 
+.list--reset, 
+%list--reset {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.list--bullet, 
+%list--bullet {
+  margin-left: 20px;
+  list-style: disc;
+}

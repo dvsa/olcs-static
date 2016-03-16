@@ -1,0 +1,18 @@
+/**
+ * Pagination
+ */
+
+.pagination {
+  &__item {
+    @extend %paragraph--small;
+    display: inline;
+    margin: 0 5px;
+  }
+}
+
+@media(max-width: breakpoint('break-3')) {
+  a[rel="Previous"],
+  a[rel="Next"] {
+    display: none;
+  }
+}

@@ -1,0 +1,171 @@
+/**
+ * Modal
+ */
+
+%fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  @extend %fixed;
+  @include opacity(.7);
+  background: $black;
+  z-index: 2;
+}
+
+.modal {
+  
+  left: 50%;
+  margin: 5% 0 5% -350px;
+  width: 600px;
+  overflow: visible;
+  float: left;
+  
+  @media(max-width: breakpoint('break-3')) {
+    margin: 46px 0 5%;
+    width: auto;
+    left: 0;
+  }
+  
+  &, &--alert {
+    position: relative;
+    background: $white;
+    z-index: 2;
+    padding: 30px;
+    overflow: hidden;
+    @media (max-width: breakpoint('break-3')) {
+      padding: 20px;
+    }
+    &:focus {
+      outline: none;
+    }
+    &__close {
+      position: absolute;
+      text-indent: -9999px;
+      top: 20px;
+      right: 20px;
+    }
+    &__title {
+      margin-bottom: 20px;
+    }
+    form {
+      overflow: visible;
+      width: 100%;
+      margin-bottom: 0;
+      
+    }
+    form + form {
+      margin-top: -4.5em;
+    }
+    table {
+      margin-bottom: 1.5em;
+    }
+    .actions-container {
+      display: block;
+      margin: 3px 0;
+    }
+  }
+  
+  &__wrapper {
+    @extend %fixed;
+    overflow: auto;
+    z-index: 6;
+  }
+  
+  &__content {
+    margin-top: $gutter;
+  }
+  
+  &--alert {
+    margin: 20% auto;
+    width: 40%;
+    max-width: 460px;
+    min-width: 260px;
+    .modal__title {
+      @extend %h3;
+      margin-bottom: 10px;
+    }
+    p {
+      margin-bottom: 20px;
+    }
+  }
+  
+}// .modal
+
+/**
+ * Selfserve only styles
+ */
+
+@if $app == 'selfserve' {
+
+  .modal {
+    &__title {
+      @extend %h2;
+    }
+    &__close {
+      @include svg('selfserve-modal-close');
+    }
+    .hint {
+      @extend %paragraph--small;
+    }
+  }
+
+}// selfserve
+
+/**
+ * Internal only styles
+ */
+
+@if $app == 'internal' {
+
+  .modal {
+    border-radius: 3px;
+    padding: 65px 20px 69px;
+    &__title {
+      @extend %h4;
+    }
+    &__header {
+      border-radius: 3px 3px 0 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      padding: 12px 15px;
+      background: $grey-4;
+      border-bottom: 1px solid $grey-3;
+    }
+    &__close {
+      top: 11px;
+      text-indent: -9999px;
+      height: 22px;
+      width: 22px;
+      @include svg('internal-modal-close');
+    }
+    &--alert {
+      border-radius: 3px;
+      padding: 75px 20px 20px;
+      .modal__title {
+        @extend %h4;
+        margin-bottom: 0;
+      }
+      p {
+        @extend %paragraph--small;
+      }
+    }
+    .actions-container {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      padding: 15px;
+      width: auto;
+      background: $grey-4;
+      border-top: 1px solid $grey-3;
+    }
+  }
+
+}// internal

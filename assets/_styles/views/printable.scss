@@ -1,0 +1,80 @@
+/**
+ * Printable
+ *
+ * Styles for printable documents, including the applications,
+ * declaration form and payment receipts
+ */
+
+
+.printable {
+  padding: 20px 30px 40px;
+  h4 {
+    margin: 20px 0 5px;
+  }
+  p,
+  ul,
+  dt,
+  dd {
+    @extend %paragraph;
+  }
+}
+
+.printable__address {
+  margin-top: 110px;
+  float: left;
+}
+
+.printable__meta {
+  margin-top: 110px;
+  float: right;
+  width: 40%;
+  dl {
+    border-top: none;
+    margin-top: 0;
+  }
+  dt,
+  dd {
+    display: block;
+    width: 100%;
+    padding: 0;
+  }
+  dd {
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+}
+
+.printable__header {
+  float: left;
+  margin: 120px 0 60px;
+}
+
+.signature-box {
+  margin: 30px 0;
+  padding: 30px 0 30px 5%;
+  background: $grey-3;
+  overflow: auto;
+  -webkit-print-color-adjust:exact;
+}
+
+.signature-box__column {
+  float: left;
+  width: 45%;
+  margin: 0 5% 0 0;
+}
+
+.signature-box__label {
+  font-weight: 600;
+}
+
+.signature-box__input {
+  width: 100%;
+  border: 2px solid $black;
+  margin-bottom: 20px;
+  &.signature {
+    height: 100px;
+  }
+  &.date {
+    width: 200px;
+  }
+}

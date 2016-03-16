@@ -1,0 +1,14 @@
+/**
+ * Inline Search
+ */
+
+.inline-search {
+  &__button {
+    @extend .action--primary;
+    @extend %h4;
+    margin-left: 3px;
+  } 
+  &__hint {
+    @extend .hint--small;
+  } 
+}
