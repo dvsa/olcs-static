@@ -90,9 +90,6 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
           // could be riddled with errors
           F.render(modalBodySelector, response.body);
 
-          // @see https://jira.i-env.net/browse/OLCS-6698
-          // we used to scroll to top just in the event of errors,
-          // but it's preferable to always do it instead
           $(modalWrapper).scrollTop(0);
         }
       }
