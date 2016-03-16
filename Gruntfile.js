@@ -479,6 +479,10 @@
      * scenarios and environments.
      */
 
+    grunt.registerTask('default', [
+        'serve'
+    ]);
+
     grunt.registerTask('compile:dev', [
         'clean:images',
         'svg2png',

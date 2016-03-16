@@ -64,10 +64,11 @@ $core-sizes: (
 @function font-size($size, $print: false) {
   $size: map-get($core-sizes, 'size-#{$size}');
   @if $print {
-    @return #{$size} + 'pt';
+    $size: #{$size} + 'pt';
   } @else {
-    @return #{$size} + 'px';
+    $size: #{$size} + 'px';
   }
+  @return unquote($size);
 }
 
 /**
