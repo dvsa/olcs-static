@@ -27,6 +27,7 @@ styleguides/screenshots
 
 # Third party/config
 #============================================================
+
 node_modules/
 
 .idea/
