@@ -29,7 +29,7 @@ styleguides/screenshots
 #============================================================
 
 node_modules/
-!node_modules/grunt-sass
+!node_modules/node-sass
 npm-debug.log
 
 .idea/
