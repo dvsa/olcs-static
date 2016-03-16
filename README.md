@@ -5,8 +5,7 @@ This repo contains the styleguides, prototypes and static assets for both the OL
 ## Requirements
 
 * Sass >= 3.3.x (`gem install sass`)
-* Node.js 0.1.x (Use https://github.com/creationix/nvm to run multiple Node versions on your machine)
-* [PhantomJS](http://phantomjs.org/download.html)
+* Node.js >= v0.1
 * Grunt (`npm install -g grunt-cli`)
 
 ## Installation
@@ -31,7 +30,7 @@ grunt compile:dev
 
 ## Usage
 
-To view the compiled assets, you can run `grunt serve` to compile the assets and styleguides and set up a local server.
+To view the compiled assets as well as continuously compile the assets as files are changes, you can run `grunt serve` (or simply `grunt`) to compile the assets and styleguides, run the `watch` task, and set up a local server.
 
 Access the compiled styleguides: 
 
