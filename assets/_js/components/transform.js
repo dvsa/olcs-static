@@ -1,7 +1,7 @@
 var OLCS = OLCS || {};
 
 /**
- * OLCS.transform
+ * Transform
  */
 
 OLCS.transform = (function(document, $, undefined) {

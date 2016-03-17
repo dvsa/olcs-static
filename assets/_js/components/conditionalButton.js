@@ -1,7 +1,7 @@
 var OLCS = OLCS || {};
 
 /**
- * Conditional Button
+ * Conditional button
  */
 
 OLCS.conditionalButton = (function(document, $, undefined) {
@@ -58,7 +58,7 @@ OLCS.conditionalButton = (function(document, $, undefined) {
       $(selector).change();
     }
 
-    // Make sure any time the parent page is re-rendered we give our 
+    // Make sure any time the parent page is re-rendered we give our
     // conditional buttons a kick
     OLCS.eventEmitter.on("render", setup);
   };

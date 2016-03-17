@@ -1,7 +1,7 @@
 var OLCS = OLCS || {};
 
 /**
- * OLCS.formHandler
+ * Form handler
  *
  * A simple component to listen for form submissions and
  * make them asynchronous by using OLCS.submitForm to submit them.
@@ -21,7 +21,7 @@ OLCS.formHandler = (function(document, $, undefined) {
     var onChange = options.onChange !== undefined ? options.onChange : function() {
       $(this).submit();
     };
-    
+
     var submitButton = options.submit || $(selector).find("[type=submit]");
     var actionSelector = selector + " [type=submit]";
 
@@ -81,7 +81,7 @@ OLCS.formHandler = (function(document, $, undefined) {
 
         // got any file inputs populated?
         var isDirty = false;
-        
+
         $.each(form.find("input[type=file]"), function(i, e) {
           if ($(e).val() !== "") {
             isDirty = true;
@@ -89,7 +89,7 @@ OLCS.formHandler = (function(document, $, undefined) {
         });
 
         // if the user has pressed upload we *always* want to unbind
-        // otherwise if any file inputs have values and the form has been 
+        // otherwise if any file inputs have values and the form has been
         // submitted, unbind too
         if (F.buttonPressed(form, "[upload]") || (isDirty && F.buttonPressed(form, "[submit]"))) {
           handler.unbind();

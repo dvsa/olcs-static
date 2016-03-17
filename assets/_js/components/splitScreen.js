@@ -1,7 +1,7 @@
 var OLCS = OLCS || {};
 
 /**
- * OLCS.splitScreen
+ * Split screen
  *
  * Handles the splitScreen js
  */

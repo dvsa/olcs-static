@@ -1,11 +1,9 @@
 var OLCS = OLCS || {};
 
 /**
- * OLCS.accessibility
+ * Accessibility
  *
  * Various tools and helpers to aid with accessibility
- *
- * grunt test:single --target=accessibility
  */
 
   OLCS.accessibility = (function(document, $, undefined) {
@@ -13,14 +11,14 @@ var OLCS = OLCS || {};
   'use strict';
 
   return function init(custom) {
-    
+
     var options = $.extend({
-      
+
       errorContainer : '#validationSummary',
       skipTrigger    : '#skipToContent',
       skipTarget     : '#main',
       inputLabels    : '[type="radio"], [type="checkbox"], [type="file"]'
-      
+
     }, custom);
 
     // Run the code on each "render" of the page

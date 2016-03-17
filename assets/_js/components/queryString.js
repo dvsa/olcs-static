@@ -1,5 +1,9 @@
 var OLCS = OLCS || {};
 
+/**
+ * Query string
+ */
+
 OLCS.queryString = (function(document, $, undefined) {
 
   "use strict";

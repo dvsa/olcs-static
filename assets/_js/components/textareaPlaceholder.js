@@ -1,7 +1,7 @@
 var OLCS = OLCS || {};
 
 /**
- * OLCS.textareaPlaceholder
+ * Textarea placeholder
  *
  * A known bug exists in earlier versions of Internet Explorer which
  * causes issues with dynamically created textareas that have a

@@ -1,7 +1,7 @@
 var OLCS = OLCS || {};
 
 /**
- * OLCS.cascadeForm
+ * Cascade form
  *
  * This component should be bound to a form in which each section
  * (usually defined by a top-level fieldset) relates to the one which
@@ -14,7 +14,7 @@ OLCS.cascadeForm = (function(document, $, undefined) {
   "use strict";
 
   return function init(options) {
-    
+
     var selector = options.form || "form";
     var formSelector = selector;
     var previousFieldset;
@@ -38,14 +38,8 @@ OLCS.cascadeForm = (function(document, $, undefined) {
       };
     }
 
-    /**
-     * Iterate over the form, checking the relevant rulesets.
-     *
-     * We generally expect each ruleset to apply to a fieldset
-     * but allow for exceptions. Once we've found a fieldset or
-     * element, we invoke its predicate which can either be a
-     * bool or function
-     */
+
+    // iterate over the form, checking the relevant rulesets
     function checkForm() {
       for (var fieldset in options.rulesets) {
         var ruleset = options.rulesets[fieldset];
@@ -76,7 +70,7 @@ OLCS.cascadeForm = (function(document, $, undefined) {
      * if so; although currently there are exceptions to this
      */
     function triggerRule(group, selector, rule) {
-      
+
       var show;
       var elem;
       var action = "none";
@@ -114,13 +108,13 @@ OLCS.cascadeForm = (function(document, $, undefined) {
         elem[action]();
         OLCS.eventEmitter.emit(action + ":" + group + ":" + selector);
       }
-      
+
       if (action === "show") {
         elem.attr("aria-hidden", "false");
       } else if (action === "hide") {
         elem.attr("aria-hidden", "true");
       }
-      
+
     }
 
     /**
@@ -129,7 +123,7 @@ OLCS.cascadeForm = (function(document, $, undefined) {
      * the group itself rather than a child
      */
     function findContainer(group, selector) {
-      
+
       if (selector === "*") {
         return OLCS.formHelper(group);
       }
@@ -174,8 +168,8 @@ OLCS.cascadeForm = (function(document, $, undefined) {
     }
 
     /*
-     * find the top-level fieldsets and bind some handlers such that 
-     * when they change, the event cascades to all subsequent fieldsets 
+     * find the top-level fieldsets and bind some handlers such that
+     * when they change, the event cascades to all subsequent fieldsets
      * emptying them out
      */
     if (cascade) {

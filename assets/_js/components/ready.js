@@ -1,5 +1,9 @@
 var OLCS = OLCS || {};
 
+/**
+ * Ready
+ */
+
 OLCS.ready = (function(document, $, undefined) {
 
   "use strict";

@@ -1,7 +1,7 @@
 var OLCS = OLCS || {};
 
 /**
- * OLCS.cascadeInput
+ * Cascade input
  *
  * Given a source and destination input, and a process callback
  * invoked when the source value changes, apply those changes
@@ -13,7 +13,7 @@ OLCS.cascadeInput = (function(document, $, undefined) {
   "use strict";
 
   return function init(options) {
-    
+
     var trap = options.trap === undefined ? true : options.trap;
     var disableDestination = options.disableDestination === undefined ? true : options.disableDestination;
     var loadingText = options.loadingText || "Loading...";
@@ -27,7 +27,7 @@ OLCS.cascadeInput = (function(document, $, undefined) {
       process = function(value, callback) {
 
         // If the component asks to clear the select values when the empty
-        // value is chosen we short-circuit the AJAX request and invoke the 
+        // value is chosen we short-circuit the AJAX request and invoke the
         // callback with one empty value instead
         if (value === "" && clearWhenEmpty) {
           return callback([{value: ""}]);
@@ -74,7 +74,7 @@ OLCS.cascadeInput = (function(document, $, undefined) {
         if (disableDestination) {
           destination.removeAttr("disabled");
         }
-        
+
         if (trap) {
           destination.trigger("change");
         }

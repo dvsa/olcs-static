@@ -1,7 +1,7 @@
 var OLCS = OLCS || {};
 
 /**
- * OLCS.notices
+ * Notices
  *
  * Allows the user to close flash messages, and fades them out
  * automatically after a few seconds

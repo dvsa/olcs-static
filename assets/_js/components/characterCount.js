@@ -1,10 +1,9 @@
 var OLCS = OLCS || {};
 
 /**
- * OLCS.characterCount
+ * Character count
  *
  * Displays a character count below a field
- *
  */
 
 OLCS.characterCount = (function(document, $, undefined) {

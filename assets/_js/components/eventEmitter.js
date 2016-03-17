@@ -1,7 +1,7 @@
 var OLCS = OLCS || {};
 
 /**
- * EventEmitter
+ * Event emitter
  */
 
 OLCS.eventEmitter = (function(document, $, undefined) {

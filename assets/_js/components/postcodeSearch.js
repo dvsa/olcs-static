@@ -1,12 +1,10 @@
 var OLCS = OLCS || {};
 
 /**
- * Postcode Search
+ * Postcode search
  */
 
 OLCS.postcodeSearch = (function(document, $, undefined) {
-
-  // jshint newcap:false
 
   "use strict";
 
@@ -145,12 +143,12 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
           success: OLCS.normaliseResponse(function(response) {
             var root = getRootSelector(fieldset);
             F.render(root, response.body);
-            // focus the address select box when it becomes rendered - we 
+            // focus the address select box when it becomes rendered - we
             // target the first element, but there should only ever be one
             $(container).find("select:first").focus();
           })
         });
-        
+
       };
     }
 
@@ -207,10 +205,10 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       var inputs = fieldset.children(".field");
       inputs.find("[type=text]").val("");
       inputs.show();
-      
+
       // ditch the address options, if present...
       fieldset.find(selectClass).remove();
-      
+
       // and finally, remove this button's container
       $(this).parent().remove();
     });

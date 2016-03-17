@@ -1,7 +1,7 @@
 var OLCS = OLCS || {};
 
 /**
- * OLCS.modalForm
+ * Modal form
  *
  * Composite component which displays an OLCS.modal and binds
  * an OLCS.formHandler to it

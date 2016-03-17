@@ -1,12 +1,12 @@
 var OLCS = OLCS || {};
 
 /**
- * OLCS.toggleElement
+ * Toggle element
  *
- * Quite simply, when a 'trigger' element is clicked it displays a 'target'
- * element. The revealed element is then hidden when the user clicks anywhere
- * else on the document. Particularly useful for custom dropdown
- * menus, such as the internal 'Admin menu'.
+ * When a 'trigger' element is clicked it displays a 'target'
+ * element. The revealed element is then hidden when the user clicks
+ * anywhere else on the document. Particularly useful for custom
+ * dropdown menus, such as the internal 'Admin menu'.
  *
  */
 

@@ -1,5 +1,9 @@
 var OLCS = OLCS || {};
 
+/**
+ * Complex predicate
+ */
+
 OLCS.complexPredicate = (function(document, $, undefined) {
 
   "use strict";

@@ -1,7 +1,7 @@
 var OLCS = OLCS || {};
 
 /**
- * CRUD Table Handler
+ * CRUD table handler
  */
 
 OLCS.crudTableHandler = (function(document, $, undefined) {
@@ -57,8 +57,8 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
 
         var options = {
           success: OLCS.normaliseResponse({
-            // We trap redirects and handle them ourselves, because if the 
-            // redirect URL is the current page we want to ignore it and 
+            // We trap redirects and handle them ourselves, because if the
+            // redirect URL is the current page we want to ignore it and
             // just hide the modal instead
             followRedirects: false,
             callback: handleCrudResponse

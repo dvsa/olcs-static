@@ -1,11 +1,11 @@
 var OLCS = OLCS || {};
 
 /**
- * OLCS.tooltip.js
+ * Tooltip
  *
- * Whilst the actual tooltip functionality is handled purely 
+ * Whilst the actual tooltip functionality is handled purely
  * with CSS, this file is required for appropriate ARIA labels
- * 
+ *
  * grunt test:single --target=tooltip
  */
 
@@ -19,14 +19,14 @@ OLCS.tooltip = (function(document, $, undefined) {
     var parent = options.parent;
 
     $(parent).each(function() {
-      
+
       var tooltip = $(this);
-      
+
       tooltip.hover(
         function() { tooltip.attr('aria-hidden', 'false'); },
         function() { tooltip.attr('aria-hidden', 'true' ); }
       );
-      
+
     });
 
   };

@@ -1,5 +1,9 @@
 var OLCS = OLCS || {};
 
+/**
+ * Table sorter
+ */
+
 OLCS.tableSorter = (function(document, $, undefined) {
 
   "use strict";

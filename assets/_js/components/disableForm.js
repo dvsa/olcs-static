@@ -1,11 +1,11 @@
 var OLCS = OLCS || {};
 
 /**
- * OLCS.disableForm
+ * Disable form
  *
  * Tools to provide disabling buttons and changing submit button
  * text when form is submitted
- * 
+ *
  * grunt test:single --target=disableForm
  */
 

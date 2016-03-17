@@ -1,7 +1,7 @@
 var OLCS = OLCS || {};
 
 /**
- * AJAX
+ * Ajax
  *
  * Simple wrapper component around jQuery.ajax which allows better
  * request and response introspection

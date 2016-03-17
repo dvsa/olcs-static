@@ -1,7 +1,7 @@
 var OLCS = OLCS || {};
 
 /**
- * OLCS.modalLink
+ * Modal link
  *
  * Triggers an AJAX request, the response from which is
  * used to populate a modal
@@ -11,8 +11,7 @@ var OLCS = OLCS || {};
  *
  * @NOTE: the way this is named is the same as OLCS.submitForm
  * but they behave differently (this binds listeners, that
- * actually fires a form immediately). These could do with
- * being made more consistent with each other.
+ * actually fires a form immediately).
  */
 
 OLCS.modalLink = (function(document, $, undefined) {

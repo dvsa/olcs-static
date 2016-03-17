@@ -1,7 +1,7 @@
 var OLCS = OLCS || {};
 
 /**
- * OLCS.tableRows
+ * Table rows
  *
  * Makes table rows with a single anchor link or
  * input[type=submit] more clickable

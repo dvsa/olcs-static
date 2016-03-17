@@ -1,13 +1,12 @@
 var OLCS = OLCS || {};
 
 /**
- * OLCS.multiFilter
+ * Multi-filter
  *
- * A *very* niche component; used to filter a destination
- * multiselect based on the current value(s) of a source
- * multiselect. The exact keys/values used to do the filtering
- * are tied one to one with the use-case which spawned the
- * component so probably aren't re-usable (yet)
+ * used to filter a destination multiselect based on the current
+ * value(s) of a source multiselect. The exact keys/values used
+ * to do the filtering are tied one to one with the use-case which
+ * spawned the component so probably aren't re-usable (yet)
  */
 
 OLCS.multiFilter = (function(document, $, undefined) {
@@ -18,11 +17,6 @@ OLCS.multiFilter = (function(document, $, undefined) {
 
     var cachedOptions = {};
 
-    // unfortunately we can't avoid having to loop over our
-    // destination element since we assume it contains *all*
-    // possible options on load. We need a copy of them
-    // because we'll selectively remove/add them back in based
-    // on interaction with options.from
     $(options.to).find("option").each(function(_, v) {
       var option = $(v);
       var group  = option.parent().prop("label");
@@ -32,8 +26,6 @@ OLCS.multiFilter = (function(document, $, undefined) {
       }
 
       // build up an object keyed by the containing optgroup
-      // we need each element per group to be an object as we
-      // use both keys and values later
       cachedOptions[group].push({
         text: option.text(),
         value: option.val()
@@ -42,20 +34,12 @@ OLCS.multiFilter = (function(document, $, undefined) {
 
     function setup() {
 
-      // we'll have an array of strings after this with the
-      // contents of each option's text. We have to use this
-      // awkward loop here because $.val() would give us an
-      // array of values which are effectively keys (IDs etc).
-      // They're no use because our optgroups are assumed to be
-      // grouped by "label", e.g. text value=
       var available = [];
       $(options.from).find(":selected").each(function(_, v) {
         available.push($(v).text());
       });
 
-      // take a record of our destination's current values; used
-      // later so we can make sure any which are still left after
-      // re-populating the select are still selected
+      // take a record of our destination's current values
       var current = $(options.to).val() || [];
 
       // iterate over the available opt groups and render
@@ -65,7 +49,7 @@ OLCS.multiFilter = (function(document, $, undefined) {
       });
 
       // completely replace the destination's groups and options
-      // and make sure chosen knows about it (if it cares)
+      // and make sure chosen knows about it
       $(options.to).html(groupStr).trigger("chosen:updated");
     }
 

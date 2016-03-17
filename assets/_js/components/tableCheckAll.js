@@ -1,7 +1,7 @@
 var OLCS = OLCS || {};
 
 /**
- * OLCS.tableCheckAll
+ * Table check all
  *
  * Add listeners for the 'check all' checkbox present on
  * various CRUD tables

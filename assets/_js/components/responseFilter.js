@@ -1,5 +1,9 @@
 var OLCS = OLCS || {};
 
+/**
+ * Filter response
+ */
+
 OLCS.filterResponse = (function(document, $, undefined) {
 
   "use strict";
@@ -14,7 +18,7 @@ OLCS.filterResponse = (function(document, $, undefined) {
       var content = response.body;
 
       if (filter) {
-        
+
         // we MUST wrap the plain content in a container so that
         // .find() works consistently; without this if the top-level
         // element was the one we wanted to filter the find would fail

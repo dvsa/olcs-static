@@ -1,7 +1,7 @@
 var OLCS = OLCS || {};
 
 /**
- * OLCS.selectBox
+ * Select box
  *
  * Makes radios and checkboxes inputs more selectable by providing
  * a bigger hit area
@@ -23,7 +23,7 @@ OLCS.selectBox = (function(document, $, undefined) {
       $(checkboxSelector + ':checked, ' + radioSelector + ':checked')
       .parent('label')
       .addClass(activeClass);
-     
+
       $(checkboxSelector + ':disabled, ' + radioSelector + ':disabled')
       .parent('label')
       .addClass(disabledClass);

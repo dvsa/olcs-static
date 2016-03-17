@@ -1,12 +1,17 @@
 var OLCS = OLCS || {};
 
+/**
+ * Normalise response
+ *
+ * the return value is a simple function which takes
+ * a callback; this callback will be invoked with the
+ * normalised response...
+ */
+
 OLCS.normaliseResponse = (function(window, $, undefined) {
 
   "use strict";
 
-  // the return value is a simple function which takes
-  // a callback; this callback will be invoked with the
-  // normalised response...
   return function init(options) {
 
     if (!$.isPlainObject(options)) {
@@ -91,7 +96,7 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
         var deepest = null;
         var depth = -1;
 
-        // we sometimes find multiple .js-body tags and sometimes even have a 
+        // we sometimes find multiple .js-body tags and sometimes even have a
         // .js-body within a .js-body__main
         $.each(body, function(_, v) {
           var dist = $(v).parentsUntil(rootSelector).length;
@@ -103,7 +108,7 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
 
         OLCS.logger.debug("got response body matching ." + deepest.attr("class") + " at depth " + depth, "normaliseResponse");
 
-        // js-script will often live within js-body; we want to lift it 
+        // js-script will often live within js-body; we want to lift it
         // out as it'll be appended afterwards
         deepest.find(scriptSelector).remove();
         response.body = deepest.html();

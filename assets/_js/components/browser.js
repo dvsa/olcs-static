@@ -1,5 +1,12 @@
 var OLCS = OLCS || {};
 
+
+/**
+ * Browser
+ *
+ * Browser sniffing used by the internal
+ */
+
 OLCS.browser = (function(document, $, undefined) {
 
   "use strict";

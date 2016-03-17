@@ -1,7 +1,7 @@
 var OLCS = OLCS || {};
 
 /**
- * OLCS.modalResponse
+ * Modal response
  *
  * Thin wrapper around normalise response; if the response we get back
  * looks okay, we pop open a modal. If not, we try and render any errors
@@ -18,10 +18,6 @@ OLCS.modalResponse = (function(document, $, undefined) {
         OLCS.formHelper.render(bodySelector, data.body);
         return;
       }
-
-      // assume that the the modal we get back has a form,
-      // so invoke a wrapper component to bind a formHandler
-      // and show the modal at the same time.
 
       // this is safe to do because binding a form handler on
       // the modal's content won't trigger unless there

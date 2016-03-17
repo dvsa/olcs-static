@@ -1,7 +1,7 @@
 var OLCS = OLCS || {};
 
 /**
- * Logging component
+ * Logger
  */
 
 OLCS.logger = (function(document, $, undefined) {
