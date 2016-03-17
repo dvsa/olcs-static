@@ -5,7 +5,7 @@ This repo contains the styleguides, prototypes and static assets for both the OL
 ## Requirements
 
 * Sass >= 3.3.x (`gem install sass`)
-* Node.js v0.10.x (Use (Node Version Manager)[https://github.com/creationix/nvm] to run old versions)
+* Node.js v0.10.x (Use [Node Version Manager](https://github.com/creationix/nvm) to run old versions)
 * Grunt (`npm install -g grunt-cli`)
 
 ## Installation
@@ -28,7 +28,7 @@ npm install
 grunt compile:dev
 ```
 
-If running this task complains about libsass bindings (i.e. "The `libsass` binding was not found"), it likely means you are using an incorrect Node version. To rectify, install (Node Version Manager)[https://github.com/creationix/nvm] and run `nvm use` inside your project to switch to the correct Node version (v0.10.33).
+If running this task complains about libsass bindings (i.e. "The `libsass` binding was not found"), it likely means you are using an incorrect Node version. To rectify, install [Node Version Manager](https://github.com/creationix/nvm) and run `nvm use` inside your project to switch to the correct Node version (v0.10.33).
 
 ## Usage
 
