@@ -141,6 +141,10 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
     // ... the inner function will be invoked, we suppose, by an AJAX request or similar
     return function onResponse(response) {
 
+      // expose the redirect location to the DOM
+      // so that inline JS can make use of it
+      $("body").data("target",response.location);
+
       if (typeof response === "string") {
         OLCS.logger.debug("converting response string to object", "normaliseResponse");
         response = parse(response);
@@ -162,6 +166,8 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
           "caught 302 redirect; followRedirects=true; redirecting to " + response.location,
           "normaliseResponse"
         );
+
+
 
         return OLCS.url.load(response.location);
       }

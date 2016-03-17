@@ -21,8 +21,15 @@ OLCS.fileUpload = (function(document, $, undefined) {
     var numUploaded        = 0;
     var totalUploads       = 0;
     var MULTI_UPLOAD_DELAY = 1000;
-
-    var handleResponse = OLCS.normaliseResponse(function(response) {
+    
+    
+    function handleResponse(response, name) {
+      var selector = ".file-uploader[data-group='"+name+"']";
+      var fileUploader = $(response).find(selector);      
+      F.render(selector, fileUploader);
+    }
+    
+    var deleteResponse = OLCS.normaliseResponse(function(response) {
       if (OLCS.modal.isVisible()) {
         OLCS.modal.updateBody(response.body);
       } else {
@@ -91,7 +98,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
               "All files uploaded",
               "fileUpload"
             );
-            handleResponse(xhr.responseText);
+            handleResponse(xhr.responseText, name);
           }
         }
       };
@@ -135,7 +142,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
 
       OLCS.submitForm({
         form: form,
-        success: handleResponse
+        success: deleteResponse
       });
     });
 
