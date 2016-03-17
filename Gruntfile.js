@@ -462,15 +462,10 @@
      * This uses 'matchdep' to get all available grunt tasks and
      * loads them automatically.
      */
-
-    if (grunt.option("production")) {
-        grunt.loadNpmTasks("grunt-sass");
-        grunt.loadNpmTasks("grunt-contrib-uglify");
-    } else {
-        require('matchdep').filterAll([
-          'grunt-*', '!grunt-cli', 'assemble'
-        ]).forEach(grunt.loadNpmTasks);
-    }
+    
+    require('matchdep').filterAll([
+      'grunt-*', '!grunt-cli', 'assemble'
+    ]).forEach(grunt.loadNpmTasks);
     
     /**
      * Register Compilation Environments
@@ -480,33 +475,33 @@
      */
 
     grunt.registerTask('default', [
-        'serve'
+      'serve'
     ]);
 
     grunt.registerTask('compile:dev', [
-        'clean:images',
-        'svg2png',
-        'dr-svg-sprites',
-        'lint',
-        'sass:dev',
-        'postcss',
-        'uglify:dev',
-        'copy:images',
-        'assemble'
+      'clean:images',
+      'svg2png',
+      'dr-svg-sprites',
+      'lint',
+      'sass:dev',
+      'postcss',
+      'uglify:dev',
+      'copy:images',
+      'assemble'
     ]);
 
     grunt.registerTask('compile:staging', [
-        'lint',
-        'sass:prod',
-        'postcss',
-        'uglify:prod',
-        'assemble'
+      'lint',
+      'sass:prod',
+      'postcss',
+      'uglify:prod',
+      'assemble'
     ]);
 
     grunt.registerTask('compile:live', [
-        'sass:prod',
-        'postcss',
-        'uglify:prod'
+      'sass:prod',
+      'postcss',
+      'uglify:prod'
     ]);
     
     /**
@@ -547,33 +542,33 @@
      */
 
     grunt.registerTask('tm-prototype', function(directory) {
-        globalConfig.prototypeName = 'tm-prototype';
-        grunt.task.run(['clean:prototype', 'copy:prototype']);
+      globalConfig.prototypeName = 'tm-prototype';
+      grunt.task.run(['clean:prototype', 'copy:prototype']);
     });
 
     grunt.registerTask('authentication-prototype', function(directory) {
-        globalConfig.prototypeName = 'authentication-prototype';
-        grunt.task.run(['clean:prototype', 'copy:prototype']);
+      globalConfig.prototypeName = 'authentication-prototype';
+      grunt.task.run(['clean:prototype', 'copy:prototype']);
     });
 
     grunt.registerTask('bus-reg-prototype', function(directory) {
-        globalConfig.prototypeName = 'bus-reg-prototype';
-        grunt.task.run(['clean:prototype', 'copy:prototype']);
+      globalConfig.prototypeName = 'bus-reg-prototype';
+      grunt.task.run(['clean:prototype', 'copy:prototype']);
     });
 
     grunt.registerTask('submit-app-prototype', function(directory) {
-        globalConfig.prototypeName = 'submit-app-prototype';
-        grunt.task.run(['clean:prototype', 'copy:prototype']);
+      globalConfig.prototypeName = 'submit-app-prototype';
+      grunt.task.run(['clean:prototype', 'copy:prototype']);
     });
 
     grunt.registerTask('search-prototype', function(directory) {
-        globalConfig.prototypeName = 'search-prototype';
-        grunt.task.run(['clean:prototype', 'copy:prototype']);
+      globalConfig.prototypeName = 'search-prototype';
+      grunt.task.run(['clean:prototype', 'copy:prototype']);
     });
 
     grunt.registerTask('interim-prototype', function(directory) {
-        globalConfig.prototypeName = 'interim-prototype';
-        grunt.task.run(['clean:prototype', 'copy:prototype']);
+      globalConfig.prototypeName = 'interim-prototype';
+      grunt.task.run(['clean:prototype', 'copy:prototype']);
     });
 
     /**
