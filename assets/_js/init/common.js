@@ -11,7 +11,6 @@ OLCS.ready(function() {
   OLCS.tableRows();
   OLCS.dataTooltip();
   OLCS.selectBox();
-  OLCS.formInit();
   OLCS.notices();
 
   // OLCS.disableForm({
