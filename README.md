@@ -51,7 +51,7 @@ Access the compiled styleguides:
 
 All JavaScript files are located within the `assets/_js` directory. This directory is further split up into the following three directories:
 
-* [Components](#) (custom JS components)
+* [components](#) (custom JS components)
 * [init](#) (initialise custom JS components)
 * [vendor](#) (third party JS)
 
