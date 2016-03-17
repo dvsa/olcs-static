@@ -66,7 +66,7 @@ OLCS.modal = (function(document, $, undefined) {
 
     // focus on the modal itself
     $(selector).focus();
-    
+
     OLCS.eventEmitter.emit('show:modal');
 
     // let other potentially interested components know
@@ -83,7 +83,7 @@ OLCS.modal = (function(document, $, undefined) {
         exports.hide();
       }
     });
-    
+
     // Set the aria-hidden attribute of all other content to 'true'
     // whilst the modal is open
     $('.page-wrapper').attr('aria-hidden', 'true');
@@ -107,7 +107,7 @@ OLCS.modal = (function(document, $, undefined) {
 
     // let other components know that the modal is hidden
     OLCS.eventEmitter.emit('hide:modal');
-    
+
     // Set the aria-hidden attribute of all other content to 'false'
     // when the modal closes
     $('.page-wrapper').attr('aria-hidden', 'false');
