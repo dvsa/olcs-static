@@ -3,7 +3,7 @@ var OLCS = OLCS || {};
 /**
  * OLCS.addAnother
  *
- * Duplicated the last field in a fieldset, increments
+ * Duplicates the last field in a fieldset, increments
  * the name and ID if needed and appends it to the end
  * of the fieldset.
  */
@@ -33,7 +33,7 @@ OLCS.addAnother = (function(document, $, undefined) {
       var field     = $(element);
       var input     = field.find("input");
       var inputName = incrementString(input.attr("name"));
-      var inputID = incrementString(input.attr("id"));
+      var inputID   = incrementString(input.attr("id"));
 
       input.attr({
         name: inputName,
