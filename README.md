@@ -28,7 +28,13 @@ npm install
 grunt compile:dev
 ```
 
-If running this task complains about libsass bindings (i.e. "The `libsass` binding was not found"), it likely means you are using an incorrect Node version. To rectify, install [Node Version Manager](https://github.com/creationix/nvm) and run `nvm use` inside your project to switch to the correct Node version (v0.10.33).
+If running this task complains about libsass bindings (i.e. "The `libsass` binding was not found"), it likely means you are running an unsupported Node version for this app. To rectify, install [Node Version Manager](https://github.com/creationix/nvm) and run:
+
+```
+nvm install 0.10.33
+```
+
+This will install the correcrt Node version supported by this app. Now you can run `nvm use` inside your project to switch to this version (v0.10.33).
 
 ## Usage
 
@@ -38,6 +44,16 @@ Access the compiled styleguides:
 
 * [http://localhost:7001/styleguides/selfserve/](http://localhost:7001/styleguides/selfserve/)
 * [http://localhost:7001/styleguides/selfserve/](http://localhost:7001/styleguides/internal/)
+
+## Developing
+
+#### JavaScript
+
+*coming soon*
+
+#### Sass/CSS
+
+*coming soon*
 
 ## Authors
 
