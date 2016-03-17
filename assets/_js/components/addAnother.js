@@ -1,7 +1,7 @@
 var OLCS = OLCS || {};
 
 /**
- * OLCS.addAnother
+ * Add another
  *
  * Duplicates the last field in a fieldset, increments
  * the name and ID if needed and appends it to the end
