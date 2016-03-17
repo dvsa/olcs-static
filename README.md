@@ -4,9 +4,9 @@ This repo contains the styleguides, prototypes and static assets for both the OL
 
 ## Requirements
 
-* Sass >= 3.3.x (`gem install sass`)
-* Node.js v0.10.x (Use [Node Version Manager](https://github.com/creationix/nvm) to run old versions)
-* Grunt (`npm install -g grunt-cli`)
+* [Sass](http://sass-lang.com/) >= 3.3.x (`gem install sass`)
+* [Node.js](https://nodejs.org/en/) v0.10.x (Use [Node Version Manager](https://github.com/creationix/nvm) to run old versions)
+* [Grunt](http://gruntjs.com/) (`npm install -g grunt-cli`)
 
 ## Installation
 
