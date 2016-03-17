@@ -38,7 +38,7 @@ This will install the correcrt Node version supported by this app. Now you can r
 
 ## Usage
 
-To view the compiled assets as well as continuously compile the assets as files are changes, you can run `grunt serve` to compile the assets and styleguides, run the `watch` task, and set up a local server.
+To view the compiled assets as well as continuously compile the assets as files are changed, you can run `grunt serve` to compile the assets and styleguides, run the `watch` task, and set up a local server.
 
 Access the compiled styleguides: 
 
