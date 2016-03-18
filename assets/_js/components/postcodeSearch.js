@@ -8,6 +8,8 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
 
   "use strict";
 
+  // jshint newcap:false
+
   return function init(options) {
     var container = options.container;
 

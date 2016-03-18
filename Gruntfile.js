@@ -3,18 +3,18 @@
   /**
    * Gruntfile.js
    *
-   * OLCS automated front-end build processes to setup the 
-   * OLCS-Static repo using the Grunt build tool. Ensure to 
+   * OLCS automated front-end build processes to setup the
+   * OLCS-Static repo using the Grunt build tool. Ensure to
    * read documentation on the Wiki @ https://wiki.i-env.net/
    */
 
   "use strict";
 
   module.exports = function(grunt) {
-  
+
     /**
      * Global Configuration
-     * 
+     *
      * General reusable variables and functions for use with
      * all Grunt tasks. You can pass any desired global config
      * to the 'globalConfig' variable.
@@ -22,7 +22,7 @@
 
     // Set any global grunt configuration
     var globalConfig = {};
-    
+
     // Setup param to access via command line
     var target = grunt.option('target');
 
@@ -57,8 +57,8 @@
       ],
       "public/js/selfserve.js" : scriptPaths("selfserve")
     };
-    
-    // Function to get which file(s) should be used to run JS tests   
+
+    // Function to get which file(s) should be used to run JS tests
     var testFiles = function(path) {
       var paths;
       return paths = [
@@ -75,7 +75,7 @@
 
     /**
      * Grunt Tasks
-     * 
+     *
      * List of all separate Grunt tasks used by OLCS-Static,
      * including a link to the public repo and minimum required
      * version number.
@@ -425,8 +425,8 @@
           colors: false
         },
         single: {
-          options: { 
-            files: testFiles(target) 
+          options: {
+            files: testFiles(target)
           }
         },
       },
@@ -455,21 +455,21 @@
       }
 
     }); // initConfig
-    
+
     /**
      * Load NPM Tasks
-     * 
+     *
      * This uses 'matchdep' to get all available grunt tasks and
      * loads them automatically.
      */
-    
+
     require('matchdep').filterAll([
       'grunt-*', '!grunt-cli', 'assemble'
     ]).forEach(grunt.loadNpmTasks);
-    
+
     /**
      * Register Compilation Environments
-     * 
+     *
      * The below tasks are for compiling the app for various
      * scenarios and environments.
      */
@@ -503,10 +503,10 @@
       'postcss',
       'uglify:prod'
     ]);
-    
+
     /**
      * Register General Tasks
-     * 
+     *
      * Register tasks for compiling, serving and testing code
      */
 
@@ -518,9 +518,9 @@
 
     // Browser Sync
     grunt.registerTask('serve', [
-      'notify', 
-      'compile:dev', 
-      'browserSync', 
+      'notify',
+      'compile:dev',
+      'browserSync',
       'watch'
     ]);
 
@@ -528,15 +528,15 @@
     grunt.registerTask('test', [
       'karma:test'
     ]);
-    
+
     grunt.registerTask('test:ci', ['karma:ci']);
-    
-    // To run an idividual component spec use: 
+
+    // To run an idividual component spec use:
     // $ grunt test:single --target=componentName
     grunt.registerTask('test:single', [
       'karma:single:' + target
     ]);
-    
+
     /**
      * Prototype Tasks
      */
