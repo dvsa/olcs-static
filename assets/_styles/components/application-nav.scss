@@ -7,11 +7,12 @@
 /**
  * Configuration
  */
- 
+
 $mobile-statuses: (
-  'complete' : 'internal-application-complete',
-  'edited'   : 'internal-application-edited',
-  'warn'     : 'internal-application-warning'
+  'complete'   : 'internal-application-complete',
+  'edited'     : 'internal-application-edited',
+  'warn'       : 'internal-application-warning',
+  'incomplete' : 'internal-application-warning'
 );
 
 /**
@@ -19,12 +20,12 @@ $mobile-statuses: (
  */
 
 .app-navigation {
-  
+
   @extend %navigation;
   overflow: hidden;
   border-top: 0;
   margin: 0;
-  
+
   a,
   .current,
   .disabled {
@@ -34,14 +35,14 @@ $mobile-statuses: (
     border-bottom: 1px solid $grey-3;
     text-decoration: none;
   }
-  
+
   .current {
     border-bottom: 3px solid $primaryColour;
     &.no-background {
       background: none;
     }
   }
-  
+
   &__item {
     @extend %navigation__item;
     padding: 0;
@@ -56,7 +57,7 @@ $mobile-statuses: (
       top: 11px;
     }
   }
-  
+
   @each $status in $mobile-statuses {
     .#{nth($status, 1)} {
       &:before {
@@ -64,5 +65,5 @@ $mobile-statuses: (
       }
     }
   }
-  
+
 } // .app-navigation
