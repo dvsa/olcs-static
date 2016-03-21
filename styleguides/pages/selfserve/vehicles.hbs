@@ -28,14 +28,16 @@ breadcrumbs:
 <div class="row">
 
   <div class="two-thirds">
-    <form style="margin-top: -20px;">
-      <fieldset>
-        <div class="field inline-search">
-          <label>Search for a vehicle</label>
-          <input type="search" class="inline-search__input">
-          <button class="inline-search__button">Find vehicle</button>
-          <p class="inline-search__hint"><a href="vehicles.html">Clear search</a></p>
+    <form>
+      <fieldset class="inline-search" data-group="vehicleSearch">
+        <div class="field ">
+          <label for="vrm">Search for a vehicle</label>
+          <input type="search" name="vehicleSearch[vrm]" id="vrm" placeholder="" class="inline-search__input" required="required" value="">
         </div>
+        <div class="field ">
+          <button type="submit" name="vehicleSearch[filter]" class="action--primary inline-search__submit" id="vehicleSearch[filter]" value="">Find vehicle</button>
+        </div>
+        <button type="submit" name="vehicleSearch[clearSearch]" class="inline-search__clear" id="clearSearch" value="">Clear search</button>
       </fieldset>
     </form>
     <form>
