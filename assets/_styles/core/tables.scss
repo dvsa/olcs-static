@@ -47,6 +47,10 @@ table {
     display: block;
     cursor: pointer;
   }
+  [type="submit"] {
+    white-space: normal;
+    text-align: left;
+  }
   input[type="submit"]:focus {
     border: 0;
     background: $yellow;
