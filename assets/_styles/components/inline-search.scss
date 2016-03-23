@@ -3,12 +3,20 @@
  */
 
 .inline-search {
-  &__button {
+  margin-bottom: 0;
+  .field {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+  &__submit {
     @extend .action--primary;
     @extend %h4;
-    margin-left: 3px;
-  } 
-  &__hint {
+    vertical-align: bottom;
+    margin-bottom: -3px;
+  }
+  &__clear {
     @extend .hint--small;
-  } 
+    display: block;
+    color: $link-colour;
+  }
 }

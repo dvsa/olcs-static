@@ -1,10 +1,23 @@
 /**
  * Article
  *
- * Used for typographic sections
+ * Used for long form text based sections, e.g.
+ * guides
  */
 
 .article {
+
+  p + h2,
+  p + h3,
+  p + h4,
+  details + h2,
+  details + h3,
+  details + h4,
+  ul + h2,
+  ul + h3,
+  ul + h4 {
+    margin-top: 20px;
+  }
 
   ul {
     @extend %paragraph;
