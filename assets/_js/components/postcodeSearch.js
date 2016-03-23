@@ -145,9 +145,9 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
           success: OLCS.normaliseResponse(function(response) {
             var root = getRootSelector(fieldset);
             F.render(root, response.body);
-            // focus the address select box when it becomes rendered - we
-            // target the first element, but there should only ever be one
-            $(container).find("select:first").focus();
+            // // focus the address select box when it becomes rendered - we
+            // // target the first element, but there should only ever be one
+            // $(container).find("select:first").focus();
           })
         });
 
