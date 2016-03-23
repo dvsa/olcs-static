@@ -62,8 +62,7 @@ input::-moz-focus-inner {
   padding: 0;
 }
 
-// ipad will round corners of submit buttons, 
-// so we want to undo it 
+// overrides webkit's default rounding of form elements
 input, 
 textarea {
   -webkit-appearance: none;
