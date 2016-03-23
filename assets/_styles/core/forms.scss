@@ -62,6 +62,14 @@ input::-moz-focus-inner {
   padding: 0;
 }
 
+// ipad will round corners of submit buttons, 
+// so we want to undo it 
+input, 
+textarea {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
+
 /**
  * Wrapping Elements
  */
