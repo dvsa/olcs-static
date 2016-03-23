@@ -39,3 +39,20 @@
     }
   }
 }
+
+.search-filter {
+  @media (max-width: breakpoint('break-4')) {
+    h3 {
+      cursor: pointer;
+    }
+    h3:before {
+      content: "►";
+    }
+    &.toggled h3:before {
+      content: "▼";
+    }
+  }
+  &:not(.toggled) {
+    margin-bottom: $gutter;
+  }
+}

@@ -17,6 +17,7 @@ var OLCS = OLCS || {};
       parent  : '.search-filter',
       title   : 'h3',
       content : '.form__filter',
+      class   : 'toggled',
       mobile  : 780
     }, custom);
     
@@ -24,11 +25,13 @@ var OLCS = OLCS || {};
       $(options.parent).find(options.content).hide();
       $(options.title).click(function() {
         $(options.content).toggle();
+        $(options.content).parents(options.parent).toggleClass(options.class);
       });
     }
     
     function revert() {
       $(options.parent).find(options.content).show();
+      $(options.content).parents(options.parent).removeClass(options.class);
       $(options.title).click(function() {
         return;
       });
