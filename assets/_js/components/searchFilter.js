@@ -44,8 +44,6 @@ var OLCS = OLCS || {};
       
       title.click(function() {
         
-        console.log('test');
-        
         content.toggle();
         
         if (content.is(':visible')) {
@@ -69,14 +67,11 @@ var OLCS = OLCS || {};
       title.click(function() { return });
     }
 
-    // Run the code on page load
-    $(window).on('load', function() { 
-      if (window.matchMedia('(max-width: ' + options.mobile + ')').matches) {
-        makeExpandable(); 
-      } else {
-        revert();
-      }
-    });
+    if (options.mobile) {
+      if (window.matchMedia('(max-width: ' + options.mobile + ')').matches) makeExpandable(); else revert();
+    } else {
+      makeExpandable(); 
+    }
 
   };
 
