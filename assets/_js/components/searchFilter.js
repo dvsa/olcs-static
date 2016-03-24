@@ -5,6 +5,8 @@ var OLCS = OLCS || {};
  *
  * Convert the search filter into an accordion-esque element
  * on smaller screens
+ *
+ * grunt test:single --target=searchFilter
  */
 
   OLCS.searchFilter = (function(document, $, undefined) {
@@ -24,22 +26,18 @@ var OLCS = OLCS || {};
     var title   = $(options.parent).find(options.title);
     var content = $(options.parent).find(options.content);
     
-    // Get the ID's of the elements of interest
-    var titleID   = title.attr('id');
-    var contentID = content.attr('id');
-    
     function makeExpandable() {
       
       $(options.parent).removeClass(options.class);
       
       title.attr({
         'aria-expanded' : 'false',
-        'aria-controls' : contentID
+        'aria-controls' : content.attr('id')
       });
       
       content.hide().attr({
         'aria-hidden' : 'true',
-        'aria-labelledby' : titleID
+        'aria-labelledby' : title.attr('id')
       });
       
       title.click(function() {
