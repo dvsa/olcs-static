@@ -92,11 +92,13 @@ OLCS.modal = (function(document, $, undefined) {
      * is too small to contain it
      */
     (function(){
-      var a = $(selector).position().top + $(selector).outerHeight(true);
-      var b = $('.chosen-container').position().top + $('.chosen-container').outerHeight(true);
-      
-      if ((a - b) < 450) {
-        $(selector).find('.chosen-results').height('105px');
+      if ($(selector).find('.chosen-container').length) {
+        var a = $(selector).position().top + $(selector).outerHeight(true);
+        var b = $('.chosen-container').position().top + $('.chosen-container').outerHeight(true);
+        
+        if ((a - b) < 450) {
+          $(selector).find('.chosen-results').height('105px');
+        }
       }
     })();
     
