@@ -20,7 +20,7 @@ var OLCS = OLCS || {};
       content : '.form__filter',
       title   : 'h3',
       class   : 'toggled',
-      mobile  : '780px'
+      mobile  : 780
     }, custom);
       
     var title   = $(options.parent).find(options.title);
@@ -62,16 +62,23 @@ var OLCS = OLCS || {};
       title.removeAttr('aria-expanded aria-controls');
       content.show().removeAttr('aria-hidden aria-labelledby');
       $(options.parent).removeClass(options.class);
-      title.click(function() { return; });
+      title.unbind();
     }
 
     if (options.mobile) {
-      if (window.matchMedia('(max-width: ' + options.mobile + ')').matches) {
-        makeExpandable();
-      }
-      else {
-        revert();
-      }
+      var resizeTimer;
+      $(window).on('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {  
+          var windowsize = $(window).width();
+          if (windowsize < options.mobile) {
+            makeExpandable();
+          }
+          else {
+            revert();
+          }
+        }, 500);
+      }).resize();
     } else {
       makeExpandable(); 
     }
