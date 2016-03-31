@@ -62,11 +62,16 @@ var OLCS = OLCS || {};
       title.removeAttr('aria-expanded aria-controls');
       content.show().removeAttr('aria-hidden aria-labelledby');
       $(options.parent).removeClass(options.class);
-      title.click(function() { return });
+      title.click(function() { return; });
     }
 
     if (options.mobile) {
-      if (window.matchMedia('(max-width: ' + options.mobile + ')').matches) makeExpandable(); else revert();
+      if (window.matchMedia('(max-width: ' + options.mobile + ')').matches) {
+        makeExpandable();
+      }
+      else {
+        revert();
+      }
     } else {
       makeExpandable(); 
     }
