@@ -9,51 +9,37 @@
 button,
 input,
 select,
-textarea,
-.terms--box {
-  font-size: 100%;
+textarea {
+  font: inherit;
   margin: 0;
-  vertical-align: baseline;
-  *vertical-align: middle;
-  text-transform: none;
 }
 
 button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+html [type="button"],
+[type="reset"],
+[type="submit"] {
   -webkit-appearance: button;
-  cursor: pointer;
-  *overflow: visible;
 }
 
-input[type="text"],
-input[type="search"],
-input[type="password"] {
+[type="text"],
+[type="search"],
+[type="password"] {
   box-sizing: border-box;
 }
 
-input[type="checkbox"],
-input[type="radio"] {
+[type="checkbox"],
+[type="radio"] {
   box-sizing: border-box;
   padding: 0;
-  *height: 13px;
-  *width: 13px;
 }
 
-input[type="search"] {
+[type="search"] {
   -webkit-appearance: textfield;
-  box-sizing: content-box;
 }
 
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
-}
-
-input[type="hidden"] {
-  display: none;
-  height: 0;
 }
 
 button::-moz-focus-inner,
