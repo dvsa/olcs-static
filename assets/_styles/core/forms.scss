@@ -63,9 +63,8 @@ input::-moz-focus-inner {
 }
 
 // overrides webkit's default rounding of form elements
-input, 
+input,
 textarea {
-  -webkit-appearance: none;
   -webkit-border-radius: 0;
 }
 
