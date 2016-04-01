@@ -14,7 +14,7 @@ OLCS.characterCount = (function(document, $, undefined) {
 
     var selector = options.selector;
     var count    = $(selector).val() ? $(selector).val().replace(/ /g,'').length: 0;
-    var template = '<div class="character-count">'+count+' characters</div>';
+    var template = '<div class="hint character-count">' + count + ' characters</div>';
 
     $(template).insertAfter(selector);
 

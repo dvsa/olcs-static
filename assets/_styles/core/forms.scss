@@ -78,7 +78,8 @@ fieldset {
   // nested fieldsets
   fieldset {
     legend {
-      @extend %paragraph;
+      @if $app == 'selfserve' { @extend %paragraph }
+      @if $app == 'internal'  { @extend %paragraph--small }
       width: 100%;
       max-width: 600px;
       font-weight: 400;
@@ -123,7 +124,8 @@ fieldset {
  */
 
 legend {
-  @extend %h3;
+  @if $app == 'selfserve' { @extend %h3 }
+  @if $app == 'internal'  { @extend %h4 }
   padding: 0;
   font-weight: 700;
   .highlight-box & {
@@ -133,13 +135,12 @@ legend {
 }
 
 label {
-  @if $app == 'selfserve' {
-    @extend %h4;
-  }
+  @if $app == 'selfserve' { @extend %h4 }
   display: block;
   max-width: 600px;
   .inline & {
-    @extend %h5;
+    @if $app == 'selfserve' { @extend %h5 }
+    @if $app == 'internal'  { @extend %h6 }
     display: inline;
   }
 }
@@ -150,24 +151,33 @@ label {
 
 .extra-long {
   width: 100%;
+  @if $app == 'internal' {
+    max-width: 500px;
+  }
 }
 
 .long {
   width: $two-thirds;
+  @if $app == 'internal' {
+    max-width: 350px;
+  }
 }
 
 .medium {
   width: $half;
+  @if $app == 'internal' {
+    max-width: 300px;
+  }
 }
 
 .short {
   width: 140px;
-  @media (max-width: breakpoint('break-3')){
+  @media (max-width: breakpoint('break-3')) {
     width: $half;
   }
 }
 
-@media (max-width: breakpoint('break-3')){
+@media (max-width: breakpoint('break-3')) {
   .extra-long,
   .long,
   .medium {
@@ -180,8 +190,12 @@ textarea,
 .terms--box {
   padding: .5em .75em;
   background-color: #F9F9F9;
-  border: 1px solid #A2A2A2;
   max-width: 560px;
+  border: 1px solid;
+  border-color: theme(
+    $internal: $grey-2, 
+    $selfserve: #A2A2A2
+  );
 }
 
 textarea,
@@ -191,6 +205,10 @@ textarea,
   vertical-align: top;
 }
 
+.terms--box {
+  height: 200px;
+}
+
 select {
   max-width: 500px;
   margin-top: 0.25em;
@@ -198,16 +216,15 @@ select {
     width: 99%;
     margin-right: 0;
   }
-}
-
-select[multiple] {
-  @extend %paragraph--tiny;
-  min-width: 200px;
-  padding: .25em;
-  display: block;
-  background-color: #F9F9F9;
-  &.tall {
-    height: 10em;
+  &[multiple] {
+    @extend %paragraph--tiny;
+    min-width: 200px;
+    padding: .25em;
+    display: block;
+    background-color: #F9F9F9;
+    &.tall {
+      height: 10em;
+    }
   }
 }
 
@@ -226,15 +243,17 @@ select[multiple] {
   }
 }
 
-input:focus,
-textarea:focus,
-select:focus,
+input,
+textarea,
+select,
 %focused {
-  outline: 3px solid $outline;
+  &:focus {
+    outline: 3px solid $outline;
+  }
 }
 
 /**
- * File Uploader
+ * Attach/Upload Files
  */
 
 .file-uploader {
@@ -242,16 +261,15 @@ select:focus,
   ul {
     list-style: none;
   }
-  [type="submit"] {
-    float: left;
-  }
 }
 
 .attach-action {
-  &__list {
-    clear: right;
+  
+  .js-enabled & {
+    float: left;
   }
-  input[type="file"] {
+  
+  [type="file"] {
     width: 100%;
     border: 0;
     background: $grey-4;
@@ -259,44 +277,43 @@ select:focus,
     border-left: 4px solid $grey-3;
     margin-top: .25em;
   }
+  
+  &__list {
+    .js-enabled & {
+      float: left;
+      margin-bottom: 15px;
+    }
+  }
+  
+  &__label {
+    .js-enabled & {
+      @extend .action--secondary;
+      @extend .large;
+      float: left;
+      margin-bottom: 10px;
+      &:focus {
+        outline: 3px solid $outline;
+      }
+    }
+    @if $app == 'selfserve' {
+      &.focused { 
+        outline: 3px solid $outline;
+      }
+    }
+  }
+  
   &__hint {
     @extend .hint;
     @extend %paragraph--small;
-  }
-}
-
-.js-enabled {
-  .attach-action__list {
-    float: left;
-    margin-bottom: 15px;
-  }
-  .attach-action {
-    float: left;
-  }
-  .attach-action__label {
-    @extend .action--secondary;
-    @extend .large;
-    float: left;
-    margin-bottom: 10px;
-    &:focus {
-      outline: 3px solid $outline;
+    .js-enabled & {
+      float: left;
+      clear: none;
+      width: auto;
+      margin-left: 10px;
     }
   }
-  .attach-action__hint {
-    @extend %paragraph--small;
-    float: left;
-    clear: none;
-    width: auto;
-    margin-left: 10px;
-  }
-}
-
-.attached-files__list,
-.uploaded-files__list {
-  display: block;
-  max-width: 700px;
-  clear: both;
-}
+  
+} // .attach-action
 
 .file {
   position: relative;
@@ -304,158 +321,33 @@ select:focus,
   display: block;
   width: 95%;
   border-left: 3px solid $grey-3;
+  color: $grey-1;
   background: $grey-4;
-  padding: 15px 2.5% 10px;
-  margin-top: 5px;
+  &.invalid {
+    border-left: 3px solid $mellow-red;
+    background-color: $warning-background;
+  }
   &__preloader {
     @extend %preloader--light;
     float: left;
-    margin: 0 10px 0 0;
+    margin-right: 10px;
   }
   &__remove {
     position: absolute;
     right: 15px;
     top: 15px;
   }
-  p {
-    @extend %paragraph--small;
-    float: left;
-    clear: none;
-  }
-  span {
-    color: $grey-1;
-  }
   img {
     width: 100%;
     height: auto;
     margin: 10px 0;
   }
-  &.invalid {
-    border-left: 3px solid $mellow-red;
-    background-color: $warning-background;
-  }
-}
-
-.validation-wrapper .file p {
-  color: $black;
 }
 
 .inline-upload {
   @extend .action--primary;
-  clear: both;
-  margin-top: 15px !important;
   .selfserve & {
     @extend .large;
-  }
-}
-
-/**
- * Address
- */
-
-.address {
-  fieldset {
-    margin-bottom: 15px;
-  }
-  button {
-    margin-left: 5px;
-  }
-  .hint--small {
-    margin-top: 0;
-    float: left;
-  }
-  .field {
-    margin-bottom: 20px;
-  }
-  .field.inline {
-    margin-bottom: 10px;
-  }
-}
-
-.field.address__select {
-  float: left;
-  clear: both;
-  margin: 5px 0 10px;
-}
-
-.lookup {
-  button {
-    margin-left: 5px;
-  }
-  .field.inline {
-    margin-bottom: 10px;
-  }
-}
-
-/**
- * Traffic Area
- */
-
-.traffic-area {
-  .field {
-    @extend %paragraph;
-    margin-bottom: 5px;
-  }
-}
-
-/**
- * Trading Names
- */
-
-.trading-names .visually-hidden + input {
-  margin-top: -10px;
-}
-
-/*
-  Add another
-  -----------
-*/
-
-.add-another {
-  .field {
-    margin-bottom: 15px;
-  }
-}
-
-/**
- * Date of Birth
- */
-
-.dob {
-  legend {
-    margin-bottom: 0;
-  }
-  label {
-    padding-top: 0;
-  }
-}
-
-/**
- * Inline Search
- */
-
-.manage-users #username,
-.create-account #username,
-.add-tm #username {
-  float: left;
-}
-
-.inline-search__loading {
-  @extend %light-preloader;
-  float: left;
-  margin: 8px 5px;
-}
-
-.inline-search__message {
-  @extend %paragraph--small;
-  float: left;
-  clear: left;
-  margin: 5px 0 -5px;
-  &.green {
-    color: $green;
-  }
-  &.red {
-    color: $mellow-red;
   }
 }
 
@@ -464,15 +356,8 @@ select:focus,
  */
 
 %validation-box {
-  padding: 1em 1em .5em;
-  margin-bottom: 20px;
-  overflow: visible;
+  padding: 1em;
   background: $warning-background;
-  clear: both;
-  @media (max-width: breakpoint('break-3')){
-    margin-left: -1em;
-    margin-right: -1em;
-  }
 }
 
 .validation-summary {
@@ -480,14 +365,11 @@ select:focus,
   overflow: auto;
   margin-bottom: 30px;
   border: 3px solid $mellow-red;
-  &__list {
-    margin: 0 0 1em 1.5em;
-  }
   &__item {
     color: $mellow-red;
-    margin: 0 0 .25em;
+    margin-bottom: 0.25em;
   }
-  &__item  a {
+  a {
     color: $mellow-red;
   }
 }
@@ -496,30 +378,14 @@ select:focus,
   @extend %validation-box;
   @extend %clearfix;
   border-left: 3px solid $mellow-red;
-  fieldset {
-    margin-bottom: 0;
-  }
-  ul {
-    list-style: none;
-  }
   li {
     @extend %paragraph--small;
-    display: block;
     margin-bottom: .5em;
-    color: $mellow-red;
   }
   .active-result {
     color: $black;
   }
 }
-
-.validation-message {
-  @extend %paragraph--small;
-  display: block;
-  margin: 15px 0 5px;
-  color: $mellow-red;
-}
-
 
 /**
  * Locked
@@ -539,26 +405,12 @@ select:focus,
  */
 
 .confirm {
-  overflow: auto;
-  clear: both;
-  max-width: 600px;
-  padding: 15px 15px 7px;
+  padding: 15px;
   border: 1px solid $light-blue-50;
   background: $light-blue-25;
-
-}
-
-.terms--box {
-  height: 200px;
-}
-
-/**
- * Character Count
- */
-
-.character-count {
-  color: $grey-1;
-  margin-top: 5px;
+  label {
+    @extend %paragraph--small;
+  }
 }
 
 /**
@@ -581,16 +433,14 @@ select:focus,
   }
 }
 
+/**
+ * Search Filter
+ */
+
 .form__filter {
   float: none;
   label {
     @extend %paragraph--small;
-  }
-}
-
-.checkbox {
-  &.inline label {
-    clear: none;
   }
 }
 
@@ -601,6 +451,7 @@ select:focus,
 @if $app == 'selfserve' {
 
   .checkbox {
+    
     label {
       background: $grey-3;
       padding: 14px 17px 14px 17px;
@@ -622,7 +473,7 @@ select:focus,
         }
       }
       &.focused {
-        @extend .attach-action__label.focused;
+        outline: 3px solid $outline;
       }
       &.disabled {
         cursor: default;
@@ -641,76 +492,20 @@ select:focus,
     .hint {
       float: left;
     }
-  }
+    
+  } // .checkbox
 
   .chosen-container {
     max-width: 440px;
   }
 
-  .send-by-post {
-    margin-top: -40px;
-    p {
-      margin-bottom: 15px;
-    }
-  }
-
-  .attach-action__label.focused {
-    outline: 3px solid $outline;
-  }
-
-}
+} // selfserve only
 
 /**
  * Internal only styles
  */
 
 @if $app == 'internal' {
-
-  .field.checkbox {
-    margin-bottom: 0;
-  }
-
-  .extra-long {
-    max-width: 500px;
-    width: 100%;
-  }
-
-  legend {
-    @extend %h4;
-  }
-
-  .long {
-    max-width: 350px;
-  }
-
-  .medium {
-    max-width: 300px;
-    width: $half;
-  }
-
-  .short {
-    width: 140px;
-    @media (max-width: breakpoint('break-3')){
-      width: $half;
-    }
-  }
-
-  fieldset {
-    margin-bottom: 30px;
-    fieldset {
-      margin-bottom: 20px;
-      legend {
-        @extend %paragraph--small;
-      }
-    }
-  }
-
-  label {
-    .inline & {
-      @extend %paragraph--tiny;
-    }
-  }
-
   .tracking {
     .field {
       width: 50%;
@@ -723,30 +518,4 @@ select:focus,
       margin-right: 10px;
     }
   }
-
-  input,
-  textarea,
-  .terms--box {
-    border: 1px solid $grey-2;
-    background: $grey-4;
-  }
-
-  .hint,
-  .hint--small,
-  .hint input {
-    margin-top: 0;
-  }
-
-  .attach-action__hint {
-    margin-top: 8px;
-  }
-
-  .traffic-area a {
-    margin-bottom: 20px;
-  }
-
-  .chosen-container {
-    font-size: 14px;
-  }
-
 }
