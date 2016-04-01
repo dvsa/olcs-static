@@ -74,6 +74,9 @@ fieldset {
   border: 0;
   width: 100%;
   clear: both;
+  &:not(:last-child) {
+    margin-bottom: $gutter;
+  }
   
   &.multiple a {
     @extend %paragraph--tiny;
@@ -463,6 +466,12 @@ select,
       padding: 14px 17px 14px 17px;
       float: left;
       clear: both;
+      &:first-of-type {
+        margin-top: 5px;
+      }
+      &:not(:last-child) {
+        margin-bottom: 5px;
+      }
       &:hover {
         background: $grey-2;
         cursor: pointer;

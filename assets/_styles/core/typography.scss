@@ -21,6 +21,7 @@
 
 /**
  * Size Patterns
+ *
  * Responsive, reusable font-size patterns for headings and
  * paragraph text copy only
  */
@@ -125,6 +126,18 @@ small {
   border-top: 1px solid $grey-2;
   padding: 1.5em 0 10px;
 }
+
+/**
+ * Vertical Rhythm
+ */
+ 
+ h1, h2, h3, h4, h5, h6,
+ p, ul, ol {
+   margin-top: 0;
+   &:last-child {
+     margin-bottom: 0;
+   }
+ }
 
 /**
  * Selfserve Theme
