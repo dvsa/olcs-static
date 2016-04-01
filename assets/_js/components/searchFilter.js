@@ -64,13 +64,24 @@ var OLCS = OLCS || {};
       $(options.parent).removeClass(options.class);
       title.unbind();
     }
+    
+    // Get the actual width of the viewport (minus scrollbar)
+    function viewport() {
+      var e = window, a = 'inner';
+      if (!('innerWidth' in window )) {
+        a = 'client';
+        e = document.documentElement || document.body;
+      }
+      return { width : e[ a+'Width' ] , height : e[ a+'Height' ] };
+    }
 
     if (options.mobile) {
       var resizeTimer;
       $(window).on('resize', function() {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(function() {  
-          var windowsize = $(window).width();
+          var windowsize = viewport().width;
+          //var windowsize = $(window).width();
           if (windowsize < options.mobile) {
             makeExpandable();
           }
