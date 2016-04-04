@@ -4,7 +4,7 @@
 
 .actions-container {
   float: left;
-  margin: 1em 0;
+  margin-bottom: $gutter-half;
   a,
   input,
   button {
@@ -75,7 +75,7 @@ button {
   @extend %paragraph--small;
   border: 0;
   margin-right: 0.3em;
-  padding: 0.4em 0.75em 0.3em;
+  padding: 0.5em 0.75em 0.4em;
   text-decoration: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
