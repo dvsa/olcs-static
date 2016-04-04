@@ -86,7 +86,20 @@ OLCS.modal = (function(document, $, undefined) {
     // Set the aria-hidden attribute of all other content to 'true'
     // whilst the modal is open
     $('.page-wrapper').attr('aria-hidden', 'true');
-
+    
+    /**
+     * Attempt to dynamically re-size a chosen select dropdown if the modal
+     * is too small to contain it
+     */
+    if ($(selector).find('.chosen-container').length) {
+      var modalPos = $(selector).position().top + $(selector).outerHeight(true);
+      var chosenPos = $('.chosen-container').position().top + $('.chosen-container').outerHeight(true);
+      
+      if ((modalPos - chosenPos) < 450) {
+        $(selector).find('.chosen-results').height('105px');
+      }
+    }
+    
   };
 
   exports.hide = function() {
