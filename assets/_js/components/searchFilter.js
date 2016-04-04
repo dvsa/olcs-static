@@ -56,7 +56,7 @@ var OLCS = OLCS || {};
         
       });
       
-    } // makeExpandable()
+    }
     
     function revert() {
       title.removeAttr('aria-expanded aria-controls');
@@ -81,7 +81,6 @@ var OLCS = OLCS || {};
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(function() {  
           var windowsize = viewport().width;
-          //var windowsize = $(window).width();
           if (windowsize < options.mobile) {
             makeExpandable();
           }
