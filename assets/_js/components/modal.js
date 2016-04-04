@@ -91,16 +91,14 @@ OLCS.modal = (function(document, $, undefined) {
      * Attempt to dynamically re-size a chosen select dropdown if the modal
      * is too small to contain it
      */
-    (function(){
-      if ($(selector).find('.chosen-container').length) {
-        var a = $(selector).position().top + $(selector).outerHeight(true);
-        var b = $('.chosen-container').position().top + $('.chosen-container').outerHeight(true);
-        
-        if ((a - b) < 450) {
-          $(selector).find('.chosen-results').height('105px');
-        }
+    if ($(selector).find('.chosen-container').length) {
+      var modalPos = $(selector).position().top + $(selector).outerHeight(true);
+      var chosenPos = $('.chosen-container').position().top + $('.chosen-container').outerHeight(true);
+      
+      if ((modalPos - chosenPos) < 450) {
+        $(selector).find('.chosen-results').height('105px');
       }
-    })();
+    }
     
   };
 
