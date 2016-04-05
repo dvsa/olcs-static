@@ -373,8 +373,17 @@ select:focus,
     @extend .large;
     float: left;
     margin-bottom: 10px;
+    border: 3px solid red;
     &:focus {
       outline: 3px solid $outline;
+    }
+    &:before {
+      @include svg('attachment');
+      content: "";
+      display: inline-block;
+      height: 20px;
+      width: 20px;
+      margin: 2px 2px -5px -2px;
     }
   }
   .attach-action__hint {
