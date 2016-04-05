@@ -17,8 +17,8 @@ OLCS.notices = (function(document, $, undefined) {
 
   return function init() {
 
-    function addCloseButton() {
-      $(noticeSelector)
+    function addCloseButton(element) {
+      element
         .find('p')
         .prepend('<a href="" class="notice__link">Close</a>');
     }
@@ -47,7 +47,16 @@ OLCS.notices = (function(document, $, undefined) {
     });
 
     OLCS.eventEmitter.on('render', function() {
-      addCloseButton();
+
+      // Add a close button to each notice, but only
+      // if it doesn't have one
+      $(noticeSelector).each(function() {
+        if (!$(this).find(closeLinkSelector).length) {
+          addCloseButton($(this));
+        } else {
+          return;
+        }
+      });
 
       // fade out any notice containers on render,
       // so long as they're not in a modal or in the
