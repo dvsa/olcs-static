@@ -12,11 +12,12 @@
     @extend .action--primary;
     @extend %h4;
     vertical-align: bottom;
-    margin-bottom: -3px;
+    margin: 0 0 -3px 5px;
   }
   &__clear {
     @extend .hint--small;
     display: block;
     color: $link-colour;
+    margin-bottom: -30px;
   }
 }

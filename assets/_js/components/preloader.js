@@ -36,13 +36,13 @@ OLCS.preloader = (function(document, $, undefined) {
   }
 
   function inlinePreloader () {
-    $('<div class=preloader-icon--inline></div>').insertAfter('.js-find');
+    $('<div class=preloader-icon--inline></div>').insertAfter('.js-active');
   }
 
   /**
    * public interface
    */
-  
+
   exports.show = function(type) {
 
     // Dont show another preloader if there's already one on the screen

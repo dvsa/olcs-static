@@ -13,4 +13,6 @@ OLCS.ready(function() {
 
   OLCS.accessibility();
 
+  OLCS.searchFilter();
+
 });
