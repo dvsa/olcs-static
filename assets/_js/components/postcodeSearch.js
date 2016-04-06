@@ -199,9 +199,9 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
     // when we select an address from the dropdown...
     $(document).on("change", selectSelector, function(e) {
        $(this)
-        .closest('.field')
-        .prev('.field')
-        .find('.js-find')
+        .closest(".field")
+        .prev(".field")
+        .find(".js-find")
         .addClass("js-active");
 
        handleInput(".js-select").call(this, e);
