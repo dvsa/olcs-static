@@ -812,6 +812,17 @@ select:focus,
     .inline & {
       @extend %paragraph--tiny;
     }
+
+  }
+
+  .date {
+    margin-bottom: 5px;
+    legend {
+      margin-bottom: 0;
+    }
+    label {
+      font-size: font-size(2);
+    }
   }
 
   .tracking {
@@ -849,7 +860,7 @@ select:focus,
   }
 
   .chosen-container {
-    font-size: 14px;
+    font-size: font-size(2);
   }
 
 }

@@ -76,20 +76,21 @@
           {{/is }}
 
           {{#is type "date" }}
-          <fieldset>
+          <fieldset class="date">
             <legend>{{ label }}</legend>
-            <div class="field inline">
-              <select id="day" name="date-of-birth">
-                <option value="Day">Day</option>
-              </select>
-              <select id="month" name="date-of-birth">
-                <option value="Month">Month</option>
-              </select>
-              <select id="year" name="date-of-birth">
-                <option value="Year">Year</option>
-              </select>
+            <div class="field inline-text">
+              <label>Day</label>
+              <input type="text" maxlength="2">
             </div>
-            <p class="hint">{{{ hint }}}</hint>
+            <div class="field inline-text">
+              <label>Month</label>
+              <input type="text" maxlength="2">
+            </div>
+            <div class="field inline-text">
+              <label>Year</label>
+              <input type="text" maxlength="4">
+            </div>
+            <p class="hint">{{{ hint }}}</p>
           </fieldset>
           {{/is }}
 
