@@ -90,7 +90,35 @@
               <label>Year</label>
               <input type="text" maxlength="4">
             </div>
-            <p class="hint">{{{ hint }}}</p>
+          </fieldset>
+          {{/is }}
+
+          {{#is type "date-time" }}
+          <fieldset class="date">
+            <legend>{{ label }}</legend>
+            <div class="field inline-text">
+              <label>Day</label>
+              <input type="text" maxlength="2">
+            </div>
+            <div class="field inline-text">
+              <label>Month</label>
+              <input type="text" maxlength="2">
+            </div>
+            <div class="field inline-text">
+              <label>Year</label>
+              <input type="text" maxlength="4">
+            </div>
+          </fieldset>
+          <fieldset>
+            <div class="field">
+              <select name="">
+                <option value="">00:00</option>
+              </select>
+              :
+              <select name="">
+                <option value="">00:00</option>
+              </select>
+            </div>
           </fieldset>
           {{/is }}
 

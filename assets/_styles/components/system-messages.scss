@@ -1,79 +1,22 @@
 /**
- * Notices
+ * System messages
  */
 
-%notice {
-  border-radius: 2px;
-  overflow: auto;
-  padding: 6px 15px;
-  margin-bottom: .25em;
-  p {
-    @extend %paragraph--small;
-    margin: 0;
-    padding: 0;
-  }
-  a {
-    float: right;
+.system-messages {
+  width: 100%;
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+@if $app == 'internal' {
+  .system-message {
+    @extend .notice--info;
   }
 }
 
-@mixin notice($color) {
-  $background : desaturate(lighten($color, 50%), 10%);
-  $border     : lighten($color, 10%);
-  
-  @extend %notice;
-  
-  background: $background;
-  border: 1px solid $border;
-  color: $color;
-}
 
-.notice-container {
-  overflow: auto;
-  position: fixed;
-  top: 14px;
-  left: 0;
-  width: 95%;
-  margin: 0 2.5%;
-  z-index: 2;
-  @media (min-width:640px) {
-    left: 50%;
-    width: 100%;
-    margin-left: -250px;
-    margin-right: 0;
-    max-width: 500px;
-  }
-  .modal & {
-    position: relative;
-    max-width: none;
-    left: 0;
-    width: 100%;
-    margin: -10px 0 30px;
-  }
-  .sidebar--right & {
-    margin: 0 0 1em;
-    position: relative;
-    float: left;
-    left: 0;
-    top: 0;
-    z-index: 0;
-    a {
-      float: left;
-    }
-  }
-}
-
-.notice {
-  &--success {
-    @include notice(#3C763D);
-  }
-  &--warning {
-    @include notice(#8A6D3B);
-  }
-  &--info {
-    @include notice(#31708F);
-  }
-  &--danger {
-    @include notice(#A94442);
+@if $app == 'selfserve' {
+  .system-message {
+    @extend .guidance;
   }
 }
