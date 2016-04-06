@@ -109,9 +109,6 @@
     &__close {
       @include svg('selfserve-modal-close');
     }
-    .hint {
-      @extend %paragraph--small;
-    }
   }
 
 }// selfserve

@@ -90,15 +90,10 @@ fieldset {
       @if $app == 'selfserve' { @extend %paragraph }
       @if $app == 'internal'  { @extend %paragraph--small }
       width: 100%;
-      margin-bottom: 5px;
+      margin-bottom: 10px;
       max-width: 600px;
       font-weight: 400;
       clear: both;
-    }
-    label {
-      @if $app == 'selfserve' {
-        @extend %paragraph--small;
-      }
     }
   }
   
@@ -141,6 +136,13 @@ fieldset {
 /**
  * Legends & Labels
  */
+ 
+legend,
+label {
+  &:not(:first-child) {
+    margin-top: 10px;
+  }
+}
 
 legend {
   @if $app == 'selfserve' { @extend %h3 }
@@ -158,6 +160,7 @@ label {
   @if $app == 'selfserve' { @extend %h4 }
   display: block;
   max-width: 600px;
+  margin-bottom: 10px;
   .inline & {
     @if $app == 'selfserve' { @extend %h5 }
     @if $app == 'internal'  { @extend %h6 }
@@ -246,6 +249,7 @@ select {
     &.tall {
       height: 10em;
     }
+  }
 }
 
 [type="submit"] {
@@ -406,9 +410,16 @@ select,
   @extend %validation-box;
   @extend %clearfix;
   border-left: 3px solid $mellow-red;
+  margin-bottom: $gutter-half;
+  ul {
+    list-style: none;
+  }
   li {
     @extend %paragraph--small;
-    margin-bottom: .5em;
+    color: $mellow-red;
+    &:not(:last-child) {
+      margin-bottom: .5em;
+    }
   }
   .active-result {
     color: $black;
@@ -453,15 +464,16 @@ select,
   max-width: 600px;
   clear: both;
   margin-bottom: 0;
-  padding-top: 5px;
+  padding-top: 10px;
   &--small {
     @extend %paragraph--small;
   }
-  .compound &, {
+  legend + &, 
+  .compound &,
+  .compound + & {
     padding-top: 0;
   }
   legend + & {
-    padding-top: 0;  
     margin-bottom: $gutter-half;
   }
 }
@@ -487,7 +499,7 @@ select,
     
     label {
       background: $grey-3;
-      padding: 14px 17px 14px 17px;
+      padding: 14px 17px;
       float: left;
       clear: both;
       &:first-of-type {
@@ -522,6 +534,10 @@ select,
       }
       &.selected.disabled:hover {
         background: $white;
+      }
+      &.inline {
+       clear: none;
+       margin-top: 0; 
       }
     }
     input:focus {
