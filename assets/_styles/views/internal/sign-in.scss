@@ -28,7 +28,10 @@
     margin-right: 0;
   }
   .hint {
+    @extend %h6;
     float: left;
+    padding-top: 0;
+    margin-bottom: 10px;
     width: 50%;
     clear: none;
     text-align: right;

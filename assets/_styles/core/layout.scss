@@ -159,6 +159,10 @@
   .full-width {
     @extend %table-row;
   }
+  
+  .content__header {
+    margin-bottom: $gutter-half;
+  }
 
   .sidebar--left {
     @include table-column(200px);

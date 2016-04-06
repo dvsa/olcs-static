@@ -87,8 +87,7 @@ fieldset {
   // nested fieldsets
   fieldset {
     legend {
-      @if $app == 'selfserve' { @extend %paragraph }
-      @if $app == 'internal'  { @extend %paragraph--small }
+      @extend %paragraph;
       width: 100%;
       margin-bottom: 10px;
       max-width: 600px;
@@ -125,7 +124,7 @@ fieldset {
     margin-bottom: 0;
     input {
       margin-right: 10px;
-      width: 40px;
+      width: 62px;
     }
   }
   &--two-col {
@@ -164,7 +163,7 @@ legend {
 }
 
 label {
-  @if $app == 'selfserve' { @extend %h4 }
+  @extend %h4;
   display: block;
   max-width: 600px;
   margin-bottom: 10px;
@@ -180,6 +179,7 @@ label {
   .checkbox & {
     @if $app == 'selfserve' { @extend %h5 }
     @if $app == 'internal'  { @extend %h6 }
+    margin-top: 0;
   }
 }
 
@@ -364,15 +364,14 @@ select,
 } // .attach-action
 
 .file {
+  @extend %guidance;
   position: relative;
   overflow: auto;
   display: block;
   width: 95%;
-  border-left: 3px solid $grey-3;
   color: $grey-1;
-  background: $grey-4;
   &.invalid {
-    border-left: 3px solid $mellow-red;
+    border-left-color: $mellow-red;
     background-color: $warning-background;
   }
   &__preloader {
@@ -463,6 +462,7 @@ select,
   padding: 15px;
   border: 1px solid $light-blue-50;
   background: $light-blue-25;
+  max-width: 600px;
   label {
     @extend %paragraph--small;
   }
@@ -582,6 +582,7 @@ select,
       width: 50%;
       float: left;
       margin-bottom: 15px;
+      clear: none;
     }
     label {
       float: left;

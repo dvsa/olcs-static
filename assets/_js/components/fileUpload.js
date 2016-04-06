@@ -66,14 +66,12 @@ OLCS.fileUpload = (function(document, $, undefined) {
       $(container).find(".js-upload-list").append([
         "<li class=file data-upload-index=" + index + ">",
           "<span class=file__preloader></span>",
-          "<p>",
-            "<a href=#>",
-              file.name,
-            "</a>",
-            "<span>",
-              kbSize + "KB",
-            "</span>",
-          "</p>",
+          "<a href=#>",
+            file.name,
+          "</a>",
+          "<span>",
+            kbSize + "KB",
+          "</span>",
           "<span class=file__remove>Uploading &hellip;</span>",
         "</li>"
       ].join("\n"));
