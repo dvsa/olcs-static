@@ -1,12 +1,18 @@
 /**
  * Guidance
  */
-
-.guidance {
+ 
+ %guidance {
   background: $grey-4;
   border-left: 4px solid $grey-2;
   padding: 15px;
-  margin-bottom: 40px;
+ }
+
+.guidance {
+  @extend %guidance;
+  &:not(:last-child) {
+    margin-bottom: $gutter;
+  }
   .page-header & {
     margin-bottom: 0;
   }
@@ -14,9 +20,6 @@
     word-wrap: break-word;
     float: none;
     overflow: auto;
-  }
-  p:last-child {
-    margin-bottom: 0;
   }
 }
 

@@ -111,8 +111,14 @@ fieldset {
   &.inline {
     margin-bottom: 0;
   }
+  &:not(.inline) {
+    clear: both;
+  }
   &.compound {
     margin-bottom: 10px;
+    .inline + & {
+      padding-top: $gutter-half;
+    }
   }
   &.inline-text {
     display: inline-block;
@@ -139,8 +145,9 @@ fieldset {
  
 legend,
 label {
-  &:not(:first-child) {
-    margin-top: 10px;
+  margin-top: 10px;
+  &:first-child {
+    margin-top: 0;
   }
 }
 
@@ -161,10 +168,18 @@ label {
   display: block;
   max-width: 600px;
   margin-bottom: 10px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  & + & {
+    margin-top: 0;
+  }
   .inline & {
+    display: inline;
+  }
+  .checkbox & {
     @if $app == 'selfserve' { @extend %h5 }
     @if $app == 'internal'  { @extend %h6 }
-    display: inline;
   }
 }
 
@@ -259,6 +274,7 @@ select {
   text-decoration: underline;
   color: $link-colour;
   font-family: $NTA-Light;
+  cursor: pointer;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
