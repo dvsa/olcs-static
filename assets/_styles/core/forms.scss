@@ -373,7 +373,6 @@ select:focus,
     @extend .large;
     float: left;
     margin-bottom: 10px;
-    border: 3px solid red;
     &:focus {
       outline: 3px solid $outline;
     }
