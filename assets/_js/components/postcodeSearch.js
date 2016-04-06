@@ -60,6 +60,7 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
         }
       }
 
+
       return $(component)
       .children(".validation-wrapper")   // find any errors wrappers...
       .children(".field").length === 0;  // which *also* have direct field children
@@ -182,6 +183,7 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
 
     // when we click 'find'...
     $(document).on("click", submitSelector, function(e) {
+      $(this).addClass("js-active");
       handleInput(".js-find").call(this, e);
     });
 
@@ -195,7 +197,15 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
     });
 
     // when we select an address from the dropdown...
-    $(document).on("change", selectSelector, handleInput(".js-select"));
+    $(document).on("change", selectSelector, function(e) {
+       $(this)
+        .closest(".field")
+        .prev(".field")
+        .find(".js-find")
+        .addClass("js-active");
+
+       handleInput(".js-select").call(this, e);
+    });
 
     // when we click the 'enter address manualy' button...
     $(document).on("click", manualSelector, function(e) {

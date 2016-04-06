@@ -15,10 +15,10 @@ describe("OLCS.notices", function() {
         "<div id=stub>",
           "<div class=notice-container>",
             "<div class=notice--success>",
-              "<p>Message<a href=# class=notice__link id=l1>Close</a></p>",
+              "<p>Message</p>",
             "</div>",
             "<div class=notice--danger>",
-              "<p>Message<a href=# class=notice__link id=l2>Close</a></p>",
+              "<p>Message></p>",
             "</div>",
           "</div>",
         "</div>"
@@ -49,7 +49,8 @@ describe("OLCS.notices", function() {
           });
 
           it("It should add a 'Close button' to each notice", function() {
-            expect($(".notice--success .notice__link").length).to.equal(2);
+            expect($(".notice--success .notice__link").length).to.equal(1);
+            expect($(".notice--danger .notice__link").length).to.equal(1);
           });
 
           describe("When the first notice's close button is clicked", function() {
