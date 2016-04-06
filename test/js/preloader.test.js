@@ -57,11 +57,11 @@ describe("OLCS.preloader", function() {
   });
 
 
-  describe("Given a stubbed DOM with a '.js-find' element", function() {
+  describe("Given a stubbed DOM containing an element with the classes 'js-find' and 'js-active'", function() {
     beforeEach(function() {
       $("body").append([
         "<div id=stub>",
-          "<div class=js-find></div>",
+          "<div class=js-active></div>",
         "</div>"
       ].join("\n"));
     });
