@@ -161,6 +161,8 @@ legend {
 
 label {
   @extend %h4;
+  @if $app == 'selfserve' { @extend %h4 }
+  @if $app == 'internal'  { @extend %h5 }
   display: block;
   max-width: 600px;
   margin-bottom: 10px;
