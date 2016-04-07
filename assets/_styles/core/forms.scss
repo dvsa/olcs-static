@@ -6,6 +6,10 @@
  * Reset/Normalize
  */
 
+input {
+  box-sizing: border-box;
+}
+
 button,
 input,
 select,
@@ -21,16 +25,9 @@ html [type="button"],
   -webkit-appearance: button;
 }
 
-[type="text"],
-[type="search"],
-[type="password"] {
-  box-sizing: border-box;
-}
-
 [type="checkbox"],
 [type="radio"] {
   display: inline;
-  box-sizing: border-box;
   padding: 0;
   border: 0;
   margin-right: .5em;
@@ -124,7 +121,7 @@ fieldset {
     margin-bottom: 0;
     input {
       margin-right: 10px;
-      width: 62px;
+      width: 4em;
     }
   }
   &--two-col {
@@ -228,7 +225,7 @@ textarea,
 .terms--box {
   padding: .5em .75em;
   background-color: #F9F9F9;
-  max-width: 560px;
+  max-width: 600px;
   border: 1px solid;
   border-color: theme(
     $internal: $grey-2, 
@@ -300,6 +297,7 @@ select,
   max-width: 600px;
   ul {
     list-style: none;
+    padding-left: 0;
   }
 }
 
@@ -368,7 +366,7 @@ select,
   position: relative;
   overflow: auto;
   display: block;
-  width: 95%;
+  width: 100%;
   color: $grey-1;
   &.invalid {
     border-left-color: $mellow-red;
