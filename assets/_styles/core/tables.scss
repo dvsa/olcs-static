@@ -95,6 +95,7 @@ td {
   @extend %paragraph--small;
   padding: 0.7em 10px 0.7em 0;
   text-align: left;
+  vertical-align: top;
   > label {
     margin: 0;
   }
@@ -103,7 +104,6 @@ td {
 th {
   font-weight: 600;
   border-top: 1px solid $grey-2;
-  vertical-align: top;
   &[scope="row"] {
     font-weight: 400;
     padding-right: 2em;
