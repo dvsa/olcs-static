@@ -410,6 +410,9 @@ select,
   overflow: auto;
   margin-bottom: 30px;
   border: 3px solid $mellow-red;
+  &__list {
+    padding-left: 1em;
+  }
   &__item {
     color: $mellow-red;
     margin-bottom: 0.25em;
