@@ -49,6 +49,12 @@ body {
  * inconsistencies as consistent
  */
  
+*, 
+*:before, 
+*:after {
+  box-sizing: border-box;
+}
+ 
 pre {
   overflow: auto;
 }
@@ -56,9 +62,9 @@ pre {
 menu,
 ol,
 ul {
-  padding: 0;
   margin: 0;
-  list-style-position: inside;
+  padding: 0;
+  padding-left: 1em;
 }
 
 ul {
