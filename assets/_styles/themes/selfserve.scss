@@ -68,6 +68,7 @@ $app: selfserve;
 @import '../components/preloader';
 @import '../components/cookie-banner';
 @import '../components/inline-search';
+@import '../components/system-messages';
 
 // Views
 @import '../views/selfserve/overview';

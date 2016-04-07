@@ -76,20 +76,49 @@
           {{/is }}
 
           {{#is type "date" }}
-          <fieldset>
+          <fieldset class="date">
             <legend>{{ label }}</legend>
-            <div class="field inline">
-              <select id="day" name="date-of-birth">
-                <option value="Day">Day</option>
+            <div class="field inline-text">
+              <label>Day</label>
+              <input type="text" maxlength="2">
+            </div>
+            <div class="field inline-text">
+              <label>Month</label>
+              <input type="text" maxlength="2">
+            </div>
+            <div class="field inline-text">
+              <label>Year</label>
+              <input type="text" maxlength="4">
+            </div>
+          </fieldset>
+          {{/is }}
+
+          {{#is type "date-time" }}
+          <fieldset class="date">
+            <legend>{{ label }}</legend>
+            <div class="field inline-text">
+              <label>Day</label>
+              <input type="text" maxlength="2">
+            </div>
+            <div class="field inline-text">
+              <label>Month</label>
+              <input type="text" maxlength="2">
+            </div>
+            <div class="field inline-text">
+              <label>Year</label>
+              <input type="text" maxlength="4">
+            </div>
+          </fieldset>
+          <fieldset>
+            <div class="field">
+              <select name="">
+                <option value="">00:00</option>
               </select>
-              <select id="month" name="date-of-birth">
-                <option value="Month">Month</option>
-              </select>
-              <select id="year" name="date-of-birth">
-                <option value="Year">Year</option>
+              :
+              <select name="">
+                <option value="">00:00</option>
               </select>
             </div>
-            <p class="hint">{{{ hint }}}</hint>
           </fieldset>
           {{/is }}
 
