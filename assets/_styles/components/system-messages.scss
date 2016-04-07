@@ -1,0 +1,21 @@
+/**
+ * System messages
+ */
+
+.system-messages {
+  width: 100%;
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+@if $app == 'internal' {
+  .system-message {
+    @extend .notice--info;
+  }
+}
+
+@if $app == 'selfserve' {
+  .system-message {
+    @extend .guidance;
+  }
+}

@@ -25,7 +25,7 @@
     <div role="banner" class="global-header">
       <div class="global-header__wrapper">
           <h2 class="global-header__title"><a href="/styleguides/internal/">OLCS</a></h2>
-          
+
           <div class="search">
             <div class="search__wrapper">
               <div class="search__select">
@@ -43,7 +43,7 @@
             </div>
             <a href="/styleguides/internal/search/advanced-search.html" class="search__advanced">Advanced</a>
           </div>
-          
+
           <ul class="admin">
             <li class="admin__title">Admin
               <div class="admin__menu">
@@ -91,7 +91,9 @@
     </div><!-- .page-header-->
 
     <div class="page-wrapper">
+      {{#if horizontal-navigation }}
       {{> _horizontal-navigation}}
+      {{/if}}
       <div id="main" role="main">
         {{> body }}
       </div><!-- .main -->

@@ -5,7 +5,7 @@
 %notice {
   border-radius: 2px;
   overflow: auto;
-  padding: 6px 15px;
+  padding: 7px 15px 6px;
   margin-bottom: .25em;
   p {
     @extend %paragraph--small;
@@ -19,10 +19,10 @@
 
 @mixin notice($color) {
   $background : desaturate(lighten($color, 50%), 10%);
-  $border     : lighten($color, 10%);
-  
+  $border     : desaturate(lighten($color, 30%), 10%);
+
   @extend %notice;
-  
+
   background: $background;
   border: 1px solid $border;
   color: $color;

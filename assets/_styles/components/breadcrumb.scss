@@ -39,16 +39,22 @@
 
   .breadcrumbs a {
     // color: $grey-1;
-    margin-right: 0.25em;
+    margin-right: .25em;
     position: relative;
     &:after {
       @include svg('selfserve-breadcrumb');
       content: "";
       display: inline-block;
-      margin-left: 0.5em;
+      margin-left: .5em;
       position: relative;
       top: 2px;
-      opacity: 0.8;
+      opacity: .8;
+    }
+    &:last-child:after {
+      display: none;
+    }
+    &:hover {
+      color: $grey-1;
     }
   }
 
@@ -62,7 +68,7 @@
 /**
  * Internal only styles
  */
- 
+
 @if $app == 'internal' {
 
   .breadcrumbs {
