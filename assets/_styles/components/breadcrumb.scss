@@ -42,20 +42,20 @@
     margin-right: .25em;
     position: relative;
     &:after {
-      @include svg('selfserve-breadcrumb');
-      content: "";
       display: inline-block;
+      content: "/";
       margin-left: .5em;
-      position: relative;
-      top: 2px;
-      opacity: .8;
-    }
-    &:last-child:after {
-      display: none;
+      color: $grey-2;
+      text-decoration: none;
+      border-bottom: 0;
     }
     &:hover {
       color: $grey-1;
     }
+  }
+
+  .breadcrumbs__item:last-child a:after {
+    display: none;
   }
 
   .breadcrumbs .current {
