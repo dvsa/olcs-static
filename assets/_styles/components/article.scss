@@ -16,13 +16,12 @@
   ul + h2,
   ul + h3,
   ul + h4 {
-    margin-top: 20px;
+    margin-top: $gutter;
   }
 
   ul {
     @extend %paragraph;
-    margin-left: 20px;
-    margin-bottom: .5em;
+    padding-left: 1em;
   }
 
   li {
@@ -30,10 +29,6 @@
     @if $app == 'internal' {
       font-size: font-size(3);
     }
-  }
-
-  p:not(:last-child) {
-    margin-bottom: 0.5em;
   }
 
   & + & {
