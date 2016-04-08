@@ -33,7 +33,6 @@ OLCS.tableRows = (function(document, $, undefined) {
     // On click of a table row
     $(document).on('click', tableRowSelector, function(e) {
       
-      //var tableRow        = $(this);
       var target          = $(e.target);
       var actionElement   = getActions(this);
       var targetSelectBox = target.children(selectBox);
