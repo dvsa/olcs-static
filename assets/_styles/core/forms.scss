@@ -214,7 +214,7 @@ label {
 input,
 textarea,
 .terms--box {
-  padding: .5em .75em;
+  padding: .5em .5em;
   background-color: #F9F9F9;
   border: 1px solid #A2A2A2;
   max-width: 560px;
@@ -831,6 +831,7 @@ select:focus,
     label {
       font-size: font-size(2);
     }
+
   }
 
   .tracking {
