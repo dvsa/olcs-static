@@ -26,6 +26,7 @@ OLCS.modal = (function(document, $, undefined) {
   var header    = '.modal__title';
   var content   = '.modal__content';
   var bodyClass = 'disable-scroll';
+  var inputs    = 'textarea, input, select';
 
   var closeSelectors = selector + '__close, ' + content + ' #cancel';
 
@@ -50,10 +51,10 @@ OLCS.modal = (function(document, $, undefined) {
 
     // Prevents scrolling issues on mobile Safari
     if ('ontouchstart' in window) {
-      $(document).on('focus', 'textarea,input,select', function() {
-        $('.modal__wrapper').css('position', 'absolute');
+      $(document).on('focus', inputs, function() {
+        $(wrapper).css('position', 'absolute');
       }).on('blur', 'textarea,input,select', function() {
-        $('.modal__wrapper').css('position', '');
+        $(wrapper).css('position', '');
       });
     }
 
