@@ -5,13 +5,9 @@
  * declaration form and payment receipts
  */
 
-// Styles
-
-@media print {
-  .hide-print {
-    display: none;
-  }
-}
+/**
+ * General Styles/Reset
+ */
 
 *, *:before, *:after {
   box-sizing: border-box;
@@ -23,7 +19,7 @@ body {
   margin: 0 auto;
   max-width: 860px;
   padding: 0 20px;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.4;
   padding-bottom: 50px;
 }
@@ -33,12 +29,17 @@ h3 {
 }
 
 p {
-  max-width: 700px;
-  margin-bottom: .6em;
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 ul {
   list-style: none;
+  padding: 0;
 }
 
 dt,
@@ -63,12 +64,15 @@ hr {
   background: #dee0e2;
 }
 
+/**
+ * App Review
+ */
+
 .review-header {
   padding: 100px 0 50px;
-}
-
-.review-header h1 {
-  font-size: 44px;
+  h1 {
+    font-size: 44px;
+  }
 }
 
 .review-section {
@@ -77,11 +81,10 @@ hr {
   margin-bottom: 20px;
   float: left;
   width: 100%;
-}
-
-.review-section h2 {
-  font-size: 30px;
-  margin-bottom: 40px;
+  h2 {
+    font-size: 30px;
+    margin-bottom: 40px;
+  }
 }
 
 .read-only__header {
@@ -95,13 +98,16 @@ hr {
 .definition-list {
   float: left;
   border-bottom: 1px solid #DEE0E6;
-  margin: 0 0 12px;
-  padding: 0 0 3px;
+  margin: 0;
+  margin-bottom: 12px;
+  padding-bottom: 3px;
   width: 100%;
-}
-
-.definition-list:last-child {
-  border-bottom: 0;
+  &:last-child {
+    border-bottom: 0;
+  }
+  &__item {
+    overflow: hidden;
+  }
 }
 
 ul.bullet {
@@ -110,130 +116,103 @@ ul.bullet {
   padding: 10px;
 }
 
-.field {
-  margin-bottom: 10px;
-  clear: both;
-}
-
-.field label {
-  display: block;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
 [type="text"] {
   display: block;
   padding: 10px;
   width: 100%;
 }
 
-label.inline {
-  float: left;
-  padding: 10px;
+@media print {
+  .hide-print {
+    display: none;
+  }
 }
 
+/**
+ * Signature Box
+ */
+ 
 .signature-box {
+  
   margin: 30px 0;
-  padding: 30px 0 30px 5%;
+  padding: 30px;
   background: #dee0e2;
   overflow: auto;
   -webkit-print-color-adjust: exact;
+
+  &__column {
+    float: left;
+    width: 45%;
+    margin: 0 5% 0 0;
+  }
+
+  &__label {
+    font-weight: 600;
+  }
+
+  &__input {
+    width: 100%;
+    border: 2px solid #0b0c0c;
+    margin-bottom: 20px;
+    &.signature {
+      height: 100px;
+    }
+    &.date {
+      width: 200px;
+    }
+  }
+  
 }
 
-.signature-box__column {
-  float: left;
-  width: 45%;
-  margin: 0 5% 0 0;
-}
-
-.signature-box__label {
-  font-weight: 600;
-}
-
-.signature-box__input {
-  width: 100%;
-  border: 2px solid #0b0c0c;
-  margin-bottom: 20px;
-}
-
-.signature-box__input.signature {
-  height: 100px;
-}
-
-.signature-box__input.date {
-  width: 200px;
-}
+/**
+ * Printable Styles
+ */
 
 .printable {
+  
+  padding-top: 100px;
+  
+  @media print {
+    padding-top: 20px;
+  }
+
+  &__header {
+    padding: 60px 0;
+    clear: both;
+    @media print {
+      padding: 40px 0;
+    }
+  }
+
+  &__address {
+    float: left;
+  }
+
+  &__section {
+    clear: both;
+  }
+
+  &__meta {
+    float: right;
+    width: 40%;
+    dl {
+      border-top: none;
+      margin-top: 0;
+    }
+    dt,
+    dd {
+      display: block;
+      width: 100%;
+      padding: 0;
+    }
+    dd {
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+  }
+
   h4 {
     margin: 20px 0 5px;
   }
-  p,
-  ul,
-  dt,
-  dd {
-    @extend %paragraph;
-  }
-}
-
-.printable__address {
-  float: left;
-}
-
-.printable__meta {
-  float: right;
-  width: 40%;
-  dl {
-    border-top: none;
-    margin-top: 0;
-  }
-  dt,
-  dd {
-    display: block;
-    width: 100%;
-    padding: 0;
-  }
-  dd {
-    margin-bottom: 10px;
-    font-weight: 600;
-  }
-}
-
-.printable__header {
-  float: left;
-  margin: 120px 0 60px;
-}
-
-.printable__section {
-  clear: both;
-}
-
-.signature-box {
-  margin: 30px 0;
-  padding: 30px 0 30px 5%;
-  background: #dee0e2;
-  overflow: auto;
-  -webkit-print-color-adjust:exact;
-}
-
-.signature-box__column {
-  float: left;
-  width: 45%;
-  margin: 0 5% 0 0;
-}
-
-.signature-box__label {
-  font-weight: 600;
-}
-
-.signature-box__input {
-  width: 100%;
-  border: 2px solid #0b0c0c;
-  margin-bottom: 20px;
-  &.signature {
-    height: 100px;
-  }
-  &.date {
-    width: 200px;
-  }
+  
 }
