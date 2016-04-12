@@ -18,10 +18,17 @@
   ul + h4 {
     margin-top: $gutter;
   }
+  
+  h2, 
+  h3, 
+  h4 {
+    color: $black;
+  }
 
   ul {
     @extend %paragraph;
     padding-left: 1em;
+    margin-bottom: $gutter-half;
   }
 
   li {

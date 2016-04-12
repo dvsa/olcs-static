@@ -249,7 +249,7 @@ a[class*="action--"][rel="external"] {
 @if $app == 'internal' {
 
   %action-box {
-    padding: 4px 10px 3px;
+    padding: 6px 10px 5px;
   }
 
   .actions-container select {

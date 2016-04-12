@@ -90,6 +90,9 @@ fieldset {
       max-width: 600px;
       font-weight: 400;
       clear: both;
+      @if $app == 'internal'  { 
+        font-size: font-size(3)
+      }
     }
   }
   
@@ -162,7 +165,7 @@ legend {
 label {
   @extend %h4;
   @if $app == 'selfserve' { @extend %h4 }
-  @if $app == 'internal'  { @extend %h5 }
+  @if $app == 'internal'  { font-size: font-size(3) }
   display: block;
   max-width: 600px;
   margin-bottom: 10px;
@@ -487,7 +490,10 @@ select,
   max-width: 600px;
   clear: both;
   margin-bottom: 0;
-  padding-top: 10px;
+  padding-top: 10px; 
+  @if $app == 'internal'  { 
+    font-size: font-size(3)
+  }
   &--small {
     @extend %paragraph--small;
   }

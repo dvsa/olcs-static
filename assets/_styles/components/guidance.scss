@@ -57,8 +57,5 @@
 @if $app == 'internal' {
   .guidance {
     max-width: 600px;
-    p {
-      margin-bottom: 5px;
-    }
   }
 }
