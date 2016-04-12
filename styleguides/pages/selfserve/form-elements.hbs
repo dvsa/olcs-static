@@ -9,7 +9,7 @@ breadcrumbs:
 <div class="row">
   <div class="two-thirds">
     <form>
-      
+
       <div class="validation-summary">
         <h3>There was a problem submitting the form</h3>
         <p>Please try the following:</p>
@@ -21,16 +21,16 @@ breadcrumbs:
       </div>
 
       <fieldset class="address js-postcode-search">
-        
+
         <legend>Establishment address</legend>
-        
+
         <p class="hint">This is where you usually keep your operator licence records.</p>
 
         <!-- Postcode Search -->
         <fieldset>
           <legend>Postcode search</legend>
           <div class="field inline">
-            <input type="text" class="short js-input" value="">
+            <input type="text" name="address[searchPostcode][postcode]" class="short js-input" data-container-class="inline" id="address[searchPostcode][postcode]" value="">
           </div>
           <div class="field inline">
             <button type="submit" class="action--primary js-find" value="search">
@@ -103,9 +103,9 @@ breadcrumbs:
           <label for="last-name">Last name</label>
             <input id="last-name" name="name" type="text" class="long" />
         </div>
-        
+
       </fieldset><!-- Establishment Address -->
-      
+
       <filedset>
         <legend>Personal information</legend>
         <div class="field">
@@ -125,23 +125,23 @@ breadcrumbs:
       </fieldset><!-- Personal Information -->
 
       <fieldset id="about-you">
-        
+
         <legend>About you</legend>
-        
+
         <!-- Date of Birth-->
         <fieldset>
           <legend>Date of birth</legend>
           <div class="field inline-text">
-            <label for="dob_day">Day</label>
-            <input type="select" name="data[birthDate][day]" id="dob_day" maxlength="2" value="15">
-          </div> 
+            <label>Day</label>
+            <input type="text" maxlength="2" pattern="\d*">
+          </div>
           <div class="field inline-text">
-            <label for="dob_month">Month</label>
-            <input type="select" name="data[birthDate][month]" id="dob_month" maxlength="2" value="02">
-          </div> 
+            <label>Month</label>
+            <input type="text" maxlength="2" pattern="\d*">
+          </div>
           <div class="field inline-text">
-            <label for="dob_year">Year</label>
-            <input type="select" name="data[birthDate][year]" id="dob_year" maxlength="4" value="1972">
+            <label>Year</label>
+            <input type="text" maxlength="4" pattern="\d*">
           </div>
           <p class="hint">For example 12, 6, 2014</p>
         </fieldset>
