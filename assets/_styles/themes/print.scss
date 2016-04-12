@@ -5,21 +5,16 @@
  * declaration form and payment receipts
  */
 
-// Vendor
-
-@import '../vendor/govuk_toolkit/stylesheets/_device-pixels';
-@import '../vendor/govuk_toolkit/stylesheets/_measurements';
-@import '../vendor/govuk_toolkit/stylesheets/_css3';
-@import '../vendor/govuk_toolkit/stylesheets/_colours';
-@import '../vendor/govuk_toolkit/stylesheets/_grid_layout';
-@import '../vendor/govuk_toolkit/stylesheets/_typography';
-
 // Styles
-      
+
 @media print {
   .hide-print {
     display: none;
   }
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
 }
 
 body {
@@ -170,7 +165,6 @@ label.inline {
 }
 
 .printable {
-  padding: 20px 30px 40px;
   h4 {
     margin: 20px 0 5px;
   }
@@ -183,12 +177,10 @@ label.inline {
 }
 
 .printable__address {
-  margin-top: 110px;
   float: left;
 }
 
 .printable__meta {
-  margin-top: 110px;
   float: right;
   width: 40%;
   dl {
@@ -212,10 +204,14 @@ label.inline {
   margin: 120px 0 60px;
 }
 
+.printable__section {
+  clear: both;
+}
+
 .signature-box {
   margin: 30px 0;
   padding: 30px 0 30px 5%;
-  background: $grey-3;
+  background: #dee0e2;
   overflow: auto;
   -webkit-print-color-adjust:exact;
 }
@@ -232,7 +228,7 @@ label.inline {
 
 .signature-box__input {
   width: 100%;
-  border: 2px solid $black;
+  border: 2px solid #0b0c0c;
   margin-bottom: 20px;
   &.signature {
     height: 100px;
