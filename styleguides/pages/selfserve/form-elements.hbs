@@ -30,7 +30,11 @@ breadcrumbs:
         <fieldset>
           <legend>Postcode search</legend>
           <div class="field inline">
+<<<<<<< HEAD
             <input type="text" class="short js-input" value="">
+=======
+            <input type="text" name="address[searchPostcode][postcode]" class="short js-input" data-container-class="inline" id="address[searchPostcode][postcode]" value="" pattern="\d*">
+>>>>>>> 9db8c0a2eeca1d80d0919f4e2940a86b22ab17fb
           </div>
           <div class="field inline">
             <button type="submit" class="action--primary js-find" value="search">
@@ -132,16 +136,16 @@ breadcrumbs:
         <fieldset>
           <legend>Date of birth</legend>
           <div class="field inline-text">
-            <label for="dob_day">Day</label>
-            <input type="select" name="data[birthDate][day]" id="dob_day" maxlength="2" value="15">
-          </div> 
+            <label>Day</label>
+            <input type="text" maxlength="2" pattern="\d*">
+          </div>
           <div class="field inline-text">
-            <label for="dob_month">Month</label>
-            <input type="select" name="data[birthDate][month]" id="dob_month" maxlength="2" value="02">
-          </div> 
+            <label>Month</label>
+            <input type="text" maxlength="2" pattern="\d*">
+          </div>
           <div class="field inline-text">
-            <label for="dob_year">Year</label>
-            <input type="select" name="data[birthDate][year]" id="dob_year" maxlength="4" value="1972">
+            <label>Year</label>
+            <input type="text" maxlength="4" pattern="\d*">
           </div>
           <p class="hint">For example 12, 6, 2014</p>
         </fieldset>
