@@ -155,29 +155,29 @@
           files: [
             {
               expand: true,
-              cwd: 'public/styleguides/selfserve/<%= globalConfig.prototypeName %>/',
+              cwd: 'public/styleguides/selfserve/'+target+'/',
               src: ['**/*.html'],
-              dest: '../prototypes/<%= globalConfig.prototypeName %>/'
+              dest: '../prototypes/'+target+'/'
             }, {
               expand: true,
               cwd: 'public/js/',
-              src: ['selfserve.js','<%= globalConfig.prototypeName %>.js'],
-              dest: '../prototypes/<%= globalConfig.prototypeName %>/js/'
+              src: ['selfserve.js',target+'.js'],
+              dest: '../prototypes/'+target+'/js/'
             }, {
               expand: true,
               cwd: 'public/styles/',
               src: ['selfserve.css'],
-              dest: '../prototypes/<%= globalConfig.prototypeName %>/styles/'
+              dest: '../prototypes/'+target+'/styles/'
             }, {
               expand: true,
               cwd: 'public/images/',
               src: ['**/*.{png,jpg,gif,svg}'],
-              dest: '../prototypes/<%= globalConfig.prototypeName %>/images/'
+              dest: '../prototypes/'+target+'/images/'
             }, {
               expand: true,
               cwd: 'public/fonts/',
               src: ['**/*'],
-              dest: '../prototypes/<%= globalConfig.prototypeName %>/fonts/'
+              dest: '../prototypes/'+target+'/fonts/'
             }
           ]
         },
@@ -538,38 +538,14 @@
     ]);
 
     /**
-     * Prototype Tasks
+     * Prototype
+     * To create/update an individual prototype use:
+     * $ grunt prototype --target=prototypeName
      */
-
-    grunt.registerTask('tm-prototype', function(directory) {
-      globalConfig.prototypeName = 'tm-prototype';
-      grunt.task.run(['clean:prototype', 'copy:prototype']);
-    });
-
-    grunt.registerTask('authentication-prototype', function(directory) {
-      globalConfig.prototypeName = 'authentication-prototype';
-      grunt.task.run(['clean:prototype', 'copy:prototype']);
-    });
-
-    grunt.registerTask('bus-reg-prototype', function(directory) {
-      globalConfig.prototypeName = 'bus-reg-prototype';
-      grunt.task.run(['clean:prototype', 'copy:prototype']);
-    });
-
-    grunt.registerTask('submit-app-prototype', function(directory) {
-      globalConfig.prototypeName = 'submit-app-prototype';
-      grunt.task.run(['clean:prototype', 'copy:prototype']);
-    });
-
-    grunt.registerTask('search-prototype', function(directory) {
-      globalConfig.prototypeName = 'search-prototype';
-      grunt.task.run(['clean:prototype', 'copy:prototype']);
-    });
-
-    grunt.registerTask('interim-prototype', function(directory) {
-      globalConfig.prototypeName = 'interim-prototype';
-      grunt.task.run(['clean:prototype', 'copy:prototype']);
-    });
+    grunt.registerTask('prototype', [
+      'clean:prototype:'+ target,
+      'copy:prototype:'+ target
+    ]);
 
     /**
      * Define a single Jenkins build task here for any relevant environments

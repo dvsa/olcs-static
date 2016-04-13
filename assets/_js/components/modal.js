@@ -26,6 +26,7 @@ OLCS.modal = (function(document, $, undefined) {
   var header    = '.modal__title';
   var content   = '.modal__content';
   var bodyClass = 'disable-scroll';
+  var inputs    = 'textarea, input, select';
 
   var closeSelectors = selector + '__close, ' + content + ' #cancel';
 
@@ -49,6 +50,15 @@ OLCS.modal = (function(document, $, undefined) {
   exports.show = function(body, title) {
 
     OLCS.logger.debug('Showing');
+
+    // Prevents scrolling issues on mobile Safari
+    if ('ontouchstart' in window) {
+      $(document).on('focus', inputs, function() {
+        $(wrapper).css('position', 'absolute');
+      }).on('blur', 'textarea,input,select', function() {
+        $(wrapper).css('position', '');
+      });
+    }
 
     // if there isn't a modal showing already, insert the
     // template and give the body a special class
