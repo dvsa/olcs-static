@@ -41,15 +41,17 @@ OLCS.tableRows = (function(document, $, undefined) {
         return;
       }
       
-      if (event.shiftKey) {
-        var checkbox = $(this).find('[type="checkbox"]');
-        // add a class to prevent accidental text highlighting when clicking row
-        $(this).parents('table').addClass('table--no-select');
-        // toggle the checkbox
-        checkbox.trigger('click');
-        // toggle the row selected class
-        $(this).toggleClass('checked');
-        return;
+      if ($(this).find('[type="checkbox"]').length) {
+        if (event.shiftKey) {
+          var checkbox = $(this).find('[type="checkbox"]');
+          // add a class to prevent accidental text highlighting when clicking row
+          $(this).parents('table').addClass('table--no-select');
+          // toggle the checkbox
+          checkbox.trigger('click');
+          // toggle the row selected class
+          $(this).toggleClass('checked');
+          return;
+        }
       }
 
       // If the target element contains a select box, simulate a
