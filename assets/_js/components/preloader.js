@@ -47,7 +47,6 @@ OLCS.preloader = (function(document, $, undefined) {
 
     // Dont show another preloader if there's already one on the screen
     if ($(preloaderSelectors).length) {
-      OLCS.logger.debug('Already a preloader');
       return;
     }
 
@@ -56,15 +55,12 @@ OLCS.preloader = (function(document, $, undefined) {
         OLCS.logger.debug('Undefined preloader type');
         break;
       case 'modal':
-        OLCS.logger.debug('Modal preloader');
         modalPreloader();
         break;
       case 'table':
-        OLCS.logger.debug('Table preloader');
         tablePreloader();
         break;
       case 'inline':
-        OLCS.logger.debug('Inline preloader');
         inlinePreloader();
         break;
     }

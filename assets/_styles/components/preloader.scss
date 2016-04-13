@@ -9,77 +9,69 @@
   z-index: 20;
 }
 
-%preloader {
+%preloade-icon {
+  z-index: 30;
+  background-size: 100%;
+  background-repeat: none;
+  background-position: 0 0;
+}
 
-  &__icon {
-    z-index: 30;
-    background-size: 100%;
-    background-repeat: none;
-    background-position: 0 0;
+%preloader-dark {
+  @extend %preloade-icon;
+  height: 28px;
+  width: 28px;
+  background-image: url('#{$assetPath}/bitmap/preloader.gif');
+  @include device-pixel-ratio($ratio: 2) {
+    background-image: url('#{$assetPath}/bitmap/preloader-2x.gif');
   }
+}
 
-  &--dark {
-    @extend %preloader__icon;
-    height: 28px;
-    width: 28px;
-    background-image: url('#{$assetPath}/bitmap/preloader.gif');
-    @include device-pixel-ratio($ratio: 2) {
-      background-image: url('#{$assetPath}/bitmap/preloader-2x.gif');
-    }
+%preloader-light {
+  @extend %preloade-icon;
+  height: 20px;
+  width: 20px;
+  background-image: url('#{$assetPath}/bitmap/preloader--dark.gif');
+  @include device-pixel-ratio($ratio: 2) {
+    background-image: url('#{$assetPath}/bitmap/preloader--dark-2x.gif');
   }
+}
 
-  &--light {
-    @extend %preloader__icon;
-    height: 20px;
-    width: 20px;
-    background-image: url('#{$assetPath}/bitmap/preloader--dark.gif');
-    @include device-pixel-ratio($ratio: 2) {
-      background-image: url('#{$assetPath}/bitmap/preloader--dark-2x.gif');
-    }
+.preloader-overlay {
+  &--modal {
+    @extend %preloader-overlay;
+    position: fixed;
+    background: $black;
   }
-
-}// %preloader
-
-.preloader {
-
-  &-overlay {
-    &--modal {
-      @extend %preloader-overlay;
-      position: fixed;
-      background: $black;
-    }
-    &--table {
-      @extend %preloader__overlay;
-      position: absolute;
-      background: $white;
-    }
+  &--table {
+    @extend %preloader-overlay;
+    position: absolute;
+    background: $white;
   }
+}
 
-  &-icon {
-    &--modal {
-      @extend %preloader--dark;
-      position: fixed;
-      left: 49%;
-      top: 52%;
-    }
-    &--table {
-      @extend %preloader--light;
-      position: absolute;
-      top: 42px;
-      left: 50%;
-    }
-    &--inline {
-      @extend %preloader--light;
-      float: right;
-      margin-top: 8px;
-    }
-    &--large {
-      @extend %preloader--light;
-      margin: 20px auto;
-      display: block;
-      height: 34px;
-      width: 34px;
-    }
+.preloader-icon {
+  &--modal {
+    @extend %preloader-dark;
+    position: fixed;
+    left: 49%;
+    top: 52%;
   }
-
-}// .preloader
+  &--table {
+    @extend %preloader-light;
+    position: absolute;
+    top: 42px;
+    left: 50%;
+  }
+  &--inline {
+    @extend %preloader-light;
+    float: right;
+    margin-top: 8px;
+  }
+  &--large {
+    @extend %preloader-light;
+    margin: 20px auto;
+    display: block;
+    height: 34px;
+    width: 34px;
+  }
+}
