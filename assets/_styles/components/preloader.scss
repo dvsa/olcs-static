@@ -2,22 +2,22 @@
  * Preloader
  */
 
+%preloader-overlay {
+  @include opacity(.7);
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+}
+
 %preloader {
-  
-  &__overlay {
-    @include opacity(.7);
-    width: 100%;
-    height: 100%;
-    z-index: 20;
-  }
-  
+
   &__icon {
     z-index: 30;
     background-size: 100%;
     background-repeat: none;
     background-position: 0 0;
   }
-  
+
   &--dark {
     @extend %preloader__icon;
     height: 28px;
@@ -27,7 +27,7 @@
       background-image: url('#{$assetPath}/bitmap/preloader-2x.gif');
     }
   }
-  
+
   &--light {
     @extend %preloader__icon;
     height: 20px;
@@ -37,14 +37,14 @@
       background-image: url('#{$assetPath}/bitmap/preloader--dark-2x.gif');
     }
   }
-  
+
 }// %preloader
 
 .preloader {
-  
+
   &-overlay {
     &--modal {
-      @extend %preloader__overlay;
+      @extend %preloader-overlay;
       position: fixed;
       background: $black;
     }
@@ -54,7 +54,7 @@
       background: $white;
     }
   }
-  
+
   &-icon {
     &--modal {
       @extend %preloader--dark;
@@ -81,5 +81,5 @@
       width: 34px;
     }
   }
-  
+
 }// .preloader
