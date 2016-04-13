@@ -132,6 +132,9 @@ fieldset {
     width: 47.5%;
     margin-right: 2.5%;
   }
+  h3 {
+    margin-bottom: 0.5em;
+  }
 }
 
 .pre-selected {
@@ -514,7 +517,7 @@ select,
 .form__filter {
   float: none;
   label {
-    @extend %paragraph--tiny;
+    @extend %paragraph--small;
   }
 }
 
