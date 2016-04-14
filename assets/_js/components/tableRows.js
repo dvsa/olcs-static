@@ -32,13 +32,26 @@ OLCS.tableRows = (function(document, $, undefined) {
 
     // On click of a table row
     $(document).on('click', tableRowSelector, function(e) {
-
+      
       var target          = $(e.target);
       var actionElement   = getActions(this);
       var targetSelectBox = target.children(selectBox);
 
       if (target.is(actionElement)) {
         return;
+      }
+      
+      if ($(this).find('[type="checkbox"]').length) {
+        if (event.shiftKey) {
+          var checkbox = $(this).find('[type="checkbox"]');
+          // add a class to prevent accidental text highlighting when clicking row
+          $(this).parents('table').addClass('table--no-select');
+          // toggle the checkbox
+          checkbox.trigger('click');
+          // toggle the row selected class
+          $(this).toggleClass('checked');
+          return;
+        }
       }
 
       // If the target element contains a select box, simulate a
