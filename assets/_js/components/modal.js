@@ -49,8 +49,6 @@ OLCS.modal = (function(document, $, undefined) {
    */
   exports.show = function(body, title) {
 
-    OLCS.logger.debug('Showing');
-
     // Prevents scrolling issues on mobile Safari
     if ('ontouchstart' in window) {
       $(document).on('focus', inputs, function() {
