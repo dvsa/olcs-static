@@ -42,7 +42,7 @@ OLCS.tableRows = (function(document, $, undefined) {
       }
       
       if ($(this).find('[type="checkbox"]').length) {
-        if (event.shiftKey) {
+        if (e.shiftKey) {
           var checkbox = $(this).find('[type="checkbox"]');
           // add a class to prevent accidental text highlighting when clicking row
           $(this).parents('table').addClass('table--no-select');
