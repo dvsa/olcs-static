@@ -76,6 +76,7 @@
 
   &__content {
     margin: $gutter 0;
+    @extend %clearfix;
   }
 
   &--alert {

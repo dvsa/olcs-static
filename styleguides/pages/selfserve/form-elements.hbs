@@ -30,7 +30,8 @@ breadcrumbs:
         <fieldset>
           <legend>Postcode search</legend>
           <div class="field inline">
-            <input type="text" name="address[searchPostcode][postcode]" class="short js-input" data-container-class="inline" id="address[searchPostcode][postcode]" value="">
+            <input type="text" class="short js-input" value="">
+            <input type="text" name="address[searchPostcode][postcode]" class="short js-input" data-container-class="inline" id="address[searchPostcode][postcode]" value="" pattern="\d*">
           </div>
           <div class="field inline">
             <button type="submit" class="action--primary js-find" value="search">
