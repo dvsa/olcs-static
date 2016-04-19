@@ -26,6 +26,7 @@ OLCS.modal = (function(document, $, undefined) {
   var header    = '.modal__title';
   var content   = '.modal__content';
   var bodyClass = 'disable-scroll';
+  var inputs    = 'textarea, input, select';
 
   var closeSelectors = selector + '__close, ' + content + ' #cancel';
 
@@ -48,7 +49,16 @@ OLCS.modal = (function(document, $, undefined) {
    */
   exports.show = function(body, title) {
 
-    // if there isn't a modal showing already, insert the 
+    // Prevents scrolling issues on mobile Safari
+    if ('ontouchstart' in window) {
+      $(document).on('focus', inputs, function() {
+        $(wrapper).css('position', 'absolute');
+      }).on('blur', 'textarea,input,select', function() {
+        $(wrapper).css('position', '');
+      });
+    }
+
+    // if there isn't a modal showing already, insert the
     // template and give the body a special class
     if ($('body').find(overlay).length === 0) {
       $('body')
@@ -86,7 +96,7 @@ OLCS.modal = (function(document, $, undefined) {
     // Set the aria-hidden attribute of all other content to 'true'
     // whilst the modal is open
     $('.page-wrapper').attr('aria-hidden', 'true');
-    
+
     /**
      * Attempt to dynamically re-size a chosen select dropdown if the modal
      * is too small to contain it
@@ -94,12 +104,12 @@ OLCS.modal = (function(document, $, undefined) {
     if ($(selector).find('.chosen-container').length) {
       var modalPos = $(selector).position().top + $(selector).outerHeight(true);
       var chosenPos = $('.chosen-container').position().top + $('.chosen-container').outerHeight(true);
-      
+
       if ((modalPos - chosenPos) < 450) {
         $(selector).find('.chosen-results').height('105px');
       }
     }
-    
+
   };
 
   exports.hide = function() {

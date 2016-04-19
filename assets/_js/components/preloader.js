@@ -52,6 +52,7 @@ OLCS.preloader = (function(document, $, undefined) {
 
     switch (type) {
       case undefined:
+        OLCS.logger.debug('Undefined preloader type');
         break;
       case 'modal':
         modalPreloader();
