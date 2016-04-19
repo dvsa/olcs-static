@@ -22,10 +22,13 @@ OLCS.fileUpload = (function(document, $, undefined) {
     var MULTI_UPLOAD_DELAY = 1000;
 
 
-    function handleResponse(response, name) {
-      var selector = ".file-uploader[data-group='"+name+"']";
-      var fileUploader = $(response).find(selector);
-      F.render(selector, fileUploader);
+    function handleResponse(response, index) {
+      console.log(index);
+      var original     = ".file-uploader:eq("+index+")";
+      var fileUploader = $(response).find(original);
+      console.log(fileUploader[0].outerHTML);
+
+      F.render(original, fileUploader[0].outerHTML);
     }
 
     var deleteResponse = OLCS.normaliseResponse(function(response) {
@@ -48,6 +51,8 @@ OLCS.fileUpload = (function(document, $, undefined) {
       );
 
       var name = $(container).data("group");
+
+      var containerIndex = $(container).index(containerSelector);
 
       var kbSize = Math.round(file.size / 1024);
 
@@ -97,7 +102,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
               "All files uploaded",
               "fileUpload"
             );
-            handleResponse(xhr.responseText, name);
+            handleResponse(xhr.responseText, containerIndex);
           }
         }
       };
