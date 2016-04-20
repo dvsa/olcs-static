@@ -140,6 +140,9 @@
       text-indent: -9999px;
       @include svg('internal-modal-close');
     }
+    &__content {
+      margin-bottom: $gutter;
+    }
     &--alert {
       border-radius: 3px;
       padding: 75px 20px 20px;

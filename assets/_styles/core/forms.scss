@@ -236,10 +236,18 @@ input,
 textarea,
 .terms--box {
   font-size: font-size(5);
-  padding: .32em .5em;
+  padding: .5em .75em;
   background-color: #F9F9F9;
   max-width: 600px;
   border: 1px solid;
+  padding: theme(
+    $internal: .5em .75em, 
+    $selfserve: 0.32em 0.5em
+  );
+  font-size: theme(
+    $internal: inherit, 
+    $selfserve: font-size(5)
+  );
   border-color: theme(
     $internal: $grey-2, 
     $selfserve: #A2A2A2
