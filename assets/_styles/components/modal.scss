@@ -75,6 +75,7 @@
   }
 
   &__content {
+    margin-top: $gutter;
     @extend %clearfix;
   }
 
@@ -132,9 +133,6 @@
       padding: 12px 15px;
       background: $grey-4;
       border-bottom: 1px solid $grey-3;
-    }
-    &__content {
-      margin: $gutter 0;
     }
     &__close {
       top: 15px;
