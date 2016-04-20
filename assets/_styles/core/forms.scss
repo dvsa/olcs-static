@@ -75,6 +75,10 @@ fieldset {
     margin-bottom: $gutter;
   }
   
+  &.last {
+    margin-bottom: 0;
+  }
+  
   &.multiple a {
     @extend %paragraph--tiny;
     margin-top: -0.75em;
@@ -476,7 +480,7 @@ select,
   background: $light-blue-25;
   max-width: 600px;
   label {
-    @extend %paragraph--small;
+    @extend %paragraph;
   }
 }
 

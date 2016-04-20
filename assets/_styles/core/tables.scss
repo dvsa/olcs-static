@@ -11,6 +11,10 @@
   + .table__header {
     margin-top: 2em;
   }
+  td, 
+  th {
+    vertical-align: middle;
+  }
 }
 
 .table__header {
