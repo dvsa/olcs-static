@@ -75,6 +75,10 @@ fieldset {
     margin-bottom: $gutter;
   }
   
+  &.last {
+    margin-bottom: 0;
+  }
+  
   &.multiple a {
     @extend %paragraph--tiny;
     margin-top: -0.75em;
@@ -231,10 +235,19 @@ label {
 input,
 textarea,
 .terms--box {
+  font-size: font-size(5);
   padding: .5em .75em;
   background-color: #F9F9F9;
   max-width: 600px;
   border: 1px solid;
+  padding: theme(
+    $internal: .5em .75em, 
+    $selfserve: 0.32em 0.5em
+  );
+  font-size: theme(
+    $internal: inherit, 
+    $selfserve: font-size(5)
+  );
   border-color: theme(
     $internal: $grey-2, 
     $selfserve: #A2A2A2
@@ -354,9 +367,9 @@ select,
       @include svg('attachment');
       content: "";
       display: inline-block;
-      height: 20px;
-      width: 20px;
-      margin: 2px 2px -5px -2px;
+      height: 19px;
+      width: 19px;
+      margin: 0px 2px -5px -2px;
     }
   }
   
@@ -476,7 +489,7 @@ select,
   background: $light-blue-25;
   max-width: 600px;
   label {
-    @extend %paragraph--small;
+    @extend %paragraph;
   }
 }
 

@@ -75,7 +75,7 @@
   }
 
   &__content {
-    margin: $gutter 0;
+    margin-top: $gutter;
     @extend %clearfix;
   }
 
@@ -139,6 +139,9 @@
       right: 15px;
       text-indent: -9999px;
       @include svg('internal-modal-close');
+    }
+    &__content {
+      margin-bottom: $gutter;
     }
     &--alert {
       border-radius: 3px;

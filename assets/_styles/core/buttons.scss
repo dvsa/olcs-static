@@ -252,14 +252,11 @@ a[class*="action--"][rel="external"] {
 @if $app == 'internal' {
 
   %action-box {
-<<<<<<< HEAD
     padding: 6px 10px 5px;
-=======
     &.small {
       @extend %h6;
       padding: 5px 10px;
     }
->>>>>>> 7274ba91c4bd986ad904d0b2f91faa4960320c96
   }
 
   .actions-container select {
