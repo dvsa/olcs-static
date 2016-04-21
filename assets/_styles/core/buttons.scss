@@ -75,7 +75,10 @@ button {
   @extend %paragraph--small;
   border: 0;
   margin-right: 0.3em;
-  padding: 0.5em 0.75em 0.4em;
+  padding: theme(
+    $selfserve: 0.5em 0.75em 0.4em,
+    $internal: 4px 10px 3px
+  );
   text-decoration: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -249,7 +252,14 @@ a[class*="action--"][rel="external"] {
 @if $app == 'internal' {
 
   %action-box {
+<<<<<<< HEAD
     padding: 6px 10px 5px;
+=======
+    &.small {
+      @extend %h6;
+      padding: 5px 10px;
+    }
+>>>>>>> 7274ba91c4bd986ad904d0b2f91faa4960320c96
   }
 
   .actions-container select {
