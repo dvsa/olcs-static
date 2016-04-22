@@ -29,6 +29,8 @@ OLCS.tableRows = (function(document, $, undefined) {
         return getActions(selector).length === 1;
       }
     }
+    
+    var lastChecked;
 
     // On click of a table row
     $(document).on('click', tableRowSelector, function(e) {
@@ -41,17 +43,38 @@ OLCS.tableRows = (function(document, $, undefined) {
         return;
       }
       
+      // allow multiple rows to be selected by using the 'shift' key
       if ($(this).find('[type="checkbox"]').length) {
-        if (e.shiftKey) {
-          var checkbox = $(this).find('[type="checkbox"]');
-          // add a class to prevent accidental text highlighting when clicking row
-          $(this).parents('table').addClass('table--no-select');
-          // toggle the checkbox
-          checkbox.trigger('click');
-          // toggle the row selected class
-          $(this).toggleClass('checked');
+      
+        if(!lastChecked) {
+          lastChecked = this;
           return;
         }
+        
+        // if the row was clicked whilst holding the 'shift' key
+        if (e.shiftKey) {
+          
+          var start = $(tableRowSelector).index(this);
+          var end = $(tableRowSelector).index(lastChecked);
+
+          $(tableRowSelector)
+            .slice(Math.min(start,end), Math.max(start,end) + 1)
+            .find('[type="checkbox"]')
+            .trigger('click');
+          
+          // add a class to prevent accidental text highlighting when clicking row
+          $(this).parents('table').addClass('table--no-select');
+          
+          // toggle the checkbox
+          //$(this).find('[type="checkbox"]').trigger('click');
+          
+          // toggle the row selected class
+          $(this).toggleClass('checked');
+          
+          return;
+        }
+      
+        lastChecked = this;
       }
 
       // If the target element contains a select box, simulate a
