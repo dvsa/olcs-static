@@ -23,6 +23,9 @@
   .attach-action__hint {
     display: none;
   }
+  form + & {
+    margin-top: -20px;
+  }
 }
 
 .attach-comment__button {

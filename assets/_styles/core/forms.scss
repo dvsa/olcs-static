@@ -73,17 +73,14 @@ fieldset {
   &:not(:last-child) {
     margin-bottom: $gutter;
   }
-
   &.last {
     margin-bottom: 0;
   }
-
   &.multiple a {
     @extend %paragraph--tiny;
     margin-top: -0.75em;
     display: block;
   }
-
   // nested fieldsets
   fieldset {
     legend {
@@ -165,7 +162,7 @@ legend {
   @if $app == 'internal'  { @extend %h4 }
   padding: 0;
   font-weight: 700;
-  margin-bottom: $gutter-half;
+  margin-bottom: $gutter-one-third;
   .highlight-box & {
     float: left;
     width: 100%;
@@ -496,6 +493,9 @@ select,
   max-width: 600px;
   label {
     @extend %paragraph;
+    @if $app == 'internal'  {
+      font-size: font-size(3)
+    }
   }
 }
 

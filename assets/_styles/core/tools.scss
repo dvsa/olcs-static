@@ -48,15 +48,16 @@
 %header-with-actions {
   float: left;
   width: 100%;
+  padding-bottom: 8px;
   h3,
   h4 {
     float: left;
     display: block;
-    margin: 0;
+    margin: 0 !important;
   }
   .actions-container {
     float: right;
-    margin: -7px -5px 7px 0;
+    margin: -7px -5px -2px 0;
     display: block;
   }
   select {
@@ -72,7 +73,7 @@
 %sprite-bg {
 	background-image: url("../images/svg/icon-sprite.png");
 	background-image: url("../images/svg/icon-sprite.svg"),
-    linear-gradient(transparent, transparent);
+  linear-gradient(transparent, transparent);
   display: inline-block;
 }
 

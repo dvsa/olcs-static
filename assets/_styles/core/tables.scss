@@ -2,6 +2,10 @@
  * Tables
  */
 
+.table .field {
+  margin-bottom: 0;
+}
+
 .table__wrapper {
   display: block;
   width: 100%;
@@ -11,7 +15,7 @@
   + .table__header {
     margin-top: 2em;
   }
-  td, 
+  td,
   th {
     vertical-align: middle;
   }
@@ -236,12 +240,12 @@ tfoot {
   .table--no-select {
     tr {
       // 'user-select' is a non-standard feature but works
-      // in all browsers 
+      // in all browsers
       -webkit-touch-callout: none;
       -webkit-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;
-      user-select: none;    
+      user-select: none;
     }
   }
 
