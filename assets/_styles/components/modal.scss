@@ -136,6 +136,9 @@
       background: $grey-4;
       border-bottom: 1px solid $grey-3;
     }
+    &__content {
+      @extend %clearfix;
+    }
     &__close {
       top: 15px;
       right: 15px;
