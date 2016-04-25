@@ -9,9 +9,6 @@
   padding: 10px 0 8px;
   &__wrapper {
     @extend .page-wrapper;
-    width: 92%;
-    padding: 0 4%;
-    max-width: 960px;
   }
   p {
     @extend %paragraph--small;
