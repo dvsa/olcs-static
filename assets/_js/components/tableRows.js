@@ -30,7 +30,7 @@ OLCS.tableRows = (function(document, $, undefined) {
       }
     }
     
-    var lastChecked;
+    var lastChecked = null;
 
     // On click of a table row
     $(document).on('click', tableRowSelector, function(e) {
@@ -42,31 +42,36 @@ OLCS.tableRows = (function(document, $, undefined) {
       if (target.is(actionElement)) {
         return;
       }
+
+      // If the target element contains a select box, simulate a click of 
+      // its select box
+      if (targetSelectBox.length) {
+        // select the input & make sure the change event is emitted properly
+        return targetSelectBox.click().change();
+      }
       
       // allow multiple rows to be selected by using the 'shift' key
       if ($(this).find('[type="checkbox"]').length) {
-      
-        if(!lastChecked) {
-          lastChecked = this;
-          return;
-        }
         
         // if the row was clicked whilst holding the 'shift' key
         if (e.shiftKey) {
+              
+          if(!lastChecked) {
+            lastChecked = $(this);
+            $(this).find('[type="checkbox"]').click();
+            return;
+          }
           
           var start = $(tableRowSelector).index(this);
           var end = $(tableRowSelector).index(lastChecked);
-
-          $(tableRowSelector)
-            .slice(Math.min(start,end), Math.max(start,end) + 1)
-            .find('[type="checkbox"]')
-            .trigger('click');
+          var lastCheckedState = lastChecked.find('[type="checkbox"]').prop('checked');
+          
+          $(tableRowSelector).slice(Math.min(start,end), Math.max(start,end) + 1).each(function() {
+            $(this).find('[type="checkbox"]').click();
+          });
           
           // add a class to prevent accidental text highlighting when clicking row
           $(this).parents('table').addClass('table--no-select');
-          
-          // toggle the checkbox
-          //$(this).find('[type="checkbox"]').trigger('click');
           
           // toggle the row selected class
           $(this).toggleClass('checked');
@@ -74,15 +79,7 @@ OLCS.tableRows = (function(document, $, undefined) {
           return;
         }
       
-        lastChecked = this;
-      }
-
-      // If the target element contains a select box, simulate a
-      // click of its select box
-      if (targetSelectBox.length) {
-        return targetSelectBox
-          .click()   // select the input
-          .change(); // make sure the change event is emitted properly
+        lastChecked = $(this);
       }
 
       // Return if the row shouldn't be hoverable
@@ -94,6 +91,7 @@ OLCS.tableRows = (function(document, $, undefined) {
       // simulate a click of the row's primary action
       if (!target.is(selectBox) && !targetSelectBox.length) {
         actionElement.get(0).click();
+        return;
       }
 
     });
