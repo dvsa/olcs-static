@@ -19,13 +19,9 @@
     margin-bottom: 5px;
   }
   select {
-    font-size: font-size(4);
     // offset outline
     width: calc(100% - 2px);
     margin-left: 1px;
-    @if $app == 'internal'  {
-      font-size: font-size(3);
-    }
   }
   input[type="search"] {
     width: 95%;

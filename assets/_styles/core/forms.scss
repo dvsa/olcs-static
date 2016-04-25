@@ -270,7 +270,10 @@ textarea,
 
 select {
   max-width: 500px;
-  font-size: font-size(2);
+  font-size: theme(
+    $internal: font-size(2),
+    $selfserve: font-size(4)
+  );
   background-color: #F9F9F9;
   border-color: theme(
     $internal: $grey-2,
