@@ -4,18 +4,14 @@
 
 .system-messages {
   width: 100%;
-  list-style: none;
-  margin-bottom: 20px;
-}
-
-@if $app == 'internal' {
-  .system-message {
-    @extend .notice--info;
+  background: $light-blue-25;
+  overflow: auto;
+  padding: 10px 0 8px;
+  &__wrapper {
+    @extend .page-wrapper;
+    list-style: none;
   }
-}
-
-@if $app == 'selfserve' {
-  .system-message {
-    @extend .guidance;
+  p {
+    @extend %paragraph--small;
   }
 }

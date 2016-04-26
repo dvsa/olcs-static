@@ -227,8 +227,21 @@ tfoot {
     &.urgent {
       border-left: 5px solid $mellow-red;
     }
-    &.hover {
+    &.hover,
+    &.checked {
       background: $grey-4;
+    }
+  }
+
+  .table--no-select {
+    tr {
+      // 'user-select' is a non-standard feature but works
+      // in all browsers 
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;    
     }
   }
 
