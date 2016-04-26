@@ -28,7 +28,7 @@ describe("OLCS.postcodeSearch", function() {
               "<fieldset>",
                 "<button type=submit name='address[searchPostcode][search]' class='action--primary large js-find' value=search>Find address</button>",
                 "<div class=field>",
-                  "<p class=hint--small id=p1><a href=#>Manual</a></p>",
+                  "<p class=hint id=p1><a href=#>Manual</a></p>",
                 "</div>",
               "</fieldset>",
               "<div class=field id=f1><input name='a[addressLine1]' type=text /></div>",
@@ -89,7 +89,7 @@ describe("OLCS.postcodeSearch", function() {
 
           describe("When clicking the enter address manually button", function() {
             beforeEach(function() {
-              $(".address .hint--small a").click();
+              $(".address .hint a").click();
             });
 
             it("should show the address fields", function() {
@@ -146,7 +146,7 @@ describe("OLCS.postcodeSearch", function() {
               "<fieldset></fieldset>",
               "<fieldset>",
                 "<div class=field>",
-                  "<p class=hint--small><a href=#>Manual</a></p>",
+                  "<p class=hint><a href=#>Manual</a></p>",
                 "</div>",
               "</fieldset>",
               "<div class=field id=f1><input name='a[addressLine1]' type=text /></div>",
