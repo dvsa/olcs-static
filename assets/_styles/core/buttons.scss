@@ -4,7 +4,7 @@
 
 .actions-container {
   float: left;
-  margin: 1em 0;
+  margin-bottom: $gutter-half;
   a,
   input,
   button {
@@ -163,7 +163,7 @@ a[class*="action--"][rel="external"] {
   &__button {
     @extend .action--secondary;
     margin: 0 !important;
-    padding-right: 25px;
+    padding-right: 25px !important;
     position: relative;
     &:after {
       @include svg('dropdown-down');
@@ -289,9 +289,6 @@ a[class*="action--"][rel="external"] {
     text-decoration: none;
     &:hover {
       text-decoration: underline;
-    }
-    &.large {
-      padding: 5px 10px;
     }
   }
 

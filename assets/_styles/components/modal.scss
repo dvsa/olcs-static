@@ -107,9 +107,6 @@
     &__close {
       @include svg('selfserve-modal-close');
     }
-    .hint {
-      @extend %paragraph--small;
-    }
   }
 
 }// selfserve
@@ -141,6 +138,9 @@
       right: 15px;
       text-indent: -9999px;
       @include svg('internal-modal-close');
+    }
+    &__content {
+      margin-bottom: $gutter;
     }
     &--alert {
       border-radius: 3px;

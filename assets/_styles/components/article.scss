@@ -7,6 +7,8 @@
 
 .article {
 
+  color: $black;
+    
   p + h2,
   p + h3,
   p + h4,
@@ -16,13 +18,19 @@
   ul + h2,
   ul + h3,
   ul + h4 {
-    margin-top: 20px;
+    margin-top: $gutter;
+  }
+  
+  h2, 
+  h3, 
+  h4 {
+    margin-bottom: 0.75em;
   }
 
   ul {
     @extend %paragraph;
-    margin-left: 20px;
-    margin-bottom: .5em;
+    padding-left: 1em;
+    margin-bottom: $gutter-half;
   }
 
   li {
@@ -30,10 +38,6 @@
     @if $app == 'internal' {
       font-size: font-size(3);
     }
-  }
-
-  p:not(:last-child) {
-    margin-bottom: 0.5em;
   }
 
   & + & {

@@ -13,7 +13,7 @@ a {
 
 [rel="external"]:after {
   @include svg('selfserve-external-link');
-  margin-left: 0.5em;
+  margin-left: 0.25em;
   content: "";
   &:hover {
     @include svg('selfserve-external-link-hover');
