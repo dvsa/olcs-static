@@ -65,26 +65,22 @@ form {
 }
 
 fieldset {
-  
-  margin-left: 0;
+  margin: 0 0 $gutter 0;
   padding: 0;
   border: 0;
   width: 100%;
   clear: both;
-  &:not(:last-child) {
-    margin-bottom: $gutter;
+  &:last-child {
+    margin-bottom: 0;
   }
-  
   &.last {
     margin-bottom: 0;
   }
-  
   &.multiple a {
     @extend %paragraph--tiny;
     margin-top: -0.75em;
     display: block;
   }
-  
   // nested fieldsets
   fieldset {
     legend {
@@ -94,16 +90,20 @@ fieldset {
       max-width: 600px;
       font-weight: 400;
       clear: both;
-      @if $app == 'internal'  { 
-        font-size: font-size(3)
+      @if $app == 'internal'  {
+        font-size: font-size(3);
+        margin-bottom: 5px;
       }
     }
   }
-  
+
 } // fieldset
 
 .field {
   margin-bottom: $gutter;
+  @if $app == 'internal'  {
+    margin-bottom: $gutter-two-thirds;
+  }
   overflow: visible;
   @media (max-width: breakpoint('break-3')) {
     margin-bottom: .5em;
@@ -148,7 +148,7 @@ fieldset {
 /**
  * Legends & Labels
  */
- 
+
 legend,
 label {
   margin-top: 10px;
@@ -162,7 +162,7 @@ legend {
   @if $app == 'internal'  { @extend %h4 }
   padding: 0;
   font-weight: 700;
-  margin-bottom: $gutter-half;
+  margin-bottom: $gutter-one-third;
   .highlight-box & {
     float: left;
     width: 100%;
@@ -171,11 +171,14 @@ legend {
 
 label {
   @extend %h4;
+  margin-bottom: 10px;
   @if $app == 'selfserve' { @extend %h4 }
-  @if $app == 'internal'  { font-size: font-size(3) }
+  @if $app == 'internal'  {
+    font-size: font-size(3);
+    margin-bottom: 5px;
+  }
   display: block;
   max-width: 600px;
-  margin-bottom: 10px;
   &:last-child {
     margin-bottom: 0;
   }
@@ -241,15 +244,15 @@ textarea,
   max-width: 600px;
   border: 1px solid;
   padding: theme(
-    $internal: .5em .75em, 
+    $internal: .5em .75em,
     $selfserve: 0.32em 0.5em
   );
   font-size: theme(
-    $internal: inherit, 
+    $internal: inherit,
     $selfserve: font-size(5)
   );
   border-color: theme(
-    $internal: $grey-2, 
+    $internal: $grey-2,
     $selfserve: #A2A2A2
   );
 }
@@ -267,10 +270,13 @@ textarea,
 
 select {
   max-width: 500px;
-  font-size: font-size(2);
+  font-size: theme(
+    $internal: font-size(2),
+    $selfserve: font-size(4)
+  );
   background-color: #F9F9F9;
   border-color: theme(
-    $internal: $grey-2, 
+    $internal: $grey-2,
     $selfserve: #A2A2A2
   );
   .filters & {
@@ -327,11 +333,11 @@ select,
 }
 
 .attach-action {
-  
+
   .js-enabled & {
     float: left;
   }
-  
+
   [type="file"] {
     width: 100%;
     border: 0;
@@ -340,14 +346,14 @@ select,
     border-left: 4px solid $grey-3;
     margin-top: .25em;
   }
-  
+
   &__list {
     .js-enabled & {
       float: left;
       margin-bottom: 15px;
     }
   }
-  
+
   &__label {
     .js-enabled & {
       @extend .action--secondary;
@@ -359,7 +365,7 @@ select,
       }
     }
     @if $app == 'selfserve' {
-      &.focused { 
+      &.focused {
         outline: 3px solid $outline;
       }
     }
@@ -372,7 +378,7 @@ select,
       margin: 0px 2px -5px -2px;
     }
   }
-  
+
   &__hint {
     @extend .hint;
     @extend %paragraph--small;
@@ -383,7 +389,7 @@ select,
       margin-left: 10px;
     }
   }
-  
+
 } // .attach-action
 
 .file {
@@ -490,6 +496,9 @@ select,
   max-width: 600px;
   label {
     @extend %paragraph;
+    @if $app == 'internal'  {
+      font-size: font-size(3)
+    }
   }
 }
 
@@ -505,14 +514,14 @@ select,
   max-width: 600px;
   clear: both;
   margin-bottom: 0;
-  padding-top: 10px; 
-  @if $app == 'internal'  { 
+  padding-top: 10px;
+  @if $app == 'internal'  {
     font-size: font-size(3)
   }
   &--small {
     @extend %paragraph--small;
   }
-  legend + &, 
+  legend + &,
   .compound &,
   .compound + & {
     padding-top: 0;
@@ -540,7 +549,7 @@ select,
 @if $app == 'selfserve' {
 
   .checkbox {
-    
+
     label {
       background: $grey-3;
       padding: 14px 17px;
@@ -581,7 +590,7 @@ select,
       }
       &.inline {
        clear: none;
-       margin-top: 0; 
+       margin-top: 0;
       }
     }
     input:focus {
@@ -591,7 +600,7 @@ select,
     .hint {
       float: left;
     }
-    
+
   } // .checkbox
 
   .chosen-container {

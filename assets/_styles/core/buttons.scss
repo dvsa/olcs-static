@@ -163,7 +163,7 @@ a[class*="action--"][rel="external"] {
   &__button {
     @extend .action--secondary;
     margin: 0 !important;
-    padding-right: 25px;
+    padding-right: 25px !important;
     position: relative;
     &:after {
       @include svg('dropdown-down');

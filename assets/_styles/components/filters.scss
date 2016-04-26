@@ -19,7 +19,6 @@
     margin-bottom: 5px;
   }
   select {
-    font-size: font-size(4);
     // offset outline
     width: calc(100% - 2px);
     margin-left: 1px;
@@ -31,8 +30,8 @@
     margin-right: -20px;
   }
   .hint {
-      @extend .hint--small;
-      width: 100%;
+    @extend .hint--small;
+    width: 100%;
   }
   .vertical-navigation &,
   .app-navigation & {

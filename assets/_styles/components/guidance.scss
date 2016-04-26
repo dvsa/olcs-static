@@ -1,7 +1,7 @@
 /**
  * Guidance
  */
- 
+
  %guidance {
   background: $grey-4;
   border-left: 4px solid $grey-2;
@@ -29,6 +29,9 @@
   color: $link-colour;
   text-decoration: underline;
   border: 3px solid transparent;
+  @if $app == 'internal'  {
+    font-size: font-size(3);
+  }
   &:hover {
     color: $link-hover-colour;
     cursor: pointer;
