@@ -156,7 +156,11 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
           "normaliseResponse"
         );
 
-        return OLCS.url.load(response.location);
+        // We want to respect any query paramters to ensure
+        // the user doesn't lose their state.
+        var queryString = $(".table__form").attr("action").match(/\?(.*)/);
+        var url = response.location + queryString[0];
+        return OLCS.url.load(url);
       }
 
       // otherwise start to inspect the response for any things of interest
