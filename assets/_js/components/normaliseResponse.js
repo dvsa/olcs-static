@@ -151,15 +151,16 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
           OLCS.preloader.show("modal");
         }
 
-        OLCS.logger.debug(
-          "caught 302 redirect; followRedirects=true; redirecting to " + response.location,
-          "normaliseResponse"
-        );
-
-        // We want to respect any query paramters to ensure
+        // We want to respect any query parameters to ensure
         // the user doesn't lose their state.
         var queryString = $(".table__form").attr("action").match(/\?(.*)/);
         var url = response.location + queryString[0];
+
+        OLCS.logger.debug(
+          "caught 302 redirect; followRedirects=true; redirecting to " + url,
+          "normaliseResponse"
+        );
+
         return OLCS.url.load(url);
       }
 
