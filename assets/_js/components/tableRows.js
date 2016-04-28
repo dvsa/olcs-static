@@ -67,7 +67,7 @@ OLCS.tableRows = (function(document, $, undefined) {
         return;
       }
 
-      // Increase click-area size for checkboxes/radios
+      // Allow the entire box's td to be clicked
       if (targetSelectBox.length) {
         toggleRow();
       }
