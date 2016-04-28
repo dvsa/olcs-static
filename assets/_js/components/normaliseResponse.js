@@ -151,10 +151,18 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
           OLCS.preloader.show("modal");
         }
 
-        // We want to respect any query parameters to ensure
-        // the user doesn't lose their state.
-        var queryString = $(".table__form").attr("action").match(/\?(.*)/);
-        var url = response.location + queryString[0];
+
+        // If the parent form action has a query string we want
+        // to preserve  it to make sure the user doesn't lose their state
+        var url;
+        var queryString;
+
+        try {
+          queryString = $(".table__form").attr("action").match(/\?(.*)/);
+          url = response.location + queryString[0];
+        } catch(e) {
+          url = response.location;
+        }
 
         OLCS.logger.debug(
           "caught 302 redirect; followRedirects=true; redirecting to " + url,
