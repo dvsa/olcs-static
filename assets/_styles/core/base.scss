@@ -49,6 +49,12 @@ body {
  * inconsistencies as consistent
  */
  
+*, 
+*:before, 
+*:after {
+  box-sizing: border-box;
+}
+ 
 pre {
   overflow: auto;
 }

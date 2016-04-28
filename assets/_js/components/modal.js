@@ -43,7 +43,6 @@ OLCS.modal = (function(document, $, undefined) {
     '</div>'
   ].join('\n');
 
-
   /**
    * public interface
    */
@@ -153,6 +152,19 @@ OLCS.modal = (function(document, $, undefined) {
   $('body').on('click', closeSelectors, function(e) {
     e.preventDefault();
     exports.hide();
+  });
+  
+  OLCS.eventEmitter.on('render', function() {
+    // cache the original overflow value
+    var overflow = $(selector).css('overflow');
+    // change the modal's overflow when enhanced dropdown is active
+    $('.chosen-select-large').on('chosen:showing_dropdown', function () {
+      $(this).parents(selector).css('overflow', 'visible');
+    });
+    // revert overflow when enhanced dropdown is deactive
+    $('.chosen-select-large').on('chosen:hiding_dropdown', function () {
+      $(this).parents(selector).css('overflow', overflow);
+    });
   });
 
   return exports;
