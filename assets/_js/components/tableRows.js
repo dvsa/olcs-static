@@ -30,31 +30,6 @@ OLCS.tableRows = (function(document, $, undefined) {
       }
     }
     
-    function highlightRow(row) {
-      row = row || $(event.target).parents('tr');
-      // add the row selected class
-      row.addClass('checked');
-      // Check the checkbox
-      row.find(selectBox).prop('checked', true).change();
-    }
-    
-    function unHighlightRow(row) {
-      row = row || $(event.target).parents('tr');
-      // remove the row selected class
-      row.removeClass('checked');
-      // Uncheck the checkbox
-      row.find(selectBox).prop('checked', false).change();
-    }
-    
-    function toggleRow(row) {
-      row = row || $(event.target).parents('tr');
-      if (row.find(selectBox).is(':checked')) {
-        unHighlightRow(row);
-      } else {
-        highlightRow(row);
-      }
-    }
-    
     // If a table contains rows that contain a select box, assume
     // it should be affected by this component and disable manual 
     // checking of select boxes to prevent accidental double checking
@@ -63,9 +38,34 @@ OLCS.tableRows = (function(document, $, undefined) {
     var lastChecked = null;
 
     // On click of a table row
-    $(document).on('click', tableRowSelector, function(e) {
+    $(document).on('click', tableRowSelector, function(event) {
+    
+      function highlightRow(row) {
+        row = row || $(event.target).parents('tr');
+        // add the row selected class
+        row.addClass('checked');
+        // Check the checkbox
+        row.find(selectBox).prop('checked', true).change();
+      }
       
-      var target          = $(e.target);
+      function unHighlightRow(row) {
+        row = row || $(event.target).parents('tr');
+        // remove the row selected class
+        row.removeClass('checked');
+        // Uncheck the checkbox
+        row.find(selectBox).prop('checked', false).change();
+      }
+      
+      function toggleRow(row) {
+        row = row || $(event.target).parents('tr');
+        if (row.find(selectBox).is(':checked')) {
+          unHighlightRow(row);
+        } else {
+          highlightRow(row);
+        }
+      }
+      
+      var target          = $(event.target);
       var targetSelectBox = target.children(selectBox);
 
       if (target.is(getActions(this))) {
@@ -73,7 +73,7 @@ OLCS.tableRows = (function(document, $, undefined) {
       }
 
       // Allow the entire box's td to be clicked
-      if (targetSelectBox.length && !e.shiftKey) {
+      if (targetSelectBox.length && !event.shiftKey) {
         toggleRow();
       }
       
@@ -81,7 +81,7 @@ OLCS.tableRows = (function(document, $, undefined) {
       if ($(this).find('[type="checkbox"]').length) {
         
         // if the row was clicked whilst holding the 'shift' key
-        if (e.shiftKey) {
+        if (event.shiftKey) {
           
           // reset the whole thing when shift is released
           $(document).on('keyup', function() {
