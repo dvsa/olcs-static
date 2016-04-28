@@ -192,7 +192,6 @@ tfoot {
 
 // This hack is to break any long safety inspector names onto
 // two lines as per OLCS-11334
-
 #lva-safety {
   td > [type="submit"] {
     word-break: break-word;
@@ -202,6 +201,12 @@ tfoot {
   td {
     max-width: 250px;
   }
+}
+
+// prevent accidental double checking of checkboxes in special 
+// js-enabled tables
+.js-rows td:last-child [type="checkbox"] {
+  pointer-events: none;
 }
 
 // Selfserve theme

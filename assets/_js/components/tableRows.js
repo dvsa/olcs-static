@@ -55,6 +55,11 @@ OLCS.tableRows = (function(document, $, undefined) {
       }
     }
     
+    // If a table contains rows that contain a select box, assume
+    // it should be affected by this component and disable manual 
+    // checking of select boxes to prevent accidental double checking
+    $('table').find(selectBox).parents('table').addClass('js-rows');
+    
     var lastChecked = null;
 
     // On click of a table row
