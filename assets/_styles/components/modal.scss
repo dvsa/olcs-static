@@ -107,9 +107,6 @@
     &__close {
       @include svg('selfserve-modal-close');
     }
-    .hint {
-      @extend %paragraph--small;
-    }
   }
 
 }// selfserve
@@ -136,11 +133,17 @@
       background: $grey-4;
       border-bottom: 1px solid $grey-3;
     }
+    &__content {
+      @extend %clearfix;
+    }
     &__close {
       top: 15px;
       right: 15px;
       text-indent: -9999px;
       @include svg('internal-modal-close');
+    }
+    &__content {
+      margin-bottom: $gutter;
     }
     &--alert {
       border-radius: 3px;

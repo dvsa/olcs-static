@@ -11,14 +11,17 @@
   }
   .field {
     background: none !important;
-    margin-bottom: 20px;
+    &:not(:last-child) {
+      margin-bottom: $gutter-half;
+    }
   }
   label {
     margin-bottom: 5px;
   }
   select {
-    width: 100%;
-    font-size: font-size(4);
+    // offset outline
+    width: calc(100% - 2px);
+    margin-left: 1px;
   }
   input[type="search"] {
     width: 95%;
@@ -27,8 +30,8 @@
     margin-right: -20px;
   }
   .hint {
-      @extend .hint--small;
-      width: 100%;
+    @extend .hint--small;
+    width: 100%;
   }
   .vertical-navigation &,
   .app-navigation & {

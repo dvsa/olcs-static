@@ -41,7 +41,7 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
     var inputSelector  = container + " .js-input";
     var submitSelector = container + " button";
     var selectSelector = container + " " + selectClass;
-    var manualSelector = container + " .hint--small a";
+    var manualSelector = container + " .hint a";
 
     var F = OLCS.formHelper;
 
@@ -172,7 +172,7 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
           $(component).children(".field").hide();
         } else {
           // otherwise we hide the 'enter address manually' button
-          $(component).find(".hint--small").hide();
+          $(component).find(".hint").hide();
         }
       });
     }

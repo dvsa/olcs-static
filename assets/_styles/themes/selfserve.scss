@@ -19,10 +19,10 @@ $app: selfserve;
 @import '../vendor/chosen';
 
 // Core
+@import '../core/fonts';
 @import '../core/icon-sprite';
 @import '../core/config';
 @import '../core/tools';
-@import '../core/fonts';
 @import '../core/base';
 @import '../core/helpers';
 @import '../core/links';
