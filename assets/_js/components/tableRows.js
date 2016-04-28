@@ -30,24 +30,46 @@ OLCS.tableRows = (function(document, $, undefined) {
       }
     }
     
+    function highlightRow(row) {
+      row = row || $(event.target).parents('tr');
+      // add the row selected class
+      row.addClass('checked');
+      // Check the checkbox
+      row.find(selectBox).prop('checked', true).change();
+    }
+    
+    function unHighlightRow(row) {
+      row = row || $(event.target).parents('tr');
+      // remove the row selected class
+      row.removeClass('checked');
+      // Uncheck the checkbox
+      row.find(selectBox).prop('checked', false).change();
+    }
+    
+    function toggleRow(row) {
+      row = row || $(event.target).parents('tr');
+      if (row.find(selectBox).is(':checked')) {
+        unHighlightRow(row);
+      } else {
+        highlightRow(row);
+      }
+    }
+    
     var lastChecked = null;
 
     // On click of a table row
     $(document).on('click', tableRowSelector, function(e) {
       
       var target          = $(e.target);
-      var actionElement   = getActions(this);
       var targetSelectBox = target.children(selectBox);
 
-      if (target.is(actionElement)) {
+      if (target.is(getActions(this))) {
         return;
       }
 
-      // If the target element contains a select box, simulate a click of 
-      // its select box
+      // Increase click-area size for checkboxes/radios
       if (targetSelectBox.length) {
-        // select the input & make sure the change event is emitted properly
-        return targetSelectBox.click().change();
+        toggleRow();
       }
       
       // allow multiple rows to be selected by using the 'shift' key
@@ -55,26 +77,34 @@ OLCS.tableRows = (function(document, $, undefined) {
         
         // if the row was clicked whilst holding the 'shift' key
         if (e.shiftKey) {
+          
+          // reset the whole thing when shift is released
+          $(document).on('keyup', function() {
+            lastChecked = null;
+          });
+          
+          // add a class to prevent accidental text highlighting when clicking row
+          $(this).parents('table').addClass('table--no-select');
               
+          // If we aren't selecting multiple ones, only toggle the target
           if(!lastChecked) {
-            lastChecked = $(this);
-            $(this).find('[type="checkbox"]').click();
+            if ($(this).parents('tr').find('[type="checkbox"]').prop('checked', true)) {
+              lastChecked = $(this);
+            }
+            toggleRow();
             return;
           }
           
           var start = $(tableRowSelector).index(this);
           var end = $(tableRowSelector).index(lastChecked);
-          var lastCheckedState = lastChecked.find('[type="checkbox"]').prop('checked');
           
-          $(tableRowSelector).slice(Math.min(start,end), Math.max(start,end) + 1).each(function() {
-            $(this).find('[type="checkbox"]').click();
+          $(tableRowSelector).slice(Math.min(start,end) + 1, Math.max(start,end) + 1).each(function() {
+            if ($(event.target).parents('tr').find(selectBox).is(':checked')) {
+              unHighlightRow($(this));
+            } else {
+              highlightRow($(this));
+            }
           });
-          
-          // add a class to prevent accidental text highlighting when clicking row
-          $(this).parents('table').addClass('table--no-select');
-          
-          // toggle the row selected class
-          $(this).toggleClass('checked');
           
           return;
         }
@@ -90,7 +120,7 @@ OLCS.tableRows = (function(document, $, undefined) {
       // If the target element isn't a select box or and doesn't contain one
       // simulate a click of the row's primary action
       if (!target.is(selectBox) && !targetSelectBox.length) {
-        actionElement.get(0).click();
+        getActions(this).get(0).click();
         return;
       }
 
