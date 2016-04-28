@@ -38,9 +38,12 @@ OLCS.tableRows = (function(document, $, undefined) {
 
     // On click of a table row
     $(document).on('click', tableRowSelector, function(event) {
+      
+      var target          = $(event.target);
+      var targetSelectBox = target.children(selectBox);
     
       function highlightRow(row) {
-        row = row || $(event.target).parents('tr');
+        row = row || target.parents('tr');
         // add the row selected class
         row.addClass('checked');
         // Check the checkbox
@@ -48,7 +51,7 @@ OLCS.tableRows = (function(document, $, undefined) {
       }
       
       function unHighlightRow(row) {
-        row = row || $(event.target).parents('tr');
+        row = row || target.parents('tr');
         // remove the row selected class
         row.removeClass('checked');
         // Uncheck the checkbox
@@ -56,16 +59,13 @@ OLCS.tableRows = (function(document, $, undefined) {
       }
       
       function toggleRow(row) {
-        row = row || $(event.target).parents('tr');
+        row = row || target.parents('tr');
         if (row.find(selectBox).is(':checked')) {
           unHighlightRow(row);
         } else {
           highlightRow(row);
         }
       }
-      
-      var target          = $(event.target);
-      var targetSelectBox = target.children(selectBox);
 
       if (target.is(getActions(this))) {
         return;
