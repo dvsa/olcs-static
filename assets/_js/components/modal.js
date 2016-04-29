@@ -158,11 +158,12 @@ OLCS.modal = (function(document, $, undefined) {
     // cache the original overflow value
     var overflow = $(selector).css('overflow');
     // change the modal's overflow when enhanced dropdown is active
-    $('.chosen-select-large').on('chosen:showing_dropdown', function () {
+    $('[class*="chosen-select"]').on('chosen:showing_dropdown', function () {
       $(this).parents(selector).css('overflow', 'visible');
+      console.log('test');
     });
     // revert overflow when enhanced dropdown is deactive
-    $('.chosen-select-large').on('chosen:hiding_dropdown', function () {
+    $('[class*="chosen-select"]').on('chosen:hiding_dropdown', function () {
       $(this).parents(selector).css('overflow', overflow);
     });
   });
