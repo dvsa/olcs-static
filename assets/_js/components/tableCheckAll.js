@@ -28,15 +28,13 @@ OLCS.tableCheckAll = (function(document, $, undefined) {
 
       $(table).find('input[type="checkbox"]')
         .not(options.selector).not(':disabled')
-        .prop('checked', $(this).is(':checked'));
+        .prop('checked', $(this).is(':checked'));      
       
-      /*
-      if ($(this).prop('checked', true)) {
-        tableRow.removeClass('checked');
-      } else {
+      if ($(this).prop('checked') == true) {
         tableRow.addClass('checked');
+      } else {
+        tableRow.removeClass('checked');
       }
-      */
         
     });
   };
