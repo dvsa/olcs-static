@@ -187,6 +187,7 @@ label {
   }
   .inline & {
     display: inline;
+    margin-right: .5em;
   }
   .checkbox & {
     @if $app == 'selfserve' { @extend %h5 }
