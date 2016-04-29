@@ -160,7 +160,6 @@ OLCS.modal = (function(document, $, undefined) {
     // change the modal's overflow when enhanced dropdown is active
     $('[class*="chosen-select"]').on('chosen:showing_dropdown', function () {
       $(this).parents(selector).css('overflow', 'visible');
-      console.log('test');
     });
     // revert overflow when enhanced dropdown is deactive
     $('[class*="chosen-select"]').on('chosen:hiding_dropdown', function () {
