@@ -20,8 +20,6 @@ OLCS.tableCheckAll = (function(document, $, undefined) {
     options = $.extend(defaultOptions, options);
 
     $(document).on('click', options.selector, function() {
-      
-      console.log($(this).prop('checked'));
 
       var table = $(this).closest('table');
       var tableRow = table.find('tr');
@@ -30,7 +28,7 @@ OLCS.tableCheckAll = (function(document, $, undefined) {
         .not(options.selector).not(':disabled')
         .prop('checked', $(this).is(':checked'));      
       
-      if ($(this).prop('checked') == true) {
+      if ($(this).prop('checked') === true) {
         tableRow.addClass('checked');
       } else {
         tableRow.removeClass('checked');
