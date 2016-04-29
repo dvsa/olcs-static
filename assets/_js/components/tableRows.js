@@ -15,7 +15,7 @@ OLCS.tableRows = (function(document, $, undefined) {
 
     var tableRowSelector = 'tbody tr';
     var actionSelector   = 'a, input[type=submit]';
-    var selectBox        = 'input[type=checkbox], input[type=radio]';
+    var selectBox        = '[type=checkbox], [type=radio]';
 
     // Get all the actions from a specified element
     function getActions(selector) {
@@ -43,7 +43,7 @@ OLCS.tableRows = (function(document, $, undefined) {
       var targetSelectBox = target.children(selectBox);
     
       function highlightRow(row) {
-        row = row || target.parents('tr');
+        row = row || target.parents('tbody tr');
         // add the row selected class
         row.addClass('checked');
         // Check the checkbox
@@ -51,7 +51,7 @@ OLCS.tableRows = (function(document, $, undefined) {
       }
       
       function unHighlightRow(row) {
-        row = row || target.parents('tr');
+        row = row || target.parents('tbody tr');
         // remove the row selected class
         row.removeClass('checked');
         // Uncheck the checkbox
@@ -59,7 +59,7 @@ OLCS.tableRows = (function(document, $, undefined) {
       }
       
       function toggleRow(row) {
-        row = row || target.parents('tr');
+        row = row || target.parents('tbody tr');
         if (row.find(selectBox).is(':checked')) {
           unHighlightRow(row);
         } else {
