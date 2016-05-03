@@ -94,7 +94,7 @@ describe('OLCS.tableCheckAll', function() {
 
       describe('When the checkall checkbox is checked', function() {
         beforeEach(function() {
-          $('#table1').find('input[name="checkall"]').prop('checked', true).trigger('change');
+          $('#table1').find('input[name="checkall"]').click();
         });
 
         it('should check all other checkboxes', function() {
@@ -144,9 +144,8 @@ describe('OLCS.tableCheckAll', function() {
 
       describe('When the checkall checkbox in table2 is checked and there is already a checked checkbox', function() {
         beforeEach(function() {
-          $('#table2').find('input[type="checkbox"]').not('input[name="checkall"]').first().prop('checked', true)
-            .trigger('change');
-          $('#table2').find('input[name="checkall"]').prop('checked', true).trigger('change');
+          $('#table2').find('input[type="checkbox"]').not('input[name="checkall"]').first().click();
+          $('#table2').find('input[name="checkall"]').click();
         });
 
         it('should check all checkboxes including the originally checked checkbox', function() {
@@ -268,7 +267,7 @@ describe('OLCS.tableCheckAll', function() {
 
       describe('When the selectall checkbox is checked', function() {
         beforeEach(function() {
-          $('#table1').find('input[name="selectall"]').prop('checked', true).trigger('change');
+          $('#table1').find('input[name="selectall"]').click();
         });
 
         it('should check all other checkboxes', function() {
@@ -318,9 +317,8 @@ describe('OLCS.tableCheckAll', function() {
 
       describe('When the selectall checkbox in table2 is checked and there is already a checked checkbox', function() {
         beforeEach(function() {
-          $('#table2').find('input[type="checkbox"]').not('input[name="selectall"]').first().prop('checked', true)
-            .trigger('change');
-          $('#table2').find('input[name="selectall"]').prop('checked', true).trigger('change');
+          $('#table2').find('input[type="checkbox"]').not('input[name="selectall"]').first().click();
+          $('#table2').find('input[name="selectall"]').click();
         });
 
         it('should check all checkboxes including the originally checked checkbox', function() {
