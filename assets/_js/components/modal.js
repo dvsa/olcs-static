@@ -145,15 +145,11 @@ OLCS.modal = (function(document, $, undefined) {
     $(wrapper).scrollTop(position);
   };
 
-  exports.isVisible = function() {
-    return $(wrapper).is(':visible');
-  };
-
   $('body').on('click', closeSelectors, function(e) {
     e.preventDefault();
     exports.hide();
   });
-  
+
   OLCS.eventEmitter.on('render', function() {
     // cache the original overflow value
     var overflow = $(selector).css('overflow');
