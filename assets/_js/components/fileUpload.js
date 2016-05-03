@@ -25,7 +25,6 @@ OLCS.fileUpload = (function(document, $, undefined) {
     function handleResponse(response, index) {
       var originalUploader = ".file-uploader:eq("+index+")";
       var updatedUploader  = $(response).find(originalUploader);
-      console.log(updatedUploader);
       F.render(originalUploader, updatedUploader[0].innerHTML);
     }
 
@@ -51,8 +50,6 @@ OLCS.fileUpload = (function(document, $, undefined) {
       var name = $(container).data("group");
 
       var containerIndex = $(container).index(containerSelector);
-
-      console.log(containerIndex);
 
       var kbSize = Math.round(file.size / 1024);
 
@@ -156,8 +153,6 @@ OLCS.fileUpload = (function(document, $, undefined) {
         var form       = $(this).parents("form");
         var container  = $(this).parents(containerSelector);
         var files      = e.target.files;
-
-        console.log(container);
 
         OLCS.logger.debug("Uploading " + files.length + " file(s)", "fileUpload");
 
