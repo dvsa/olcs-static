@@ -400,6 +400,7 @@ select,
   display: block;
   width: 100%;
   color: $grey-1;
+  margin-bottom: $gutter-one-third;
   &.invalid {
     border-left-color: $mellow-red;
     background-color: $warning-background;
@@ -413,6 +414,7 @@ select,
     position: absolute;
     right: 15px;
     top: 15px;
+    font-size: font-size(3);
   }
   img {
     width: 100%;
@@ -498,7 +500,7 @@ select,
   label {
     @extend %paragraph;
     @if $app == 'internal'  {
-      font-size: font-size(3)
+      font-size: font-size(3);
     }
   }
 }
@@ -517,7 +519,7 @@ select,
   margin-bottom: 0;
   padding-top: 10px;
   @if $app == 'internal'  {
-    font-size: font-size(3)
+    font-size: font-size(3);
   }
   &--small {
     @extend %paragraph--small;

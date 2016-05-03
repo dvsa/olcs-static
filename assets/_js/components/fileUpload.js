@@ -25,7 +25,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
     function handleResponse(response, index) {
       var originalUploader = ".file-uploader:eq("+index+")";
       var updatedUploader  = $(response).find(originalUploader);
-      F.render(originalUploader, updatedUploader[0].outerHTML);
+      F.render(originalUploader, updatedUploader[0].innerHTML);
     }
 
     var deleteResponse = OLCS.normaliseResponse(function(response) {
