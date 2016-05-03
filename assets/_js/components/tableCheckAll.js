@@ -19,12 +19,21 @@ OLCS.tableCheckAll = (function(document, $, undefined) {
 
     options = $.extend(defaultOptions, options);
 
-    $(document).on('change', options.selector, function() {
+    $(document).on('click', options.selector, function() {
 
       var table = $(this).closest('table');
+      var tableRow = table.find('tr');
 
-      $(table).find('input[type="checkbox"]').not(options.selector).not(':disabled')
-        .prop('checked', $(this).is(':checked'));
+      $(table).find('input[type="checkbox"]')
+        .not(options.selector).not(':disabled')
+        .prop('checked', $(this).is(':checked'));      
+      
+      if ($(this).prop('checked') === true) {
+        tableRow.addClass('checked');
+      } else {
+        tableRow.removeClass('checked');
+      }
+        
     });
   };
 
