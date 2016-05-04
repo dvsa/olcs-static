@@ -297,8 +297,8 @@ a[class*="action--"][rel="external"] {
   }
 
   .record-actions {
-    margin-top: .75em;
     display: block;
+    margin-bottom: $gutter-two-thirds;
     &__group {
       list-style: none;
       margin: .5em 0 1.1em 0;
