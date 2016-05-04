@@ -147,9 +147,7 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
         // Fake the modal.hide functionality to avoid reloading the parent
         $(".modal__wrapper, .overlay").remove();
 
-        if (OLCS.modal.isVisible()) {
-          OLCS.preloader.show("modal");
-        }
+        OLCS.preloader.show("modal");
 
         // If the parent form action has a query string we want
         // to preserve it to make sure the user doesn't lose their state
