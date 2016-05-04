@@ -130,6 +130,9 @@ td {
   li {
     @extend %paragraph--small;
   }
+  .right-aligned {
+    margin-left: .5em;
+  }
 }
 
 
@@ -203,7 +206,7 @@ tfoot {
   }
 }
 
-// prevent accidental double checking of checkboxes in special 
+// prevent accidental double checking of checkboxes in special
 // js-enabled tables
 .js-rows td:last-child [type="checkbox"] {
   pointer-events: none;
