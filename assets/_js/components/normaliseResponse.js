@@ -151,17 +151,21 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
           OLCS.preloader.show("modal");
         }
 
-
         // If the parent form action has a query string we want
-        // to preserve  it to make sure the user doesn't lose their state
-        var url;
+        // to preserve it to make sure the user doesn't lose their state
+        var url = response.location;
         var queryString;
 
-        try {
-          queryString = $(".table__form").attr("action").match(/\?(.*)/);
-          url = response.location + queryString[0];
-        } catch(e) {
-          url = response.location;
+        // if our response location doesn't contain a query string
+        if (response.location.indexOf("?") === -1) {
+          try {
+            // try to find one in the .table__form's action and append this
+            // to the reponse location
+            queryString = $(".table__form").attr("action").match(/\?(.*)/);
+            url = response.location + queryString[0];
+          } catch(e) {
+            OLCS.logger.debug("couldn't find a query string on the .table__form element");
+          }
         }
 
         OLCS.logger.debug(
