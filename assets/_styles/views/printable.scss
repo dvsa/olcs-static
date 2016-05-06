@@ -16,6 +16,7 @@
   dt,
   dd {
     @extend %paragraph;
+    clear: both;
   }
 }
 
