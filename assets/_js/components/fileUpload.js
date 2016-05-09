@@ -54,9 +54,6 @@ OLCS.fileUpload = (function(document, $, undefined) {
       var kbSize = Math.round(file.size / 1024);
 
       var xhr = new XMLHttpRequest();
-      // make sure we take the form data as it stands to support
-      // partially filled in forms
-      var fd = new FormData(form.get(0));
 
       /*
       xhr.upload.addEventListener("progress", function(e) {
@@ -102,6 +99,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
         }
       };
 
+      var fd = new FormData();
       fd.append(name + "[file]", file);
       fd.append(name + "[upload]", "Upload");
 
