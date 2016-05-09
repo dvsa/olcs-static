@@ -20,6 +20,8 @@ OLCS.cascadeInput = (function(document, $, undefined) {
     var emptyLabel = options.emptyLabel || null;
     var process = options.process;
     var clearWhenEmpty = options.clearWhenEmpty || false;
+    var append = options.append || false;
+    var filter = options.filter || null;
 
     // allow a quick shortcut; if the user passed in `url`, then
     // assume they want process to be a simple async GET
@@ -45,8 +47,9 @@ OLCS.cascadeInput = (function(document, $, undefined) {
     }
 
     $(document).on("change", options.source, function(e) {
-      var destination = $(options.dest);
+
       e.preventDefault();
+      var destination = $(options.dest) || "";
 
       // make sure the event doesn't bubble up if we've askesd for it to be
       // trapped. This is useful because it prevents more generic change
@@ -57,9 +60,20 @@ OLCS.cascadeInput = (function(document, $, undefined) {
 
       function done(result) {
 
+        var content = result;
+
+        if (filter) {
+          $(filter).remove();
+          content = $(result).find(options.filter);;
+        }
+
         if (destination.attr("type") === "text") {
+          console.log("text");
           destination.val(result.value);
-        } else {
+        }
+
+        if (destination.is("select")) {
+          console.log("select");
           var str = "";
           $.each(result, function(i, r) {
             if (r.value === "" && emptyLabel) {
@@ -69,6 +83,10 @@ OLCS.cascadeInput = (function(document, $, undefined) {
           });
 
           destination.html(str);
+        }
+
+        if (append && content.length) {
+          $(content).insertAfter(options.dest);
         }
 
         if (disableDestination) {
@@ -88,6 +106,7 @@ OLCS.cascadeInput = (function(document, $, undefined) {
         }
         destination.attr("disabled", true);
       }
+
 
       process.call(this, $(this).val(), done);
     });
