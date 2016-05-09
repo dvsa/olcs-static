@@ -47,16 +47,11 @@ OLCS.fileUpload = (function(document, $, undefined) {
         "fileUpload"
       );
 
-      var name = $(container).data("group");
-
+      var fd             = new FormData();
+      var name           = $(container).data("group");
+      var kbSize         = Math.round(file.size / 1024);
+      var xhr            = new XMLHttpRequest();
       var containerIndex = $(container).index(containerSelector);
-
-      var kbSize = Math.round(file.size / 1024);
-
-      var xhr = new XMLHttpRequest();
-      // make sure we take the form data as it stands to support
-      // partially filled in forms
-      var fd = new FormData(form.get(0));
 
       /*
       xhr.upload.addEventListener("progress", function(e) {
