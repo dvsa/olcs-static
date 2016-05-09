@@ -64,7 +64,7 @@ OLCS.cascadeInput = (function(document, $, undefined) {
 
         if (filter) {
           $(filter).remove();
-          content = $(result).find(options.filter);;
+          content = $(result).find(options.filter);
         }
 
         if (destination.attr("type") === "text") {
