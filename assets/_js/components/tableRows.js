@@ -79,8 +79,13 @@ OLCS.tableRows = (function(document, $, undefined) {
       // allow multiple rows to be selected by using the 'shift' key
       if ($(this).find('[type="checkbox"]').length) {
         
+        // prevent accidental opening of context menu when using ctrl + click
+        $(target).bind('contextmenu', function(e){
+          return false;
+        });
+        
         // if the row was clicked whilst holding the 'shift' key
-        if (event.shiftKey) {
+        if (event.shiftKey && !event.ctrlKey) {
           
           // reset the whole thing when shift is released
           $(document).on('keyup', function() {
