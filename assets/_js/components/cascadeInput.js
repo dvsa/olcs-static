@@ -68,12 +68,10 @@ OLCS.cascadeInput = (function(document, $, undefined) {
         }
 
         if (destination.attr("type") === "text") {
-          console.log("text");
           destination.val(result.value);
         }
 
         if (destination.is("select")) {
-          console.log("select");
           var str = "";
           $.each(result, function(i, r) {
             if (r.value === "" && emptyLabel) {
