@@ -47,13 +47,11 @@ OLCS.fileUpload = (function(document, $, undefined) {
         "fileUpload"
       );
 
-      var name = $(container).data("group");
-
+      var fd             = new FormData();
+      var name           = $(container).data("group");
+      var kbSize         = Math.round(file.size / 1024);
+      var xhr            = new XMLHttpRequest();
       var containerIndex = $(container).index(containerSelector);
-
-      var kbSize = Math.round(file.size / 1024);
-
-      var xhr = new XMLHttpRequest();
 
       /*
       xhr.upload.addEventListener("progress", function(e) {
@@ -99,7 +97,6 @@ OLCS.fileUpload = (function(document, $, undefined) {
         }
       };
 
-      var fd = new FormData();
       fd.append(name + "[file]", file);
       fd.append(name + "[upload]", "Upload");
 
