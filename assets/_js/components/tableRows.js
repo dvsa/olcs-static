@@ -22,8 +22,8 @@ OLCS.tableRows = (function(document, $, undefined) {
       return $(selector).find(actionSelector);
     }
 
-    // Check the row for a single action to see if it
-    // should be made hoverable
+    // Check the row for a single action to see if it should be 
+    // made hoverable
     function checkForSingleAction(selector) {
       if (!$(selector).hasClass('disabled')) {
         return getActions(selector).length === 1;
@@ -35,6 +35,23 @@ OLCS.tableRows = (function(document, $, undefined) {
     $('table').find(selectBox).parents('table').addClass('js-rows');
     
     var lastChecked = null;
+    var ctrlPressed = false;
+    
+    // Prevent ctrl + click from opening the context menu within our
+    // special table
+    $(document).on('keydown', function(event) {
+      if (event.ctrlKey) {
+        $('.js-rows').on('contextmenu', function(event) { 
+          event.preventDefault();
+          // simulate a click otherwise capture it
+          //event.target.click();
+          console.log('test');
+        });
+        ctrlPressed = true;
+      }
+    }).on('keyup', function(event) {
+      ctrlPressed = false;
+    });
 
     // On click of a table row
     $(document).on('click', tableRowSelector, function(event) {
@@ -75,14 +92,11 @@ OLCS.tableRows = (function(document, $, undefined) {
       if (targetSelectBox.length && !event.shiftKey) {
         toggleRow();
       }
+        
+      console.log(ctrlPressed);
       
       // allow multiple rows to be selected by using the 'shift' key
       if ($(this).find('[type="checkbox"]').length) {
-        
-        // prevent accidental opening of context menu when using ctrl + click
-        $(target).bind('contextmenu', function(e){
-          return false;
-        });
         
         // if the row was clicked whilst holding the 'shift' key
         if (event.shiftKey && !event.ctrlKey) {
@@ -126,9 +140,9 @@ OLCS.tableRows = (function(document, $, undefined) {
         return;
       }
 
-      // If the target element isn't a select box or and doesn't contain one
-      // simulate a click of the row's primary action
-      if (!target.is(selectBox) && !targetSelectBox.length) {
+      // If the target element isn't a select box and/or doesn't contain one
+      // and ctrl is not pressed, simulate a click of the row's primary action
+      if (!target.is(selectBox) && !targetSelectBox.length && !ctrlPressed) {
         getActions(this).get(0).click();
         return;
       }
