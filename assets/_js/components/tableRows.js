@@ -131,10 +131,13 @@ OLCS.tableRows = (function(document, $, undefined) {
       
         lastChecked = $(this);
         
-        // if the row was clicked whist holding the 'ctrl' key
-        // cache current select state
-        var ctrlState = $(event.target).parents('tr').find(selectBox).prop('checked');
-        $(event.target).parents('tr').find(selectBox).prop('checked', !ctrlState);
+        // if the row was clicked whilst holding the 'ctrl' key
+        if (event.ctrlKey) {
+          // if the row was clicked whist holding the 'ctrl' key
+          // cache current select state
+          var ctrlState = $(event.target).parents('tr').find(selectBox).prop('checked');
+          $(event.target).parents('tr').find(selectBox).prop('checked', !ctrlState);
+        }
         
       }
 
@@ -149,7 +152,7 @@ OLCS.tableRows = (function(document, $, undefined) {
         getActions(this).get(0).click();
         return;
       }
-
+      
     });
 
     // On hover of a table row
