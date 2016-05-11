@@ -119,7 +119,7 @@ OLCS.tableRows = (function(document, $, undefined) {
           var end = $(tableRowSelector).index(lastChecked);
           
           $(tableRowSelector).slice(Math.min(start,end) + 1, Math.max(start,end) + 1).each(function() {
-            if ($(event.target).parents('tr').find(selectBox).is(':checked')) {
+            if (target.parents('tr').find(selectBox).is(':checked')) {
               unHighlightRow($(this));
             } else {
               highlightRow($(this));
@@ -131,12 +131,12 @@ OLCS.tableRows = (function(document, $, undefined) {
       
         lastChecked = $(this);
         
-        // if the row was clicked whilst holding the 'ctrl' key
-        if (event.ctrlKey) {
-          // if the row was clicked whist holding the 'ctrl' key
+        // if the row was clicked whist holding the 'ctrl' key
+        if (ctrlPressed && !targetSelectBox.length) {
           // cache current select state
-          var ctrlState = $(event.target).parents('tr').find(selectBox).prop('checked');
-          $(event.target).parents('tr').find(selectBox).prop('checked', !ctrlState);
+          var ctrlState = target.parents('tr').find(selectBox).prop('checked');
+          target.parents('tr').toggleClass('checked');
+          target.parents('tr').find(selectBox).prop('checked', !ctrlState);
         }
         
       }
