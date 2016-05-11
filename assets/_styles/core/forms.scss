@@ -157,7 +157,8 @@ label {
   }
 }
 
-legend {
+legend,
+.legend {
   @if $app == 'selfserve' { @extend %h3 }
   @if $app == 'internal'  { @extend %h4 }
   padding: 0;
@@ -169,7 +170,8 @@ legend {
   }
 }
 
-label {
+label,
+.label {
   @extend %h4;
   margin-bottom: 10px;
   @if $app == 'selfserve' { @extend %h4 }
