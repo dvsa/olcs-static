@@ -41,15 +41,14 @@ OLCS.tableRows = (function(document, $, undefined) {
     // special table
     $(document).on('keydown', function(event) {
       if (event.ctrlKey) {
-        $('.js-rows').on('contextmenu', function(event) { 
+        $('.js-rows').unbind('contextmenu').bind('contextmenu', function(event) { 
           event.preventDefault();
-          // simulate a click otherwise capture it
-          //event.target.click();
-          console.log('test');
+          // simulate a click otherwise we can't capture it
+          event.target.click();
         });
         ctrlPressed = true;
       }
-    }).on('keyup', function(event) {
+    }).on('keyup', function() {
       ctrlPressed = false;
     });
 
@@ -92,8 +91,6 @@ OLCS.tableRows = (function(document, $, undefined) {
       if (targetSelectBox.length && !event.shiftKey) {
         toggleRow();
       }
-        
-      console.log(ctrlPressed);
       
       // allow multiple rows to be selected by using the 'shift' key
       if ($(this).find('[type="checkbox"]').length) {
@@ -133,6 +130,12 @@ OLCS.tableRows = (function(document, $, undefined) {
         }
       
         lastChecked = $(this);
+        
+        // if the row was clicked whist holding the 'ctrl' key
+        // cache current select state
+        var ctrlState = $(event.target).parents('tr').find(selectBox).prop('checked');
+        $(event.target).parents('tr').find(selectBox).prop('checked', !ctrlState);
+        
       }
 
       // Return if the row shouldn't be hoverable
