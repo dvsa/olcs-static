@@ -22,8 +22,8 @@ OLCS.tableRows = (function(document, $, undefined) {
       return $(selector).find(actionSelector);
     }
 
-    // Check the row for a single action to see if it
-    // should be made hoverable
+    // Check the row for a single action to see if it should be 
+    // made hoverable
     function checkForSingleAction(selector) {
       if (!$(selector).hasClass('disabled')) {
         return getActions(selector).length === 1;
@@ -35,6 +35,22 @@ OLCS.tableRows = (function(document, $, undefined) {
     $('table').find(selectBox).parents('table').addClass('js-rows');
     
     var lastChecked = null;
+    var ctrlPressed = false;
+    
+    // Prevent ctrl + click from opening the context menu within our
+    // special table
+    $(document).on('keydown', function(event) {
+      if (event.ctrlKey) {
+        $('.js-rows').unbind('contextmenu').bind('contextmenu', function(event) { 
+          event.preventDefault();
+          // simulate a click otherwise we can't capture it
+          event.target.click();
+        });
+        ctrlPressed = true;
+      }
+    }).on('keyup', function() {
+      ctrlPressed = false;
+    });
 
     // On click of a table row
     $(document).on('click', tableRowSelector, function(event) {
@@ -80,7 +96,7 @@ OLCS.tableRows = (function(document, $, undefined) {
       if ($(this).find('[type="checkbox"]').length) {
         
         // if the row was clicked whilst holding the 'shift' key
-        if (event.shiftKey) {
+        if (event.shiftKey && !event.ctrlKey) {
           
           // reset the whole thing when shift is released
           $(document).on('keyup', function() {
@@ -103,7 +119,7 @@ OLCS.tableRows = (function(document, $, undefined) {
           var end = $(tableRowSelector).index(lastChecked);
           
           $(tableRowSelector).slice(Math.min(start,end) + 1, Math.max(start,end) + 1).each(function() {
-            if ($(event.target).parents('tr').find(selectBox).is(':checked')) {
+            if (target.parents('tr').find(selectBox).is(':checked')) {
               unHighlightRow($(this));
             } else {
               highlightRow($(this));
@@ -114,6 +130,15 @@ OLCS.tableRows = (function(document, $, undefined) {
         }
       
         lastChecked = $(this);
+        
+        // if the row was clicked whist holding the 'ctrl' key
+        if (ctrlPressed && !targetSelectBox.length) {
+          // cache current select state
+          var ctrlState = target.parents('tr').find(selectBox).prop('checked');
+          target.parents('tr').toggleClass('checked');
+          target.parents('tr').find(selectBox).prop('checked', !ctrlState);
+        }
+        
       }
 
       // Return if the row shouldn't be hoverable
@@ -121,13 +146,13 @@ OLCS.tableRows = (function(document, $, undefined) {
         return;
       }
 
-      // If the target element isn't a select box or and doesn't contain one
-      // simulate a click of the row's primary action
-      if (!target.is(selectBox) && !targetSelectBox.length) {
+      // If the target element isn't a select box and/or doesn't contain one
+      // and ctrl is not pressed, simulate a click of the row's primary action
+      if (!target.is(selectBox) && !targetSelectBox.length && !ctrlPressed) {
         getActions(this).get(0).click();
         return;
       }
-
+      
     });
 
     // On hover of a table row
