@@ -20,7 +20,16 @@ OLCS.fileUpload = (function(document, $, undefined) {
     var numUploaded        = 0;
     var totalUploads       = 0;
     var MULTI_UPLOAD_DELAY = 1000;
+    var enabledElements;
 
+
+    function disableWhilstUploading(form) {
+      enabledElements = form.find(".actions-container").children().not(":disabled");
+      enabledElements.attr({
+        "disabled"    : true,
+        "aria-hidden" : true
+      });
+    }
 
     function handleResponse(response, index) {
       var originalUploader = ".file-uploader:eq("+index+")";
@@ -52,6 +61,8 @@ OLCS.fileUpload = (function(document, $, undefined) {
       var kbSize         = Math.round(file.size / 1024);
       var xhr            = new XMLHttpRequest();
       var containerIndex = $(container).index(containerSelector);
+
+      disableWhilstUploading(form);
 
       /*
       xhr.upload.addEventListener("progress", function(e) {
@@ -86,6 +97,8 @@ OLCS.fileUpload = (function(document, $, undefined) {
           .remove()
           .find(".file__remove")
           .replaceWith("<a href=# class=file__remove>Remove</a>");
+
+          enabledElements.removeAttr("disabled", "aria-hidden");
 
           if (numUploaded === totalUploads) {
             OLCS.logger.debug(
