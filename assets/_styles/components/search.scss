@@ -31,9 +31,13 @@
       content: "";
       display: block;
       position: absolute;
-      top: 12px;
-      right: 8px;
+      top: 0;
+      right: 0;
       pointer-events: none;
+      background-color: #f9f9f9;
+      background-position: 0 -88px;
+      height: 32px;
+      width: 18px;
     }
     &:focus {
       outline: none;

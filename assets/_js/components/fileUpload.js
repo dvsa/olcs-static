@@ -20,12 +20,21 @@ OLCS.fileUpload = (function(document, $, undefined) {
     var numUploaded        = 0;
     var totalUploads       = 0;
     var MULTI_UPLOAD_DELAY = 1000;
+    var enabledElements;
 
 
-    function handleResponse(response, name) {
-      var selector = ".file-uploader[data-group='"+name+"']";
-      var fileUploader = $(response).find(selector);
-      F.render(selector, fileUploader);
+    function disableWhilstUploading(form) {
+      enabledElements = form.find(".actions-container").children().not(":disabled");
+      enabledElements.attr({
+        "disabled"    : true,
+        "aria-hidden" : true
+      });
+    }
+
+    function handleResponse(response, index) {
+      var originalUploader = ".file-uploader:eq("+index+")";
+      var updatedUploader  = $(response).find(originalUploader);
+      F.render(originalUploader, updatedUploader[0].innerHTML);
     }
 
     var deleteResponse = OLCS.normaliseResponse(function(response) {
@@ -47,14 +56,13 @@ OLCS.fileUpload = (function(document, $, undefined) {
         "fileUpload"
       );
 
-      var name = $(container).data("group");
+      var fd             = new FormData();
+      var name           = $(container).data("group");
+      var kbSize         = Math.round(file.size / 1024);
+      var xhr            = new XMLHttpRequest();
+      var containerIndex = $(container).index(containerSelector);
 
-      var kbSize = Math.round(file.size / 1024);
-
-      var xhr = new XMLHttpRequest();
-      // make sure we take the form data as it stands to support
-      // partially filled in forms
-      var fd = new FormData(form.get(0));
+      disableWhilstUploading(form);
 
       /*
       xhr.upload.addEventListener("progress", function(e) {
@@ -66,14 +74,12 @@ OLCS.fileUpload = (function(document, $, undefined) {
       $(container).find(".js-upload-list").append([
         "<li class=file data-upload-index=" + index + ">",
           "<span class=file__preloader></span>",
-          "<p>",
-            "<a href=#>",
-              file.name,
-            "</a>",
-            "<span>",
-              kbSize + "KB",
-            "</span>",
-          "</p>",
+          "<a href=#>",
+            file.name,
+          "</a>",
+          "<span>",
+            kbSize + "KB",
+          "</span>",
           "<span class=file__remove>Uploading &hellip;</span>",
         "</li>"
       ].join("\n"));
@@ -92,12 +98,14 @@ OLCS.fileUpload = (function(document, $, undefined) {
           .find(".file__remove")
           .replaceWith("<a href=# class=file__remove>Remove</a>");
 
+          enabledElements.removeAttr("disabled", "aria-hidden");
+
           if (numUploaded === totalUploads) {
             OLCS.logger.debug(
               "All files uploaded",
               "fileUpload"
             );
-            handleResponse(xhr.responseText, name);
+            handleResponse(xhr.responseText, containerIndex);
           }
         }
       };

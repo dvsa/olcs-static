@@ -47,6 +47,7 @@ OLCS.ready(function() {
     // this preloader should be hidden
     OLCS.preloader.hide();
     // Call the plugin to improve select dropdowns
+    $('.chosen-select-fixed').chosen({ width: '350px' });
     $('.chosen-select-medium').chosen({ width: '53%' });
     $('.chosen-select-large').chosen({ width: '97%' });
   });
