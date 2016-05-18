@@ -5,12 +5,14 @@
  * declaration form and payment receipts
  */
 
-
 .printable {
+  
   padding: 20px 30px 40px;
+  
   h4 {
     margin: 20px 0 5px;
   }
+  
   p,
   ul,
   dt,
@@ -18,36 +20,36 @@
     @extend %paragraph;
     clear: both;
   }
-}
-
-.printable__address {
-  margin-top: 110px;
-  float: left;
-}
-
-.printable__meta {
-  margin-top: 110px;
-  float: right;
-  width: 40%;
-  dl {
-    border-top: none;
-    margin-top: 0;
+  
+  &__address {
+    margin-top: 110px;
+    float: left;
   }
-  dt,
-  dd {
-    display: block;
-    width: 100%;
-    padding: 0;
+  
+  &__meta {
+    margin-top: 110px;
+    float: right;
+    width: 40%;
+    dl {
+      border-top: none;
+      margin-top: 0;
+    }
+    dt,
+    dd {
+      display: block;
+      width: 100%;
+      padding: 0;
+    }
+    dd {
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
   }
-  dd {
-    margin-bottom: 10px;
-    font-weight: 600;
+  
+  &__header {
+    float: left;
+    margin: 120px 0 60px;
   }
-}
-
-.printable__header {
-  float: left;
-  margin: 120px 0 60px;
 }
 
 .signature-box {
@@ -56,26 +58,23 @@
   background: $grey-3;
   overflow: auto;
   -webkit-print-color-adjust:exact;
-}
-
-.signature-box__column {
-  display: inline-block;
-  width: 45%;
-  margin-right: 4%;
-}
-
-.signature-box__label {
-  font-weight: 600;
-}
-
-.signature-box__input {
-  width: 100%;
-  border: 2px solid $black;
-  margin-bottom: 20px;
-  &.signature {
-    height: 100px;
+  &__column {
+    display: inline-block;
+    width: 45%;
+    margin-right: 4%;
   }
-  &.date {
-    width: 200px;
+  &__label {
+    font-weight: 600;
+  }
+  &__input {
+    width: 100%;
+    border: 2px solid $black;
+    margin-bottom: 20px;
+    &.signature {
+      height: 100px;
+    }
+    &.date {
+      width: 200px;
+    }
   }
 }
