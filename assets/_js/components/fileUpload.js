@@ -22,6 +22,11 @@ OLCS.fileUpload = (function(document, $, undefined) {
     var MULTI_UPLOAD_DELAY = 1000;
     var enabledElements;
 
+    if (window.FormData === undefined) {
+      OLCS.logger.warn("XHR form uploads not supported in this browser", "fileUpload");
+      asyncUploads = false;
+    }
+
     function disableElements(form, container) {
       var formActions  = form.find(".actions-container").last().children().not(":disabled");
       var attachButton = container.find(".attach-action__input");
@@ -53,22 +58,14 @@ OLCS.fileUpload = (function(document, $, undefined) {
       }
     });
 
-    if (window.FormData === undefined) {
-      OLCS.logger.warn("XHR form uploads not supported in this browser", "fileUpload");
-      asyncUploads = false;
-    }
-
     function upload(form, container, index, file) {
       var fd             = new FormData();
-      var name           = $(container).data("group");
-      var kbSize         = Math.round(file.size / 1024);
       var xhr            = new XMLHttpRequest();
+      var kbSize         = Math.round(file.size / 1024);
+      var name           = $(container).data("group");
       var containerIndex = $(container).index(containerSelector);
 
-      OLCS.logger.debug(
-        "Uploading file " + file.name + " (" + file.type + ")",
-        "fileUpload"
-      );
+      OLCS.logger.debug("Uploading file " + file.name + " (" + file.type + ")", "fileUpload");
 
       disableElements(form, container);
 
@@ -94,16 +91,13 @@ OLCS.fileUpload = (function(document, $, undefined) {
           );
 
           $("[data-upload-index=" + index + "]")
-          .find(".file__preloader")
-          .remove()
-          .find(".file__remove")
-          .replaceWith("<a href=# class=file__remove>Remove</a>");
+            .find(".file__preloader")
+            .remove()
+            .find(".file__remove")
+            .replaceWith("<a href=# class=file__remove>Remove</a>");
 
           if (numUploaded === totalUploads) {
-            OLCS.logger.debug(
-              "All files uploaded",
-              "fileUpload"
-            );
+            OLCS.logger.debug( "All files uploaded", "fileUpload");
             handleResponse(xhr.responseText, containerIndex);
           }
 
@@ -148,6 +142,8 @@ OLCS.fileUpload = (function(document, $, undefined) {
       var form   = $(this).parents("form");
 
       F.pressButton(form, button);
+
+      $(this).eq(0).replaceWith("<span class=file__remove>Removing &hellip;</span>");
 
       OLCS.submitForm({
         form: form,
