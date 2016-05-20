@@ -11,15 +11,17 @@ OLCS.fileUpload = (function(document, $, undefined) {
   return function init(options) {
 
     var F = OLCS.formHelper;
-    var asyncUploads       = true;
-    var containerSelector  = ".file-uploader";
-    var inputSelector      = ".attach-action__input";
-    var removeSelector     = ".file__remove";
-    var mainBodySelector   = ".js-body";
-    var submitSelector     = ".js-upload";
-    var numUploaded        = 0;
-    var totalUploads       = 0;
-    var MULTI_UPLOAD_DELAY = 1000;
+    var asyncUploads          = true;
+    var containerSelector     = ".file-uploader";
+    var removeSelector        = ".file__remove";
+    var mainBodySelector      = ".js-body";
+    var submitSelector        = ".js-upload";
+    var inputSelector         = ".attach-action__input";
+    var attachButtonSelector  = ".attach-action__label";
+    var numUploaded           = 0;
+    var totalUploads          = 0;
+    var MULTI_UPLOAD_DELAY    = 1000;
+
     var enabledElements;
 
     if (window.FormData === undefined) {
@@ -27,11 +29,11 @@ OLCS.fileUpload = (function(document, $, undefined) {
       asyncUploads = false;
     }
 
-    function disableElements(form, container) {
-      var formActions  = form.find(".actions-container").last().children().not(":disabled");
-      var attachButton = container.find(".attach-action__input");
-      enabledElements  = formActions.add(attachButton);
-      attachButton.parent("label").addClass("disabled");
+    function disableElements(form) {
+      var formActions   = form.find(".actions-container").last().children().not(":disabled");
+      var attachButton  = form.find(".attach-action__input");
+      enabledElements   = formActions.add(attachButton);
+      $(attachButtonSelector).addClass("disabled");
       enabledElements.attr({
         "disabled"    : true,
         "aria-hidden" : true
@@ -39,9 +41,8 @@ OLCS.fileUpload = (function(document, $, undefined) {
     }
 
     function enableElements() {
-      enabledElements
-        .removeAttr("disabled", "aria-hidden")
-        .removeClass("disabled");
+      $(attachButtonSelector).removeClass("disabled");
+      enabledElements.removeAttr("disabled", "aria-hidden");
     }
 
     function handleResponse(response, index) {
@@ -67,7 +68,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
 
       OLCS.logger.debug("Uploading file " + file.name + " (" + file.type + ")", "fileUpload");
 
-      disableElements(form, container);
+      disableElements(form);
 
       $(container).find(".js-upload-list").append([
         "<li class=file data-upload-index=" + index + ">",
