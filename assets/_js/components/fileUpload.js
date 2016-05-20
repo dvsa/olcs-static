@@ -22,19 +22,14 @@ OLCS.fileUpload = (function(document, $, undefined) {
     var totalUploads          = 0;
     var MULTI_UPLOAD_DELAY    = 1000;
 
-    var enabledElements;
-
     if (window.FormData === undefined) {
       OLCS.logger.warn("XHR form uploads not supported in this browser", "fileUpload");
       asyncUploads = false;
     }
 
-    function disableElements(form) {
-      var formActions   = form.find(".actions-container").last().children().not(":disabled");
-      var attachButton  = form.find(".attach-action__input");
-      enabledElements   = formActions.add(attachButton);
+    function disableElements() {
       $(attachButtonSelector).addClass("disabled");
-      enabledElements.attr({
+      $(".actions-container").last().children().attr({
         "disabled"    : true,
         "aria-hidden" : true
       });
@@ -42,7 +37,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
 
     function enableElements() {
       $(attachButtonSelector).removeClass("disabled");
-      enabledElements.removeAttr("disabled", "aria-hidden");
+      $(".actions-container").last().children().removeAttr("disabled", "aria-hidden");
     }
 
     function handleResponse(response, index) {
@@ -68,7 +63,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
 
       OLCS.logger.debug("Uploading file " + file.name + " (" + file.type + ")", "fileUpload");
 
-      disableElements(form);
+      disableElements();
 
       $(container).find(".js-upload-list").append([
         "<li class=file data-upload-index=" + index + ">",
@@ -100,9 +95,8 @@ OLCS.fileUpload = (function(document, $, undefined) {
           if (numUploaded === totalUploads) {
             OLCS.logger.debug( "All files uploaded", "fileUpload");
             handleResponse(xhr.responseText, containerIndex);
+            enableElements();
           }
-
-          enableElements();
 
         }
       };
