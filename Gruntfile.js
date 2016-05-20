@@ -258,7 +258,11 @@
 
       assemble: {
         options: {
-          helpers: ['handlebars-helper-repeat']
+          helpers: [
+            'handlebars-helper-repeat', 
+            'handlebars-helper-asset'
+          ],
+          assets: 'public'
         },
         internal: {
           options: {
