@@ -2,6 +2,8 @@
 
 This repo contains the styleguides, prototypes and static assets for both the OLCS internal application and external service.
 
+to view the compiled end result, visit [http://olcs.github.io/olcs-static/](http://olcs.github.io/olcs-static/).
+
 ## Requirements
 
 * [Sass](http://sass-lang.com/) >= 3.3.x (`gem install sass`)
