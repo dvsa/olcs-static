@@ -1,7 +1,6 @@
 # Generated and compiled files
 #============================================================
 
-.grunt
 .sass-cache
 *.log
 test/results
@@ -19,6 +18,7 @@ node_modules
 *.cfg
 .idea/
 .vscode/
+.grunt/
 .DS_Store
 composer.lock
 editorconfig.org
