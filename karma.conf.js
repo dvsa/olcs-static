@@ -50,7 +50,7 @@ module.exports = function(config) {
     captureTimeout: 60000,
 
     coverageReporter: {
-      dir: "public/unit-testing",
+      dir: "test/results",
       subdir: '.',
       reporters: [
         {type: "html"},
@@ -60,7 +60,7 @@ module.exports = function(config) {
     },
 
     junitReporter: {
-      outputFile: "test/js/reports/results.xml"
+      outputFile: "test/results/js/results.xml"
     }
     
   });

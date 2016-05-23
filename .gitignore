@@ -1,27 +1,20 @@
-# Logs and databases
-#============================================================
-
-*.log
-.sass-cache/
-test/js/coverage
-test/js/coverage-xml
-test/js/reports
-
 # Generated and compiled files
 #============================================================
 
-#public/images/
-public/js/
-public/styles/
-public/styleguides/
-public/unit-testing
-styleguides/screenshots
 .grunt
+.sass-cache
+*.log
+test/results
+#public/images
+public/js
+public/styles
+public/styleguides
+styleguides/screenshots
 
 # Third party/config
 #============================================================
 
-node_modules/
+node_modules
 *.cfg
 .idea/
 .vscode/
