@@ -472,7 +472,7 @@
           options: {
             base: 'public'
           },
-          src: ['**']
+          src: ['**', '!public/index.html']
         },
         'develop': {
           options: {
