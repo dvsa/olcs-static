@@ -337,10 +337,6 @@ select,
 
 .attach-action {
 
-  .js-enabled & {
-    float: left;
-  }
-
   [type="file"] {
     width: 100%;
     border: 0;
@@ -352,7 +348,6 @@ select,
 
   &__list {
     .js-enabled & {
-      float: left;
       margin-bottom: 15px;
     }
   }
@@ -386,7 +381,6 @@ select,
     @extend .hint;
     @extend %paragraph--small;
     .js-enabled & {
-      float: left;
       clear: none;
       width: auto;
       margin-left: 10px;

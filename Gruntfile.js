@@ -31,6 +31,7 @@
 
     // Define the theme stylesheets
     var styles = {
+      'public/styles/print.css'     : 'assets/_styles/themes/print.scss',
       'public/styles/selfserve.css' : 'assets/_styles/themes/selfserve.scss',
       'public/styles/internal.css'  : 'assets/_styles/themes/internal.scss'
     };
@@ -456,6 +457,30 @@
           ],
         },
         src: ['public/styleguides/**/*.html']
+      },
+
+      /**
+       * Github Pages
+       * https://github.com/tschaub/grunt-gh-pages
+       */
+        
+      'gh-pages': {
+        options: {
+          repo: 'https://github.com/OLCS/olcs-static.git'
+        },
+        'gh-pages': {
+          options: {
+            base: 'public'
+          },
+          src: ['**']
+        },
+        'develop': {
+          options: {
+            base: '',
+            branch: 'develop'
+          },
+          src: ['**']
+        }
       }
 
     }); // initConfig
