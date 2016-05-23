@@ -5,6 +5,7 @@
 .sass-cache
 *.log
 test/results
+public/index.html
 #public/images
 public/js
 public/styles
