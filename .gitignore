@@ -1,13 +1,8 @@
-# OS generated files
-#============================================================
-
-.DS_Store
-
 # Logs and databases
 #============================================================
 
+*.log
 .sass-cache/
-
 test/js/coverage
 test/js/coverage-xml
 test/js/reports
@@ -20,23 +15,16 @@ public/js/
 public/styles/
 public/styleguides/
 public/unit-testing
-
 styleguides/screenshots
-
-#icon-sprite.scss
+.grunt
 
 # Third party/config
 #============================================================
 
 node_modules/
-
-npm-debug.log
-
+*.cfg
 .idea/
 .vscode/
-
-*.cfg
-
+.DS_Store
 composer.lock
 editorconfig.org
-.DS_Store

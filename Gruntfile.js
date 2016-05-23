@@ -457,6 +457,30 @@
           ],
         },
         src: ['public/styleguides/**/*.html']
+      },
+
+      /**
+       * Github Pages
+       * https://github.com/tschaub/grunt-gh-pages
+       */
+        
+      'gh-pages': {
+        options: {
+          repo: 'https://github.com/OLCS/olcs-static.git'
+        },
+        'gh-pages': {
+          options: {
+            base: 'public'
+          },
+          src: ['**']
+        },
+        'develop': {
+          options: {
+            base: '',
+            branch: 'develop'
+          },
+          src: ['**']
+        }
       }
 
     }); // initConfig
