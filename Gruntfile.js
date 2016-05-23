@@ -480,7 +480,7 @@
           options: {
             base: 'public'
           },
-          src: ['**']
+          src: ['**', '!index.html']
         }
       }
 
