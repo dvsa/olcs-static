@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en-GB" class="no-js not-ie8">
+<!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Manage users</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../../styles/selfserve.css" media="all" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="../../js/selfserve.js"></script>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn /trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body class="selfserve js-enabled manage-users">
+
+    
+
+    <div role="banner" class="global-header">
+      <div class="global-header__wrapper">
+        <a href="/styleguides/selfserve/" title="Go to the OLCS Selfserve styleguide homepage" class="global-header__logo">
+          <img src="../../images/bitmap/gov.uk_logotype_crown.png" alt="GOV.UK logo">GOV.UK
+        </a>
+        <div class="proposition">
+          <h2 class="proposition__title">Vehicle Operator Licensing</h2>
+          <a class="proposition__toggle" href="#">Menu</a>
+          <ul class="proposition-nav">
+            
+              
+                <li class="proposition-nav__item"><a href="/styleguides/selfserve/licences.html">Home</a></li>
+                <li class="proposition-nav__item"><a href="/styleguides/selfserve/search/index.html">Search</a></li>
+                <li class="proposition-nav__item"><a href="/styleguides/selfserve/authentication-prototype/manage-users/manage-users.html">Manage users</a></li>
+                <li class="proposition-nav__item"><a href="/styleguides/selfserve/authentication-prototype/update-details/my-account.html">My account</a></li>
+              
+              
+              
+              
+            
+          </ul>
+        </div>
+      </div><!-- end .global-header__wrapper -->
+    </div><!-- end .global-header -->
+
+   
+
+
+
+    <div class="page-wrapper">
+      <div class="user-header">
+        <div class="phase">
+          <span class="phase__tag">alpha</span><span class="phase__message">This is a new service – <a href="https://www.surveymonkey.com/s/T8NGJV8">help us improve it.</a></span>
+        </div>
+        <ul class="user-menu">
+        
+          
+          <li class="user-menu__item">Katy Hasley, <b>Operator Licensing Ltd.</b></li>
+          <li class="user-menu__item"><a href="/styleguides/selfserve/authentication/index.html">Sign out</a></li>
+          
+          
+          
+        
+        </ul>
+      </div><!-- end .user-header -->
+
+      <div id="main" role="main" class="styleguide">
+        <div class="page-header">
+          
+            
+              <div class="page-header__wrapper">
+                <h3 class="page-header__subtitle">Operator Licensing Ltd.</h3>
+                <h1>Manage users</h1>
+                
+              </div><!-- .page-header__wrapper -->
+            
+        </div><!-- .page-header -->
+
+        
+
+<div class="overlay js-add-modal" style="display:none;"></div>
+<div class="modal__wrapper js-add-modal" style="display:none;">
+  <div class="modal">
+    <div class="modal__header">
+      <h2 class="modal__title">Add new user</h2>
+      <a href="" class="modal__close">Close</a>
+    </div>
+    <div class="modal__content">
+      
+        
+          
+<form class="" accept-charset="UTF-8" action="" method="POST">
+  <input type="hidden" name="utf8" value="✓">
+  
+    
+    <fieldset class="">
+      <legend></legend>
+
+      
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          <div class="field">
+            <label for="username">Username</label>
+            <input id="username" type="text" class="medium" name="username" placeholder="">
+            <p class="hint"></hint>
+          </div>
+          
+
+          
+
+          
+
+          
+
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+
+          
+
+
+          
+
+
+          
+
+          
+
+
+
+          
+
+          
+
+
+      
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          <div class="field">
+            <label for="firstname">First name</label>
+            <input id="firstname" type="text" class="long" name="firstname" placeholder="">
+            <p class="hint"></hint>
+          </div>
+          
+
+          
+
+          
+
+          
+
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+
+          
+
+
+          
+
+
+          
+
+          
+
+
+
+          
+
+          
+
+
+      
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          <div class="field">
+            <label for="lastname">Last name</label>
+            <input id="lastname" type="text" class="long" name="lastname" placeholder="">
+            <p class="hint"></hint>
+          </div>
+          
+
+          
+
+          
+
+          
+
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+
+          
+
+
+          
+
+
+          
+
+          
+
+
+
+          
+
+          
+
+
+      
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          <div class="field">
+            <label for="email">Email address</label>
+            <input id="email" type="text" class="long" name="email" placeholder="">
+            <p class="hint"></hint>
+          </div>
+          
+
+          
+
+          
+
+          
+
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+
+          
+
+
+          
+
+
+          
+
+          
+
+
+
+          
+
+          
+
+
+      
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          <div class="field">
+            <label for="">Confirm email address</label>
+            <input id="" type="text" class="long" name="" placeholder="">
+            <p class="hint"></hint>
+          </div>
+          
+
+          
+
+          
+
+          
+
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+
+          
+
+
+          
+
+
+          
+
+          
+
+
+
+          
+
+          
+
+
+      
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+
+          
+
+          
+
+          
+
+          
+          <fieldset class="checkbox">
+            <legend class="legend">Permission</legend>
+            
+            <div class="field">
+              <label><input type="radio" name="group" val="Administrator">Administrator</label>
+            </div>
+            
+            <div class="field">
+              <label><input type="radio" name="group" val="Standard user">Standard user</label>
+            </div>
+            
+          </fieldset>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+
+          
+
+
+          
+
+
+          
+
+          
+
+
+
+          
+
+          
+
+
+      
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+
+          
+
+
+          
+
+
+          
+
+          
+
+
+
+          
+          <fieldset class="html">
+            <p>This user will be sent a confirmation email with temporary password, which they will have to update when they sign in.</p>
+          </fieldset>
+          
+
+          
+
+
+      
+
+    </fieldset>
+  
+
+  <div class="actions-container">
+  
+  <a class="action--primary large" href="">Save</a>
+  
+  <a class="action--secondary large" href="">Cancel</a>
+  
+</div><!-- end .actions-container -->
+
+
+</form>
+
+
+        
+      
+        
+      
+    </div><!-- .modal__content -->
+  </div><!-- .modal -->
+</div><!-- .modal__wrapper -->
+
+
+<div class="overlay js-edit-modal" style="display:none;"></div>
+<div class="modal__wrapper js-edit-modal" style="display:none;">
+  <div class="modal">
+    <div class="modal__header">
+      <h2 class="modal__title">Edit user</h2>
+      <a href="" class="modal__close">Close</a>
+    </div>
+    <div class="modal__content">
+      
+        
+      
+        
+          
+<form class="" accept-charset="UTF-8" action="" method="POST">
+  <input type="hidden" name="utf8" value="✓">
+  
+    
+    <fieldset class="">
+      <legend></legend>
+
+      
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          <div class="field">
+            <label for="">Username</label>
+            <input id="" type="text" class="medium" name="" placeholder="">
+            <p class="hint"></hint>
+          </div>
+          
+
+          
+
+          
+
+          
+
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+
+          
+
+
+          
+
+
+          
+
+          
+
+
+
+          
+
+          
+
+
+      
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          <div class="field">
+            <label for="">First name</label>
+            <input id="" type="text" class="long" name="" placeholder="">
+            <p class="hint"></hint>
+          </div>
+          
+
+          
+
+          
+
+          
+
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+
+          
+
+
+          
+
+
+          
+
+          
+
+
+
+          
+
+          
+
+
+      
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          <div class="field">
+            <label for="">Last name</label>
+            <input id="" type="text" class="long" name="" placeholder="">
+            <p class="hint"></hint>
+          </div>
+          
+
+          
+
+          
+
+          
+
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+
+          
+
+
+          
+
+
+          
+
+          
+
+
+
+          
+
+          
+
+
+      
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          <div class="field">
+            <label for="">Email address</label>
+            <input id="" type="text" class="long" name="" placeholder="">
+            <p class="hint"></hint>
+          </div>
+          
+
+          
+
+          
+
+          
+
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+
+          
+
+
+          
+
+
+          
+
+          
+
+
+
+          
+
+          
+
+
+      
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+
+          
+
+          
+
+          
+
+          
+          <fieldset class="checkbox">
+            <legend class="legend">Permission</legend>
+            
+            <div class="field">
+              <label><input type="radio" name="group" val="Administrator">Administrator</label>
+            </div>
+            
+            <div class="field">
+              <label><input type="radio" name="group" val="Standard user">Standard user</label>
+            </div>
+            
+            <div class="field">
+              <label><input type="radio" name="group" val="Transport manager">Transport manager</label>
+            </div>
+            
+          </fieldset>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+
+          
+
+
+          
+
+
+          
+
+          
+
+
+
+          
+
+          
+
+
+      
+
+    </fieldset>
+  
+
+  <div class="actions-container">
+  
+  <a class="action--primary large" href="">Save</a>
+  
+  <a class="action--tertiary large" href="">Delete user</a>
+  
+</div><!-- end .actions-container -->
+
+
+</form>
+
+
+        
+      
+    </div><!-- .modal__content -->
+  </div><!-- .modal -->
+</div><!-- .modal__wrapper -->
+
+
+<div class="overlay js-confirm-modal" style="display:none;"></div>
+<div class="modal__wrapper js-confirm-modal" style="display:none;">
+  <div class="modal--alert">
+    <div class="modal__header">
+      <h2 class="modal__title">Permanently remove user?</h2>
+      <a href="" class="modal__close">Close</a>
+    </div>
+    <div class="modal__content">
+      <p>Are you sure you want to permanently remove this user? This action cannot be undone, and they will no longer be able to access this account.</p>
+      <div class="actions-container">
+        <a href="" class="action--primary large js-remove">Remove</a>
+        <a href="" class="action--secondary large">Cancel</a>
+      </div>
+    </div><!-- .modal__content -->
+  </div><!-- .modal -->
+</div><!-- .modal__wrapper -->
+
+<div class="row">
+  
+  <div class="three-quarters">
+  
+      <!-- Licences -->
+      <form>
+        <div class="table__header">
+          <h3>3 users</h3>
+          <div class="actions-container">
+            <a href="" class="action--primary js-add-new-user">Add new user</a>
+          </div>
+        </div><!-- .table__header -->
+        <div class="table__wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email address</th>
+                <th>Permission</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><b><a href="" class="js-edit-user">Katy Hasley</a></b></td>
+                <td>katy.hasley@operatorlicensing.com</td>
+                <td>Administrator</td>
+                <td class="right"><a href="">Remove</a></td>
+              </tr>
+              <tr id="dave">
+                <td><b><a href="" class="js-edit-user">David Ashburn</a></b></td>
+                <td>dave.ashburn@operatorlicensing.com</td>
+                <td>Standard user</td>
+                <td class="right"><a href="">Remove</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div><!-- .table__wrapper -->
+      </form>
+  
+  </div><!-- .two-thirds -->
+
+</div>
+
+<script type="text/javascript" src="/js/authentication-prototype.js"></script>
+
+
+
+      </div><!-- end .main -->
+    </div><!-- end .page-wrapper-->
+
+    <div class="global-footer">
+      <div class="global-footer__wrapper">
+        <ul class="global-footer__links">
+          <li class="global-footer__link"><a href="">Terms and conditions</a></li>
+          <li class="global-footer__link"><a href="privacy-policy.html">Privacy policy</a></li>
+          <li class="global-footer__link"><a href="">Feedback</a></li>
+          <li class="global-footer__link"><a href="">Cymraeg</a></li>
+          <li class="global-footer__link">Built by <a href="https://www.gov.uk/government/organisations/driver-and-vehicle-standards-agency" rel="external">Driver and Vehicle Standards Agency</a></li>
+        </ul>
+        <div class="global-footer__copyright">
+          <a href="">&copy; Crown copyright</a>
+        </div>
+      </div><!-- .global-footer-wrapper -->
+    </div><!-- .global-footer -->
+
+  </body>
+</html>
