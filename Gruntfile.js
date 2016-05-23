@@ -511,7 +511,6 @@
       'clean:images',
       'svg2png',
       'dr-svg-sprites',
-      'lint',
       'sass:dev',
       'postcss',
       'uglify:dev',
