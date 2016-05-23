@@ -5,7 +5,6 @@
 *.log
 test/results
 public/index.html
-#public/images
 public/js
 public/styles
 public/styleguides
@@ -16,9 +15,9 @@ styleguides/screenshots
 
 node_modules
 *.cfg
+.grunt
 .idea/
 .vscode/
-.grunt/
 .DS_Store
 composer.lock
 editorconfig.org

@@ -478,7 +478,8 @@
         },
         'gh-pages': {
           options: {
-            base: 'public'
+            base: 'public',
+            only: ['**/*', '!index.html']
           },
           src: ['**', '!index.html']
         }
