@@ -466,7 +466,8 @@
         
       'gh-pages': {
         options: {
-          repo: 'https://github.com/OLCS/olcs-static.git'
+          repo: 'https://github.com/OLCS/olcs-static.git',
+          only: ['**/*', '!.gitignore']
         },
         'gh-pages': {
           options: {
