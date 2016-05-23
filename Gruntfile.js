@@ -466,18 +466,19 @@
         
       'gh-pages': {
         options: {
-          repo: 'https://github.com/OLCS/olcs-static.git'
-        },
-        'gh-pages': {
-          options: {
-            base: 'public'
-          },
-          src: ['**', '!index.html']
+          repo: 'https://github.com/OLCS/olcs-static.git',
+          message: 'automatic merge commit'
         },
         'develop': {
           options: {
             base: '',
             branch: 'develop'
+          },
+          src: ['**']
+        },
+        'gh-pages': {
+          options: {
+            base: 'public'
           },
           src: ['**']
         }
