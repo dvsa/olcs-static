@@ -60,7 +60,7 @@ module.exports = function(config) {
     },
 
     junitReporter: {
-      outputFile: "test/results/js/results.xml"
+      outputFile: "test/js/reports/results.xml"
     }
     
   });
