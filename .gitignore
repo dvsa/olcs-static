@@ -14,6 +14,7 @@ styleguides/screenshots
 #============================================================
 
 node_modules
+!node_modules/grunt-sass
 *.cfg
 .grunt
 .idea/
