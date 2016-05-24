@@ -22,28 +22,14 @@ OLCS.fileUpload = (function(document, $, undefined) {
     var totalUploads          = 0;
     var MULTI_UPLOAD_DELAY    = 1000;
 
-<<<<<<< HEAD
-=======
-    var enabledElements;
-
->>>>>>> df88991d1daaae1dd337416a85253926b816f160
     if (window.FormData === undefined) {
       OLCS.logger.warn("XHR form uploads not supported in this browser", "fileUpload");
       asyncUploads = false;
     }
 
-<<<<<<< HEAD
     function disableElements() {
       $(attachButtonSelector).addClass("disabled");
       $(".actions-container").last().children().attr({
-=======
-    function disableElements(form) {
-      var formActions   = form.find(".actions-container").last().children().not(":disabled");
-      var attachButton  = form.find(".attach-action__input");
-      enabledElements   = formActions.add(attachButton);
-      $(attachButtonSelector).addClass("disabled");
-      enabledElements.attr({
->>>>>>> df88991d1daaae1dd337416a85253926b816f160
         "disabled"    : true,
         "aria-hidden" : true
       });
@@ -51,11 +37,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
 
     function enableElements() {
       $(attachButtonSelector).removeClass("disabled");
-<<<<<<< HEAD
       $(".actions-container").last().children().removeAttr("disabled", "aria-hidden");
-=======
-      enabledElements.removeAttr("disabled", "aria-hidden");
->>>>>>> df88991d1daaae1dd337416a85253926b816f160
     }
 
     function handleResponse(response, index) {
@@ -81,11 +63,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
 
       OLCS.logger.debug("Uploading file " + file.name + " (" + file.type + ")", "fileUpload");
 
-<<<<<<< HEAD
       disableElements();
-=======
-      disableElements(form);
->>>>>>> df88991d1daaae1dd337416a85253926b816f160
 
       $(container).find(".js-upload-list").append([
         "<li class=file data-upload-index=" + index + ">",
@@ -120,11 +98,6 @@ OLCS.fileUpload = (function(document, $, undefined) {
             enableElements();
           }
 
-<<<<<<< HEAD
-=======
-          enableElements();
-
->>>>>>> df88991d1daaae1dd337416a85253926b816f160
         }
       };
 
