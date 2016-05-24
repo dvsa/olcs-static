@@ -50,7 +50,7 @@ module.exports = function(config) {
     captureTimeout: 60000,
 
     coverageReporter: {
-      dir: "test/results",
+      dir: "public/unit-testing",
       subdir: '.',
       reporters: [
         {type: "html"},
