@@ -523,8 +523,7 @@
       'lint',
       'sass:prod',
       'postcss',
-      'uglify:prod',
-      'assemble'
+      'uglify:prod'
     ]);
 
     grunt.registerTask('compile:live', [
