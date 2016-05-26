@@ -3,7 +3,7 @@
 
 .sass-cache
 *.log
-test/results
+results.xml
 public/index.html
 public/js
 public/styles

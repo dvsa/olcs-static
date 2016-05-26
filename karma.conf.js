@@ -15,31 +15,20 @@ module.exports = function(config) {
     
     // These files are re-defined in Gruntfile.js
     files: [
-      
-      // test helpers
       "node_modules/sinon/lib/sinon.js",
       "node_modules/sinon/lib/sinon/spy.js",
       "node_modules/sinon/lib/sinon/**/*.js",
-
-      // common dependencies, jQuery always first
-      "assets/_js/common/vendor/jquery.1.11.0.js",
-      "assets/_js/common/vendor/**/*.js",
-
-      // source files...
-      "assets/_js/common/*.js",
+      "assets/_js/vendor/jquery.1.11.0.js",
+      "assets/_js/vendor/**/*.js",
+      "assets/_js/components/*.js",
       "test/js/setup.js",
-
-      // test files
       "test/js/**/*.test.js"
-      
     ],
     
     exclude: [],
     
     preprocessors: {
-      "assets/_js/common/*.js": ["coverage"],
-      "assets/_js/internal/*.js": ["coverage"],
-      "assets/_js/selfserve/*.js": ["coverage"]
+      "assets/_js/components/*.js": ["coverage"]
     },
     
     reporters: ["dots", "coverage", "junit"],
