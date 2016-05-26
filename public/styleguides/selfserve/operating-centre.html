@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en-GB" class="no-js not-ie8">
+<!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Add operating center</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/styles/selfserve.css" media="all" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/js/selfserve.js"></script>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body class="selfserve js-enabled ">
+
+    <div role="banner" class="global-header">
+      <div class="global-header__wrapper">
+        <a href="/styleguides/selfserve/" title="Go to the OLCS Selfserve styleguide homepage" class="global-header__logo">
+          <img src="/images/bitmap/gov.uk_logotype_crown.png" alt="GOV.UK logo">GOV.UK
+        </a>
+        <div class="proposition">
+          <h2 class="proposition__title">Vehicle Operator Licensing</h2>
+          <a class="proposition__toggle" href="#">Menu</a>
+          <ul class="proposition-nav">
+            
+              
+                <li class="proposition-nav__item"><a href="/styleguides/selfserve/licences.html">Home</a></li>
+                <li class="proposition-nav__item"><a href="/styleguides/selfserve/search/index.html">Search</a></li>
+                <li class="proposition-nav__item"><a href="/styleguides/selfserve/authentication-prototype/manage-users/manage-users.html">Manage users</a></li>
+                <li class="proposition-nav__item"><a href="/styleguides/selfserve/authentication-prototype/update-details/my-account.html">My account</a></li>
+              
+              
+              
+              
+            
+          </ul>
+        </div>
+      </div><!-- end .global-header__wrapper -->
+    </div><!-- end .global-header -->
+
+    
+
+    <div class="page-wrapper">
+      <div class="user-header">
+        <div class="phase">
+          <span class="phase__tag">alpha</span><span class="phase__message">This is a new service – <a href="https://www.surveymonkey.com/s/T8NGJV8">help us improve it.</a></span>
+        </div>
+        <ul class="user-menu">
+        
+          
+          <li class="user-menu__item">Katy Hasley, <b>Operator Licensing Ltd.</b></li>
+          <li class="user-menu__item"><a href="/styleguides/selfserve/authentication/index.html">Sign out</a></li>
+          
+          
+          
+        
+        </ul>
+      </div><!-- end .user-header -->
+
+      <div id="main" role="main" class="styleguide">
+        <div class="page-header">
+          
+          <ol class="breadcrumbs">
+            
+              <li class="breadcrumbs__item"><a href="operating-centres.html">Back to operating centres</a></li>
+            
+          </ol>
+          
+            
+              <div class="page-header__wrapper">
+                
+                <h1>Add operating center</h1>
+                
+              </div><!-- .page-header__wrapper -->
+            
+        </div><!-- .page-header -->
+
+        
+
+<div class="row">
+
+  <div class="three-quarters">
+    <form>
+      <fieldset class="address js-postcode-search" data-group="correspondence_address">
+        <legend>Address</legend>
+        <fieldset data-group="address[searchPostcode]">
+          <legend>Postcode search</legend>
+          <div class="field inline">
+            <input type="text" name="address[searchPostcode][postcode]" class="short js-input" data-container-class="inline" id="address[searchPostcode][postcode]" value="">
+          </div>
+          <div class="field inline">
+            <button type="submit" name="address[searchPostcode][search]" class="action--primary large js-find" value="search">Find address</button>
+          </div>
+          <div class="field js-visible">
+            <p class="hint--small"><a href="#">Enter address manually</a></p>
+          </div>
+        </fieldset>
+      </fieldset>
+
+      <fieldset>
+        <legend>Vehicles and trailers</legend>
+        <p>How many vehicles and trailers will you keep at this operating centre? You can keep extra vehicles of you want to leave room to expand.</p>
+        <div class="field ">
+          <label>Number of vehicles</label>
+          <input type="text">
+        </div>
+        <div class="field ">
+          <label>Number of trailers</label>
+          <input type="text">
+        </div>
+      </fieldset>
+      <fieldset>
+          <legend>Adverts</legend>
+          <p>You’ll need to advertise the application in a local newspaper and send a copy to us.<br />See our guidelines on <a href="">how to advertise your application</a>.</p><hr />
+          <fieldset class="js-advertised">
+            <legend class="legend">How would you like to send your advert?</legend>
+            <div class="field checkbox inline">
+              <label><input type="radio" name="send" value="upload">Upload</label>
+            </div>
+            <div class="field checkbox inline">
+              <label><input type="radio" name="send" value="post">Send in the post</label>
+            </div>
+          </fieldset>
+        </fieldset>
+        <fieldset class="js-upload-form">
+          <div class="field">
+            <label for="">Newpaper name</label>
+            <input type="text" class="long">
+          </div>
+          <fieldset>
+            <legend style="margin-bottom: 0;">Date of advert</legend>
+            <div class="field inline-text">
+              <label>Day</label>
+              <input type="text" maxlength="2">
+            </div>
+            <div class="field inline-text">
+              <label>Month</label>
+              <input type="text" maxlength="2">
+            </div>
+            <div class="field inline-text">
+              <label>Year</label>
+              <input type="text" maxlength="4">
+            </div>
+            <p class="hint--small">E.g. 12, 6, 2014</p>
+          </fieldset>
+          <fieldset class="file-uploader" id="FileUploader2">
+            <legend>Upload your advert</legend>
+            <ul class="attach-action__list">
+              <li class="attach-action">
+                <label class="attach-action__label">
+                  Attach file
+                  <input class="attach-action__input js-visually-hidden" type="file" name="fileUpload[]">
+                </label>
+                <p class="attach-action__hint">PDF, DOC, JPG, PNG or GIF</p>
+              </li>
+            </ul><!-- attach-actions -->
+          </fieldset><!-- .file-uploader -->
+        </fieldset>
+        <fieldset class="js-post">
+          <div class="article">
+            <p>If you’d rather post a copy, send it as soon as possible after publication to:<p/>
+            <p>
+            Office of the Traffic Commissioner<br />
+            The Central Licensing Office<br />
+            Hillcrest House<br />
+            Leeds, LS9 6NF</p>
+            <p>Make sure you include your application reference: <b>OB1523424/133</b>.
+            </p>
+          </div>
+        </fieldset>
+        <div class="actions-container">
+          <a href="/styleguides/selfserve/overview.html" class="action--primary large">Save</a>
+          <a href="" class="action--tertiary large">Cancel</a>
+        </div>
+      </form>
+    </div><!-- .two-thirds -->
+
+  </div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.js-upload-form, .js-not-advertised, .js-post').hide();
+
+
+    $(document).on('change', 'input[name="send"]', function(e) {
+      e.preventDefault();
+      if ($(this).val() === 'upload') {
+        $('.js-upload-form').show();
+        $('.js-post').hide();
+      } else {
+        $('.js-post').show();
+        $('.js-upload-form').hide()
+      }
+    });
+
+  });
+</script>
+
+
+
+      </div><!-- end .main -->
+    </div><!-- end .page-wrapper-->
+
+    <div class="global-footer">
+      <div class="global-footer__wrapper">
+        <ul class="global-footer__links">
+          <li class="global-footer__link"><a href="">Terms and conditions</a></li>
+          <li class="global-footer__link"><a href="privacy-policy.html">Privacy policy</a></li>
+          <li class="global-footer__link"><a href="">Feedback</a></li>
+          <li class="global-footer__link"><a href="">Cymraeg</a></li>
+          <li class="global-footer__link">Built by <a href="https://www.gov.uk/government/organisations/driver-and-vehicle-standards-agency" rel="external">Driver and Vehicle Standards Agency</a></li>
+        </ul>
+        <div class="global-footer__copyright">
+          <a href="">&copy; Crown copyright</a>
+        </div>
+      </div><!-- .global-footer-wrapper -->
+    </div><!-- .global-footer -->
+
+  </body>
+</html>

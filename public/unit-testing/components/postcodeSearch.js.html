@@ -1,0 +1,732 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for components/postcodeSearch.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../prettify.css">
+    <link rel="stylesheet" href="../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">components/postcodeSearch.js</span></h1>
+    <h2>
+        Statements: <span class="metric">84.71% <small>(72 / 85)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">61.54% <small>(16 / 26)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">87.5% <small>(14 / 16)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">84.71% <small>(72 / 85)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">components/</a> &#187; postcodeSearch.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-yes">42</span>
+<span class="cline-any cline-yes">42</span>
+<span class="cline-any cline-yes">30</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var OLCS = OLCS || <span class="branch-1 cbranch-no" title="branch not covered" >{};</span>
+&nbsp;
+/**
+ * Postcode search
+ */
+&nbsp;
+OLCS.postcodeSearch = (function(document, $, undefined) {
+&nbsp;
+  "use strict";
+&nbsp;
+  // jshint newcap:false
+&nbsp;
+  return function init(options) {
+    var container = options.container;
+&nbsp;
+    // store a list of fields considered to make up the
+    // 'address' part of a postcode component
+    var fields = options.fields || [
+      "addressLine1",
+      "addressLine2",
+      "addressLine3",
+      "addressLine4",
+      "town",
+      "postcode",
+      "countryCode"
+    ];
+&nbsp;
+    // store a list of possible root elements within which we'll render
+    // the result of our lookup. These should be in order of likely DOM
+    // proximity because the first match will win
+    var roots = [
+      // if we're in a modal, render in there...
+      ".modal__content",
+      // ... otherwise, fall back to one of the top-level body selectors
+      ".js-body__main",
+      ".js-body"
+    ];
+&nbsp;
+    var selectClass = ".address__select";
+&nbsp;
+    var inputSelector  = container + " .js-input";
+    var submitSelector = container + " button";
+    var selectSelector = container + " " + selectClass;
+    var manualSelector = container + " .hint a";
+&nbsp;
+    var F = OLCS.formHelper;
+&nbsp;
+    //Does the component contain any data or errors?
+    function isClean(component) {
+      var group = $(component).data("group");
+&nbsp;
+      for (var i = 0, j = fields.length; i &lt; j; i++) {
+        var input = F(group, fields[i]);
+        if (input.attr("type") !== "text") {
+          continue;
+        }
+&nbsp;
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (input.val() !== "") {
+<span class="cstat-no" title="statement not covered" >          return false;</span>
+        }
+      }
+&nbsp;
+&nbsp;
+      return $(component)
+      .children(".validation-wrapper")   // find any errors wrappers...
+      .children(".field").length === 0;  // which *also* have direct field children
+    }
+&nbsp;
+    // Is the component currently in its interim state of showing the
+    // user a list of matching addresses?
+    function inProgress(component) {
+      return $(component).find(selectClass).length &gt; 0;
+    }
+&nbsp;
+    function hasSearchField(component) {
+      return $(component).find(".js-find").length &gt; 0;
+    }
+&nbsp;
+    function formatUKPostcode(element) {
+      var val =  element.val().toUpperCase();
+&nbsp;
+      element.val(val);
+&nbsp;
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (val.indexOf(" ") &gt;= 0) {
+<span class="cstat-no" title="statement not covered" >        return;</span>
+      } else {
+        var parts = val.match(/^([A-Z]{1,2}\d{1,2}[A-Z]?)\s*(\d[A-Z]{2})$/);
+        parts.shift();
+        element.val(parts.join(" "));
+      }
+&nbsp;
+    }
+&nbsp;
+    // Work out what our most appropriate root element is in which
+    // we should render our AJAX response
+    function getRootSelector(component) {
+      var root = null;
+      var distance = Infinity;
+&nbsp;
+      for (var i = 0, j = roots.length; i &lt; j; i++) {
+        var cRoot = roots[i];
+&nbsp;
+        // have to check existence first; parentsUntil will just return
+        // the &lt;html&gt; tag if there's no matching selector
+        <span class="missing-if-branch" title="if path not taken" >I</span>if ($(component).parents(cRoot).length) {
+<span class="cstat-no" title="statement not covered" >          var dist = $(component).parentsUntil(cRoot).length;</span>
+<span class="cstat-no" title="statement not covered" >          if (dist &lt; distance) {</span>
+<span class="cstat-no" title="statement not covered" >            distance = dist;</span>
+<span class="cstat-no" title="statement not covered" >            root = cRoot;</span>
+          }
+        }
+      }
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (root !== null) {
+<span class="cstat-no" title="statement not covered" >        return root;</span>
+      }
+      throw new Error("No valid root selector found");
+    }
+&nbsp;
+    // Handle either the click of the 'find' button or the change
+    // of the 'select' input; either way, we perform the same action
+    function handleInput(selector) {
+      return function(e) {
+        e.preventDefault();
+&nbsp;
+        // we have to prevent this event bubbling; not only to ancestors
+        // but also to listeners with the same specifity. This is because
+        // postcode search is *the* most specific "click" or "submit"
+        // handler and doesn't want to trigger wider events (like form
+        // submission)
+        e.stopImmediatePropagation();
+&nbsp;
+        var fieldset = $(this).parents(container);
+        var button   = fieldset.find(selector);
+        var form     = fieldset.parents("form");
+        var input    = fieldset.find(".js-input");
+&nbsp;
+        // ensure the backend knows which button was pressed
+        F.pressButton(form, button);
+&nbsp;
+        if (input.length) {
+          formatUKPostcode(input);
+        }
+&nbsp;
+        OLCS.submitForm({
+          form: form,
+          success: OLCS.normaliseResponse(function(response) {
+            var root = getRootSelector(fieldset);
+<span class="cstat-no" title="statement not covered" >            F.render(root, response.body);</span>
+            // // focus the address select box when it becomes rendered - we
+            // // target the first element, but there should only ever be one
+            // $(container).find("select:first").focus();
+          })
+        });
+&nbsp;
+      };
+    }
+&nbsp;
+    // Simple method to iterate through all address components on the page
+    // and initialise their state. We call this on initialisation and on
+    // each render to keep things in sync
+    function setup() {
+      $(container).each(function(i, component) {
+        if (!hasSearchField(component)) {
+          return;
+        }
+&nbsp;
+        // we hide all address fields if a search is in progress or the
+        // address data is currently empty and valid
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (inProgress(component) || isClean(component)) {
+          // this selector looks a bit loose but it works fine; we use children
+          // rather than find which is equivalent to foo &gt; bar.
+          $(component).children(".field").hide();
+        } else {
+          // otherwise we hide the 'enter address manually' button
+<span class="cstat-no" title="statement not covered" >          $(component).find(".hint").hide();</span>
+        }
+      });
+    }
+&nbsp;
+    // Ensure any time the page is re-rendered we resolve our components' state
+    // properly
+    OLCS.eventEmitter.on("render", setup);
+&nbsp;
+    // when we click 'find'...
+    $(document).on("click", submitSelector, function(e) {
+      $(this).addClass("js-active");
+      handleInput(".js-find").call(this, e);
+    });
+&nbsp;
+    // or we hit enter within the postcode input...
+    $(document).on("keypress", inputSelector, <span class="fstat-no" title="function not covered" >function(e) {</span>
+      // keyCode is normalised; 13 is always enter
+<span class="cstat-no" title="statement not covered" >      if (e.keyCode === 13) {</span>
+        // we need .call here because it relies on 'this' for context
+<span class="cstat-no" title="statement not covered" >        handleInput(".js-find").call(this, e);</span>
+      }
+    });
+&nbsp;
+    // when we select an address from the dropdown...
+    $(document).on("change", selectSelector, <span class="fstat-no" title="function not covered" >function(e) {</span>
+<span class="cstat-no" title="statement not covered" >       $(this)</span>
+        .closest(".field")
+        .prev(".field")
+        .find(".js-find")
+        .addClass("js-active");
+&nbsp;
+<span class="cstat-no" title="statement not covered" >       handleInput(".js-select").call(this, e);</span>
+    });
+&nbsp;
+    // when we click the 'enter address manualy' button...
+    $(document).on("click", manualSelector, function(e) {
+      e.preventDefault();
+&nbsp;
+      var fieldset = $(this).parents(container);
+&nbsp;
+      // we have to show our pristine address fields
+      var inputs = fieldset.children(".field");
+      inputs.find("[type=text]").val("");
+      inputs.show();
+&nbsp;
+      // ditch the address options, if present...
+      fieldset.find(selectClass).remove();
+&nbsp;
+      // and finally, remove this button's container
+      $(this).parent().remove();
+    });
+  };
+&nbsp;
+}(document, window.jQuery));
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu May 26 2016 11:55:54 GMT+0100 (BST)</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

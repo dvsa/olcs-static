@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for components/accessibility.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../prettify.css">
+    <link rel="stylesheet" href="../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">components/accessibility.js</span></h1>
+    <h2>
+        Statements: <span class="metric">17.65% <small>(3 / 17)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">50% <small>(2 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">16.67% <small>(1 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">17.65% <small>(3 / 17)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">components/</a> &#187; accessibility.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var OLCS = OLCS || {};
+&nbsp;
+/**
+ * Accessibility
+ *
+ * Various tools and helpers to aid with accessibility
+ */
+&nbsp;
+  OLCS.accessibility = (function(document, $, undefined) {
+&nbsp;
+  'use strict';
+&nbsp;
+  return <span class="fstat-no" title="function not covered" >function init(custom) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    var options = $.extend({</span>
+&nbsp;
+      errorContainer : '#validationSummary',
+      skipTrigger    : '#skipToContent',
+      skipTarget     : '#main',
+      inputLabels    : '[type="radio"], [type="checkbox"], [type="file"]'
+&nbsp;
+    }, custom);
+&nbsp;
+    // Run the code on each "render" of the page
+<span class="cstat-no" title="statement not covered" >    OLCS.eventEmitter.on('render', <span class="fstat-no" title="function not covered" >function() {</span></span>
+&nbsp;
+      /**
+       * Validation Error Messages
+       *
+       * Automatically set focus to and scroll to form errors
+       */
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      if ($(options.errorContainer).length) {</span>
+        // Make error messages container focusable and set focus
+<span class="cstat-no" title="statement not covered" >        $(options.errorContainer).attr('tabIndex', -1).focus();</span>
+        // Scroll to the error messages
+<span class="cstat-no" title="statement not covered" >        window.location.hash = options.errorContainer;</span>
+      }
+&nbsp;
+      /**
+       * Input labels
+       *
+       * Allows focus to be given to label elements which contain child
+       * input elements, and removes ability to focus on said child elements
+       * to prevent double tabbing
+       */
+&nbsp;
+      // Make input labels focusable with the tab key
+<span class="cstat-no" title="statement not covered" >      $('label:not(.disabled)').has(options.inputLabels).attr('tabindex', 0);</span>
+&nbsp;
+      // Prevent child inputs from being tab-able
+      //$('label').find(options.inputLabels).attr('tabindex', -1);
+&nbsp;
+      // When a label is 'focused', shift focus to the child input
+<span class="cstat-no" title="statement not covered" >      $('label:not(.disabled)').has(options.inputLabels).focus(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >        $(this).attr('tabindex', -1);</span>
+<span class="cstat-no" title="statement not covered" >        $(this).addClass('focused').blur().find(options.inputLabels).focus();</span>
+      });
+&nbsp;
+      // When an input is blured, remove simulated focus from parent label
+<span class="cstat-no" title="statement not covered" >      $('label:not(.disabled)').find(options.inputLabels).blur(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >        $(this).parent('label').removeClass('focused');</span>
+<span class="cstat-no" title="statement not covered" >        $(this).parent('label').attr('tabindex', 0);</span>
+      });
+&nbsp;
+    }); // OLCS.eventEmitter
+&nbsp;
+    /**
+     * Skip To Main Content
+     *
+     * Gives focus to the content that is "skipped" to using the
+     * skipToContent accessibility link
+     *
+     * https://code.google.com/p/chromium/issues/detail?id=262171
+     * http://stackoverflow.com/questions/6280399/skip-links-not-working-in-chrome
+     */
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    $(options.skipTrigger).click(<span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >      $(options.skipTarget).attr('tabIndex', -1).focus();</span>
+    });
+&nbsp;
+  };
+&nbsp;
+}(document, window.jQuery));</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu May 26 2016 11:55:54 GMT+0100 (BST)</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
