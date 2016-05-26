@@ -32,7 +32,7 @@ module.exports = function(config) {
       // test files
       "test/js/**/*.test.js"
       
-    ], // files[]
+    ],
     
     exclude: [],
     
