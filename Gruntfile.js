@@ -472,7 +472,7 @@
         'gh-pages': {
           options: {
             base: 'public',
-            add: true
+            //add: true
           },
           src: ['**', '!index.html', '!unit-testing']
         }
