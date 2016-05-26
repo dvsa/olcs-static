@@ -3,11 +3,12 @@
 
 .sass-cache
 *.log
-test/results
+results.xml
 public/index.html
 public/js
 public/styles
 public/styleguides
+public/unit-testing
 styleguides/screenshots
 
 # Third party/config
