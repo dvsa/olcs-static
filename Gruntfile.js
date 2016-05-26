@@ -474,7 +474,7 @@
             base: 'public',
             add: true
           },
-          src: ['**', '!index.html']
+          src: ['**', '!index.html', '!unit-testing']
         }
       }
 
