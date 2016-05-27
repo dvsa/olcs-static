@@ -85,7 +85,7 @@
   &__button,
   [type="submit"] {
     @include svg('internal-search');
-    background-color: $primaryColour;
+    background-color: $primary-colour;
     float: left;
     width: 2.5rem;
     height: 32px;

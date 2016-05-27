@@ -370,14 +370,16 @@
 
       /**
        * SCSS-Lint
-       * https://github.com/brigade/scss-lint
+       * https://github.com/ahmednuaman/grunt-scss-lint
        */
       scsslint: {
         allFiles: [
           'assets/_styles/**/*.scss',
           '!assets/_styles/vendor/**/*'
         ],
-        options: {}
+        options: {
+          config: '.scss-lint.yml'
+        }
       },
 
       /**
@@ -451,7 +453,7 @@
        */
       localscreenshots: {
         options: {
-          path: 'styleguides/screenshots',
+          path: 'styleguides/screenshots/' + target,
           type: 'png',
           local : {
             path: 'public',
@@ -490,7 +492,7 @@
     require('matchdep').filterAll([
       'grunt-*', '!grunt-cli', 'assemble'
     ]).forEach(grunt.loadNpmTasks);
-
+    
     /**
      * Register Grunt Tasks
      *
@@ -566,7 +568,7 @@
       'karma:single:' + target
     ]);
 
-    // Commit and push to Github
+    // Commit and push to Github develop branch
     grunt.registerTask('push-github-develop', function() {
       grunt.util.spawn({
         cmd : 'git',
@@ -589,8 +591,8 @@
       'push-github-develop'
     ]);
     
-    // Push a feature branch
-    grunt.registerTask('push-feature:' + target, function() {
+    // Push a feature branch, used by the below 'submit' task
+    grunt.registerTask('push-feature', function() {
       grunt.util.spawn({
         cmd : 'git',
         args: ['add', '.'],
@@ -601,15 +603,19 @@
       });
       grunt.util.spawn({
         cmd : 'git',
-        args: ['push', 'github', 'feature/OLCS' + target],
+        args: ['push', 'origin', 'feature/OLCS-' + target],
       });
     });
     
     // Submit a story for review
-    grunt.registerTask('push', [
-      'compile:dev',
+    // $ grunt submit --target=12835
+    grunt.registerTask('submit', [
+      'lint',
+      'test',
+      'push-feature',
       'gh-pages',
-      'push-github-develop'
+      'push-github-develop',
+      'localscreenshots'
     ]);
 
     // Create a prototype

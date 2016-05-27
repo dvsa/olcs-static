@@ -27,7 +27,7 @@
   .current {
     @extend %navigation__link;
     color: $black;
-    border-bottom: 2px solid $primaryColour;
+    border-bottom: 2px solid $primary-colour;
     margin: 6px 1em 0 0;
     padding: 0 0 .75em;
   }
