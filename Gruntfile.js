@@ -487,12 +487,8 @@
     }); // initConfig
 
     /**
-     * Load NPM Tasks
-     *
-     * This uses 'matchdep' to get all available grunt tasks and
-     * loads them automatically.
+     * Load all NPM tasks automatically using 'matchdep'
      */
-
     require('matchdep').filterAll([
       'grunt-*', '!grunt-cli', 'assemble'
     ]).forEach(grunt.loadNpmTasks);
@@ -504,9 +500,7 @@
      * scenarios and environments.
      */
 
-    grunt.registerTask('default', [
-      'serve'
-    ]);
+    grunt.registerTask('default', 'serve');
 
     grunt.registerTask('compile:dev', [
       'clean:images',
@@ -541,7 +535,7 @@
     // JS/SCSS Linting
     grunt.registerTask('lint', [
       'jshint:static',
-      //'scsslint'
+      'scsslint'
     ]);
 
     // Browser Sync
@@ -557,7 +551,7 @@
       'karma:test'
     ]);
 
-    grunt.registerTask('test:ci', ['karma:ci']);
+    grunt.registerTask('test:ci', 'karma:ci');
 
     // To run an idividual component spec use:
     // $ grunt test:single --target=componentName
@@ -584,7 +578,7 @@
     });
     
     /**
-     * Compile, commit/push ro github, and update github pages
+     * Compile, commit/push to github, and update github pages
      */
     grunt.registerTask('github', [
       'compile:dev',
@@ -598,8 +592,8 @@
      * $ grunt prototype --target=prototypeName
      */
     grunt.registerTask('prototype', [
-      'clean:prototype:'+ target,
-      'copy:prototype:'+ target
+      'clean:prototype:' + target,
+      'copy:prototype:' + target
     ]);
 
     /**
@@ -611,9 +605,17 @@
      * new stuff; instead we just add it to this task and we're done
      */
 
-    grunt.registerTask('build:staging', ['test:ci', 'compile:staging']);
-    grunt.registerTask('build:demo', ['test:ci', 'compile:live']);
-    grunt.registerTask('build:live', ['compile:live']);
+    grunt.registerTask('build:staging', [
+      'test:ci', 
+      'compile:staging'
+    ]);
+    
+    grunt.registerTask('build:demo', [
+      'test:ci', 
+      'compile:live'
+    ]);
+    
+    grunt.registerTask('build:live', 'compile:live');
 
   };
 
