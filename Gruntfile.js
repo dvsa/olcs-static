@@ -474,7 +474,7 @@
             base: 'public',
             add: true
           },
-          src: ['**', '!index.html', '!unit-testing']
+          src: ['**/*', '!index.html', '!unit-testing']
         }
       }
 
@@ -558,6 +558,37 @@
     grunt.registerTask('test:single', [
       'karma:single:' + target
     ]);
+
+    /**
+     * Github
+     * Push to github and update the gh-pages branch
+     */
+    grunt.registerTask('github', function() {
+      //'compile:dev',
+      //'gh-pages:gh-pages',
+      grunt.util.spawn(
+        {
+          cmd : 'git',
+          args: ['add', '.'],
+        }
+      );
+      /*
+      grunt.util.spawn(
+        {
+          cmd : 'git',
+          args: ['add', '.'],
+        }, 
+        {
+          cmd : 'git',
+          args: ['commit', '-m', '"Pushing to Github"'],
+        }, 
+        {
+          cmd : 'git',
+          args: ['push', 'github', 'develop'],
+        }
+      );
+      */
+    });
 
     /**
      * Prototype
