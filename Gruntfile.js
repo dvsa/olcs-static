@@ -8,7 +8,7 @@
    * read documentation on the Wiki @ https://wiki.i-env.net/
    */
 
-  "use strict";
+  'use strict';
 
   module.exports = function(grunt) {
 
@@ -22,12 +22,49 @@
 
     // Set any global grunt configuration
     var globalConfig = {};
-
+    
+    // Set development environment to determine asset minification
+    var env = grunt.option('env') || 'dev';
+    
     // Setup param to access via command line
     var target = grunt.option('target');
-
+    
     // Set the location for the public images directory
     var pubImages = 'public/images';
+
+    // Function to get all scripts for use with a given theme
+    var scriptPaths = function(theme) {
+        var files = [
+          'assets/_js/vendor/jquery.1.11.0.js',
+          'assets/_js/vendor/chosen.jquery.min.js',
+          'assets/_js/vendor/jquery.details.min.js',
+          'assets/_js/components/*.js',
+          'assets/_js/' + theme + '/*.js',
+          'assets/_js/init/common.js',
+          'assets/_js/init/' + theme + '.js'
+        ];
+        if (theme == 'internal') {
+            files.push(
+              'assets/_js/vendor/pace.min.js'
+            );
+        };
+        return files;
+    };
+
+    // Function to get which file(s) should be used to run JS tests
+    var testFiles = function(path) {
+      var paths = [
+        'node_modules/sinon/lib/sinon.js',
+        'node_modules/sinon/lib/sinon/spy.js',
+        'node_modules/sinon/lib/sinon/**/*.js',
+        'assets/_js/vendor/jquery.1.11.0.js',
+        'assets/_js/vendor/**/*.js',
+        'assets/_js/components/*.js',
+        'test/js/setup.js',
+        'test/js/**/' + path +  '.test.js'
+      ];
+      return paths;
+    }
 
     // Define the theme stylesheets
     var styles = {
@@ -36,43 +73,11 @@
       'public/styles/internal.css'  : 'assets/_styles/themes/internal.scss'
     };
 
-    // Function to get all scripts for use with a given theme
-    var scriptPaths = function(path) {
-      var paths;
-      return paths = [
-        "assets/_js/vendor/jquery.1.11.0.js",
-        //"assets/_js/vendor/select2.full.min.js",
-        "assets/_js/vendor/chosen.jquery.min.js",
-        "assets/_js/vendor/jquery.details.min.js",
-        "assets/_js/components/*.js",
-        "assets/_js/" + path + "/*.js",
-        "assets/_js/init/common.js",
-        "assets/_js/init/" + path + ".js"
-      ];
-    };
-
     // Define the main JS files for each theme, using the above function
     var scripts = {
-      "public/js/internal.js"  : [
-        scriptPaths("internal"), "assets/_js/vendor/pace.min.js"
-      ],
-      "public/js/selfserve.js" : scriptPaths("selfserve")
+      'public/js/internal.js'       : scriptPaths('internal'),
+      'public/js/selfserve.js'      : scriptPaths('selfserve')
     };
-
-    // Function to get which file(s) should be used to run JS tests
-    var testFiles = function(path) {
-      var paths;
-      return paths = [
-        "node_modules/sinon/lib/sinon.js",
-        "node_modules/sinon/lib/sinon/spy.js",
-        "node_modules/sinon/lib/sinon/**/*.js",
-        "assets/_js/vendor/jquery.1.11.0.js",
-        "assets/_js/vendor/**/*.js",
-        "assets/_js/components/*.js",
-        "test/js/setup.js",
-        "test/js/**/" + path +  ".test.js"
-      ];
-    }
 
     /**
      * Grunt Tasks
@@ -80,18 +85,34 @@
      * List of all separate Grunt tasks used by OLCS-Static,
      * including a link to the public repo and minimum required
      * version number.
+     * 
+     * - sass
+     * - postcss
+     * - copy
+     * - clean
+     * - svg2png
+     * - 'dr-svg-sprites'
+     * - assemble
+     * - browserSync
+     * - uglify
+     * - jshint
+     * - scsslint
+     * - notify
+     * - watch
+     * - karma
+     * - localscreenshots
+     * - 'gh-pages'
      */
 
     grunt.initConfig({
 
       // Set any global configuration
-      globalConfig: globalConfig,
+      globalConfig : globalConfig,
 
       /**
        * Sass
        * https://github.com/sindresorhus/grunt-sass
        */
-
       sass: {
         dev: {
           options: {
@@ -113,7 +134,6 @@
        * Post CSS
        * https://github.com/nDmitry/grunt-postcss
        */
-
       postcss: {
         options: {
           processors: [
@@ -150,7 +170,6 @@
        * Copy
        * https://github.com/gruntjs/grunt-contrib-copy
        */
-
       copy: {
         prototype: {
           files: [
@@ -196,7 +215,6 @@
        * Clean
        * https://github.com/gruntjs/grunt-contrib-clean
        */
-
       clean: {
         styleguide: {
           src: 'public/styleguides/**/*.html'
@@ -221,7 +239,6 @@
        * grunt-svg2png
        * https://github.com/dbushell/grunt-svg2png
        */
-
       svg2png: {
         all: {
           files: [{
@@ -237,8 +254,7 @@
        * grunt-dr-svg-sprites
        * https://github.com/drdk/grunt-dr-svg-sprites
        */
-
-      "dr-svg-sprites": {
+      'dr-svg-sprites': {
         application: {
           options: {
             previewPath: 'public/styleguides',
@@ -256,7 +272,6 @@
        * Assemble
        * https://github.com/assemble/grunt-assemble
        */
-
       assemble: {
         options: {
           helpers: [
@@ -293,7 +308,6 @@
        * Browser Sync
        * https://github.com/BrowserSync/grunt-browser-sync
        */
-
       browserSync: {
         bsFiles: {
           src: ['public/**/*.css', 'public/**/*.html']
@@ -319,7 +333,6 @@
        * Uglify
        * https://github.com/gruntjs/grunt-contrib-uglify
        */
-
       uglify: {
         dev: {
           options: {
@@ -345,7 +358,6 @@
        * JSHint
        * https://github.com/gruntjs/grunt-contrib-jshint
        */
-
       jshint: {
         options: {
           jshintrc: ".jshintrc"
@@ -362,7 +374,6 @@
        * SCSS-Lint
        * https://github.com/brigade/scss-lint
        */
-
       scsslint: {
         allFiles: [
           'assets/_styles/**/*.scss',
@@ -375,7 +386,6 @@
        * Notify
        * https://github.com/dylang/grunt-notify
        */
-
       notify: {
         options: {
           sucess: false
@@ -386,7 +396,6 @@
        * Watch
        * https://github.com/gruntjs/grunt-contrib-watch
        */
-
       watch: {
         options: {
           livereload: true,
@@ -414,7 +423,6 @@
        * Karma
        * https://github.com/karma-runner/grunt-karma
        */
-
       karma: {
         options: {
           browsers: ["PhantomJS"],
@@ -443,7 +451,6 @@
        * @NOTE: You'll need PhantomJs installed locally to get
        * this task to work
        */
-
       localscreenshots: {
         options: {
           path: 'styleguides/screenshots',
@@ -463,7 +470,6 @@
        * Github Pages
        * https://github.com/tschaub/grunt-gh-pages
        */
-        
       'gh-pages': {
         options: {
           repo: 'https://github.com/OLCS/olcs-static.git',
