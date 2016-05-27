@@ -469,18 +469,12 @@
           repo: 'https://github.com/OLCS/olcs-static.git',
           message: 'automatic merge commit'
         },
-        //'develop': {
-        //  options: {
-        //    branch: 'develop'
-        //  },
-        //  src: '**/*'
-        //},
         'gh-pages': {
           options: {
             base: 'public',
             add: true
           },
-          src: ['**', '!index.html']
+          src: ['**', '!index.html', '!unit-testing']
         }
       }
 
