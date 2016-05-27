@@ -347,7 +347,7 @@
           options: {
             sourceMap: false,
             compress: {
-              pure_funcs: ["OLCS.logger"]
+              pure_funcs: ['OLCS.logger']
             }
           },
           files: scripts
@@ -360,13 +360,13 @@
        */
       jshint: {
         options: {
-          jshintrc: ".jshintrc"
+          jshintrc: '.jshintrc'
         },
-        "static": ["assets/_js/**/*.js", "!assets/_js/**/vendor/*"],
+        'static': ['assets/_js/**/*.js', '!assets/_js/**/vendor/*'],
         apps: [
-          "../olcs-common/Common/src/Common/assets/js/inline/**/*.js",
-          "../olcs-internal/module/*/assets/js/inline/**/*.js",
-          "../olcs-selfserve/module/*/assets/js/inline/**/*.js"
+          '../olcs-common/Common/src/Common/assets/js/inline/**/*.js',
+          '../olcs-internal/module/*/assets/js/inline/**/*.js',
+          '../olcs-selfserve/module/*/assets/js/inline/**/*.js'
         ]
       },
 
@@ -425,14 +425,14 @@
        */
       karma: {
         options: {
-          browsers: ["PhantomJS"],
-          configFile: "karma.conf.js",
+          browsers: ['PhantomJS'],
+          configFile: 'karma.conf.js',
           singleRun: true,
-          files: testFiles("*"),
-          reporters: ["mocha", "coverage", "junit"]
+          files: testFiles('*'),
+          reporters: ['mocha', 'coverage', 'junit']
         },
         test: {
-          reporters: ["mocha", "coverage", "junit"]
+          reporters: ['mocha', 'coverage', 'junit']
         },
         ci: {
           colors: false
