@@ -36,7 +36,7 @@ If running this task complains about libsass bindings (i.e. "The `libsass` bindi
 nvm install 0.10.33
 ```
 
-This will install the correcrt Node version supported by this app. Now you can run `nvm use` inside your project to switch to this version (v0.10.33).
+This will install the correct Node version supported by this app. Now you can run `nvm use` inside your project to switch to this version (v0.10.33).
 
 ## Usage
 
@@ -58,6 +58,10 @@ All JavaScript files are located within the `assets/_js` directory. This directo
 * [vendor](#) (third party JS)
 
 #### Sass/CSS
+
+*coming soon*
+
+## Grunt Tasks
 
 *coming soon*
 

@@ -561,7 +561,6 @@
 
     /**
      * Commit and push to Github
-     * Push to github and update the gh-pages branch
      */
     grunt.registerTask('push-github', function() {
       grunt.util.spawn({
