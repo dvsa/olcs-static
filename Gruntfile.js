@@ -34,26 +34,26 @@
 
     // Function to get all scripts for use with a given theme
     var scriptPaths = function(theme) {
-        var files = [
-          'assets/_js/vendor/jquery.1.11.0.js',
-          'assets/_js/vendor/chosen.jquery.min.js',
-          'assets/_js/vendor/jquery.details.min.js',
-          'assets/_js/components/*.js',
-          'assets/_js/' + theme + '/*.js',
-          'assets/_js/init/common.js',
-          'assets/_js/init/' + theme + '.js'
-        ];
-        if (theme == 'internal') {
-            files.push(
-              'assets/_js/vendor/pace.min.js'
-            );
-        };
-        return files;
+      var files = [
+        'assets/_js/vendor/jquery.1.11.0.js',
+        'assets/_js/vendor/chosen.jquery.min.js',
+        'assets/_js/vendor/jquery.details.min.js',
+        'assets/_js/components/*.js',
+        'assets/_js/' + theme + '/*.js',
+        'assets/_js/init/common.js',
+        'assets/_js/init/' + theme + '.js'
+      ];
+      if (theme == 'internal') {
+          files.push(
+            'assets/_js/vendor/pace.min.js'
+          );
+      };
+      return files;
     };
 
     // Function to get which file(s) should be used to run JS tests
-    var testFiles = function(path) {
-      var paths = [
+    var testFiles = function(theme) {
+      var files = [
         'node_modules/sinon/lib/sinon.js',
         'node_modules/sinon/lib/sinon/spy.js',
         'node_modules/sinon/lib/sinon/**/*.js',
@@ -61,9 +61,9 @@
         'assets/_js/vendor/**/*.js',
         'assets/_js/components/*.js',
         'test/js/setup.js',
-        'test/js/**/' + path +  '.test.js'
+        'test/js/**/' + theme +  '.test.js'
       ];
-      return paths;
+      return files;
     }
 
     // Define the theme stylesheets
@@ -82,9 +82,7 @@
     /**
      * Grunt Tasks
      *
-     * List of all separate Grunt tasks used by OLCS-Static,
-     * including a link to the public repo and minimum required
-     * version number.
+     * List of all separate Grunt tasks used by OLCS-Static
      * 
      * - sass
      * - postcss
@@ -494,43 +492,52 @@
     ]).forEach(grunt.loadNpmTasks);
 
     /**
-     * Register Compilation Environments
+     * Register Grunt Tasks
      *
      * The below tasks are for compiling the app for various
      * scenarios and environments.
      */
 
+    // Default grunt task
     grunt.registerTask('default', 'serve');
+    
+    // Function to compile the app
+    var compile = function(environment) {
+      var assetTasks = [
+        'sass:' + environment,
+        'postcss',
+        'uglify:' + environment
+      ];
+      if (environment == 'dev') {
+        assetTasks.push(
+          'clean:images',
+          'svg2png',
+          'dr-svg-sprites',
+          'copy:images',
+          'assemble'
+        );
+      };
+      if (environment == 'prod') {
+        assetTasks.push();
+      };
+      return assetTasks;
+    };
 
-    grunt.registerTask('compile:dev', [
-      'clean:images',
-      'svg2png',
-      'dr-svg-sprites',
-      'sass:dev',
-      'postcss',
-      'uglify:dev',
-      'copy:images',
-      'assemble'
-    ]);
-
-    grunt.registerTask('compile:staging', [
-      'lint',
-      'sass:prod',
-      'postcss',
-      'uglify:prod'
-    ]);
-
-    grunt.registerTask('compile:live', [
-      'sass:prod',
-      'postcss',
-      'uglify:prod'
-    ]);
-
-    /**
-     * Register General Tasks
-     *
-     * Register tasks for compiling, serving and testing code
-     */
+    // Compile the app using targeted environment
+    // $ grunt compile --env=prod
+    grunt.registerTask('compile', 
+        compile(env)
+    );
+    
+    // Compile the app for development environment
+    grunt.registerTask('compile:dev', 
+        compile('dev')
+    );
+    
+    // Compile the app for production environment
+    grunt.registerTask('compile:prod',
+        compile('prod')
+    );
 
     // JS/SCSS Linting
     grunt.registerTask('lint', [
@@ -538,7 +545,7 @@
       'scsslint'
     ]);
 
-    // Browser Sync
+    // Serve the app for a development environment
     grunt.registerTask('serve', [
       'notify',
       'compile:dev',
@@ -546,23 +553,21 @@
       'watch'
     ]);
 
-    // Karma
+    // Run unit tests
     grunt.registerTask('test', [
       'karma:test'
     ]);
 
     grunt.registerTask('test:ci', 'karma:ci');
 
-    // To run an idividual component spec use:
+    // Run single unit test
     // $ grunt test:single --target=componentName
     grunt.registerTask('test:single', [
       'karma:single:' + target
     ]);
 
-    /**
-     * Commit and push to Github
-     */
-    grunt.registerTask('push-github', function() {
+    // Commit and push to Github
+    grunt.registerTask('push-github-develop', function() {
       grunt.util.spawn({
         cmd : 'git',
         args: ['add', '.'],
@@ -577,20 +582,38 @@
       });
     });
     
-    /**
-     * Compile, commit/push to github, and update github pages
-     */
+    //Compile, commit/push to github, and update github pages
     grunt.registerTask('github', [
       'compile:dev',
       'gh-pages',
-      'push-github'
+      'push-github-develop'
+    ]);
+    
+    // Push a feature branch
+    grunt.registerTask('push-feature:' + target, function() {
+      grunt.util.spawn({
+        cmd : 'git',
+        args: ['add', '.'],
+      });
+      grunt.util.spawn({
+        cmd : 'git',
+        args: ['commit', '-m', 'Pushing feature branch OLCS' + target],
+      });
+      grunt.util.spawn({
+        cmd : 'git',
+        args: ['push', 'github', 'feature/OLCS' + target],
+      });
+    });
+    
+    // Submit a story for review
+    grunt.registerTask('push', [
+      'compile:dev',
+      'gh-pages',
+      'push-github-develop'
     ]);
 
-    /**
-     * Prototype
-     * To create/update an individual prototype use:
-     * $ grunt prototype --target=prototypeName
-     */
+    // Create a prototype
+    // $ grunt prototype --target=prototypeName
     grunt.registerTask('prototype', [
       'clean:prototype:' + target,
       'copy:prototype:' + target
@@ -606,16 +629,16 @@
      */
 
     grunt.registerTask('build:staging', [
-      'test:ci', 
-      'compile:staging'
+      'test:ci', 'compile:prod', 'lint'
     ]);
     
     grunt.registerTask('build:demo', [
-      'test:ci', 
-      'compile:live'
+      'test:ci', 'compile:prod'
     ]);
     
-    grunt.registerTask('build:live', 'compile:live');
+    grunt.registerTask('build:live', [
+      'compile:prod'
+    ]);
 
   };
 
