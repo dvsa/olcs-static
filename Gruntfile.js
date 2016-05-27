@@ -560,35 +560,32 @@
     ]);
 
     /**
-     * Github
+     * Commit and push to Github
      * Push to github and update the gh-pages branch
      */
-    grunt.registerTask('github', function() {
-      //'compile:dev',
-      //'gh-pages:gh-pages',
-      grunt.util.spawn(
-        {
-          cmd : 'git',
-          args: ['add', '.'],
-        }
-      );
-      /*
-      grunt.util.spawn(
-        {
-          cmd : 'git',
-          args: ['add', '.'],
-        }, 
-        {
-          cmd : 'git',
-          args: ['commit', '-m', '"Pushing to Github"'],
-        }, 
-        {
-          cmd : 'git',
-          args: ['push', 'github', 'develop'],
-        }
-      );
-      */
+    grunt.registerTask('push-github', function() {
+      grunt.util.spawn({
+        cmd : 'git',
+        args: ['add', '.'],
+      });
+      grunt.util.spawn({
+        cmd : 'git',
+        args: ['commit', '-m', 'Pushing to Github'],
+      });
+      grunt.util.spawn({
+        cmd : 'git',
+        args: ['push', 'github', 'develop'],
+      });
+      grunt.task.run('gh-pages');
     });
+    
+    /**
+     * Compile, commit/push ro github, and update github pages
+     */
+    grunt.registerTask('github', [
+      'compile:dev',
+      'push-github'
+    ]);
 
     /**
      * Prototype
