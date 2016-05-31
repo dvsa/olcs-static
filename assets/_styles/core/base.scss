@@ -16,7 +16,7 @@
 html {
   font-size: 100%;
   text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(black, 0);
+  -webkit-tap-highlight-color: rgba($black, 0);
   background: theme(
     $selfserve: $grey-3,
     $internal: $grey-4
@@ -25,7 +25,7 @@ html {
 
 body {
   margin: 0;
-  background: #FFF;
+  background: $white;
   font-weight: 400;
   color: $black;
   text-rendering: optimizeLegibility;

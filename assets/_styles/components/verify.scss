@@ -9,10 +9,10 @@ $verify-colour: #255AAA;
   padding: 25px;
   overflow: auto;
   margin-bottom: 40px;
-  color: #FFF;
+  color: $white;
   p,
   a {
-    color: #FFF;
+    color: $white;
   }
   p {
     width: 100%;
@@ -21,7 +21,7 @@ $verify-colour: #255AAA;
 
 .action--verify {
   @extend %h4;
-  background: #FFF;
+  background: $white;
   color: $verify-colour;
   padding: 10px 20px;
   margin-right: 20px;

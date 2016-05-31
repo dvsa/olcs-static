@@ -121,7 +121,7 @@ dd {
 @if $app == 'internal' {
 
   dt {
-    color: #555;
+    color: $grey-1;
   }
 
   .read-only__header {

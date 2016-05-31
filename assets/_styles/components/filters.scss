@@ -4,13 +4,13 @@
 
 .filters {
   padding-top: 0.5em;
-  background: #FFF;
+  background: $white;
   font-weight: 400;
   @if $app == 'internal' {
     margin: 0.5em 0 -7px;
   }
   .field {
-    background: none !important;
+    background: none;
     &:not(:last-child) {
       margin-bottom: $gutter-half;
     }

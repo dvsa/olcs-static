@@ -3,7 +3,7 @@
  */
 
 .confirmation {
-  color: #FFF;
+  color: $white;
   background: $turquoise;
   padding: 30px 30px 15px;
   margin-bottom: 40px;
@@ -15,6 +15,6 @@
     @extend %paragraph;
   }
   a {
-    color: #FFF;
+    color: $white;
   }
 }

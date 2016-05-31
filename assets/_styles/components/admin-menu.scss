@@ -4,9 +4,11 @@
  * Used for Internal application logged in users
  */
 
-@if $app == 'internal' {
+.admin {
 
-  .admin {
+  $admin-panel-bg : #080808;
+
+  @if $app == 'internal' {
 
     list-style: none;
     position: absolute;
@@ -57,8 +59,8 @@
         cursor: pointer;
       }
       &.active {
-        border: 1px solid #080808;
-        background-color: #080808;
+        border: 1px solid $admin-panel-bg;
+        background-color: $admin-panel-bg;
       }
       &:after {
         @include svg('dropdown-down');
@@ -85,6 +87,6 @@
       }
     }
 
-  } // .admin
+  } // @if $app
 
-} // @if $app
+} // .admin

@@ -2,8 +2,10 @@
  * Version Header
  */
 
+$version-header-background : #333;
+
 .version-header {
-  background: #333;
+  background: $version-header-background;
   margin: 0;
   overflow: hidden;
   padding: 5px 10px 2px;
@@ -16,16 +18,16 @@
     }
   }
   span {
-    color: #FFF;
+    color: $white;
     font-weight: 600;
   }
 }
 
 .environment-marker {
-  background: green;
+  background: $button-colour;
   padding: 1px 5px;
   border-radius: 2px;
-  color: #FFF;
+  color: $white;
 }
 
 .version {

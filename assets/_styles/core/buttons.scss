@@ -179,7 +179,7 @@ button {
     position: absolute;
     top: 30px;
     left: 5px;
-    background: #FFF;
+    background: $white;
     padding: 5px 0;
     z-index: 3;
   }
@@ -269,13 +269,13 @@ button {
   }
 
   .action--primary {
-    @include action-colour(#10654E);
+    @include action-colour($green);
     border: 1px solid transparent;
   }
 
   .action--secondary {
-    @include action-colour(#f9f9f9);
-    border: 1px solid #e5e5e5;
+    @include action-colour($grey-4);
+    border: 1px solid darken($grey-4, 10%);
     color: $govuk-blue;
     &:link,
     &:hover,

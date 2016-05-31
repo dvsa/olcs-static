@@ -18,18 +18,18 @@
   &__toggle {
     display: none;
     float: right;
-    color: #FFF;
+    color: $white;
     text-decoration: none;
     margin-top: 5px;
     @media (max-width: breakpoint('break-4')) {
       display: block;
     }
     &:hover {
-      color: #FFF;
+      color: $white;
       text-decoration: underline;
     }
     &:focus {
-      color: #FFF;
+      color: $white;
     }
     &::after {
       display: inline-block;
@@ -79,7 +79,7 @@
     display: block;
     padding: 10px 0;
     width: 100%;
-    border-top: 1px solid #222;
+    border-top: 1px solid $black;
   }
   .proposition-nav__item a:focus {
     outline: none;

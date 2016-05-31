@@ -60,7 +60,7 @@ linters:
     style: short # or 'long'
 
   HexNotation:
-    enabled: true
+    enabled: false
     style: lowercase # or 'uppercase'
 
   HexValidation:

@@ -5,6 +5,8 @@
  * page title and relevant navigation links
  */
 
+$global-header-background--internal : #111;
+
 .global-header {
 
   background: $black;
@@ -32,7 +34,7 @@
     &__logo {
       float: left;
       padding-top: 6px;
-      color: white;
+      color: $white;
       font-weight: 700;
       font-size: 30px;
       line-height: 1;
@@ -50,9 +52,9 @@
       }
       &:hover {
         text-decoration: none;
-        border-bottom: 1px solid #FFF;
+        border-bottom: 1px solid $white;
         margin-bottom: -1px;
-        color: #FFF;
+        color: $white;
       }
     }
   }
@@ -62,7 +64,7 @@
    */
 
   @if $app == 'internal' {
-    background: #111;
+    background: $global-header-background--internal;
     position: relative;
     overflow: visible;
     padding: 7px 0;

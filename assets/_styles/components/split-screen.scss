@@ -91,7 +91,7 @@
   }
 
   &--horizontal {
-    box-shadow: 0 0 6px 0 rgba(black, 0.2);
+    box-shadow: 0 0 6px 0 rgba($black, 0.2);
     border-top: 1px solid $grey-2;
     border-bottom: 1px solid $grey-2;
     right: 0;
@@ -109,9 +109,9 @@
   }
 
   &--vertical {
-    box-shadow: 0 0 6px 0 rgba(black, 0.2);
+    box-shadow: 0 0 6px 0 rgba($black, 0.2);
     border-left: 1px solid $grey-2;
-    border-right: 1px solid #AEAEAE;
+    border-right: 1px solid $grey-2;
     top: 0;
     right: 40%;
     width: 38px;
