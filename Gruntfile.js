@@ -480,7 +480,7 @@
             base: 'public',
             add: true
           },
-          src: ['**/*', '!index.html', '!unit-testing']
+          src: ['**/*', '!index.html', '!unit-testing/**']
         }
       }
 
@@ -505,13 +505,13 @@
     
     // Function to compile the app
     var compile = function(environment) {
-      var assetTasks = [
+      var tasks = [
         'sass:' + environment,
         'postcss',
         'uglify:' + environment
       ];
       if (environment == 'dev') {
-        assetTasks.push(
+        tasks.push(
           'clean:images',
           'svg2png',
           'dr-svg-sprites',
@@ -520,9 +520,9 @@
         );
       };
       if (environment == 'prod') {
-        assetTasks.push();
+        tasks.push();
       };
-      return assetTasks;
+      return tasks;
     };
 
     // Compile the app using targeted environment

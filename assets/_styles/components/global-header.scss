@@ -6,13 +6,13 @@
  */
 
 .global-header {
-  
+
   background: $black;
   color: $white;
   padding: 6px 0;
-  
+
   &__wrapper {
-    @extend .page-wrapper;
+    @extend %page-wrapper;
   }
 
   /**
@@ -25,7 +25,7 @@
       clear: none;
       margin: 5px 0 0 180px;
       @media (max-width: $mobile-column-stack) {
-        margin: 5px 0 0 0;
+        margin: 5px 0 0;
         clear: both;
       }
     }
@@ -86,5 +86,5 @@
       }
     }
   }
-  
+
 }// .global-header

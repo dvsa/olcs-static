@@ -12,7 +12,7 @@
 
 .overlay {
   @extend %fixed;
-  @include opacity(.7);
+  @include opacity(0.7);
   background: $black;
   z-index: 2;
 }
@@ -99,7 +99,7 @@
   .modal,
   .modal--alert {
     border-radius: 3px;
-    padding: 0 0 $gutter*1.5;
+    padding: 0 0 $gutter * 1.5;
     &__title {
       @extend %h4;
     }

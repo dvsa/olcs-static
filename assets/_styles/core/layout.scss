@@ -15,6 +15,7 @@
  * The document/application wrapper which contains the entire app
  */
 
+%page-wrapper,
 .page-wrapper {
   overflow: hidden;
   clear: both;
@@ -126,6 +127,7 @@
 
 @if $app == 'selfserve' {
 
+  %page-wrapper,
   .page-wrapper {
     max-width: $base-width;
   }
@@ -143,6 +145,7 @@
 
 @if $app == 'internal' {
 
+  %page-wrapper,
   .page-wrapper {
     padding: 0 $gutter;
     overflow-x: auto;

@@ -16,7 +16,7 @@ button {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: $NTA-Light;
+  font-family: $font--primary;
 }
 
 @mixin action-colour($colour: $button-colour) {
@@ -57,7 +57,7 @@ button {
     &:link,
     &:hover,
     &:focus,
-    &:visited{
+    &:visited {
       color: $text-colour;
     }
   }
@@ -92,6 +92,7 @@ button {
   }
 }
 
+%action,
 .action {
   &--primary {
     @extend %action-box;
@@ -135,15 +136,15 @@ button {
   &--external {
     &:after {
       @include svg('external-link-white');
-      content: "";
+      content: '';
       margin-left: 0.5em;
     }
   }
 }
 
 // Anchors which are also buttons and external links
-a[class*="action--"][rel="external"] {
-  @extend .action--external
+[class*="action--"][rel="external"] {
+  @extend %action--external;
 }
 
 // More actions
@@ -161,13 +162,12 @@ a[class*="action--"][rel="external"] {
   display: inline-block;
   z-index: 1;
   &__button {
-    @extend .action--secondary;
-    margin: 0 !important;
-    padding-right: 25px !important;
+    @extend %action--secondary;
+    padding-right: 25px;
     position: relative;
     &:after {
       @include svg('dropdown-down');
-      content: "";
+      content: '';
       position: absolute;
       right: 0.5em;
       top: 0.8em;
@@ -301,10 +301,10 @@ a[class*="action--"][rel="external"] {
     margin-bottom: $gutter-two-thirds;
     &__group {
       list-style: none;
-      margin: .5em 0 1.1em 0;
+      margin: 0.5em 0 1.1em;
     }
     &__item {
-      margin-bottom: .5em;
+      margin-bottom: 0.5em;
       text-align: center;
     }
     a {

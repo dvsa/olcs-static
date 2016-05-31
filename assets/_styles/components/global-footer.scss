@@ -6,19 +6,19 @@
  */
 
 .global-footer {
-  
+
   border-top: 1px solid $grey-2;
   background: $grey-3;
   color: $dark-text;
   margin-top: 1.5em;
-  
+
   a {
     color: $dark-text;
     &:hover {
       color: $text-colour;
     }
   }
-  
+
   &__wrapper {
     max-width: $base-width;
     padding: $gutter $gutter-half;
@@ -28,7 +28,7 @@
       width: 100%;
     }
   }
-  
+
   &__links,
   &__copyright {
     display: table-cell;
@@ -39,11 +39,11 @@
       display: block;
     }
   }
-  
+
   &__links {
     @extend %list--reset;
   }
-  
+
   &__link {
     display: inline-block;
     margin-right: $gutter-half;
@@ -58,13 +58,13 @@
       display: block;
     }
   }
-  
+
   &__copyright {
     height: 150px;
     text-align: right;
-    background: url('#{$assetPath}/bitmap/footer-crest.png') no-repeat 50% 0;
+    background: url('#{$asset-path}/bitmap/footer-crest.png') no-repeat 50% 0;
     @include device-pixel-ratio($ratio: 2) {
-      background: url('#{$assetPath}/bitmap/footer-crest-2x.png') no-repeat 50% 0;
+      background: url('#{$asset-path}/bitmap/footer-crest-2x.png') no-repeat 50% 0;
       background-size: 125px 102px;
     }
     a {
@@ -77,8 +77,8 @@
       }
     }
   }
-  
-  [rel="external"] {
+
+  [rel='external'] {
     &:after {
       @include svg('selfserve-external-footer');
     }
@@ -86,5 +86,5 @@
       @include svg('external-link-dark');
     }
   }
-  
+
 }// .global-footer

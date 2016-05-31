@@ -37,7 +37,7 @@
       height: 8px;
       padding-left: 5px;
       vertical-align: middle;
-      content: " \25BC";
+      content: ' \25BC';
     }
   }
 }
@@ -65,11 +65,11 @@
 @media (max-width: breakpoint('break-4')) {
   .proposition {
     width: 100%;
-    margin: .5em 0 .25em 0;
+    margin: 0.5em 0 0.25em;
   }
   .proposition-nav {
     display: none;
-    padding-top: 10px
+    padding-top: 10px;
   }
   .proposition-nav__item {
     width: 100%;

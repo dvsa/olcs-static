@@ -14,10 +14,12 @@ $app: internal;
 @import '../vendor/govuk_toolkit/stylesheets/_css3';
 @import '../vendor/govuk_toolkit/stylesheets/_colours';
 @import '../vendor/govuk_toolkit/stylesheets/_grid_layout';
+@import '../vendor/govuk_toolkit/stylesheets/_font_stack';
 @import '../vendor/govuk_toolkit/stylesheets/_typography';
 //@import '../vendor/select2';
 @import '../vendor/chosen';
 @import '../vendor/pace';
+@import '../vendor/tinymce';
 
 // Core
 @import '../core/fonts';
@@ -62,7 +64,6 @@ $app: internal;
 @import '../components/notice';
 @import '../components/tooltip';
 @import '../components/review';
-@import '../components/tinymce';
 @import '../components/preloader';
 @import '../components/void';
 @import '../components/verify';

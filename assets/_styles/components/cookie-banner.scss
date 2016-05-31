@@ -8,7 +8,7 @@
   overflow: auto;
   padding: 10px 0;
   &__wrapper {
-    @extend .page-wrapper;
+    @extend %page-wrapper;
   }
   p {
     @extend %paragraph--small;

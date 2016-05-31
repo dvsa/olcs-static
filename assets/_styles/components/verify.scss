@@ -19,12 +19,12 @@ $verify-colour: #255AAA;
   }
 }
 
-a.action--verify {
+.action--verify {
   @extend %h4;
   background: #FFF;
   color: $verify-colour;
-  padding:  10px 20px;
+  padding: 10px 20px;
   margin-right: 20px;
   font-weight: 700;
-  border-bottom: 2px solid darken($verify-colour,20%);
+  border-bottom: 2px solid darken($verify-colour, 20%);
 }
