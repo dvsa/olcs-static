@@ -9,7 +9,9 @@
  * General Styles/Reset
  */
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
@@ -40,6 +42,11 @@ p {
 ul {
   list-style: none;
   padding: 0;
+  &.bullet {
+    list-style: disc;
+    margin: 10px;
+    padding: 10px;
+  }
 }
 
 dt,
@@ -110,12 +117,6 @@ hr {
   }
 }
 
-ul.bullet {
-  list-style: disc;
-  margin: 10px;
-  padding: 10px;
-}
-
 [type="text"] {
   display: block;
   padding: 10px;
@@ -131,9 +132,9 @@ ul.bullet {
 /**
  * Signature Box
  */
- 
+
 .signature-box {
-  
+
   margin: 30px 0;
   padding: 30px;
   background: #dee0e2;
@@ -161,7 +162,7 @@ ul.bullet {
       width: 200px;
     }
   }
-  
+
 }
 
 /**
@@ -169,9 +170,9 @@ ul.bullet {
  */
 
 .printable {
-  
+
   padding-top: 100px;
-  
+
   @media print {
     padding-top: 20px;
   }
@@ -196,7 +197,7 @@ ul.bullet {
     float: right;
     width: 40%;
     dl {
-      border-top: none;
+      border-top: 0;
       margin-top: 0;
     }
     dt,
@@ -214,5 +215,5 @@ ul.bullet {
   h4 {
     margin: 20px 0 5px;
   }
-  
+
 }

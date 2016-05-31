@@ -130,17 +130,24 @@ small {
 /**
  * Vertical Rhythm
  */
- 
- h1, h2, h3, h4, h5, h6,
- p, ul, ol {
-   margin-top: 0;
-   &:last-child {
-     margin-bottom: 0;
-   }
-   &.compound {
-     margin: 8px 0;
-   }
- }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+  margin-top: 0;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &.compound {
+    margin: 8px 0;
+  }
+}
 
 /**
  * Selfserve Theme
@@ -153,7 +160,7 @@ small {
     position: relative;
     &:after {
       @include svg('selfserve-important');
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       top: 0;
@@ -185,7 +192,7 @@ small {
       font-size(6), font-size(5), font-size(4, true)
     );
     display: inline;
-    padding-right: .25em;
+    padding-right: 0.25em;
   }
 
   h2 {
@@ -195,8 +202,8 @@ small {
   h3 {
     font-size: font-size(5);
   }
-  
-  h3, 
+
+  h3,
   h4 {
     margin-bottom: 0.4em;
   }

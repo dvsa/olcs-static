@@ -14,7 +14,7 @@ a {
 [rel="external"]:after {
   @include svg('selfserve-external-link');
   margin-left: 0.25em;
-  content: "";
+  content: '';
   &:hover {
     @include svg('selfserve-external-link-hover');
   }
@@ -33,7 +33,7 @@ a {
   cursor: pointer;
   &:before {
     @include svg('selfserve-document');
-    content: "";
+    content: '';
     display: inline-block;
     vertical-align: middle;
     margin-right: 0.5em;

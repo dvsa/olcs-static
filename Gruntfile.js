@@ -375,7 +375,8 @@
       scsslint: {
         allFiles: [
           'assets/_styles/**/*.scss',
-          '!assets/_styles/vendor/**/*'
+          '!assets/_styles/vendor/**/*',
+          '!assets/_styles/core/icon-sprite.scss'
         ],
         options: {
           config: '.scss-lint.yml'

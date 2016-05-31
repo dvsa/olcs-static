@@ -9,13 +9,13 @@
 $app: internal;
 
 // Vendor
-@import '../vendor/govuk_toolkit/stylesheets/_device-pixels';
-@import '../vendor/govuk_toolkit/stylesheets/_measurements';
-@import '../vendor/govuk_toolkit/stylesheets/_css3';
-@import '../vendor/govuk_toolkit/stylesheets/_colours';
-@import '../vendor/govuk_toolkit/stylesheets/_grid_layout';
-@import '../vendor/govuk_toolkit/stylesheets/_font_stack';
-@import '../vendor/govuk_toolkit/stylesheets/_typography';
+@import '../vendor/govuk_toolkit/stylesheets/device-pixels';
+@import '../vendor/govuk_toolkit/stylesheets/measurements';
+@import '../vendor/govuk_toolkit/stylesheets/css3';
+@import '../vendor/govuk_toolkit/stylesheets/colours';
+@import '../vendor/govuk_toolkit/stylesheets/grid_layout';
+@import '../vendor/govuk_toolkit/stylesheets/font_stack';
+@import '../vendor/govuk_toolkit/stylesheets/typography';
 //@import '../vendor/select2';
 @import '../vendor/chosen';
 @import '../vendor/pace';

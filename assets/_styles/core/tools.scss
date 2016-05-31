@@ -34,7 +34,7 @@
 %clearfix,
 .clearfix {
   &:after {
-    content: "";
+    content: '';
     display: block;
     clear: both;
   }
@@ -53,7 +53,7 @@
   h4 {
     float: left;
     display: block;
-    margin: 0 !important;
+    margin: 0;
   }
   .actions-container {
     float: right;
@@ -71,13 +71,16 @@
  */
 
 %sprite-bg {
-	background-image: url("../images/svg/icon-sprite.png");
-	background-image: url("../images/svg/icon-sprite.svg"),
-  linear-gradient(transparent, transparent);
+  // scss-lint:disable DuplicateProperty
+  background-image: url('../images/svg/icon-sprite.png');
+  background-image: url('../images/svg/icon-sprite.svg'), linear-gradient(transparent, transparent);
+  // scss-lint:enable DuplicateProperty
   display: inline-block;
 }
 
 @mixin svg($src) {
+  // scss-lint:disable PlaceholderInExtend
   @extend .#{$src};
-	@extend %sprite-bg;
+  // scss-lint:enable PlaceholderInExtend
+  @extend %sprite-bg;
 }
