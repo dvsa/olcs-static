@@ -600,7 +600,7 @@
       });
       grunt.util.spawn({
         cmd : 'git',
-        args: ['commit', '-m', 'Pushing feature branch OLCS' + target],
+        args: ['commit', '-m', 'Pushing feature branch OLCS ' + target],
       });
       grunt.util.spawn({
         cmd : 'git',
