@@ -593,20 +593,11 @@
     });
 
     // Commit and push to Github develop branch
-    grunt.registerTask('push-github-develop', function() {
-      grunt.util.spawn({
-        cmd : 'git',
-        args: ['add', '.'],
-      });
-      grunt.util.spawn({
-        cmd : 'git',
-        args: ['commit', '-m', 'Pushing to Github'],
-      });
-      grunt.util.spawn({
-        cmd : 'git',
-        args: ['push', 'github', 'develop'],
-      });
-    });
+    grunt.registerTask('push-github-develop', [
+      'git-add',
+      'git-commit:"Pushing to Github"',
+      'git-push:github:develop'
+    ]);
     
     //Compile, commit/push to github, and update github pages
     grunt.registerTask('github', [
@@ -616,20 +607,12 @@
     ]);
     
     // Push a feature branch, used by the below 'submit' task
-    grunt.registerTask('push-feature', function() {
-      grunt.util.spawn({
-        cmd : 'git',
-        args: ['add', '.']
-      });
-      grunt.util.spawn({
-        cmd : 'git',
-        args: ['commit', '-m', 'Pushing feature branch OLCS ' + target],
-      });
-      grunt.util.spawn({
-        cmd : 'git',
-        args: ['push', 'origin', 'feature/OLCS-' + target],
-      });
-    });
+    // Commit and push to Github develop branch
+    grunt.registerTask('push-feature', [
+      'git-add',
+      'git-commit:' + target,
+      'git-push:origin:feature/OLCS-' + target
+    ]);
     
     // Submit a story for review
     // $ grunt submit --target=12835
