@@ -73,7 +73,15 @@ Desired partials are then imported into the appropriate theme to be processed.
 
 ## Grunt Tasks
 
-*coming soon*
+OLCS uses Grunt as the front end build tool, with all configuration being contained within `Gruntfile.js`. There are several pre-defined tasks which can be executed:
+
+### `$ grunt compile`
+
+This is a basic task to compile the front end assets. Depending on the `env` argument, which can either be `dev` (default) or `prod`, the compiled assets either will or won't be minified. You can pass the `env` argument when running this task like so:
+
+```
+$ grunt compile --env=prod
+```
 
 ## Linting/Unit Testing
 
