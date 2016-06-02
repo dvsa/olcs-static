@@ -568,6 +568,29 @@
     grunt.registerTask('test:single', [
       'karma:single:' + target
     ]);
+    
+    // Git/command line tasks
+    
+    grunt.registerTask('git-add', function() {
+      grunt.util.spawn({
+        cmd : 'git',
+        args: ['add', '.'],
+      });
+    });
+    
+    grunt.registerTask('git-commit', function(message) {
+      grunt.util.spawn({
+        cmd : 'git',
+        args: ['commit', '-m', message],
+      });
+    });
+    
+    grunt.registerTask('git-push', function(origin, branch) {
+      grunt.util.spawn({
+        cmd : 'git',
+        args: ['push', origin, branch],
+      });
+    });
 
     // Commit and push to Github develop branch
     grunt.registerTask('push-github-develop', function() {
@@ -597,11 +620,11 @@
       grunt.util.spawn({
         cmd : 'git',
         args: ['add', '.']
-      }, 
+      });
       grunt.util.spawn({
         cmd : 'git',
         args: ['commit', '-m', 'Pushing feature branch OLCS ' + target],
-      }));
+      });
       grunt.util.spawn({
         cmd : 'git',
         args: ['push', 'origin', 'feature/OLCS-' + target],
