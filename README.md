@@ -83,27 +83,27 @@ This is a basic task to compile the front end assets. Depending on the `env` arg
 $ grunt compile --env=prod
 ```
 
-#### `$ grunt compile:dev`
+##### `$ grunt compile:dev`
 
 This runs the `compile` task for a development environment (identical to running `grunt compile --env=dev`).
 
-#### `$ grunt compile:prod`
+##### `$ grunt compile:prod`
 
 This runs the `compile` task for a production environment (identical to running `grunt compile --env=prod`).
 
-#### `$ grunt lint`
+##### `$ grunt lint`
 
 Run JavaScript and Scss code linting tasks.
 
-#### `$ grunt serve`
+##### `$ grunt serve`
 
 Use this task to setup an environment for continuous development, automatically compiling assets on the fly. 
 
-#### `$ grunt test`
+##### `$ grunt test`
 
 Run JavaSript unit tests.
 
-#### `$ grunt test:single`
+##### `$ grunt test:single`
 
 Run a single JavaScript unit test for a specific component: `$ grunt test:single --target=componentName`
 
