@@ -598,7 +598,7 @@
     // Commit and push to Github develop branch
     grunt.registerTask('push-github-develop', [
       'git-add',
-      'git-commit:test',
+      'git-commit:"Pushing to Github"',
       'git-push:github:develop'
     ]);
     
