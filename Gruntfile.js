@@ -259,7 +259,11 @@
 
       assemble: {
         options: {
-          helpers: ['handlebars-helper-repeat']
+          helpers: [
+            'handlebars-helper-repeat', 
+            'handlebars-helper-asset'
+          ],
+          assets: 'public'
         },
         internal: {
           options: {
@@ -453,6 +457,25 @@
           ],
         },
         src: ['public/styleguides/**/*.html']
+      },
+
+      /**
+       * Github Pages
+       * https://github.com/tschaub/grunt-gh-pages
+       */
+        
+      'gh-pages': {
+        options: {
+          repo: 'https://github.com/OLCS/olcs-static.git',
+          message: 'automatic merge commit'
+        },
+        'gh-pages': {
+          options: {
+            base: 'public',
+            add: true
+          },
+          src: ['**', '!index.html', '!unit-testing']
+        }
       }
 
     }); // initConfig
@@ -483,7 +506,6 @@
       'clean:images',
       'svg2png',
       'dr-svg-sprites',
-      'lint',
       'sass:dev',
       'postcss',
       'uglify:dev',
@@ -495,8 +517,7 @@
       'lint',
       'sass:prod',
       'postcss',
-      'uglify:prod',
-      'assemble'
+      'uglify:prod'
     ]);
 
     grunt.registerTask('compile:live', [

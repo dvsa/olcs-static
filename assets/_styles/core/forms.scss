@@ -312,6 +312,9 @@ select {
   b & {
     font-weight: 600;
   }
+  &:hover {
+    color: $link-active-colour;
+  }
 }
 
 input,
