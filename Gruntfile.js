@@ -598,7 +598,7 @@
     // Commit and push to Github develop branch
     grunt.registerTask('push-github-develop', [
       'git-add',
-      'git-commit:"Pushing to Github"',
+      'git-commit:Pushing to Github',
       'git-push:github:develop'
     ]);
     
@@ -613,7 +613,7 @@
     // Commit and push to Github develop branch
     grunt.registerTask('push-feature', [
       'git-add',
-      'git-commit:"Pushing branch for feature "' + target,
+      'git-commit:Pushing branch for feature ' + target,
       'git-push:origin:feature/OLCS-' + target
     ]);
     
