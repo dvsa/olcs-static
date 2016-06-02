@@ -75,7 +75,7 @@ Desired partials are then imported into the appropriate theme to be processed.
 
 OLCS uses Grunt as the front end build tool, with all configuration being contained within `Gruntfile.js`. There are several pre-defined tasks which can be executed:
 
-##### `$ grunt compile`
+##### $ grunt compile
 
 This is a basic task to compile the front end assets. Depending on the `env` argument, which can either be `dev` (default) or `prod`, the compiled assets either will or won't be minified. You can pass the `env` argument when running this task like so:
 
@@ -83,27 +83,27 @@ This is a basic task to compile the front end assets. Depending on the `env` arg
 $ grunt compile --env=prod
 ```
 
-##### `$ grunt compile:dev`
+##### $ grunt compile:dev
 
 This runs the `compile` task for a development environment (identical to running `grunt compile --env=dev`).
 
-##### `$ grunt compile:prod`
+##### $ grunt compile:prod
 
 This runs the `compile` task for a production environment (identical to running `grunt compile --env=prod`).
 
-##### `$ grunt lint`
+##### $ grunt lint
 
 Run JavaScript and Scss code linting tasks.
 
-##### `$ grunt serve`
+##### $ grunt serve
 
 Use this task to setup an environment for continuous development, automatically compiling assets on the fly. 
 
-##### `$ grunt test`
+##### $ grunt test
 
 Run JavaSript unit tests.
 
-##### `$ grunt test:single`
+##### $ grunt test:single
 
 Run a single JavaScript unit test for a specific component: `$ grunt test:single --target=componentName`
 
