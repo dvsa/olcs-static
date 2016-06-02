@@ -613,7 +613,7 @@
     // Commit and push to Github develop branch
     grunt.registerTask('push-feature', [
       'git-add',
-      'git-commit:' + target,
+      'git-commit:"Pushing branch for feature "' + target,
       'git-push:origin:feature/OLCS-' + target
     ]);
     
