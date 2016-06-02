@@ -29,7 +29,7 @@
   }
 }
 
-[id="iframe-one"] {
+#iframe-one {
   top: 0;
   &.iframe--vertical {
     width: 100%;
@@ -46,7 +46,7 @@
   }
 }
 
-[id="iframe-two"] {
+#iframe-two {
   bottom: 0;
   right: 0;
   &.iframe--vertical {

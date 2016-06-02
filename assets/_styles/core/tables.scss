@@ -191,7 +191,7 @@ tfoot {
 
 // This hack is to break any long safety inspector names onto
 // two lines as per OLCS-11334
-[id="lva-safety"] {
+#lva-safety {
   td {
     max-width: 250px;
     > [type="submit"] {

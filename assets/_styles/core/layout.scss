@@ -27,7 +27,7 @@
   @extend %grid-row;
 }
 
-[id="main"] {
+#main {
   width: 100%;
   min-height: 450px;
 }
@@ -132,7 +132,7 @@
     max-width: $base-width;
   }
 
-  [id="main"]:focus {
+  #main:focus {
     outline: 0;
   }
 
@@ -151,7 +151,7 @@
     overflow-x: auto;
   }
 
-  [id="main"] {
+  #main {
     display: table;
     position: relative;
     margin: $gutter-half 0 $gutter;
