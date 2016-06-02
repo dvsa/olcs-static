@@ -596,12 +596,12 @@
     grunt.registerTask('push-feature', function() {
       grunt.util.spawn({
         cmd : 'git',
-        args: ['add', '.'],
-      });
+        args: ['add', '.']
+      }, 
       grunt.util.spawn({
         cmd : 'git',
         args: ['commit', '-m', 'Pushing feature branch OLCS ' + target],
-      });
+      }));
       grunt.util.spawn({
         cmd : 'git',
         args: ['push', 'origin', 'feature/OLCS-' + target],
