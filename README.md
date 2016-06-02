@@ -51,15 +51,25 @@ Access the compiled styleguides:
 
 #### JavaScript
 
-All JavaScript files are located within the `assets/_js` directory. This directory is further split up into the following three directories:
+All JavaScript files are located within the `assets/_js` directory. This directory is further split up into the following directories:
 
-* [components](/OLCS/olcs-static/tree/develop/assets/_js/components) (custom JS components)
-* [init](/OLCS/olcs-static/tree/develop/assets/_js/init) (initialise custom JS components)
-* [vendor](/OLCS/olcs-static/tree/develop/assets/_js/vendor) (third party JS)
+* [components](https://github.com/OLCS/olcs-static/tree/develop/assets/_js/components) (custom JS components)
+* [init](https://github.com/OLCS/olcs-static/tree/develop/assets/_js/init) (initialise custom JS components)
+* [vendor](https://github.com/OLCS/olcs-static/tree/develop/assets/_js/vendor) (third party JS)
 
 #### Sass/CSS
 
-*coming soon*
+All custom CSS is compiled from source *Scss* files which can be found in the `assets/_styles` directory. This directory is further split up into the following directories:
+
+* [components](https://github.com/OLCS/olcs-static/tree/develop/assets/_styles/components) (custom Sass components)
+* [core](https://github.com/OLCS/olcs-static/tree/develop/assets/_styles/core) (core Sass components)
+* [vendor](https://github.com/OLCS/olcs-static/tree/develop/assets/_styles/vendor) (thid party styles)
+* [views](https://github.com/OLCS/olcs-static/tree/develop/assets/_styles/views) (styles for specific views)
+
+Desired partials are then imported into the appropriate theme to be processed. 
+
+* [internal](https://github.com/OLCS/olcs-static/blob/develop/assets/_styles/themes/internal.scss)
+* [selfserve](https://github.com/OLCS/olcs-static/blob/develop/assets/_styles/themes/selfserve.scss)
 
 ## Grunt Tasks
 
