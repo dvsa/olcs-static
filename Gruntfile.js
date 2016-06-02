@@ -572,24 +572,27 @@
     // Git/command line tasks
     
     grunt.registerTask('git-add', function() {
+      var done = this.async();
       grunt.util.spawn({
         cmd : 'git',
-        args: ['add', '.'],
-      });
+        args: ['add', '.']
+      }, done);
     });
     
     grunt.registerTask('git-commit', function(message) {
+      var done = this.async();
       grunt.util.spawn({
         cmd : 'git',
-        args: ['commit', '-m', message],
-      });
+        args: ['commit', '-m', message]
+      }, done);
     });
     
     grunt.registerTask('git-push', function(origin, branch) {
+      var done = this.async();
       grunt.util.spawn({
         cmd : 'git',
-        args: ['push', origin, branch],
-      });
+        args: ['push', origin, branch]
+      }, done);
     });
 
     // Commit and push to Github develop branch
