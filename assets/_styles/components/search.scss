@@ -57,6 +57,9 @@
       // hack for IE8
       padding: 7px 12px\9;
       height: auto\9;
+      &:focus {
+        outline: 0;
+      }
     }
   }
 
