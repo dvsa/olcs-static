@@ -286,7 +286,7 @@ select {
     width: 99%;
     margin-right: 0;
   }
-  .field > & {
+  [class*="sidebar"] & {
     width: 100%;
   }
   &[multiple] {
