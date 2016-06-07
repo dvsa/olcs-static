@@ -3,14 +3,14 @@
  */
 
 .filters {
-  padding-top: .5em;
-  background: #FFF;
+  padding-top: 0.5em;
+  background: $white;
   font-weight: 400;
   @if $app == 'internal' {
     margin: 0.5em 0 -7px;
   }
   .field {
-    background: none !important;
+    background: none;
     &:not(:last-child) {
       margin-bottom: $gutter-half;
     }
@@ -23,20 +23,20 @@
     width: calc(100% - 2px);
     margin-left: 1px;
   }
-  input[type="search"] {
+  [type='search'] {
     width: 95%;
-    padding: .5em 2%;
+    padding: 0.5em 2%;
     display: block;
     margin-right: -20px;
   }
   .hint {
-    @extend .hint--small;
+    @extend %paragraph--small;
     width: 100%;
   }
   .vertical-navigation &,
   .app-navigation & {
-    border-top: 3px solid $primaryColour;
-    padding-top: .75em;
+    border-top: 3px solid $primary-colour;
+    padding-top: 0.75em;
     form {
       margin: 0;
     }
@@ -48,13 +48,13 @@
     h3 {
       cursor: pointer;
       &:before {
-        content: "►";
+        content: '►';
         font-size: 0.9em;
         margin-right: 0.25em;
       }
     }
     &.toggled h3:before {
-      content: "▼";
+      content: '▼';
     }
   }
   &:not(.toggled) {

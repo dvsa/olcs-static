@@ -1,13 +1,13 @@
 /**
  * Base
  *
- * The utmost core styles required for building a modern webapp that 
+ * The utmost core styles required for building a modern webapp that
  * may not necessarily be specific to OLCS.
  *
  * [1] = Document Wrapper
  * [2] = CSS Reset/Normalize
  */
- 
+
 /**
  * [1] - Document Wrapper
  * The document/application wrapper which contains the entire app
@@ -15,9 +15,8 @@
 
 html {
   font-size: 100%;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(black,0);
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba($black, 0);
   background: theme(
     $selfserve: $grey-3,
     $internal: $grey-4
@@ -26,7 +25,7 @@ html {
 
 body {
   margin: 0;
-  background: #FFF;
+  background: $white;
   font-weight: 400;
   color: $black;
   text-rendering: optimizeLegibility;
@@ -35,26 +34,25 @@ body {
   line-height: 1.31579;
   text-transform: none;
   vertical-align: baseline;
-  font-family: $NTA-Light;
+  font-family: $font--primary;
   font-size: theme(
     $selfserve: 100%,
     $internal: font-size(3)
   );
 }
 
- 
 /**
  * [2] - CSS Reset/Standardise
- * Reset any default styles applied by the browser and render any 
+ * Reset any default styles applied by the browser and render any
  * inconsistencies as consistent
  */
- 
-*, 
-*:before, 
+
+*,
+*:before,
 *:after {
   box-sizing: border-box;
 }
- 
+
 pre {
   overflow: auto;
 }
@@ -91,7 +89,7 @@ dd {
 dd {
   margin: 0 0 1em;
   float: left;
-  // for some reason Firefox seems to automatically add a :before 
+  // for some reason Firefox seems to automatically add a :before
   // pseudo element to dd items, which causes alignment issues
   &:before {
     display: none;
@@ -100,8 +98,50 @@ dd {
 
 hr {
   width: 100%;
-  height: .25em;
+  height: 0.25em;
   display: block;
   border: 0;
   clear: both;
+}
+
+input {
+  box-sizing: border-box;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  margin: 0;
+}
+
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+[type="checkbox"],
+[type="radio"] {
+  display: inline;
+  padding: 0;
+  border: 0;
+  margin-right: 0.5em;
+}
+
+[type="search"] {
+  -webkit-appearance: textfield;
+}
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
 }

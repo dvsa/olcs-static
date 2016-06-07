@@ -29,7 +29,8 @@
     color: $grey-1;
   }
   p {
-    margin: 10px 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
     float: left;
   }
 }
@@ -48,9 +49,9 @@ table {
   .summary & {
     margin-bottom: 0;
   }
-  input[type="checkbox"],
-  input[type="radio"] {
-    margin: .25em auto 0;
+  [type="checkbox"],
+  [type="radio"] {
+    margin: 0.25em auto 0;
     text-align: center;
     display: block;
     cursor: pointer;
@@ -60,7 +61,7 @@ table {
     text-align: left;
     font-size: font-size(4);
   }
-  input[type="submit"]:focus {
+  [type="submit"]:focus {
     border: 0;
     background: $yellow;
   }
@@ -74,28 +75,23 @@ tr {
   &.current {
     background: $light-blue-25;
   }
-}
-
-tr.disabled {
-  cursor: default;
-  input[type="submit"] {
+  &.disabled {
     cursor: default;
-    color: $grey-1;
-  }
-  input[disabled="disabled"] {
-    text-decoration: none;
-  }
-  input[type="submit"] {
-    cursor: default;
-    color: $grey-1;
-  }
-  a {
-    text-decoration: underline;
-  }
-  input[type="submit"]:hover,
-  a:hover {
-    cursor: pointer;
-    color: $black;
+    [type="submit"] {
+      cursor: default;
+      color: $grey-1;
+    }
+    [disabled="disabled"] {
+      text-decoration: none;
+    }
+    a {
+      text-decoration: underline;
+    }
+    [type="submit"]:hover,
+    a:hover {
+      cursor: pointer;
+      color: $black;
+    }
   }
 }
 
@@ -131,7 +127,7 @@ td {
     @extend %paragraph--small;
   }
   .right-aligned {
-    margin-left: .5em;
+    margin-left: 0.5em;
   }
 }
 
@@ -154,15 +150,15 @@ tfoot {
 
 .right {
   text-align: right;
-  input[type="checkbox"],
-  input[type="radio"] {
+  [type="checkbox"],
+  [type="radio"] {
     float: right;
     margin: 3px 0 7px 7px;
   }
 }
 
 .new {
-  color: $primaryColour;
+  color: $primary-colour;
   margin-right: 5px;
 }
 
@@ -173,7 +169,7 @@ tfoot {
 }
 
 .sortable {
-  padding: .5em 15px .5em 0;
+  padding: 0.5em 15px 0.5em 0;
   a {
     padding-right: 1em;
     color: $black;
@@ -181,7 +177,7 @@ tfoot {
     position: relative;
     &:after {
       @include svg('dropdown-down');
-      content: "";
+      content: '';
       position: absolute;
       display: inline-block;
       right: 0;
@@ -196,13 +192,13 @@ tfoot {
 // This hack is to break any long safety inspector names onto
 // two lines as per OLCS-11334
 #lva-safety {
-  td > [type="submit"] {
-    word-break: break-word;
-    text-align: left;
-    max-width: 100%;
-  }
   td {
     max-width: 250px;
+    > [type="submit"] {
+      word-break: break-word;
+      text-align: left;
+      max-width: 100%;
+    }
   }
 }
 
@@ -216,12 +212,13 @@ tfoot {
 // multiple rows
 .table--no-select {
   tr {
-    // 'user-select' is a non-standard feature but works
-    // in all browsers
+    // 'user-select' is a non-standard feature but works in all browsers
+    // scss-lint:disable VendorPrefix
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+    // scss-lint:enable VendorPrefix
     user-select: none;
   }
 }
@@ -262,7 +259,7 @@ tfoot {
 
   th,
   td {
-    padding: .5em .75em;
+    padding: 0.5em 0.75em;
   }
 
   th {
@@ -279,7 +276,7 @@ tfoot {
   }
 
   .sortable {
-    padding: .5em .75em;
+    padding: 0.5em 0.75em;
     background: $grey-4;
     a {
       padding: 0 1.25em 0 0;
@@ -292,7 +289,7 @@ tfoot {
   }
 
   .not-sortable {
-    padding: .5em .75em;
+    padding: 0.5em 0.75em;
   }
 
 }

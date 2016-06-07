@@ -19,22 +19,22 @@
   }
 
   &__select {
-    border: none;
+    border: 0;
     border-radius: 0;
     margin: 0;
     float: left;
-    border-right: 1px solid rgba(black, 0.1);
+    border-right: 1px solid rgba($black, 0.1);
     background-color: $grey-4;
     position: relative;
     &::after {
       @include svg('dropdown-down');
-      content: "";
+      content: '';
       display: block;
       position: absolute;
       top: 0;
       right: 0;
       pointer-events: none;
-      background-color: #f9f9f9;
+      background-color: $grey-4;
       background-position: 0 -88px;
       height: 32px;
       width: 18px;
@@ -43,20 +43,22 @@
       outline: none;
     }
     select {
-      -moz-appearance:none;
+      -moz-appearance: none;
       -webkit-appearance: none;
-      border: none;
+      border: 0;
       margin: 0;
       cursor: pointer;
       padding: 0 12px;
-      color: #767676;
+      color: $grey-1;
       display: inline-block;
       height: 32px;
       min-width: 150px;
-      font-family: $NTA-Light;
+      font-family: $font--primary;
       // hack for IE8
+      // scss-lint:disable DuplicateProperty
       padding: 7px 12px\9;
       height: auto\9;
+      // scss-lint:enable DuplicateProperty
     }
   }
 
@@ -68,14 +70,16 @@
     width: 220px;
     border: 0;
     height: 32px;
-    font-family: $NTA-Light;
-    &::placeholder {
-      color: #767676;
-      opacity:  1;
-    }
+    font-family: $font--primary;
     // hack for IE8
+    // scss-lint:disable DuplicateProperty
     padding: 8px 12px 7px\9;
     height: auto\9;
+    // scss-lint:enable DuplicateProperty
+    &::placeholder {
+      color: $grey-1;
+      opacity: 1;
+    }
   }
 
   &__input:focus {
@@ -85,19 +89,21 @@
   &__button,
   [type="submit"] {
     @include svg('internal-search');
-    background-color: $primaryColour;
+    background-color: $primary-colour;
     float: left;
     width: 2.5rem;
     height: 32px;
     border-radius: 0 3px 3px 0;
     border: 0;
     text-indent: -9999px;
+    // hack for IE8
+    // scss-lint:disable DuplicateProperty
+    text-indent: 0\9;
+    width: 36px\9;
+    // scss-lint:enable DuplicateProperty
     &:focus {
       outline: 0;
     }
-    // hack for IE8
-    text-indent: 0\9;
-    width: 36px\9;
     // temp hardcoded hack until internal search input is replaced
     // with a button tag
     @if $app == 'internal' {
@@ -109,7 +115,7 @@
     color: $white;
     float: left;
     margin-left: 1em;
-    margin-top: .5em;
+    margin-top: 0.5em;
     @media(max-width: breakpoint('break-3')) {
       display: none;
     }

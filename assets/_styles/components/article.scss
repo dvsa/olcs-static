@@ -8,7 +8,7 @@
 .article {
 
   color: $black;
-    
+
   p + h2,
   p + h3,
   p + h4,
@@ -20,9 +20,9 @@
   ul + h4 {
     margin-top: $gutter;
   }
-  
-  h2, 
-  h3, 
+
+  h2,
+  h3,
   h4 {
     margin-bottom: 0.75em;
   }
@@ -34,7 +34,7 @@
   }
 
   li {
-    margin-bottom: .125em;
+    margin-bottom: 0.125em;
     @if $app == 'internal' {
       font-size: font-size(3);
     }

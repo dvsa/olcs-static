@@ -10,17 +10,17 @@
   }
   form {
     box-shadow: 0 1px 5px $grey-3;
-    background: #FFF;
+    background: $white;
     max-width: 400px;
     margin: 40px auto;
     padding: 20px 32px 0 30px;
     float: none;
     overflow: auto;
   }
-  input[type=text],
-  input[type=password] {
+  [type="text"],
+  [type="password"] {
     width: 100%;
-    padding: .5em 3%;
+    padding: 0.5em 3%;
   }
   label {
     float: left;

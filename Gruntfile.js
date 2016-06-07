@@ -8,7 +8,7 @@
    * read documentation on the Wiki @ https://wiki.i-env.net/
    */
 
-  "use strict";
+  'use strict';
 
   module.exports = function(grunt) {
 
@@ -22,12 +22,49 @@
 
     // Set any global grunt configuration
     var globalConfig = {};
-
+    
+    // Set development environment to determine asset minification
+    var env = grunt.option('env') || 'dev';
+    
     // Setup param to access via command line
     var target = grunt.option('target');
-
+    
     // Set the location for the public images directory
     var pubImages = 'public/images';
+
+    // Function to get all scripts for use with a given theme
+    var scriptPaths = function(theme) {
+      var files = [
+        'assets/_js/vendor/jquery.1.11.0.js',
+        'assets/_js/vendor/chosen.jquery.min.js',
+        'assets/_js/vendor/jquery.details.min.js',
+        'assets/_js/components/*.js',
+        'assets/_js/' + theme + '/*.js',
+        'assets/_js/init/common.js',
+        'assets/_js/init/' + theme + '.js'
+      ];
+      if (theme == 'internal') {
+          files.push(
+            'assets/_js/vendor/pace.min.js'
+          );
+      };
+      return files;
+    };
+
+    // Function to get which file(s) should be used to run JS tests
+    var testFiles = function(theme) {
+      var files = [
+        'node_modules/sinon/lib/sinon.js',
+        'node_modules/sinon/lib/sinon/spy.js',
+        'node_modules/sinon/lib/sinon/**/*.js',
+        'assets/_js/vendor/jquery.1.11.0.js',
+        'assets/_js/vendor/**/*.js',
+        'assets/_js/components/*.js',
+        'test/js/setup.js',
+        'test/js/**/' + theme +  '.test.js'
+      ];
+      return files;
+    }
 
     // Define the theme stylesheets
     var styles = {
@@ -36,62 +73,44 @@
       'public/styles/internal.css'  : 'assets/_styles/themes/internal.scss'
     };
 
-    // Function to get all scripts for use with a given theme
-    var scriptPaths = function(path) {
-      var paths;
-      return paths = [
-        "assets/_js/vendor/jquery.1.11.0.js",
-        //"assets/_js/vendor/select2.full.min.js",
-        "assets/_js/vendor/chosen.jquery.min.js",
-        "assets/_js/vendor/jquery.details.min.js",
-        "assets/_js/components/*.js",
-        "assets/_js/" + path + "/*.js",
-        "assets/_js/init/common.js",
-        "assets/_js/init/" + path + ".js"
-      ];
-    };
-
     // Define the main JS files for each theme, using the above function
     var scripts = {
-      "public/js/internal.js"  : [
-        scriptPaths("internal"), "assets/_js/vendor/pace.min.js"
-      ],
-      "public/js/selfserve.js" : scriptPaths("selfserve")
+      'public/js/internal.js'       : scriptPaths('internal'),
+      'public/js/selfserve.js'      : scriptPaths('selfserve')
     };
-
-    // Function to get which file(s) should be used to run JS tests
-    var testFiles = function(path) {
-      var paths;
-      return paths = [
-        "node_modules/sinon/lib/sinon.js",
-        "node_modules/sinon/lib/sinon/spy.js",
-        "node_modules/sinon/lib/sinon/**/*.js",
-        "assets/_js/vendor/jquery.1.11.0.js",
-        "assets/_js/vendor/**/*.js",
-        "assets/_js/components/*.js",
-        "test/js/setup.js",
-        "test/js/**/" + path +  ".test.js"
-      ];
-    }
 
     /**
      * Grunt Tasks
      *
-     * List of all separate Grunt tasks used by OLCS-Static,
-     * including a link to the public repo and minimum required
-     * version number.
+     * List of all separate Grunt tasks used by OLCS-Static
+     * 
+     * - sass
+     * - postcss
+     * - copy
+     * - clean
+     * - svg2png
+     * - 'dr-svg-sprites'
+     * - assemble
+     * - browserSync
+     * - uglify
+     * - jshint
+     * - scsslint
+     * - notify
+     * - watch
+     * - karma
+     * - localscreenshots
+     * - 'gh-pages'
      */
 
     grunt.initConfig({
 
       // Set any global configuration
-      globalConfig: globalConfig,
+      globalConfig : globalConfig,
 
       /**
        * Sass
        * https://github.com/sindresorhus/grunt-sass
        */
-
       sass: {
         dev: {
           options: {
@@ -113,7 +132,6 @@
        * Post CSS
        * https://github.com/nDmitry/grunt-postcss
        */
-
       postcss: {
         options: {
           processors: [
@@ -150,7 +168,6 @@
        * Copy
        * https://github.com/gruntjs/grunt-contrib-copy
        */
-
       copy: {
         prototype: {
           files: [
@@ -196,7 +213,6 @@
        * Clean
        * https://github.com/gruntjs/grunt-contrib-clean
        */
-
       clean: {
         styleguide: {
           src: 'public/styleguides/**/*.html'
@@ -221,7 +237,6 @@
        * grunt-svg2png
        * https://github.com/dbushell/grunt-svg2png
        */
-
       svg2png: {
         all: {
           files: [{
@@ -237,8 +252,7 @@
        * grunt-dr-svg-sprites
        * https://github.com/drdk/grunt-dr-svg-sprites
        */
-
-      "dr-svg-sprites": {
+      'dr-svg-sprites': {
         application: {
           options: {
             previewPath: 'public/styleguides',
@@ -256,7 +270,6 @@
        * Assemble
        * https://github.com/assemble/grunt-assemble
        */
-
       assemble: {
         options: {
           helpers: [
@@ -293,7 +306,6 @@
        * Browser Sync
        * https://github.com/BrowserSync/grunt-browser-sync
        */
-
       browserSync: {
         bsFiles: {
           src: ['public/**/*.css', 'public/**/*.html']
@@ -319,7 +331,6 @@
        * Uglify
        * https://github.com/gruntjs/grunt-contrib-uglify
        */
-
       uglify: {
         dev: {
           options: {
@@ -334,7 +345,7 @@
           options: {
             sourceMap: false,
             compress: {
-              pure_funcs: ["OLCS.logger"]
+              pure_funcs: ['OLCS.logger']
             }
           },
           files: scripts
@@ -345,37 +356,37 @@
        * JSHint
        * https://github.com/gruntjs/grunt-contrib-jshint
        */
-
       jshint: {
         options: {
-          jshintrc: ".jshintrc"
+          jshintrc: '.jshintrc'
         },
-        "static": ["assets/_js/**/*.js", "!assets/_js/**/vendor/*"],
+        'static': ['assets/_js/**/*.js', '!assets/_js/**/vendor/*'],
         apps: [
-          "../olcs-common/Common/src/Common/assets/js/inline/**/*.js",
-          "../olcs-internal/module/*/assets/js/inline/**/*.js",
-          "../olcs-selfserve/module/*/assets/js/inline/**/*.js"
+          '../olcs-common/Common/src/Common/assets/js/inline/**/*.js',
+          '../olcs-internal/module/*/assets/js/inline/**/*.js',
+          '../olcs-selfserve/module/*/assets/js/inline/**/*.js'
         ]
       },
 
       /**
        * SCSS-Lint
-       * https://github.com/brigade/scss-lint
+       * https://github.com/ahmednuaman/grunt-scss-lint
        */
-
       scsslint: {
         allFiles: [
           'assets/_styles/**/*.scss',
-          '!assets/_styles/vendor/**/*'
+          '!assets/_styles/vendor/**/*',
+          '!assets/_styles/core/icon-sprite.scss'
         ],
-        options: {}
+        options: {
+          config: '.scss-lint.yml'
+        }
       },
 
       /**
        * Notify
        * https://github.com/dylang/grunt-notify
        */
-
       notify: {
         options: {
           sucess: false
@@ -386,7 +397,6 @@
        * Watch
        * https://github.com/gruntjs/grunt-contrib-watch
        */
-
       watch: {
         options: {
           livereload: true,
@@ -414,17 +424,16 @@
        * Karma
        * https://github.com/karma-runner/grunt-karma
        */
-
       karma: {
         options: {
-          browsers: ["PhantomJS"],
-          configFile: "karma.conf.js",
+          browsers: ['PhantomJS'],
+          configFile: 'karma.conf.js',
           singleRun: true,
-          files: testFiles("*"),
-          reporters: ["mocha", "coverage", "junit"]
+          files: testFiles('*'),
+          reporters: ['mocha', 'coverage', 'junit']
         },
         test: {
-          reporters: ["mocha", "coverage", "junit"]
+          reporters: ['mocha', 'coverage', 'junit']
         },
         ci: {
           colors: false
@@ -443,10 +452,9 @@
        * @NOTE: You'll need PhantomJs installed locally to get
        * this task to work
        */
-
       localscreenshots: {
         options: {
-          path: 'styleguides/screenshots',
+          path: 'styleguides/screenshots/' + target,
           type: 'png',
           local : {
             path: 'public',
@@ -463,7 +471,6 @@
        * Github Pages
        * https://github.com/tschaub/grunt-gh-pages
        */
-        
       'gh-pages': {
         options: {
           repo: 'https://github.com/OLCS/olcs-static.git',
@@ -474,71 +481,74 @@
             base: 'public',
             add: true
           },
-          src: ['**', '!index.html', '!unit-testing']
+          src: ['**/*', '!index.html', '!unit-testing/**']
         }
       }
 
     }); // initConfig
 
     /**
-     * Load NPM Tasks
-     *
-     * This uses 'matchdep' to get all available grunt tasks and
-     * loads them automatically.
+     * Load all NPM tasks automatically using 'matchdep'
      */
-
     require('matchdep').filterAll([
       'grunt-*', '!grunt-cli', 'assemble'
     ]).forEach(grunt.loadNpmTasks);
-
+    
     /**
-     * Register Compilation Environments
+     * Register Grunt Tasks
      *
      * The below tasks are for compiling the app for various
      * scenarios and environments.
      */
 
-    grunt.registerTask('default', [
-      'serve'
-    ]);
+    // Default grunt task
+    grunt.registerTask('default', 'serve');
+    
+    // Function to compile the app
+    var compile = function(environment) {
+      var tasks = [
+        'sass:' + environment,
+        'postcss',
+        'uglify:' + environment
+      ];
+      if (environment == 'dev') {
+        tasks.push(
+          'clean:images',
+          'svg2png',
+          'dr-svg-sprites',
+          'copy:images',
+          'assemble'
+        );
+      };
+      if (environment == 'prod') {
+        tasks.push();
+      };
+      return tasks;
+    };
 
-    grunt.registerTask('compile:dev', [
-      'clean:images',
-      'svg2png',
-      'dr-svg-sprites',
-      'sass:dev',
-      'postcss',
-      'uglify:dev',
-      'copy:images',
-      'assemble'
-    ]);
-
-    grunt.registerTask('compile:staging', [
-      'lint',
-      'sass:prod',
-      'postcss',
-      'uglify:prod'
-    ]);
-
-    grunt.registerTask('compile:live', [
-      'sass:prod',
-      'postcss',
-      'uglify:prod'
-    ]);
-
-    /**
-     * Register General Tasks
-     *
-     * Register tasks for compiling, serving and testing code
-     */
+    // Compile the app using targeted environment
+    // $ grunt compile --env=prod
+    grunt.registerTask('compile', 
+        compile(env)
+    );
+    
+    // Compile the app for development environment
+    grunt.registerTask('compile:dev', 
+        compile('dev')
+    );
+    
+    // Compile the app for production environment
+    grunt.registerTask('compile:prod',
+        compile('prod')
+    );
 
     // JS/SCSS Linting
     grunt.registerTask('lint', [
       'jshint:static',
-      //'scsslint'
+      'scsslint'
     ]);
 
-    // Browser Sync
+    // Serve the app for a development environment
     grunt.registerTask('serve', [
       'notify',
       'compile:dev',
@@ -546,27 +556,83 @@
       'watch'
     ]);
 
-    // Karma
+    // Run unit tests
     grunt.registerTask('test', [
       'karma:test'
     ]);
 
-    grunt.registerTask('test:ci', ['karma:ci']);
+    grunt.registerTask('test:ci', 'karma:ci');
 
-    // To run an idividual component spec use:
+    // Run single unit test
     // $ grunt test:single --target=componentName
     grunt.registerTask('test:single', [
       'karma:single:' + target
     ]);
+    
+    // Git/command line tasks
+    
+    grunt.registerTask('git-add', function() {
+      var done = this.async();
+      grunt.util.spawn({
+        cmd : 'git',
+        args: ['add', '.']
+      }, done);
+    });
+    
+    grunt.registerTask('git-commit', function(message) {
+      var done = this.async();
+      grunt.util.spawn({
+        cmd : 'git',
+        args: ['commit', '-m', message]
+      }, done);
+    });
+    
+    grunt.registerTask('git-push', function(origin, branch) {
+      var done = this.async();
+      grunt.util.spawn({
+        cmd : 'git',
+        args: ['push', origin, branch]
+      }, done);
+    });
 
-    /**
-     * Prototype
-     * To create/update an individual prototype use:
-     * $ grunt prototype --target=prototypeName
-     */
+    // Commit and push to Github develop branch
+    grunt.registerTask('push-github-develop', [
+      'git-add',
+      'git-commit:"Pushing to Github"',
+      'git-push:github:develop'
+    ]);
+    
+    //Compile, commit/push to github, and update github pages
+    grunt.registerTask('github', [
+      'compile:dev',
+      'gh-pages',
+      'push-github-develop'
+    ]);
+    
+    // Push a feature branch, used by the below 'submit' task
+    // Commit and push to Github develop branch
+    grunt.registerTask('push-feature', [
+      'git-add',
+      'git-commit:Pushing branch for feature ' + target,
+      'git-push:origin:feature/OLCS-' + target
+    ]);
+    
+    // Submit a story for review
+    // $ grunt submit --target=12835
+    grunt.registerTask('submit', [
+      'lint',
+      'test',
+      'push-feature',
+      'gh-pages',
+      'push-github-develop',
+      'localscreenshots'
+    ]);
+
+    // Create a prototype
+    // $ grunt prototype --target=prototypeName
     grunt.registerTask('prototype', [
-      'clean:prototype:'+ target,
-      'copy:prototype:'+ target
+      'clean:prototype:' + target,
+      'copy:prototype:' + target
     ]);
 
     /**
@@ -578,9 +644,17 @@
      * new stuff; instead we just add it to this task and we're done
      */
 
-    grunt.registerTask('build:staging', ['test:ci', 'compile:staging']);
-    grunt.registerTask('build:demo', ['test:ci', 'compile:live']);
-    grunt.registerTask('build:live', ['compile:live']);
+    grunt.registerTask('build:staging', [
+      'test:ci', 'compile:prod', 'lint'
+    ]);
+    
+    grunt.registerTask('build:demo', [
+      'test:ci', 'compile:prod'
+    ]);
+    
+    grunt.registerTask('build:live', [
+      'compile:prod'
+    ]);
 
   };
 

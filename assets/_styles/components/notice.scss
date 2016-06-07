@@ -2,11 +2,16 @@
  * Notices
  */
 
+$notice--success : #3C763D;
+$notice--warning : #8A6D3B;
+$notice--info    : #31708F;
+$notice--danger  : #A94442;
+
 %notice {
   border-radius: 2px;
   overflow: auto;
   padding: 7px 15px 6px;
-  margin-bottom: .25em;
+  margin-bottom: 0.25em;
   p {
     @extend %paragraph--small;
     margin: 0;
@@ -64,15 +69,15 @@
 
 .notice {
   &--success {
-    @include notice(#3C763D);
+    @include notice($notice--success);
   }
   &--warning {
-    @include notice(#8A6D3B);
+    @include notice($notice--warning);
   }
   &--info {
-    @include notice(#31708F);
+    @include notice($notice--info);
   }
   &--danger {
-    @include notice(#A94442);
+    @include notice($notice--danger);
   }
 }
