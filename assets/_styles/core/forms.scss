@@ -236,6 +236,9 @@ select {
     width: 99%;
     margin-right: 0;
   }
+  [class*="sidebar"] & {
+    width: 100%;
+  }
   &[multiple] {
     @extend %paragraph--tiny;
     min-width: 200px;
