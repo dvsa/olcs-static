@@ -22,8 +22,7 @@
     "karma-phantomjs-launcher": "~0.1.4",
     "matchdep": "^0.3.0",
     "mocha": "~1.18.2",
-    "sinon": "~1.10.0",
-    "grunt-scss-lint": "^0.3.8"
+    "sinon": "~1.10.0"
   },
   "devDependencies": {
     "assemble": "^0.4.42",
@@ -37,6 +36,7 @@
     "handlebars-helper-asset": "^0.1.0",
     "grunt-gh-pages": "^1.1.0",
     "grunt-localscreenshots": "^1.0.0",
-    "grunt-notify": "^0.4.1"
+    "grunt-notify": "^0.4.1",
+    "grunt-scss-lint": "^0.3.8"
   }
 }

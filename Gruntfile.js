@@ -645,7 +645,7 @@
      */
 
     grunt.registerTask('build:staging', [
-      'test:ci', 'compile:prod', 'lint'
+      'test:ci', 'compile:prod', 'jshint:static'
     ]);
     
     grunt.registerTask('build:demo', [
