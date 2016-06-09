@@ -100,7 +100,20 @@ button {
   }
   &--secondary {
     @extend %action-box;
-    @include action-colour($grey-3);
+    @if $app == 'selfserve' {
+      @include action-colour($grey-3);
+    }
+    @if $app == 'internal' {
+      @include action-colour($grey-4);
+      border: 1px solid darken($grey-4, 10%);
+      color: $govuk-blue;
+      &:link,
+      &:hover,
+      &:focus,
+      &:visited {
+        color: $govuk-blue;
+      }
+    }
   }
   &--tertiary {
     color: $link-colour;
@@ -271,18 +284,6 @@ button {
   .action--primary {
     @include action-colour($green);
     border: 1px solid transparent;
-  }
-
-  .action--secondary {
-    @include action-colour($grey-4);
-    border: 1px solid darken($grey-4, 10%);
-    color: $govuk-blue;
-    &:link,
-    &:hover,
-    &:focus,
-    &:visited {
-      color: $govuk-blue;
-    }
   }
 
   .action--tertiary {
