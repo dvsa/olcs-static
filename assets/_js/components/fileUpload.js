@@ -43,7 +43,6 @@ OLCS.fileUpload = (function(document, $, undefined) {
     function handleResponse(response, index) {
       var originalUploader = ".file-uploader:eq("+index+")";
       var updatedUploader  = $(response).find(originalUploader);
-      console.log(updatedUploader);
       F.render(originalUploader, updatedUploader[0].innerHTML);
     }
 
@@ -56,11 +55,12 @@ OLCS.fileUpload = (function(document, $, undefined) {
     });
 
     function upload(form, container, index, file) {
-      var fd             = new FormData(form.get(0));
+      var fd             = new FormData();
       var xhr            = new XMLHttpRequest();
       var kbSize         = Math.round(file.size / 1024);
       var name           = $(container).data("group");
       var containerIndex = $(container).index(containerSelector);
+      var sectionIdVal   = form.find("[name='sectionId']").val();
 
       OLCS.logger.debug("Uploading file " + file.name + " (" + file.type + ")", "fileUpload");
 
@@ -102,6 +102,11 @@ OLCS.fileUpload = (function(document, $, undefined) {
         }
       };
 
+      if (sectionId) {
+        fd.append('sectionId',sectionIdVal);
+      }
+
+      fd.append(name + "[file]", file);
       fd.append(name + "[upload]", "Upload");
 
       xhr.open(
