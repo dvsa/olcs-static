@@ -103,7 +103,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
       };
 
       if (sectionIdVal) {
-        fd.append('sectionId',sectionIdVal);
+        fd.append("sectionId",sectionIdVal);
       }
 
       fd.append(name + "[file]", file);
