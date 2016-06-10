@@ -52,7 +52,7 @@ OLCS.modal = (function(document, $, undefined) {
     if ('ontouchstart' in window) {
       $(document).on('focus', inputs, function() {
         $(wrapper).css('position', 'absolute');
-      }).on('blur', 'textarea,input,select', function() {
+      }).on('blur', inputs, function() {
         $(wrapper).css('position', '');
       });
     }
@@ -70,7 +70,7 @@ OLCS.modal = (function(document, $, undefined) {
     $(content).html(body);
 
     // now we've got everything we need it's time to show it
-    $(wrapper +','+overlay).show();
+    $(wrapper + ',' + overlay).show();
 
     // focus on the modal itself
     $(selector).focus();
