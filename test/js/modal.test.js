@@ -99,6 +99,7 @@ describe('OLCS.modal', function() {
     });
 
     describe('When clicking the modal close button', function() {
+
       beforeEach(function() {
         this.spy = sinon.stub(this.component, 'hide');
         $('.modal__close').trigger('click');
@@ -110,6 +111,21 @@ describe('OLCS.modal', function() {
 
       it('invokes the modal’s hide method', function() {
         expect(this.spy.called).to.be(true);
+      });
+
+    });
+
+    describe('when pressing the Esc button', function() {
+
+      beforeEach(function() {
+        $(document).trigger({
+          type: 'keyup',
+          which: 27
+        }); 
+      });
+
+      it('hides the modal', function() {
+        expect($('.modal__wrapper').is(':visible')).to.be(false);
       });
 
     });
@@ -147,24 +163,13 @@ describe('OLCS.modal', function() {
   }); // Simulate mobile experience
 
   describe('When invoked', function() {
-
+    
     beforeEach(function() {
-      this.component.isVisible = true;
-    });
-
-    describe('and the Esc button is pressed', function() {
-
-      beforeEach(function() {
-        $(document).trigger({
-          type: 'keyup',
-          which: 27
-        }); 
-      });
-
-      it('hides the modal', function() {
-        expect($('.modal__wrapper').is(':visible')).to.be(false);
-      });
-
+      $('body').append([
+        '<div class=modal__wrapper>',
+          '<input type="text" />',
+        '</div>'
+      ].join('\n'));
     });
 
   }); // Simulate mobile experience
