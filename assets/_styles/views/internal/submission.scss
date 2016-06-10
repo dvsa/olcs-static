@@ -7,31 +7,38 @@
   padding: 4px 10px 5px;
 }
 
+
 .attach-comment {
   position: relative;
-  float: left;
+  display: inline-block;
   width: 100%;
-  margin: -10px 0 20px;
+  margin: 0 0 20px;
+
   form,
   fieldset,
   .attach-action__list {
     margin-bottom: 0;
   }
-  .js-upload-list {
-    margin-bottom: 15px;
+  .attach-action__label {
+    margin-left: 135px;
   }
   .attach-action__hint {
     display: none;
   }
-  form + & {
-    margin-top: -20px;
+  .js-upload-list {
+    clear: both;
+    margin-bottom: 15px;
   }
+  form + & {
+    margin-top: -30px;
+  }
+
 }
 
 .attach-comment__button {
   display: inline-block;
   position: absolute;
-  left: 140px;
+  left: 0;
   top: 0;
   text-align: center;
   white-space: nowrap;
