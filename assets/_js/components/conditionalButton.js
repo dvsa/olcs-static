@@ -9,6 +9,7 @@ OLCS.conditionalButton = (function(document, $, undefined) {
   "use strict";
 
   return function init(options) {
+    
     var selector;
     var filter;
 
