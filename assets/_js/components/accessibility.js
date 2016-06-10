@@ -13,12 +13,10 @@ var OLCS = OLCS || {};
   return function init(custom) {
 
     var options = $.extend({
-
       errorContainer : '#validationSummary',
       skipTrigger    : '#skipToContent',
       skipTarget     : '#main',
       inputLabels    : '[type="radio"], [type="checkbox"], [type="file"]'
-
     }, custom);
 
     // Run the code on each "render" of the page
