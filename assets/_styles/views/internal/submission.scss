@@ -1,31 +1,36 @@
 /**
  * Submission
  */
-
-.js-enabled .submission .attach-action__label {
-  font-size: 15px;
-  padding: 4px 10px 5px;
+.submission .empty__wrapper {
+  margin-bottom: $gutter-half;
 }
 
 .attach-comment {
   position: relative;
-  float: left;
+  display: inline-block;
   width: 100%;
-  margin: -10px 0 20px;
+  margin: 0 0 20px;
   form,
   fieldset,
   .attach-action__list {
     margin-bottom: 0;
   }
-  .js-upload-list {
-    margin-bottom: 15px;
-  }
   .attach-action__hint {
     display: none;
   }
-  form + & {
-    margin-top: -20px;
+  .js-upload-list {
+    clear: both;
+    margin-bottom: 15px;
   }
+  form + & {
+    margin-top: -$gutter;
+  }
+}
+
+.submission-section__header {
+  padding-bottom: $gutter-one-third;
+  margin-bottom: $gutter-half;
+  border-bottom: 1px solid $grey-3;
 }
 
 .attach-comment__button {
