@@ -60,19 +60,37 @@ describe('OLCS.conditionalButton', function() {
 
     }); // when initialised with valid options
 
-    describe('when initialised with invalid options', function() {
+    describe('when initialised with both label and selector options', function() {
+
+      beforeEach(function() {
+        try {
+          this.component({
+            label : '#foo',
+            selector : '#foo'
+          });
+        } catch(e) {
+          this.error = e;
+        }
+      });
+
+      it('throws the correct error', function() {
+        expect(this.error.message).to.equal('\'label\' and \'selector\' are mutually exclusive');
+      });
+
+    }); // when initialised with both label and selector options
+
+    describe('when initialised with a label option', function() {
 
       beforeEach(function() {
         this.component({
-          label : '#foo',
-          selector : '#foo'
+          label : '#foo'
         });
       });
 
-      it('throws an error', function() {
+      it('', function() {
       });
 
-    }); // when initialised with invalid options
+    }); // when initialised with a label option
 
   }); // Given a stubbed DOM
 
