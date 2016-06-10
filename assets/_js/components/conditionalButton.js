@@ -9,15 +9,13 @@ OLCS.conditionalButton = (function(document, $, undefined) {
   "use strict";
 
   return function init(options) {
-    
-    var selector;
-    var filter;
 
     if (options.label && options.selector) {
       throw new Error("'label' and 'selector' are mutually exclusive");
     }
 
-    selector = options.container || options.form;
+    var filter;
+    var selector = options.container || options.form;
 
     if (options.label) {
       filter = "[value='" + options.label + "']";
@@ -32,7 +30,9 @@ OLCS.conditionalButton = (function(document, $, undefined) {
     if ($.isPlainObject(predicate)) {
       predicate = OLCS.complexPredicate(predicate);
     }
+
     function checkButton(context) {
+
       var button;
       var checkedInputs;
 
@@ -40,7 +40,6 @@ OLCS.conditionalButton = (function(document, $, undefined) {
 
       if (button.length) {
         checkedInputs = $(context).find(checkedSelector);
-
         predicate(checkedInputs.length, function(enabled) {
           if (enabled) {
             button.removeAttr("disabled");
@@ -49,6 +48,7 @@ OLCS.conditionalButton = (function(document, $, undefined) {
           }
         }, checkedInputs);
       }
+
     }
 
     $(document).on("change", selector, function() {
@@ -62,6 +62,7 @@ OLCS.conditionalButton = (function(document, $, undefined) {
     // Make sure any time the parent page is re-rendered we give our
     // conditional buttons a kick
     OLCS.eventEmitter.on("render", setup);
+
   };
 
 }(document, window.jQuery));

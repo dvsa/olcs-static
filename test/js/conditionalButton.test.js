@@ -92,6 +92,21 @@ describe('OLCS.conditionalButton', function() {
 
     }); // when initialised with a label option
 
+    describe('when initialised with a predicate option', function() {
+
+      beforeEach(function() {
+        this.component({
+          predicate : function(length, callback) {
+            callback(length === 1);
+          }
+        });
+      });
+
+      it('', function() {
+      });
+
+    }); // when initialised with a predicate option
+
   }); // Given a stubbed DOM
 
 });
