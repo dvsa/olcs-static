@@ -60,6 +60,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
       var kbSize         = Math.round(file.size / 1024);
       var name           = $(container).data("group");
       var containerIndex = $(container).index(containerSelector);
+      var sectionIdVal   = form.find("[name='sectionId']").val();
 
       OLCS.logger.debug("Uploading file " + file.name + " (" + file.type + ")", "fileUpload");
 
@@ -100,6 +101,10 @@ OLCS.fileUpload = (function(document, $, undefined) {
 
         }
       };
+
+      if (sectionIdVal) {
+        fd.append("sectionId",sectionIdVal);
+      }
 
       fd.append(name + "[file]", file);
       fd.append(name + "[upload]", "Upload");

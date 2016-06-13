@@ -3,16 +3,16 @@
  */
 
 .review {
-  background: #FFF;
+  background: $white;
   body {
-    background: #FFF;
+    background: $white;
     margin: 0 auto;
     max-width: 860px;
   }
 }
 
 .review-header {
-  padding: 100px 0 50px 0;
+  padding: 100px 0 50px;
   width: 70%;
 }
 
@@ -28,6 +28,6 @@
   p {
     @extend %paragraph--small;
     max-width: 700px;
-    margin-bottom: .6em;
+    margin-bottom: 0.6em;
   }
 }

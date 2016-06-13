@@ -118,7 +118,7 @@ OLCS.splitScreen = (function(document, $, undefined) {
 
       mainFrame.attr('class', 'iframe--' + orientation);
       sideFrame.attr('class', 'iframe--' + orientation);
-      panel.attr('class', 'iframe-controls ' + orientation);
+      panel.attr('class', 'iframe-controls iframe-controls--' + orientation);
 
       updateHashFragment();
     }

@@ -3,11 +3,11 @@
  */
 
 .page-header {
- 
+
   /**
   * Selfserve only styles
   */
-  
+
   @if $app == 'selfserve' {
 
     position: relative;
@@ -23,7 +23,6 @@
     }
 
     &.two-thirds {
-      @extend .two-thirds;
       border-bottom: 1px solid $grey-2;
       margin-top: 3em;
       padding-bottom: 2em;
@@ -81,10 +80,10 @@
     overflow: hidden;
     padding-bottom: 10px;
     &__wrapper {
-      @extend .page-wrapper;
+      @extend %page-wrapper;
     }
     &__subtitle {
-      @include font-size(15px,15px,11pt);
+      @include font-size(15px, 15px, 11pt);
       color: $grey-1;
       font-weight: 400;
       display: inline;
@@ -94,5 +93,5 @@
       }
     }
   }// internal
-  
+
 }// .page-header

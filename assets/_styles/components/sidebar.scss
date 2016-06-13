@@ -14,24 +14,25 @@
 
   .meta {
     float: left;
-    border: none;
+    border: 0;
     margin: 1em 0;
     padding-bottom: 1em;
     border-bottom: 1px solid $grey-2;
-    dt, dd {
-      border: none;
+    dt,
+    dd {
+      border: 0;
       display: block;
       width: 100%;
       padding: 0;
     }
     dd {
       @extend %h4;
-      padding: 0 0 .5em 0;
+      padding-bottom: 0.5em;
     }
   }
 
   .links {
-    padding: 1em 0 2em 0;
+    padding: 1em 0 2em;
   }
 
   .support {
@@ -47,7 +48,7 @@
     margin-top: 1.25em;
     list-style: none;
     &__item {
-      margin-bottom: .5em;
+      margin-bottom: 0.5em;
     }
   }
 

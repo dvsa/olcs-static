@@ -38,24 +38,16 @@ OLCS.ready(function() {
       height : 260,
       content_css : "/tinymce/skins/lightgray/custom.css",
       style_formats: [
-        {title: "Headers", items: [
-          {title: "Header 1", format: "h1"},
-          {title: "Header 2", format: "h2"},
-          {title: "Header 3", format: "h3"}
-        ]},
-        {title: "Inline", items: [
-          {title: "Bold", icon: "bold", format: "bold"},
-          {title: "Italic", icon: "italic", format: "italic"},
-          {title: "Underline", icon: "underline", format: "underline"},
-          {title: "Strikethrough", icon: "strikethrough", format: "strikethrough"}
-        ]}
+        {title: "Header 1", format: "h1"},
+        {title: "Header 2", format: "h2"},
+        {title: "Header 3", format: "h3"}
       ],
       plugins: [
         "lists charmap",
         "searchreplace",
         "contextmenu paste spellchecker"
       ],
-      toolbar: "styleselect | bold italic | bullist numlist | spellchecker"
+      toolbar: "styleselect | bold italic underline | bullist numlist | indent outdent | spellchecker"
     });
   });
 });

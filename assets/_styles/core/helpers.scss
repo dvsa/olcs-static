@@ -5,10 +5,13 @@
  * elements to provide them with extra functionality
  */
 
+// scss-lint:disable ImportantRule
+
 .disable-scroll {
   overflow: hidden;
 }
 
+%visually-hidden,
 .visually-hidden {
   position: absolute;
   left: -9999em;
@@ -24,7 +27,7 @@
 
 .inline {
   float: left;
-  margin-right: .5em;
+  margin-right: 0.5em;
 }
 
 .centered {
@@ -39,7 +42,7 @@
 
 .js-enabled {
   .js-visually-hidden {
-    @extend .visually-hidden;
+    @extend %visually-hidden;
   }
   .js-hidden {
     display: none;
@@ -48,3 +51,5 @@
     display: block;
   }
 }
+
+// scss-lint:enable ImportantRule

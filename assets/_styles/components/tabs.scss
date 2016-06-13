@@ -20,8 +20,8 @@
   }
   a {
     display: block;
-    margin: 4px 2px 3px 2px;
-    padding: 9px 15px 8px 15px;
+    margin: 4px 2px 3px;
+    padding: 9px 15px 8px;
     background: $grey-3;
     text-decoration: none;
   }
@@ -30,13 +30,13 @@
   }
   .active {
     border: 1px solid $grey-2;
-    border-bottom: 1px solid #FFF;
-    background: #FFF;
-    margin: 0 1px -2px 0px;
-  }
-  .active a {
-    color: $black;
-    background: #FFF;
-    padding: 8px 13px 9px 13px;
+    border-bottom: 1px solid $white;
+    background: $white;
+    margin: 0 1px -2px 0;
+    a {
+      color: $black;
+      background: $white;
+      padding: 8px 13px 9px;
+    }
   }
 }
