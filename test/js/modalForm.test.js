@@ -63,9 +63,16 @@ describe('OLCS.modalForm', function() {
 
         describe('When render is emitted', function() {
           beforeEach(function() {
+            $('body').append([
+              '<div class="modal js-modal-alert" id="stub">',
+                '<div class="js-modal-alert"></div>',
+              '</div>'
+            ].join('\n'));
             OLCS.eventEmitter.emit('render');
           });
-          it('', function() {});
+          it('should replace appropriate classes', function() {
+            expect($('#stub').is('.modal--alert')).to.be(true);
+          });
         });
 
         describe('when closing the modal', function() {
