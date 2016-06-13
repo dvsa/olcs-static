@@ -1,4 +1,4 @@
-/**
+/*/**
  * OLCS.conditionalButton
  *
  * grunt test:single --target=conditionalButton
@@ -25,9 +25,9 @@ describe('OLCS.conditionalButton', function() {
     beforeEach(function() {
       var template = [
         '<form id="stub" method="post" action="/baz">',
-          '<div class=actions-container>',
-            '<button type=submit value=Edit>Edit</button>',
-            '<button type=submit value=Delete>Delete</button>',
+          '<div class="actions-container">',
+            '<button type="submit" value="Edit">Edit</button>',
+            '<button type="submit" value="Delete">Delete</button>',
           '</div>',
         '</form>'
       ].join('\n');
@@ -45,7 +45,9 @@ describe('OLCS.conditionalButton', function() {
 
       beforeEach(function() {
         this.component({
-          form : '#stub'
+          form: '#stub',
+          predicate: {},
+          checkedSelector: '#stub'
         });
       });
 
@@ -58,54 +60,58 @@ describe('OLCS.conditionalButton', function() {
         expect(this.on.firstCall.args[1]).to.equal('#stub');
       });
 
+      describe('and the page is re-rendered', function() {
+
+        beforeEach(function() {
+          OLCS.eventEmitter.emit('render');
+        });
+
+        it('binds a change handler to the correct selectors', function() {
+          expect(this.on.firstCall.args[0]).to.equal('change');
+          expect(this.on.firstCall.args[1]).to.equal('#stub');
+        });
+
+      });
+
     }); // when initialised with valid options
 
-    describe('when initialised with both label and selector options', function() {
+    describe('when initialised with label option', function() {
+
+      beforeEach(function() {
+        this.component({
+          form: '#stub',
+          label: '#stub'
+        });
+      });
+
+      afterEach(function() {
+        $(document).off('change');
+      });
+
+      it('binds a change handler to the correct selectors', function() {
+        expect(this.on.firstCall.args[0]).to.equal('change');
+        expect(this.on.firstCall.args[1]).to.equal('#stub');
+      });
+      
+    }); // when initialised with label option
+
+    describe('when initialised with invalid option', function() {
 
       beforeEach(function() {
         try {
           this.component({
-            label : '#foo',
-            selector : '#foo'
+            selector: '#stub',
+            label: '#stub'
           });
-        } catch(e) {
-          this.error = e;
-        }
+          OLCS.eventEmitter.emit('render');
+        } catch (e) { this.e = e }
       });
 
-      it('throws the correct error', function() {
-        expect(this.error.message).to.equal('\'label\' and \'selector\' are mutually exclusive');
+      it('should throw the correct error', function() {
+        expect(this.e.message).to.equal('\'label\' and \'selector\' are mutually exclusive');
       });
 
-    }); // when initialised with both label and selector options
-
-    describe('when initialised with a label option', function() {
-
-      beforeEach(function() {
-        this.component({
-          label : '#foo'
-        });
-      });
-
-      it('', function() {
-      });
-
-    }); // when initialised with a label option
-
-    describe('when initialised with a predicate option', function() {
-
-      beforeEach(function() {
-        this.component({
-          predicate : function(length, callback) {
-            callback(length === 1);
-          }
-        });
-      });
-
-      it('', function() {
-      });
-
-    }); // when initialised with a predicate option
+    }); // when initialised with invalid option
 
   }); // Given a stubbed DOM
 
