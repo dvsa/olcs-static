@@ -6,7 +6,7 @@ var OLCS = OLCS || {};
 
 OLCS.transform = (function(document, $, undefined) {
 
-  "use strict";
+  'use strict';
 
   return function init(options) {
     var target = $(options.selector);
