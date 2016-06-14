@@ -60,7 +60,7 @@ describe('OLCS.transform', function() {
         });
       });
 
-      it('should replace the class name appropriately', function() {
+      it('should not affect the original class', function() {
         expect($('#stub').is('.baz')).to.be(false);
       });
 
