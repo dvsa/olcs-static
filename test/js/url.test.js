@@ -45,13 +45,17 @@ describe('OLCS.url', function() {
       expect(this.component.isCurrent(window.location.pathname)).to.be(true);
     });
 
+    it('should return false when given non-matching paths', function() {
+      expect(this.component.isCurrent('/foo/bar/')).to.be(false);
+    });
+
   }); // isCurrent
 
   describe('load', function() {
 
     //@TODO why does this return undefined?
     it.skip('should return true when given matching paths', function() {
-      expect(this.component.load(window.location.href)).to.be(true);
+      expect(this.component.load(window.location.pathname)).to.be(true);
     });
 
   }); // load
