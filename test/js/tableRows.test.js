@@ -229,11 +229,9 @@ describe('OLCS.tableRows', function() {
         beforeEach(function() {
           $('#cb1').prop('checked', false);
           $('#cb2').prop('checked', false);
-          $(document).trigger({
-            type: 'keydown',
-            which: 17
-          });
-          $('#tr1').click();
+          var shiftClick = jQuery.Event('click');
+          shiftClick.shiftKey = true;
+          $('#tr1').trigger(shiftClick);
         });
 
         afterEach(function(){

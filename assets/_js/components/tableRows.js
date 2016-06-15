@@ -96,7 +96,7 @@ OLCS.tableRows = (function(document, $, undefined) {
       if ($(this).find('[type="checkbox"]').length) {
         
         // if the row was clicked whilst holding the 'shift' key
-        if (event.shiftKey) {
+        if (event.shiftKey && !event.ctrlKey) {
           
           // reset the whole thing when shift is released
           $(document).on('keyup', function() {
