@@ -116,10 +116,21 @@ describe('OLCS.tableRows', function() {
       describe('When a table row is clicked whilst the ctrl key is pressed', function() {
 
         beforeEach(function() {
-          // simulate a shift click
+          // simulate shift + click (akin to right click)
           var keyboardEvent = document.createEvent('KeyboardEvent');
           var initMethod = typeof keyboardEvent.initKeyboardEvent !== 'undefined' ? 'initKeyboardEvent' : 'initKeyEvent';
-          keyboardEvent[initMethod]('keydown', true, true, window, false, false, true);
+          keyboardEvent[initMethod](
+            'keydown', // event type : keydown, keyup, keypress
+            true, // bubbles
+            true, // cancelable
+            window, // viewArg: should be window
+            false, // ctrlKeyArg
+            false, // altKeyArg
+            true, // shiftKeyArg
+            false, // metaKeyArg
+            40, // keyCodeArg : unsigned long the virtual key code, else 0
+            0 // charCodeArgs : unsigned long the Unicode character associated with the depressed key, else 0
+          );
           document.dispatchEvent(keyboardEvent);
         });
 
@@ -173,7 +184,6 @@ describe('OLCS.tableRows', function() {
         beforeEach(function() {
           $('#tr1').mouseenter();
         });
-
         it('doesn`t attach a class of "hover" to the table row', function() {
           expect($('#tr1').hasClass('hover')).to.equal(false);
         });
@@ -185,10 +195,14 @@ describe('OLCS.tableRows', function() {
 
       beforeEach(function() {
         $('body').append([
-          '<tbody id=tbody>',
-            '<tr id=tr1>',
-              '<td id=td1><a href=#></a></td>',
-              '<td id=td2><input type=checkbox id=cb1></td>',
+          '<tbody id="tbody">',
+            '<tr id="tr1">',
+              '<td id="td1"><a href=#></a></td>',
+              '<td id="td2"><input type="checkbox" id="cb1"></td>',
+            '</tr>',
+            '<tr id="tr2">',
+              '<td id="td3"><a href=#></a></td>',
+              '<td id="td4"><input type="checkbox" id="cb2"></td>',
             '</tr>',
           '</tbody>'
         ].join('\n'));
@@ -199,6 +213,7 @@ describe('OLCS.tableRows', function() {
       });
 
       describe('When a td is clicked that contains a select box', function() {
+
         beforeEach(function() {
           $('#td2').click();
         });
@@ -206,9 +221,36 @@ describe('OLCS.tableRows', function() {
         it('triggers the click of its select box', function() {
           expect($('#cb1').is(':checked')).to.equal(true);
         });
-      });
 
-    }); // Given a stubbed DOM with a table row which contains more than one action
+      }); // When a td is clicked that contains a select box
+
+      describe('When a table row is clicked whilst the ctrl key is pressed', function() {
+
+        beforeEach(function() {
+          $('#cb1').prop('checked', false);
+          $('#cb2').prop('checked', false);
+          $(document).trigger({
+            type: 'keydown',
+            which: 17
+          });
+          $('#tr1').click();
+        });
+
+        afterEach(function(){
+          $(document).trigger('keyup');
+        });
+
+        it('#cb1 should be checked', function() {
+          expect($('#cb1').is(':checked')).to.equal(true);
+        });
+
+        it('#cb2 should be checked', function() {
+          expect($('#cb2').is(':checked')).to.equal(true);
+        });
+
+      }); // When a table row is clicked whilst the ctrl key is pressed
+
+    }); // Given a stubbed DOM with a table row which contains a select element
 
   }); // When invoked
 
