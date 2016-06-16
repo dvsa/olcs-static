@@ -26,7 +26,6 @@ describe('OLCS.tableRows', function() {
       $(document).off('click', 'tbody tr');
       $(document).off('mousenter', 'tbody tr');
       $(document).off('mouseleave', 'tbody tr');
-      $(document).off('keyup', 'tbody tr');
     });
 
     describe('Given a stubbed DOM with a table row which contains a single action', function() {
@@ -113,32 +112,27 @@ describe('OLCS.tableRows', function() {
 
       }); // When the select box is unchecked
 
-      describe('When a table row is clicked whilst the ctrl key is pressed', function() {
+      describe('When the table row is clicked whilst the ctrl key is pressed', function() {
 
         beforeEach(function() {
-          // simulate shift + click (akin to right click)
-          var keyboardEvent = document.createEvent('KeyboardEvent');
-          var initMethod = typeof keyboardEvent.initKeyboardEvent !== 'undefined' ? 'initKeyboardEvent' : 'initKeyEvent';
-          keyboardEvent[initMethod](
-            'keydown', // event type : keydown, keyup, keypress
-            true, // bubbles
-            true, // cancelable
-            window, // viewArg: should be window
-            false, // ctrlKeyArg
-            false, // altKeyArg
-            true, // shiftKeyArg
-            false, // metaKeyArg
-            40, // keyCodeArg : unsigned long the virtual key code, else 0
-            0 // charCodeArgs : unsigned long the Unicode character associated with the depressed key, else 0
-          );
-          document.dispatchEvent(keyboardEvent);
+          // setup the event handlers
+          var simPress = $.Event('keydown');
+          var simClick = $.Event('click');
+          // simulate ctrl key press
+          simPress.ctrlKey = true;
+          simClick.ctrlKey = true;
+          // fire the events
+          $('#tr1').trigger(simPress);
+          $('#tr1').trigger(simClick);
+          $('#tr1').trigger('contextmenu');
         });
 
-        afterEach(function(){
+        afterEach(function() {
           $(document).trigger('keyup');
         });
 
         it('should not open the context menu', function() {
+          expect($('#tr1')).not.toHandle('contextmenu');
         });
 
       }); // When a table row is clicked whilst the ctrl key is pressed
@@ -227,9 +221,9 @@ describe('OLCS.tableRows', function() {
       describe('When a table row is clicked whilst the ctrl key is pressed', function() {
 
         beforeEach(function() {
-          $('#cb1').prop('checked', false);
-          $('#cb2').prop('checked', false);
-          var shiftClick = jQuery.Event('click');
+          $('#cb1').prop('checked', false).change();
+          $('#cb2').prop('checked', false).change();
+          var shiftClick = $.Event('click');
           shiftClick.shiftKey = true;
           $('#tr1').trigger(shiftClick);
         });
