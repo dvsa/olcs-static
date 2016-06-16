@@ -153,8 +153,9 @@ input::-moz-focus-inner {
  */
 
 // prevent chosen container options from extending too long
-.chosen-container-single .chosen-single {
-  &, span {
-    white-space: normal !important;
+.chosen-container.chosen-container-single .chosen-single {
+  &,
+  span {
+    white-space: normal;
   }
 }
