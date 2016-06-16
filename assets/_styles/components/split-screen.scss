@@ -142,7 +142,7 @@
   }
 
   .vertical &--orientation:after {
-    @include svg('internal-split-screen-pin-down');
+    @include svg('internal-split-screen-pin-left');
   }
 
   .vertical &--toggle:after {
