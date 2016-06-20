@@ -358,7 +358,7 @@ select,
     background-color: $warning-background;
   }
   &__preloader {
-    @extend %preloader--light;
+    @extend %preloader-light;
     float: left;
     margin-right: 10px;
   }
