@@ -510,12 +510,14 @@ select,
       background: $grey-3;
       padding: 14px 17px;
       float: left;
-      clear: both;
-      &:first-of-type {
-        margin-top: 5px;
-      }
       &:not(:last-child) {
         margin-bottom: 5px;
+      }
+      &:not(.inline) {
+        &:first-of-type {
+          margin-top: 5px;
+        }
+        clear: both;
       }
       &:hover {
         background: $grey-2;
