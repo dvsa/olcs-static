@@ -29,7 +29,7 @@ OLCS.ready(function() {
     $(".tinymce").tinymce({
       menubar : false,
       document_base_url: "/tinymce/",
-      browser_spellcheck : true,
+      browser_spellcheck : false,
       statusbar : false,
       spellchecker_languages : "+English=en",
       spellchecker_language : "en",
