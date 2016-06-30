@@ -292,8 +292,10 @@ select,
 }
 
 .js-enabled .attach-action__label {
-  @extend %action--secondary;
-  @extend %h4;
+  // @extend %action--secondary;
+  // @extend %h4;
+  border: 2px solid green;
+  background: red;
   float: left;
   margin-bottom: 10px;
   &:focus {
