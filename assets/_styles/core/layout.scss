@@ -15,6 +15,7 @@
  * The document/application wrapper which contains the entire app
  */
 
+%page-wrapper,
 .page-wrapper {
   overflow: hidden;
   clear: both;
@@ -64,35 +65,35 @@
 // Create individual columns
 
 .one-quarter {
-  @include grid-column( 1/4 );
+  @include grid-column(1 / 4);
 }
 
 .one-third {
-  @include grid-column( 1/3 );
+  @include grid-column(1 / 3);
 }
 
 .one-half {
-  @include grid-column( 1/2 );
+  @include grid-column(1 / 2);
 }
 
 .three-eigths {
-  @include grid-column( 3/8 );
+  @include grid-column(3 / 8);
 }
 
 .five-eigths {
-  @include grid-column( 5/8 );
+  @include grid-column(5 / 8);
 }
 
 .two-thirds {
-  @include grid-column( 2/3 );
+  @include grid-column(2 / 3);
 }
 
 .three-quarters {
-  @include grid-column( 3/4 );
+  @include grid-column(3 / 4);
 }
 
 .full-width {
-  @include grid-column( 1/1 );
+  @include grid-column(1 / 1);
 }
 
 // Create layout for table columns
@@ -126,6 +127,7 @@
 
 @if $app == 'selfserve' {
 
+  %page-wrapper,
   .page-wrapper {
     max-width: $base-width;
   }
@@ -143,6 +145,7 @@
 
 @if $app == 'internal' {
 
+  %page-wrapper,
   .page-wrapper {
     padding: 0 $gutter;
     overflow-x: auto;
@@ -152,7 +155,6 @@
     display: table;
     position: relative;
     margin: $gutter-half 0 $gutter;
-
   }
 
   .content,
@@ -167,7 +169,6 @@
   .sidebar--left {
     @include table-column(200px);
     .title {
-      @extend .content_header;
       margin-bottom: 0;
     }
   }

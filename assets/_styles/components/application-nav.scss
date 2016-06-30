@@ -3,7 +3,7 @@
  *
  * Used for Internal application sidebar navigation
  */
- 
+
 @if $app == 'internal' {
 
   /**
@@ -20,7 +20,7 @@
   /**
    * Component
    */
-   
+
   .app-navigation {
 
     @extend %navigation;
@@ -32,14 +32,13 @@
     .current,
     .disabled {
       display: block;
-      width: 90%;
       padding: 11px 20px 10px 0;
       border-bottom: 1px solid $grey-3;
       text-decoration: none;
     }
 
     .current {
-      border-bottom: 3px solid $primaryColour;
+      border-bottom: 3px solid $primary-colour;
       &.no-background {
         background: none;
       }
@@ -53,7 +52,7 @@
       text-align: left;
       position: relative;
       &:before {
-        content: "";
+        content: '';
         position: absolute;
         right: 0;
         top: 11px;

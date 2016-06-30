@@ -7,7 +7,7 @@
   &__item {
     display: inline;
     & + & {
-      margin-left: .5em;
+      margin-left: 0.5em;
     }
   }
 }
@@ -16,8 +16,7 @@
 
   display: inline-block;
   width: 100%;
-  padding: .8em 0;
-
+  padding: 0.8em 0;
 
   /**
    * Selfserve only styles
@@ -27,7 +26,7 @@
     @extend %paragraph--small;
     border-bottom: 1px solid $grey-2;
     border-top: 10px solid $govuk-blue;
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
   }
 
   /**

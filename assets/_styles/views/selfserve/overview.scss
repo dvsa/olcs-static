@@ -29,14 +29,14 @@
     text-decoration: underline;
     pointer-events: none;
     color: $link-colour;
-    @media (max-width: 640px){
+    @media (max-width: 640px) {
       font-size: 14px;
     }
   }
   .status {
     float: left;
     margin-top: 2px;
-    @media (max-width: 640px){
+    @media (max-width: 640px) {
       display: none;
     }
   }
@@ -49,13 +49,13 @@
   text-decoration: none;
   float: left;
   display: block;
-  .disabled &  {
+  .disabled & {
     color: $grey-1;
   }
   &:hover {
     background: $grey-3;
     color: $black;
-    .disabled &  {
+    .disabled & {
       background: none;
       color: $grey-1;
     }
@@ -66,7 +66,7 @@
       color: $grey-1;
     }
     p {
-      @extend %preloader--light;
+      @extend %preloader-light;
       text-indent: -9999px;
     }
   }

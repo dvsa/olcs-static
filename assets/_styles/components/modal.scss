@@ -12,13 +12,14 @@
 
 .overlay {
   @extend %fixed;
-  @include opacity(.7);
+  @include opacity(0.7);
   background: $black;
   z-index: 2;
 }
 
 .modal,
 .modal--alert {
+
   margin: 5% auto;
   padding: $gutter;
   max-width: 600px;
@@ -26,35 +27,47 @@
   overflow: visible;
   background: $white;
   z-index: 2;
+
   @media(max-width: breakpoint('break-3')) {
     width: 90%;
     left: 0;
   }
+
   &:focus {
     outline: none;
   }
+
   &__close {
     position: absolute;
     text-indent: -9999px;
     top: 20px;
     right: 20px;
   }
+
   &__wrapper {
     @extend %fixed;
     overflow: auto;
     z-index: 6;
   }
+
   &__content {
     @extend %clearfix;
   }
+
   form {
     overflow: visible;
     width: 100%;
     margin-bottom: 0;
   }
+
   .actions-container {
     display: block;
     margin: 0;
+  }
+
+  // force table cells to always wrap on multiple lines
+  td {
+    word-break: break-word;
   }
 
 }// .modal
@@ -99,7 +112,7 @@
   .modal,
   .modal--alert {
     border-radius: 3px;
-    padding: 0 0 $gutter*1.5;
+    padding: 0 0 $gutter * 1.5;
     &__title {
       @extend %h4;
     }

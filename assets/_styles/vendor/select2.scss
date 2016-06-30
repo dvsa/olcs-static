@@ -177,8 +177,8 @@
   border-width: 0 4px 5px 4px; }
 
 .select2-container--default .select2-selection--multiple {
-  background-color: #F9F9F9;
-  border: 1px solid #A2A2A2;
+  background-color: $grey-4;
+  border: 1px solid $grey-2;
   cursor: text; }
   .select2-container--default .select2-selection--multiple .select2-selection__rendered {
     box-sizing: border-box;

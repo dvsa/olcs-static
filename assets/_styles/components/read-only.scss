@@ -33,12 +33,12 @@
   th {
     background: none;
     border: 0;
-    padding: 0 0 .5em;
+    padding-bottom: 0.5em;
   }
   td {
     border: 0;
     border-top: 1px solid $grey-3;
-    padding: .5em 0;
+    padding: 0.5em 0;
   }
   &__header {
     @extend %header-with-actions;
@@ -121,15 +121,15 @@ dd {
 @if $app == 'internal' {
 
   dt {
-    color: #555;
+    color: $grey-1;
   }
 
   .read-only__header {
     margin-bottom: $gutter-half;
   }
 
-  h3.read-only__title,
-  h4.read-only__title {
+  .read-only__title,
+  .read-only__title {
     margin-top: 8px;
   }
 

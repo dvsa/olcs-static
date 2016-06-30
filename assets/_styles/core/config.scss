@@ -18,14 +18,14 @@
  * The path to any assets used by the styles
  */
 
-$assetPath          : "../images";
+$asset-path         : '../images';
 
 /**
  * [2] - Colours
  * Override/define OLCS specific colours
  */
 
-$primaryColour      : $department-for-transport;
+$primary-colour     : $department-for-transport;
 $dark-text          : #454a4c;
 $warning-background : #FEF7F7;
 $summary-border     : #CDD7DC;
@@ -47,6 +47,8 @@ $site-width         : $base-width;
  * [4] - Typography
  * Declare the font sizes to be used throughout the app
  */
+
+$font--primary : "nta", Arial, sans-serif;
 
 $core-sizes: (
   'size-1' : 12,
