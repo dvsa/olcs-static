@@ -291,6 +291,29 @@ select,
   }
 }
 
+.js-enabled .attach-action__label {
+  @extend %action--secondary;
+  @extend %h4;
+  float: left;
+  margin-bottom: 10px;
+  &:focus {
+    outline: 3px solid $outline;
+  }
+  @if $app == 'selfserve' {
+    &.focused {
+      outline: 3px solid $outline;
+    }
+  }
+  &:before {
+    @include svg('attachment');
+    content: '';
+    display: inline-block;
+    height: 19px;
+    width: 19px;
+    margin: 0 2px -5px -2px;
+  }
+}
+
 .attach-action {
 
   [type="file"] {
@@ -308,30 +331,6 @@ select,
     }
   }
 
-  &__label {
-    .js-enabled & {
-      @extend %action--secondary;
-      @extend %h4;
-      float: left;
-      margin-bottom: 10px;
-      &:focus {
-        outline: 3px solid $outline;
-      }
-    }
-    @if $app == 'selfserve' {
-      &.focused {
-        outline: 3px solid $outline;
-      }
-    }
-    &:before {
-      @include svg('attachment');
-      content: '';
-      display: inline-block;
-      height: 19px;
-      width: 19px;
-      margin: 0 2px -5px -2px;
-    }
-  }
 
   &__hint {
     @extend %hint;
