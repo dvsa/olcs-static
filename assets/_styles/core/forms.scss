@@ -292,8 +292,8 @@ select,
 }
 
 .js-enabled .attach-action__label {
-  // @extend %action--secondary;
-  // @extend %h4;
+  @extend %action-box;
+  @extend %h4;
   border: 2px solid green;
   background: red;
   float: left;
@@ -302,8 +302,20 @@ select,
     outline: 3px solid $outline;
   }
   @if $app == 'selfserve' {
+    @include action-colour($grey-3);
     &.focused {
       outline: 3px solid $outline;
+    }
+  }
+  @if $app == 'internal' {
+    @include action-colour($grey-4);
+    border: 1px solid darken($grey-4, 10%);
+    color: $govuk-blue;
+    &:link,
+    &:hover,
+    &:focus,
+    &:visited {
+      color: $govuk-blue;
     }
   }
   &:before {
