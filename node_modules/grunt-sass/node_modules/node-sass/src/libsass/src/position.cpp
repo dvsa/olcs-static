@@ -1,4 +1,3 @@
-#include "sass.hpp"
 #include "position.hpp"
 
 namespace Sass {
