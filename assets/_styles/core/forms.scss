@@ -309,6 +309,30 @@ select,
   }
 
   &__label {
+    @extend %paragraph--small;
+    background: $grey-3;
+    border: 0;
+    margin-right: 0.3em;
+    padding: theme(
+      $selfserve: 0.5em 0.75em 0.4em,
+      $internal: 4px 10px 3px
+    );
+    text-decoration: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -webkit-appearance: none;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+    line-height: 1.4;
+    &.large {
+      @extend %h4;
+    }
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      background-color: darken($grey-3, 5%);
+    }
     .js-enabled & {
       @extend %action--secondary;
       @extend %h4;
@@ -316,6 +340,16 @@ select,
       margin-bottom: 10px;
       &:focus {
         outline: 3px solid $outline;
+      }
+    }
+    @if $app == 'internal' {
+      border: 1px solid darken($grey-4, 10%);
+      color: $govuk-blue;
+      &:link,
+      &:hover,
+      &:focus,
+      &:visited {
+        color: $govuk-blue;
       }
     }
     @if $app == 'selfserve' {
