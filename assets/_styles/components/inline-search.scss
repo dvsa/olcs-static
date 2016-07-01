@@ -9,7 +9,7 @@
     margin-bottom: 0;
   }
   &__submit {
-    @extend %action--primary;
+    @extend %action--primary !optional;
     @extend %h4;
     vertical-align: bottom;
     margin: 0 0 -3px 5px;

@@ -310,7 +310,7 @@ select,
 
   &__label {
     .js-enabled & {
-      @extend %action--secondary;
+      @extend %action--secondary !optional;
       @extend %h4;
       float: left;
       margin-bottom: 10px;
