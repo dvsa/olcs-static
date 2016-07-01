@@ -21,6 +21,9 @@
       outline: 3px solid $outline;
     }
   }
+  @if $app == 'internal' {
+    border-radius: 3px;
+  }
   &.small {
     @extend %h6;
   }
@@ -40,7 +43,7 @@
    }
  }
 
- .action {
+.action {
 
   &--primary {
     @if $app == 'selfserve' {
@@ -71,6 +74,13 @@
       $background: transparent, 
       $text-color: $link-colour
     );
+    border: none;
+    &.list {
+      @extend %paragraph;
+      display: block;
+      margin-top: $gutter-half;
+      padding: 0;
+    }
   }
 
   &--delete {
@@ -85,7 +95,7 @@
     }
   }
 
- }
+}
  
 /*
  * disabled styling
@@ -104,69 +114,3 @@
     outline: none;
   }
 }
-
-/*
- * More actions
- * styles a select element to look like a button
- */
-
- .more-actions {
-
-  position: relative;
-  display: inline-block;
-  z-index: 1;
-
-  &__button {
-    @extend .action--secondary;
-    &:after {
-      @include svg('dropdown-down');
-      content: '';
-      margin-left: 0.4em;
-    }
-  }
-
-  &__list {
-    display: none;
-    position: absolute;
-    top: 30px;
-    left: 5px;
-    background: $white;
-    padding: 5px 0;
-    box-shadow: 0 1px 5px $grey-2;
-    z-index: 3;
-  }
-
-  &__item {
-    color: $black;
-    margin: 0;
-    padding: 6px 10px;
-    border: 0;
-    width: 100%;
-    font-size: 1em;
-    cursor: pointer;
-    background: none;
-    text-align: left;
-    text-decoration: none;
-    box-shadow: none;
-    &:hover {
-      color: $link-colour;
-    }
-    &:focus {
-      outline: none;
-    }
-  }
-
-  &:hover {
-    .more-actions__list {
-      display: block;
-      .js-enabled & {
-        display: none;
-      }
-    }
-  }
-
- }
-
- .actions-container {
-
- }
