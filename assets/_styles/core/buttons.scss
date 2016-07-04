@@ -6,7 +6,6 @@
   display: inline-block;
   vertical-align: top;
   font-size: 1em;
-  line-height: 1.4;
   padding: 0.5em 0.75em;
   margin-right: 0.3em;
   text-decoration: none;
@@ -17,11 +16,13 @@
   @if $app == 'selfserve' {
     border-bottom: 2px solid;
     padding-bottom: 0.4em; // compensate for above border
+    line-height: 1.4;
     &:focus {
       outline: 3px solid $outline;
     }
   }
   @if $app == 'internal' {
+    line-height: 1.1;
     border-radius: 3px;
   }
   &.small {
@@ -100,17 +101,19 @@
 /*
  * disabled styling
  */
-.disabled,
-[disabled],
-[disabled="disabled"] {
-  opacity: 0.5;
-  pointer-events: none;
-  &:hover {
-    cursor: default;
-    background-color: inherit;
-  }
-  &:active,
-  &:focus {
-    outline: none;
+[class*="action--"] {
+  &.disabled,
+  &[disabled],
+  &[disabled="disabled"] {
+    opacity: 0.5;
+    pointer-events: none;
+    &:hover {
+      cursor: default;
+      background-color: inherit;
+    }
+    &:active,
+    &:focus {
+      outline: none;
+    }
   }
 }
