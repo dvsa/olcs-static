@@ -2,7 +2,7 @@
  * Buttons
  */
 
- %action--core {
+%action--core {
   display: inline-block;
   vertical-align: top;
   font-size: 1em;
@@ -31,18 +31,21 @@
   &.large {
     @extend %h4;
   }
- }
+}
 
- @mixin action--core($background: $button-colour, $text-color: $white) {
-   @extend %action--core;
-   background-color: $background;
-   color: $text-color;
-   border-color: darken($background, 10%);
-   &:hover {
-     background-color: darken($background, 5%);
-     color: $text-color;
-   }
- }
+@mixin action--core($background: $button-colour, $text-color: $white) {
+  @extend %action--core;
+  background-color: $background;
+  color: $text-color;
+  border-color: darken($background, 10%);
+  &:hover {
+    background-color: darken($background, 5%);
+    color: $text-color;
+  }
+  &:active {
+    color: $text-color;
+  }
+}
 
 .action {
 
