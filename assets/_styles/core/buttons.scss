@@ -24,6 +24,9 @@
   @if $app == 'internal' {
     line-height: 1.1;
     border-radius: 3px;
+    &:focus {
+      outline: none;
+    }
   }
   &.small {
     @extend %h6;
@@ -68,8 +71,9 @@
     @if $app == 'internal' {
       @include action--core(
         $background: $grey-4, 
-        $text-color: $text-colour
+        $text-color: $link-colour
       );
+      border: 1px solid $grey-3;
     }
   }
 
@@ -79,6 +83,15 @@
       $text-color: $link-colour
     );
     border: none;
+    &:hover {
+      text-decoration: underline;
+    }
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
     &.list {
       @extend %paragraph;
       display: block;
