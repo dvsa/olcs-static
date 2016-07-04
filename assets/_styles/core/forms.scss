@@ -412,7 +412,8 @@ select,
   @extend %clearfix;
   border-left: 3px solid $mellow-red;
   margin-bottom: $gutter-half;
-  ul {
+  > ul,
+  .field > ul {
     list-style: none;
   }
   li {
