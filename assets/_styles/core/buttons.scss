@@ -13,6 +13,7 @@
   cursor: pointer;
   -webkit-font-smoothing: antialiased;
   -webkit-appearance: none;
+  font-family: $font--primary;
   @if $app == 'selfserve' {
     border-bottom: 2px solid;
     padding-bottom: 0.4em; // compensate for above border
