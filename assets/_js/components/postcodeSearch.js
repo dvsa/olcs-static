@@ -11,6 +11,7 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
   // jshint newcap:false
 
   return function init(options) {
+
     var container = options.container;
 
     // store a list of fields considered to make up the
@@ -224,6 +225,34 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       // and finally, remove this button's container
       $(this).parent().remove();
     });
+
+    /*
+     * Handle post code search when internet connection drops
+     */
+    function hostReachable() {
+      // Handle IE and more capable browsers
+      var xhr = new ( window.ActiveXObject || XMLHttpRequest )( "Microsoft.XMLHTTP" );
+      var status;
+
+      // Open new request as a HEAD to the root hostname with a random param to bust the cache
+      xhr.open( "HEAD", "//" + window.location.hostname + "/?rand=" + Math.floor((1 + Math.random()) * 0x10000), false );
+
+      // Issue request and handle response
+      try {
+        xhr.send();
+        return ( xhr.status >= 200 && (xhr.status < 300 || xhr.status === 304) );
+      } catch (error) {
+        return false;
+      }
+    }
+
+    $(document).on('change', '.address__select select', function() {
+      if (!hostReachable()) {
+        $('.address__select').hide();
+        $('.postcode-connectionLost').removeClass('visually-hidden');
+      }
+    });
+
   };
 
 }(document, window.jQuery));
