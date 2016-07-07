@@ -94,7 +94,9 @@
     }
   }
   .modal--alert {
-    margin: 20% auto;
+    margin: auto;
+    top: 50%;
+    transform: translateY(-50%);
     .modal__title {
       @extend %h3;
       margin-bottom: 10px;
