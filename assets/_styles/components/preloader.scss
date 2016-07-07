@@ -41,6 +41,8 @@
     @extend %preloader-overlay;
     position: fixed;
     background: $black;
+    top: 0;
+    left: 0;
   }
   &--table {
     @extend %preloader-overlay;
