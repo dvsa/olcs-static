@@ -31,7 +31,7 @@
 
     <div role="banner" class="global-header">
       <div class="global-header__wrapper">
-        <a href="/styleguides/selfserve/" title="Go to the OLCS Selfserve styleguide homepage" class="global-header__logo">
+        <a href="{{asset}}styleguides/selfserve/" title="Go to the OLCS Selfserve styleguide homepage" class="global-header__logo">
           <img src="{{asset}}images/bitmap/gov.uk_logotype_crown.png" alt="GOV.UK logo">GOV.UK
         </a>
         <div class="proposition">
@@ -39,42 +39,62 @@
           <a class="proposition__toggle" href="#">Menu</a>
           <ul class="proposition-nav">
             {{#if user}}
-              {{#is user "operator" }}
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/licences.html">Home</a></li>
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/search/index.html">Search</a></li>
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/authentication-prototype/manage-users/manage-users.html">Manage users</a></li>
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/authentication-prototype/update-details/my-account.html">My account</a></li>
+              {{#is user "operator"}}
+                <li class="proposition-nav__item">
+                  <a href="{{asset}}styleguides/selfserve/licences.html">Home</a>
+                </li>
+                <li class="proposition-nav__item">
+                  <a href="{{asset}}styleguides/selfserve/search/index.html">Search</a>
+                </li>
+                <li class="proposition-nav__item">
+                  <a href="{{asset}}styleguides/selfserve/authentication-prototype/manage-users/manage-users.html">Manage users</a>
+                </li>
+                <li class="proposition-nav__item">
+                  <a href="{{asset}}styleguides/selfserve/authentication-prototype/update-details/my-account.html">My account</a>
+                </li>
               {{/is }}
-              {{#is user "bus operator" }}
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/licences.html">Home</a></li>
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/bus-services.html">Bus services</a></li>
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/search/index.html">Search</a></li>
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/authentication-prototype/update-details/my-account.html">My account</a></li>
+              {{#is user "bus operator"}}
+                <li class="proposition-nav__item"><a href="{{asset}}styleguides/selfserve/licences.html">Home</a></li>
+                <li class="proposition-nav__item"><a href="{{asset}}styleguides/selfserve/bus-services.html">Bus services</a></li>
+                <li class="proposition-nav__item"><a href="{{asset}}styleguides/selfserve/search/index.html">Search</a></li>
+                <li class="proposition-nav__item"><a href="{{asset}}styleguides/selfserve/authentication-prototype/update-details/my-account.html">My account</a></li>
               {{/is }}
-              {{#is user "tm" }}
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/tm-home.html">Home</a></li>
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/search/index.html">Search</a></li>
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/authentication-prototype/update-details/my-account.html">My account</a></li>
+              {{#is user "tm"}}
+                <li class="proposition-nav__item">
+                  <a href="{{asset}}styleguides/selfserve/tm-home.html">Home</a>
+                </li>
+                <li class="proposition-nav__item">
+                  <a href="{{asset}}styleguides/selfserve/search/index.html">Search</a>
+                </li>
+                <li class="proposition-nav__item">
+                  <a href="{{asset}}styleguides/selfserve/authentication-prototype/update-details/my-account.html">My account</a>
+                </li>
               {{/is }}
-              {{#is user "local authority" }}
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/search/index.html">Search</a></li>
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/authentication-prototype/manage-users/manage-users.html">Manage users</a></li>
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/authentication-prototype/update-details/my-account.html">My account</a></li>
+              {{#is user "local authority"}}
+                <li class="proposition-nav__item">
+                  <a href="{{asset}}styleguides/selfserve/search/index.html">Search</a>
+                </li>
+                <li class="proposition-nav__item">
+                  <a href="{{asset}}styleguides/selfserve/authentication-prototype/manage-users/manage-users.html">Manage users</a>
+                </li>
+                <li class="proposition-nav__item">
+                  <a href="{{asset}}styleguides/selfserve/authentication-prototype/update-details/my-account.html">My account</a>
+                </li>
               {{/is }}
             {{else}}
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/search/index.html">Search</a></li>
+                <li class="proposition-nav__item"><a href="{{asset}}styleguides/selfserve/search/index.html">Search</a></li>
             {{/if }}
           </ul>
         </div>
       </div>
     </div><!-- end .global-header -->
 
-   {{#if system-messages}}
-    <div class="system-messages">
-      <ul class="system-messages__wrapper">
-        <li class="system-message__item">The system will be down tomorrow between 10:00am and 11:00am for general maintenance.<a href="">Close</a></li>
-      </ul>
-    </div>
+    {{#if system-messages}}
+      <div class="system-messages">
+        <ul class="system-messages__wrapper">
+          <li class="system-message__item">The system will be down tomorrow between 10:00am and 11:00am for general maintenance.<a href="">Close</a></li>
+        </ul>
+      </div>
     {{/if }}
 
     <div class="page-wrapper">
@@ -85,19 +105,19 @@
         <ul class="user-menu">
         {{#if user}}
           {{#is user "operator"}}
-          <li class="user-menu__item">Katy Hasley, <b>Operator Licensing Ltd.</b></li>
-          <li class="user-menu__item"><a href="/styleguides/selfserve/authentication/index.html">Sign out</a></li>
+            <li class="user-menu__item">Katy Hasley, <b>Operator Licensing Ltd.</b></li>
+            <li class="user-menu__item"><a href="{{asset}}styleguides/selfserve/authentication/index.html">Sign out</a></li>
           {{/is}}
           {{#is user "bus operator"}}
-          <li class="user-menu__item">Ruben Loftus-Cheek, <b>Operator Licensing Ltd.</b></li>
-          <li class="user-menu__item"><a href="/styleguides/selfserve/authentication/index.html">Sign out</a></li>
+            <li class="user-menu__item">Ruben Loftus-Cheek, <b>Operator Licensing Ltd.</b></li>
+            <li class="user-menu__item"><a href="{{asset}}styleguides/selfserve/authentication/index.html">Sign out</a></li>
           {{/is}}
           {{#is user "tm"}}
-          <li class="user-menu__item">Dave Willis, <b>Big Trucks Limited.</b></li>
-          <li class="user-menu__item"><a href="/styleguides/selfserve/authentication/index.html">Sign out</a></li>
+            <li class="user-menu__item">Dave Willis, <b>Big Trucks Limited.</b></li>
+            <li class="user-menu__item"><a href="{{asset}}styleguides/selfserve/authentication/index.html">Sign out</a></li>
           {{/is}}
         {{else}}
-          <li class="user-menu__item"><a href="/styleguides/selfserve/authentication/index.html">Sign in</a></li>
+          <li class="user-menu__item"><a href="{{asset}}styleguides/selfserve/authentication/index.html">Sign in</a></li>
         {{/if}}
         </ul>
       </div><!-- end .user-header -->
@@ -142,10 +162,10 @@
     <div class="global-footer">
       <div class="global-footer__wrapper">
         <ul class="global-footer__links">
-          <li class="global-footer__link"><a href="">Terms and conditions</a></li>
+          <li class="global-footer__link"><a href="#">Terms and conditions</a></li>
           <li class="global-footer__link"><a href="privacy-policy.html">Privacy policy</a></li>
-          <li class="global-footer__link"><a href="">Feedback</a></li>
-          <li class="global-footer__link"><a href="">Cymraeg</a></li>
+          <li class="global-footer__link"><a href="#">Feedback</a></li>
+          <li class="global-footer__link"><a href="#">Cymraeg</a></li>
           <li class="global-footer__link">Built by <a href="https://www.gov.uk/government/organisations/driver-and-vehicle-standards-agency" rel="external">Driver and Vehicle Standards Agency</a></li>
         </ul>
         <div class="global-footer__copyright">
