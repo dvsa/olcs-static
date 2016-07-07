@@ -6,23 +6,24 @@ var OLCS = OLCS || {};
 
 OLCS.postcodeSearch = (function(document, $, undefined) {
 
-  "use strict";
+  'use strict';
 
   // jshint newcap:false
 
   return function init(options) {
+
     var container = options.container;
 
     // store a list of fields considered to make up the
     // 'address' part of a postcode component
     var fields = options.fields || [
-      "addressLine1",
-      "addressLine2",
-      "addressLine3",
-      "addressLine4",
-      "town",
-      "postcode",
-      "countryCode"
+      'addressLine1',
+      'addressLine2',
+      'addressLine3',
+      'addressLine4',
+      'town',
+      'postcode',
+      'countryCode'
     ];
 
     // store a list of possible root elements within which we'll render
@@ -30,40 +31,40 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
     // proximity because the first match will win
     var roots = [
       // if we're in a modal, render in there...
-      ".modal__content",
+      '.modal__content',
       // ... otherwise, fall back to one of the top-level body selectors
-      ".js-body__main",
-      ".js-body"
+      '.js-body__main',
+      '.js-body'
     ];
 
-    var selectClass = ".address__select";
+    var selectClass = '.address__select';
 
-    var inputSelector  = container + " .js-input";
-    var submitSelector = container + " button";
-    var selectSelector = container + " " + selectClass;
-    var manualSelector = container + " .hint a";
+    var inputSelector  = container + ' .js-input';
+    var submitSelector = container + ' button';
+    var selectSelector = container + ' ' + selectClass;
+    var manualSelector = container + ' .hint a';
 
     var F = OLCS.formHelper;
 
     //Does the component contain any data or errors?
     function isClean(component) {
-      var group = $(component).data("group");
+      var group = $(component).data('group');
 
       for (var i = 0, j = fields.length; i < j; i++) {
         var input = F(group, fields[i]);
-        if (input.attr("type") !== "text") {
+        if (input.attr('type') !== 'text') {
           continue;
         }
 
-        if (input.val() !== "") {
+        if (input.val() !== '') {
           return false;
         }
       }
 
 
       return $(component)
-      .children(".validation-wrapper")   // find any errors wrappers...
-      .children(".field").length === 0;  // which *also* have direct field children
+      .children('.validation-wrapper')   // find any errors wrappers...
+      .children('.field').length === 0;  // which *also* have direct field children
     }
 
     // Is the component currently in its interim state of showing the
@@ -73,7 +74,7 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
     }
 
     function hasSearchField(component) {
-      return $(component).find(".js-find").length > 0;
+      return $(component).find('.js-find').length > 0;
     }
 
     function formatUKPostcode(element) {
@@ -81,12 +82,12 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
 
       element.val(val);
 
-      if (val.indexOf(" ") >= 0) {
+      if (val.indexOf(' ') >= 0) {
         return;
       } else {
         var parts = val.match(/^([A-Z]{1,2}\d{1,2}[A-Z]?)\s*(\d[A-Z]{2})$/);
         parts.shift();
-        element.val(parts.join(" "));
+        element.val(parts.join(' '));
       }
 
     }
@@ -113,7 +114,7 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       if (root !== null) {
         return root;
       }
-      throw new Error("No valid root selector found");
+      throw new Error('No valid root selector found');
     }
 
     // Handle either the click of the 'find' button or the change
@@ -124,15 +125,15 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
 
         // we have to prevent this event bubbling; not only to ancestors
         // but also to listeners with the same specifity. This is because
-        // postcode search is *the* most specific "click" or "submit"
+        // postcode search is *the* most specific 'click' or 'submit'
         // handler and doesn't want to trigger wider events (like form
         // submission)
         e.stopImmediatePropagation();
 
         var fieldset = $(this).parents(container);
         var button   = fieldset.find(selector);
-        var form     = fieldset.parents("form");
-        var input    = fieldset.find(".js-input");
+        var form     = fieldset.parents('form');
+        var input    = fieldset.find('.js-input');
 
         // ensure the backend knows which button was pressed
         F.pressButton(form, button);
@@ -148,7 +149,7 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
             F.render(root, response.body);
             // // focus the address select box when it becomes rendered - we
             // // target the first element, but there should only ever be one
-            // $(container).find("select:first").focus();
+            // $(container).find('select:first').focus();
           })
         });
 
@@ -169,53 +170,53 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
         if (inProgress(component) || isClean(component)) {
           // this selector looks a bit loose but it works fine; we use children
           // rather than find which is equivalent to foo > bar.
-          $(component).children(".field").hide();
+          $(component).children('.field').hide();
         } else {
           // otherwise we hide the 'enter address manually' button
-          $(component).find(".hint").hide();
+          $(component).find('.hint').hide();
         }
       });
     }
 
     // Ensure any time the page is re-rendered we resolve our components' state
     // properly
-    OLCS.eventEmitter.on("render", setup);
+    OLCS.eventEmitter.on('render', setup);
 
     // when we click 'find'...
-    $(document).on("click", submitSelector, function(e) {
-      $(this).addClass("js-active");
-      handleInput(".js-find").call(this, e);
+    $(document).on('click', submitSelector, function(e) {
+      $(this).addClass('js-active');
+      handleInput('.js-find').call(this, e);
     });
 
     // or we hit enter within the postcode input...
-    $(document).on("keypress", inputSelector, function(e) {
+    $(document).on('keypress', inputSelector, function(e) {
       // keyCode is normalised; 13 is always enter
       if (e.keyCode === 13) {
         // we need .call here because it relies on 'this' for context
-        handleInput(".js-find").call(this, e);
+        handleInput('.js-find').call(this, e);
       }
     });
 
     // when we select an address from the dropdown...
-    $(document).on("change", selectSelector, function(e) {
+    $(document).on('change', selectSelector, function(e) {
        $(this)
-        .closest(".field")
-        .prev(".field")
-        .find(".js-find")
-        .addClass("js-active");
+        .closest('.field')
+        .prev('.field')
+        .find('.js-find')
+        .addClass('js-active');
 
-       handleInput(".js-select").call(this, e);
+       handleInput('.js-select').call(this, e);
     });
 
     // when we click the 'enter address manualy' button...
-    $(document).on("click", manualSelector, function(e) {
+    $(document).on('click', manualSelector, function(e) {
       e.preventDefault();
 
       var fieldset = $(this).parents(container);
 
       // we have to show our pristine address fields
-      var inputs = fieldset.children(".field");
-      inputs.find("[type=text]").val("");
+      var inputs = fieldset.children('.field');
+      inputs.find('[type=text]').val('');
       inputs.show();
 
       // ditch the address options, if present...
@@ -224,6 +225,34 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       // and finally, remove this button's container
       $(this).parent().remove();
     });
+
+    /*
+     * Handle post code search when internet connection drops
+     */
+    function hostReachable() {
+      // Handle IE and more capable browsers
+      /* jshint -W056 */
+      var xhr = new ( window.ActiveXObject || XMLHttpRequest )( 'Microsoft.XMLHTTP' );
+
+      // Open new request as a HEAD to the root hostname with a random param to bust the cache
+      xhr.open( 'HEAD', '//' + window.location.hostname + '/?rand=' + Math.floor((1 + Math.random()) * 0x10000), false );
+
+      // Issue request and handle response
+      try {
+        xhr.send();
+        return ( xhr.status >= 200 && (xhr.status < 300 || xhr.status === 304) );
+      } catch (error) {
+        return false;
+      }
+    }
+
+    $(document).on('change', selectClass + ' select', function() {
+      if (!hostReachable()) {
+        $(selectClass).hide();
+        $('.postcode-connectionLost').removeClass('visually-hidden');
+      }
+    });
+
   };
 
 }(document, window.jQuery));
