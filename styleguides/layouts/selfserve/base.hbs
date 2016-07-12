@@ -41,10 +41,10 @@
             {{#if user}}
               {{#is user "operator"}}
                 <li class="proposition-nav__item">
-                  <a href="{{asset}}styleguides/selfserve/licences.html">Home</a>
+                  <a href="{{asset}}styleguides/selfserve/home.html">Home</a>
                 </li>
                 <li class="proposition-nav__item">
-                  <a href="{{asset}}styleguides/selfserve/search/index.html">Search</a>
+                  <a href="{{asset}}styleguides/selfserve/search-prototype/">Search</a>
                 </li>
                 <li class="proposition-nav__item">
                   <a href="{{asset}}styleguides/selfserve/authentication-prototype/manage-users/manage-users.html">Manage users</a>
@@ -54,9 +54,9 @@
                 </li>
               {{/is }}
               {{#is user "bus operator"}}
-                <li class="proposition-nav__item"><a href="{{asset}}styleguides/selfserve/licences.html">Home</a></li>
+                <li class="proposition-nav__item"><a href="{{asset}}styleguides/selfserve/home.html">Home</a></li>
                 <li class="proposition-nav__item"><a href="{{asset}}styleguides/selfserve/bus-services.html">Bus services</a></li>
-                <li class="proposition-nav__item"><a href="{{asset}}styleguides/selfserve/search/index.html">Search</a></li>
+                <li class="proposition-nav__item"><a href="{{asset}}styleguides/selfserve/search-prototype/">Search</a></li>
                 <li class="proposition-nav__item"><a href="{{asset}}styleguides/selfserve/authentication-prototype/update-details/my-account.html">My account</a></li>
               {{/is }}
               {{#is user "tm"}}
@@ -64,7 +64,7 @@
                   <a href="{{asset}}styleguides/selfserve/tm-home.html">Home</a>
                 </li>
                 <li class="proposition-nav__item">
-                  <a href="{{asset}}styleguides/selfserve/search/index.html">Search</a>
+                  <a href="{{asset}}styleguides/selfserve/search-prototype/">Search</a>
                 </li>
                 <li class="proposition-nav__item">
                   <a href="{{asset}}styleguides/selfserve/authentication-prototype/update-details/my-account.html">My account</a>
@@ -72,7 +72,7 @@
               {{/is }}
               {{#is user "local authority"}}
                 <li class="proposition-nav__item">
-                  <a href="{{asset}}styleguides/selfserve/search/index.html">Search</a>
+                  <a href="{{asset}}styleguides/selfserve/search-prototype/">Search</a>
                 </li>
                 <li class="proposition-nav__item">
                   <a href="{{asset}}styleguides/selfserve/authentication-prototype/manage-users/manage-users.html">Manage users</a>
@@ -82,7 +82,7 @@
                 </li>
               {{/is }}
             {{else}}
-                <li class="proposition-nav__item"><a href="{{asset}}styleguides/selfserve/search/index.html">Search</a></li>
+                <li class="proposition-nav__item"><a href="{{asset}}styleguides/selfserve/search-prototype/">Search</a></li>
             {{/if }}
           </ul>
         </div>
@@ -106,18 +106,18 @@
         {{#if user}}
           {{#is user "operator"}}
             <li class="user-menu__item">Katy Hasley, <b>Operator Licensing Ltd.</b></li>
-            <li class="user-menu__item"><a href="{{asset}}styleguides/selfserve/authentication/index.html">Sign out</a></li>
+            <li class="user-menu__item"><a href="{{asset}}styleguides/selfserve/authentication-prototype/">Sign out</a></li>
           {{/is}}
           {{#is user "bus operator"}}
             <li class="user-menu__item">Ruben Loftus-Cheek, <b>Operator Licensing Ltd.</b></li>
-            <li class="user-menu__item"><a href="{{asset}}styleguides/selfserve/authentication/index.html">Sign out</a></li>
+            <li class="user-menu__item"><a href="{{asset}}styleguides/selfserve/authentication-prototype/">Sign out</a></li>
           {{/is}}
           {{#is user "tm"}}
             <li class="user-menu__item">Dave Willis, <b>Big Trucks Limited.</b></li>
-            <li class="user-menu__item"><a href="{{asset}}styleguides/selfserve/authentication/index.html">Sign out</a></li>
+            <li class="user-menu__item"><a href="{{asset}}styleguides/selfserve/authentication-prototype/">Sign out</a></li>
           {{/is}}
         {{else}}
-          <li class="user-menu__item"><a href="{{asset}}styleguides/selfserve/authentication/index.html">Sign in</a></li>
+          <li class="user-menu__item"><a href="{{asset}}styleguides/selfserve/authentication-prototype/">Sign in</a></li>
         {{/if}}
         </ul>
       </div><!-- end .user-header -->
