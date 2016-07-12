@@ -41,6 +41,8 @@
     @extend %preloader-overlay;
     position: fixed;
     background: $black;
+    top: 0;
+    left: 0;
   }
   &--table {
     @extend %preloader-overlay;
@@ -53,8 +55,11 @@
   &--modal {
     @extend %preloader-dark;
     position: fixed;
-    left: 49%;
-    top: 52%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 50%;
+    transform: translateY(-50%);
   }
   &--table {
     @extend %preloader-light;
