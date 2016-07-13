@@ -72,6 +72,9 @@
               {{/is }}
               {{#is user "local authority"}}
                 <li class="proposition-nav__item">
+                  <a href="{{asset}}styleguides/selfserve/home.html">Home</a>
+                </li>
+                <li class="proposition-nav__item">
                   <a href="{{asset}}styleguides/selfserve/search/">Search</a>
                 </li>
                 <li class="proposition-nav__item">
@@ -82,6 +85,9 @@
                 </li>
               {{/is }}
             {{else}}
+                <li class="proposition-nav__item">
+                  <a href="{{asset}}styleguides/selfserve/home.html">Home</a>
+                </li>
                 <li class="proposition-nav__item"><a href="{{asset}}styleguides/selfserve/search/">Search</a></li>
             {{/if }}
           </ul>
