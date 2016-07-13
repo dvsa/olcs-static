@@ -15,7 +15,6 @@ table:
         class: sortable
       - label: Service No.
         class: sortable
-
     columns:
       - <strong><a href="bus-service-detail.html">PC1057277/232</a></strong><span class="status green">Registered</span>
       - First West Yorkshire Limited
@@ -28,13 +27,13 @@ table:
 <div class="row">
 
   <div class="one-quarter">
-    <form class="filters">
+    <h3>Edit search</h3>
+    <form class="filters form__filter">
       <fieldset>
-        <legend>Edit search</legend>
         <div class="field">
           <label for="search">Keywords</label>
           <input id="search" name="search" type="search" class="extra-long">
-          <p class="hint--small">Try searching for a town or city, bus route number or bus company</p>
+          <p class="hint">Try searching for a town or city, bus route number or bus company</p>
         </div>
         <div class="field">
           <label>Traffic area</label>
@@ -48,8 +47,7 @@ table:
             <option value="">Please select</option>
           </select>
         </div>
-        <input type="submit" class="action--primary large" value="Update results">
-        <a href="index.html">Start again</a>
+        <input type="submit" class="action--primary" value="Update results">
       </fieldset>
     </form>
   </div><!-- three-eights -->
