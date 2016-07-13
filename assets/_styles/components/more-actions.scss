@@ -41,6 +41,7 @@
     text-align: left;
     text-decoration: none;
     box-shadow: none;
+    white-space: nowrap;
     &:hover {
       color: $link-colour;
     }
