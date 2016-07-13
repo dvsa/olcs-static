@@ -14,7 +14,7 @@ breadcrumbs:
   
   <div class="two-thirds">
   
-  <!--
+    <!--
     <div class="validation-summary">
       <h3>There was a problem uploading you files</h3>
       <p>Please try the following:</p>
@@ -23,7 +23,7 @@ breadcrumbs:
         <li class="validation-summary__item"><a href="#error2">Your attached file is the wrong formate</a></li>
       </ol>
     </div>
-  -->
+    -->
   
     <div class="article">
       <p>Before you upload your EBSR pack check that:</p>
@@ -33,6 +33,7 @@ breadcrumbs:
         <li>you've paid all your fees</li>
       </ul>
     </div>
+
     <form>
   
       <fieldset>
@@ -46,7 +47,7 @@ breadcrumbs:
               <label><input type="radio" name="gender" value="male">Data refresh</label>
             </div>
         </fieldset>
-        <details class="help" style="margin-top:-20px;">
+        <details class="help">
           <summary class="help__summary">What's the difference?</summary>
           <div class="help__text">
             <p>Lorem ipsum sit dolor amet</p>
@@ -54,7 +55,7 @@ breadcrumbs:
         </details>
       </fieldset>
   
-      <fieldset class="file-uploader" id="EBSRUploader" style="margin-top: -20px;">
+      <fieldset class="file-uploader" id="EBSRUploader">
         <ul class="attach-action__list">
           <li class="attach-action">
             <label class="attach-action__label">
@@ -63,7 +64,8 @@ breadcrumbs:
             </label>
           </li>
         </ul><!-- attach-actions -->
-      <!--  <ul class="attached-file__list">
+        <!--
+        <ul class="attached-file__list">
             <p class="validation-message">This file is too big</p>
             <li class="file invalid">
               <p>Screen Shot 2015-03-18 at 16.29.25.png <span>59 kB</span></p> <a class="file__remove" href="#">Remove</a>
@@ -73,11 +75,12 @@ breadcrumbs:
               <p>Screen Shot 2015-03-18 at 16.29.25.png <span>59 kB</span></p> <a class="file__remove" href="#">Remove</a>
             </li>
           </div>
-        </ul> -->
-        <ul class="attached-file__list">
-        </ul><!-- attached-file__list -->
+        </ul>
+        -->
+        <ul class="attached-file__list"></ul>
         <input class="inline-upload js-hidden" type="submit" value="Upload">
       </fieldset><!-- .file-uploader -->
+
       <div class="actions-container">
         <a href="" class="action--primary large">Submit</a>
         <a href="" class="action--tertiary list large">Back to all bus registrations</a>
@@ -99,4 +102,3 @@ breadcrumbs:
     isMultiple: true
   });
 </script>
-
