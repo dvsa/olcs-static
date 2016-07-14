@@ -28,8 +28,9 @@ OLCS.fileUpload = (function(document, $, undefined) {
     }
 
     function disableElements() {
+      var pageActions = $(".actions-container").last().children();
       $(attachButtonSelector).addClass("disabled");
-      $(".actions-container").last().children().attr({
+      $(pageActions, inputSelector).attr({
         "disabled"    : true,
         "aria-hidden" : true
       });
