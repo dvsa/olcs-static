@@ -51,7 +51,6 @@ table:
         class: secondary disabled
       - label: Delete
         class: secondary disabled
-
 ---
 
   <div class="sidebar--left">
@@ -61,8 +60,8 @@ table:
 
   <div class="table-col">
     {{#each table}}
-      {{#is @index 0 }} 
-        {{> _table }}
-      {{/is }} 
+      {{#is @index 0}} 
+        {{> _table}}
+      {{/is}} 
     {{/each}}
   </div>
