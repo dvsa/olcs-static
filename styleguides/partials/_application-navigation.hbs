@@ -1,7 +1,7 @@
 <ul class="app-navigation" role="menu">
   {{#each appNavItems}}
     {{#ifeq label compare=../subSectionTitle}}
-      <li class="app-navigation__item {{status}}">
+      <li class="app-navigation__item current {{status}}">
         <span>{{label}}</span>
       </li>
     {{else}}
