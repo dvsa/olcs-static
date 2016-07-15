@@ -86,11 +86,17 @@
       @include font-size(15px, 15px, 11pt);
       color: $grey-1;
       font-weight: 400;
-      display: inline;
+      display: inline-block;
+      vertical-align: middle;
       @media(max-width: $mobile-column-stack) {
         display: block;
         margin: 5px 0 0;
       }
+    }
+    h1 {
+      display: inline-block;
+      vertical-align: middle;
+      margin-bottom: 0;
     }
   }// internal
 
