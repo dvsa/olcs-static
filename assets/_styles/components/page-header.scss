@@ -87,15 +87,17 @@
       color: $grey-1;
       font-weight: 400;
       display: inline-block;
-      vertical-align: middle;
       @media(max-width: $mobile-column-stack) {
         display: block;
         margin: 5px 0 0;
       }
+      .status {
+        vertical-align: top;
+        display: inline-block;
+      }
     }
     h1 {
       display: inline-block;
-      vertical-align: middle;
       margin-bottom: 0;
     }
   }// internal
