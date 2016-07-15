@@ -59,7 +59,7 @@ breadcrumbs:
             <input type="text" class="long">
           </div>
           <fieldset>
-            <legend style="margin-bottom: 0;">Date of advert</legend>
+            <legend>Date of advert</legend>
             <div class="field inline-text">
               <label>Day</label>
               <input type="text" maxlength="2">
@@ -100,7 +100,7 @@ breadcrumbs:
           </div>
         </fieldset>
         <div class="actions-container">
-          <a href="/styleguides/selfserve/overview.html" class="action--primary large">Save</a>
+          <a href="/styleguides/selfserve/application-overview.html" class="action--primary large">Save</a>
           <a href="" class="action--tertiary large">Cancel</a>
         </div>
       </form>
@@ -111,8 +111,6 @@ breadcrumbs:
 <script type="text/javascript">
   $(document).ready(function() {
     $('.js-upload-form, .js-not-advertised, .js-post').hide();
-
-
     $(document).on('change', 'input[name="send"]', function(e) {
       e.preventDefault();
       if ($(this).val() === 'upload') {
@@ -123,7 +121,6 @@ breadcrumbs:
         $('.js-upload-form').hide()
       }
     });
-
   });
 </script>
 

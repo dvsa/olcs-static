@@ -41,48 +41,54 @@
             {{#if user}}
               {{#is user "operator"}}
                 <li class="proposition-nav__item">
-                  <a href="{{asset}}styleguides/selfserve/licences.html">Home</a>
+                  <a href="{{asset}}styleguides/selfserve/home.html">Home</a>
                 </li>
                 <li class="proposition-nav__item">
-                  <a href="{{asset}}styleguides/selfserve/search/index.html">Search</a>
+                  <a href="{{asset}}styleguides/selfserve/search/">Search</a>
                 </li>
                 <li class="proposition-nav__item">
-                  <a href="{{asset}}styleguides/selfserve/authentication-prototype/manage-users/manage-users.html">Manage users</a>
+                  <a href="{{asset}}styleguides/selfserve/authentication/manage-users/manage-users.html">Manage users</a>
                 </li>
                 <li class="proposition-nav__item">
-                  <a href="{{asset}}styleguides/selfserve/authentication-prototype/update-details/my-account.html">My account</a>
+                  <a href="{{asset}}styleguides/selfserve/authentication/update-details/my-account.html">My account</a>
                 </li>
               {{/is }}
               {{#is user "bus operator"}}
-                <li class="proposition-nav__item"><a href="{{asset}}styleguides/selfserve/licences.html">Home</a></li>
-                <li class="proposition-nav__item"><a href="{{asset}}styleguides/selfserve/bus-services.html">Bus services</a></li>
-                <li class="proposition-nav__item"><a href="{{asset}}styleguides/selfserve/search/index.html">Search</a></li>
-                <li class="proposition-nav__item"><a href="{{asset}}styleguides/selfserve/authentication-prototype/update-details/my-account.html">My account</a></li>
+                <li class="proposition-nav__item"><a href="{{asset}}styleguides/selfserve/home.html">Home</a></li>
+                <li class="proposition-nav__item"><a href="{{asset}}styleguides/selfserve/search/">Search</a></li>
+                <li class="proposition-nav__item"><a href="{{asset}}styleguides/selfserve/bus-registrations/services.html">Bus registrations</a></li>
+                <li class="proposition-nav__item"><a href="{{asset}}styleguides/selfserve/authentication/update-details/my-account.html">My account</a></li>
               {{/is }}
               {{#is user "tm"}}
                 <li class="proposition-nav__item">
                   <a href="{{asset}}styleguides/selfserve/tm-home.html">Home</a>
                 </li>
                 <li class="proposition-nav__item">
-                  <a href="{{asset}}styleguides/selfserve/search/index.html">Search</a>
+                  <a href="{{asset}}styleguides/selfserve/search/">Search</a>
                 </li>
                 <li class="proposition-nav__item">
-                  <a href="{{asset}}styleguides/selfserve/authentication-prototype/update-details/my-account.html">My account</a>
+                  <a href="{{asset}}styleguides/selfserve/authentication/update-details/my-account.html">My account</a>
                 </li>
               {{/is }}
               {{#is user "local authority"}}
                 <li class="proposition-nav__item">
-                  <a href="{{asset}}styleguides/selfserve/search/index.html">Search</a>
+                  <a href="{{asset}}styleguides/selfserve/home.html">Home</a>
                 </li>
                 <li class="proposition-nav__item">
-                  <a href="{{asset}}styleguides/selfserve/authentication-prototype/manage-users/manage-users.html">Manage users</a>
+                  <a href="{{asset}}styleguides/selfserve/search/">Search</a>
                 </li>
                 <li class="proposition-nav__item">
-                  <a href="{{asset}}styleguides/selfserve/authentication-prototype/update-details/my-account.html">My account</a>
+                  <a href="{{asset}}styleguides/selfserve/authentication/manage-users/manage-users.html">Manage users</a>
+                </li>
+                <li class="proposition-nav__item">
+                  <a href="{{asset}}styleguides/selfserve/authentication/update-details/my-account.html">My account</a>
                 </li>
               {{/is }}
             {{else}}
-                <li class="proposition-nav__item"><a href="{{asset}}styleguides/selfserve/search/index.html">Search</a></li>
+                <li class="proposition-nav__item">
+                  <a href="{{asset}}styleguides/selfserve/home.html">Home</a>
+                </li>
+                <li class="proposition-nav__item"><a href="{{asset}}styleguides/selfserve/search/">Search</a></li>
             {{/if }}
           </ul>
         </div>
@@ -106,51 +112,56 @@
         {{#if user}}
           {{#is user "operator"}}
             <li class="user-menu__item">Katy Hasley, <b>Operator Licensing Ltd.</b></li>
-            <li class="user-menu__item"><a href="{{asset}}styleguides/selfserve/authentication/index.html">Sign out</a></li>
+            <li class="user-menu__item"><a href="{{asset}}styleguides/selfserve/authentication/">Sign out</a></li>
           {{/is}}
           {{#is user "bus operator"}}
             <li class="user-menu__item">Ruben Loftus-Cheek, <b>Operator Licensing Ltd.</b></li>
-            <li class="user-menu__item"><a href="{{asset}}styleguides/selfserve/authentication/index.html">Sign out</a></li>
+            <li class="user-menu__item"><a href="{{asset}}styleguides/selfserve/authentication/">Sign out</a></li>
           {{/is}}
           {{#is user "tm"}}
             <li class="user-menu__item">Dave Willis, <b>Big Trucks Limited.</b></li>
-            <li class="user-menu__item"><a href="{{asset}}styleguides/selfserve/authentication/index.html">Sign out</a></li>
+            <li class="user-menu__item"><a href="{{asset}}styleguides/selfserve/authentication/">Sign out</a></li>
           {{/is}}
         {{else}}
-          <li class="user-menu__item"><a href="{{asset}}styleguides/selfserve/authentication/index.html">Sign in</a></li>
+          <li class="user-menu__item"><a href="{{asset}}styleguides/selfserve/authentication/">Sign in</a></li>
         {{/if}}
         </ul>
       </div><!-- end .user-header -->
 
       <div id="main" role="main" class="styleguide">
+
         <div class="page-header">
+
           {{#if breadcrumbs}}
-          <ol class="breadcrumbs">
-            {{#each breadcrumbs }}
-              <li class="breadcrumbs__item"><a href="{{ link }}">{{ label }}</a></li>
-            {{/each}}
-          </ol>
+            <ol class="breadcrumbs">
+              {{#each breadcrumbs }}
+                <li class="breadcrumbs__item"><a href="{{ link }}">{{ label }}</a></li>
+              {{/each}}
+              <li class="breadcrumbs__item current">{{title}}</li>
+            </ol>
           {{/if}}
-            {{#if page-actions }}
-              <div class="row">
-                <div class="page-header__wrapper two-thirds">
-                  {{#if subtitle }}<h3 class="page-header__subtitle">{{ subtitle }}</h3>{{/if}}
-                  <h1>{{ title }}</h1>
-                  {{#if header-text }}<div class="page-header__text">{{{ header-text }}}</div>{{/if}}
-                </div>
-                <ul class="page-header__actions one-third">
-                  {{#each page-actions }}
-                  <li><a href="" class="page-header__action">{{ this }}</a></li>
-                  {{/each}}
-                </ul>
-              </div>
-            {{else}}
-              <div class="page-header__wrapper">
+
+          {{#if page-actions }}
+            <div class="row">
+              <div class="page-header__wrapper two-thirds">
                 {{#if subtitle }}<h3 class="page-header__subtitle">{{ subtitle }}</h3>{{/if}}
                 <h1>{{ title }}</h1>
                 {{#if header-text }}<div class="page-header__text">{{{ header-text }}}</div>{{/if}}
               </div>
-            {{/if}}
+              <ul class="page-header__actions one-third">
+                {{#each page-actions }}
+                <li><a href="" class="page-header__action">{{ this }}</a></li>
+                {{/each}}
+              </ul>
+            </div>
+          {{else}}
+            <div class="page-header__wrapper">
+              {{#if subtitle }}<h3 class="page-header__subtitle">{{ subtitle }}</h3>{{/if}}
+              <h1>{{ title }}</h1>
+              {{#if header-text }}<div class="page-header__text">{{{ header-text }}}</div>{{/if}}
+            </div>
+          {{/if}}
+
         </div><!-- .page-header -->
 
         {{> body }}

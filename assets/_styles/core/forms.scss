@@ -489,6 +489,9 @@ select,
   legend + & {
     margin-bottom: $gutter-half;
   }
+  .inline-text + & {
+    padding-top: 0;
+  }
 }
 
 /**

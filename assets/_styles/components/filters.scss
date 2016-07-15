@@ -30,12 +30,6 @@
     width: calc(100% - 2px);
     margin-left: 1px;
   }
-  [type='search'] {
-    width: 95%;
-    padding: 0.5em 2%;
-    display: block;
-    margin-right: -20px;
-  }
   .hint {
     @extend %paragraph--small;
     width: 100%;

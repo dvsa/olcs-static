@@ -36,9 +36,6 @@
   }
 
   .support {
-    &:first-child {
-      margin-top: $gutter-half;
-    }
     p {
       @extend %paragraph--small;
     }
