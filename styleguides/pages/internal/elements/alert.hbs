@@ -1,7 +1,7 @@
 ---
 title: Home
-asset: '../../'
-subtitle:  
+asset: '../../../'
+subtitle:
 filterList:
   - header: Team
     type: dropdown
@@ -32,7 +32,7 @@ filterList:
       - All
       - Open
       - Closed
-  - header: 
+  - header:
     type: checkboxes
     filters:
       - Urgent only
@@ -54,7 +54,7 @@ table:
         class: sortable
       - label: Description
         class: sortable
-      - label: Date 
+      - label: Date
         class: sortable
       - label: Owner
         class: sortable
@@ -72,25 +72,42 @@ table:
       - Don Tarmacadam
       - <input name="row" type="checkbox">
     rows: 20
-  
+
 ---
 
 <div class="content">
 
-  <div class="preloader-overlay--modal"></div>
-  <div class="preloader-icon--modal"></div>
-
-  <div class="sidebar--left">
-    <h4 class="title">Filter by:</h4>
-    {{> _filters }}
+  <div class="overlay"></div>
+  <div class="modal__wrapper">
+    <div class="modal--alert">
+      <div class="modal__header">
+        <h1 class="modal__title">Alert header</h1>
+        <a href="" class="modal__close">Close</a>
+      </div>
+      <div class="modal__content">
+        <p>Are you really sure you want to perform this action?</p>
+        <form>
+          <div class="actions-container">
+            <input class="action--primary" type="submit" value="OK">
+            <input class="action--secondary" type="submit" value="Cancel">
+          </div>
+        </form>
+      </div><!-- .modal__content -->
+    </div><!-- modal-alert-->
   </div>
 
   <div class="four-fifths--right">
-    {{#each table}}
-      {{#is @index 0 }} 
-        {{> _table }}
-      {{/is }} 
-    {{/each}}
+  {{#each table}}
+    {{#is @index 0 }}
+      {{> _table }}
+    {{/is }}
+  {{/each}}
   </div>
 
 </div>
+
+
+
+
+
+
