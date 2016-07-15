@@ -8,16 +8,19 @@ $version-header-background : #333;
   background: $version-header-background;
   margin: 0;
   overflow: hidden;
-  padding: 5px 10px 2px;
-  p {
+  padding: 5px 10px;
+  .environment,
+  .version {
     clear: none;
     color: $grey-2;
-    float: left;
+    display: inline-block;
+    margin-bottom: 0;
     @if $app == 'selfserve' {
       font-size: font-size(3);
     }
   }
   span {
+    display: inline-block;
     color: $white;
     font-weight: 600;
   }
