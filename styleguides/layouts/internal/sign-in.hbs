@@ -20,22 +20,22 @@
     <div role="banner" class="global-header">
       <div class="global-header__wrapper">
           <h2 class="global-header__title"><a href="/styleguides/internal/">OLCS</a></h2>
-      </div><!-- global-header__wrapper -->
+      </div>
     </div><!-- global-header -->
 
-   {{#if system-messages}}
-    <div class="system-messages">
-      <ul class="system-messages__wrapper">
-        <li class="system-message__item">The system will be down tomorrow between 10:00am and 11:00am for general maintenance.<a href="">Close</a></li>
-      </ul>
-    </div>
+    {{#if system-messages}}
+      <div class="system-messages">
+        <ul class="system-messages__wrapper">
+          <li class="system-message__item">The system will be down tomorrow between 10:00am and 11:00am for general maintenance.<a href="">Close</a></li>
+        </ul>
+      </div>
     {{/if }}
 
     <div class="page-wrapper">
       <div id="main" role="main">
         {{> body }}
-      </div><!-- end .main -->
-    </div><!-- end .page-wrapper-->
+      </div><!-- #main -->
+    </div><!-- .page-wrapper-->
 
   </body>
 </html>
