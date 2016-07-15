@@ -247,7 +247,7 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
     }
 
     $(document).on('change', selectClass + ' select', function() {
-      if (!hostReachable()) {
+      if (!hostReachable() && !window.navigator.onLine) {
         $(selectClass).hide();
         $('.postcode-connectionLost').removeClass('visually-hidden');
       }
