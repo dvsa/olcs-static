@@ -77,10 +77,8 @@ table:
 
 <div class="content">
 
-<div class="preloader__wrapper">
-  <div class="preloader"></div>
-  <div class="preloader__icon"></div>
-</div>
+  <div class="preloader-overlay--modal"></div>
+  <div class="preloader-icon--modal"></div>
 
   <div class="sidebar--left">
     <h4 class="title">Filter by:</h4>
@@ -88,17 +86,11 @@ table:
   </div>
 
   <div class="four-fifths--right">
-  {{#each table}}
-    {{#is @index 0 }} 
-      {{> _table }}
-    {{/is }} 
-  {{/each}}
+    {{#each table}}
+      {{#is @index 0 }} 
+        {{> _table }}
+      {{/is }} 
+    {{/each}}
   </div>
 
 </div>
-
-
-
-
-
-
