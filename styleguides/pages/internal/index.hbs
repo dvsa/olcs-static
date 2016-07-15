@@ -4,29 +4,25 @@ asset: '../../'
 system-messages: true
 ---
 
-<form action="">
+<form action="tasks.html">
   <fieldset>
     <legend>Sign in</legend>
-<!--     <div class="validation-summary">
+    <!-- 
+    <div class="validation-summary">
       <h3>There was a problem signing in</h3>
       <p>Please check your username and password</p>
-    </div> -->
+    </div>
+    -->
     <div class="field">
       <label for="">Username</label>
-      <p class="hint"><a href="">Forgot username?</a></p>
       <input type="text">
     </div>
     <div class="field">
       <label for="">Password</label>
-      <p class="hint"><a href="forgot-password.html">Forgot password?</a></p>
+      <p class="hint"><a href="forgotten-password.html">Forgot password?</a></p>
       <input type="password">
     </div>
-    <a href="tasks.html" class="action--primary large">Sign in</a>
+    <button type="submit" class="action--primary large">Sign in</button>
   </fieldset>
+  <input type="hidden" id="security" />
 </form>
-
-
-
-
-
-
