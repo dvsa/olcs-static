@@ -1,4 +1,5 @@
 ---
+asset: '../../../'
 title: Tables
 breadcrumbs:
   - link: index.html
@@ -9,14 +10,14 @@ breadcrumbs:
 
     <div class="three-quarters">
 
-      <div class="empty__wrapper" style="margin-bottom: 60px">
+      <div class="empty__wrapper">
         <h3 class="empty__title">Operating centres</h3>
         <div class="empty">
           <p>You haven't added any operating centres yet - add your first one here</p>
           <div class="actions-container">
             <a class="action--primary" href="">Add operating centre</a>
           </div>
-        </div><!-- empty -->
+        </div>
       </div><!-- .empty__wrapper -->
 
       <form>
@@ -25,7 +26,7 @@ breadcrumbs:
           <div class="actions-container">
             <a href="" class="action--primary">Add operating centre</a>
           </div>
-        </div><!-- .table__header -->
+        </div>
         <div class="table__wrapper">
           <table>
             <thead>
@@ -65,35 +66,34 @@ breadcrumbs:
               </tr>
             </tfoot>
           </table>
-        </div><!-- .table__wrapper -->
+        </div>
+
+        <div class="table__footer">
+          <div class="results-settings">
+              <p>Show:</p>
+              <ul class="results-settings__list">
+                  <li class="results-settings__item current">10</li>
+                  <li class="results-settings__item"><a href="">25</a></li>
+                  <li class="results-settings__item"><a href="">50</a></li>
+              </ul>
+              <p>results per page</p>
+          </div>
+          <ul class="pagination right-aligned" role="menu">
+              <li class="pagination__item"><a href="" rel="previous">Previous</a></li>
+              <li class="pagination__item"><a href="">1</a></li>
+              <li class="pagination__item"><a href="">2</a></li>
+              <li class="pagination__item current">3</li>
+              <li class="pagination__item"><a href="">4</a></li>
+              <li class="pagination__item"><a href="">5</a></li>
+              <li class="pagination__item">...</li>
+              <li class="pagination__item"><a href="">14</a></li>
+              <li class="pagination__item"><a href="" rel="next">Next</a></li>
+          </ul>
+        </div>
+
       </form>
 
-      <div class="table__footer" style="margin-top: -35px; float: left;">
-        <div class="results-settings">
-            <p>Show:</p>
-            <ul class="results-settings__list">
-                <li class="results-settings__item current">10</li>
-                <li class="results-settings__item"><a href="">25</a></li>
-                <li class="results-settings__item"><a href="">50</a></li>
-            </ul><!-- end .results-settings__list -->
-            <p>results per page</p>
-        </div><!-- end .results-settings -->
-
-        <ul class="pagination right-aligned" role="menu">
-            <li class="pagination__item"><a href="" rel="previous">Previous</a></li>
-            <li class="pagination__item"><a href="">1</a></li>
-            <li class="pagination__item"><a href="">2</a></li>
-            <li class="pagination__item current">3</li>
-            <li class="pagination__item"><a href="">4</a></li>
-            <li class="pagination__item"><a href="">5</a></li>
-            <li class="pagination__item">...</li>
-            <li class="pagination__item"><a href="">14</a></li>
-            <li class="pagination__item"><a href="" rel="next">Next</a></li>
-        </ul><!-- end .pagination.right-aligned -->
-      </div>
-
-
-      <form style="margin-top: 60px">
+      <form>
         <div class="table__header">
           <h3>Vehicle</h3>
           <div class="actions-container">
@@ -143,7 +143,7 @@ breadcrumbs:
         </div><!-- .table__wrapper -->
       </form>
 
-      <form style="margin-top: 60px">
+      <form>
         <div class="table__header">
           <h3>Directors</h3>
           <div class="actions-container">

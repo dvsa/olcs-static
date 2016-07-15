@@ -39,6 +39,7 @@
   width: 100%;
   clear: right;
   overflow: auto;
+  padding-top: $gutter-half;
 }
 
 table {
@@ -46,7 +47,8 @@ table {
   border-collapse: collapse;
   border-bottom: 1px solid $grey-2;
   margin-bottom: 1em;
-  .summary & {
+  .summary &,
+  &:last-child {
     margin-bottom: 0;
   }
   [type="checkbox"],
