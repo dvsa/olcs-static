@@ -16,6 +16,9 @@ form {
   margin-bottom: $gutter;
   width: 100%;
   float: left;
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 fieldset {
@@ -310,7 +313,7 @@ select,
 
   &__label {
     .js-enabled & {
-      @extend %action--secondary;
+      @extend .action--secondary;
       @extend %h4;
       float: left;
       margin-bottom: 10px;
@@ -412,7 +415,8 @@ select,
   @extend %clearfix;
   border-left: 3px solid $mellow-red;
   margin-bottom: $gutter-half;
-  ul {
+  > ul,
+  .field > ul {
     list-style: none;
   }
   li {
@@ -485,6 +489,9 @@ select,
   legend + & {
     margin-bottom: $gutter-half;
   }
+  .inline-text + & {
+    padding-top: 0;
+  }
 }
 
 /**
@@ -510,12 +517,14 @@ select,
       background: $grey-3;
       padding: 14px 17px;
       float: left;
-      clear: both;
-      &:first-of-type {
-        margin-top: 5px;
-      }
       &:not(:last-child) {
         margin-bottom: 5px;
+      }
+      &:not(.inline) {
+        &:first-of-type {
+          margin-top: 5px;
+        }
+        clear: both;
       }
       &:hover {
         background: $grey-2;

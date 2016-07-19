@@ -1,5 +1,6 @@
 ---
 title: Search results
+asset: '../../'
 header-text: <p>We've found <b>18 vehicles</b> that match your search</p>
 layout: base.hbs
 user: local authority
@@ -58,16 +59,16 @@ table:
         {{> _table }}
       {{/is }}
     {{/each}}
-    <div class="table__footer" style="margin-top: -30px; float: left;">
+    <div class="table__footer">
       <div class="results-settings">
         <p>Show:</p>
         <ul class="results-settings__list">
           <li class="results-settings__item current">10</li>
           <li class="results-settings__item"><a href="">25</a></li>
           <li class="results-settings__item"><a href="">50</a></li>
-        </ul><!-- .results-settings__list -->
+        </ul>
         <p>results per page</p>
-      </div><!-- .results-settings -->
+      </div>
       <ul class="pagination right-aligned" role="menu">
         <li class="pagination__item"><a href="" rel="previous">Previous</a></li>
         <li class="pagination__item"><a href="">1</a></li>
@@ -78,8 +79,8 @@ table:
         <li class="pagination__item">...</li>
         <li class="pagination__item"><a href="">14</a></li>
         <li class="pagination__item"><a href="" rel="next">Next</a></li>
-      </ul><!-- .pagination.right-aligned -->
-    </div><!-- .table__footer -->
+      </ul>
+    </div><
   </div><!-- .five-eights -->
 
 </div>

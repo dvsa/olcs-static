@@ -11,8 +11,8 @@
     <title>{{ title }}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="{{asset 'styles/internal.css'}}" media="all" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="{{asset 'js/internal.js'}}"></script>
+    <link href="{{asset}}styles/internal.css" media="all" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="{{asset}}js/internal.js"></script>
   </head>
 
   <body class="internal js-enabled">
@@ -71,11 +71,11 @@
       <div class="page-header__wrapper">
 
           <div class="user-header">
-          {{#isnt title "Home" }}
-            <ol class="breadcrumbs">
-              <li class="breadcrumbs__item"><a href="/">Home</a></li>
-              <li class="breadcrumbs__item current">{{ breadcrumb }}</li>
-            </ol>
+            {{#isnt title "Home" }}
+              <ol class="breadcrumbs">
+                <li class="breadcrumbs__item"><a href="/">Home</a></li>
+                <li class="breadcrumbs__item current">{{ breadcrumb }}</li>
+              </ol>
             {{/isnt }}
             <ul class="user-menu">
               <li class="user-menu__item">Sam Quayle:</li>

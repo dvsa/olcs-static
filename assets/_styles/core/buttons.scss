@@ -2,150 +2,109 @@
  * Buttons
  */
 
-.actions-container {
-  float: left;
-  margin-bottom: $gutter-half;
-  a,
-  input,
-  button {
-    margin-right: 5px;
-  }
-}
-
-button {
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: $font--primary;
-}
-
-@mixin action-colour($colour: $button-colour) {
-  background: $colour;
-  &:hover,
-  &:focus {
-    text-decoration: none;
-    background-color: darken($colour, 5%);
-  }
-  &:active {
-    box-shadow: none;
-  }
-  &.disabled,
-  &[disabled="disabled"],
-  &[disabled] {
-    opacity: 0.5;
-    pointer-events: none;
-    &:hover {
-      cursor: default;
-      background-color: $colour;
-    }
-    &:active,
-    &:focus {
-      outline: none;
-      box-shadow: 0 2px 0 darken($colour, 15%);
-    }
-  }
-  @if lightness($colour) < 50% {
-    color: $white;
-    &:link,
-    &:hover,
-    &:focus,
-    &:visited {
-      color: $white;
-    }
-  } @else {
-    color: $text-colour;
-    &:link,
-    &:hover,
-    &:focus,
-    &:visited {
-      color: $text-colour;
-    }
-  }
-
-  @if $app == 'selfserve' {
-    box-shadow: 0 2px 0 darken($colour, 15%);
-  }
-  @if $app == 'internal' {
-    border-radius: 3px;
-  }
-
-}
-
-%action-box {
-  @extend %paragraph--small;
-  border: 0;
-  margin-right: 0.3em;
-  padding: theme(
-    $selfserve: 0.5em 0.75em 0.4em,
-    $internal: 4px 10px 3px
-  );
-  text-decoration: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -webkit-appearance: none;
-  cursor: pointer;
+%action--core {
   display: inline-block;
   vertical-align: top;
-  line-height: 1.4;
+  font-size: 1em;
+  padding: 0.5em 0.75em;
+  margin-right: 0.3em;
+  text-decoration: none;
+  text-rendering: optimizeLegibility;
+  cursor: pointer;
+  -webkit-font-smoothing: antialiased;
+  -webkit-appearance: none;
+  font-family: $font--primary;
+  @if $app == 'selfserve' {
+    border-bottom: 2px solid;
+    padding-bottom: 0.4em; // compensate for above border
+    line-height: 1.4;
+    &:focus {
+      outline: 3px solid $outline;
+    }
+  }
+  @if $app == 'internal' {
+    line-height: 1.1;
+    border-radius: 3px;
+    &:focus {
+      outline: none;
+    }
+  }
+  &.small {
+    @extend %h6;
+  }
   &.large {
     @extend %h4;
   }
 }
 
-%action,
-.action {
-  &--primary {
-    @extend %action-box;
-    @include action-colour();
+@mixin action--core($background: $button-colour, $text-color: $white) {
+  @extend %action--core;
+  background-color: $background;
+  color: $text-color;
+  border-color: darken($background, 10%);
+  &:hover {
+    background-color: darken($background, 5%);
+    color: $text-color;
   }
-  &--secondary {
-    @extend %action-box;
+  &:active {
+    color: $text-color;
+  }
+}
+
+.action {
+
+  &--primary {
     @if $app == 'selfserve' {
-      @include action-colour($grey-3);
+      @include action--core($button-colour);
     }
     @if $app == 'internal' {
-      @include action-colour($grey-4);
-      border: 1px solid darken($grey-4, 10%);
-      color: $govuk-blue;
-      &:link,
-      &:hover,
-      &:focus,
-      &:visited {
-        color: $govuk-blue;
-      }
+      @include action--core($green);
     }
   }
+
+  &--secondary {
+    @if $app == 'selfserve' {
+      @include action--core(
+        $background: $grey-3, 
+        $text-color: $text-colour
+      );
+    }
+    @if $app == 'internal' {
+      @include action--core(
+        $background: $grey-4, 
+        $text-color: $link-colour
+      );
+      border: 1px solid $grey-3;
+    }
+  }
+
   &--tertiary {
-    color: $link-colour;
-    display: inline-block;
-    vertical-align: top;
-    background: none;
-    border: 0;
-    text-decoration: underline;
-    padding: 0.4em 0.75em 0.3em;
+    @include action--core(
+      $background: transparent, 
+      $text-color: $link-colour
+    );
+    border: none;
+    &:hover {
+      text-decoration: underline;
+    }
     &:first-child {
       padding-left: 0;
     }
-    &:focus {
-      outline: 0;
+    &:last-child {
+      padding-right: 0;
     }
-    &.large {
-      @extend %h4;
-    }
-    &.disabled,
-    &[disabled="disabled"],
-    &[disabled] {
-      opacity: 0.5;
-      pointer-events: none;
-      &:hover {
-        cursor: default;
-      }
+    &.list {
+      @extend %paragraph;
+      display: block;
+      margin-top: $gutter-half;
+      padding: 0;
     }
   }
+
   &--delete {
-    @extend %action-box;
-    @include action-colour($red);
+    @include action--core($red);
   }
+
   &--external {
     &:after {
       @include svg('external-link-white');
@@ -153,165 +112,24 @@ button {
       margin-left: 0.5em;
     }
   }
+
 }
-
-// Anchors which are also buttons and external links
-[class*="action--"][rel="external"] {
-  @extend %action--external;
-}
-
-// More actions
-// styles a select element to look like a button
-
-.more-actions:hover .more-actions__list {
-  display: block;
-  .js-enabled & {
-    display: none;
-  }
-}
-
-.more-actions {
-  position: relative;
-  display: inline-block;
-  z-index: 1;
-  &__button {
-    @extend %action--secondary;
-    padding-right: 25px;
-    position: relative;
-    &:after {
-      @include svg('dropdown-down');
-      content: '';
-      position: absolute;
-      right: 0.5em;
-      top: 0.8em;
+ 
+/*
+ * disabled styling
+ */
+[class*="action--"] {
+  &.disabled,
+  &[disabled],
+  &[disabled="disabled"] {
+    opacity: 0.5;
+    pointer-events: none;
+    &:hover {
+      cursor: default;
     }
-  }
-  &__list {
-    box-shadow: 0 1px 5px $grey-2;
-    display: none;
-    position: absolute;
-    top: 30px;
-    left: 5px;
-    background: $white;
-    padding: 5px 0;
-    z-index: 3;
-  }
-}
-
-.more-actions__list .action--secondary,
-.more-actions__item {
-  margin: 0;
-  padding: 6px 10px;
-  border: 0;
-  background: none;
-  width: 100%;
-  text-align: left;
-  text-decoration: none;
-  color: $black;
-  box-shadow: none;
-  &[disabled] {
-    cursor: default;
-    color: $grey-1;
-    text-decoration: none;
-  }
-  &:hover {
-    text-decoration: none;
-    background: $grey-3;
-  }
-  &[disabled]:hover {
-    background: none;
-  }
-  &:focus {
-    outline: none;
-    background: $yellow;
-  }
-}
-
-// Selfserve theme
-// ---------------
-
-@if $app == 'selfserve' {
-
-  a:focus,
-  button:focus {
-    outline: 3px solid $outline;
-  }
-
-  a:focus {
-    background-color: $outline;
-  }
-
-  .action--tertiary {
     &:active,
-    &:hover {
-      color: $link-active-colour;
-    }
     &:focus {
-      background-color: $outline;
-    }
-    &.list {
-      @extend %paragraph;
-      display: block;
-      margin-top: 30px;
-      padding: 0;
+      outline: none;
     }
   }
-
-}
-
-// Internal theme
-// ---------------
-
-@if $app == 'internal' {
-
-  %action-box {
-    &.small {
-      @extend %h6;
-      padding: 5px 10px;
-    }
-  }
-
-  .actions-container select {
-    float: left;
-  }
-
-  a:focus,
-  button:focus {
-    outline: none;
-    background-color: none;
-  }
-
-  .action--primary {
-    @include action-colour($green);
-    border: 1px solid transparent;
-  }
-
-  .action--tertiary {
-    text-decoration: none;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  .action--delete {
-    @include action-colour($red);
-  }
-
-  .record-actions {
-    display: block;
-    margin-bottom: $gutter-two-thirds;
-    &__group {
-      list-style: none;
-      margin: 0.5em 0 1.1em;
-    }
-    &__item {
-      margin-bottom: 0.5em;
-      text-align: center;
-    }
-    a {
-      display: block;
-      padding: 6px 12px 5px;
-    }
-  }
-
 }
