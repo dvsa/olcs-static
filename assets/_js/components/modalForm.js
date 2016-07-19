@@ -23,9 +23,9 @@ OLCS.modalForm = (function(document, $, undefined) {
 
       OLCS.transform({
         selector: ".modal--alert",
-          replace: {
-            ".js-modal": ".modal"
-          }
+        replace: {
+          ".js-modal": ".modal"
+        }
       });
     });
 

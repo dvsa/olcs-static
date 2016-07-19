@@ -1,10 +1,11 @@
 ---
 title: Financial history
+asset: '../../'
 user: operator
 subtitle: Step 11 of 13
 layout: base.hbs
 breadcrumbs:
-  - link: licences.html
+  - link: home.html
     label: Back to overview
 ---
 
@@ -121,7 +122,7 @@ breadcrumbs:
 
   <div class="one-third">
     <div class="sidebar">
-      <dl class="meta" style="border-bottom: 0; padding-bottom: 0;">
+      <dl class="meta">
         <dt>Application reference</dt>
         <dd>OB12524/525</dd>
         <dt>Progress</dt>
@@ -137,8 +138,6 @@ breadcrumbs:
 <script type="text/javascript">
   $(document).ready(function() {
     $('.js-upload, .js-post').hide();
-
-
     $(document).on('change', 'input[name="evidence"]', function(e) {
       e.preventDefault();
       if ($(this).val() === 'upload') {
@@ -149,7 +148,6 @@ breadcrumbs:
         $('.js-upload').hide()
       }
     });
-
   });
 </script>
 

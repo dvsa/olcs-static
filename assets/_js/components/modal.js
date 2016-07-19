@@ -38,7 +38,7 @@ OLCS.modal = (function(document, $, undefined) {
           '<h1 class="modal__title" id="modal-title"></h1>',
         '</div>',
         '<div class="modal__content"></div>',
-        '<a href="" class="modal__close" aria-label="close">Close</a>',
+        '<a href="#" class="modal__close" aria-label="close">Close</a>',
       '</div>',
     '</div>'
   ].join('\n');

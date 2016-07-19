@@ -1,115 +1,147 @@
 ---
 layout: base.hbs
+asset: '../../'
 user: operator
 title: Application overview
 subtitle: Application OB12524/525
 breadcrumbs:
-  - link: licences.html
+  - link: home.html
     label: Home
 overview-items:
   - name: 1. Type of licence
     status: Complete
-    edit-link: Edit licence type
-  - name: 2. Business details
+    edit-link: Edit ype of licence
+    url:
+
+  - name: 2. Business type
     status: Complete
-    edit-link: Edit business details
+    edit-link: Edit business type
     open: true
-  - name: 3. Addresses
+    url:
+
+  - name: 3. Business details
+    status: Incomplete
+    edit-link: Edit business details
+    url:
+    
+  - name: 4. Addresses
     status: Incomplete
     edit-link: Edit addresses
-  - name: 4. People
+    url:
+
+  - name: 5. Directors
     status: Incomplete
     edit-link: Edit directors
-  - name: 5. Operating centres
-    status: Incomplete
-    edit-link: Edit operating centres
-  - name: 6. Financial evidence
+    url:
+
+  - name: 6. Operating centres and authorisation
+    status: Not started
+    edit-link: Add operating centre
+    url: operating-centres.html
+
+  - name: 7. Financial evidence
     status: Not started
     edit-link: Add financial evidence
-  - name: 7. Transport managers
+    url: financial-evidence.html
+
+  - name: 8. Transport managers
     status: Not started
-    edit-link: Add transport managers
-  - name: 8. Vehicles
+    edit-link: Add transport manager
+    url: transport-managers.html
+
+  - name: 9. Vehicles
     status: Not started
-    edit-link: Add vehicles
-  - name: 9. Safety information
+    edit-link: Add vehicle
+    url: vehicles.html
+
+  - name: 10. Safety and compliance
     status: Not started
-    edit-link: Add safety information
-  - name: 10. Financial history
+    edit-link: Add safety
+    url: safety-and-compliance.html
+
+  - name: 11. Financial history
     status: Not started
     edit-link: Add financial history
-  - name: 11. Licence history
+    url: financial-history.html
+
+  - name: 12. Licence history
     status: Not started
-    edit-link: Add licence history
-  - name: 12. Convictions & penalties
+    edit link: Add licence history
+    url: licence-history.html
+
+  - name: 13. Convictions and penalties
     status: Not started
-    edit link: Add convictions & penalties
-  - name: 13. Declarations
+    edit-link:
+    url: convictions-penalties.html
+
+  - name: 14. Review and declarations
     status: Disabled
     edit-link:
+    url:
 ---
 
 <div class="row">
 
   <div class="two-thirds border">
+    
     <ul class="overview-navigation">
 
-    {{#each overview-items }}
+    {{#each overview-items}}
 
       {{#is status "Complete"}}
-      <li class="overview-item">
-        <a href="/styleguides/selfserve/operating-centres.html" class="overview-item__link">
-          <h4>{{ name }}</h4>
-          <span class="status green">{{ status }}</span>
-          <p>{{ edit-link }}</p>
-        </a>
-      </li>
+        <li class="overview-item">
+          <a href="{{url}}" class="overview-item__link">
+            <h4>{{name}}</h4>
+            <span class="status green">{{status}}</span>
+            <p>{{edit-link}}</p>
+          </a>
+        </li>
       {{/is}}
 
       {{#is status "Incomplete"}}
-      <li class="overview-item">
-        <a href="/styleguides/selfserve/operating-centres.html" class="overview-item__link">
-          <h4>{{ name }}</h4>
-          <span class="status orange" data-tooltip="You still need to complete some information">{{ status }}</span>
-          <p>{{ edit-link }}</p>
-        </a>
-      </li>
+        <li class="overview-item">
+          <a href="{{url}}" class="overview-item__link">
+            <h4>{{ name }}</h4>
+            <span class="status orange" data-tooltip="You still need to complete some information">{{ status }}</span>
+            <p>{{ edit-link }}</p>
+          </a>
+        </li>
       {{/is}}
 
       {{#is status "Not started" }}
-      <li class="overview-item not-started">
-        <a href="/styleguides/selfserve/operating-centres.html" class="overview-item__link">
-          <h4>{{ name }}</h4>
-          <span class="status {{#is status "Not started" }}grey{{/is}}">{{ status }}</span>
-          <p>{{ edit-link }}</p>
-        </a>
-      </li>
+        <li class="overview-item not-started">
+          <a href="{{url}}" class="overview-item__link">
+            <h4>{{ name }}</h4>
+            <span class="status {{#is status "Not started" }}grey{{/is}}">{{ status }}</span>
+            <p>{{ edit-link }}</p>
+          </a>
+        </li>
       {{/is}}
 
      {{#is status "Disabled" }}
-      <li class="overview-item disabled">
-        <div class="overview-item__link">
-          <h4>{{ name }}</h4>
-          <span>Please complete the other sections first</span>
-        </div>
-      </li>
+        <li class="overview-item disabled">
+          <div class="overview-item__link">
+            <h4>{{ name }}</h4>
+            <span>Please complete the other sections first</span>
+          </div>
+        </li>
       {{/is}}
 
-    {{/each }}
+    {{/each}}
 
     </ul><!-- .overview-navigation -->
 
     <div class="actions-container">
       <a href="review-submit.html" class="action--primary large">Review and submit</a>
     </div>
-  </div><!-- .two-thirds -->
 
+  </div>
 
   <div class="one-third">
 
     <div class="sidebar">
 
-      <dl class="meta" style="border-bottom: 0; padding-bottom: 0;">
+      <dl class="meta">
         <dt>Application reference</dt>
         <dd>OB12524/525</dd>
         <dt>Progress</dt>
@@ -127,7 +159,7 @@ overview-items:
           <li class="links-list__item"><a href="">A guide to operator fees</a></li>
           <li class="links-list__item"><a href="">How to draw up a maintenance contract</a></li>
         </ul>
-      </div><!-- .links -->
+      </div>
 
       {{> _support }}
 

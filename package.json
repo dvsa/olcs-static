@@ -33,7 +33,6 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-dr-svg-sprites": "^0.9.31",
     "handlebars-helper-repeat": "0.2.0",
-    "handlebars-helper-asset": "^0.1.0",
     "grunt-gh-pages": "^1.1.0",
     "grunt-localscreenshots": "^1.0.0",
     "grunt-notify": "^0.4.1",

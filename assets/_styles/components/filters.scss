@@ -15,6 +15,13 @@
       margin-bottom: $gutter-half;
     }
   }
+  .inline-text {
+    input {
+      width: 4em;
+      margin-right: 0;
+      font-size: font-size(4);
+    }
+  }
   label {
     margin-bottom: 5px;
   }
@@ -22,12 +29,6 @@
     // offset outline
     width: calc(100% - 2px);
     margin-left: 1px;
-  }
-  [type='search'] {
-    width: 95%;
-    padding: 0.5em 2%;
-    display: block;
-    margin-right: -20px;
   }
   .hint {
     @extend %paragraph--small;

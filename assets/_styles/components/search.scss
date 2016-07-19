@@ -58,7 +58,9 @@
       // scss-lint:disable DuplicateProperty
       padding: 7px 12px\9;
       height: auto\9;
-      // scss-lint:enable DuplicateProperty
+      &:focus {
+        outline: 0;
+      }
     }
   }
 

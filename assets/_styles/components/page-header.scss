@@ -41,7 +41,7 @@
     &__actions {
       position: absolute;
       right: -5px;
-      bottom: 9px;
+      bottom: 0;
       list-style: none;
       @media (max-width: $mobile-column-stack){
         position: relative;

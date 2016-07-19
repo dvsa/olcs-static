@@ -40,9 +40,9 @@
     right: 0;
     left: 0;
     height: 50.5%;
-  }
-  &.iframe--horizontal.full {
-    height: 100%;
+    &.full {
+      height: 100%;
+    }
   }
 }
 
@@ -53,25 +53,25 @@
     width: 40%;
     top: 0;
     z-index: 11;
-  }
-  &.iframe--vertical.collapsed {
-    width: 0;
+    &.collapsed {
+      width: 0;
+    }
   }
   &.iframe--horizontal {
     left: 0;
     height: 45%;
-  }
-  &.iframe--horizontal.collapsed {
-    height: 0;
+    &.collapsed {
+      height: 0;
+    }
   }
 }
 
 .iframe-controls {
-  
+
   position: fixed;
   z-index: 12;
   background-color: $grey-4;
-  
+
   a {
     position: relative;
     display: inline-block;
@@ -96,7 +96,7 @@
   }
 
   &.horizontal {
-    box-shadow: 0 0 6px 0 rgba(black, 0.2);
+    box-shadow: 0 0 6px 0 rgba($black, 0.2);
     border-top: 1px solid $grey-2;
     border-bottom: 1px solid $grey-2;
     right: 0;
@@ -114,9 +114,9 @@
   }
 
   &.vertical {
-    box-shadow: 0 0 6px 0 rgba(black, 0.2);
+    box-shadow: 0 0 6px 0 rgba($black, 0.2);
     border-left: 1px solid $grey-2;
-    border-right: 1px solid #AEAEAE;
+    border-right: 1px solid $grey-3;
     top: 0;
     right: 40%;
     width: 38px;
@@ -142,7 +142,7 @@
   }
 
   .vertical &--orientation:after {
-    @include svg('internal-split-screen-pin-down');
+    @include svg('internal-split-screen-pin-left');
   }
 
   .vertical &--toggle:after {

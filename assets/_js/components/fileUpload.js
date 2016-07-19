@@ -61,6 +61,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
       var name           = $(container).data("group");
       var containerIndex = $(container).index(containerSelector);
       var sectionIdVal   = form.find("[name='sectionId']").val();
+      var url            = form.attr("action") ? form.attr("action") : window.location.pathname;
 
       OLCS.logger.debug("Uploading file " + file.name + " (" + file.type + ")", "fileUpload");
 
@@ -111,7 +112,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
 
       xhr.open(
         form.attr("method"),
-        form.attr("action"),
+        url,
         // third param is async yes/no
         true
       );

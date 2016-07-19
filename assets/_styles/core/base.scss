@@ -4,8 +4,9 @@
  * The utmost core styles required for building a modern webapp that
  * may not necessarily be specific to OLCS.
  *
- * [1] = Document Wrapper
- * [2] = CSS Reset/Normalize
+ * [1] - Document Wrapper
+ * [2] - CSS Reset/Normalize
+ * [3] - Hacks
  */
 
 /**
@@ -144,4 +145,17 @@ button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
   padding: 0;
+}
+
+/**
+ * [3] - Hacks
+ * Vendor overwrites which don't belong anywhere else
+ */
+
+// prevent chosen container options from extending too long
+.chosen-container.chosen-container-single .chosen-single {
+  &,
+  span {
+    white-space: normal;
+  }
 }

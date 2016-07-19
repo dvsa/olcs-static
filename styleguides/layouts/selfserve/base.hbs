@@ -5,14 +5,15 @@
 <!--[if gt IE 8]><!-->
 <html lang="en-GB" class="no-js not-ie8">
 <!--<![endif]-->
+
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{title }}</title>
+    <title>{{title}}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="{{asset 'styles/selfserve.css'}}" media="all" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="{{asset 'js/selfserve.js'}}"></script>
+    <link href="{{asset}}styles/selfserve.css" media="all" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="{{asset}}js/selfserve.js"></script>
     <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn /trunk/html5.js"></script>
     <![endif]-->
@@ -21,62 +22,86 @@
   <body class="selfserve js-enabled {{ bodyClass }}">
 
     {{#if cookie-banner}}
-    <div class="cookie-banner">
-      <div class="cookie-banner__wrapper">
-        <p>Vehicle Operator Licensing uses cookies. <a href="">Find out more</a></p>
+      <div class="cookie-banner">
+        <div class="cookie-banner__wrapper">
+          <p>Vehicle Operator Licensing uses cookies. <a href="">Find out more</a></p>
+        </div>
       </div>
-    </div>
     {{/if }}
 
     <div role="banner" class="global-header">
       <div class="global-header__wrapper">
-        <a href="/styleguides/selfserve/" title="Go to the OLCS Selfserve styleguide homepage" class="global-header__logo">
-          <img src="{{asset 'images/bitmap/gov.uk_logotype_crown.png'}}" alt="GOV.UK logo">GOV.UK
+        <a href="{{asset}}styleguides/selfserve/" title="Go to the OLCS Selfserve styleguide homepage" class="global-header__logo">
+          <img src="{{asset}}images/bitmap/gov.uk_logotype_crown.png" alt="GOV.UK logo">GOV.UK
         </a>
         <div class="proposition">
           <h2 class="proposition__title">Vehicle Operator Licensing</h2>
           <a class="proposition__toggle" href="#">Menu</a>
           <ul class="proposition-nav">
             {{#if user}}
-              {{#is user "operator" }}
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/licences.html">Home</a></li>
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/search/index.html">Search</a></li>
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/authentication-prototype/manage-users/manage-users.html">Manage users</a></li>
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/authentication-prototype/update-details/my-account.html">My account</a></li>
+              {{#is user "operator"}}
+                <li class="proposition-nav__item">
+                  <a href="{{asset}}styleguides/selfserve/home.html">Home</a>
+                </li>
+                <li class="proposition-nav__item">
+                  <a href="{{asset}}styleguides/selfserve/search/">Search</a>
+                </li>
+                <li class="proposition-nav__item">
+                  <a href="{{asset}}styleguides/selfserve/authentication/manage-users/manage-users.html">Manage users</a>
+                </li>
+                <li class="proposition-nav__item">
+                  <a href="{{asset}}styleguides/selfserve/authentication/update-details/my-account.html">My account</a>
+                </li>
               {{/is }}
-              {{#is user "bus operator" }}
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/licences.html">Home</a></li>
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/bus-services.html">Bus services</a></li>
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/search/index.html">Search</a></li>
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/authentication-prototype/update-details/my-account.html">My account</a></li>
+              {{#is user "bus operator"}}
+                <li class="proposition-nav__item"><a href="{{asset}}styleguides/selfserve/home.html">Home</a></li>
+                <li class="proposition-nav__item"><a href="{{asset}}styleguides/selfserve/search/">Search</a></li>
+                <li class="proposition-nav__item"><a href="{{asset}}styleguides/selfserve/bus-registrations/services.html">Bus registrations</a></li>
+                <li class="proposition-nav__item"><a href="{{asset}}styleguides/selfserve/authentication/update-details/my-account.html">My account</a></li>
               {{/is }}
-              {{#is user "tm" }}
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/tm-home.html">Home</a></li>
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/search/index.html">Search</a></li>
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/authentication-prototype/update-details/my-account.html">My account</a></li>
+              {{#is user "tm"}}
+                <li class="proposition-nav__item">
+                  <a href="{{asset}}styleguides/selfserve/tm-home.html">Home</a>
+                </li>
+                <li class="proposition-nav__item">
+                  <a href="{{asset}}styleguides/selfserve/search/">Search</a>
+                </li>
+                <li class="proposition-nav__item">
+                  <a href="{{asset}}styleguides/selfserve/authentication/update-details/my-account.html">My account</a>
+                </li>
               {{/is }}
-              {{#is user "local authority" }}
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/search/index.html">Search</a></li>
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/authentication-prototype/manage-users/manage-users.html">Manage users</a></li>
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/authentication-prototype/update-details/my-account.html">My account</a></li>
+              {{#is user "local authority"}}
+                <li class="proposition-nav__item">
+                  <a href="{{asset}}styleguides/selfserve/home.html">Home</a>
+                </li>
+                <li class="proposition-nav__item">
+                  <a href="{{asset}}styleguides/selfserve/search/">Search</a>
+                </li>
+                <li class="proposition-nav__item">
+                  <a href="{{asset}}styleguides/selfserve/authentication/manage-users/manage-users.html">Manage users</a>
+                </li>
+                <li class="proposition-nav__item">
+                  <a href="{{asset}}styleguides/selfserve/authentication/update-details/my-account.html">My account</a>
+                </li>
               {{/is }}
             {{else}}
-                <li class="proposition-nav__item"><a href="/styleguides/selfserve/search/index.html">Search</a></li>
+                <li class="proposition-nav__item">
+                  <a href="{{asset}}styleguides/selfserve/home.html">Home</a>
+                </li>
+                <li class="proposition-nav__item"><a href="{{asset}}styleguides/selfserve/search/">Search</a></li>
             {{/if }}
           </ul>
         </div>
-      </div><!-- end .global-header__wrapper -->
+      </div>
     </div><!-- end .global-header -->
 
-   {{#if system-messages}}
-    <div class="system-messages">
-      <ul class="system-messages__wrapper">
-        <li class="system-message__item">The system will be down tomorrow between 10:00am and 11:00am for general maintenance.<a href="">Close</a></li>
-      </ul>
-    </div>
+    {{#if system-messages}}
+      <div class="system-messages">
+        <ul class="system-messages__wrapper">
+          <li class="system-message__item">The system will be down tomorrow between 10:00am and 11:00am for general maintenance.<a href="">Close</a></li>
+        </ul>
+      </div>
     {{/if }}
-
-
 
     <div class="page-wrapper">
       <div class="user-header">
@@ -86,72 +111,78 @@
         <ul class="user-menu">
         {{#if user}}
           {{#is user "operator"}}
-          <li class="user-menu__item">Katy Hasley, <b>Operator Licensing Ltd.</b></li>
-          <li class="user-menu__item"><a href="/styleguides/selfserve/authentication/index.html">Sign out</a></li>
+            <li class="user-menu__item">Katy Hasley, <b>Operator Licensing Ltd.</b></li>
+            <li class="user-menu__item"><a href="{{asset}}styleguides/selfserve/authentication/">Sign out</a></li>
           {{/is}}
           {{#is user "bus operator"}}
-          <li class="user-menu__item">Ruben Loftus-Cheek, <b>Operator Licensing Ltd.</b></li>
-          <li class="user-menu__item"><a href="/styleguides/selfserve/authentication/index.html">Sign out</a></li>
+            <li class="user-menu__item">Ruben Loftus-Cheek, <b>Operator Licensing Ltd.</b></li>
+            <li class="user-menu__item"><a href="{{asset}}styleguides/selfserve/authentication/">Sign out</a></li>
           {{/is}}
           {{#is user "tm"}}
-          <li class="user-menu__item">Dave Willis, <b>Big Trucks Limited.</b></li>
-          <li class="user-menu__item"><a href="/styleguides/selfserve/authentication/index.html">Sign out</a></li>
+            <li class="user-menu__item">Dave Willis, <b>Big Trucks Limited.</b></li>
+            <li class="user-menu__item"><a href="{{asset}}styleguides/selfserve/authentication/">Sign out</a></li>
           {{/is}}
         {{else}}
-          <li class="user-menu__item"><a href="/styleguides/selfserve/authentication/index.html">Sign in</a></li>
+          <li class="user-menu__item"><a href="{{asset}}styleguides/selfserve/authentication/">Sign in</a></li>
         {{/if}}
         </ul>
       </div><!-- end .user-header -->
 
       <div id="main" role="main" class="styleguide">
+
         <div class="page-header">
+
           {{#if breadcrumbs}}
-          <ol class="breadcrumbs">
-            {{#each breadcrumbs }}
-              <li class="breadcrumbs__item"><a href="{{ link }}">{{ label }}</a></li>
-            {{/each}}
-          </ol>
+            <ol class="breadcrumbs">
+              {{#each breadcrumbs }}
+                <li class="breadcrumbs__item"><a href="{{ link }}">{{ label }}</a></li>
+              {{/each}}
+              <li class="breadcrumbs__item current">{{title}}</li>
+            </ol>
           {{/if}}
-            {{#if page-actions }}
-              <div class="row">
-                <div class="page-header__wrapper two-thirds">
-                  {{#if subtitle }}<h3 class="page-header__subtitle">{{ subtitle }}</h3>{{/if}}
-                  <h1>{{ title }}</h1>
-                  {{#if header-text }}<div class="page-header__text">{{{ header-text }}}</div>{{/if}}
-                </div><!-- .page-header__wrapper -->
-                <ul class="page-header__actions one-third">
-                  {{#each page-actions }}
-                  <li><a href="" class="page-header__action">{{ this }}</a></li>
-                  {{/each}}
-                </ul>
-              </div>
-            {{else}}
-              <div class="page-header__wrapper">
+
+          {{#if page-actions }}
+            <div class="row">
+              <div class="page-header__wrapper two-thirds">
                 {{#if subtitle }}<h3 class="page-header__subtitle">{{ subtitle }}</h3>{{/if}}
                 <h1>{{ title }}</h1>
                 {{#if header-text }}<div class="page-header__text">{{{ header-text }}}</div>{{/if}}
-              </div><!-- .page-header__wrapper -->
-            {{/if}}
+              </div>
+              <ul class="page-header__actions one-third">
+                {{#each page-actions }}
+                <li><a href="" class="page-header__action">{{ this }}</a></li>
+                {{/each}}
+              </ul>
+            </div>
+          {{else}}
+            <div class="page-header__wrapper">
+              {{#if subtitle }}<h3 class="page-header__subtitle">{{ subtitle }}</h3>{{/if}}
+              <h1>{{ title }}</h1>
+              {{#if header-text }}<div class="page-header__text">{{{ header-text }}}</div>{{/if}}
+            </div>
+          {{/if}}
+
         </div><!-- .page-header -->
 
         {{> body }}
 
       </div><!-- end .main -->
+
     </div><!-- end .page-wrapper-->
 
     <div class="global-footer">
       <div class="global-footer__wrapper">
         <ul class="global-footer__links">
-          <li class="global-footer__link"><a href="">Terms and conditions</a></li>
+          <li class="global-footer__link"><a href="#">Terms and conditions</a></li>
           <li class="global-footer__link"><a href="privacy-policy.html">Privacy policy</a></li>
-          <li class="global-footer__link"><a href="">Feedback</a></li>
-          <li class="global-footer__link"><a href="">Cymraeg</a></li>
+          <li class="global-footer__link"><a href="#">Feedback</a></li>
+          <li class="global-footer__link"><a href="#">Cymraeg</a></li>
           <li class="global-footer__link">Built by <a href="https://www.gov.uk/government/organisations/driver-and-vehicle-standards-agency" rel="external">Driver and Vehicle Standards Agency</a></li>
         </ul>
         <div class="global-footer__copyright">
           <a href="">&copy; Crown copyright</a>
         </div>
-      </div><!-- .global-footer-wrapper -->
+      </div>
     </div><!-- .global-footer -->
 
   </body>
