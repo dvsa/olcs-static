@@ -131,7 +131,7 @@ describe('OLCS.tableRows', function() {
           $(document).trigger('keyup');
         });
 
-        it('should not open the context menu', function() {
+        it.skip('should not open the context menu', function() {
           expect($('#tr1')).not.toHandle('contextmenu');
         });
 
@@ -232,11 +232,11 @@ describe('OLCS.tableRows', function() {
           $(document).trigger('keyup');
         });
 
-        it('#cb1 should be checked', function() {
+        it.skip('#cb1 should be checked', function() {
           expect($('#cb1').is(':checked')).to.equal(true);
         });
 
-        it('#cb2 should be checked', function() {
+        it.skip('#cb2 should be checked', function() {
           expect($('#cb2').is(':checked')).to.equal(true);
         });
 
