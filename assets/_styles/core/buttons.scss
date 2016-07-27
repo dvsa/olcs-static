@@ -118,7 +118,7 @@
 /*
  * disabled styling
  */
-[class*="action--"] {
+[class*="action"] {
   &.disabled,
   &[disabled],
   &[disabled="disabled"] {
