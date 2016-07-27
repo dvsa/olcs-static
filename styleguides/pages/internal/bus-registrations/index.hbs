@@ -56,25 +56,21 @@ form:
           type: checkboxes
           values: 
             - Scottish rules
-
     actions:
       - label: Save
         class: primary large
       - label: Cancel
         class: secondary large
-
 ---
-
-
 
 <div class="sidebar--left">
   <h4 class="title">Service details</h4>
-  {{> _vertical-navigation }}
+  {{> _vertical-navigation}}
 </div>
 
 <div class="table-col">
   <div class="content__header">
     <h3 class="title">Service no. and type</h3>
   </div>
-  {{#each form }}{{> _forms }}{{/each }}
+  {{#each form}}{{> _forms}}{{/each}}
 </div>

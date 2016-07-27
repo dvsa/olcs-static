@@ -1,7 +1,7 @@
 ---
 title: Home
-asset: '../../'
-subtitle:
+asset: '../../../'
+subtitle:  
 filterList:
   - header: Team
     type: dropdown
@@ -32,7 +32,7 @@ filterList:
       - All
       - Open
       - Closed
-  - header:
+  - header: 
     type: checkboxes
     filters:
       - Urgent only
@@ -54,7 +54,7 @@ table:
         class: sortable
       - label: Description
         class: sortable
-      - label: Date
+      - label: Date 
         class: sortable
       - label: Owner
         class: sortable
@@ -72,57 +72,25 @@ table:
       - Don Tarmacadam
       - <input name="row" type="checkbox">
     rows: 20
-
+  
 ---
 
 <div class="content">
 
-<div class="overlay"></div>
-  <div class="modal__wrapper">
-    <div class="modal">
-      <div class="modal__header">
-        <h1 class="modal__title">Add subsidiary company</h1>
-        <a href="" class="modal__close">Close</a>
-      </div>
-      <div class="modal__content">
-        <div class="notice-container">
-          <div class="notice--success">
-            <p>Subsidiary company added successfully</p>
-          </div>
-        </div>
-        <form action="">
-          <fieldset>
-            <div class="field">
-              <label for="">Company name</label>
-              <input type="text" class="long">
-            </div>
-            <div class="field">
-              <label for="">Company number</label>
-              <input type="text" class="long">
-            </div>
-          </fieldset>
-          <fieldset class="actions-container">
-            <input type="submit" class="action--primary large" value="Save">
-            <input type="submit" class="action--primary large" value="Save and add another">
-            <input type="submit" class="action--secondary large" value="Cancel">
-          </fieldset>
-        </form>
-      </div><!-- .modal__content -->
-    </div><!-- .modal -->
-  </div><!-- .modal__wrapper -->
+  <div class="preloader-overlay--modal"></div>
+  <div class="preloader-icon--modal"></div>
+
+  <div class="sidebar--left">
+    <h4 class="title">Filter by:</h4>
+    {{> _filters }}
+  </div>
 
   <div class="four-fifths--right">
-  {{#each table}}
-    {{#is @index 0 }}
-      {{> _table }}
-    {{/is }}
-  {{/each}}
+    {{#each table}}
+      {{#is @index 0 }} 
+        {{> _table }}
+      {{/is }} 
+    {{/each}}
   </div>
 
 </div>
-
-
-
-
-
-
