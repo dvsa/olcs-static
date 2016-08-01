@@ -26,6 +26,9 @@ OLCS.ready(function() {
     if (typeof(tinymce) === "undefined") {
       return;
     }
+    // unbind existing editors
+    tinymce.remove(".tinymce");
+    // call the tinymce plugin
     $(".tinymce").tinymce({
       menubar : false,
       document_base_url: "/tinymce/",
@@ -50,4 +53,5 @@ OLCS.ready(function() {
       toolbar: "styleselect | bold italic underline | bullist numlist | indent outdent | spellchecker"
     });
   });
+  
 });
