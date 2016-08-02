@@ -119,6 +119,10 @@ hr {
   }
 }
 
+.read-only dd {
+  word-wrap: break-word;
+}
+
 [type="text"] {
   display: block;
   padding: 10px;

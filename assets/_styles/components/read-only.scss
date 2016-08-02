@@ -44,6 +44,9 @@
     @extend %header-with-actions;
     border-bottom: 1px solid $grey-3;
   }
+  dd {
+    word-wrap: break-word;
+  }
 }
 
 .text-area {
