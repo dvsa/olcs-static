@@ -146,8 +146,8 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
             var root = getRootSelector(fieldset);
             F.render(root, response.body);
           }),
-          error: OLCS.normaliseResponse(function(response) {
-            lookupError()
+          error: OLCS.normaliseResponse(function() {
+            lookupError();
           }),
         });
 
