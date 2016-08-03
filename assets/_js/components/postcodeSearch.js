@@ -55,12 +55,10 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
         if (input.attr('type') !== 'text') {
           continue;
         }
-
         if (input.val() !== '') {
           return false;
         }
       }
-
 
       return $(component)
       .children('.validation-wrapper')   // find any errors wrappers...
@@ -147,10 +145,10 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
           success: OLCS.normaliseResponse(function(response) {
             var root = getRootSelector(fieldset);
             F.render(root, response.body);
-            // // focus the address select box when it becomes rendered - we
-            // // target the first element, but there should only ever be one
-            // $(container).find('select:first').focus();
-          })
+          }),
+          error: OLCS.normaliseResponse(function(response) {
+            lookupError()
+          }),
         });
 
       };
@@ -176,6 +174,12 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
           $(component).find('.hint').hide();
         }
       });
+    }
+
+    // if we can't connect to the postcode API we need to let the user know
+    function lookupError() {
+      $(selectClass).hide();
+      $('.postcode-connectionLost').removeClass('visually-hidden');
     }
 
     // Ensure any time the page is re-rendered we resolve our components' state
@@ -224,33 +228,6 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
 
       // and finally, remove this button's container
       $(this).parent().remove();
-    });
-
-    /*
-     * Handle post code search when internet connection drops
-     */
-    function hostReachable() {
-      // Handle IE and more capable browsers
-      /* jshint -W056 */
-      var xhr = new ( window.ActiveXObject || XMLHttpRequest )( 'Microsoft.XMLHTTP' );
-
-      // Open new request as a HEAD to the root hostname with a random param to bust the cache
-      xhr.open( 'HEAD', '//' + window.location.hostname + '/?rand=' + Math.floor((1 + Math.random()) * 0x10000), false );
-
-      // Issue request and handle response
-      try {
-        xhr.send();
-        return ( xhr.status >= 200 && (xhr.status < 300 || xhr.status === 304) );
-      } catch (error) {
-        return false;
-      }
-    }
-
-    $(document).on('change', selectClass + ' select', function() {
-      if (!hostReachable() && !window.navigator.onLine) {
-        $(selectClass).hide();
-        $('.postcode-connectionLost').removeClass('visually-hidden');
-      }
     });
 
   };
