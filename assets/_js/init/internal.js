@@ -27,7 +27,7 @@ OLCS.ready(function() {
       return;
     }
     // unbind existing editors
-    tinymce.remove(".tinymce");
+    tinymce.remove(".tinymce");// jshint ignore:line
     // call the tinymce plugin
     $(".tinymce").tinymce({
       menubar : false,
