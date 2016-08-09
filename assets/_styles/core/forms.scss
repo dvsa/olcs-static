@@ -421,7 +421,10 @@ select,
   }
 
   &__item {
-    color: $error-colour;
+    &, 
+    a {
+      color: $error-colour;
+    }
     font-weight: bold;
     text-decoration: underline;
     @include media(tablet) {
