@@ -133,3 +133,14 @@
     }
   }
 }
+
+/*
+ * 'New Application' button 
+ */
+.new-application--wrapper {
+  margin-bottom: $gutter;
+  // target action button
+  [class*="action--"] {
+    margin-top: $gutter;
+  }
+}
