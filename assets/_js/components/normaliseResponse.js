@@ -24,11 +24,15 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
       throw new Error("OLCS.normaliseResponse requires at least a callback argument");
     }
 
-    var callback        = options.callback;
-    var titleSelector   = options.title || ".js-title";
-    var bodySelector    = options.body || ".js-body,.js-body__main";
-    var scriptSelector  = options.script || ".js-script";
-    var rootSelector    = options.root || ".js-response";
+    // to enable, replace with preloader type e.g. "modal"
+    var preloader = options.preloader || false;
+
+    var titleSelector  = options.title  || ".js-title";
+    var bodySelector   = options.body   || ".js-body,.js-body__main";
+    var scriptSelector = options.script || ".js-script";
+    var rootSelector   = options.root   || ".js-response";
+
+    var callback = options.callback;
     var followRedirects = options.followRedirects !== undefined ? options.followRedirects : true;
 
     function findTitle(body) {
@@ -147,7 +151,11 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
         // Fake the modal.hide functionality to avoid reloading the parent
         $(".modal__wrapper, .overlay").remove();
 
-        OLCS.preloader.show("modal");
+        // We may or may not want to show a modalised preloader when calling
+        // this component
+        if (preloader) {
+          OLCS.preloader.show(preloader);
+        }
 
         // If the parent form action has a query string we want
         // to preserve it to make sure the user doesn't lose their state
