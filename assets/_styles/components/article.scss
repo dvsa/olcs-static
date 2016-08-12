@@ -30,7 +30,9 @@
   ul {
     @extend %paragraph;
     padding-left: 1em;
-    margin-bottom: $gutter-half;
+    &:not(:lastchild) {
+      margin-bottom: $gutter-half;
+    }
   }
 
   li {
