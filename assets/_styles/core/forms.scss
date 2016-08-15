@@ -487,9 +487,6 @@ select,
  */
 
 .confirm {
-  padding: 15px;
-  border: 1px solid $light-blue-50;
-  background: $light-blue-25;
   max-width: 600px;
   label {
     @extend %paragraph;
