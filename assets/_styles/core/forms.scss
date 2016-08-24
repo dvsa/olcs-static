@@ -198,7 +198,6 @@ textarea,
 .terms--box {
 
   @extend %paragraph;
-  @include core-19;
 
   background-color: $white;
   border: 2px solid;
