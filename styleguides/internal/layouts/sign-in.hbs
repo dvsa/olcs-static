@@ -5,31 +5,23 @@
 <!--[if gt IE 8]><!-->
 <html lang="en-GB" class="no-js not-ie8">
 <!--<![endif]-->
-
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{title}}</title>
+    <title>{{ title }}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="{{asset}}styles/selfserve.css" media="all" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="{{asset}}js/selfserve.js"></script>
-    <!--[if IE]>
-    <script src="http://html5shiv.googlecode.com/svn /trunk/html5.js"></script>
-    <![endif]-->
+    <link href="{{asset}}styles/internal.css" media="all" rel="stylesheet" type="text/css">
+    <script type="text/javascript" async="" src="{{asset}}js/internal.js"></script>
   </head>
 
-  <body class="selfserve js-enabled {{ bodyClass }}">
+  <body class="internal sign-in">
 
-    {{#if cookie-banner}}
-      <div class="cookie-banner">
-        <div class="cookie-banner__wrapper">
-          <p>Vehicle Operator Licensing uses cookies. <a href="">Find out more</a></p>
-        </div>
+    <div role="banner" class="global-header">
+      <div class="global-header__wrapper">
+          <h2 class="global-header__title"><a href="/styleguides/internal/">OLCS</a></h2>
       </div>
-    {{/if }}
-
-    {{> _global-header}}
+    </div><!-- global-header -->
 
     {{#if system-messages}}
       <div class="system-messages">
@@ -40,17 +32,10 @@
     {{/if }}
 
     <div class="page-wrapper">
-
-      {{> _user-header}}
-
-      <div id="main" role="main" class="styleguide">
-        {{> _page-header}}
+      <div id="main" role="main">
         {{> body }}
-      </div>
-
-    </div><!-- .page-wrapper -->
-
-    {{> _global-footer}}
+      </div><!-- #main -->
+    </div><!-- .page-wrapper-->
 
   </body>
 </html>

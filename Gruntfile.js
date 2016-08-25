@@ -272,17 +272,18 @@
        */
       assemble: {
         options: {
-          helpers: [
-            'handlebars-helper-repeat'
-          ]
+          helpers: ['handlebars-helper-repeat']
         },
         internal: {
           options: {
             layout: 'base.hbs',
-            layoutdir: 'styleguides/layouts/internal/',
-            partials: 'styleguides/partials/*.hbs'
+            layoutdir: 'styleguides/internal/layouts/',
+            partials: [
+              'styleguides/partials/*.hbs',
+              'styleguides/internal/partials/*.hbs'
+            ]
           },
-          cwd: 'styleguides/pages/internal',
+          cwd: 'styleguides/internal/pages',
           dest: 'public/styleguides/internal',
           expand: true,
           src: '**/*.hbs'
@@ -290,8 +291,11 @@
         selfserve: {
           options: {
             layout: 'base.hbs',
-            layoutdir: 'styleguides/selfserve/layouts',
-            partials: 'styleguides/partials/*.hbs'
+            layoutdir: 'styleguides/selfserve/layouts/',
+            partials: [
+              'styleguides/partials/*.hbs',
+              'styleguides/selfserve/partials/*.hbs'
+            ]
           },
           cwd: 'styleguides/selfserve/pages',
           dest: 'public/styleguides/selfserve',
