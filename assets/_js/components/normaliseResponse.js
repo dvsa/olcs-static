@@ -24,13 +24,11 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
       throw new Error("OLCS.normaliseResponse requires at least a callback argument");
     }
 
-    // to enable, replace with preloader type e.g. "modal"
-    var preloader = options.preloader || false;
-
-    var titleSelector  = options.title  || ".js-title";
-    var bodySelector   = options.body   || ".js-body,.js-body__main";
-    var scriptSelector = options.script || ".js-script";
-    var rootSelector   = options.root   || ".js-response";
+    var preloader      = options.preloader || false;
+    var titleSelector  = options.title     || ".js-title";
+    var bodySelector   = options.body      || ".js-body,.js-body__main";
+    var scriptSelector = options.script    || ".js-script";
+    var rootSelector   = options.root      || ".js-response";
 
     var callback = options.callback;
     var followRedirects = options.followRedirects !== undefined ? options.followRedirects : true;
@@ -151,8 +149,7 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
         // Fake the modal.hide functionality to avoid reloading the parent
         $(".modal__wrapper, .overlay").remove();
 
-        // We may or may not want to show a modalised preloader when calling
-        // this component
+        // We may or may not want to show a preloader when calling this component
         if (preloader) {
           OLCS.preloader.show(preloader);
         }
