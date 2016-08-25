@@ -33,6 +33,9 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
     var callback = options.callback;
     var followRedirects = options.followRedirects !== undefined ? options.followRedirects : true;
 
+    // preloader value needs to be a type {string}, not a truthy
+    if (preloader === true) { preloader = 'modal' }
+
     function findTitle(body) {
       var title;
       var text = "";
