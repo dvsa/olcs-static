@@ -290,10 +290,10 @@
         selfserve: {
           options: {
             layout: 'base.hbs',
-            layoutdir: 'styleguides/layouts/selfserve/',
+            layoutdir: 'styleguides/selfserve/layouts',
             partials: 'styleguides/partials/*.hbs'
           },
-          cwd: 'styleguides/pages/selfserve',
+          cwd: 'styleguides/selfserve/pages',
           dest: 'public/styleguides/selfserve',
           expand: true,
           src: '**/*.hbs'
