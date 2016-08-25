@@ -142,8 +142,7 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
         response = parse(response);
       }
 
-      // we won't invoke the callback if the status
-      // is a straightforward redirect
+      // we won't invoke the callback if the status is a straightforward redirect
       if (response.status === 302 && followRedirects) {
 
         // Fake the modal.hide functionality to avoid reloading the parent
