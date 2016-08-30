@@ -24,12 +24,17 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
       throw new Error("OLCS.normaliseResponse requires at least a callback argument");
     }
 
-    var callback        = options.callback;
-    var titleSelector   = options.title || ".js-title";
-    var bodySelector    = options.body || ".js-body,.js-body__main";
-    var scriptSelector  = options.script || ".js-script";
-    var rootSelector    = options.root || ".js-response";
+    var preloader      = options.preloader || false;
+    var titleSelector  = options.title     || ".js-title";
+    var bodySelector   = options.body      || ".js-body,.js-body__main";
+    var scriptSelector = options.script    || ".js-script";
+    var rootSelector   = options.root      || ".js-response";
+
+    var callback = options.callback;
     var followRedirects = options.followRedirects !== undefined ? options.followRedirects : true;
+
+    // preloader value needs to be a type {string}, not a truthy
+    if (preloader === true) { preloader = "modal"; }
 
     function findTitle(body) {
       var title;
@@ -140,14 +145,16 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
         response = parse(response);
       }
 
-      // we won't invoke the callback if the status
-      // is a straightforward redirect
+      // we won't invoke the callback if the status is a straightforward redirect
       if (response.status === 302 && followRedirects) {
 
         // Fake the modal.hide functionality to avoid reloading the parent
         $(".modal__wrapper, .overlay").remove();
 
-        OLCS.preloader.show("modal");
+        // We may or may not want to show a preloader when calling this component
+        if (preloader) {
+          OLCS.preloader.show(preloader);
+        }
 
         // If the parent form action has a query string we want
         // to preserve it to make sure the user doesn't lose their state

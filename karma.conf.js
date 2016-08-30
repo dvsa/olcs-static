@@ -30,7 +30,11 @@ module.exports = function(config) {
     preprocessors: {
       "assets/_js/components/*.js": ["coverage"]
     },
-    
+
+    client: {
+      captureConsole: true
+    },
+
     reporters: ["dots", "coverage", "junit"],
     port: 9876,
     colors: true,

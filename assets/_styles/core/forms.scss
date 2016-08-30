@@ -198,7 +198,6 @@ textarea,
 .terms--box {
 
   @extend %paragraph;
-  @include core-19;
 
   background-color: $white;
   border: 2px solid;
@@ -442,6 +441,7 @@ select,
   padding-left: $gutter-half;
   border-left: 5px solid $error-colour;
   margin-bottom: $gutter-half;
+  overflow: hidden;
 
   > ul,
   .field > ul {
