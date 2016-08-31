@@ -182,13 +182,18 @@ label,
   width: 140px;
 }
 
+.tiny {
+  width: 70px;
+}
+
 @media (max-width: breakpoint('break-3')) {
   .extra-long,
   .long,
   .medium {
     width: 100%;
   }
-  .short {
+  .short,
+  .tiny {
     width: $half;
   }
 }
