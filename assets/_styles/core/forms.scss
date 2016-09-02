@@ -492,6 +492,8 @@ select,
 
 .confirm {
   max-width: 600px;
+  background: $grey-3;
+  padding: 14px 17px;
   label {
     @extend %paragraph;
     @if $app == 'internal'  {
