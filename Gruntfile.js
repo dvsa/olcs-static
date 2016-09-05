@@ -276,6 +276,7 @@
         },
         internal: {
           options: {
+            assets: '../../',
             layout: 'base.hbs',
             layoutdir: 'styleguides/internal/layouts/',
             partials: [
@@ -290,6 +291,7 @@
         },
         selfserve: {
           options: {
+            assets: '../../',
             layout: 'base.hbs',
             layoutdir: 'styleguides/selfserve/layouts/',
             partials: [
