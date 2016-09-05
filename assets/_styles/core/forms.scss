@@ -207,7 +207,7 @@ textarea,
   background-color: $white;
   border: 2px solid;
   max-width: 600px;
-  
+
   padding: theme(
     $internal: 0.5em 0.75em,
     $selfserve: 5px 6px 4px
@@ -425,16 +425,16 @@ select,
   }
 
   &__item {
-    &, 
-    a {
-      color: $error-colour;
-    }
     font-weight: bold;
     text-decoration: underline;
     @include media(tablet) {
       &:not(:last-child) {
         margin-bottom: 5px;
       }
+    }
+    &,
+    a {
+      color: $error-colour;
     }
   }
 
@@ -562,10 +562,10 @@ select,
         margin-bottom: 5px;
       }
       &:not(.inline) {
+        clear: both;
         &:first-of-type {
           margin-top: 5px;
         }
-        clear: both;
       }
       &:hover {
         background: $grey-2;

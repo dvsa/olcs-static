@@ -614,7 +614,6 @@
     ]);
     
     // Push a feature branch, used by the below 'submit' task
-    // Commit and push to Github develop branch
     grunt.registerTask('push-feature', [
       'git-add',
       'git-commit:Pushing branch for feature ' + target,
