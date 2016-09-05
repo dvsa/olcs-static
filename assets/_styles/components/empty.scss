@@ -25,8 +25,8 @@
   &__title {
     padding: 0;
   }
-  .actions-container {
-    margin-bottom: 0;
+  + .actions-container {
+    margin-top: $gutter-half;
   }
 }
 
