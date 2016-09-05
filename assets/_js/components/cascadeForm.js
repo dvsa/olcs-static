@@ -86,8 +86,10 @@ OLCS.cascadeForm = (function(document, $, undefined) {
       // are we currently sat inside a validation error wrapper? If
       // so that becomes the top-level element
       // note that key=val selectors are an exception to this rule
-      // and as such we never check their containers
-      if (selector.search("=") === -1 && elem.parents(errorWrapper).length) {
+      // and as such we never check their containers.
+      // another one exception added. we don't need to take wrapper if selector is element's hint,
+      // which always has the class "hint"
+      if (selector.search("=") === -1 && elem.parents(errorWrapper).length && selector !== ".hint") {
         elem = elem.parents(errorWrapper);
       }
 
