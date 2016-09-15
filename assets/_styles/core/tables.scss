@@ -116,6 +116,9 @@ th {
     font-weight: 400;
     padding-right: 2em;
   }
+  &.right-aligned {
+    float: none;
+  }
 }
 
 td {
