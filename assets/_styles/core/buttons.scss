@@ -50,7 +50,7 @@
     color: $text-color;
   }
   &:focus {
-    background-color: inherit;
+    background-color: darken($background, 5%);
   }
 }
 
