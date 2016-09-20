@@ -130,6 +130,7 @@
     &:active,
     &:focus {
       outline: none;
+      background: inherit;
     }
   }
 }

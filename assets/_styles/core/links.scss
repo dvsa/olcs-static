@@ -9,7 +9,7 @@ a {
     color: $link-active-colour;
     outline: 0;
   }
-  &:not([class*="action-"]):focus {
+  &:focus {
     background-color: $focus-colour;
     outline: 3px solid $focus-colour;
   }
