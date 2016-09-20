@@ -49,6 +49,9 @@
   &:active {
     color: $text-color;
   }
+  &:focus {
+    background-color: inherit;
+  }
 }
 
 .action {
@@ -130,7 +133,6 @@
     &:active,
     &:focus {
       outline: none;
-      background-color: inherit;
     }
   }
 }
