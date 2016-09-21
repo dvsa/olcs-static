@@ -12,8 +12,11 @@
   &__title {
     float: left;
     display: block;
-    margin: 4px 0 2px;
+    margin: 3px 0 2px;
     font-size: font-size(6);
+    @media (max-width: breakpoint('break-4')) {
+      font-size: font-size(5);
+    }
   }
   &__toggle {
     display: none;

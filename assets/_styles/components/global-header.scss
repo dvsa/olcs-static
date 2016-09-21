@@ -11,7 +11,7 @@ $global-header-background--internal : #111;
 
   background: $black;
   color: $white;
-  padding: 6px 0;
+  padding: 8px 0;
 
   &__wrapper {
     @extend %page-wrapper;
