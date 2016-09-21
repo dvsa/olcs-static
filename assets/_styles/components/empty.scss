@@ -5,7 +5,6 @@
  */
 
 .empty {
-  @extend %guidance;
   overflow: auto;
   display: block;
   clear: left;
@@ -14,10 +13,12 @@
     margin-bottom: 0;
   }
   &__wrapper {
+    border-bottom: 1px solid $grey-2;
     overflow: auto;
     clear: both;
     width: 100%;
     max-width: 600px;
+    padding-bottom: $gutter;
     &:not(:last-child) {
       margin-bottom: $gutter;
     }

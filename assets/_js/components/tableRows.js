@@ -53,7 +53,7 @@ OLCS.tableRows = (function(document, $, undefined) {
     });
 
     // On click of a table row
-    $(document).on('click', tableRowSelector, function(event) {
+    $(document).on('click touchstart', tableRowSelector, function(event) {
       
       var target          = $(event.target);
       var targetSelectBox = target.children(selectBox);
