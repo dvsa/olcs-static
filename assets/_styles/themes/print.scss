@@ -5,7 +5,15 @@
  * declaration form and payment receipts
  */
 
+$app: print;
+
 @import '../vendor/govuk_toolkit/stylesheets/colours';
+@import '../vendor/govuk_toolkit/stylesheets/measurements';
+
+@import '../core/tools';
+
+@import '../components/review';
+@import '../components/read-only';
 
 /**
  * General Styles/Reset
@@ -51,19 +59,6 @@ ul {
   }
 }
 
-dt,
-dd {
-  float: left;
-  overflow: auto;
-  margin: 0;
-  padding: 0 2.5% 10px 0;
-  width: 47.5%;
-}
-
-dd {
-  font-weight: 600;
-}
-
 hr {
   float: left;
   margin: 15px 0;
@@ -73,54 +68,29 @@ hr {
   background: $grey-3;
 }
 
+table {
+  width: 100%;
+  text-align: left;
+  border-spacing: 0;
+}
+
+thead:after,
+tfoot:before {
+  content: '';
+  display: block;
+  height: 0.75em;
+  color: transparent;
+}
+
 /**
- * App Review
+ * Custom styling
  */
 
-.review-header {
-  padding: 100px 0 50px;
-  h1 {
-    font-size: 44px;
+.read-only {
+  @extend %clearfix;
+  & + & {
+    margin-top: 1em;
   }
-}
-
-.review-section {
-  border-top: 3px solid $black;
-  padding-top: 20px;
-  margin-bottom: 20px;
-  float: left;
-  width: 100%;
-  h2 {
-    font-size: 30px;
-    margin-bottom: 40px;
-  }
-}
-
-.read-only__header {
-  border-bottom: 1px solid $grey-3;
-  margin-bottom: 1em;
-  float: left;
-  width: 100%;
-  padding-bottom: 8px;
-}
-
-.definition-list {
-  float: left;
-  border-bottom: 1px solid $grey-3;
-  margin: 0;
-  margin-bottom: 12px;
-  padding-bottom: 3px;
-  width: 100%;
-  &:last-child {
-    border-bottom: 0;
-  }
-  &__item {
-    overflow: hidden;
-  }
-}
-
-.read-only dd {
-  word-wrap: break-word;
 }
 
 [type="text"] {
@@ -138,7 +108,6 @@ hr {
 /**
  * Signature Box
  */
-
 .signature-box {
 
   margin: 30px 0;
@@ -174,7 +143,6 @@ hr {
 /**
  * Printable Styles
  */
-
 .printable {
 
   padding-top: 100px;

@@ -3,50 +3,42 @@
  */
 
 .read-only {
+
+  @extend %clearfix;
   display: block;
   width: 100%;
-  overflow: visible;
-  float: left;
   margin-bottom: 1em;
+
+  dd {
+    word-wrap: break-word;
+  }
+
   .modal & {
     width: 95%;
     margin: 0;
   }
-  h4 {
-    border: 0;
-    float: left;
-    padding: 0;
-    display: block;
-    margin-top: 2px;
-  }
-  table {
-    border: 0;
-    border-bottom: 1px solid $grey-3;
-  }
-  th,
-  td {
-    @if $app == 'selfserve' {
-      @extend %paragraph--small;
+
+  @if $app == 'internal' {
+    &__header {
+      margin-bottom: $gutter-half;
     }
-    vertical-align: middle;
+    &__title {
+      margin-top: 8px;
+    }
+    dt {
+      color: $grey-1;
+    }
   }
-  th {
-    background: none;
-    border: 0;
-    padding-bottom: 0.5em;
-  }
-  td {
-    border: 0;
-    border-top: 1px solid $grey-3;
-    padding: 0.5em 0;
-  }
-  &__header {
-    @extend %header-with-actions;
-    border-bottom: 1px solid $grey-3;
-  }
-  dd {
-    word-wrap: break-word;
-  }
+
+}
+
+.read-only__header,
+.table__header > h3 {
+  border-bottom: 1px solid $grey-3;
+  margin-bottom: $gutter-half;
+  float: left;
+  width: 100%;
+  padding-bottom: 8px;
 }
 
 .text-area {
@@ -64,30 +56,18 @@
 .definition-list {
   float: left;
   border-bottom: 1px solid $grey-3;
-  margin: 0 0 10px;
-  padding: 0 0 5px;
+  margin: 0;
+  margin-bottom: 12px;
+  padding-bottom: 3px;
   width: 100%;
+  &:last-child {
+    border-bottom: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
   &__item {
-    width: 50%;
-    float: left;
+    overflow: hidden;
     list-style: none;
-    li {
-      max-width: 700px;
-    }
-    a {
-      font-weight: 400;
-    }
-    &.full-width {
-      width: 100%;
-      display: block;
-      padding: 0;
-      dt {
-        width: 23.75%;
-      }
-      dd {
-        width: 75%;
-      }
-    }
   }
 }
 
@@ -96,44 +76,10 @@ dd {
   float: left;
   overflow: auto;
   margin: 0;
-  padding: 0 0 5px;
+  padding: 0 2.5% 10px 0;
   width: 47.5%;
 }
 
 dd {
-  word-break: break-word;
-}
-
-/**
- * Selfserve only styles
- */
-
-@if $app == 'selfserve' {
-  .read-only h4 {
-    @extend %h3;
-  }
-  dd {
-    font-weight: 700;
-  }
-}
-
-/**
- * Internal only styles
- */
-
-@if $app == 'internal' {
-
-  dt {
-    color: $grey-1;
-  }
-
-  .read-only__header {
-    margin-bottom: $gutter-half;
-  }
-
-  .read-only__title,
-  .read-only__title {
-    margin-top: 8px;
-  }
-
+  font-weight: 600;
 }
