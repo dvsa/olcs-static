@@ -32,8 +32,7 @@
 
 }
 
-.read-only__header,
-.table__header > h3 {
+.read-only__header {
   border-bottom: 1px solid $grey-3;
   margin-bottom: $gutter-half;
   float: left;
