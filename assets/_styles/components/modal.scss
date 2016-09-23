@@ -51,7 +51,7 @@
   }
 
   &__content {
-    @extend %clearfix;
+    @extend %contain-floats;
   }
 
   form {

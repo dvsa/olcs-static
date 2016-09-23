@@ -1,7 +1,7 @@
-/// OLCS - Selfserve application SCSS
-/// @version 1.0
-/// @author sam.quayle@valtech.co.uk, Valtech Ltd
-/// @author edmund.reed@valtech.co.uk, Valtech Ltd
+// OLCS - Selfserve application SCSS
+// @version 1.0
+// @author sam.quayle@valtech.co.uk, Valtech Ltd
+// @author edmund.reed@valtech.co.uk, Valtech Ltd
 
 $app: selfserve;
 
@@ -12,6 +12,7 @@ $app: selfserve;
 @import '../../vendor/govuk_frontend_toolkit/stylesheets/colours';
 @import '../../vendor/govuk_frontend_toolkit/stylesheets/grid_layout';
 @import '../../vendor/govuk_frontend_toolkit/stylesheets/typography';
+@import '../../vendor/govuk_frontend_toolkit/stylesheets/design-patterns/buttons';
 
 @import '../vendor/chosen';
 

@@ -442,7 +442,7 @@ select,
 
 .validation-wrapper {
 
-  @extend %clearfix;
+  @extend %contain-floats;
   padding-left: $gutter-half;
   border-left: 5px solid $error-colour;
   margin-bottom: $gutter-half;
