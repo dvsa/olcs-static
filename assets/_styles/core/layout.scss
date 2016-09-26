@@ -121,8 +121,7 @@
 
   %page-wrapper,
   .page-wrapper {
-    padding: 0 $gutter;
-    overflow-x: auto;
+    max-width: calc(100% - (#{$gutter} * 2));
   }
 
   #main {
