@@ -1,6 +1,31 @@
-/**
- * Sidebar
- */
+// Sidebar
+
+.sidebar {
+
+  &__panel {
+    @extend %contain-floats;
+    padding: $gutter-half;
+    background: $grey-3;
+    margin-bottom: $gutter-two-thirds;
+    &__title {
+      margin-bottom: $gutter-half;
+    }
+    p {
+      @extend %h5;
+    }
+    .field {
+      margin-bottom: $gutter-two-thirds;
+    }
+  }
+
+  &__actions {
+    list-style: none;
+    li {
+      font-weight: bold;
+    }
+  }
+
+}
 
 /**
  * Selfserve only styles
@@ -8,16 +33,9 @@
 
 @if $app == 'selfserve' {
 
-  .sidebar {
-    border-top: 6px solid $govuk-blue;
-  }
-
   .meta {
-    float: left;
-    border: 0;
+    @extend %h5;
     margin: 1em 0;
-    padding-bottom: 1em;
-    border-bottom: 1px solid $grey-2;
     dt,
     dd {
       border: 0;
@@ -26,7 +44,6 @@
       padding: 0;
     }
     dd {
-      @extend %h4;
       padding-bottom: 0.5em;
     }
   }
