@@ -17,6 +17,9 @@
   min-height: 450px;
   width: 100%;
   padding-bottom: ($gutter * 2);
+  &:focus {
+    outline: 0;
+  }
 }
 
 // Re-define the GDS grid-column mixin
@@ -101,22 +104,9 @@
 }
 
 // Selfserve only styles
-
-@if $app == 'selfserve' {
-
-  %page-wrapper,
-  .page-wrapper {
-    max-width: $base-width;
-  }
-
-  #main:focus {
-    outline: 0;
-  }
-
-}
+@if $app == 'selfserve' {}
 
 // Internal only styles
-
 @if $app == 'internal' {
 
   %page-wrapper,
