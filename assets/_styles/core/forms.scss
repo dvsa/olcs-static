@@ -574,6 +574,8 @@ select,
 
     label {
       background: $grey-3;
+      padding: 16px 17px;
+      border: 1px solid transparent;
       float: left;
       &:not(:last-child) {
         margin-bottom: 5px;
@@ -585,7 +587,7 @@ select,
         clear: both;
       }
       &:hover {
-        background: $grey-2;
+        border-color: $black;
         cursor: pointer;
       }
       &:focus {
@@ -597,7 +599,7 @@ select,
       }
       &.selected {
         background: $white;
-        outline: 1px solid $black;
+        border-color: $black;
         &:focus {
           outline: 3px solid $outline;
         }
