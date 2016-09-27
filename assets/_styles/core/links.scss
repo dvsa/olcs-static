@@ -15,15 +15,6 @@ a {
   }
 }
 
-[rel="external"]:after {
-  @include svg('selfserve-external-link');
-  margin-left: 0.25em;
-  content: '';
-  &:hover {
-    @include svg('selfserve-external-link-hover');
-  }
-}
-
 .disabled,
 .disabled a {
   text-decoration: none;
