@@ -605,6 +605,7 @@ select,
       }
       &.disabled {
         cursor: default;
+        pointer-events: none;
         &:hover {
           background: $grey-3;
         }
