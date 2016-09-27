@@ -54,6 +54,11 @@
   .no-details & {
     display: none;
   }
+  ul {
+    &:not(:last-child) {
+      margin-bottom: $gutter-half;
+    }
+  }
 }
 
 /**
