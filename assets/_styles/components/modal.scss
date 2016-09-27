@@ -51,7 +51,7 @@
   }
 
   &__content {
-    @extend %clearfix;
+    @extend %contain-floats;
   }
 
   form {
@@ -71,7 +71,6 @@
   }
 
 }// .modal
-
 
 .modal--alert {
   max-width: 460px;

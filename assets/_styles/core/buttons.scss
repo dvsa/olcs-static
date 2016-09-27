@@ -49,6 +49,9 @@
   &:active {
     color: $text-color;
   }
+  &:focus {
+    background-color: darken($background, 5%);
+  }
 }
 
 .action {

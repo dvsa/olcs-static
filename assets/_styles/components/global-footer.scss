@@ -19,9 +19,9 @@
   }
 
   &__wrapper {
-    max-width: $base-width;
-    padding: $gutter $gutter-half;
-    margin: 0 auto;
+    @extend %page-wrapper;
+    padding-top: $gutter;
+    padding-bottom: $gutter;
     box-sizing: border-box;
     @media (max-width: $mobile-column-stack) {
       width: 100%;

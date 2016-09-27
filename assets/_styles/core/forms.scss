@@ -147,9 +147,27 @@ label,
     margin-right: 0.5em;
   }
   .checkbox & {
-    @if $app == 'selfserve' { @extend %h5; }
+    @if $app == 'selfserve' { 
+      @extend %h5; 
+      padding: 14px 17px;
+    }
     @if $app == 'internal'  { @extend %h6; }
     margin-top: 0;
+  }
+  .has-advanced-labels & {
+    @extend %h6;
+    position: relative;
+    width: 600px;
+    padding-left: ($gutter-half * 2.5);
+    strong {
+      font-weight: 300;
+      @extend %h5;
+    }
+    input {
+      position: absolute;
+      top: $gutter-half;
+      left: $gutter-half;
+    }
   }
 }
 
@@ -442,7 +460,7 @@ select,
 
 .validation-wrapper {
 
-  @extend %clearfix;
+  @extend %contain-floats;
   padding-left: $gutter-half;
   border-left: 5px solid $error-colour;
   margin-bottom: $gutter-half;
