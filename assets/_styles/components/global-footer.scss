@@ -82,13 +82,4 @@
     }
   }
 
-  [rel='external'] {
-    &:after {
-      @include svg('selfserve-external-footer');
-    }
-    &:hover:after {
-      @include svg('external-link-dark');
-    }
-  }
-
 }// .global-footer

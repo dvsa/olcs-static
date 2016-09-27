@@ -108,14 +108,6 @@
     @include action--core($red);
   }
 
-  &--external {
-    &:after {
-      @include svg('external-link-white');
-      content: '';
-      margin-left: 0.5em;
-    }
-  }
-
 }
  
 /*
