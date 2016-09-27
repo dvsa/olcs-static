@@ -11,25 +11,20 @@
   @if $app == 'selfserve' {
 
     position: relative;
-    margin-bottom: 45px;
+    margin-bottom: $gutter;
 
     @media (max-width: $mobile-column-stack){
-      margin-top: 1.5em;
-      margin-bottom: 1.5em;
+      margin-bottom: $gutter-half;
     }
 
     &__wrapper {
-      margin-top: 3em;
+      margin-top: 2.5em;
     }
 
     &.two-thirds {
       border-bottom: 1px solid $grey-2;
       margin-top: 3em;
       padding-bottom: 2em;
-    }
-
-    h1 {
-      max-width: 540px;
     }
 
     &__subtitle {
@@ -39,9 +34,7 @@
     }
 
     &__actions {
-      position: absolute;
-      right: -5px;
-      bottom: 0;
+      margin-top: 45px;
       list-style: none;
       @media (max-width: $mobile-column-stack){
         position: relative;

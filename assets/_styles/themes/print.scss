@@ -1,11 +1,12 @@
-/**
- * Printable
- *
- * Styles for printable documents, including the applications,
- * declaration form and payment receipts
- */
+/// OLCS - Print application SCSS
+///
+/// Styles for printable documents, including the applications,
+/// declaration form and payment receipts
+///
+/// @author sam.quayle@valtech.co.uk, Valtech Ltd
+/// @author edmund.reed@valtech.co.uk, Valtech Ltd
 
-@import '../vendor/govuk_toolkit/stylesheets/colours';
+@import '../../vendor/govuk_frontend_toolkit/stylesheets/colours';
 
 /**
  * General Styles/Reset
