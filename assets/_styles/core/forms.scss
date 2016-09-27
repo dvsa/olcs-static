@@ -41,7 +41,7 @@ fieldset {
     legend {
       @extend %paragraph;
       width: 100%;
-      margin-bottom: 10px;
+      margin-bottom: 2px;
       max-width: 600px;
       font-weight: 400;
       clear: both;
@@ -118,7 +118,7 @@ legend,
   @if $app == 'internal'  { @extend %h4; }
   padding: 0;
   font-weight: 700;
-  margin-bottom: $gutter-one-third;
+  margin-bottom: 10px;
   .highlight-box & {
     float: left;
     width: 100%;
@@ -128,11 +128,10 @@ legend,
 label,
 .label {
   @extend %h4;
-  margin-bottom: 10px;
+  margin-bottom: 2px;
   @if $app == 'selfserve' { @extend %h4; }
   @if $app == 'internal'  {
     font-size: font-size(3);
-    margin-bottom: 5px;
   }
   display: block;
   max-width: 600px;
@@ -147,8 +146,8 @@ label,
     margin-right: 0.5em;
   }
   .checkbox & {
-    @if $app == 'selfserve' { 
-      @extend %h5; 
+    @if $app == 'selfserve' {
+      @extend %h5;
       padding: 14px 17px;
     }
     @if $app == 'internal'  { @extend %h6; }
@@ -225,10 +224,10 @@ textarea,
   background-color: $white;
   border: 2px solid;
   max-width: 600px;
-  
+
   padding: theme(
     $internal: 0.5em 0.75em,
-    $selfserve: 5px 6px 4px
+    $selfserve: 5px 6px 4px 6px
   );
 
   font-size: theme(
@@ -443,7 +442,7 @@ select,
   }
 
   &__item {
-    &, 
+    &,
     a {
       color: $error-colour;
     }
