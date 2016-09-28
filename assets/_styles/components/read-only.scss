@@ -17,6 +17,14 @@
     width: 95%;
     margin: 0;
   }
+  
+  &__header {
+    border-bottom: 1px solid $grey-3;
+    margin-bottom: $gutter-half;
+    float: left;
+    width: 100%;
+    padding-bottom: 8px;
+  }
 
   @if $app == 'internal' {
     &__header {
@@ -28,16 +36,11 @@
     dt {
       color: $grey-1;
     }
+    dd {
+      font-weight: 300;
+    }
   }
 
-}
-
-.read-only__header {
-  border-bottom: 1px solid $grey-3;
-  margin-bottom: $gutter-half;
-  float: left;
-  width: 100%;
-  padding-bottom: 8px;
 }
 
 .text-area {
@@ -67,6 +70,12 @@
   &__item {
     overflow: hidden;
     list-style: none;
+  }
+  @if $app == 'internal' {
+    &__item {
+      width: 50%;
+      float: left;
+    }
   }
 }
 
