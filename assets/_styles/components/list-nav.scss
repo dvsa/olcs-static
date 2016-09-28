@@ -3,7 +3,7 @@
  */
 
 .list-navigation {
-  @extend %clearfix;
+  @extend %contain-floats;
   list-style: none;
   margin-bottom: 40px;
   &__item {

@@ -1,23 +1,10 @@
-/**
- * Tools
- *
- * Utility helpers to speed up and improve development, typically
- * in the form of placeholders and mixins.
- *
- * [1] - Theme Helper
- * [2] - Clearfix
- * [3] - Header With Actions
- * [4] - SVG Icon With Fallback
- */
-
-/**
- * [1] - Theme Helper
- * Function to output a CSS value based on which theme is being used
- */
+// Tools
+//
+// Utility helpers to speed up and improve development, typically
+// in the form of placeholders and mixins.
 
 // background: theme($internal: white, $selfserve: black);
 // background: theme(white, black);
-
 @function theme($internal, $selfserve) {
   @if $app == 'internal' {
     @return $internal;
@@ -26,25 +13,7 @@
   }
 }
 
-/**
- * [2] Clearfix
- * https://css-tricks.com/snippets/css/clear-fix/
- */
-
-%clearfix,
-.clearfix {
-  &:after {
-    content: '';
-    display: block;
-    clear: both;
-  }
-}
-
-/**
- * [3] Header With Actions
- * Create an actionable header bar with right-side actions-container
- */
-
+// Create an actionable header bar with right-side actions-container
 %header-with-actions {
   float: left;
   width: 100%;
@@ -65,22 +34,16 @@
   }
 }
 
-/**
- * [4] SVG Icon
- * Load an SVG image from the global sprite with PNG fallback
- */
-
+// Load an SVG image from the global sprite with PNG fallback
 %sprite-bg {
-  // scss-lint:disable DuplicateProperty
   background-image: url('../images/svg/icon-sprite.png');
+  // scss-lint:disable DuplicateProperty
   background-image: url('../images/svg/icon-sprite.svg'), linear-gradient(transparent, transparent);
-  // scss-lint:enable DuplicateProperty
   display: inline-block;
 }
 
 @mixin svg($src) {
   // scss-lint:disable PlaceholderInExtend
   @extend .#{$src};
-  // scss-lint:enable PlaceholderInExtend
   @extend %sprite-bg;
 }
