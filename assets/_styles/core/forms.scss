@@ -153,7 +153,7 @@ label,
     @if $app == 'internal'  { @extend %h6; }
     margin-top: 0;
   }
-  .has-advanced-labels & {
+  .checkbox.has-advanced-labels & {
     @extend %h6;
     position: relative;
     width: 600px;
