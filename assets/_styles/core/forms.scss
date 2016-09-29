@@ -41,7 +41,7 @@ fieldset {
     legend {
       @extend %paragraph;
       width: 100%;
-      margin-bottom: 10px;
+      margin-bottom: 2px;
       max-width: 600px;
       font-weight: 400;
       clear: both;
@@ -118,7 +118,7 @@ legend,
   @if $app == 'internal'  { @extend %h4; }
   padding: 0;
   font-weight: 700;
-  margin-bottom: $gutter-one-third;
+  margin-bottom: 10px;
   .highlight-box & {
     float: left;
     width: 100%;
@@ -128,11 +128,10 @@ legend,
 label,
 .label {
   @extend %h4;
-  margin-bottom: 10px;
+  margin-bottom: 2px;
   @if $app == 'selfserve' { @extend %h4; }
   @if $app == 'internal'  {
     font-size: font-size(3);
-    margin-bottom: 5px;
   }
   display: block;
   max-width: 600px;
@@ -147,9 +146,27 @@ label,
     margin-right: 0.5em;
   }
   .checkbox & {
-    @if $app == 'selfserve' { @extend %h5; }
+    @if $app == 'selfserve' {
+      @extend %h5;
+      padding: 14px 17px;
+    }
     @if $app == 'internal'  { @extend %h6; }
     margin-top: 0;
+  }
+  .checkbox.has-advanced-labels & {
+    @extend %h6;
+    position: relative;
+    width: 600px;
+    padding-left: ($gutter-half * 2.5);
+    strong {
+      font-weight: 300;
+      @extend %h5;
+    }
+    input {
+      position: absolute;
+      top: $gutter-half;
+      left: $gutter-half;
+    }
   }
 }
 
@@ -210,7 +227,7 @@ textarea,
 
   padding: theme(
     $internal: 0.5em 0.75em,
-    $selfserve: 5px 6px 4px
+    $selfserve: 5px 6px 4px 6px
   );
 
   font-size: theme(
@@ -425,6 +442,10 @@ select,
   }
 
   &__item {
+    &,
+    a {
+      color: $error-colour;
+    }
     font-weight: bold;
     text-decoration: underline;
     @include media(tablet) {
@@ -442,7 +463,7 @@ select,
 
 .validation-wrapper {
 
-  @extend %clearfix;
+  @extend %contain-floats;
   padding-left: $gutter-half;
   border-left: 5px solid $error-colour;
   margin-bottom: $gutter-half;
@@ -556,7 +577,8 @@ select,
 
     label {
       background: $grey-3;
-      padding: 14px 17px;
+      padding: 16px 17px;
+      border: 1px solid transparent;
       float: left;
       &:not(:last-child) {
         margin-bottom: 5px;
@@ -568,7 +590,7 @@ select,
         }
       }
       &:hover {
-        background: $grey-2;
+        border-color: $black;
         cursor: pointer;
       }
       &:focus {
@@ -580,13 +602,14 @@ select,
       }
       &.selected {
         background: $white;
-        outline: 1px solid $black;
+        border-color: $black;
         &:focus {
           outline: 3px solid $outline;
         }
       }
       &.disabled {
         cursor: default;
+        pointer-events: none;
         &:hover {
           background: $grey-3;
         }

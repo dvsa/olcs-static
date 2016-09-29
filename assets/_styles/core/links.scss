@@ -9,14 +9,9 @@ a {
     color: $link-active-colour;
     outline: 0;
   }
-}
-
-[rel="external"]:after {
-  @include svg('selfserve-external-link');
-  margin-left: 0.25em;
-  content: '';
-  &:hover {
-    @include svg('selfserve-external-link-hover');
+  &:focus {
+    background-color: $focus-colour;
+    outline: 3px solid $focus-colour;
   }
 }
 
