@@ -9,9 +9,11 @@ a {
     color: $link-active-colour;
     outline: 0;
   }
-  &:focus {
-    background-color: $focus-colour;
-    outline: 3px solid $focus-colour;
+  @if $app == 'selfserve' {
+    &:focus {
+      background-color: $focus-colour;
+      outline: 3px solid $focus-colour;
+    }
   }
 }
 
