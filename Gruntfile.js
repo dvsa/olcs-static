@@ -272,28 +272,34 @@
        */
       assemble: {
         options: {
-          helpers: [
-            'handlebars-helper-repeat'
-          ]
+          helpers: ['handlebars-helper-repeat']
         },
         internal: {
           options: {
+            assets: '../../',
             layout: 'base.hbs',
-            layoutdir: 'styleguides/layouts/internal/',
-            partials: 'styleguides/partials/*.hbs'
+            layoutdir: 'styleguides/internal/layouts/',
+            partials: [
+              'styleguides/partials/*.hbs',
+              'styleguides/internal/partials/*.hbs'
+            ]
           },
-          cwd: 'styleguides/pages/internal',
+          cwd: 'styleguides/internal/pages',
           dest: 'public/styleguides/internal',
           expand: true,
           src: '**/*.hbs'
         },
         selfserve: {
           options: {
+            assets: '../../',
             layout: 'base.hbs',
-            layoutdir: 'styleguides/layouts/selfserve/',
-            partials: 'styleguides/partials/*.hbs'
+            layoutdir: 'styleguides/selfserve/layouts/',
+            partials: [
+              'styleguides/partials/*.hbs',
+              'styleguides/selfserve/partials/*.hbs'
+            ]
           },
-          cwd: 'styleguides/pages/selfserve',
+          cwd: 'styleguides/selfserve/pages',
           dest: 'public/styleguides/selfserve',
           expand: true,
           src: '**/*.hbs'
@@ -608,7 +614,6 @@
     ]);
     
     // Push a feature branch, used by the below 'submit' task
-    // Commit and push to Github develop branch
     grunt.registerTask('push-feature', [
       'git-add',
       'git-commit:Pushing branch for feature ' + target,

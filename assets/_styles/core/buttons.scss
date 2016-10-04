@@ -68,13 +68,13 @@
   &--secondary {
     @if $app == 'selfserve' {
       @include action--core(
-        $background: $grey-3, 
+        $background: $grey-3,
         $text-color: $text-colour
       );
     }
     @if $app == 'internal' {
       @include action--core(
-        $background: $grey-4, 
+        $background: $grey-4,
         $text-color: $link-colour
       );
       border: 1px solid $grey-3;
@@ -83,10 +83,10 @@
 
   &--tertiary {
     @include action--core(
-      $background: transparent, 
+      $background: transparent,
       $text-color: $link-colour
     );
-    border: none;
+    border: 0;
     &:hover {
       text-decoration: underline;
     }
@@ -109,7 +109,7 @@
   }
 
 }
- 
+
 /*
  * disabled styling
  */
@@ -130,7 +130,7 @@
 }
 
 /*
- * 'New Application' button 
+ * 'New Application' button
  */
 .new-application--wrapper {
   margin-bottom: $gutter;

@@ -102,7 +102,7 @@ linters:
     ignore_parent_selectors: true
 
   PlaceholderInExtend:
-    enabled: true
+    enabled: false
 
   PropertyCount:
     enabled: false
