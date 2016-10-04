@@ -27,6 +27,10 @@
     padding: 5px 0;
     box-shadow: 0 1px 5px $grey-2;
     z-index: 3;
+    // addresses issue olcs-13945 - whitespace wrapping issue
+    @-moz-document url-prefix() {
+        min-width: 200px;
+    }
   }
 
   &__item {
