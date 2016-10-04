@@ -3,9 +3,12 @@
  */
 
 %guidance {
-  background: $grey-4;
-  border-left: 4px solid $grey-2;
-  padding: 15px;
+  clear: both;
+  border-left-style: solid;
+  border-left-width: 10px;
+  border-color: $grey-2;
+  padding: $gutter-half;
+  margin-bottom: $gutter-half;
  }
 
 .guidance {
@@ -50,6 +53,11 @@
   margin-bottom: 10px;
   .no-details & {
     display: none;
+  }
+  ul {
+    &:not(:last-child) {
+      margin-bottom: $gutter-half;
+    }
   }
 }
 

@@ -2,32 +2,21 @@
  * Review
  */
 
-.review {
-  background: $white;
-  body {
-    background: $white;
-    margin: 0 auto;
-    max-width: 860px;
-  }
-}
-
 .review-header {
   padding: 100px 0 50px;
-  width: 70%;
+  h1 {
+    font-size: 44px;
+  }
 }
 
 .review-section {
   border-top: 3px solid $black;
-  padding-top: 20px;
-  margin-top: 20px;
-  float: left;
-  width: 100%;
+  padding-top: 40px;
+  margin-bottom: 40px;
   h2 {
-    margin-bottom: 40px;
-  }
-  p {
-    @extend %paragraph--small;
-    max-width: 700px;
-    margin-bottom: 0.6em;
+    font-size: 30px;
+    line-height: 1;
+    margin-top: 0;
+    margin-bottom: 20px;
   }
 }

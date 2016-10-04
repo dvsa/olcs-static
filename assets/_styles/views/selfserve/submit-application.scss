@@ -9,6 +9,12 @@
 .incomplete-section {
   margin: 20px 0 30px;
   overflow: auto;
+  ul {
+    margin-bottom: $gutter-half;
+  }
+  & + .important {
+    margin: ($gutter * 1.5) 0;
+  }
 }
 
 /**

@@ -5,11 +5,10 @@
   @if $app == 'selfserve' {
 
     position: relative;
-    margin-bottom: 45px;
+    margin-bottom: $gutter;
 
     @media (max-width: $mobile-column-stack){
-      margin-top: 1.5em;
-      margin-bottom: 1.5em;
+      margin-bottom: $gutter-half;
     }
 
     h1 {

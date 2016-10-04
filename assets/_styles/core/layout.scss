@@ -1,24 +1,12 @@
-//
-// Layout
-//
-// Styles to provide the foundation skeleton and grid system for the
-// app. Uses vendor/govuk_toolkit to generate grid related styles.
-//
-// [1] - Page/Content/Row Wrappers
-// [2] - Individual Columns
-// [3] - Selfserve only styles
-// [4] - Internal only styles
-//
+/// Layout
+///
+/// Styles to provide the foundation skeleton and grid system for the
+/// app. Uses vendor/govuk_frontend_toolkit to generate grid related styles.
 
-// [1] - Page/Content/Row Wrappers
 // The document/application wrapper which contains the entire app
-
 %page-wrapper,
 .page-wrapper {
-  overflow: hidden;
-  clear: both;
-  margin: 0 auto;
-  padding: 0 $gutter-half;
+  @extend %site-width-container;
 }
 
 .row {
@@ -26,21 +14,19 @@
 }
 
 #main {
+  min-height: 450px;
   width: 100%;
   padding-bottom: ($gutter * 2);
-  min-height: 450px;
+  &:focus {
+    outline: 0;
+  }
 }
 
 .page-content {
   margin-top: 3em;
 }
 
-// [2] - Individual Columns
-// Create unsemantic class names for reusable columns of various
-// widths and proportions
-
 // Re-define the GDS grid-column mixin
-
 @mixin grid-column($width, $full-width: $mobile-column-stack, $float: left, $mobile-first: false) {
 
   @if $mobile-first {
@@ -121,31 +107,15 @@
   }
 }
 
-// [3] - Selfserve only styles
-// Overwrite the main layout styles for the Selfserve application
+// Selfserve only styles
+@if $app == 'selfserve' {}
 
-@if $app == 'selfserve' {
-
-  %page-wrapper,
-  .page-wrapper {
-    max-width: $base-width;
-  }
-
-  #main:focus {
-    outline: 0;
-  }
-
-}
-
-// [4] - Internal only styles
-// Overwrite the main layout styles for the Intetnal aplication
-
+// Internal only styles
 @if $app == 'internal' {
 
   %page-wrapper,
   .page-wrapper {
-    padding: 0 $gutter;
-    overflow-x: auto;
+    max-width: calc(100% - (#{$gutter} * 2));
   }
 
   #main {
