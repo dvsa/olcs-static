@@ -453,6 +453,10 @@ select,
         margin-bottom: 5px;
       }
     }
+    &,
+    a {
+      color: $error-colour;
+    }
   }
 
 }
@@ -580,10 +584,10 @@ select,
         margin-bottom: 5px;
       }
       &:not(.inline) {
+        clear: both;
         &:first-of-type {
           margin-top: 5px;
         }
-        clear: both;
       }
       &:hover {
         border-color: $black;
