@@ -39,7 +39,7 @@ OLCS.disableForm = (function(document, $, undefined) {
         // Change target button text during interim
         if (options.loadingText) {
           // Ensure button's width does not change/jump
-          target.css('width', target.outerWidth());
+          // target.css('width', target.outerWidth());
           // Replace button's text with loading text
           target.text(options.loadingText);
         }
