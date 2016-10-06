@@ -16,32 +16,30 @@ OLCS.disableForm = (function(document, $, undefined) {
   return function init(custom) {
 
     var options = $.extend({
+      container: '.actions-container',
       actions: '[type="submit"], [class*="action-"]',
       disabledClass: 'disabled',
       loadingText: 'Loading...'
     }, custom);
 
-    // Execute code on all potential actions
-    $(options.actions).each(function() {
+    $(options.container).each(function() {
 
-      // Cache trigger selector
-      var trigger = $(this);
+      var container = $(this);
+      var actions = container.find(options.actions);
 
-      trigger.on('click', function(e) {
+      actions.on('click', function() {
 
         var target = $(this);
-        var container = target.parents('.actions-container') || target.parents('form');
-        var formActions = container.find(options.actions);
 
-        // Add disabled class to relevant actions
-        formActions.addClass(options.disabledClass);
-
+        actions.addClass(options.disabledClass);
+      
         // Change target button text during interim
         if (options.loadingText) {
-          // Ensure button's width does not change/jump
-          // target.css('width', target.outerWidth());
-          // Replace button's text with loading text
-          target.text(options.loadingText);
+          if (target.is('input')) {
+            target.val(options.loadingText);
+          } else {
+            target.html(options.loadingText);
+          }
         }
 
       });
