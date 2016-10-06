@@ -78,6 +78,36 @@ describe('OLCS.disableForm', function() {
 
     });
 
+
+    describe('When invoked without loading text', function() {
+
+      beforeEach(function() {
+        this.component({
+          container : '#stub',
+          loadingText : ''
+        });
+      });
+
+      describe('When a regular submit button is clicked', function() {
+        beforeEach(function() {
+          $('#button-submit').click();
+        });
+
+        it('The action buttons should have the "disabled" class', function() {
+          expect($('#stub .submit').hasClass('disabled')).to.be(true);
+        });
+
+        it('The clicked button should not have altered text', function() {
+          expect($('#button-submit').html()).to.be('Submit');
+        });
+
+        it('All other submit buttons should remain unaffected', function() {
+          expect($('.fake-submit').hasClass('disabled')).to.be(false);
+        });
+      });
+
+    });
+
   });
 
 });
