@@ -27,10 +27,12 @@ OLCS.disableForm = (function(document, $, undefined) {
       var container = $(this);
       var actions = container.find(options.actions);
 
+      // When any action is clicked
       actions.on('click', function() {
 
         var target = $(this);
 
+        // Add disabled class to relevant actions
         actions.addClass(options.disabledClass);
       
         // Change target button text during interim

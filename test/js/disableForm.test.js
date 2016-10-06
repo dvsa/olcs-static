@@ -19,10 +19,10 @@ describe('OLCS.disableForm', function() {
 
     beforeEach(function() {
       $('body').append([
-        '<form id="stub" class="actions-container">' +
-          '<input  id="input-submit"  type="submit"  class="submit" value="Submit" />' +
+        '<form id="stub">' +
+          '<input  id="input-submit"  type="submit"  class="submit" value="Submit">' +
           '<button id="button-submit" type="submit"  class="submit">Submit</button>' +
-          '<a      id="anchor-submit" href="#submit" class="submit action-primary">Close</button>' +
+          '<a      id="anchor-submit" href="#submit" class="submit action-primary">Close</a>' +
         '</form>' +
         '<button type="submit" class="fake-submit">Fake Submit</button>'
       ].join("\n"));
@@ -40,18 +40,17 @@ describe('OLCS.disableForm', function() {
 
       beforeEach(function() {
         this.component({
-          actions : '.submit'
+          container : '#stub'
         });
       });
 
       describe('When a regular submit button is clicked', function() {
-
         beforeEach(function() {
           $('#button-submit').click();
         });
 
         it('The action buttons should have the "disabled" class', function() {
-          expect($('#button-submit').hasClass('disabled')).to.be(true);
+          expect($('#stub .submit').hasClass('disabled')).to.be(true);
         });
 
         it('The clicked button should have correct loading text', function() {
@@ -61,7 +60,20 @@ describe('OLCS.disableForm', function() {
         it('All other submit buttons should remain unaffected', function() {
           expect($('.fake-submit').hasClass('disabled')).to.be(false);
         });
+      });
 
+      describe('When an input submit button is clicked', function() {
+        beforeEach(function() {
+          $('#input-submit').click();
+        });
+
+        it('The action buttons should have the "disabled" class', function() {
+          expect($('#stub .submit').hasClass('disabled')).to.be(true);
+        });
+
+        it('The clicked button should have correct loading text', function() {
+          expect($('#input-submit').val()).to.be('Loading...');
+        });
       });
 
     });
