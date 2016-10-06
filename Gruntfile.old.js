@@ -1,4 +1,4 @@
-git (function() {
+(function() {
 
   /**
    * Gruntfile.js
@@ -22,13 +22,13 @@ git (function() {
 
     // Set any global grunt configuration
     var globalConfig = {};
-
+    
     // Set development environment to determine asset minification
     var env = grunt.option('env') || 'dev';
-
+    
     // Setup param to access via command line
     var target = grunt.option('target');
-
+    
     // Set the location for the public images directory
     var pubImages = 'public/images';
 
@@ -83,7 +83,7 @@ git (function() {
      * Grunt Tasks
      *
      * List of all separate Grunt tasks used by OLCS-Static
-     *
+     * 
      * - sass
      * - postcss
      * - copy
@@ -417,6 +417,10 @@ git (function() {
         scripts: {
           files: ['assets/_js/**/*.js'],
           tasks: ['uglify:dev']
+        },
+        images: {
+          files: ['assets/_images/**/*.{png,jpg,gif,svg}'],
+          tasks: ['copy:images', 'svg2png', 'dr-svg-sprites']
         }
       },
 
@@ -493,7 +497,7 @@ git (function() {
     require('matchdep').filterAll([
       'grunt-*', '!grunt-cli', 'assemble'
     ]).forEach(grunt.loadNpmTasks);
-
+    
     /**
      * Register Grunt Tasks
      *
@@ -503,7 +507,7 @@ git (function() {
 
     // Default grunt task
     grunt.registerTask('default', 'serve');
-
+    
     // Function to compile the app
     var compile = function(environment) {
       var tasks = [
@@ -513,6 +517,10 @@ git (function() {
       ];
       if (environment == 'dev') {
         tasks.push(
+          'clean:images',
+          'svg2png',
+          'dr-svg-sprites',
+          'copy:images',
           'assemble'
         );
       };
@@ -524,15 +532,15 @@ git (function() {
 
     // Compile the app using targeted environment
     // $ grunt compile --env=prod
-    grunt.registerTask('compile',
+    grunt.registerTask('compile', 
         compile(env)
     );
-
+    
     // Compile the app for development environment
-    grunt.registerTask('compile:dev',
+    grunt.registerTask('compile:dev', 
         compile('dev')
     );
-
+    
     // Compile the app for production environment
     grunt.registerTask('compile:prod',
         compile('prod')
@@ -564,9 +572,9 @@ git (function() {
     grunt.registerTask('test:single', [
       'karma:single:' + target
     ]);
-
+    
     // Git/command line tasks
-
+    
     grunt.registerTask('git-add', function() {
       var done = this.async();
       grunt.util.spawn({
@@ -574,7 +582,7 @@ git (function() {
         args: ['add', '.']
       }, done);
     });
-
+    
     grunt.registerTask('git-commit', function(message) {
       var done = this.async();
       grunt.util.spawn({
@@ -582,7 +590,7 @@ git (function() {
         args: ['commit', '-m', message]
       }, done);
     });
-
+    
     grunt.registerTask('git-push', function(origin, branch) {
       var done = this.async();
       grunt.util.spawn({
@@ -597,21 +605,21 @@ git (function() {
       'git-commit:Pushing to Github',
       'git-push:github:develop'
     ]);
-
+    
     //Compile, commit/push to github, and update github pages
     grunt.registerTask('github', [
       'compile:dev',
       'gh-pages',
       'push-github-develop'
     ]);
-
+    
     // Push a feature branch, used by the below 'submit' task
     grunt.registerTask('push-feature', [
       'git-add',
       'git-commit:Pushing branch for feature ' + target,
       'git-push:origin:feature/OLCS-' + target
     ]);
-
+    
     // Submit a story for review
     // $ grunt submit --target=12835
     grunt.registerTask('submit', [
@@ -642,11 +650,11 @@ git (function() {
     grunt.registerTask('build:staging', [
       'test:ci', 'compile:prod', 'jshint:static'
     ]);
-
+    
     grunt.registerTask('build:demo', [
       'test:ci', 'compile:prod'
     ]);
-
+    
     grunt.registerTask('build:live', [
       'compile:prod'
     ]);
