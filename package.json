@@ -1,7 +1,7 @@
 {
   "name": "olcs-static",
   "private": true,
-  "version": "0.29.0",
+  "version": "4.0",
   "author": "Sam Quayle sam.quayle@valtech.co.uk, Edmund Reed edmund.reed@valtech.co.uk",
   "dependencies": {
     "autoprefixer": "^6.0.3",
@@ -33,7 +33,6 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-dr-svg-sprites": "^0.9.31",
     "handlebars-helper-repeat": "0.2.0",
-    "grunt-gh-pages": "^1.1.0",
     "grunt-localscreenshots": "^1.0.0",
     "grunt-notify": "^0.4.1",
     "grunt-scss-lint": "^0.3.8"

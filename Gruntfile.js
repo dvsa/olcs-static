@@ -1,4 +1,4 @@
-git (function() {
+(function() {
 
   /**
    * Gruntfile.js
@@ -99,7 +99,6 @@ git (function() {
      * - watch
      * - karma
      * - localscreenshots
-     * - 'gh-pages'
      */
 
     grunt.initConfig({
@@ -467,24 +466,6 @@ git (function() {
         src: ['public/styleguides/**/*.html']
       },
 
-      /**
-       * Github Pages
-       * https://github.com/tschaub/grunt-gh-pages
-       */
-      'gh-pages': {
-        options: {
-          repo: 'https://github.com/OLCS/olcs-static.git',
-          message: 'automatic merge commit'
-        },
-        'gh-pages': {
-          options: {
-            base: 'public',
-            add: true
-          },
-          src: ['**/*', '!index.html', '!unit-testing/**']
-        }
-      }
-
     }); // initConfig
 
     /**
@@ -565,61 +546,11 @@ git (function() {
       'karma:single:' + target
     ]);
 
-    // Git/command line tasks
-
-    grunt.registerTask('git-add', function() {
-      var done = this.async();
-      grunt.util.spawn({
-        cmd : 'git',
-        args: ['add', '.']
-      }, done);
-    });
-
-    grunt.registerTask('git-commit', function(message) {
-      var done = this.async();
-      grunt.util.spawn({
-        cmd : 'git',
-        args: ['commit', '-m', message]
-      }, done);
-    });
-
-    grunt.registerTask('git-push', function(origin, branch) {
-      var done = this.async();
-      grunt.util.spawn({
-        cmd : 'git',
-        args: ['push', origin, branch]
-      }, done);
-    });
-
-    // Commit and push to Github develop branch
-    grunt.registerTask('push-github-develop', [
-      'git-add',
-      'git-commit:Pushing to Github',
-      'git-push:github:develop'
-    ]);
-
-    //Compile, commit/push to github, and update github pages
-    grunt.registerTask('github', [
-      'compile:dev',
-      'gh-pages',
-      'push-github-develop'
-    ]);
-
-    // Push a feature branch, used by the below 'submit' task
-    grunt.registerTask('push-feature', [
-      'git-add',
-      'git-commit:Pushing branch for feature ' + target,
-      'git-push:origin:feature/OLCS-' + target
-    ]);
-
     // Submit a story for review
     // $ grunt submit --target=12835
     grunt.registerTask('submit', [
       'lint',
       'test',
-      'push-feature',
-      'gh-pages',
-      'push-github-develop',
       'localscreenshots'
     ]);
 
