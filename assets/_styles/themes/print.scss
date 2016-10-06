@@ -10,8 +10,12 @@ $app: print;
 
 @import '../../vendor/govuk_frontend_toolkit/stylesheets/colours';
 @import '../../vendor/govuk_frontend_toolkit/stylesheets/measurements';
+@import '../../vendor/govuk_frontend_toolkit/stylesheets/shims';
+@import '../../vendor/govuk_frontend_toolkit/stylesheets/typography';
 
+@import '../core/config';
 @import '../core/tools';
+@import '../core/typography';
 
 @import '../components/review';
 @import '../components/read-only';
@@ -88,7 +92,7 @@ tfoot:before {
  */
 
 .read-only {
-  @extend %clearfix;
+  @extend %contain-floats;
   & + & {
     margin-top: 1em;
   }

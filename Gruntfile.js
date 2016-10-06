@@ -22,13 +22,13 @@
 
     // Set any global grunt configuration
     var globalConfig = {};
-    
+
     // Set development environment to determine asset minification
     var env = grunt.option('env') || 'dev';
-    
+
     // Setup param to access via command line
     var target = grunt.option('target');
-    
+
     // Set the location for the public images directory
     var pubImages = 'public/images';
 
@@ -83,7 +83,7 @@
      * Grunt Tasks
      *
      * List of all separate Grunt tasks used by OLCS-Static
-     * 
+     *
      * - sass
      * - postcss
      * - copy
@@ -99,7 +99,6 @@
      * - watch
      * - karma
      * - localscreenshots
-     * - 'gh-pages'
      */
 
     grunt.initConfig({
@@ -272,28 +271,34 @@
        */
       assemble: {
         options: {
-          helpers: [
-            'handlebars-helper-repeat'
-          ]
+          helpers: ['handlebars-helper-repeat']
         },
         internal: {
           options: {
+            assets: '../../',
             layout: 'base.hbs',
-            layoutdir: 'styleguides/layouts/internal/',
-            partials: 'styleguides/partials/*.hbs'
+            layoutdir: 'styleguides/internal/layouts/',
+            partials: [
+              'styleguides/partials/*.hbs',
+              'styleguides/internal/partials/*.hbs'
+            ]
           },
-          cwd: 'styleguides/pages/internal',
+          cwd: 'styleguides/internal/pages',
           dest: 'public/styleguides/internal',
           expand: true,
           src: '**/*.hbs'
         },
         selfserve: {
           options: {
+            assets: '../../',
             layout: 'base.hbs',
-            layoutdir: 'styleguides/layouts/selfserve/',
-            partials: 'styleguides/partials/*.hbs'
+            layoutdir: 'styleguides/selfserve/layouts/',
+            partials: [
+              'styleguides/partials/*.hbs',
+              'styleguides/selfserve/partials/*.hbs'
+            ]
           },
-          cwd: 'styleguides/pages/selfserve',
+          cwd: 'styleguides/selfserve/pages',
           dest: 'public/styleguides/selfserve',
           expand: true,
           src: '**/*.hbs'
@@ -411,10 +416,6 @@
         scripts: {
           files: ['assets/_js/**/*.js'],
           tasks: ['uglify:dev']
-        },
-        images: {
-          files: ['assets/_images/**/*.{png,jpg,gif,svg}'],
-          tasks: ['copy:images', 'svg2png', 'dr-svg-sprites']
         }
       },
 
@@ -465,24 +466,6 @@
         src: ['public/styleguides/**/*.html']
       },
 
-      /**
-       * Github Pages
-       * https://github.com/tschaub/grunt-gh-pages
-       */
-      'gh-pages': {
-        options: {
-          repo: 'https://github.com/OLCS/olcs-static.git',
-          message: 'automatic merge commit'
-        },
-        'gh-pages': {
-          options: {
-            base: 'public',
-            add: true
-          },
-          src: ['**/*', '!index.html', '!unit-testing/**']
-        }
-      }
-
     }); // initConfig
 
     /**
@@ -491,7 +474,7 @@
     require('matchdep').filterAll([
       'grunt-*', '!grunt-cli', 'assemble'
     ]).forEach(grunt.loadNpmTasks);
-    
+
     /**
      * Register Grunt Tasks
      *
@@ -501,7 +484,7 @@
 
     // Default grunt task
     grunt.registerTask('default', 'serve');
-    
+
     // Function to compile the app
     var compile = function(environment) {
       var tasks = [
@@ -511,10 +494,6 @@
       ];
       if (environment == 'dev') {
         tasks.push(
-          'clean:images',
-          'svg2png',
-          'dr-svg-sprites',
-          'copy:images',
           'assemble'
         );
       };
@@ -526,15 +505,15 @@
 
     // Compile the app using targeted environment
     // $ grunt compile --env=prod
-    grunt.registerTask('compile', 
+    grunt.registerTask('compile',
         compile(env)
     );
-    
+
     // Compile the app for development environment
-    grunt.registerTask('compile:dev', 
+    grunt.registerTask('compile:dev',
         compile('dev')
     );
-    
+
     // Compile the app for production environment
     grunt.registerTask('compile:prod',
         compile('prod')
@@ -566,63 +545,12 @@
     grunt.registerTask('test:single', [
       'karma:single:' + target
     ]);
-    
-    // Git/command line tasks
-    
-    grunt.registerTask('git-add', function() {
-      var done = this.async();
-      grunt.util.spawn({
-        cmd : 'git',
-        args: ['add', '.']
-      }, done);
-    });
-    
-    grunt.registerTask('git-commit', function(message) {
-      var done = this.async();
-      grunt.util.spawn({
-        cmd : 'git',
-        args: ['commit', '-m', message]
-      }, done);
-    });
-    
-    grunt.registerTask('git-push', function(origin, branch) {
-      var done = this.async();
-      grunt.util.spawn({
-        cmd : 'git',
-        args: ['push', origin, branch]
-      }, done);
-    });
 
-    // Commit and push to Github develop branch
-    grunt.registerTask('push-github-develop', [
-      'git-add',
-      'git-commit:Pushing to Github',
-      'git-push:github:develop'
-    ]);
-    
-    //Compile, commit/push to github, and update github pages
-    grunt.registerTask('github', [
-      'compile:dev',
-      'gh-pages',
-      'push-github-develop'
-    ]);
-    
-    // Push a feature branch, used by the below 'submit' task
-    // Commit and push to Github develop branch
-    grunt.registerTask('push-feature', [
-      'git-add',
-      'git-commit:Pushing branch for feature ' + target,
-      'git-push:origin:feature/OLCS-' + target
-    ]);
-    
     // Submit a story for review
     // $ grunt submit --target=12835
     grunt.registerTask('submit', [
       'lint',
       'test',
-      'push-feature',
-      'gh-pages',
-      'push-github-develop',
       'localscreenshots'
     ]);
 
@@ -645,11 +573,11 @@
     grunt.registerTask('build:staging', [
       'test:ci', 'compile:prod', 'jshint:static'
     ]);
-    
+
     grunt.registerTask('build:demo', [
       'test:ci', 'compile:prod'
     ]);
-    
+
     grunt.registerTask('build:live', [
       'compile:prod'
     ]);
