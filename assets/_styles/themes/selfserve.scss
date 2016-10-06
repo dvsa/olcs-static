@@ -33,6 +33,7 @@ $app: selfserve;
 @import '../core/buttons';
 
 // Components
+@import '../components/back-link';
 @import '../components/version-header';
 @import '../components/article';
 @import '../components/global-header';
@@ -40,9 +41,7 @@ $app: selfserve;
 @import '../components/user-header';
 @import '../components/proposition-nav';
 @import '../components/page-header';
-@import '../components/proposition-nav';
 @import '../components/phase';
-@import '../components/breadcrumb';
 @import '../components/global-footer';
 @import '../components/list-nav';
 @import '../components/horizontal-nav';
