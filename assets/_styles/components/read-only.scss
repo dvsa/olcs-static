@@ -4,7 +4,7 @@
 
 .read-only {
 
-  @extend %clearfix;
+  @extend %contain-floats;
   display: block;
   width: 100%;
   margin-bottom: 1em;
