@@ -50,7 +50,7 @@ back-link: index.html
         <ul class="table-actions">
           <li><a href="add-vehicle.html" class="table-actions__item">Add a vehicle</a></li>
           <li><a href="#"class="table-actions__item">Export a vehicle list (CSV)</a></li>
-          <li><a href="#" class="table-actions__item">Show removed vehicles</a></li>
+          <li><a href="#" class="table-actions__item js-show-removed">Show removed vehicles</a></li>
         </ul>
         <fieldset class="inline-search" data-group="vehicleSearch">
           <label for="vrm" class="visually-hidden">Search for a vehicle</label>
@@ -65,13 +65,16 @@ back-link: index.html
               <th>Registration number</th>
               <th class="mobile-hidden">Disc number</th>
               <th class="mobile-hidden">Added</th>
+              <th class="mobile-hidden js-removed">Removed</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
             <tr><td><a href="">LL09 URE</a> (2500kg)</td><td class="mobile-hidden">20515142</td><td class="mobile-hidden">12 May 2014</td><td class="right"><a href="" class="js-replace">Replace disc</a><a href="" class="js-remove">Remove</a><a href="transfer-vehicle.html" class="">Transfer</a></td></tr>
+            <tr class="disabled js-removed"><td>PT65 DFS (2500kg)</td><td class="mobile-hidden">20515142</td><td class="mobile-hidden">12 May 2014</td><td class="right"></td></tr>
             <tr><td><a href="">SW65 CNN</a> (2500kg)</td><td class="mobile-hidden">20515142</td><td class="mobile-hidden">12 May 2014</td><td class="right"><a href="" class="js-replace">Replace disc</a><a href="" class="js-remove">Remove</a><a href="transfer-vehicle.html" class="">Transfer</a></td></tr>
             <tr><td><a href="">YK16 BBO</a> (2500kg)</td><td class="mobile-hidden">20515142</td><td class="mobile-hidden">12 May 2014</td><td class="right"><a href="" class="js-replace">Replace disc</a><a href="" class="js-remove">Remove</a><a href="transfer-vehicle.html" class="">Transfer</a></td></tr>
+            <tr class="disabled js-removed"><td>BR65 PTS (2500kg)</td><td class="mobile-hidden">20515142</td><td class="mobile-hidden">12 May 2014</td><td class="right"></td></tr>
             <tr><td><a href="">YK16 BBR</a> (2500kg)</td><td class="mobile-hidden">20515142</td><td class="mobile-hidden">12 May 2014</td><td class="right"><a href="" class="js-replace">Replace disc</a><a href="" class="js-remove">Remove</a><a href="transfer-vehicle.html" class="">Transfer</a></td></tr>
             <tr><td><a href="">LL06 DRE</a> (2500kg)</td><td class="mobile-hidden">20515142</td><td class="mobile-hidden">12 May 2014</td><td class="right"><a href="" class="js-replace">Replace disc</a><a href="" class="js-remove">Remove</a><a href="transfer-vehicle.html" class="">Transfer</a></td></tr>
             <tr><td><a href="">LE57 AIN</a> (2500kg)</td><td class="mobile-hidden">20515142</td><td class="mobile-hidden">12 May 2014</td><td class="right"><a href="" class="js-replace">Replace disc</a><a href="" class="js-remove">Remove</a><a href="transfer-vehicle.html" class="">Transfer</a></td></tr>
@@ -86,6 +89,20 @@ back-link: index.html
 
 <script type="text/javascript">
   $(document).ready(function() {
+
+    $('.js-removed').hide();
+
+    $(document).on('click', '.js-show-removed', function(e) {
+      e.preventDefault();
+      if ($(this).text() === 'Show removed vehicles') {
+        $(this).text('Hide removed vehicles');
+        $('.js-removed').show();
+      } else {
+        $(this).text('Show removed vehicles');
+        $('.js-removed').hide();
+      }
+
+    });
 
     $(document).on('click','.js-replace', function(e) {
       e.preventDefault();
@@ -109,17 +126,12 @@ back-link: index.html
       $('.js-replace-with-ls').text(localStorage.getItem('currentVRM') || 'LL09 URE');
     });
 
-
-
     $('.inline-search__input').on('keyup', function () {
         var value = this.value;
         $('tbody tr').hide().each(function () {
           if ($(this).find('td:first').text().search(value.toUpperCase()) > -1) $(this).show();
         });
     });
-
-
-
 
   });
 </script>
