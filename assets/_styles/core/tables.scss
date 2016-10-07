@@ -24,6 +24,7 @@
 
 .table__header {
   @extend %header-with-actions;
+  position: relative;
   span {
     @extend %paragraph;
     font-weight: 400;
@@ -156,6 +157,11 @@ tfoot {
 
 .right {
   text-align: right;
+  a,
+  [type="submit"],
+  button {
+    margin: 0 0 0 5px;
+  }
   [type="checkbox"],
   [type="radio"] {
     float: right;
@@ -226,6 +232,18 @@ tfoot {
     -ms-user-select: none;
     // scss-lint:enable VendorPrefix
     user-select: none;
+  }
+}
+
+.table-actions {
+  list-style: none;
+  margin-bottom: 10px;
+  float: left;
+  width: auto;
+  &__item {
+    @extend %h4;
+    font-weight: 600;
+    cursor: pointer;
   }
 }
 

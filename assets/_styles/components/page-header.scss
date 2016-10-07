@@ -19,6 +19,9 @@
 
     &__wrapper {
       margin-top: 2.5em;
+      @media (max-width: $mobile-column-stack){
+        margin-top: 2em;
+      }
     }
 
     &.two-thirds {
