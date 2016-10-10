@@ -1,12 +1,7 @@
 <div class="page-header">
 
-  {{#if breadcrumbs}}
-    <ol class="breadcrumbs">
-      {{#each breadcrumbs}}
-        <li class="breadcrumbs__item"><a href="{{link}}">{{label}}</a></li>
-      {{/each}}
-      <li class="breadcrumbs__item current">{{title}}</li>
-    </ol>
+  {{#if back-link}}
+    <a href="{{back-link}}" class="back-link" title="Back to previous page">Back</a>
   {{/if}}
 
   {{#if page-actions }}
