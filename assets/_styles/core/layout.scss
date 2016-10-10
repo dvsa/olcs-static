@@ -22,6 +22,10 @@
   }
 }
 
+.page-content {
+  margin-top: 3em;
+}
+
 // Re-define the GDS grid-column mixin
 @mixin grid-column($width, $full-width: $mobile-column-stack, $float: left, $mobile-first: false) {
 
