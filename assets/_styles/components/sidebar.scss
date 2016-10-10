@@ -1,27 +1,29 @@
 // Sidebar
 
 .sidebar {
-
+    margin-top: $gutter-two-thirds;
   &__panel {
     @extend %contain-floats;
-    padding: $gutter-half;
+    padding: $gutter-two-thirds;
     background: $grey-3;
     margin-bottom: $gutter-two-thirds;
     &__title {
+      margin-bottom: $gutter-one-third;
+    }
+    label,
+    p {
       margin-bottom: $gutter-half;
     }
-    p {
-      @extend %h5;
-    }
     .field {
-      margin-bottom: $gutter-two-thirds;
+      margin-bottom: 0;
     }
   }
 
   &__actions {
     list-style: none;
     li {
-      font-weight: bold;
+      @extend %h4;
+      font-weight: 600;
     }
   }
 
