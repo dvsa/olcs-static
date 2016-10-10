@@ -1,5 +1,5 @@
 #OLCS Static
-###Synopsis
+### Synopsis
 This repo contains the styleguides, prototypes and static assets for both the OLCS internal application and external service.
 
 To view the compiled end result, visit [http://olcs.github.io/olcs-static/](http://olcs.github.io/olcs-static/).
