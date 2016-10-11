@@ -154,13 +154,15 @@ label,
     margin-top: 0;
   }
   .checkbox.has-advanced-labels & {
-    @extend %h6;
+    @extend %h5;
     position: relative;
-    width: 600px;
+    width: 100%;
     padding-left: ($gutter-half * 2.5);
     strong {
-      font-weight: 300;
-      @extend %h5;
+      @extend %h4;
+      font-weight: 600;
+      display: block;
+
     }
     input {
       position: absolute;
