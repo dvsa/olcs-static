@@ -2,8 +2,6 @@
 layout: base.hbs
 user: operator
 overview: true
-title: Application submitted
-subtitle: OB132455/12
 back-link: home.html
 ---
 
@@ -11,29 +9,31 @@ back-link: home.html
 
   <div class="two-thirds">
 
-    {{> _page-header}}
-
-    <div class="article">
-      <h2>What you need to do next</h2>
-      <p>Before your application can be considered you need to:</p>
+    <div class="page-header">
+      <div class="confirmation">
+        <h2>Application submitted</h2>
+        <p>Your reference number is<br />
+        <strong>OB132455/12</strong></p>
+      </div>
     </div>
 
     <div class="article">
-
+      <h3>What happens next</h3>
+      <p>Before your application can be considered you need to:</p>
       <div class="incomplete-section">
-        <h3>Print, sign and return the declaration form</h3>
+        <h4>Print, sign and return the declaration form</4>
         <p>If you haven't already, an owner or Director of the business must sign the declaration form and return it to the <a href="https://www.gov.uk/government/organisations/traffic-commissioners/about/access-and-opening" target="_blank">Central Licensing Office</a>.</p>
         <p><a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/394936/GV79-application-for-a-goods-vehicle-operators-licence.pdf" download="declarations.pdf" class="download">Print declaration form</a></p>
       </div>
 
       <div class="incomplete-section">
-        <h3>Post your supporting evidence</h3>
+        <h4>Post your supporting evidence</h4>
         <p>You didn't upload the following documents:<br />• <b>Financial evidence</b></p>
         <p>Post these documents to the <a href="https://www.gov.uk/government/organisations/traffic-commissioners/about/access-and-opening" target="_blank">Central Licensing Office</a> along with your application reference number (OB6153563/9).</p>
       </div>
 
       <div class="incomplete-section">
-        <h3>Approve Transport Managers</h3>
+        <h4>Approve Transport Managers</h4>
         <div class="table__wrapper">
           <table>
             <tbody>
@@ -49,7 +49,7 @@ back-link: home.html
           </table>
         </div><!-- .table__wrapper -->
       </div>
-      <p class="important"><b>Your application could be refused if you operate goods vehicles before a licence or an interim licence has been issued and you have paid the fees.</b></p>
+      <p class="important"><b>Your application could be refused if you operate goods vehicles before your licence has been issued.</b></p>
     </div><!-- .article -->
     <hr />
 
@@ -60,6 +60,9 @@ back-link: home.html
       <ul class="sidebar__actions">
         <li>
           <a href="/application/8/review/" target="_blank" class="">View application</a>
+        </li>
+        <li>
+          <a href="/application/8/withdraw/" class="js-modal-ajax">Print receipt</a>
         </li>
         <li>
           <a href="/application/8/withdraw/" class="js-modal-ajax">Withdraw application</a>
