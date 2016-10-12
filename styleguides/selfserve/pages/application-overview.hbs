@@ -1,131 +1,70 @@
 ---
 layout: base.hbs
+overview: true
 user: operator
-title: Application overview
-subtitle: Application OB12524/525
+title: Apply for a new licence
+subtitle: OB12524/1
+back-link: index.html
 breadcrumbs:
   - link: home.html
     label: Home
 overview-items:
   - name: 1. Type of licence
-    status: Complete
-    edit-link: Edit ype of licence
-    url:
+    status: <span class="status green">Complete</span>
 
   - name: 2. Business type
-    status: Complete
-    edit-link: Edit business type
-    open: true
-    url:
+    status: <span class="status green">Complete</span>
 
   - name: 3. Business details
-    status: Incomplete
-    edit-link: Edit business details
-    url:
-    
+    status: <span class="status green">Complete</span>
+
   - name: 4. Addresses
-    status: Incomplete
-    edit-link: Edit addresses
-    url:
+    status: <span class="status green">Complete</span>
 
   - name: 5. Directors
-    status: Incomplete
-    edit-link: Edit directors
-    url:
+    status: <span class="status green">Complete</span>
 
   - name: 6. Operating centres and authorisation
-    status: Not started
-    edit-link: Add operating centre
-    url: operating-centres.html
+    status: <span class="status green">Complete</span>
 
   - name: 7. Financial evidence
-    status: Not started
-    edit-link: Add financial evidence
-    url: financial-evidence.html
+    status: <span class="status green">Complete</span>
 
   - name: 8. Transport managers
-    status: Not started
-    edit-link: Add transport manager
-    url: transport-managers.html
+    status: <span class="status green">Complete</span>
 
   - name: 9. Vehicles
-    status: Not started
-    edit-link: Add vehicle
-    url: vehicles.html
+    status: <span class="status green">Complete</span>
 
   - name: 10. Safety and compliance
-    status: Not started
-    edit-link: Add safety
-    url: safety-and-compliance.html
+    status: <span class="status green">Complete</span>
 
   - name: 11. Financial history
-    status: Not started
-    edit-link: Add financial history
-    url: financial-history.html
+    status: <span class="status green">Complete</span>
 
   - name: 12. Licence history
-    status: Not started
-    edit link: Add licence history
-    url: licence-history.html
+    status: <span class="status green">Complete</span>
 
   - name: 13. Convictions and penalties
-    status: Not started
-    edit-link:
-    url: convictions-penalties.html
+    status: <span class="status green">Complete</span>
 
-  - name: 14. Review and declarations
-    status: Disabled
-    edit-link:
-    url:
+  - name: 14. Declarations
+    status: <span class="status grey">Incomplete</span>
 ---
 
 <div class="row">
 
-  <div class="two-thirds border">
-    
+  <div class="two-thirds">
+
+    {{> _page-header}}
+
     <ul class="overview-navigation">
 
     {{#each overview-items}}
-
-      {{#is status "Complete"}}
-        <li class="overview-item">
-          <a href="{{url}}" class="overview-item__link">
-            <h4>{{name}}</h4>
-            <span class="status green">{{status}}</span>
-            <p>{{edit-link}}</p>
-          </a>
-        </li>
-      {{/is}}
-
-      {{#is status "Incomplete"}}
-        <li class="overview-item">
-          <a href="{{url}}" class="overview-item__link">
-            <h4>{{ name }}</h4>
-            <span class="status orange" data-tooltip="You still need to complete some information">{{ status }}</span>
-            <p>{{ edit-link }}</p>
-          </a>
-        </li>
-      {{/is}}
-
-      {{#is status "Not started" }}
-        <li class="overview-item not-started">
-          <a href="{{url}}" class="overview-item__link">
-            <h4>{{ name }}</h4>
-            <span class="status {{#is status "Not started" }}grey{{/is}}">{{ status }}</span>
-            <p>{{ edit-link }}</p>
-          </a>
-        </li>
-      {{/is}}
-
-     {{#is status "Disabled" }}
-        <li class="overview-item disabled">
-          <div class="overview-item__link">
-            <h4>{{ name }}</h4>
-            <span>Please complete the other sections first</span>
-          </div>
-        </li>
-      {{/is}}
-
+      <li class="overview-item not-started">
+        <h3><a href="{{url}}" class="overview-item__link">{{ name }}</a></h3>
+        {{{ status }}}
+      </li>
     {{/each}}
 
     </ul><!-- .overview-navigation -->
@@ -134,36 +73,26 @@ overview-items:
       <a href="review-submit.html" class="action--primary large">Review and submit</a>
     </div>
 
-  </div>
+  </div><!-- two-thirds -->
 
   <div class="one-third">
-
-    <div class="sidebar">
-
+    <aside class="sidebar" role="complementary">
+      <div class="sidebar__panel">
+        <h4 class="sidebar__panel__title">Submit application</h4>
+        <p>You can't submit until you've completed all of the sections</p>
+        <p>Your fee is<br><b>£250.50</b></p>
+        <a href="" class="action--primary large disabled">Pay and submit</a>
+      </div>
+      <ul class="sidebar__actions">
+        <li><a href="/application/1/cancel/" class="js-modal-ajax">Cancel application</a></li>
+      </ul>
       <dl class="meta">
-        <dt>Application reference</dt>
-        <dd>OB12524/525</dd>
         <dt>Progress</dt>
-        <dd>13 of 13 sections complete</dd>
+        <dd>13 of 14 sections complete</dd>
         <dt>Status</dt>
         <dd>Not submitted</dd>
       </dl>
-
-      <div class="links">
-        <h3>Applying for a new licence</h3>
-        <ul class="links-list">
-          <li class="links-list__item"><a href="">Complete your applications for a goods vehicle operator's licence</a></li>
-          <li class="links-list__item"><a href="">Advertise your application for a licence</a></li>
-          <li class="links-list__item"><a href="">Financial information</a></li>
-          <li class="links-list__item"><a href="">A guide to operator fees</a></li>
-          <li class="links-list__item"><a href="">How to draw up a maintenance contract</a></li>
-        </ul>
-      </div>
-
-      {{> _support }}
-
-    </div>
-
-  </div>
+    </aside>
+  </div><!-- one-thirds -->
 
 </div>

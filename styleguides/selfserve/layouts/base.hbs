@@ -44,7 +44,9 @@
       {{> _user-header}}
 
       <div id="main" role="main" class="styleguide">
-        {{> _page-header}}
+        {{#isnt overview true}}
+          {{> _page-header}}
+        {{/isnt}}
         {{> body}}
       </div>
 
