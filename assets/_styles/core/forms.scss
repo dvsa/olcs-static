@@ -160,9 +160,9 @@ label,
     padding-left: ($gutter-half * 2.5);
     strong {
       @extend %h4;
-      font-weight: 600;
       display: block;
-
+      line-height: 1;
+      margin-bottom: 0.2em;
     }
     input {
       position: absolute;
