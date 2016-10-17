@@ -513,15 +513,9 @@ select,
  * Confirmation
  */
 
-.confirm {
-  max-width: 600px;
-  background: $grey-3;
-  padding: 14px 17px;
+.checkbox.confirm {
   label {
-    @extend %paragraph;
-    @if $app == 'internal'  {
-      font-size: font-size(3);
-    }
+    @extend %h4;
   }
 }
 
