@@ -5,12 +5,13 @@
 @if $app == 'selfserve' {
   %notice {
     width: 100%;
-    padding: 10px 12px;
+    padding: 11px 12px 10px;
     color: $white;
     a {
       float: right;
       color: $white;
       font-weight: 400;
+      font-size: font-size(4);
     }
   }
 
