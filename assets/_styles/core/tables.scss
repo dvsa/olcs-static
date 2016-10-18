@@ -35,7 +35,10 @@
     float: left;
   }
   .actions-container {
-    margin-top: 0;
+    // ensure correct specificity without using !important
+    &:not(:first-child) {
+      margin-top: 0;
+    }
   }
 }
 
