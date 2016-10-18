@@ -238,6 +238,9 @@ tfoot {
 // Mobile tables
 @media (max-width: $mobile-column-stack) {
   .table__wrapper {
+    table {
+      border-bottom: none;
+    }
     thead {
       display: none;
     }
@@ -253,7 +256,7 @@ tfoot {
       border: none;
       padding-left: $gutter-half;
       padding-right: $gutter-half;
-      &:before {
+      &[data-heading]:before {
         content: attr(data-heading);
         font-weight: bold;
         margin-right: $gutter-one-third;
