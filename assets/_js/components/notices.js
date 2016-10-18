@@ -61,7 +61,7 @@ OLCS.notices = (function(document, $, undefined) {
       // fade out any notice containers on render,
       // so long as they're not in a modal or in the
       // right hand column
-      $(noticeContainerSelector).each(function() {
+      $('.internal '+noticeContainerSelector).each(function() {
         if (!$(this).parents().is('.modal, .sidebar--right')) {
           fadeOut($(this));
         }

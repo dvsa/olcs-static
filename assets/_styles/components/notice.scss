@@ -2,82 +2,124 @@
  * Notices
  */
 
-$notice--success : #3C763D;
-$notice--warning : #8A6D3B;
-$notice--info    : #31708F;
-$notice--danger  : #A94442;
-
-%notice {
-  border-radius: 2px;
-  overflow: auto;
-  padding: 7px 15px 6px;
-  margin-bottom: 0.25em;
-  p {
-    @extend %paragraph--small;
-    margin: 0;
-    padding: 0;
-  }
-  a {
-    float: right;
-  }
-}
-
-@mixin notice($color) {
-  $background : desaturate(lighten($color, 50%), 10%);
-  $border     : desaturate(lighten($color, 30%), 10%);
-
-  @extend %notice;
-
-  background: $background;
-  border: 1px solid $border;
-  color: $color;
-}
-
-.notice-container {
-  overflow: auto;
-  position: fixed;
-  top: 14px;
-  left: 0;
-  width: 95%;
-  margin: 0 2.5%;
-  z-index: 2;
-  @media (min-width:640px) {
-    left: 50%;
+@if $app == 'selfserve' {
+  %notice {
     width: 100%;
-    margin-left: -250px;
-    margin-right: 0;
-    max-width: 500px;
-  }
-  .modal & {
-    position: relative;
-    max-width: none;
-    left: 0;
-    width: 100%;
-    margin: -10px 0 30px;
-  }
-  .sidebar--right & {
-    margin: 0 0 1em;
-    position: relative;
-    left: 0;
-    top: 0;
-    z-index: 0;
+    padding: 10px 12px;
+    color: $white;
     a {
-      float: left;
+      float: right;
+      color: $white;
+      font-weight: 400;
+    }
+  }
+
+  .notice {
+    &-container {
+      margin-bottom: 1em;
+    }
+    &--success {
+      @extend %notice;
+      background: $turquoise;
+    }
+    &--info {
+      @extend %notice;
+      background: $light-blue-25;
+      color: $black;
+      a {
+        color: $link-colour;
+      }
+    }
+    &--danger {
+      @extend %notice;
+      background: $mellow-red;
     }
   }
 }
 
-.notice {
-  &--success {
-    @include notice($notice--success);
+
+@if $app == 'internal' {
+  $notice--success : #3C763D;
+  $notice--warning : #8A6D3B;
+  $notice--info    : #31708F;
+  $notice--danger  : #A94442;
+
+  %notice {
+    border-radius: 2px;
+    overflow: auto;
+    padding: 7px 15px 6px;
+    margin-bottom: 0.25em;
+    p {
+      @extend %paragraph--small;
+      margin: 0;
+      padding: 0;
+    }
+    a {
+      float: right;
+    }
   }
-  &--warning {
-    @include notice($notice--warning);
+
+  @mixin notice($color) {
+    $background : desaturate(lighten($color, 50%), 10%);
+    $border     : desaturate(lighten($color, 30%), 10%);
+
+    @extend %notice;
+
+    background: $background;
+    border: 1px solid $border;
+    color: $color;
   }
-  &--info {
-    @include notice($notice--info);
+
+  .notice-container {
+    overflow: auto;
+    position: fixed;
+    top: 14px;
+    left: 0;
+    width: 95%;
+    margin: 0 2.5%;
+    z-index: 2;
+    @media (min-width:640px) {
+      left: 50%;
+      width: 100%;
+      margin-left: -250px;
+      margin-right: 0;
+      max-width: 500px;
+    }
+    .modal & {
+      position: relative;
+      max-width: none;
+      left: 0;
+      width: 100%;
+      margin: -10px 0 30px;
+    }
+    .sidebar--right & {
+      margin: 0 0 1em;
+      position: relative;
+      left: 0;
+      top: 0;
+      z-index: 0;
+      a {
+        float: left;
+      }
+    }
   }
-  &--danger {
-    @include notice($notice--danger);
+
+  .notice {
+    &--success {
+      @include notice($notice--success);
+    }
+    &--warning {
+      @include notice($notice--warning);
+    }
+    &--info {
+      @include notice($notice--info);
+    }
+    &--danger {
+      @include notice($notice--danger);
+    }
   }
 }
+
+
+
+
