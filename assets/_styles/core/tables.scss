@@ -235,6 +235,37 @@ tfoot {
   }
 }
 
+// Mobile tables
+@media (max-width: $mobile-column-stack) {
+  .table__wrapper {
+    thead {
+      display: none;
+    }
+    tr {
+      display: block;
+      border: 1px solid $grey-2;
+      &:not(:first-child) {
+        margin-top: $gutter-half;
+      }
+    }
+    td {
+      display: block;
+      border: none;
+      padding-left: $gutter-half;
+      padding-right: $gutter-half;
+      &:before {
+        content: attr(data-heading);
+        font-weight: bold;
+        margin-right: $gutter-one-third;
+      }
+    }
+    .right-aligned {
+      float: none;
+      margin-left: 0;
+    }
+  }
+}
+
 // Selfserve theme
 // ---------------
 
