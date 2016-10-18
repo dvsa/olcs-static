@@ -8,8 +8,7 @@
         <g id="Artboard-18-Copy" transform="translate(-104.000000, -228.000000)" fill="#FFFFFF">
             <g id="Group-4" transform="translate(84.000000, 208.000000)">
                 <g id="Rectangle-38-+-Rectangle-39" transform="translate(27.121320, 27.121320) rotate(45.000000) translate(-27.121320, -27.121320) translate(19.121320, 19.121320)">
-                    <rect id="Rectangle-38" x="6" y="1.77635684e-13" width="4" height="16"></rect>
-                    <rect id="Rectangle-38" transform="translate(8.000000, 8.000000) rotate(90.000000) translate(-8.000000, -8.000000) " x="6" y="3.37507799e-13" width="4" height="16"></rect>
+                    <path d="M6,6 L6,2.55795385e-13 L10,2.55795385e-13 L10,6 L16,6 L16,10 L10,10 L10,16 L6,16 L6,10 L2.55795385e-13,10 L2.55795385e-13,6 L6,6 Z" id="Combined-Shape"></path>
                 </g>
             </g>
         </g>
