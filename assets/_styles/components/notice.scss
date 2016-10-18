@@ -5,12 +5,11 @@
 @if $app == 'selfserve' {
   %notice {
     width: 100%;
-    padding: 11px 12px 10px;
+    padding: 12px 20px 10px 15px;
     color: $white;
     a {
       float: right;
       color: $white;
-      font-weight: 400;
       font-size: font-size(4);
     }
   }
@@ -38,22 +37,25 @@
   }
 }
 
-.notice--success p::before {
-  @include svg('selfserve-tick');
+%notice-icon {
   content: "";
   display: inline-block;
-  height: 12px;
+  height: 15px;
   width: 25px;
+  margin-bottom: -1px;
 }
 
-
-.notice--danger p::before {
-  @include svg('selfserve-cross');
-  content: "";
-  display: inline-block;
-  height: 12px;
-  width: 25px;
+p::before {
+  .notice--success & {
+    @extend %notice-icon;
+    @include svg('selfserve-tick');
+  }
+  .notice--danger & {
+    @extend %notice-icon;
+    @include svg('selfserve-cross');
+  }
 }
+
 
 
 @if $app == 'internal' {
