@@ -57,6 +57,16 @@ p::before {
 }
 
 
+@mixin notice($color) {
+  $background : desaturate(lighten($color, 50%), 10%);
+  $border     : desaturate(lighten($color, 30%), 10%);
+
+  @extend %notice;
+
+  background: $background;
+  border: 1px solid $border;
+  color: $color;
+}
 
 @if $app == 'internal' {
   $notice--success : #3C763D;
@@ -77,17 +87,6 @@ p::before {
     a {
       float: right;
     }
-  }
-
-  @mixin notice($color) {
-    $background : desaturate(lighten($color, 50%), 10%);
-    $border     : desaturate(lighten($color, 30%), 10%);
-
-    @extend %notice;
-
-    background: $background;
-    border: 1px solid $border;
-    color: $color;
   }
 
   .notice-container {
