@@ -12,7 +12,7 @@ describe("OLCS.notices", function() {
   describe("Given a stubbed DOM with more than one notice", function() {
     beforeEach(function() {
       $("body").append([
-        "<div id=stub>",
+        "<div class=internal id=stub>",
           "<div class=notice-container>",
             "<div class=notice--success>",
               "<p>Message</p>",
