@@ -236,7 +236,7 @@ tfoot {
 }
 
 // Mobile tables
-@media (max-width: $mobile-column-stack) {
+@media (max-width: breakpoint('break-1')) {
   .table__wrapper {
     table {
       border-bottom: none;
@@ -273,7 +273,6 @@ tfoot {
         }
         [type="checkbox"] {
           position: absolute;
-          pointer-events: auto;
           top: 0.5em;
           right: 0.65em;
         }
