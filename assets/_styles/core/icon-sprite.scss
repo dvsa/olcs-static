@@ -106,48 +106,60 @@
 	background-position: 0 -1700px;
 }
 
+.selfserve-cross {
+	width: 15px;
+	height: 15px;
+	background-position: 0 -1800px;
+}
+
 .selfserve-document {
 	width: 27px;
 	height: 30px;
-	background-position: 0 -1800px;
+	background-position: 0 -1900px;
 }
 
 .selfserve-external-footer {
 	width: 12px;
 	height: 12px;
-	background-position: 0 -1900px;
+	background-position: 0 -2000px;
 }
 
 .selfserve-external-link {
 	width: 12px;
 	height: 12px;
-	background-position: 0 -2000px;
+	background-position: 0 -2100px;
 }
 
 .selfserve-external-link-hover {
 	width: 12px;
 	height: 12px;
-	background-position: 0 -2100px;
+	background-position: 0 -2200px;
 }
 
 .selfserve-important {
 	width: 25px;
 	height: 25px;
-	background-position: 0 -2200px;
+	background-position: 0 -2300px;
 }
 
 .selfserve-modal-close {
 	width: 23px;
 	height: 22px;
-	background-position: 0 -2300px;
+	background-position: 0 -2400px;
 }
 
-.attachment, .dropdown-down, .dropdown-up, .external-link-dark, .external-link-white, .internal-admin-menu-arrow, .internal-application-complete, .internal-application-edited, .internal-application-warning, .internal-modal-close, .internal-search, .internal-split-screen-close, .internal-split-screen-down, .internal-split-screen-left, .internal-split-screen-pin-bottom, .internal-split-screen-pin-left, .lock, .selfserve-breadcrumb, .selfserve-document, .selfserve-external-footer, .selfserve-external-link, .selfserve-external-link-hover, .selfserve-important, .selfserve-modal-close {
-	background-size: 100px 2400px;
+.selfserve-tick {
+	width: 20px;
+	height: 15px;
+	background-position: 0 -2500px;
+}
+
+.attachment, .dropdown-down, .dropdown-up, .external-link-dark, .external-link-white, .internal-admin-menu-arrow, .internal-application-complete, .internal-application-edited, .internal-application-warning, .internal-modal-close, .internal-search, .internal-split-screen-close, .internal-split-screen-down, .internal-split-screen-left, .internal-split-screen-pin-bottom, .internal-split-screen-pin-left, .lock, .selfserve-breadcrumb, .selfserve-cross, .selfserve-document, .selfserve-external-footer, .selfserve-external-link, .selfserve-external-link-hover, .selfserve-important, .selfserve-modal-close, .selfserve-tick {
+	background-size: 100px 2600px;
 	background-repeat: no-repeat;
 	background-image: url("../../../public/images/svg/icon-sprite.png");
 }
 
-.svg .attachment, .svg .dropdown-down, .svg .dropdown-up, .svg .external-link-dark, .svg .external-link-white, .svg .internal-admin-menu-arrow, .svg .internal-application-complete, .svg .internal-application-edited, .svg .internal-application-warning, .svg .internal-modal-close, .svg .internal-search, .svg .internal-split-screen-close, .svg .internal-split-screen-down, .svg .internal-split-screen-left, .svg .internal-split-screen-pin-bottom, .svg .internal-split-screen-pin-left, .svg .lock, .svg .selfserve-breadcrumb, .svg .selfserve-document, .svg .selfserve-external-footer, .svg .selfserve-external-link, .svg .selfserve-external-link-hover, .svg .selfserve-important, .svg .selfserve-modal-close {
+.svg .attachment, .svg .dropdown-down, .svg .dropdown-up, .svg .external-link-dark, .svg .external-link-white, .svg .internal-admin-menu-arrow, .svg .internal-application-complete, .svg .internal-application-edited, .svg .internal-application-warning, .svg .internal-modal-close, .svg .internal-search, .svg .internal-split-screen-close, .svg .internal-split-screen-down, .svg .internal-split-screen-left, .svg .internal-split-screen-pin-bottom, .svg .internal-split-screen-pin-left, .svg .lock, .svg .selfserve-breadcrumb, .svg .selfserve-cross, .svg .selfserve-document, .svg .selfserve-external-footer, .svg .selfserve-external-link, .svg .selfserve-external-link-hover, .svg .selfserve-important, .svg .selfserve-modal-close, .svg .selfserve-tick {
 	background-image: url("../../../public/images/svg/icon-sprite.svg");
 }
