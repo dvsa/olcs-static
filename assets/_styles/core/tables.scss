@@ -68,7 +68,7 @@ table {
   [type="submit"] {
     white-space: normal;
     text-align: left;
-    font-size: font-size(4);
+    @extend %h5;
   }
   [type="submit"]:focus {
     border: 0;
@@ -244,9 +244,15 @@ tfoot {
     thead {
       display: none;
     }
+    tfoot {
+      tr {
+        margin-top: $gutter-half;
+      }
+    }
     tr {
       display: block;
       border: 1px solid $grey-2;
+      position: relative;
       &:not(:first-child) {
         margin-top: $gutter-half;
       }
@@ -256,10 +262,24 @@ tfoot {
       border: none;
       padding-left: $gutter-half;
       padding-right: $gutter-half;
-      &[data-heading]:before {
-        content: attr(data-heading);
-        font-weight: bold;
-        margin-right: $gutter-one-third;
+      &[data-heading] {
+        &:before {
+          content: attr(data-heading);
+          font-weight: bold;
+          margin-right: $gutter-one-third;
+          display: inline-block;
+          vertical-align: top;
+          width: 30%;
+        }
+        [type="checkbox"] {
+          position: absolute;
+          pointer-events: auto;
+          top: 0.5em;
+          right: 0.65em;
+        }
+      }
+      &:empty {
+        display: none;
       }
     }
     .right-aligned {
