@@ -253,6 +253,8 @@ tfoot {
       display: block;
       border: 1px solid $grey-2;
       position: relative;
+      padding-top: 0.4em;
+      padding-bottom: 0.4em;
       &:not(:first-child) {
         margin-top: $gutter-half;
       }
@@ -262,6 +264,8 @@ tfoot {
       border: none;
       padding-left: $gutter-half;
       padding-right: $gutter-half;
+      padding-top: 0.4em;
+      padding-bottom: 0.4em;
       &[data-heading] {
         &:before {
           content: attr(data-heading);
