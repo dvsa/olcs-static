@@ -280,6 +280,10 @@ tfoot {
           top: 0.5em;
           right: 0.65em;
         }
+        a,
+        input[type="submit"] {
+          width: calc(100% - 30% - #{$gutter-one-third});
+        }
       }
       &:empty {
         display: none;
