@@ -87,6 +87,8 @@
       $text-color: $link-colour
     );
     border: 0;
+    padding-left: 0;
+    padding-right: 0;
     &:hover {
       text-decoration: underline;
     }
@@ -138,7 +140,20 @@
 
 // Actions container
 .actions-container {
+  li {
+    @extend %paragraph;
+  }
   &:not(:first-child) {
     margin-top: $gutter;
+  }
+}
+
+// Question pages
+fieldset.actions-container {
+  [class*="action-"] {
+    display: block;
+    &:not(:first-child) {
+      margin-top: $gutter-two-thirds;
+    }
   }
 }
