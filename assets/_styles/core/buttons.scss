@@ -90,17 +90,13 @@
     &:hover {
       text-decoration: underline;
     }
-    &:first-child {
-      padding-left: 0;
-    }
-    &:last-child {
-      padding-right: 0;
-    }
-    &.list {
-      @extend %paragraph;
-      display: block;
-      margin-top: $gutter-half;
-      padding: 0;
+    @if $app == 'selfserve' {
+      border-bottom: 2px solid transparent;
+      &:focus {
+        background: $outline;
+        border-bottom: 2px solid $outline;
+        outline: 0;
+      }
     }
   }
 
@@ -136,6 +132,13 @@
   margin-bottom: $gutter;
   // target action button
   [class*="action--"] {
+    margin-top: $gutter;
+  }
+}
+
+// Actions container
+.actions-container {
+  &:not(:first-child) {
     margin-top: $gutter;
   }
 }
