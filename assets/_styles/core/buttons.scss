@@ -149,11 +149,13 @@
 }
 
 // Question pages
-fieldset.actions-container {
-  [class*="action-"] {
-    display: block;
-    &:not(:first-child) {
-      margin-top: $gutter-two-thirds;
+@if $app == 'selfserve' {
+  fieldset.actions-container {
+    [class*="action-"] {
+      display: block;
+      &:not(:first-child) {
+        margin-top: $gutter-two-thirds;
+      }
     }
   }
 }
