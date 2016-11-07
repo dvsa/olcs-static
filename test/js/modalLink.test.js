@@ -93,28 +93,6 @@ describe('OLCS.modalLink', function() {
               this.spy.restore();
             });
 
-            describe('with no content fragment identifier', function() {
-
-              beforeEach(function() {
-                this.ajax.yieldTo('success', 'dummy response data');
-              });
-
-              it('shows a form modal', function() {
-                expect(this.spy.called).to.be(true);
-              });
-
-              describe('when showing another modal with a different href', function() {
-                beforeEach(function() {
-                  $('.js-modal:eq(2)').click();
-                });
-
-                it('makes a new ajax request', function() {
-                  expect(this.ajax.calledTwice).to.be(true);
-                });
-              });
-
-            }); // with no content fragment identifier
-
           }); // Given the request returns successfully
 
         }); // when triggering a modal
