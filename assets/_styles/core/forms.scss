@@ -484,8 +484,13 @@ select,
     }
   }
 
-  .active-result {
-    color: $black;
+  // Ensure enhanced dropdowns have correct typography
+  .chosen-container {
+    * {
+      color: $black;
+      font-weight: 100;
+      text-transform: none;
+    }
   }
 
   input,
