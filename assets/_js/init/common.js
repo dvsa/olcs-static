@@ -38,6 +38,8 @@ OLCS.ready(function() {
     })
   });
 
+  OLCS.disableForm();
+
   // uses the jquery.details.min.js plugin to enhance <details>
   // element across browsers
   $('details').details();
