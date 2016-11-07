@@ -19,6 +19,7 @@ OLCS.modalLink = (function(document, $, undefined) {
   'use strict';
 
   return function init(options) {
+
     var trigger = options.trigger;
 
     $(document).on('click', trigger, function(e) {

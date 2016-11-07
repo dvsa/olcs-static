@@ -29,13 +29,13 @@ OLCS.modalResponse = (function(document, $, undefined) {
       OLCS.ajax({
         url: '/auth/validate',
         cache: false,
-        success: function(data) {
+        success: function(data, textStatus, jqXHR) {
           // If the returned JSON is empty, the user is not logged in
           var unauthorised = JSON.stringify(data) === '[]';
           // If the user is authorised (not unauthorised), continue as normal
           if (!unauthorised) {
             OLCS.modalForm(formData);
-          } 
+          }
           // otherwise redirect the user to the homepage
           else {
             document.location.href='/';
