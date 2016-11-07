@@ -15,6 +15,4 @@ OLCS.ready(function() {
 
   OLCS.searchFilter();
 
-  OLCS.disableForm();
-
 });
