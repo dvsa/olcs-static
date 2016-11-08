@@ -19,7 +19,7 @@ OLCS.disableForm = (function(document, $, undefined) {
       container: '.actions-container',
       actions: '[type="submit"], [class*="action-"]',
       disabledClass: 'disabled',
-      loadingText: 'Loading...'
+      loadingText: false
     }, custom);
 
     $(options.container).each(function() {
