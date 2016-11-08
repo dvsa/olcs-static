@@ -40,7 +40,8 @@ describe('OLCS.disableForm', function() {
 
       beforeEach(function() {
         this.component({
-          container : '#stub'
+          container : '#stub',
+          loadingText: 'Loading...'
         });
       });
 
