@@ -232,11 +232,6 @@ textarea,
     $selfserve: 5px 6px 4px 6px
   );
 
-  font-size: theme(
-    $internal: inherit,
-    $selfserve: font-size(5)
-  );
-
   border-color: theme(
     $internal: $grey-2,
     $selfserve: $grey-1
