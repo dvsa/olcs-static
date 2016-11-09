@@ -18,16 +18,22 @@
   float: left;
   width: 100%;
   padding-bottom: 8px;
-  h3,
-  h4 {
-    float: left;
-    display: block;
-    margin: 0;
+  @if $app == 'internal' {
+    h3,
+    h4 {
+      float: left;
+      display: block;
+      margin: 0;
+    }
   }
   .actions-container {
-    float: right;
-    margin: -7px -5px -2px 0;
     display: block;
+    @if $app == 'selfserve' {
+    }
+    @if $app == 'internal' {
+      float: right;
+      margin: -7px -5px -2px 0;
+    }
   }
   select {
     margin: 3px 3px 0 0;
