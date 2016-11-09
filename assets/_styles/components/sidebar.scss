@@ -87,6 +87,12 @@
       background: $yellow-25;
       border: 1px solid $yellow-50;
     }
+    &__priority {
+      border-radius: 3px;
+      padding: 0.5em 0.75em 0.4em;
+      background: $red-25;
+      border: 1px solid $red-50;
+    }
     &__link {
       @extend %paragraph--tiny;
       text-align: right;
