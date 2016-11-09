@@ -516,6 +516,7 @@ select,
 .checkbox.confirm {
   label {
     @extend %h4;
+    float: none;
   }
 }
 
