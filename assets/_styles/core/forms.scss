@@ -486,6 +486,10 @@ select,
       color: $black;
       font-weight: 100;
       text-transform: none;
+      font-size: inherit;
+    }
+    li {
+      margin-bottom: inherit;
     }
   }
 
