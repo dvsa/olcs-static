@@ -141,6 +141,12 @@
       width: auto;
       background: $grey-4;
       border-top: 1px solid $grey-3;
+      .action--tertiary {
+        display: inline-block;
+        &:not(:first-child) {
+          margin-top: 0;
+        }
+      }
     }
     p {
       @extend %paragraph--small;
