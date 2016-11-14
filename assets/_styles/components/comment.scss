@@ -60,6 +60,7 @@
 
 .submission-item {
   @extend %comment;
+  float: none;
   background: $light-blue-25;
   border-left: 3px solid $light-blue-50;
   margin-bottom: 0.5em;
