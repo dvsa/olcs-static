@@ -80,12 +80,15 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
 
       element.val(val);
 
+      var parts = val.match(/^([A-Z]{1,2}\d{1,2}[A-Z]?)\s*(\d[A-Z]{2})$/);
+
       if (val.indexOf(' ') >= 0) {
         return;
-      } else {
-        var parts = val.match(/^([A-Z]{1,2}\d{1,2}[A-Z]?)\s*(\d[A-Z]{2})$/);
+      } else if (parts) {
         parts.shift();
         element.val(parts.join(' '));
+      } else {
+        return
       }
 
     }
