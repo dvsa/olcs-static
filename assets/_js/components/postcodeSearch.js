@@ -88,7 +88,7 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
         parts.shift();
         element.val(parts.join(' '));
       } else {
-        return
+        return;
       }
 
     }
