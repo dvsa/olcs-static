@@ -29,9 +29,6 @@ OLCS.ready(function() {
     }
 
     $(".tinymce").each(function() {
-      // unbind existing editors
-      tinymce.remove(); // jshint ignore:line
-      // call the tinymce plugin
       $(this).tinymce({
         menubar : false,
         document_base_url: "/tinymce/",
