@@ -18,6 +18,11 @@
   box-sizing: border-box;
 }
 
+// Prevent large images from shrinking the printed page in Firefox
+img {
+  max-width: 100%;
+}
+
 body {
   font-family: Arial, sans-serif;
   background: $white;
