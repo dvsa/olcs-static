@@ -127,7 +127,7 @@ OLCS.modal = (function(document, $, undefined) {
     $(wrapper +','+overlay).remove();
 
     // Unbind any Tinymce
-    tinymce.remove();
+    tinymce.remove(); // jshint ignore:line
 
     // Set the aria-hidden attribute of all other content to 'false'
     // when the modal closes
