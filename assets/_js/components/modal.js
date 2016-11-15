@@ -126,12 +126,15 @@ OLCS.modal = (function(document, $, undefined) {
     $('body').removeClass(bodyClass);
     $(wrapper +','+overlay).remove();
 
-    // let other components know that the modal is hidden
-    OLCS.eventEmitter.emit('hide:modal');
+    // Unbind any Tinymce
+    tinymce.remove(); // jshint ignore:line
 
     // Set the aria-hidden attribute of all other content to 'false'
     // when the modal closes
     $('.page-wrapper').attr('aria-hidden', 'false');
+
+    // let other components know that the modal is hidden
+    OLCS.eventEmitter.emit('hide:modal');
 
   };
 
