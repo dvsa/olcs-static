@@ -107,6 +107,9 @@ table {
     border: 0;
     background: $yellow;
   }
+  a:focus {
+    outline: none;
+  }
 }
 
 tr {
