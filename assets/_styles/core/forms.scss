@@ -486,6 +486,10 @@ select,
       color: $black;
       font-weight: 100;
       text-transform: none;
+      font-size: inherit;
+    }
+    li {
+      margin-bottom: inherit;
     }
   }
 
@@ -516,6 +520,7 @@ select,
 .checkbox.confirm {
   label {
     @extend %h4;
+    float: none;
   }
 }
 

@@ -148,16 +148,12 @@
   &:not(:first-child) {
     margin-top: $gutter;
   }
-}
-
-// Question pages
-@if $app == 'selfserve' {
-  fieldset.actions-container {
-    [class*="action-"] {
-      display: block;
-      &:not(:first-child) {
-        margin-top: $gutter-two-thirds;
-      }
+  // Tertiary actions should be forced undearneath so the actions stack,
+  // but primary/secondary actions should remain next to each other
+  .action--tertiary {
+    display: block;
+    &:not(:first-child) {
+      margin-top: $gutter-two-thirds;
     }
   }
 }

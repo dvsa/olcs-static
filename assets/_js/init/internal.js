@@ -23,35 +23,37 @@ OLCS.ready(function() {
   });
 
   OLCS.eventEmitter.on("render", function() {
+
     if (typeof(tinymce) === "undefined") {
       return;
     }
-    // unbind existing editors
-    tinymce.remove(".tinymce");// jshint ignore:line
-    // call the tinymce plugin
-    $(".tinymce").tinymce({
-      menubar : false,
-      document_base_url: "/tinymce/",
-      browser_spellcheck : false,
-      statusbar : false,
-      spellchecker_languages : "+English=en",
-      spellchecker_language : "en",
-      spellchecker_rpc_url: "index.php",
-      spellchecker_report_misspellings : true,
-      height : 260,
-      content_css : "/tinymce/skins/lightgray/custom.css",
-      style_formats: [
-        {title: "Header 1", format: "h1"},
-        {title: "Header 2", format: "h2"},
-        {title: "Header 3", format: "h3"}
-      ],
-      plugins: [
-        "lists charmap",
-        "searchreplace",
-        "contextmenu paste spellchecker"
-      ],
-      toolbar: "styleselect | bold italic underline | bullist numlist | indent outdent | spellchecker"
+
+    $(".tinymce").each(function() {
+      $(this).tinymce({
+        menubar : false,
+        document_base_url: "../tinymce/",
+        browser_spellcheck : false,
+        statusbar : false,
+        spellchecker_languages : "+English=en",
+        spellchecker_language : "en",
+        spellchecker_rpc_url: "index.php",
+        spellchecker_report_misspellings : true,
+        height : 260,
+        content_css : "../tinymce/skins/lightgray/custom.css",
+        style_formats: [
+          {title: "Header 1", format: "h1"},
+          {title: "Header 2", format: "h2"},
+          {title: "Header 3", format: "h3"}
+        ],
+        plugins: [
+          "lists charmap",
+          "searchreplace",
+          "contextmenu paste spellchecker"
+        ],
+        toolbar: "styleselect | bold italic underline | bullist numlist | indent outdent | spellchecker"
+      });
     });
+
   });
   
 });
