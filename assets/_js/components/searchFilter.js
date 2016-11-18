@@ -29,6 +29,7 @@ var OLCS = OLCS || {};
 
     function setup() {
       content.hide().attr('aria-hidden', 'true');
+      parent.removeClass(options.class);
       title.attr({
         'aria-expanded' : 'false',
         'aria-controls' : content.attr('id')
@@ -59,7 +60,6 @@ var OLCS = OLCS || {};
       parent.removeClass(options.class);
       title.removeAttr('aria-expanded aria-controls');
       content.show().removeAttr('aria-hidden aria-labelledby');
-      title.unbind();
     }
 
     $(window).on('load resize', function() {
