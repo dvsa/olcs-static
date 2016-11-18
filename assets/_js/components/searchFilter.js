@@ -63,13 +63,13 @@ var OLCS = OLCS || {};
     }
 
     $(window).on('load resize', function() {
-      if (window.matchMedia('(min-width: ' + options.mobile + ')').matches) {
+      if (options.mobile && window.matchMedia('(min-width: ' + options.mobile + ')').matches) {
         revert();
       } else {
         setup();
         title.one('click', expand);
       }
-    });
+    }).load();
 
   };
 
