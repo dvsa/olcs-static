@@ -22,7 +22,7 @@ OLCS.disableForm = (function(document, $, undefined) {
       loadingText: false
     }, custom);
 
-    $(options.container).each(function() {
+    $(options.container).not('.table__header '+options.container).each(function() {
 
       var container = $(this);
       var actions = container.find(options.actions);
@@ -34,7 +34,7 @@ OLCS.disableForm = (function(document, $, undefined) {
 
         // Add disabled class to relevant actions
         actions.addClass(options.disabledClass);
-      
+
         // Change target button text during interim
         if (options.loadingText) {
           if (target.is('input')) {

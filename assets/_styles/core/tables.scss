@@ -74,6 +74,7 @@
     float: left;
   }
   .actions-container .action--tertiary {
+    @extend a;
     // ensure correct specificity without using !important
     &:not(:first-child) {
       margin-top: 0;
