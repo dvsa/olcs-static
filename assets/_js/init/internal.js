@@ -48,7 +48,7 @@ OLCS.ready(function() {
         plugins: [
           'lists charmap',
           'searchreplace',
-          'contextmenu paste spellchecker'
+          'paste spellchecker'
         ],
         toolbar: 'styleselect | bold italic underline | bullist numlist | indent outdent | spellchecker'
       });
