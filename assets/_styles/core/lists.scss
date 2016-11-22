@@ -14,3 +14,11 @@
   margin-left: 20px;
   list-style: disc;
 }
+
+.list--compound,
+%list--compound {
+  @extend %list--reset;
+  li + li {
+    margin-top: $gutter-one-third;
+  }
+}

@@ -91,7 +91,7 @@
 h1 {
   @extend %h1;
   line-height: 1.04167;
-  max-width: 700px;
+  max-width: 650px;
 }
 
 h2 {
@@ -113,6 +113,7 @@ h5 {
 p {
   @extend %paragraph;
   font-weight: 400;
+  margin-bottom: .5em;
 }
 
 b,
@@ -162,7 +163,7 @@ ol {
  * Legal/Important Text
  */
 .important {
-  margin: $gutter 0;
+  margin: 0 0 $gutter;
 }
 
 /**

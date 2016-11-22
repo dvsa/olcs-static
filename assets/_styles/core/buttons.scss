@@ -87,20 +87,20 @@
       $text-color: $link-colour
     );
     border: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0.3em;
+    padding-bottom: 0.25em;
     &:hover {
       text-decoration: underline;
     }
-    &:first-child {
-      padding-left: 0;
-    }
-    &:last-child {
-      padding-right: 0;
-    }
-    &.list {
-      @extend %paragraph;
-      display: block;
-      margin-top: $gutter-half;
-      padding: 0;
+    @if $app == 'selfserve' {
+      border-bottom: 2px solid transparent;
+      &:focus {
+        background: $outline;
+        border-bottom: 2px solid $outline;
+        outline: 0;
+      }
     }
   }
 
@@ -137,5 +137,23 @@
   // target action button
   [class*="action--"] {
     margin-top: $gutter;
+  }
+}
+
+// Actions container
+.actions-container {
+  li {
+    @extend %paragraph;
+  }
+  &:not(:first-child) {
+    margin-top: $gutter;
+  }
+  // Tertiary actions should be forced undearneath so the actions stack,
+  // but primary/secondary actions should remain next to each other
+  .action--tertiary {
+    display: block;
+    &:not(:first-child) {
+      margin-top: $gutter-two-thirds;
+    }
   }
 }

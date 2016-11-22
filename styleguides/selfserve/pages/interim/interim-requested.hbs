@@ -1,43 +1,48 @@
 ---
 layout: base.hbs
 user: operator
-title: Interim licence requested
-subtitle: Application No.9
-breadcrumbs:
-  - link: home.html
-    label: Home
-  - link: index.html
-    label: Application overview
+overview: true
 ---
 
 <div class="row">
-  
-  <div class="notice-container">
-    <div class="notice--success">
-      <p role="alert">You payment was successful</p>
-    </div>
-  </div><!-- end .notice-container -->
-  
+
+
+
   <div class="two-thirds">
-    <div class="article">
-      <p>You've requested an interim licence for the application <b>OB152425/9</b>.</p>
+    <div class="page-header">
       <div class="confirmation">
-        <p>Your reference number is</p>
-        <h2>OB6153563/9</h2><p><a href="">View receipt</a></p>
+        <h2>Interim licence requested</h2>
+        <p>Your reference number is<br />
+        <strong>OB132455/12</strong></p>
       </div>
+    </div>
+    <div class="article">
       <h3>What happens next</h3>
-      <p>We'll let you know if your application has been successful within the next 5 working days.</p>
-        <hr />
-      <p><a href="home.html">Back to home</a></p>
+      <p>We'll let you know if your request has been successful within the next 5 working days.</p>
+    </div>
+    <div class="article">
+      <p class="important"><b>Your application could be refused if you operate goods vehicles before your licence has been issued.</b></p>
+      <p><a href="">What did you think of this service?</a> (takes 30 seconds)</p>
     </div>
   </div><!-- .two-thirds -->
 
-</div>
+  <div class="one-third">
+    <aside class="sidebar" role="complementary">
+      <ul class="sidebar__actions">
+        <li>
+          <a href="/application/8/withdraw/" class="js-modal-ajax">Print receipt</a>
+        </li>
+      </ul>
+      <dl class="meta">
+        <dt>Submitted</dt>
+        <dd>27 Mar 2015</dd>
+        <dt>Status</dt>
+        <dd>Under consideration</dd>
+      </dl>
+    </aside>
+  </div>
 
-<script type="text/javascript">
-  OLCS.ready(function() {
-    OLCS.eventEmitter.emit("render");
-  });
-</script>
+
+</div>
 
 

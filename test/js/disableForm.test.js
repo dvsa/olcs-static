@@ -3,87 +3,107 @@
  * 
  * grunt test:single --target=disableForm
  */
+describe('OLCS.disableForm', function() {
 
-describe("OLCS.disableForm", function() {
-
-  "use strict";
+  'use strict';
 
   beforeEach(function() {
     this.component = OLCS.disableForm;
   });
 
-  it("should be a function", function() {
-    expect(this.component).to.be.a("function");
+  it('Should be a function', function() {
+    expect(this.component).to.be.a('function');
   });
 
-  describe("Given a form with multiple submit buttons", function() {
+  describe('Given a form with multiple action buttons', function() {
 
     beforeEach(function() {
-      $("body").append([
-        "<form id='stub'>" +
-          "<button type='submit' class='submit'>Submit</button>" +
-          "<button type='submit' class='data-submit' data-onclick-become='Test Submit'>Submit</button>" +
-          "<button type='submit' class='close'>Close</button>" +
-        "</form>" +
-        "<button type='submit' class='fake-submit'>Fake Submit</button>"
+      $('body').append([
+        '<form id="stub">' +
+          '<input  id="input-submit"  type="submit"  class="submit" value="Submit">' +
+          '<button id="button-submit" type="submit"  class="submit">Submit</button>' +
+          '<a      id="anchor-submit" href="#submit" class="submit action-primary">Close</a>' +
+        '</form>' +
+        '<button type="submit" class="fake-submit">Fake Submit</button>'
       ].join("\n"));
 
       $('#stub').on('submit', function(e) {
          e.preventDefault();
       });
-
     });
 
     afterEach(function() {
-      $("#stub").remove();
+      $('#stub').remove();
     });
 
-    describe("When invoked using basic options", function() {
+    describe('When invoked using basic options', function() {
 
       beforeEach(function() {
         this.component({
-          submit: "[type=submit]",
-          loadText: "Loading..."
+          container : '#stub',
+          loadingText: 'Loading...'
         });
       });
 
-      describe("and page is rendered", function() {
-
-         beforeEach(function() {
-           OLCS.eventEmitter.emit("render");
-         });
-
-        describe("When a regular submit button is clicked", function() {
-
-          beforeEach(function() {
-            $('#stub .submit').click();
-          });
-
-          it("The submit buttons should have the 'disabled' class", function() {
-            expect($("#stub [type='submit']").hasClass("disabled")).to.be(true);
-          });
-
-          it("The clicked button should have correct loading text", function() {
-            expect($("#stub .submit").html()).to.be("Loading...");
-          });
-
-          it("All other submit buttons should remain unaffected", function() {
-            expect($(".fake-submit").hasClass("disabled")).to.be(false);
-            expect($(".fake-submit").html()).to.be("Fake Submit");
-          });
-
+      describe('When a regular submit button is clicked', function() {
+        beforeEach(function() {
+          $('#button-submit').click();
         });
 
-        describe("When a submit button with the 'data-onclick-become' attribute is clicked", function() {
+        it('The action buttons should have the "disabled" class', function() {
+          expect($('#stub .submit').hasClass('disabled')).to.be(true);
+        });
 
-          beforeEach(function() {
-            $('#stub .data-submit').click();
-          });
+        it('The clicked button should have correct loading text', function() {
+          expect($('#button-submit').html()).to.be('Loading...');
+        });
 
-          it("The clicked button should have correct loading text", function() {
-            expect($("#stub .data-submit").html()).to.be("Test Submit");
-          });
+        it('All other submit buttons should remain unaffected', function() {
+          expect($('.fake-submit').hasClass('disabled')).to.be(false);
+        });
+      });
 
+      describe('When an input submit button is clicked', function() {
+        beforeEach(function() {
+          $('#input-submit').click();
+        });
+
+        it('The action buttons should have the "disabled" class', function() {
+          expect($('#stub .submit').hasClass('disabled')).to.be(true);
+        });
+
+        it('The clicked button should have correct loading text', function() {
+          expect($('#input-submit').val()).to.be('Loading...');
+        });
+      });
+
+    });
+
+
+    describe('When invoked without loading text', function() {
+
+      beforeEach(function() {
+        this.component({
+          container : '#stub',
+          loadingText : ''
+        });
+      });
+
+      describe('When a regular submit button is clicked', function() {
+        beforeEach(function() {
+          $('#button-submit').click();
+        });
+
+        it('The action buttons should have the "disabled" class', function() {
+          expect($('#stub .submit').hasClass('disabled')).to.be(true);
+        });
+
+        it('The clicked button should not have altered text', function() {
+          expect($('#button-submit').html()).to.be('Submit');
+        });
+
+        it('All other submit buttons should remain unaffected', function() {
+          expect($('.fake-submit').hasClass('disabled')).to.be(false);
         });
       });
 

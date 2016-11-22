@@ -38,8 +38,8 @@ OLCS.ajax = (function(document, $, undefined) {
         var since = submitTimestamp - lastTimestamp;
 
         OLCS.logger
-        .group(method + " " + options.url)
-        .log("Request ID " + requestId + ": start");
+          .group(method + " " + options.url)
+          .log("Request ID " + requestId + ": start");
 
         if (method === "POST") {
           if (since < minPostThreshold) {
@@ -68,8 +68,8 @@ OLCS.ajax = (function(document, $, undefined) {
       },
       success: function(data, textStatus, jqXHR) {
         OLCS.logger
-        .log("Request ID " + requestId + ": end (" + jqXHR.status + " " + textStatus + ")")
-        .groupEnd();
+          .log("Request ID " + requestId + ": end (" + jqXHR.status + " " + textStatus + ")")
+          .groupEnd();
 
         if (options.success) {
           options.success.apply(null, arguments);
@@ -77,15 +77,14 @@ OLCS.ajax = (function(document, $, undefined) {
       },
       error: function(jqXHR, testStatus, errorThrown) {
         OLCS.logger
-        .warn("Request ID " + requestId + ": " + errorThrown)
-        .groupEnd();
+          .warn("Request ID " + requestId + ": " + errorThrown)
+          .groupEnd();
 
         if (options.error) {
           options.error.apply(null, arguments);
         }
 
         OLCS.preloader.hide();
-
       },
       // this fires *after* success or error
       complete: function() {

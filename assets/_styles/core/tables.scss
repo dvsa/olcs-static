@@ -2,6 +2,39 @@
  * Tables
  */
 
+// Create an actionable header bar with right-side actions-container
+%header-with-actions {
+  float: left;
+  width: 100%;
+  padding-bottom: 8px;
+  @if $app == 'internal' {
+    h3,
+    h4 {
+      float: left;
+      display: block;
+      margin: 0;
+    }
+  }
+  .actions-container {
+    display: block;
+    @if $app == 'selfserve' {
+      .action--tertiary {
+        display: block;
+        padding-top: 0;
+        padding-bottom: 0;
+        text-decoration: underline;
+      }
+    }
+    @if $app == 'internal' {
+      float: right;
+      margin: -7px -5px -2px 0;
+    }
+  }
+  select {
+    margin: 3px 3px 0 0;
+  }
+}
+
 .table .field {
   margin-bottom: 0;
 }
@@ -18,7 +51,7 @@
   }
   td,
   th {
-    vertical-align: middle;
+    vertical-align: top;
   }
 }
 
@@ -34,6 +67,12 @@
     margin-top: 10px;
     margin-bottom: 10px;
     float: left;
+  }
+  .actions-container {
+    // ensure correct specificity without using !important
+    &:not(:first-child) {
+      margin-top: 0;
+    }
   }
 }
 
@@ -63,11 +102,14 @@ table {
   [type="submit"] {
     white-space: normal;
     text-align: left;
-    font-size: font-size(4);
+    @extend %h5;
   }
   [type="submit"]:focus {
     border: 0;
     background: $yellow;
+  }
+  a:focus {
+    outline: none;
   }
 }
 
@@ -235,6 +277,7 @@ tfoot {
   }
 }
 
+<<<<<<< HEAD
 .table-actions {
   list-style: none;
   margin-bottom: 10px;
@@ -244,6 +287,66 @@ tfoot {
     @extend %h4;
     font-weight: 600;
     cursor: pointer;
+=======
+// Mobile tables
+@media (max-width: breakpoint('break-1')) {
+  .table__wrapper {
+    table {
+      border-bottom: none;
+    }
+    thead {
+      display: none;
+    }
+    tfoot {
+      tr {
+        margin-top: $gutter-half;
+      }
+    }
+    tr {
+      display: block;
+      border: 1px solid $grey-2;
+      position: relative;
+      padding-top: 0.4em;
+      padding-bottom: 0.4em;
+      &:not(:first-child) {
+        margin-top: $gutter-half;
+      }
+    }
+    td {
+      display: block;
+      border: none;
+      padding-left: $gutter-half;
+      padding-right: $gutter-half;
+      padding-top: 0.2em;
+      padding-bottom: 0.2em;
+      &[data-heading] {
+        &:before {
+          content: attr(data-heading);
+          font-weight: bold;
+          margin-right: $gutter-one-third;
+          display: inline-block;
+          vertical-align: top;
+          width: 30%;
+        }
+        [type="checkbox"] {
+          position: absolute;
+          top: 0.5em;
+          right: 0.65em;
+        }
+        a,
+        input[type="submit"] {
+          width: calc(100% - 30% - #{$gutter-one-third});
+        }
+      }
+      &:empty {
+        display: none;
+      }
+    }
+    .right-aligned {
+      float: none;
+      margin-left: 0;
+    }
+>>>>>>> b7e7c61166851b8dfeef61cc01eef12e9754f03c
   }
 }
 

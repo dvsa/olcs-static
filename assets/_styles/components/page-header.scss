@@ -1,57 +1,26 @@
-/**
- * Page Header
- */
-
+// Page Header
 .page-header {
 
-  /**
-  * Selfserve only styles
-  */
-
+  // Selfserve only styles
   @if $app == 'selfserve' {
 
     position: relative;
-    margin-bottom: $gutter;
-
     @media (max-width: $mobile-column-stack){
       margin-bottom: $gutter-half;
     }
 
     &__wrapper {
-      margin-top: 2.5em;
-      @media (max-width: $mobile-column-stack){
-        margin-top: 2em;
-      }
+      margin: $gutter 0;
     }
 
-    &.two-thirds {
-      border-bottom: 1px solid $grey-2;
-      margin-top: 3em;
-      padding-bottom: 2em;
+    h1 {
+      max-width: 650px;
     }
 
     &__subtitle {
       color: $grey-1;
       font-weight: 400;
       margin-bottom: 0;
-    }
-
-    &__actions {
-      margin-top: 45px;
-      list-style: none;
-      @media (max-width: $mobile-column-stack){
-        position: relative;
-        float: left;
-        top: 0;
-        margin: 1em 0;
-        width: 100%;
-      }
-    }
-
-    &__action {
-      @extend %h4;
-      text-decoration: none;
-      font-weight: 600;
     }
 
     &__text {

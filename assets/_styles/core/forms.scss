@@ -25,6 +25,7 @@ fieldset {
   margin-bottom: $gutter;
   padding: 0;
   border: 0;
+  margin-left: 0;
   width: 100%;
   clear: both;
   &:last-child,
@@ -154,13 +155,15 @@ label,
     margin-top: 0;
   }
   .checkbox.has-advanced-labels & {
-    @extend %h6;
+    @extend %h5;
     position: relative;
-    width: 600px;
+    width: 100%;
     padding-left: ($gutter-half * 2.5);
     strong {
-      font-weight: 300;
-      @extend %h5;
+      @extend %h4;
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.2em;
     }
     input {
       position: absolute;
@@ -228,11 +231,6 @@ textarea,
   padding: theme(
     $internal: 0.5em 0.75em,
     $selfserve: 5px 6px 4px 6px
-  );
-
-  font-size: theme(
-    $internal: inherit,
-    $selfserve: font-size(5)
   );
 
   border-color: theme(
@@ -467,11 +465,11 @@ select,
   padding-left: $gutter-half;
   border-left: 5px solid $error-colour;
   margin-bottom: $gutter-half;
-  overflow: hidden;
 
   > ul,
   .field > ul {
     list-style: none;
+    padding-left: 4px;
   }
 
   li {
@@ -483,8 +481,17 @@ select,
     }
   }
 
-  .active-result {
-    color: $black;
+  // Ensure enhanced dropdowns have correct typography
+  .chosen-container {
+    * {
+      color: $black;
+      font-weight: 100;
+      text-transform: none;
+      font-size: inherit;
+    }
+    li {
+      margin-bottom: inherit;
+    }
   }
 
   input,
@@ -511,15 +518,10 @@ select,
  * Confirmation
  */
 
-.confirm {
-  max-width: 600px;
-  background: $grey-3;
-  padding: 14px 17px;
+.checkbox.confirm {
   label {
-    @extend %paragraph;
-    @if $app == 'internal'  {
-      font-size: font-size(3);
-    }
+    @extend %h4;
+    float: none;
   }
 }
 
