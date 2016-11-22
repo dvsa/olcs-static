@@ -1,3 +1,8 @@
+/**
+ * OLCS.searchFilter
+ *
+ * grunt test:single --target=searchFilter
+ */
 describe('OLCS.searchFilter', function() {
   
   'use strict';
@@ -7,7 +12,7 @@ describe('OLCS.searchFilter', function() {
   });
 
   it('should be a function', function() {
-    expect(this.component).to.be.a("function");
+    expect(this.component).to.be.a('function');
   });
   
   describe('Given a stubbed DOM', function() {
