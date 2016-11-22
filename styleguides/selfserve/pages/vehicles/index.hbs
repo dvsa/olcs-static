@@ -45,13 +45,13 @@ back-link: index.html
 
 <div class="row">
   <div class="full-width">
-    <form>
+    <form novalidate>
       <div class="table__header">
-        <ul class="table-actions">
-          <li><a href="add-vehicle.html" class="table-actions__item">Add a vehicle</a></li>
-          <li><a href="#"class="table-actions__item">Export a vehicle list (CSV)</a></li>
-          <li><a href="#" class="table-actions__item js-show-removed">Show removed vehicles</a></li>
-        </ul>
+        <div class="actions-container">
+          <a class="action--tertiary" href="add-vehicle.html">Add a vehicle</a>
+          <button class="action--tertiary">Export vehicle list (CSV)</button>
+          <a href="" class="action--tertiary js-show-removed">Show removed vehicles</a>
+        </div>
         <fieldset class="inline-search" data-group="vehicleSearch">
           <label for="vrm" class="visually-hidden">Search for a vehicle</label>
           <input type="search" name="vehicleSearch[vrm]" id="vrm" placeholder="" class="inline-search__input" required="required" value="">
@@ -64,22 +64,22 @@ back-link: index.html
             <tr>
               <th class="sortable"><a href="#">Registration number</a></th>
               <th class="mobile-hidden">Disc number</th>
-              <th class="mobile-hidden sortable"><a href="#">Added</a></th>
+              <th class="mobile-hidden sortable"><a href="#">Specifed</a></th>
               <th class="mobile-hidden sortable js-removed"><a href="#">Removed</a></th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            <tr><td><a href="edit-vehicle.html">LL09 URE</a> (2500kg)</td><td class="mobile-hidden">20515142</td><td class="mobile-hidden">12 May 2014</td><td class="right"><a href="" class="js-replace">Replace disc</a><a href="" class="js-remove">Remove</a><a href="transfer-vehicle.html" class="">Transfer</a></td></tr>
+            <tr><td><a href="edit-vehicle.html">LL09 URE</a> (2500kg)</td><td class="mobile-hidden">20515142</td><td class="mobile-hidden">12 May 2014</td><td class="right"><a href="" class="js-replace">Replace disc</a><a href="transfer-vehicle.html" class="">Transfer</a><a href="" class="js-remove">Remove</a></td></tr>
             <tr class="disabled js-removed"><td>PT65 DFS (2500kg)</td><td class="mobile-hidden">20515142</td><td class="mobile-hidden">12 May 2014</td><td class="mobile-hidden">23 May 2014</td><td class="right"></td></tr>
-            <tr><td><a href="edit-vehicle.html">SW65 CNN</a> (2500kg)</td><td class="mobile-hidden">20515142</td><td class="mobile-hidden">12 May 2014</td><td class="right"><a href="" class="js-replace">Replace disc</a><a href="" class="js-remove">Remove</a><a href="transfer-vehicle.html" class="">Transfer</a></td></tr>
+            <tr><td><a href="edit-vehicle.html">SW65 CNN</a> (2500kg)</td><td class="mobile-hidden">20515142</td><td class="mobile-hidden">12 May 2014</td><td class="right"><a href="" class="js-replace">Replace disc</a><a href="transfer-vehicle.html" class="">Transfer</a><a href="" class="js-remove">Remove</a></td></tr>
             <tr><td><a href="edit-vehicle.html">YK16 BBO</a> (2500kg)</td><td class="mobile-hidden">20515142</td><td class="mobile-hidden">12 May 2014</td><td class="right"><a href="" class="js-replace">Replace disc</a><a href="" class="js-remove">Remove</a><a href="transfer-vehicle.html" class="">Transfer</a></td></tr>
             <tr class="disabled js-removed"><td>BR65 PTS (2500kg)</td><td class="mobile-hidden">20515142</td><td class="mobile-hidden">12 May 2014</td><td class="mobile-hidden">23 May 2014</td><td class="right"></td></tr>
-            <tr><td><a href="edit-vehicle.html">YK16 BBR</a> (2500kg)</td><td class="mobile-hidden">20515142</td><td class="mobile-hidden">12 May 2014</td><td class="right"><a href="" class="js-replace">Replace disc</a><a href="" class="js-remove">Remove</a><a href="transfer-vehicle.html" class="">Transfer</a></td></tr>
-            <tr><td><a href="edit-vehicle.html">LL06 DRE</a> (2500kg)</td><td class="mobile-hidden">20515142</td><td class="mobile-hidden">12 May 2014</td><td class="right"><a href="" class="js-replace">Replace disc</a><a href="" class="js-remove">Remove</a><a href="transfer-vehicle.html" class="">Transfer</a></td></tr>
-            <tr><td><a href="edit-vehicle.html">LE57 AIN</a> (2500kg)</td><td class="mobile-hidden">20515142</td><td class="mobile-hidden">12 May 2014</td><td class="right"><a href="" class="js-replace">Replace disc</a><a href="" class="js-remove">Remove</a><a href="transfer-vehicle.html" class="">Transfer</a></td></tr>
-            <tr><td><a href="edit-vehicle.html">KP14 XVS</a> (2500kg)</td><td class="mobile-hidden">20515142</td><td class="mobile-hidden">12 May 2014</td><td class="right"><a href="" class="js-replace">Replace disc</a><a href="" class="js-remove">Remove</a><a href="transfer-vehicle.html" class="">Transfer</a></td></tr>
-            <tr><td><a href="edit-vehicle.html">KL55 TTX</a> (2500kg)</td><td class="mobile-hidden">20515142</td><td class="mobile-hidden">12 May 2014</td><td class="right"><a href="" class="js-replace">Replace disc</a><a href="" class="js-remove">Remove</a><a href="transfer-vehicle.html" class="">Transfer</a></td></tr>
+            <tr><td><a href="edit-vehicle.html">YK16 BBR</a> (2500kg)</td><td class="mobile-hidden">20515142</td><td class="mobile-hidden">12 May 2014</td><td class="right"><a href="" class="js-replace">Replace disc</a><a href="transfer-vehicle.html" class="">Transfer</a><a href="" class="js-remove">Remove</a></td></tr>
+            <tr><td><a href="edit-vehicle.html">LL06 DRE</a> (2500kg)</td><td class="mobile-hidden">20515142</td><td class="mobile-hidden">12 May 2014</td><td class="right"><a href="" class="js-replace">Replace disc</a><a href="transfer-vehicle.html" class="">Transfer</a><a href="" class="js-remove">Remove</a></td></tr>
+            <tr><td><a href="edit-vehicle.html">LE57 AIN</a> (2500kg)</td><td class="mobile-hidden">20515142</td><td class="mobile-hidden">12 May 2014</td><td class="right"><a href="" class="js-replace">Replace disc</a><a href="transfer-vehicle.html" class="">Transfer</a><a href="" class="js-remove">Remove</a></td></tr>
+            <tr><td><a href="edit-vehicle.html">KP14 XVS</a> (2500kg)</td><td class="mobile-hidden">20515142</td><td class="mobile-hidden">12 May 2014</td><td class="right"><a href="" class="js-replace">Replace disc</a><a href="transfer-vehicle.html" class="">Transfer</a><a href="" class="js-remove">Remove</a></td></tr>
+            <tr><td><a href="edit-vehicle.html">KL55 TTX</a> (2500kg)</td><td class="mobile-hidden">20515142</td><td class="mobile-hidden">12 May 2014</td><td class="right"><a href="" class="js-replace">Replace disc</a><a href="transfer-vehicle.html" class="">Transfer</a><a href="" class="js-remove">Remove</a></td></tr>
           </tbody>
         </table>
       </div><!-- .table__wrapper -->
