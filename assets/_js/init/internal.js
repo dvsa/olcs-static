@@ -31,9 +31,8 @@ OLCS.ready(function() {
     $('.tinymce').each(function() {
       $(this).tinymce({
         menubar : false,
-        document_base_url: '../tinymce/',
-        browser_spellcheck : false,
         statusbar : false,
+        document_base_url: '../tinymce/',
         spellchecker_languages : '+English=en',
         spellchecker_language : 'en',
         spellchecker_rpc_url: 'index.php',
