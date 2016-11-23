@@ -16,13 +16,13 @@ OLCS.disableForm = (function(document, $, undefined) {
   return function init(custom) {
 
     var options = $.extend({
-      container: '.actions-container',
+      container: '.actions-container:not(.table__header .actions-container)',
       actions: '[type="submit"], [class*="action-"]',
       disabledClass: 'disabled',
       loadingText: false
     }, custom);
 
-    $(options.container).not('.table__header '+options.container).each(function() {
+    $(options.container).each(function() {
 
       var container = $(this);
       var actions = container.find(options.actions);
