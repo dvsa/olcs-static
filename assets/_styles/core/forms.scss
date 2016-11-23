@@ -357,6 +357,7 @@ select,
       @include svg('attachment');
       content: '';
       display: inline-block;
+      float: left;
       height: 19px;
       width: 19px;
       margin: 0 2px -5px -2px;
