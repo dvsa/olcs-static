@@ -22,7 +22,7 @@
     @if $app == 'selfserve' {
       margin-bottom: 10px;
       .action--tertiary {
-        font-size: font-size(5);
+        @extend %h4;
         float: left;
         clear: both;
         padding-top: 0;
