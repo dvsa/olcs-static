@@ -44,16 +44,14 @@ var OLCS = OLCS || {};
       parent.addClass(options.class);
       title.attr('aria-expanded', 'true');      
       content.show().attr('aria-hidden','false');
-
-      $(this).one('click', collapse);
+      title.one('click', collapse);
     }
 
     function collapse() {
       parent.removeClass(options.class);
       title.attr('aria-expanded', 'false');
       content.hide().attr('aria-hidden', 'true');
-
-      $(this).one('click', expand);
+      title.one('click', expand);
     }
     
     function revert() {
