@@ -3,11 +3,14 @@
  */
 
 .sign-in {
+
   background: $grey-4;
+
   legend {
     font-size: 24px;
     margin-bottom: 20px;
   }
+
   form {
     box-shadow: 0 1px 5px $grey-3;
     background: $white;
@@ -17,16 +20,19 @@
     float: none;
     overflow: auto;
   }
+
   [type="text"],
   [type="password"] {
     width: 100%;
     padding: 0.5em 3%;
   }
+
   label {
     float: left;
     width: 50%;
     margin-right: 0;
   }
+
   .hint {
     @extend %h6;
     float: left;
@@ -37,4 +43,9 @@
     text-align: right;
     margin: 0;
   }
+
+  .validation-summary {
+    margin-top: 0;
+  }
+
 }
