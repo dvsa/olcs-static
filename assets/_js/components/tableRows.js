@@ -146,11 +146,13 @@ OLCS.tableRows = (function(document, $, undefined) {
         return;
       }
 
-      // If the target element isn't a select box and/or doesn't contain one
-      // and ctrl is not pressed, simulate a click of the row's primary action
-      if (!target.is(selectBox) && !targetSelectBox.length && !ctrlPressed) {
-        getActions(this).get(0).click();
-        return;
+      if ($(this).find('[type="checkbox"]').length) {
+        // If the target element isn't a select box and/or doesn't contain one
+        // and ctrl is not pressed, simulate a click of the row's primary action
+        if (!target.is(selectBox) && !targetSelectBox.length && !ctrlPressed) {
+          getActions(this).get(0).click();
+          return;
+        }
       }
       
     });
