@@ -49,13 +49,13 @@ describe("OLCS.notices", function() {
           });
 
           it("It should add a 'Close button' to each notice", function() {
-            expect($(".notice--success .notice__link").length).to.equal(1);
-            expect($(".notice--danger .notice__link").length).to.equal(1);
+            expect($(".notice--success .notice__close").length).to.equal(1);
+            expect($(".notice--danger .notice__close").length).to.equal(1);
           });
 
           describe("When the first notice's close button is clicked", function() {
             beforeEach(function() {
-              $(".notice--success .notice__link").click();
+              $(".notice--success .notice__close").click();
             });
 
             it("It removes the expected element", function() {
@@ -66,7 +66,7 @@ describe("OLCS.notices", function() {
 
             describe("When the last remaining element's close button is clicked", function() {
               beforeEach(function() {
-                $(".notice--danger .notice__link").click();
+                $(".notice--danger .notice__close").click();
               });
 
               it("It removes the container from them DOM", function() {
@@ -74,7 +74,6 @@ describe("OLCS.notices", function() {
               });
             });
           });
-
 
           describe("After 10 seconds has passed", function() {
             beforeEach(function(){
