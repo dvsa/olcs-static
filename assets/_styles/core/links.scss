@@ -37,3 +37,9 @@ a {
     text-decoration: underline;
   }
 }
+
+@if $app == 'internal' {
+  table a:visited {
+    color: #6439A7;
+  }
+}
