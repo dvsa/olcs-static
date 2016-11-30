@@ -3,25 +3,43 @@
  */
 
 @if $app == 'selfserve' {
+
   %notice {
     width: 100%;
-    padding: 12px 20px 10px 15px;
+    padding: 15px 15px 13px;
     color: $white;
-    a {
-      float: right;
-      color: $white;
-      font-size: font-size(4);
+    position: relative;
+    line-height: 1;
+    &:before {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 15px;
+      width: 25px;
+      margin-top: -1px;
     }
   }
 
+  // Block
   .notice {
+
+    // Elements
+    // @todo update to BEM syntax
     &-container {
       margin-bottom: 1em;
     }
-    &--success {
-      @extend %notice;
-      background: $turquoise;
+
+    &__close {
+      float: right;
+      color: $white;
+      font-size: font-size(4);
+      &:hover {
+        color: $white;
+      }
     }
+
+    // Modifiers
     &--info {
       @extend %notice;
       background: $light-blue-25;
@@ -30,32 +48,28 @@
         color: $link-colour;
       }
     }
+    &--success {
+      @extend %notice;
+      background: $turquoise;
+      padding-left: 40px;
+      &:before {
+        @include svg('selfserve-tick');
+        content: '';
+      }
+    }
     &--danger {
       @extend %notice;
       background: $mellow-red;
+      padding-left: 40px;
+      &:before {
+        @include svg('selfserve-cross');
+        content: '';
+      }
     }
-  }
-}
 
-%notice-icon {
-  content: "";
-  display: inline-block;
-  height: 15px;
-  width: 25px;
-  margin-bottom: -1px;
-}
-
-p::before {
-  .notice--success & {
-    @extend %notice-icon;
-    @include svg('selfserve-tick');
   }
-  .notice--danger & {
-    @extend %notice-icon;
-    @include svg('selfserve-cross');
-  }
-}
 
+}
 
 @mixin notice($color) {
   $background : desaturate(lighten($color, 50%), 10%);
@@ -138,7 +152,3 @@ p::before {
     }
   }
 }
-
-
-
-
