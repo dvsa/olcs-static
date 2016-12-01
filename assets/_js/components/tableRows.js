@@ -22,23 +22,20 @@ OLCS.tableRows = (function(document, $, undefined) {
       return $(selector).find(actionSelector);
     }
 
-    // Check the row for a single action to see if it should be 
-    // made hoverable
+    // Check the row for a single action to see if it should be made hoverable
     function checkForSingleAction(selector) {
       if (!$(selector).hasClass('disabled')) {
         return getActions(selector).length === 1;
       }
     }
     
-    // If a table contains rows that contain a select box, assume it 
-    // should be affected by this component and add a special class
+    // If a table contains rows that contain a select/check box, and add a special class
     $('table').find(selectBox).parents('table').addClass('js-rows');
     
     var lastChecked = null;
     var ctrlPressed = false;
     
-    // Prevent ctrl + click from opening the context menu within our
-    // special table
+    // Prevent ctrl + click from opening the context menu within our special table
     $(document).on('keydown', function(event) {
       if (event.ctrlKey) {
         $('.js-rows').unbind('contextmenu').bind('contextmenu', function(event) { 
@@ -94,7 +91,7 @@ OLCS.tableRows = (function(document, $, undefined) {
       
       // allow multiple rows to be selected by using the 'shift' key
       if ($(this).find('[type="checkbox"]').length) {
-        
+
         // if the row was clicked whilst holding the 'shift' key
         if (event.shiftKey && !event.ctrlKey) {
           
@@ -137,8 +134,7 @@ OLCS.tableRows = (function(document, $, undefined) {
           var ctrlState = target.parents('tr').find(selectBox).prop('checked');
           target.parents('tr').toggleClass('checked');
           target.parents('tr').find(selectBox).prop('checked', !ctrlState);
-        }
-        
+        }  
       }
 
       // Return if the row shouldn't be hoverable
@@ -146,20 +142,16 @@ OLCS.tableRows = (function(document, $, undefined) {
         return;
       }
 
-      if ($(this).find('[type="checkbox"]').length) {
-        // If the target element isn't a select box and/or doesn't contain one
-        // and ctrl is not pressed, simulate a click of the row's primary action
-        if (!target.is(selectBox) && !targetSelectBox.length && !ctrlPressed) {
-          getActions(this).get(0).click();
-          return;
-        }
+      // If the target element isn't a select box and/or doesn't contain one
+      // and ctrl is not pressed, simulate a click of the row's primary action
+      if (!target.is(selectBox) && !targetSelectBox.length && !ctrlPressed) {
+        getActions(this).get(0).click();
+        return;
       }
-      
     });
 
     // On hover of a table row
     $(document).on('mouseenter mouseleave', tableRowSelector, function(e) {
-
       // If the row shouldn't be hoverable, return
       if (!checkForSingleAction(this)) {
         return;
@@ -171,7 +163,6 @@ OLCS.tableRows = (function(document, $, undefined) {
       } else if (e.type === 'mouseleave') {
         $(this).removeClass('hover');
       }
-
     });
 
   };
