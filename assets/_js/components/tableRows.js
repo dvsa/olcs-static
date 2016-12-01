@@ -38,7 +38,7 @@ OLCS.tableRows = (function(document, $, undefined) {
     // Prevent ctrl + click from opening the context menu within our special table
     $(document).on('keydown', function(event) {
       if (event.ctrlKey) {
-        $('.js-rows').unbind('contextmenu').bind('contextmenu', function(event) { 
+        $('.js-rows').unbind('contextmenu').bind('contextmenu', function(event) {
           event.preventDefault();
           // simulate a click otherwise we can't capture it
           event.target.click();
@@ -140,6 +140,12 @@ OLCS.tableRows = (function(document, $, undefined) {
       // Return if the row shouldn't be hoverable
       if (!checkForSingleAction(this)) {
         return;
+      }
+
+      // Return if target is a link (or is inside a link), this is to prevent
+      // the target from being "clicked" twice
+      if (target.closest('a').length) {
+          return;
       }
 
       // If the target element isn't a select box and/or doesn't contain one
