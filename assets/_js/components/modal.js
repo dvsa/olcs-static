@@ -126,12 +126,6 @@ OLCS.modal = (function(document, $, undefined) {
     $('body').removeClass(bodyClass);
     $(wrapper +','+overlay).remove();
 
-    // Unbind any Tinymce
-
-    if (typeof(tinymce) !== 'undefined') {
-      tinymce.remove(); // jshint ignore:line
-    }
-
     // Set the aria-hidden attribute of all other content to 'false'
     // when the modal closes
     $('.page-wrapper').attr('aria-hidden', 'false');
