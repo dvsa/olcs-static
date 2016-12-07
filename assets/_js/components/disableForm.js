@@ -16,8 +16,8 @@ OLCS.disableForm = (function(document, $, undefined) {
   return function init(custom) {
 
     var options = $.extend({
-      container: '.actions-container:not(.table__header .actions-container)',
-      actions: '[type="submit"], [class*="action-"]',
+      container: '.actions-container',
+      actions: '[type="submit"]:not(.js-disable-crud), [class*="action-"]:not(.js-disable-crud)',
       disabledClass: 'disabled',
       loadingText: false
     }, custom);
@@ -35,6 +35,10 @@ OLCS.disableForm = (function(document, $, undefined) {
         // Add disabled class to relevant actions
         actions.addClass(options.disabledClass);
 
+        // Add class to signify that being disabled is only temporary
+        actions.addClass('enabled-on-render');
+
+
         // Change target button text during interim
         if (options.loadingText) {
           if (target.is('input')) {
@@ -44,6 +48,12 @@ OLCS.disableForm = (function(document, $, undefined) {
           }
         }
 
+      });
+
+      // Revert any buttons that were disabled using this plugin,
+      // ignoring any buttons that were previously disabled
+      OLCS.eventEmitter.on('render', function() {
+        $('.enabled-on-render').removeClass(options.disabledClass + ' enabled-on-render');
       });
 
     });

@@ -11,16 +11,14 @@ OLCS.notices = (function(document, $, undefined) {
 
   'use strict';
 
-  var closeLinkSelector       = '.notice__link';
+  var closeLinkClass          = 'notice__close';
   var noticeContainerSelector = '.notice-container';
   var noticeSelector          = 'div[class^="notice--"]';
 
   return function init() {
 
     function addCloseButton(element) {
-      element
-        .find('p')
-        .prepend('<a href="" class="notice__link">Close</a>');
+      element.prepend('<a href="" class="' + closeLinkClass + '">Close</a>');
     }
 
     function remove(element) {
@@ -35,7 +33,7 @@ OLCS.notices = (function(document, $, undefined) {
       });
     }
 
-    $(document).on('click', closeLinkSelector, function(e) {
+    $(document).on('click', '.' + closeLinkClass, function(e) {
       e.preventDefault();
       // If there is more than one notice, remove itself
       if ($(this).parents(noticeSelector).siblings().length) {
@@ -51,21 +49,20 @@ OLCS.notices = (function(document, $, undefined) {
       // Add a close button to each notice, but only
       // if it doesn't have one
       $(noticeSelector).each(function() {
-        if (!$(this).find(closeLinkSelector).length) {
+        if (!$(this).find('.' + closeLinkClass).length) {
           addCloseButton($(this));
-        } else {
-          return;
         }
       });
 
       // fade out any notice containers on render,
       // so long as they're not in a modal or in the
       // right hand column
-      $('.internal '+noticeContainerSelector).each(function() {
+      $('.internal ' + noticeContainerSelector).each(function() {
         if (!$(this).parents().is('.modal, .sidebar--right')) {
           fadeOut($(this));
         }
       });
+
     });
 
   };
