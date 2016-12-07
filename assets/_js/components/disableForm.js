@@ -37,7 +37,8 @@ OLCS.disableForm = (function(document, $, undefined) {
 
         // Add class to signify that being disabled is only temporary
         actions.addClass('enabled-on-render');
-      
+
+
         // Change target button text during interim
         if (options.loadingText) {
           if (target.is('input')) {

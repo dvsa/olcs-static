@@ -36,6 +36,12 @@
   max-width: 700px;
 }
 
+.mobile-hidden {
+  @media (max-width: $mobile-column-stack) {
+    display: none;
+  }
+}
+
 .js-visible {
   display: none;
 }

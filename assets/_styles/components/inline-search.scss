@@ -3,6 +3,16 @@
  */
 
 .inline-search {
+  margin: 0;
+  right: 0;
+  bottom: 20px;
+  position: absolute;
+  width: auto;
+  @media (max-width: $mobile-column-stack) {
+    position: relative;
+    float: left;
+    margin-top: 20px;
+  }
   .field {
     display: inline-block;
     margin-bottom: 0;
