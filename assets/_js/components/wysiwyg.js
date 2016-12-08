@@ -51,7 +51,7 @@ OLCS.wysiwyg = (function(document, $, undefined) {
         // If the editor was initialised in a modal, we need to remove it
         // when the modal closes
         OLCS.eventEmitter.on('hide:modal', function() {
-          tinymce.EditorManager.editors = []; 
+          tinymce.EditorManager.editors = []; // jshint ignore:line
         });
       });
 
