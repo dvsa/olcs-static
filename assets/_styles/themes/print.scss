@@ -150,11 +150,9 @@ hr {
   margin: 30px 0;
   padding: 30px;
   background: $grey-3;
-  overflow: auto;
   -webkit-print-color-adjust: exact;
 
   &__column {
-    float: left;
     width: 45%;
     margin: 0 5% 0 0;
   }
