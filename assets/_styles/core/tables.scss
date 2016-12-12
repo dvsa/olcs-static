@@ -401,9 +401,6 @@ tfoot {
   .sortable {
     padding: 0.5em 0.75em;
     background: $grey-4;
-    a {
-      padding: 0.75em 0.75em;
-    }
     &:hover,
     &.ascending,
     &.descening {
