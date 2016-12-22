@@ -18,7 +18,6 @@
   }
   .actions-container {
     display: block;
-    overflow: auto;
     @if $app == 'selfserve' {
       margin-bottom: 10px;
       .action--tertiary {
