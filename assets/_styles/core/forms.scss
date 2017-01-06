@@ -473,6 +473,12 @@ select,
     padding-left: 4px;
   }
 
+  table & {
+    border-left: 0;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+
   li {
     @extend %paragraph;
     color: $error-colour;

@@ -170,6 +170,9 @@ th {
   &.right-aligned {
     float: none;
   }
+  &.invalid {
+    color: $error-colour;
+  }
 }
 
 td {
