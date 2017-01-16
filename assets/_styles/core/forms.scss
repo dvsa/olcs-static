@@ -661,4 +661,12 @@ select,
       margin-right: 10px;
     }
   }
+
+  // replace multiple break tags with just one to accommodate
+  // pasted SAS tables
+  .submission .comment {
+    br + br {
+      display: none;
+    }
+  }
 }

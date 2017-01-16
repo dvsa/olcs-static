@@ -14,7 +14,7 @@ OLCS.wysiwyg = (function(document, $, undefined) {
   return function init(custom) {
 
     var options = $.extend({
-      container : '.submission .comment p:first-of-type',
+      container : '.submission .comment',
     }, custom);
 
     OLCS.eventEmitter.on('render', function() {
@@ -54,23 +54,6 @@ OLCS.wysiwyg = (function(document, $, undefined) {
           tinymce.EditorManager.editors = []; // jshint ignore:line
         });
       });
-
-      // function to strip unwanted br tags
-      (function stripStartTag() {
-        // This is what contains the WYSIWYG content
-        $(options.container).each(function() {
-          // If the first thing is a break tag
-          if ($(this).children(':first').prop('tagName') === 'BR') {
-            // remove it
-            $(this).children(':first').remove();
-            // recurse the function to remove them all
-            stripStartTag();
-          } else {
-            // no more starting break tags
-            return;
-          }
-        });
-      })();
 
     });
 
