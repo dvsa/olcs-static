@@ -1,7 +1,7 @@
 ---
 title: Declaration
-subtitle: David Willis
-user: tm
+subtitle: Katy Hasley
+user: operator
 back-link: index.html
 ---
 
@@ -40,8 +40,8 @@ back-link: index.html
           <div class="field checkbox has-advanced-labels">
             <label>
               <input type="radio" name="declarations" value="post">
-              <strong>Sign and return</strong>
-              The operator will send you the printed declaration to sign. You'll then need to return it to the<a target="blank" href="https://www.gov.uk/government/organisations/traffic-commissioners/about/access-and-opening"> Central Licensing Office</a>
+              <strong>Print, sign and return</strong>
+              You'll need to print your details, sign them and return them to the Central Licensing Office
             </label>
           </div>
         </fieldset>
@@ -71,17 +71,17 @@ back-link: index.html
 
 <script>
   $(document).on('ready',function() {
-      $('.js-verify, .js-print-sign').hide();
+    $('.js-verify, .js-print-sign').hide();
 
-      $('[name="declarations"]').on('change',function() {
-        if($(this).val() === 'verify') {
-          $('.js-verify').show();
-          $('.js-print-sign').hide();
-        } else {
-          $('.js-verify').hide();
-          $('.js-print-sign').show();
-        }
-      });
+    $('[name="declarations"]').on('change',function() {
+      if($(this).val() === 'verify') {
+        $('.js-verify').show();
+        $('.js-print-sign').hide();
+      } else {
+        $('.js-verify').hide();
+        $('.js-print-sign').show();
+      }
+    });
   });
 </script>
 
