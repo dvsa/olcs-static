@@ -13,10 +13,6 @@ OLCS.wysiwyg = (function(document, $, undefined) {
 
   return function init(custom) {
 
-    var options = $.extend({
-      container : '.submission .comment',
-    }, custom);
-
     OLCS.eventEmitter.on('render', function() {
 
       if (typeof(tinymce) === 'undefined') {
