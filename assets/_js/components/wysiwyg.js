@@ -11,7 +11,7 @@ OLCS.wysiwyg = (function(document, $, undefined) {
 
   'use strict';
 
-  return function init(custom) {
+  return function init() {
 
     OLCS.eventEmitter.on('render', function() {
 
