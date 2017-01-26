@@ -11,7 +11,7 @@ OLCS.conditionalButton = (function(document, $, undefined) {
   return function init(options) {
 
     if (options.label && options.selector) {
-      throw new Error('"label" and "selector" are mutually exclusive');
+      throw new Error('\'label\' and \'selector\' are mutually exclusive');
     }
 
     var filter;
