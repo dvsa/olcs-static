@@ -6,26 +6,26 @@ var OLCS = OLCS || {};
 
 OLCS.conditionalButton = (function(document, $, undefined) {
 
-  "use strict";
+  'use strict';
 
   return function init(options) {
 
     if (options.label && options.selector) {
-      throw new Error("'label' and 'selector' are mutually exclusive");
+      throw new Error('"label" and "selector" are mutually exclusive');
     }
 
     var filter;
     var selector = options.container || options.form;
 
     if (options.label) {
-      filter = "[value='" + options.label + "']";
+      filter = '[value="' + options.label + '"]';
     } else {
       filter = options.selector;
     }
 
     var predicate       = options.predicate;
-    var checkedSelector = options.checkedSelector || "table input[name!='checkall']:checked";
-    var actionSelector  = ".actions-container button";
+    var checkedSelector = options.checkedSelector || 'table input[name!="checkall"]:checked';
+    var actionSelector  = '.actions-container button';
 
     if ($.isPlainObject(predicate)) {
       predicate = OLCS.complexPredicate(predicate);
@@ -42,16 +42,16 @@ OLCS.conditionalButton = (function(document, $, undefined) {
         checkedInputs = $(context).find(checkedSelector);
         predicate(checkedInputs.length, function(enabled) {
           if (enabled) {
-            button.removeAttr("disabled");
+            button.removeAttr('disabled');
           } else {
-            button.attr("disabled", true);
+            button.attr('disabled', true);
           }
         }, checkedInputs);
       }
 
     }
 
-    $(document).on("change", selector, function() {
+    $(document).on('change', selector, function() {
       checkButton(this);
     });
 
@@ -61,7 +61,7 @@ OLCS.conditionalButton = (function(document, $, undefined) {
 
     // Make sure any time the parent page is re-rendered we give our
     // conditional buttons a kick
-    OLCS.eventEmitter.on("render", setup);
+    OLCS.eventEmitter.on('render', setup);
 
   };
 
