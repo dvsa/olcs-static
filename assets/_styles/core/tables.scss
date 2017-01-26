@@ -405,7 +405,6 @@ tfoot {
     background: $grey-4;
     a {
       padding: 0 1.25em 0 0;
-      white-space: nowrap;
     }
     &:hover,
     &.ascending,
@@ -416,6 +415,11 @@ tfoot {
 
   .not-sortable {
     padding: 0.5em 0.75em;
+  }
+
+  // add to column title to prevent heading wrapping
+  .no-wrap {
+      white-space: nowrap;
   }
 
 }
