@@ -89,7 +89,7 @@ OLCS.cascadeForm = (function(document, $, undefined) {
       //   and as such we never check their containers.
       // - We don't need to take wrapper if selector is element's hint,
       //   which always has the class "hint"
-      if (elem.parents(errorWrapper).length && selector.search("=") === -1 && !$(selector).is('.hint')) {
+      if (elem.parents(errorWrapper).length && selector.search("=") === -1 && !$(selector).is(".hint")) {
         elem = elem.parents(errorWrapper);
       }
 
