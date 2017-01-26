@@ -8,9 +8,8 @@ OLCS.formHelper = (function(document, $, undefined) {
 
   "use strict";
 
-  // the class we apply to a hidden input used to
-  // simulate which button was clicked when submitting
-  // a form
+  // the class we apply to a hidden input used to simulate 
+  // which button was clicked when submitting a form
   var formClickAction = "form__action";
 
   var errorSelectors = [

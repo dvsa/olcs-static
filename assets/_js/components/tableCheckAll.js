@@ -35,6 +35,7 @@ OLCS.tableCheckAll = (function(document, $, undefined) {
       }
         
     });
+
   };
 
 }(document, window.jQuery));
