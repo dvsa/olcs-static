@@ -1,26 +1,17 @@
 ---
-overview: true
+title: Sign the declaration
+subtitle: OB12345/12
 user: operator
 back-link: index.html
 ---
 
-<div class="notice-container">
-  <div class="notice--success">You've submitted your details to the operator</div>
-</div>
-
-<div class="page-header">
-  <div class="page-header__wrapper">
-    <h1>Sign the declaration</h1>
-  </div>
-</div>
-
 <div class="row">
 
   <div class="two-thirds">
-    <p>You need to sign the declaration before your application can be considered.</p>
-    <p class="important"><strong>It's against the law to act as a Transport Manager on this licence until we approve your application.</strong></p>
+    <p>Katy Hasley has signed the declaration online using GOV.UK Verify.<br />
+    An owner or Director must now sign the declaration.</p>
     <div class="article steps">
-      <p>I agree to the following:</p>
+      <p>By signing the declaration I agree to the following:</p>
       <ul>
         <li>The laws relating to the driving and operation of vehicles used under this licence are observed;</li>
         <li>The rules on drivers’ hours and tachographs are observed, proper records are kept and that these are made available on request;</li>
@@ -38,7 +29,6 @@ back-link: index.html
     <form class="article">
       <fieldset>
         <legend>How would you like to sign the declaration?</legend>
-
         <fieldset>
           <div class="field checkbox has-advanced-labels">
             <label>
@@ -51,28 +41,26 @@ back-link: index.html
             <label>
               <input type="radio" name="declarations" value="post">
               <strong>Print, sign and return</strong>
-              You'll need to return the signed declaration to the <a target="blank" href="https://www.gov.uk/government/organisations/traffic-commissioners/about/access-and-opening" rel="external">Central Licensing Office</a>
+              You'll need to print the details, sign them and return them to the Central Licensing Office
             </label>
           </div>
         </fieldset>
 
         <div class="js-verify">
           <div class="field confirm checkbox">
-            <label>
+            <label class="">
               <input type="checkbox">
                I declare that the statements in this application are true and the supporting evidence is correct and understand that it’s an offence to make a false declaration. I agree to Vehicle Operator Licensing using my name, address and date of birth provided by GOV.UK Verify.
             </label>
           </div>
-          <hr />
           <div class="actions-container">
-            <a href="overview-verified.html" class="action--primary large" rel="external">Save and continue to GOV.UK Verify</a>
+            <a href="submitted.html" class="action--primary large" rel="external">Continue</a>
           </div>
         </div><!-- .js-verify -->
 
         <div class="js-print-sign">
-          <hr />
           <div class="actions-container">
-            <a href="application-overview-complete-print.html" class="action--primary large">Submit and pay</a>
+            <a href="submitted-no-verify.html" class="action--primary large">Continue</a>
           </div>
         </div><!-- .js-print-sign -->
       </fieldset>
@@ -83,19 +71,16 @@ back-link: index.html
 
 <script>
   $(document).on('ready',function() {
-      $('.js-verify, .js-print-sign').hide();
+    $('.js-verify, .js-print-sign').hide();
 
-      $('[name="declarations"]').on('change',function() {
-        if($(this).val() === 'verify') {
-          $('.js-verify').show();
-          $('.js-print-sign').hide();
-        } else {
-          $('.js-verify').hide();
-          $('.js-print-sign').show();
-        }
-      });
+    $('[name="declarations"]').on('change',function() {
+      if($(this).val() === 'verify') {
+        $('.js-verify').show();
+        $('.js-print-sign').hide();
+      } else {
+        $('.js-verify').hide();
+        $('.js-print-sign').show();
+      }
+    });
   });
 </script>
-
-
-
