@@ -473,6 +473,12 @@ select,
     padding-left: 4px;
   }
 
+  table & {
+    border-left: 0;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+
   li {
     @extend %paragraph;
     color: $error-colour;
@@ -653,6 +659,14 @@ select,
       float: left;
       width: 150px;
       margin-right: 10px;
+    }
+  }
+
+  // replace multiple break tags with just one to accommodate
+  // pasted SAS tables
+  .submission .comment {
+    br + br {
+      display: none;
     }
   }
 }

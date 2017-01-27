@@ -54,4 +54,9 @@ OLCS.ready(function() {
     $('.chosen-select-large').chosen({ width: '97%' });
   });
 
+  // Re-render the page in the background when a user is taken to a new tab
+  $(window).blur(function() {
+      OLCS.eventEmitter.emit('render');
+  });
+
 });
