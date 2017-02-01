@@ -662,10 +662,10 @@ select,
     }
   }
 
-  // replace multiple break tags with just one to accommodate
-  // pasted SAS tables
+  // do not display break tags in generated markup for 
+  // submission comments
   .submission .comment {
-    br + br {
+    br {
       display: none;
     }
   }
