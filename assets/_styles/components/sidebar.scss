@@ -1,7 +1,16 @@
 // Sidebar
 
 .sidebar {
-    margin-top: $gutter-two-thirds;
+
+  margin-top: $gutter-two-thirds;
+
+  &--plain {
+    label {
+      padding-left: 1.2em;
+      text-indent: -1.2em;
+    }
+  }
+
   &__panel {
     @extend %contain-floats;
     padding: $gutter-two-thirds;
@@ -29,10 +38,7 @@
 
 }
 
-/**
- * Selfserve only styles
- */
-
+// Selfserve only styles
 @if $app == 'selfserve' {
 
   .meta {
@@ -71,10 +77,8 @@
 
 }// selfserve
 
-/**
- * Internal only styles
- */
 
+// Internal only styles
 @if $app == 'internal' {
 
   .small-module {
