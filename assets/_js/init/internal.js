@@ -23,5 +23,14 @@ OLCS.ready(function() {
   });
 
   OLCS.wysiwyg();
+
+  // Small script to append date to internal search result links
+  // to ensure :visited styles reset each day
+  $('form[action*="search"]').find('a').each(function() {
+    var date = new Date().toJSON().slice(0,10);
+    $(this).attr('href', function() {
+        return this.href + '?' + date;
+    });
+  });
   
 });
