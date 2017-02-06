@@ -58,6 +58,11 @@
   th {
     vertical-align: top;
   }
+  // prevent tables from causing entire page to stretch
+  .field > & {
+    @extend %page-wrapper;
+    overflow-x: auto;
+  }
 }
 
 .table__header {
