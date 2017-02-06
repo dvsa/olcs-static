@@ -15,11 +15,24 @@ OLCS.wysiwyg = (function(document, $, undefined) {
 
     OLCS.eventEmitter.on('render', function() {
 
-      if (typeof(tinymce) === 'undefined') {
+      var tinymce = tinymce || 'undefined';
+
+      // if there are no tinymce's on the page, stop here
+      if (tinymce === 'undefined') {
         return;
       }
 
+      // handle previously created tinymce's
+      tinymce.EditorManager.editors.forEach(function(editor) {
+          var old_global_settings = tinymce.settings;
+          tinymce.settings = editor.settings;
+          tinymce.EditorManager.execCommand('mceRemoveEditor', false, editor.id);
+          tinymce.EditorManager.execCommand('mceAddEditor', false, editor.id);
+          tinymce.settings = old_global_settings;
+      });
+
       $('.tinymce').each(function() {
+
         $(this).tinymce({
           menubar : false,
           statusbar : false,
@@ -44,11 +57,6 @@ OLCS.wysiwyg = (function(document, $, undefined) {
           toolbar: 'styleselect | bold italic underline | bullist numlist | indent outdent | spellchecker'
         });
 
-        // If the editor was initialised in a modal, we need to remove it
-        // when the modal closes
-        OLCS.eventEmitter.on('hide:modal', function() {
-          tinymce.EditorManager.editors = []; // jshint ignore:line
-        });
       });
 
     });
