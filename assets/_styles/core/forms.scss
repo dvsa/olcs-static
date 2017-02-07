@@ -560,6 +560,10 @@ select,
   legend + & {
     margin-bottom: $gutter-half;
   }
+  label + & {
+    padding-top: 0;
+    margin-bottom: $gutter-one-third;
+  }
   .inline-text + & {
     padding-top: 0;
   }
