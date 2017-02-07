@@ -557,7 +557,7 @@ select,
   .compound + & {
     padding-top: 0;
   }
-  legend + &, {
+  legend + & {
     margin-bottom: $gutter-half;
   }
   label + & {
