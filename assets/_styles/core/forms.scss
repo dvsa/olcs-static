@@ -37,6 +37,9 @@ fieldset {
     margin-top: -0.75em;
     display: block;
   }
+  .add-another & {
+    margin-bottom: $gutter-one-third;
+  }
   // nested fieldsets
   fieldset {
     legend {

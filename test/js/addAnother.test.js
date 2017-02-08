@@ -1,4 +1,5 @@
 describe("OLCS.addAnother", function() {
+
   "use strict";
 
   beforeEach(function() {
@@ -6,6 +7,7 @@ describe("OLCS.addAnother", function() {
   });
 
   describe("given a stubbed DOM", function() {
+
     beforeEach(function() {
       $("body").append([
         "<div id=stub>",
@@ -27,6 +29,7 @@ describe("OLCS.addAnother", function() {
     });
 
     describe("and the component is invoked", function() {
+
       beforeEach(function() {
         this.component();
       });
@@ -47,6 +50,7 @@ describe("OLCS.addAnother", function() {
           expect(newField.find('input').val()).to.equal("");
         });
       });
+
     });
   });
 });

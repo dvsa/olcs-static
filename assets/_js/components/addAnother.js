@@ -7,48 +7,51 @@ var OLCS = OLCS || {};
  * the name and ID if needed and appends it to the end
  * of the fieldset.
  */
-
 OLCS.addAnother = (function(document, $, undefined) {
 
-  "use strict";
+  'use strict';
 
-  var triggerSelector = ".hint input[type=submit]";
-  var targetSelector  = ".field:last";
+  var triggerSelector = '.hint input[type="submit"]';
+  var targetSelector  = 'fieldset:last';
 
   return function init() {
 
-    function cloneLastField(fieldset) {
-      var lastField = fieldset.find(targetSelector).clone();
-      return lastField;
-    }
-
     function incrementString(string) {
       var newString = string.replace(/\[(\d+)\]/, function(match, number) {
-        return "[" + (parseInt(number, 10) + 1) + "]";
+        return '[' + (parseInt(number, 10) + 1) + ']';
       });
       return newString;
     }
 
     function updateValues(element) {
       var field     = $(element);
-      var input     = field.find("input");
-      var inputName = incrementString(input.attr("name"));
-      var inputID   = incrementString(input.attr("id"));
+      var input     = field.find('input');
+      var inputName = incrementString(input.attr('name'));
+      var inputID   = incrementString(input.attr('id'));
+
+      field.attr({
+        'data-group': incrementString(field.attr('data-group'))
+      });
 
       input.attr({
         name: inputName,
         id: inputID,
-      }).val("");
+      }).val('');
 
       return field;
     }
 
-    $("body").on("click", triggerSelector, function(e) {
+    $('body').on('click', triggerSelector, function(e) {
       e.preventDefault();
-      var fieldset  = $(e.target).closest(".add-another");
-      var lastField = cloneLastField(fieldset);
+
+      var fieldset  = $(e.target).closest('.add-another');
+      var lastField = fieldset.find(targetSelector).clone();
       var newField  = updateValues(lastField);
-      $(newField).insertBefore(fieldset.find(".hint"));
+
+      // remove any error messages
+      $(newField).find('ul').remove();
+
+      $(newField).insertBefore(fieldset.find('.hint'));
     });
 
   };
