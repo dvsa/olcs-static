@@ -10,17 +10,14 @@ describe("OLCS.addAnother", function() {
 
     beforeEach(function() {
       $("body").append([
-        "<div id=stub>",
-          "<fieldset class='add-another'>",
+        "<fieldset class='add-another' id=stub>",
+          "<fieldset>",
             "<div class=field>",
               "<input type=text name='data[0]' id='data[0]' value='something'>",
             "</div>",
-            "<p class=hint>",
-              "<input type='submit' value='Add another'>",
-            "</p>",
           "</fieldset>",
-          "<a href=# id=foo>Foo</a>",
-        "</div>"
+          "<p class=hint><input type='submit' value='Add another'></p>",
+        "</fieldset>"
       ].join("\n"));
     });
 
@@ -40,7 +37,7 @@ describe("OLCS.addAnother", function() {
         });
 
         it("it creates a new field", function() {
-          expect($('.field').length).to.equal(2);
+          expect($('fieldset').length).to.equal(2);
         });
 
         it("with correctly incremented values", function() {

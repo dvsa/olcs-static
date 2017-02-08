@@ -24,18 +24,16 @@ OLCS.addAnother = (function(document, $, undefined) {
     }
 
     function updateValues(element) {
-      var field     = $(element);
-      var input     = field.find('input');
-      var inputName = incrementString(input.attr('name'));
-      var inputID   = incrementString(input.attr('id'));
+      var field = $(element);
+      var input = field.find('input');
 
       field.attr({
-        'data-group': incrementString(field.attr('data-group'))
+        'data-group': incrementString(field.data('group'))
       });
 
       input.attr({
-        name: inputName,
-        id: inputID,
+        name: incrementString(input.attr('name')),
+        id: incrementString(input.attr('id'))
       }).val('');
 
       return field;
