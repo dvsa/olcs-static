@@ -19,46 +19,53 @@ OLCS.addAnother = (function(document, $, undefined) {
       targetSelector  : 'fieldset',
     }, custom);
 
-    // Run the plugin on each container
-    $(options.container).each(function() {
+    OLCS.eventEmitter.on('render', function() {
 
-      var container = $(this);
-      var triggerSelector = container.find(options.triggerSelector);
+      // Run the plugin on each container
+      $(options.container).each(function() {
 
-      function incrementString(string) {
-        string = string || '';
-        var newString = string.replace(/\[(\d+)\]/, function(match, number) {
-          return '[' + (parseInt(number, 10) + 1) + ']';
+        var container = $(this);
+        var triggerSelector = container.find(options.triggerSelector);
+
+        function incrementString(string) {
+          string = string || '';
+          var newString = string.replace(/\[(\d+)\]/, function(match, number) {
+            return '[' + (parseInt(number, 10) + 1) + ']';
+          });
+          return newString;
+        }
+
+        function updateValues(element) {
+          var field = $(element);
+          var input = field.find('input');
+
+          field.attr({
+            'data-group': incrementString(field.data('group'))
+          });
+
+          input.attr({
+            name: incrementString(input.attr('name')),
+            id: incrementString(input.attr('id'))
+          }).val('');
+
+          return field;
+        }
+
+        $(triggerSelector).on('click', function(e) {
+          e.preventDefault();
+
+          // prevent the form from submitting when we attempt to add another
+          $(this).closest('form').submit(false);
+
+          var lastField = container.find(options.targetSelector).last().clone();
+          var newField  = updateValues(lastField);
+
+          // remove any error messages
+          $(newField).find('ul').remove();
+
+          $(newField).insertBefore(container.find('.hint'));
         });
-        return newString;
-      }
 
-      function updateValues(element) {
-        var field = $(element);
-        var input = field.find('input');
-
-        field.attr({
-          'data-group': incrementString(field.data('group'))
-        });
-
-        input.attr({
-          name: incrementString(input.attr('name')),
-          id: incrementString(input.attr('id'))
-        }).val('');
-
-        return field;
-      }
-
-      $(triggerSelector).on('click', function(e) {
-        e.preventDefault();
-
-        var lastField = container.find(options.targetSelector).last().clone();
-        var newField  = updateValues(lastField);
-
-        // remove any error messages
-        $(newField).find('ul').remove();
-
-        $(newField).insertBefore(container.find('.hint'));
       });
 
     });
