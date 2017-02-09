@@ -29,6 +29,7 @@ describe("OLCS.addAnother", function() {
 
       beforeEach(function() {
         this.component();
+        OLCS.eventEmitter.emit('render');
       });
 
       describe("when the user clicks the 'Add another' button", function() {
