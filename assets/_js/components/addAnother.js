@@ -49,7 +49,7 @@ OLCS.addAnother = (function(document, $, undefined) {
         return field;
       }
 
-      $('body').on('click', triggerSelector, function(e) {
+      $(triggerSelector).on('click', function(e) {
         e.preventDefault();
 
         var lastField = container.find(options.targetSelector).last().clone();
