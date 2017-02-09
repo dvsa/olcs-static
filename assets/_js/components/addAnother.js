@@ -17,6 +17,7 @@ OLCS.addAnother = (function(document, $, undefined) {
   return function init() {
 
     function incrementString(string) {
+      string = string || '';
       var newString = string.replace(/\[(\d+)\]/, function(match, number) {
         return '[' + (parseInt(number, 10) + 1) + ']';
       });

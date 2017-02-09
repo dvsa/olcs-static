@@ -10,14 +10,14 @@ describe("OLCS.addAnother", function() {
 
     beforeEach(function() {
       $("body").append([
-        "<fieldset class='add-another' id=stub>",
+        "<div class='add-another' id=stub>",
           "<fieldset>",
             "<div class=field>",
               "<input type=text name='data[0]' id='data[0]' value='something'>",
             "</div>",
           "</fieldset>",
           "<p class=hint><input type='submit' value='Add another'></p>",
-        "</fieldset>"
+        "</div>"
       ].join("\n"));
     });
 
