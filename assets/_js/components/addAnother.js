@@ -51,11 +51,15 @@ OLCS.addAnother = (function(document, $, undefined) {
           return field;
         }
 
-        $(triggerSelector).on('click', function(e) {
-          e.preventDefault();
+        // Replace the trigger element to prevent it from submitting the form
+        if (triggerSelector.is('input[type="submit"]')) {
+          var value = triggerSelector.val();
+          triggerSelector.parent().html('<a href="#" id="add-another">' + value + '</a>');
+          triggerSelector = container.find('#add-another');
+        }
 
-          // prevent the form from submitting when we attempt to add another
-          $(this).closest('form').submit(false);
+        triggerSelector.on('click', function(e) {
+          e.preventDefault();
 
           var lastField = container.find(options.targetSelector).last().clone();
           var newField  = updateValues(lastField);
