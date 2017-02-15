@@ -34,7 +34,7 @@ describe("OLCS.addAnother", function() {
 
       describe("when the user clicks the 'Add another' button", function() {
         beforeEach(function() {
-          $("input[type=submit]").trigger("click");
+          $(".add-another-trigger").trigger("click");
         });
 
         it("it creates a new field", function() {
