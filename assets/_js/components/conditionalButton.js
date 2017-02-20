@@ -14,37 +14,33 @@ OLCS.conditionalButton = (function(document, $, undefined) {
       throw new Error('\'label\' and \'selector\' are mutually exclusive');
     }
 
-    var filter;
     var selector = options.container || options.form;
 
     if (options.label) {
-      filter = '[value="' + options.label + '"]';
+      var filter = '[value="' + options.label + '"]';
     } else {
-      filter = options.selector;
+      var filter = options.selector;
     }
 
     var predicate       = options.predicate;
-    var checkedSelector = options.checkedSelector || 'table input[name!="checkall"]:checked';
+    var checkedSelector = options.checkedSelector || 'table :checkbox:checked';
     var actionSelector  = '.actions-container button';
-
+  
     if ($.isPlainObject(predicate)) {
       predicate = OLCS.complexPredicate(predicate);
     }
 
     function checkButton(context) {
 
-      var button;
-      var checkedInputs;
-
-      button = $(context).find(actionSelector).filter(filter);
+      var button = $(context).find(actionSelector).filter(filter);
 
       if (button.length) {
-        checkedInputs = $(context).find(checkedSelector);
+        var checkedInputs = $(context).find(checkedSelector);
         predicate(checkedInputs.length, function(enabled) {
           if (enabled) {
-            button.removeAttr('disabled');
+            button.prop('disabled', false);
           } else {
-            button.attr('disabled', true);
+            button.prop('disabled', true);
           }
         }, checkedInputs);
       }
@@ -59,8 +55,7 @@ OLCS.conditionalButton = (function(document, $, undefined) {
       $(selector).change();
     }
 
-    // Make sure any time the parent page is re-rendered we give our
-    // conditional buttons a kick
+    // Give conditional buttons a kick on each re-render
     OLCS.eventEmitter.on('render', setup);
 
   };
