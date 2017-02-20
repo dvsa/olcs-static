@@ -14,12 +14,13 @@ OLCS.conditionalButton = (function(document, $, undefined) {
       throw new Error('\'label\' and \'selector\' are mutually exclusive');
     }
 
+    var filter;
     var selector = options.container || options.form;
 
     if (options.label) {
-      var filter = '[value="' + options.label + '"]';
+      filter = '[value="' + options.label + '"]';
     } else {
-      var filter = options.selector;
+      filter = options.selector;
     }
 
     var predicate       = options.predicate;
