@@ -1,4 +1,5 @@
 describe("OLCS.addAnother", function() {
+
   "use strict";
 
   beforeEach(function() {
@@ -6,18 +7,16 @@ describe("OLCS.addAnother", function() {
   });
 
   describe("given a stubbed DOM", function() {
+
     beforeEach(function() {
       $("body").append([
-        "<div id=stub>",
-          "<fieldset class='add-another'>",
+        "<div class='add-another' id=stub>",
+          "<fieldset>",
             "<div class=field>",
               "<input type=text name='data[0]' id='data[0]' value='something'>",
             "</div>",
-            "<p class=hint>",
-              "<input type='submit' value='Add another'>",
-            "</p>",
           "</fieldset>",
-          "<a href=# id=foo>Foo</a>",
+          "<p class=hint><input type='submit' value='Add another'></p>",
         "</div>"
       ].join("\n"));
     });
@@ -27,17 +26,19 @@ describe("OLCS.addAnother", function() {
     });
 
     describe("and the component is invoked", function() {
+
       beforeEach(function() {
         this.component();
+        OLCS.eventEmitter.emit('render');
       });
 
       describe("when the user clicks the 'Add another' button", function() {
         beforeEach(function() {
-          $("input[type=submit]").trigger("click");
+          $(".add-another-trigger").trigger("click");
         });
 
         it("it creates a new field", function() {
-          expect($('.field').length).to.equal(2);
+          expect($('fieldset').length).to.equal(2);
         });
 
         it("with correctly incremented values", function() {
@@ -47,6 +48,7 @@ describe("OLCS.addAnother", function() {
           expect(newField.find('input').val()).to.equal("");
         });
       });
+
     });
   });
 });
