@@ -63,6 +63,15 @@ $form-control-size: 34px !default;
     }
   }
 
+  &--inline {
+    float: none;
+    display: inline-block;
+    margin-top: 0;
+    & + & {
+      margin-left: $gutter-one-third;
+    }
+  }
+
   &.selected {
     &:after {
       opacity: 1;
@@ -97,8 +106,10 @@ $form-control-size: 34px !default;
   }
 
   // vertical rhythem
-  & + & {
-    margin-top: $gutter-one-third;
+  &:not(#{&}--inline) {
+    & + & {
+      margin-top: $gutter-one-third;
+    }
   }
 
 }
