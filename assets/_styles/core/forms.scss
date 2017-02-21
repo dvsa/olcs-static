@@ -111,8 +111,7 @@ fieldset {
  * Legends & Labels
  */
 
-legend,
-label {
+legend {
   margin-top: 10px;
   &:first-child {
     margin-top: 0;
@@ -134,32 +133,6 @@ legend,
 
 label,
 .label {
-  @extend %h4;
-  margin-bottom: 2px;
-  @if $app == 'selfserve' { @extend %h4; }
-  @if $app == 'internal'  {
-    font-size: font-size(3);
-  }
-  display: block;
-  max-width: 600px;
-  &:last-child {
-    margin-bottom: 0;
-  }
-  & + & {
-    margin-top: 0;
-  }
-  .inline & {
-    display: inline;
-    margin-right: 0.5em;
-  }
-  .checkbox & {
-    @if $app == 'selfserve' {
-      @extend %h5;
-      padding: 14px 17px;
-    }
-    @if $app == 'internal'  { @extend %h6; }
-    margin-top: 0;
-  }
   .checkbox.has-advanced-labels & {
     @extend %h5;
     position: relative;
@@ -591,58 +564,6 @@ select,
  */
 
 @if $app == 'selfserve' {
-
-  .checkbox {
-
-    label {
-      background: $grey-3;
-      padding: 16px 17px;
-      border: 1px solid transparent;
-      float: left;
-      &:not(:last-child) {
-        margin-bottom: 5px;
-      }
-      &:not(.inline) {
-        clear: both;
-        &:first-of-type {
-          margin-top: 5px;
-        }
-      }
-      &:hover {
-        border-color: $black;
-        cursor: pointer;
-      }
-      &:focus {
-        background: $white;
-        outline: 3px solid $outline;
-      }
-      &.focused {
-        outline: 3px solid $outline;
-      }
-      &.selected {
-        background: $white;
-        border-color: $black;
-        &:focus {
-          outline: 3px solid $outline;
-        }
-      }
-      &.disabled {
-        cursor: default;
-        pointer-events: none;
-        &:hover {
-          background: $grey-3;
-        }
-      }
-      &[class*="selected disabled"]:hover {
-        background: $white;
-      }
-    }
-    input:focus {
-      border: 0;
-      outline: none;
-    }
-
-  } // .checkbox
 
   .chosen-container {
     max-width: 440px;

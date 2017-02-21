@@ -1,0 +1,98 @@
+/// New (2017) GDS style radio/checkboxes
+///
+/// @author edmund.reed@valtech.co.uk
+/// @link https://git.io/vDNUW
+$form-control-size: 34px !default;
+
+.form-control {
+
+  @extend %h4;
+
+  position: relative;
+  float: left;
+  clear: both;
+  cursor: pointer;
+
+  &:before, &:after {
+    content: '';
+  }
+
+  &:before {
+    display: inline-block;
+    vertical-align: middle;
+    border: 2px solid;
+    background: transparent;
+    width: $form-control-size;
+    height: $form-control-size;
+    margin-right: $gutter-one-third;
+  }
+
+  &:after {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+  }
+
+  &--radio {
+    &:before {
+      border-radius: 50%;
+    }
+    &:after {
+      background: $black;
+      top: 50%;
+      left: (($form-control-size - ($form-control-size * 0.5)) / 2);
+      height: ($form-control-size * 0.5);
+      width: ($form-control-size * 0.5);
+      transform: translateY(-50%);
+      border-radius: 50%;
+    }
+  }
+
+  &--checkbox {
+    &:after {
+      border: solid;
+      border-color: $black;
+      border-width: 0 0 ($form-control-size * 0.15) ($form-control-size * 0.15);
+      background: transparent;
+      width: ($form-control-size * 0.65);
+      height: ($form-control-size * 0.3);
+      position: absolute;
+      top: ($form-control-size * 0.3);
+      left: ($form-control-size * 0.2);
+      transform: rotate(-45deg);
+    }
+  }
+
+  &.selected {
+    &:after {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &.disabled {
+    &:after {
+      opacity: 0.5;
+    }
+    &, &:before, input {
+      cursor: not-allowed;
+    }
+  }
+
+  input {
+    position: absolute;
+    cursor: pointer;
+    width: $form-control-size;
+    height: $form-control-size;
+    top: 0;
+    left: 0;
+    margin: 0;
+    opacity: 0;
+  }
+
+  // vertical rhythem
+  & + & {
+    margin-top: $gutter-one-third;
+  }
+
+}
