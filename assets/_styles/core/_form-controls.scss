@@ -79,6 +79,12 @@ $form-control-size: 34px !default;
     }
   }
 
+  &.focused {
+    &:before {
+      box-shadow: 0 0 0 ($form-control-size * 0.12) $focus-colour;
+    }
+  }
+
   input {
     position: absolute;
     cursor: pointer;
