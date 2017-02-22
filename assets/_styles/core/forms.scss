@@ -565,6 +565,10 @@ select,
 
 @if $app == 'selfserve' {
 
+  label {
+    display: block;
+  }
+
   .chosen-container {
     max-width: 440px;
   }
