@@ -6,6 +6,9 @@ $form-control-size: 34px !default;
 
 .form-control {
 
+  // cache the parent selector so it can be reused without duplicating
+  $component: &;
+
   @extend %h4;
 
   position: relative;
@@ -31,6 +34,39 @@ $form-control-size: 34px !default;
     opacity: 0;
     visibility: hidden;
     position: absolute;
+  }
+
+  input {
+    position: absolute;
+    cursor: pointer;
+    width: $form-control-size;
+    height: $form-control-size;
+    top: 0;
+    left: 0;
+    margin: 0;
+    opacity: 0;
+  }
+
+  &.selected {
+    &:after {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &.disabled {
+    &:after {
+      opacity: 0.5;
+    }
+    &, &:before, input {
+      cursor: not-allowed;
+    }
+  }
+
+  &.focused {
+    &:before {
+      box-shadow: 0 0 0 ($form-control-size * 0.12) $focus-colour;
+    }
   }
 
   &--radio {
@@ -62,6 +98,42 @@ $form-control-size: 34px !default;
       transform: rotate(-45deg);
     }
   }
+  
+  &--confirm {
+    display: block;
+    float: none;
+    padding: $gutter-half;
+    border: 1px solid;
+    &#{$component}--checkbox {
+      &:after {
+        top: 25px;
+        left: 21px;
+      }
+    }
+    &#{$component}--radio {
+      &:after {
+        top: 32px;
+        left: 24px;
+      }
+    }
+    // focus outline should be shifted to the parent box
+    &.focused {
+      outline: ($form-control-size * 0.12) solid $focus-colour;
+      &:before {
+        box-shadow: none;
+      }
+    }
+  }
+
+  &--advanced {
+    @extend #{$component}--confirm;
+    padding-left: ($form-control-size * 1.75);
+    &:before {
+      position: absolute;
+      top: $gutter-half;
+      left: $gutter-half;
+    }
+  }
 
   &--inline {
     float: none;
@@ -70,39 +142,6 @@ $form-control-size: 34px !default;
     & + & {
       margin-left: $gutter-one-third;
     }
-  }
-
-  &.selected {
-    &:after {
-      opacity: 1;
-      visibility: visible;
-    }
-  }
-
-  &.disabled {
-    &:after {
-      opacity: 0.5;
-    }
-    &, &:before, input {
-      cursor: not-allowed;
-    }
-  }
-
-  &.focused {
-    &:before {
-      box-shadow: 0 0 0 ($form-control-size * 0.12) $focus-colour;
-    }
-  }
-
-  input {
-    position: absolute;
-    cursor: pointer;
-    width: $form-control-size;
-    height: $form-control-size;
-    top: 0;
-    left: 0;
-    margin: 0;
-    opacity: 0;
   }
 
   // vertical rhythem
