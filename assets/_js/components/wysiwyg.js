@@ -14,14 +14,12 @@ OLCS.wysiwyg = (function(document, $, undefined) {
 
   return function init() {
 
-    OLCS.eventEmitter.on('render', function() {
+    // if there are no tinymce's on the page, stop here
+    if (typeof(tinymce) === 'undefined') {
+      return;
+    }
 
-      // if there are no tinymce's on the page, stop here
-      if (typeof(tinymce) === 'undefined') {
-        return;
-      }
-
-      // handle previously created tinymce's
+    function removeTinyMCE() {
       tinymce.EditorManager.editors.forEach(function(editor) {
           var old_global_settings = tinymce.settings;
           tinymce.settings = editor.settings;
@@ -29,9 +27,10 @@ OLCS.wysiwyg = (function(document, $, undefined) {
           tinymce.EditorManager.execCommand('mceAddEditor', false, editor.id);
           tinymce.settings = old_global_settings;
       });
+    }
 
+    function addTinyMCE() {
       $('.tinymce').each(function() {
-
         $(this).tinymce({
           menubar : false,
           statusbar : false,
@@ -55,9 +54,17 @@ OLCS.wysiwyg = (function(document, $, undefined) {
           ],
           toolbar: 'styleselect | bold italic underline | bullist numlist | indent outdent | spellchecker'
         });
-
       });
+    }
 
+    OLCS.eventEmitter.on('render', function() {
+      removeTinyMCE();
+      addTinyMCE();
+    });
+
+    OLCS.eventEmitter.on('hide:modal', function() {
+      removeTinyMCE();
+      tinyMCE.editors = [];
     });
 
   };
