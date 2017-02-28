@@ -102,8 +102,6 @@ $form-control-size: 34px !default;
   &--confirm {
     display: block;
     float: none;
-    padding: $gutter-half;
-    border: 1px solid;
     &#{$component}--checkbox {
       &:after {
         top: 25px;
@@ -127,6 +125,8 @@ $form-control-size: 34px !default;
 
   &--advanced {
     @extend #{$component}--confirm;
+    padding: $gutter-half;
+    border: 1px solid;
     padding-left: ($form-control-size * 1.75);
     &:before {
       position: absolute;
