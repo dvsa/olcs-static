@@ -7,29 +7,18 @@ var OLCS = OLCS || {};
  * formatting/code it spews out
  */
 
-/* jshint ignore:start */
 OLCS.wysiwyg = (function(document, $, undefined) {
 
   'use strict';
 
   return function init() {
 
-    // if there are no tinymce's on the page, stop here
-    if (typeof(tinymce) === 'undefined') {
-      return;
-    }
+    OLCS.eventEmitter.on('render', function() {
 
-    function removeTinyMCE() {
-      tinymce.EditorManager.editors.forEach(function(editor) {
-          var old_global_settings = tinymce.settings;
-          tinymce.settings = editor.settings;
-          tinymce.EditorManager.execCommand('mceRemoveEditor', false, editor.id);
-          tinymce.EditorManager.execCommand('mceAddEditor', false, editor.id);
-          tinymce.settings = old_global_settings;
-      });
-    }
+      if (typeof(tinymce) === 'undefined') {
+        return;
+      }
 
-    function addTinyMCE() {
       $('.tinymce').each(function() {
         $(this).tinymce({
           menubar : false,
@@ -54,20 +43,16 @@ OLCS.wysiwyg = (function(document, $, undefined) {
           ],
           toolbar: 'styleselect | bold italic underline | bullist numlist | indent outdent | spellchecker'
         });
+
+        // If the editor was initialised in a modal, we need to remove it
+        // when the modal closes
+        OLCS.eventEmitter.on('hide:modal', function() {
+          tinymce.EditorManager.editors = []; // jshint ignore:line
+        });
       });
-    }
 
-    OLCS.eventEmitter.on('render', function() {
-      removeTinyMCE();
-      addTinyMCE();
-    });
-
-    OLCS.eventEmitter.on('hide:modal', function() {
-      removeTinyMCE();
-      tinyMCE.editors = [];
     });
 
   };
 
 }(document, window.jQuery));
-/* jshint ignore:end */
