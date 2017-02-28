@@ -46,7 +46,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
       var updatedUploader  = $(response).find(originalUploader);
       F.render(originalUploader, updatedUploader[0].innerHTML);
       //OLCS-15851 - botch a force reload on submission pages when uploads are finished
-      if ($('body[id*="submission"]').length) {
+      if ($("body[id*=submission]").length) {
         location.reload();
       }
     }
