@@ -24,7 +24,7 @@ OLCS.conditionalButton = (function(document, $, undefined) {
     }
 
     var predicate       = options.predicate;
-    var checkedSelector = options.checkedSelector || 'table :checkbox:checked';
+    var checkedSelector = options.checkedSelector || 'table :checked';
     var actionSelector  = '.actions-container button';
   
     if ($.isPlainObject(predicate)) {
