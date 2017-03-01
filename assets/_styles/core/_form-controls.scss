@@ -2,6 +2,8 @@
 //
 // @author edmund.reed@valtech.co.uk
 // @link https://git.io/vDNUW
+
+// set base form-control size
 $form-control-size: 34px !default;
 
 .form-control {
@@ -102,6 +104,18 @@ $form-control-size: 34px !default;
   &--confirm {
     display: block;
     float: none;
+  }
+
+  &--advanced {
+    @extend #{$component}--confirm;
+    padding: $gutter-half;
+    border: 1px solid;
+    padding-left: ($form-control-size * 1.75);
+    &:before {
+      position: absolute;
+      top: $gutter-half;
+      left: $gutter-half;
+    }
     &#{$component}--checkbox {
       &:after {
         top: 25px;
@@ -120,18 +134,6 @@ $form-control-size: 34px !default;
       &:before {
         box-shadow: none;
       }
-    }
-  }
-
-  &--advanced {
-    @extend #{$component}--confirm;
-    padding: $gutter-half;
-    border: 1px solid;
-    padding-left: ($form-control-size * 1.75);
-    &:before {
-      position: absolute;
-      top: $gutter-half;
-      left: $gutter-half;
     }
   }
 
