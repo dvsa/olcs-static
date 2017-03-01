@@ -133,6 +133,8 @@ legend,
 
 label,
 .label {
+  @extend %h4;
+  display: block;
   .checkbox.has-advanced-labels & {
     @extend %h5;
     position: relative;
@@ -564,10 +566,6 @@ select,
  */
 
 @if $app == 'selfserve' {
-
-  label {
-    display: block;
-  }
 
   .chosen-container {
     max-width: 440px;
