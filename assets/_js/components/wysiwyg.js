@@ -67,7 +67,7 @@ OLCS.wysiwyg = (function(document, $, undefined) {
       // gets written into tinymce editor, to prevent issues with validation
       function lockActions() {
         $('.modal').find('.actions-container')
-          .children().first() // the save/submit button button
+          .children().first() // the save/submit button
           .addClass('disabled').prop('disabled', true);
       }
 
