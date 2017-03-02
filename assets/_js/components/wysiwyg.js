@@ -41,7 +41,19 @@ OLCS.wysiwyg = (function(document, $, undefined) {
             'searchreplace',
             'paste spellchecker'
           ],
-          toolbar: 'styleselect | bold italic underline | bullist numlist | indent outdent | spellchecker'
+          toolbar: 'styleselect | bold italic underline | bullist numlist | indent outdent | spellchecker',
+          init_instance_callback: function() {
+            lockActions();
+          },
+          setup: function(editor) {
+            editor.on('keyup', function() {
+              if (tinymce.activeEditor.getContent()) {// jshint ignore:line
+                unlockActions();
+              } else {
+                lockActions();
+              }
+            });
+          }
         });
 
         // If the editor was initialised in a modal, we need to remove it
@@ -50,6 +62,20 @@ OLCS.wysiwyg = (function(document, $, undefined) {
           tinymce.EditorManager.editors = []; // jshint ignore:line
         });
       });
+
+      // Upon init, we need to lock submit buttons until something actually
+      // gets written into tinymce editor, to prevent issues with validation
+      function lockActions() {
+        $('.modal').find('.actions-container').children().each(function() {
+          $(this).addClass('disabled').prop('disabled', true);
+        });
+      }
+
+      function unlockActions() {
+        $('.modal').find('.actions-container').children().each(function() {
+          $(this).removeClass('disabled').prop('disabled', false);
+        });
+      }
 
     });
 
