@@ -72,9 +72,9 @@ OLCS.wysiwyg = (function(document, $, undefined) {
       }
 
       function unlockActions() {
-        $('.modal').find('.actions-container').children().each(function() {
-          $(this).removeClass('disabled').prop('disabled', false);
-        });
+        $('.modal').find('.actions-container')
+          .children().first() // the save/submit button
+          .removeClass('disabled').prop('disabled', false);
       }
 
     });
