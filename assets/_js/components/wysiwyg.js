@@ -66,15 +66,15 @@ OLCS.wysiwyg = (function(document, $, undefined) {
       // Upon init, we need to lock submit buttons until something actually
       // gets written into tinymce editor, to prevent issues with validation
       function lockActions() {
-        $('.modal').find('.actions-container').children().each(function() {
-          $(this).addClass('disabled').prop('disabled', true);
-        });
+        $('.modal').find('.actions-container')
+          .children().first() // the save/submit button
+          .addClass('disabled').prop('disabled', true);
       }
 
       function unlockActions() {
-        $('.modal').find('.actions-container').children().each(function() {
-          $(this).removeClass('disabled').prop('disabled', false);
-        });
+        $('.modal').find('.actions-container')
+          .children().first() // the save/submit button
+          .removeClass('disabled').prop('disabled', false);
       }
 
     });
