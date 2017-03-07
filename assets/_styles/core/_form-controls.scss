@@ -108,31 +108,22 @@ $form-control-size: 34px !default;
 
   &--advanced {
     @extend #{$component}--confirm;
-    padding: $gutter-half;
-    border: 1px solid;
-    padding-left: ($form-control-size * 1.75);
+    padding-left: ($form-control-size + $gutter-half);
     &:before {
       position: absolute;
-      top: $gutter-half;
-      left: $gutter-half;
+      top: 5px;
+      left: 0;
     }
     &#{$component}--checkbox {
       &:after {
-        top: 25px;
-        left: 21px;
+        top: 15px;
+        left: 6px;
       }
     }
     &#{$component}--radio {
       &:after {
-        top: 32px;
-        left: 24px;
-      }
-    }
-    // focus outline should be shifted to the parent box
-    &.focused {
-      outline: ($form-control-size * 0.12) solid $focus-colour;
-      &:before {
-        box-shadow: none;
+        top: 22px;
+        left: 9px;
       }
     }
   }
