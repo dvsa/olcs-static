@@ -13,12 +13,12 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
 
     // list of fields to make up the 'address' part
     var fields = options.fields || [
-      'addressLine1', 
-      'addressLine2', 
-      'addressLine3', 
+      'addressLine1',
+      'addressLine2',
+      'addressLine3',
       'addressLine4',
-      'town', 
-      'postcode', 
+      'town',
+      'postcode',
       'countryCode'
     ];
 
