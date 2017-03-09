@@ -3,15 +3,19 @@ var OLCS = OLCS || {};
 /**
  * Postcode search
  */
+
 OLCS.postcodeSearch = (function(document, $, undefined) {
 
   'use strict';
+
+  // jshint newcap:false
 
   return function init(options) {
 
     var container = options.container;
 
-    // list of fields to make up the 'address' part
+    // store a list of fields considered to make up the
+    // 'address' part of a postcode component
     var fields = options.fields || [
       'addressLine1',
       'addressLine2',
@@ -22,38 +26,48 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       'countryCode'
     ];
 
-    // possible root elements within which we'll render the 
-    // result - first match will win
-    var roots = options.roots || [
-      '.modal__content', '.js-body__main', '.js-body'
+    // store a list of possible root elements within which we'll render
+    // the result of our lookup. These should be in order of likely DOM
+    // proximity because the first match will win
+    var roots = [
+      // if we're in a modal, render in there...
+      '.modal__content',
+      // ... otherwise, fall back to one of the top-level body selectors
+      '.js-body__main',
+      '.js-body'
     ];
 
-    var selectClass    = '.address__select';
+    var selectClass = '.address__select';
+
     var inputSelector  = container + ' .js-input';
     var submitSelector = container + ' button';
     var selectSelector = container + ' ' + selectClass;
     var manualSelector = container + ' .hint a';
 
+    var F = OLCS.formHelper;
+
     //Does the component contain any data or errors?
     function isClean(component) {
       var group = $(component).data('group');
 
-      $.each(fields, function(i) {
-        var input = OLCS.formHelper(group, fields[i]);
-
+      for (var i = 0, j = fields.length; i < j; i++) {
+        var input = F(group, fields[i]);
+        if (input.attr('type') !== 'text') {
+          continue;
+        }
         if (input.val() !== '') {
           return false;
         }
-      });
+      }
 
       return $(component)
-      .children('.validation-wrapper')  // find any errors wrappers...
-      .children('.field').length === 0; // which *also* have direct field children
+      .children('.validation-wrapper')   // find any errors wrappers...
+      .children('.field').length === 0;  // which *also* have direct field children
     }
 
     // Is the component currently in its interim state of showing the
     // user a list of matching addresses?
-    function searching(component) {
+    function inProgress(component) {
       return $(component).find(selectClass).length > 0;
     }
 
@@ -76,6 +90,7 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       } else {
         return;
       }
+
     }
 
     // Work out what our most appropriate root element is in which
@@ -122,7 +137,7 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
         var input    = fieldset.find('.js-input');
 
         // ensure the backend knows which button was pressed
-        OLCS.formHelper.pressButton(form, button);
+        F.pressButton(form, button);
 
         if (input.length) {
           formatUKPostcode(input);
@@ -132,7 +147,7 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
           form: form,
           success: OLCS.normaliseResponse(function(response) {
             var root = getRootSelector(fieldset);
-            OLCS.formHelper.render(root, response.body);
+            F.render(root, response.body);
           }),
           error: OLCS.normaliseResponse(function() {
             lookupError();
@@ -151,20 +166,15 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
           return;
         }
 
-        // return early if the page has already been rendered and user
-        // has clicked 'enter address manually'
-        if (!$(manualSelector).is(':visible')) {
-          return;
-        }
-
         // we hide all address fields if a search is in progress or the
         // address data is currently empty and valid
-        if (searching(component) || isClean(component)) {
+        if (inProgress(component) || isClean(component)) {
+          // this selector looks a bit loose but it works fine; we use children
+          // rather than find which is equivalent to foo > bar.
           $(component).children('.field').hide();
-          $(component).find('.hint').show();
         } else {
+          // otherwise we hide the 'enter address manually' button
           $(component).find('.hint').hide();
-          $(component).children('.field').show();
         }
       });
     }
@@ -217,10 +227,10 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       inputs.show();
 
       // ditch the address options, if present...
-      fieldset.find(selectClass).hide();
+      fieldset.find(selectClass).remove();
 
       // and finally, remove this button's container
-      $(this).parent().hide();
+      $(this).parent().remove();
     });
 
   };
