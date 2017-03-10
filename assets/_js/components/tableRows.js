@@ -2,11 +2,7 @@ var OLCS = OLCS || {};
 
 /**
  * Table rows
- *
- * Makes table rows with a single anchor link or
- * input[type=submit] more clickable
  */
-
 OLCS.tableRows = (function(document, $, undefined) {
 
   'use strict';
@@ -14,20 +10,7 @@ OLCS.tableRows = (function(document, $, undefined) {
   return function init() {
 
     var tableRowSelector = 'tbody tr';
-    var actionSelector   = 'a, input[type=submit]';
-    var selectBox        = '[type=checkbox]:not(:disabled), [type=radio]:not(:disabled)';
-
-    // Get all the actions from a specified element
-    function getActions(selector) {
-      return $(selector).find(actionSelector);
-    }
-
-    // Check the row for a single action to see if it should be made hoverable
-    function checkForSingleAction(selector) {
-      if (!$(selector).hasClass('disabled')) {
-        return getActions(selector).length === 1;
-      }
-    }
+    var selectBox = '[type=checkbox]:not(:disabled), [type=radio]:not(:disabled)';
     
     // If a table contains rows that contain a select/check box, and add a special class
     $('table').find(selectBox).parents('table').addClass('js-rows');
@@ -54,40 +37,6 @@ OLCS.tableRows = (function(document, $, undefined) {
       
       var target          = $(event.target);
       var targetSelectBox = target.children(selectBox);
-    
-      function highlightRow(row) {
-        row = row || target.parents('tbody tr');
-        // add the row selected class
-        row.addClass('checked');
-        // Check the checkbox
-        row.find(selectBox).prop('checked', true).change();
-      }
-      
-      function unHighlightRow(row) {
-        row = row || target.parents('tbody tr');
-        // remove the row selected class
-        row.removeClass('checked');
-        // Uncheck the checkbox
-        row.find(selectBox).prop('checked', false).change();
-      }
-      
-      function toggleRow(row) {
-        row = row || target.parents('tbody tr');
-        if (row.find(selectBox).is(':checked')) {
-          unHighlightRow(row);
-        } else {
-          highlightRow(row);
-        }
-      }
-
-      if (target.is(getActions(this))) {
-        return;
-      }
-
-      // Allow the entire box's td to be clicked
-      if (targetSelectBox.length && !event.shiftKey) {
-        toggleRow();
-      }
       
       // allow multiple rows to be selected by using the 'shift' key
       if ($(this).find('[type="checkbox"]').length) {
@@ -108,21 +57,9 @@ OLCS.tableRows = (function(document, $, undefined) {
             if ($(this).parents('tr').find('[type="checkbox"]').prop('checked', true)) {
               lastChecked = $(this);
             }
-            toggleRow();
             return;
           }
-          
-          var start = $(tableRowSelector).index(this);
-          var end = $(tableRowSelector).index(lastChecked);
-          
-          $(tableRowSelector).slice(Math.min(start,end) + 1, Math.max(start,end) + 1).each(function() {
-            if (target.parents('tr').find(selectBox).is(':checked')) {
-              unHighlightRow($(this));
-            } else {
-              highlightRow($(this));
-            }
-          });
-          
+
           return;
         }
       
@@ -137,37 +74,10 @@ OLCS.tableRows = (function(document, $, undefined) {
         }  
       }
 
-      // Return if the row shouldn't be hoverable
-      if (!checkForSingleAction(this)) {
-        return;
-      }
-
       // Return if target is a link (or is inside a link), this is to prevent
       // the target from being "clicked" twice
       if (target.closest('a').length) {
           return;
-      }
-
-      // If the target element isn't a select box and/or doesn't contain one
-      // and ctrl is not pressed, simulate a click of the row's primary action
-      if (!target.is(selectBox) && !targetSelectBox.length && !ctrlPressed) {
-        getActions(this).get(0).click();
-        return;
-      }
-    });
-
-    // On hover of a table row
-    $(document).on('mouseenter mouseleave', tableRowSelector, function(e) {
-      // If the row shouldn't be hoverable, return
-      if (!checkForSingleAction(this)) {
-        return;
-      }
-
-      // Toggle the class 'hover' on the table row
-      if (e.type === 'mouseenter') {
-        $(this).addClass('hover');
-      } else if (e.type === 'mouseleave') {
-        $(this).removeClass('hover');
       }
     });
 
