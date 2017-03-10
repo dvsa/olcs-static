@@ -71,6 +71,11 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       return $(component).find(selectClass).length > 0;
     }
 
+    // Has the user requested to enter the address manually?
+    function manualSpecified(component) {
+      return $(component).hasClass('manual-address');
+    }
+
     function hasSearchField(component) {
       return $(component).find('.js-find').length > 0;
     }
@@ -168,7 +173,7 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
 
         // we hide all address fields if a search is in progress or the
         // address data is currently empty and valid
-        if (inProgress(component) || isClean(component)) {
+        if ((inProgress(component) || isClean(component)) && !manualSpecified(component)) {
           // this selector looks a bit loose but it works fine; we use children
           // rather than find which is equivalent to foo > bar.
           $(component).children('.field').hide();
@@ -221,6 +226,10 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
 
       var fieldset = $(this).parents(container);
 
+      // We add a class to the parent to let the component know we
+      // are entering the address manually
+      fieldset.addClass('manual-address');
+
       // we have to show our pristine address fields
       var inputs = fieldset.children('.field');
       inputs.find('[type=text]').val('');
@@ -230,7 +239,7 @@ OLCS.postcodeSearch = (function(document, $, undefined) {
       fieldset.find(selectClass).remove();
 
       // and finally, remove this button's container
-      $(this).parent().remove();
+      $(this).parent().hide();
     });
 
   };
