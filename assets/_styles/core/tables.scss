@@ -271,12 +271,6 @@ tfoot {
   }
 }
 
-// prevent accidental double checking of checkboxes in special
-// js-enabled tables
-.js-rows td:last-child [type="checkbox"] {
-  pointer-events: none;
-}
-
 // Prevent accidental text-highligting when trying to select
 // multiple rows
 .table--no-select {
