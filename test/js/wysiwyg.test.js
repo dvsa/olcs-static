@@ -7,26 +7,24 @@ describe('OLCS.wysiwyg', function() {
 
   'use strict';
 
-  beforeEach(function() {
-    this.component = OLCS.wysiwyg;
-  });
-
   it('should be defined', function() {
-    expect(this.component).to.exist;
+    expect(OLCS.wysiwyg).to.exist;
   });
 
-  it('should expose the TinyMCE method', function() {
+  it('should expose the TinyMCE API', function() {
     expect(typeof(tinymce)).to.not.be('undefined');
   });
 
   describe('when initialised with default options', function() {
-
     beforeEach(function() {
-      $('body').append([
-        '<textarea id="stub" class="tinymce"></textarea>'
-      ].join('\n'));
-      this.component();
+      $('body').append('<textarea id="stub" class="tinymce"></textarea>');
+      OLCS.wysiwyg();
       OLCS.eventEmitter.emit('render');
+    });
+
+    afterEach(function() {
+      $('#stub').remove();
+      tinyMCE.remove();
     });
 
     it('should successfullly create a TinyMCE instance', function() {
@@ -34,33 +32,38 @@ describe('OLCS.wysiwyg', function() {
       expect($('.mce-tinymce iframe').length).to.equal(1);
       expect(tinymce.EditorManager.editors.length).to.equal(1);
     });
-
-    afterEach(function() {
-      $('#stub').remove();
-    });
-
   });
 
-  describe('when initialised with ajaxified content within a modal', function() {
-
+  describe('Given a stubbed OLCS.modalLink component', function() {
     beforeEach(function() {
-      $('body').append('<a id="stub" class="js-modal-ajax" href="test.html">Click me</a>');
-
-      this.component();
-      
-      $('#stub').click();
-
-      OLCS.eventEmitter.emit('render');
-    });
-
-    it('should make an ajax request', function() {
-      expect(sinon.stub(OLCS, 'ajax').calledOnce).to.equal(true);
+      this.ajax = sinon.stub(OLCS, 'modalLink');
     });
 
     afterEach(function() {
-      $('#stub').remove();
+      this.ajax.restore();
     });
+    
+    describe('when clicking the target action', function() {
+      beforeEach(function() {
+        $('body').append('<a id="stub" class="js-modal-ajax" href="test.html">Click me</a>');
+        this.ajax({trigger: '.js-modal-ajax'});
+        $('#stub').click();
+      });
 
+      afterEach(function() {
+        $('#stub').remove();
+      });
+
+      describe("Given the request returns successfully", function() {
+        beforeEach(function() {
+          this.ajax.yieldTo('success', '<div class="response">I am a response</div>');
+        });
+
+        it('inserts the response into the correct container', function() {
+          console.log($('.response').length);
+        });
+      });
+    });
   });
 
 });
