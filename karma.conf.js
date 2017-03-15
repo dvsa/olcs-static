@@ -51,6 +51,18 @@ module.exports = function(config) {
         {type: "cobertura"}
       ]
     },
+    
+    customLaunchers: {
+      'PhantomJS_Desktop': {
+        base: 'PhantomJS',
+          options: {
+            viewportSize: {
+              width: 1228,
+              height: 1000
+          }
+        }
+      }
+    },
 
     junitReporter: {
       outputFile: "test/js/reports/results.xml"

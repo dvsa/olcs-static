@@ -61,7 +61,8 @@
         'assets/_js/vendor/**/*.js',
         'assets/_js/components/*.js',
         'test/js/setup.js',
-        'test/js/**/' + theme +  '.test.js'
+        'test/js/**/' + theme +  '.test.js',
+        'public/tinymce/jquery.tinymce.min.js'
       ];
       return files;
     }
