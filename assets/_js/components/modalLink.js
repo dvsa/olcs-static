@@ -31,7 +31,7 @@ OLCS.modalLink = (function(document, $, undefined) {
 
       var key = $(this).attr('href');
 
-      return OLCS.ajax({
+      OLCS.ajax({
         url: key,
         // bear in mind this component will create a modalForm wrapper
         success: OLCS.modalResponse(),
