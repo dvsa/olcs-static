@@ -126,6 +126,9 @@ $form-control-size: 34px !default;
         left: 9px;
       }
     }
+    strong {
+      display: block;
+    }
   }
 
   &--inline {
