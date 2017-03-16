@@ -75,6 +75,10 @@
     &__item {
       width: 50%;
       float: left;
+      // OLCS-14906 - hack to fix layout issues
+      &.readonly {
+        width: 100%;
+      }
     }
   }
 }
