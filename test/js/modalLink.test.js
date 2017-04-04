@@ -63,15 +63,11 @@ describe('OLCS.modalLink', function() {
       describe('Given a stubbed ajax mechanism', function() {
 
         beforeEach(function() {
-            this.xhr = sinon.useFakeXMLHttpRequest();
-            this.requests = [];
-            this.xhr.onCreate = function(xhr) {
-                this.requests.push(xhr);
-            }.bind(this);
+          this.ajax = sinon.stub(OLCS, 'ajax');
         });
 
         afterEach(function() {
-          this.xhr.restore();
+          this.ajax.restore();
         });
 
         describe('when triggering a modal', function() {
@@ -81,36 +77,23 @@ describe('OLCS.modalLink', function() {
           });
 
           it('makes an ajax request', function() {
-            expect(this.requests.length).to.equal(1);
+            expect(this.ajax.calledOnce).to.equal(true);
           });
 
           it('with the correct URL', function() {
-            expect(this.requests[0].url).to.equal('/foo');
+            expect(this.ajax.firstCall.args[0].url).to.equal('/foo');
           });
 
-          describe('given a valid html respose', function(){
-
-            beforeEach(function(){
-              var htmlResponse = '<div class="response">I am a response</div>';
-              this.requests[0].respond(200, { 'Content-Type': 'text/html' }, htmlResponse);
-
-
-              //we also need to fake the authentication response or the modal will not show. 
-              var authResponse = {"valid":true,"uid":"usr291","realm":"\/internal","status":200};
-              var authResonseJson = JSON.stringify(authResponse);
-              this.requests[1].respond(200, { 'Content-Type': 'text/json' }, authResonseJson);
-
+          describe('Given the request returns successfully', function() {
+            beforeEach(function() {
+              this.spy = sinon.stub(OLCS, 'modalForm');
             });
 
-            it('should create a modal', function(){
-              expect($('.modal').length).to.equal(1);
+            afterEach(function() {
+              this.spy.restore();
             });
 
-            it('should insert the response into the modal', function(){
-              expect($('.response').length).to.equal(1);
-            });
-          
-          }); //given a valid html respose      
+          }); // Given the request returns successfully
 
         }); // when triggering a modal
 
