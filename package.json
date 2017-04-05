@@ -19,7 +19,7 @@
     "karma-junit-reporter": "~0.2.2",
     "karma-mocha": "~0.1.9",
     "karma-mocha-reporter": "~0.2.5",
-    "karma-phantomjs-launcher": "~0.1.4",
+    "karma-phantomjs-launcher": "^1.0.4",
     "matchdep": "^0.3.0",
     "mocha": "~1.18.2",
     "sinon": "~1.10.0"
@@ -32,10 +32,12 @@
     "grunt-contrib-copy": "^0.8.1",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-dr-svg-sprites": "^0.9.31",
-    "handlebars-helper-repeat": "0.2.0",
     "grunt-gh-pages": "^1.1.0",
     "grunt-localscreenshots": "^1.0.0",
     "grunt-notify": "^0.4.1",
-    "grunt-scss-lint": "^0.3.8"
+    "grunt-scss-lint": "^0.3.8",
+    "handlebars-helper-repeat": "0.2.0",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "phantomjs": "^2.1.7"
   }
 }
