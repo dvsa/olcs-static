@@ -35,14 +35,22 @@ describe('OLCS.wysiwyg', function() {
   });
 
   describe('when initialised via AJAX inside a modal', function() {
+
     beforeEach(function() {
-      this.ajax = sinon.stub(OLCS, 'ajax');
-      $('body').append('<a id="stub" class="js-modal-ajax" href="test.html">Click me</a>');
+      this.xhr = sinon.useFakeXMLHttpRequest();
+      this.requests = [];
+      this.xhr.onCreate = function(xhr) {
+          this.requests.push(xhr);
+      }.bind(this);
+
+      $('body').append('<a id="stub" class="js-modal-ajax" href="/foo">Click me</a>');
+      OLCS.wysiwyg();
     });
 
     afterEach(function() {
-      this.ajax.restore();
+      this.xhr.restore();
       $('#stub').remove();
+      tinyMCE.remove();
     });
     
     describe('when clicking the target action', function() {
@@ -51,22 +59,80 @@ describe('OLCS.wysiwyg', function() {
         $('#stub').click();
       });
 
-      it('invokes an AJAX request', function() {
-        expect(this.ajax.callCount).to.equal(1);
+      afterEach(function(){
+
+        $(document).off('click');
       });
 
-      it('with the correct URL', function() {
-        expect(this.ajax.firstCall.args[0].url).to.equal('test.html');
-      });
 
-      describe("Given the request returns successfully", function() {
-        beforeEach(function() {
-          this.ajax.yieldTo('success', '<div class="response">I am a response</div>');
+      describe("Given the request returns a tinyMCE input", function() {
+        beforeEach(function(){
+          //we also need to fake the authentication response or the modal will not show. 
+          for(var i = 0; i < this.requests.length; i++){
+            if(this.requests[i].url.indexOf("/auth/validate") > -1){
+              var authResponse = {"valid":true};
+              var authResonseJson = JSON.stringify(authResponse);
+              this.requests[i].respond(200, { 'Content-Type': 'text/json' }, authResonseJson);
+            } else if(this.requests[i].url === "/foo") {
+              var htmlResponse = '<textarea class="tinymce"></textarea>' + 
+              '<fieldset class="actions-container" data-group="form-actions">' +
+              '<button type="button" name="form-actions&#x5B;submit&#x5D;" value="" id="submit">Save</button>' +
+              '<button type="button" name="form-actions&#x5B;cancel&#x5D;" >Cancel</button></fieldset>' +
+              '</form></div>'
+;
+              this.requests[i].respond(200, { 'Content-Type': 'text/html' }, htmlResponse);
+            }
+          }
+          
         });
 
-        it.skip('inserts the response into the modal', function() {
-          console.log($('.response').length);
-          expect($('.response').length).to.equal(1);
+        it('should create a modal', function(){
+            expect($('.modal').length).to.equal(1);
+          });
+
+
+        it('should insert the response', function(){
+            expect($('.tinymce').length).to.equal(1);
+          });
+
+        it('should successfully create a TinyMCE instance', function() {
+          expect($('.mce-tinymce').length).to.equal(1);
+          expect($('.mce-tinymce iframe').length).to.equal(1);
+          expect(tinymce.EditorManager.editors.length).to.equal(1);
+        });
+
+        it('the modal should have a close button', function(){
+          expect($('.modal__close').length).to.be.equal(1);
+        });
+
+        it('the save button should be disabled', function(){
+          expect(document.getElementById('submit').disabled).to.be(true);
+        });
+
+        describe("when entering some text", function(){
+
+          beforeEach(function(){
+            var editor = tinymce.EditorManager.editors[0];
+            editor.setContent("I am some content");
+            editor.fire("keyUp");
+          });
+
+          it('should enable the save button', function(){
+            expect(document.getElementById('submit').disabled).to.be(false);
+          });
+
+        });
+
+        describe("when closing the modal", function(){
+
+          beforeEach(function(){
+            $('.modal__close').click();
+          });
+
+          it('should remove tinyMCE editors', function(){
+            expect(tinymce.EditorManager.editors.length).to.equal(0);
+          });
+
         });
       });
     });
