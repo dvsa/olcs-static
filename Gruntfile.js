@@ -272,15 +272,16 @@
                     cwd: 'assets/_images/svg',
                     src: ['**/*.svg'],
                     dest: '',
-
                     // Target options
                     options: {
                         mode: {
                             css: { // Activate the «css» mode
-                                "dest": "public/images/icon-sprite.svg",
+                                "dest": "public/images",
+                                "sprite": "svg/icon-sprite.svg",
                                 "bust": false,
                                 "prefix": ".",
                                 "dimensions": true,
+                                "layout": "vertical",
                                 "render": {
                                   "scss": {
                                       "dest": "../../assets/_styles/core/icon-sprite.scss"
