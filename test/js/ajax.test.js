@@ -63,5 +63,26 @@
       });
 
     });
+
+    describe("when making an ajax post request with no data", function(){
+      beforeEach("stub the logger error", function(){
+        this.loggerStub = sinon.stub(OLCS.logger, "warn");
+        OLCS.ajax({
+          url: '/foo',
+          method: 'POST',
+          data: ""
+        });
+      });
+
+      afterEach(function(){
+        this.requests = [];
+        this.loggerStub.restore();
+      });
+
+      it("should call the logger function", function(){
+        expect(this.loggerStub.called).to.be(true);
+      });
+
+    });
   });  
 });
