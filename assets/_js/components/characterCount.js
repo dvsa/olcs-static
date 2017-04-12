@@ -13,14 +13,14 @@ OLCS.characterCount = (function(document, $, undefined) {
   return function init(options) {
 
     var selector = options.selector;
-    var count = $(selector).val() ? $(selector).val().replace(/ /g,'').length: 0;
+    var count = $(selector).val() ? $(selector).val().replace(/\s/g,'').length: 0; //regex removes all whitespace characters
     var charactersText = $(selector).attr('x-js-hint-chars-count') || 'characters';
     var template = '<div class="hint character-count">' + count + ' ' + charactersText + '</div>';
 
     $(template).insertAfter(selector);
 
     $(selector).keyup(function() {
-      count = $(selector).val().replace(/ /g,'').length;
+      count = $(selector).val().replace(/\s/g,'').length; //regex removes all whitespace characters
       $('.character-count').text(count + ' ' + charactersText);
     });
 

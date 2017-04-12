@@ -40,7 +40,7 @@ describe("OLCS.characterCount", function() {
 
       describe("when the textarea is updated", function() {
         beforeEach(function() {
-          $('#foo').val("cellar door").keyup();
+          $('#foo').val("cellardoor").keyup();
         });
 
         afterEach(function() {
@@ -52,13 +52,27 @@ describe("OLCS.characterCount", function() {
         });
       });
 
+      describe("when the textarea is updated with whitespace", function() {
+        beforeEach(function() {
+          $('#foo').val("cellar \ndoor").keyup();
+        });
+
+        afterEach(function() {
+          $('#foo').val("");
+        });
+
+        it("then the character count should not include the whitespace", function() {
+          expect($(".character-count").text()).to.be("10 characters");
+        });
+      });
+
     });
   });
 
   describe("given a stubbed DOM with prepopulated textarea", function() {
     beforeEach(function() {
       $("body").append("<textarea id=foo></textarea>");
-      $("#foo").val("cellar door");
+      
     });
 
     afterEach(function() {
@@ -70,6 +84,7 @@ describe("OLCS.characterCount", function() {
         this.options = {
           selector: "#foo"
         };
+        $("#foo").val("cellar door");
         this.component(this.options);
       });
 
@@ -77,8 +92,32 @@ describe("OLCS.characterCount", function() {
         $(".character-count").remove();
       });
 
-      it("then the character count should immediately display the number of characters in the textarea", function() {
-        expect($(".character-count").text()).to.be("10 characters");
+      describe("when when the textarea contains some text", function(){
+        beforeEach(function() {
+          $("#foo").val("cellardoor");
+        });
+
+        afterEach(function() {
+          $("#foo").val("");
+        });
+
+        it("then the character count should immediately display the number of characters in the textarea", function() {
+          expect($(".character-count").text()).to.be("10 characters");
+        });
+      });
+
+      describe("when when the textarea contains some text with whitespace", function(){
+        beforeEach(function() {
+          $("#foo").val("cellar \ndoor");
+        });
+
+        afterEach(function() {
+          $("#foo").val("");
+        });
+        
+        it("then the character count should immediately display the number of characters in the textarea, not including whitespace", function() {
+          expect($(".character-count").text()).to.be("10 characters");
+        });
       });
     });
   });
