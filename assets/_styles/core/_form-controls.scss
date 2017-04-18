@@ -5,6 +5,7 @@
 
 // set base form-control size
 $form-control-size: 34px !default;
+$radio-button-select-size: 18px; //should be an even number to avoid pixel rounding issues
 
 .form-control {
 
@@ -76,12 +77,12 @@ $form-control-size: 34px !default;
       border-radius: 50%;
     }
     &:after {
-      background: $black;
-      top: 50%;
-      left: (($form-control-size - ($form-control-size * 0.5)) / 2);
-      height: ($form-control-size * 0.5);
-      width: ($form-control-size * 0.5);
-      transform: translateY(-50%);
+      position: absolute;
+      top: ($form-control-size - $radio-button-select-size) / 2 ;
+      left:($form-control-size - $radio-button-select-size) / 2 ;
+      height: 0;
+      width: 0;
+      border: $radio-button-select-size/2 solid $black;
       border-radius: 50%;
     }
   }

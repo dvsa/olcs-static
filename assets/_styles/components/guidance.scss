@@ -59,6 +59,15 @@
       margin-bottom: $gutter-half;
     }
   }
+
+  &--removePadding{
+    padding-bottom: 0;
+    margin-bottom: 30px;
+
+    > .field{
+      margin-bottom: 0;
+    }
+  }
 }
 
 /**
