@@ -443,7 +443,7 @@
                 },
                 scripts: {
                     files: ['assets/_js/**/*.js'],
-                    tasks: ['uglify:dev']
+                    tasks: ['jshint:static','uglify:dev']
                 }
             },
 
