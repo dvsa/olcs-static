@@ -92,6 +92,44 @@ describe('OLCS.submissionRecommendation', function() {
         expect(this.targetList.options.length).to.equal(1);
       });
 
+      describe("when changing the selection back", function(){
+        beforeEach(function(){
+          this.sourceList.selectedIndex = 1;
+          this.component.removeRevokations({
+            source : "#sourceId",
+            dest   : "#destId",
+            target : "theTarget"
+          });
+        });
+
+        it("should restore the origial options list", function(){
+          expect(this.targetList.options.length).to.equal(8);
+        })
+      });
+
+    });
+
+    describe("when selecting ta different target and calling the change event", function(){
+      beforeEach(function(){
+        this.sourceList = document.getElementById('sourceId');
+        this.targetList = document.getElementById('destId');
+
+        this.sourceList.selectedIndex = 1;
+        this.component.removeRevokations({
+          source : "#sourceId",
+          dest   : "#destId",
+          target : "theTarget"
+        });
+      });
+
+      it("should not remove any options from the taget list", function(){
+        expect(this.targetList.options.length).to.equal(8);
+      });
+
+      describe("when changing the selection back", function(){
+        
+      })
+
     });
 
     

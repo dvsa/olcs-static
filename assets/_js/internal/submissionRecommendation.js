@@ -12,19 +12,13 @@ OLCS.submissionRecommendation = (function(document, $, undefined) {
     });
   };
 
-  // exports.setOriginalHTML = function(html){
-  //   olcs.submissionRecommendation.originalHTML = html;
-  // };
 
-  // export.getOriginalHTML = function(){
-  //   return this.originalHTML;
-  // };
 
   exports.removeRevokations = function(options){
-
-
-    var original = $(options.dest).clone();
-    var subset   = original.clone();
+    if(!this.originalHTML){
+      this.originalHTML = $(options.dest).clone();  
+    }
+    var subset   = this.originalHTML.clone();
     subset.find("[data-in-office-revokation=N]").remove();
 
     var contents;
@@ -33,7 +27,7 @@ OLCS.submissionRecommendation = (function(document, $, undefined) {
     if (recommendations && recommendations.indexOf(options.target) >= 0) {
       contents = subset.html();
     } else {
-      contents = original.html();
+      contents = this.originalHTML.html();
     }
 
     $(options.dest).html(contents).trigger("chosen:updated");
