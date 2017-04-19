@@ -31,13 +31,12 @@
       content: '';
       display: block;
       position: absolute;
-      top: 0;
+      top: 50%;
       right: 0;
+      margin-top: -3.8px;
+      margin-right: 4px;
       pointer-events: none;
       background-color: $grey-4;
-      background-position: 0 -88px;
-      height: 32px;
-      width: 18px;
     }
     &:focus {
       outline: none;
@@ -52,6 +51,7 @@
       color: $grey-1;
       display: inline-block;
       height: 32px;
+      line-height: 32px;
       min-width: 150px;
       font-family: $font--primary;
       // hack for IE8
