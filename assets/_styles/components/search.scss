@@ -109,7 +109,9 @@
     // temp hardcoded hack until internal search input is replaced
     // with a button tag
     @if $app == 'internal' {
-      background-position: 12px -992px;
+      background: $primary-colour url('../images/svg/internal-search.svg') no-repeat;
+      background-size: 15px;
+      background-position: center;
     }
   }
 
