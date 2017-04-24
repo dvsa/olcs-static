@@ -26,3 +26,11 @@
   @extend .#{$src};
   @extend %sprite-bg;
 }
+
+@mixin js-enabled(){
+  @at-root{
+    .js-enabled #{&}{
+      @content;
+    }
+  }
+}

@@ -24,13 +24,15 @@ $radio-button-select-size: 18px; //should be an even number to avoid pixel round
   }
 
   &:before {
-    display: inline-block;
-    vertical-align: middle;
-    border: 2px solid;
-    background: transparent;
-    width: $form-control-size;
-    height: $form-control-size;
-    margin-right: $gutter-one-third;
+    @include js-enabled(){
+      display: inline-block;
+      vertical-align: middle;
+      border: 2px solid;
+      background: transparent;
+      width: $form-control-size;
+      height: $form-control-size;
+      margin-right: $gutter-one-third;
+    }
   }
 
   &:after {
@@ -40,14 +42,16 @@ $radio-button-select-size: 18px; //should be an even number to avoid pixel round
   }
 
   input {
-    position: absolute;
-    cursor: pointer;
-    width: $form-control-size;
-    height: $form-control-size;
-    top: 0;
-    left: 0;
-    margin: 0;
-    opacity: 0;
+    @include js-enabled(){
+      position: absolute;
+      cursor: pointer;
+      width: $form-control-size;
+      height: $form-control-size;
+      top: 0;
+      left: 0;
+      margin: 0;
+      opacity: 0;
+    }
   }
 
   &.selected {
@@ -74,31 +78,37 @@ $radio-button-select-size: 18px; //should be an even number to avoid pixel round
 
   &--radio {
     &:before {
-      border-radius: 50%;
+      @include js-enabled(){
+        border-radius: 50%;
+      }
     }
     &:after {
-      position: absolute;
-      top: ($form-control-size - $radio-button-select-size) / 2 ;
-      left:($form-control-size - $radio-button-select-size) / 2 ;
-      height: 0;
-      width: 0;
-      border: $radio-button-select-size/2 solid $black;
-      border-radius: 50%;
+      @include js-enabled(){
+        position: absolute;
+        top: ($form-control-size - $radio-button-select-size) / 2 ;
+        left:($form-control-size - $radio-button-select-size) / 2 ;
+        height: 0;
+        width: 0;
+        border: $radio-button-select-size/2 solid $black;
+        border-radius: 50%;
+      }
     }
   }
 
   &--checkbox {
     &:after {
-      border: solid;
-      border-color: $black;
-      border-width: 0 0 ($form-control-size * 0.15) ($form-control-size * 0.15);
-      background: transparent;
-      width: ($form-control-size * 0.65);
-      height: ($form-control-size * 0.3);
-      position: absolute;
-      top: ($form-control-size * 0.3);
-      left: ($form-control-size * 0.2);
-      transform: rotate(-45deg);
+      @include js-enabled(){
+        border: solid;
+        border-color: $black;
+        border-width: 0 0 ($form-control-size * 0.15) ($form-control-size * 0.15);
+        background: transparent;
+        width: ($form-control-size * 0.65);
+        height: ($form-control-size * 0.3);
+        position: absolute;
+        top: ($form-control-size * 0.3);
+        left: ($form-control-size * 0.2);
+        transform: rotate(-45deg);
+      }
     }
   }
   
@@ -109,7 +119,9 @@ $radio-button-select-size: 18px; //should be an even number to avoid pixel round
 
   &--advanced {
     @extend #{$component}--confirm;
-    padding-left: ($form-control-size + $gutter-half);
+    @include js-enabled(){
+      padding-left: ($form-control-size + $gutter-half);
+    }
     &:before {
       position: absolute;
       top: 5px;
