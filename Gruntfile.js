@@ -59,7 +59,8 @@
                 'node_modules/sinon/lib/sinon/**/*.js',
                 'assets/_js/vendor/jquery.1.11.0.js',
                 'assets/_js/vendor/**/*.js',
-                'assets/_js/components/*.js',
+                'assets/_js/components/**/*.js',
+                'assets/_js/internal/**/*.js',
                 'test/js/setup.js',
                 'test/js/**/' + theme + '.test.js',
                 'public/tinymce/jquery.tinymce.min.js'
@@ -443,7 +444,7 @@
                 },
                 scripts: {
                     files: ['assets/_js/**/*.js'],
-                    tasks: ['uglify:dev']
+                    tasks: ['jshint:static','uglify:dev']
                 }
             },
 
