@@ -12,6 +12,8 @@
 
     module.exports = function(grunt) {
 
+
+        var path = require('path');
         /**
          * Global Configuration
          *
@@ -241,8 +243,21 @@
                     files: [{
                         flatten: true,
                         cwd: 'assets/_images/svg/',
-                        src: '*.svg',
-                        dest: pubImages + '/bitmap'
+                        src: '**/*.svg',
+                        dest: 'public/images/bitmap'
+                    },{
+                        flatten: true,
+                        cwd: 'public/images/svg/',
+                        src: 'icon-sprite.svg',
+                        dest: 'public/images/svg'
+                    }]
+                }, 
+                sprite: {
+                    files: [{
+                        flatten: true,
+                        cwd: 'public/images/svg/',
+                        src: 'icon-sprite.svg',
+                        dest: 'public/images/svg'
                     }]
                 }
             },
@@ -266,27 +281,27 @@
             },
 
             svg_sprite: {
-                basic: {
-
+                dist: {
                     // Target basics
                     expand: true,
                     cwd: 'assets/_images/svg',
                     src: ['**/*.svg'],
-                    dest: '',
+                    transform: ['svgo'],
+                    dest: 'public/images/svg',
                     // Target options
                     options: {
                         mode: {
                             css: { // Activate the «css» mode
-                                "dest": "public/images",
-                                "sprite": "svg/icon-sprite.svg",
+                                "dest": "../../../public/styles",
+                                "sprite": "../images/svg/icon-sprite.svg",
                                 "bust": false,
                                 "prefix": ".",
                                 "dimensions": true,
                                 "layout": "vertical",
                                 "render": {
                                   "scss": {
-                                      "dest": "../../assets/_styles/core/icon-sprite.scss"
-                                  }
+                                      "dest": path.resolve() + "/assets/_styles/core/icon-sprite.scss"
+                                  } 
                               },
                             }
                         }
@@ -445,6 +460,10 @@
                 scripts: {
                     files: ['assets/_js/**/*.js'],
                     tasks: ['jshint:static','uglify:dev']
+                },
+                images: {
+                    files: ['assets/_images/**/*.svg'],
+                    tasks: ['svg_sprite', 'sass:dev', 'postcss', 'svg2png:all']
                 }
             },
 
@@ -531,6 +550,11 @@
             };
             return tasks;
         };
+
+        grunt.registerTask('images', [
+            'svg_sprite', 'svg2png'
+        ]);
+
 
         // Compile the app using targeted environment
         // $ grunt compile --env=prod

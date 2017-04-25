@@ -173,7 +173,7 @@ ol {
 @if $app == 'selfserve' {
 
   .important {
-    padding-left: 30px;
+    padding-left: 42px;
     position: relative;
     &:after {
       @include svg('selfserve-important');
