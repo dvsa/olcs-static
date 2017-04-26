@@ -45,10 +45,6 @@ OLCS.fileUpload = (function(document, $, undefined) {
       var originalUploader = ".file-uploader:eq("+index+")";
       var updatedUploader  = $(response).find(originalUploader);
       F.render(originalUploader, updatedUploader[0].innerHTML);
-      //OLCS-15851, OLCS-15991 - botch a force reload on pages with multiple uploads
-      if ($("body[id*=submission], body[id='pg:lva-application/transport_manager_details:details']").length) {
-        location.reload();
-      }
     }
 
     var deleteResponse = OLCS.normaliseResponse(function(response) {
