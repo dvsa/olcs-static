@@ -46,10 +46,14 @@
   }
 }
 
+%help__text {
+  border-left: 4px solid $grey-2;
+}
+
 .help__text {
   @extend %paragraph;
+  @extend %help__text;
   padding: 15px 15px 5px;
-  border-left: 4px solid $grey-2;
   margin-bottom: 10px;
   .no-details & {
     display: none;
