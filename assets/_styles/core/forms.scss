@@ -282,7 +282,6 @@ select,
   max-width: 600px;
   ul {
     list-style: none;
-    padding-left: 0;
   }
 }
 
@@ -341,14 +340,18 @@ select,
 
 } // .attach-action
 
+
 .file {
-  @extend %guidance;
+  @extend %paragraph--small;
   position: relative;
-  overflow: auto;
   display: block;
-  width: 100%;
+  padding: 10px 15px 7px 0px;
   color: $grey-1;
-  margin-bottom: $gutter-one-third;
+  border-bottom: 1px solid $grey-2;
+
+  &:last-child{
+    margin-bottom: $gutter-half;
+  }
   &.invalid {
     border-left-color: $mellow-red;
     background-color: $warning-background;
@@ -356,18 +359,26 @@ select,
   &__preloader {
     @extend %preloader-light;
     float: left;
-    margin-right: 10px;
   }
   &__remove {
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    font-size: font-size(3);
+    float: right;
+    @extend %paragraph--small;
   }
   img {
     width: 100%;
     height: auto;
     margin: 10px 0;
+  }
+
+  a, span {
+    margin-right: 1rem;
+  }
+
+  &__heading {
+    @extend %h5;
+    display: block;
+    margin-bottom: 0;
+    border-bottom: 1px solid $grey-2;
   }
 }
 
