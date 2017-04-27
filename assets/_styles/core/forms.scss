@@ -370,8 +370,13 @@ select,
     margin: 10px 0;
   }
 
+  a, span {
+    margin-right: 1rem;
+  }
+
   &__heading {
     @extend %h5;
+    display: block;
     margin-bottom: 0;
     border-bottom: 1px solid $grey-2;
   }
