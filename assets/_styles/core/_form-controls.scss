@@ -40,7 +40,7 @@ $radio-button-select-size: 18px; //should be an even number to avoid pixel round
     visibility: hidden;
     position: absolute;
   }
-
+ 
   input {
     @include js-enabled(){
       position: absolute;
@@ -124,18 +124,15 @@ $radio-button-select-size: 18px; //should be an even number to avoid pixel round
     }
     &:before {
       position: absolute;
-      top: 5px;
       left: 0;
     }
     &#{$component}--checkbox {
       &:after {
-        top: 15px;
         left: 6px;
       }
     }
     &#{$component}--radio {
       &:after {
-        top: 22px;
         left: 9px;
       }
     }
