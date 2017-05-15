@@ -6,6 +6,7 @@
 // set base form-control size
 $form-control-size: 34px !default;
 $radio-button-select-size: 18px; //should be an even number to avoid pixel rounding issues
+$advanced-top-size: 5px; //extra padding for advanced form control
 
 .form-control {
 
@@ -40,7 +41,7 @@ $radio-button-select-size: 18px; //should be an even number to avoid pixel round
     visibility: hidden;
     position: absolute;
   }
- 
+
   input {
     @include js-enabled(){
       position: absolute;
@@ -124,16 +125,18 @@ $radio-button-select-size: 18px; //should be an even number to avoid pixel round
     }
     &:before {
       position: absolute;
+      top: $advanced-top-size;
       left: 0;
     }
     &#{$component}--checkbox {
       &:after {
+        top: 15px;
         left: 6px;
       }
     }
     &#{$component}--radio {
       &:after {
-        left: 9px;
+        top: ( ($form-control-size - $radio-button-select-size) / 2) + $advanced-top-size ;
       }
     }
     strong {
