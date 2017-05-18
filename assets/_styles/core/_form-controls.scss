@@ -10,6 +10,13 @@ $advanced-top-size: 5px; //extra padding for advanced form control
 
 .form-control {
 
+  &__container {
+    &.field {
+      margin-bottom: 15px;
+    }
+    @extend %clearfix;
+  } 
+
   // cache the parent selector so it can be reused without duplicating
   $component: &;
 
