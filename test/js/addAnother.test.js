@@ -11,9 +11,10 @@ describe("OLCS.addAnother", function() {
     beforeEach(function() {
       $("body").append([
         "<div class='add-another' id=stub>",
-          "<fieldset>",
+          "<fieldset data-group='data[fieldName][0]'>",
             "<div class=field>",
-              "<input type=text name='data[0]' id='data[0]' value='something'>",
+              "<input type=text name='[fieldName][0]name.name' id='[fieldName][0]name.id' value='something'>",
+              "<input type=text name='[fieldName][0]id.name' id='[fieldName][0]id.id' value='something else'>",
             "</div>",
           "</fieldset>",
           "<p class=hint><input type='submit' value='Add another'></p>",
@@ -41,11 +42,23 @@ describe("OLCS.addAnother", function() {
           expect($('fieldset').length).to.equal(2);
         });
 
-        it("with correctly incremented values", function() {
-          var newField = $('.add-another .field').eq(1);
-          expect(newField.find('input').attr('name')).to.equal("data[1]");
-          expect(newField.find('input').attr('id')).to.equal("data[1]");
-          expect(newField.find('input').val()).to.equal("");
+        it("should correctly increment the fieldset data attribute", function(){
+          var newField = $('#stub fieldset')[1];
+          expect(newField.dataset.group).to.equal('data[fieldName][1]');
+        });
+
+        it("should correctly incremented the first input's values", function() {
+          var newField = $('#stub fieldset')[1];
+          expect($(newField).find('input')[0].getAttribute('name')).to.equal('[fieldName][1]name.name');
+          expect($(newField).find('input')[0].id).to.equal('[fieldName][1]name.id');
+          expect($(newField).find('input')[0].value).to.equal('');
+        });
+
+        it("should correctly incremented the second input's values", function() {
+          var newField = $('#stub fieldset')[1];
+          expect($(newField).find('input')[1].getAttribute('name')).to.equal('[fieldName][1]id.name');
+          expect($(newField).find('input')[1].id).to.equal('[fieldName][1]id.id');
+          expect($(newField).find('input')[1].value).to.equal('');
         });
       });
 
