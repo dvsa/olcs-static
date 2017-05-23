@@ -43,10 +43,14 @@ OLCS.addAnother = (function(document, $, undefined) {
             'data-group': incrementString(field.data('group'))
           });
 
-          input.attr({
-            name: incrementString(input.attr('name')),
-            id: incrementString(input.attr('id'))
-          }).val('');
+          for (var i = 0; i < input.length; i++) {
+            var name = incrementString(input[i].getAttribute("name"));
+            var id = incrementString(input[i].id);
+            input[i].setAttribute('name', name);
+            input[i].id = id;
+            input[i].value = "";
+          }
+
 
           return field;
         }
