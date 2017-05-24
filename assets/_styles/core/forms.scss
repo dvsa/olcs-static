@@ -297,6 +297,7 @@ select,
   }
 
   &__list {
+    list-style: none;
     .js-enabled & {
       margin-bottom: 15px;
     }
