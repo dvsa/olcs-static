@@ -13,6 +13,10 @@ $advanced-top-size: 5px; //extra padding for advanced form control
   &__container {
     &.field {
       margin-bottom: 15px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
     @extend %clearfix;
   } 
