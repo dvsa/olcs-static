@@ -55,6 +55,18 @@ OLCS.fileUpload = (function(document, $, undefined) {
       }
     });
 
+    function addFileList(container){
+      if($(container).find(".js-upload-list").length > 0){
+        return;
+      }
+      var newHtml = ["<div class=\"help__text\">",
+        "<h3 class=\"file__heading\"></h3>",
+        "<ul class=\"js-upload-list\"></ul>" ,
+        "</div>"].join("\n");
+
+      $(container).append(newHtml);
+    }
+
     function upload(form, container, index, file) {
       var fd             = new FormData();
       var xhr            = new XMLHttpRequest();
@@ -67,7 +79,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
       OLCS.logger.debug("Uploading file " + file.name + " (" + file.type + ")", "fileUpload");
 
       disableElements();
-
+      addFileList(container);
       $(container).find(".js-upload-list").append([
         "<li class=file data-upload-index=" + index + ">",
           "<span class=file__preloader></span>",
