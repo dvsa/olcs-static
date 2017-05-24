@@ -44,11 +44,11 @@ OLCS.addAnother = (function(document, $, undefined) {
           });
 
           for (var i = 0; i < input.length; i++) {
-            var name = incrementString(input[i].getAttribute("name"));
+            var name = incrementString(input[i].getAttribute('name'));
             var id = incrementString(input[i].id);
             input[i].setAttribute('name', name);
             input[i].id = id;
-            input[i].value = "";
+            input[i].value = '';
           }
 
 
