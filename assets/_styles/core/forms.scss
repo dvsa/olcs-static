@@ -21,7 +21,7 @@ form {
   }
 }
 
-fieldset {
+fieldset, .fieldset {
   margin-bottom: $gutter;
   padding: 0;
   border: 0;
@@ -559,6 +559,10 @@ select,
   label {
     @extend %paragraph--small;
   }
+}
+
+.form-hint {
+  color: $grey-1;
 }
 
 /**
