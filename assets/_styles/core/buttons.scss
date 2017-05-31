@@ -154,10 +154,20 @@
   // Tertiary actions should be forced undearneath so the actions stack,
   // but primary/secondary actions should remain next to each other
   @if $app == 'selfserve' {
+
+
     .action--tertiary {
       display: block;
       &:not(:first-child) {
         margin-top: $gutter-two-thirds;
+      }
+    }
+
+    .action--primary {
+      + .action--tertiary {
+        display: inline-block;
+        margin-top: 0;
+        margin-left: $gutter-two-thirds;
       }
     }
   }

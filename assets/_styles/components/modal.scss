@@ -85,6 +85,7 @@
   .modal {
     &__header {
       margin-bottom: $gutter-half;
+      margin-right: $gutter;
     }
     &__title {
       @extend %h2;
