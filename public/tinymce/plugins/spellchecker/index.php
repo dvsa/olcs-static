@@ -10,6 +10,7 @@
  */
 
 require('./includes/Engine.php');
+require('./OlcsEngine.php');
 require('./includes/EnchantEngine.php');
 require('./includes/PSpellEngine.php');
 
@@ -26,4 +27,4 @@ $tinymceSpellCheckerConfig = array(
 	"pspell.encoding" => "utf-8"
 );
 
-TinyMCE_Spellchecker_Engine::processRequest($tinymceSpellCheckerConfig);
+OlcsEngine::processRequest($tinymceSpellCheckerConfig);
