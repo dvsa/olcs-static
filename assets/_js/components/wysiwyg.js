@@ -43,7 +43,7 @@ OLCS.wysiwyg = (function(document, $, undefined) {
             'paste'
           ],
           paste_postprocess: function(plugin, args){
-            var elements = args.node.getElementsByTagName("*");
+            var elements = args.node.getElementsByTagName('*');
             for(var i = 0; i < elements.length; i ++){
               elements[i].classList = [];
             }
