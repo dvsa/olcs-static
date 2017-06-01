@@ -39,8 +39,16 @@ OLCS.wysiwyg = (function(document, $, undefined) {
           plugins: [
             'lists charmap',
             'searchreplace',
-            'paste spellchecker'
+            'paste spellchecker',
+            'paste'
           ],
+          paste_postprocess: function(plugin, args){
+            var elements = args.node.getElementsByTagName('*');
+            for(var i = 0; i < elements.length; i ++){
+              elements[i].classList = [];
+            }
+          },
+          paste_as_text: false,
           toolbar: 'styleselect | bold italic underline | bullist numlist | indent outdent | spellchecker',
           init_instance_callback: function() {
             lockActions();
