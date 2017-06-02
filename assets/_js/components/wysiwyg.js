@@ -39,13 +39,12 @@ OLCS.wysiwyg = (function(document, $, undefined) {
           plugins: [
             'lists charmap',
             'searchreplace',
-            'paste spellchecker',
-            'paste'
+            'paste spellchecker'
           ],
           paste_postprocess: function(plugin, args){
             var elements = args.node.getElementsByTagName('*');
             for(var i = 0; i < elements.length; i ++){
-              elements[i].classList = [];
+              elements[i].className = '';
             }
           },
           paste_as_text: false,
