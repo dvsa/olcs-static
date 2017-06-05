@@ -355,7 +355,7 @@
              */
             browserSync: {
                 bsFiles: {
-                    src: ['public/**/*.css', 'public/**/*.html']
+                    src: ['public/**/*.css', 'public/**/new-radio-buttons.html', 'public/pages/continuations/*.html']
                 },
                 options: {
                     port: 7001,
@@ -455,11 +455,11 @@
                 },
                 hbs: {
                     files: ['styleguides/**/*.hbs'],
-                    tasks: ['clean:styleguide', 'assemble']
+                    tasks: ['assemble']
                 },
                 scripts: {
                     files: ['assets/_js/**/*.js'],
-                    tasks: ['jshint:static','uglify:dev']
+                    tasks: ['uglify:dev']
                 },
                 images: {
                     files: ['assets/_images/**/*.svg'],
@@ -522,7 +522,7 @@
         require('matchdep').filterAll([
             'grunt-*', '!grunt-cli', 'assemble'
         ]).forEach(grunt.loadNpmTasks);
-
+        
         /**
          * Register Grunt Tasks
          *
@@ -580,8 +580,6 @@
 
         // Serve the app for a development environment
         grunt.registerTask('serve', [
-            'notify',
-            'compile:dev',
             'browserSync',
             'watch'
         ]);

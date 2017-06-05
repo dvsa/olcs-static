@@ -8,6 +8,7 @@ OLCS.ready(function() {
   OLCS.dataTooltip();
   OLCS.selectBox();
   OLCS.notices();
+  OLCS.radioButton.initialize();
   OLCS.textareaPlaceholder();
 
   OLCS.modalLink({

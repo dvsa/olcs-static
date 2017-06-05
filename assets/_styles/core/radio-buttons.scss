@@ -1,0 +1,103 @@
+$radion-button-size: $form-control-size;
+$radio-button-select-size: 18px;
+
+input[type='radio']{
+  //visually hide the radio button - must still be accesibile to screen readers
+  &.radio-button{
+    opacity: 0;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    margin: 0;
+    z-index: 10;
+    width: $radion-button-size;
+    height: $radion-button-size;
+  }
+}
+
+.radio-button {
+
+  &__container {
+    position: relative;
+
+    &--inline {
+      display: inline-block;
+    }
+  }
+
+  &__label {
+    margin-bottom: $gutter-half;
+    padding-left: $form-control-size + $gutter-one-third;
+    position: relative;
+    line-height: $form-control-size;
+    margin-right: $gutter;
+    cursor: pointer;
+
+    &--multi-line {
+      line-height: inherit;
+    }
+
+    &:before, &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      z-index: 0;
+    }
+
+    &:before {
+      border-radius: 50%;
+      border: 2px black;
+      top: 0;
+      left: 0;
+      vertical-align: middle;
+      border: 2px solid;
+      background: transparent;
+      width: $form-control-size;
+      height: $form-control-size;
+      
+    }
+  }
+
+  &[disabled] {
+    + .radio-button__label {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  &:focus{
+    + .radio-button__label:before {
+      box-shadow: 0 0 0 ($form-control-size * 0.12) $focus-colour;
+    }
+  }
+
+  &:checked {
+    + .radio-button__label:after {
+      top: ($form-control-size - $radio-button-select-size) / 2 ;
+      left:($form-control-size - $radio-button-select-size) / 2 ;
+      height: 0;
+      width: 0;
+      border: $radio-button-select-size/2 solid $black;
+      border-radius: 50%;
+    }
+
+    & ~ .radio-button__hidden-content {
+      display: block;
+      visibility: visible;
+    }
+  }
+
+  &--inline {
+    display: inline;
+  }
+
+
+
+  &__hidden-content {
+    @include js-enabled(){
+      display: none;
+    }
+    margin-bottom: $gutter;
+  }
+}
