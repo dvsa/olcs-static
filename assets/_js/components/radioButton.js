@@ -12,10 +12,10 @@ OLCS.radioButton = (function(document, $, undefined) {
 
 
 
-  exports.showHide = function(e){
+  exports.showHide = function(){
     var elements = $('[data-show-element]');
 
-    elements.each(function(e){
+    elements.each(function(){
       var target = this.getAttribute('data-show-element'),
           show = $(this).is(':checked');
       $(target).toggle(show); 
