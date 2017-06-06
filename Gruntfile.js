@@ -355,7 +355,7 @@
              */
             browserSync: {
                 bsFiles: {
-                    src: ['public/**/*.css', 'public/**/new-radio-buttons.html', 'public/pages/continuations/*.html']
+                    src: ['public/**/*.css', 'public/**/*.html']
                 },
                 options: {
                     port: 7001,
@@ -459,7 +459,7 @@
                 },
                 scripts: {
                     files: ['assets/_js/**/*.js'],
-                    tasks: ['uglify:dev']
+                    tasks: ['jshint:static','uglify:dev']
                 },
                 images: {
                     files: ['assets/_images/**/*.svg'],
