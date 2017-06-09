@@ -51,6 +51,10 @@
 }
 
 .help__text {
+
+  p {
+    @extend .help__text;
+  }
   @extend %paragraph;
   @extend %help__text;
   padding: 15px 15px 0px;
