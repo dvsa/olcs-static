@@ -45,11 +45,16 @@
                 'assets/_js/init/common.js',
                 'assets/_js/init/' + theme + '.js'
             ];
-            if (theme == 'internal') {
+            if (theme === 'internal') {
                 files.push(
                     'assets/_js/vendor/pace.min.js'
                 );
             };
+            if(theme === 'selfserve'){
+                files.push(
+                    'assets/_js/vendor/modernizr.3.5.0.custom.min.js'
+                );
+            }
             return files;
         };
 

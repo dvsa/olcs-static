@@ -3,7 +3,7 @@
 <!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"><![endif]-->
 <!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html lang="en-GB" class="no-js not-ie8">
+<html lang="en-GB" class="not-ie8">
 <!--<![endif]-->
 
   <head>
@@ -17,10 +17,14 @@
     <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn /trunk/html5.js"></script>
     <![endif]-->
+
+    
   </head>
 
   <body class="selfserve {{bodyClass}}">
-
+    <script>
+      document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');
+    </script>
     {{#if cookie-banner}}
       <div class="cookie-banner">
         <div class="cookie-banner__wrapper">
