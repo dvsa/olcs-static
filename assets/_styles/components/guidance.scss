@@ -52,8 +52,11 @@
 
 .help__text {
 
+
   p {
-    @extend .help__text;
+    @if $app == 'internal' {
+      @extend .help__text;
+    }
   }
   @extend %paragraph;
   @extend %help__text;
