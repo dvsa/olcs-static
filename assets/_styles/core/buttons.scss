@@ -142,6 +142,10 @@
 
 // Actions container
 .actions-container {
+  &--inline-block {
+    display: inline-block;
+  }
+
   li {
     @extend %paragraph;
   }
