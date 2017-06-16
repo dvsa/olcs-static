@@ -22,6 +22,7 @@ OLCS.cascadeInput = (function(document, $, undefined) {
     var clearWhenEmpty = options.clearWhenEmpty || false;
     var append = options.append || false;
     var filter = options.filter || null;
+    var disableSubmit = options.disableSubmit || false;
 
     // allow a quick shortcut; if the user passed in `url`, then
     // assume they want process to be a simple async GET
@@ -33,6 +34,11 @@ OLCS.cascadeInput = (function(document, $, undefined) {
         // callback with one empty value instead
         if (value === "" && clearWhenEmpty) {
           return callback([{value: ""}]);
+        }
+
+        if(disableSubmit) {
+          document.getElementById(disableSubmit).disabled = true;
+
         }
 
         OLCS.ajax({
@@ -61,6 +67,10 @@ OLCS.cascadeInput = (function(document, $, undefined) {
       function done(result) {
 
         var content = result;
+
+        if(disableSubmit) {
+          document.getElementById(disableSubmit).disabled = false;
+        }
 
         if (filter) {
           $(filter).remove();
