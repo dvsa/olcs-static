@@ -1,5 +1,11 @@
+/**
+ * OLCS.cascadeInput
+ *
+ * grunt test:single --target=cascadeInput
+ */
 
-describe("OLCS.cascadeInput", function() {
+
+ describe("OLCS.cascadeInput", function() {
   "use strict";
 
   beforeEach(function() {
@@ -17,13 +23,13 @@ describe("OLCS.cascadeInput", function() {
   describe("Given a stubbed DOM", function() {
     beforeEach(function() {
       var template = [
-        '<div id="stub">',
-          '<form action="/foo" method="get" class="js-form">',
-            '<input name="bar" class="source" type="text" />',
-            '<select name="baz" class="dest"></select>',
-            '<input type="submit" />',
-          '</form>',
-        '</div>'
+      '<div id="stub">',
+      '<form action="/foo" method="get" class="js-form">',
+      '<input name="bar" class="source" type="text" />',
+      '<select name="baz" class="dest"></select>',
+      '<input type="submit" id="submitId"/>',
+      '</form>',
+      '</div>'
       ].join("\n");
 
       this.body = $("body");
@@ -82,8 +88,8 @@ describe("OLCS.cascadeInput", function() {
         describe("When the process method returns", function() {
           beforeEach(function() {
             var data = [
-              {value: "1", label: "One"},
-              {value: "2", label: "Two"}
+            {value: "1", label: "One"},
+            {value: "2", label: "Two"}
             ];
             this.spy.yield(data);
           });
@@ -109,7 +115,8 @@ describe("OLCS.cascadeInput", function() {
           source: ".source",
           dest: ".dest",
           trap: true,
-          url: "/foo"
+          url: "/foo",
+          disableSubmit: "submitId"
         });
       });
 
@@ -141,6 +148,43 @@ describe("OLCS.cascadeInput", function() {
           });
         });
       });
+
+      describe("given a stubbed XHR mechanism", function(){
+        beforeEach(function(){
+          this.xhr = sinon.useFakeXMLHttpRequest();
+          this.requests = [];
+          this.xhr.onCreate = function(xhr) {
+              this.requests.push(xhr);
+          }.bind(this);
+        });
+
+        afterEach(function() {
+          this.xhr.restore();
+        });
+
+        describe("When the source value changes", function() {
+          beforeEach(function() {
+            $(".source").val("test123").change();
+            this.submitButton = document.getElementById("submitId");
+          });
+
+          it("should disable the submit button", function(){
+            expect(this.submitButton.disabled).to.be(true);
+          });
+
+          describe("when the ajax call completes", function(){
+            beforeEach(function(){
+              this.requests[0].respond(200, { 'Content-Type': 'text/json' }, '{"foo":"bar"}');
+            });
+
+            it("should enable the submit button", function(){
+              expect(this.submitButton.disabled).to.be(false);
+            });
+          })
+        });
+      });
     });
   });
 });
+
+
