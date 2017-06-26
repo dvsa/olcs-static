@@ -1,4 +1,5 @@
 var OLCS = OLCS || {};
+var Modernizr = Modernizr || {};
 
 OLCS.radioButton = (function(document, $, undefined) {
 
@@ -8,9 +9,14 @@ OLCS.radioButton = (function(document, $, undefined) {
 
   exports.initialize = function() {
     $('[data-show-element]').change(exports.showHide);
+    exports.checkBrowserSupport();
   };
 
-
+  exports.checkBrowserSupport = function(){
+    if (!Modernizr.checked) {
+      $('.checkbox__hidden-content').hide();
+    } 
+  };
 
   exports.showHide = function(){
     var elements = $('[data-show-element]');

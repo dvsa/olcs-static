@@ -194,6 +194,15 @@ td {
   .right-aligned {
     margin-left: 0.5em;
   }
+
+}
+
+
+
+.td--right-aligned {
+    text-align: right;
+    padding-left: 0.5em;
+
 }
 
 
@@ -421,4 +430,15 @@ tfoot {
       white-space: nowrap;
   }
 
+}
+
+.checklist-table {
+  tr:first-child {
+    th, td {
+      border-top: none;
+    }
+  }
+  thead {
+    border-bottom: 1px solid $grey-2;
+  }
 }

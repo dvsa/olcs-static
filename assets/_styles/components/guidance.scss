@@ -52,10 +52,10 @@
 
 .help__text {
 
-
   p {
-    @if $app == 'internal' {
-      @extend .help__text;
+    @extend .help__text;
+    &:first-child {
+      padding-top: 0;
     }
   }
   @extend %paragraph;
