@@ -84,11 +84,13 @@ OLCS.cascadeInput = (function(document, $, undefined) {
         if (destination.is("select")) {
           var str = "";
           $.each(result, function(i, r) {
-            if (r.value === "" && emptyLabel) {
-              r.label = emptyLabel;
+            if(typeof(r) === "object"){
+              if (r.value === "" && emptyLabel) {
+                r.label = emptyLabel;
+              }
+              str += "<option value='" + r.value + "'>" + r.label + "</option>";
             }
-            str += "<option value='" + r.value + "'>" + r.label + "</option>";
-          });
+            });
 
           destination.html(str);
         }
