@@ -1,5 +1,5 @@
 /**
- * OLCS.modalLink
+ * OLCS.ajax
  *
  * grunt test:single --target=ajax
  */
@@ -45,23 +45,51 @@
       });
     });
 
-    describe("when an ajax call returns an error", function(){
+    describe("when making an ajax call, without an error callback", function(){
       beforeEach("stub the preloader hide", function(){
-        this.hideStub = sinon.stub(OLCS.preloader, "hide");
         OLCS.ajax({url: '/foo'});
-        
-        var responseData = JSON.stringify({foo:"bar"});
-        this.requests[0].respond(400, { 'Content-Type': 'text/json' }, responseData);
       });
       afterEach(function(){
         this.requests = [];
-        this.hideStub.restore();
       });
 
-      it("should call the preloader hide", function(){
-        expect(this.hideStub.called).to.be(true);
-      });
+      describe("when the ajax call returns an error", function(){
 
+        describe("given a stubbed preloader function", function(){
+
+          beforeEach(function(){
+            this.hideStub = sinon.stub(OLCS.preloader, "hide");
+            var responseData = JSON.stringify({foo:"bar"});
+            this.requests[0].respond(400, { 'Content-Type': 'text/json' }, responseData);
+          });
+
+          afterEach(function(){
+            this.hideStub.restore();
+          });
+
+          it("should call the preloader hide", function(){
+            expect(this.hideStub.called).to.be(true);
+          });
+        });
+
+        describe("given a stubbed error method", function(){
+
+          beforeEach(function(){
+            this.errorStub = sinon.stub(OLCS.ajaxError, "showError");
+            var responseData = JSON.stringify({foo:"bar"});
+            this.requests[0].respond(400, { 'Content-Type': 'text/json' }, responseData);
+          });
+
+          afterEach(function(){
+            this.errorStub.restore();
+          });
+
+          it("should call OLCS.ajaxError", function(){
+            expect(this.errorStub.called).to.be(true);
+          });
+          
+        });
+      });
     });
 
     describe("when making an ajax post request with no data", function(){

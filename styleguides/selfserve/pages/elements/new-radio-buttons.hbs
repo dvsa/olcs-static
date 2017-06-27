@@ -15,7 +15,7 @@ breadcrumbs:
       <fieldset class="radio-button__fieldset">
         <legend class="form-element__label form-label">Does anyone you've named already have an operator's licence in any traffic area?</legend>
         <div class="radio-button__container radio-button__container--inline">
-          <input type="radio" class="radio-button" name="q1" id="q1[Y]" value="Y">
+          <input type="radio" class="radio-button" name="q1" id="q1[Y]" value="Y" >
           <label class ="radio-button__label" for="q1[Y]">Yes</label>
         </div>
         <div class="radio-button__container radio-button__container--inline">
@@ -88,17 +88,17 @@ breadcrumbs:
         <legend class="form-element__label form-label">How do you want to be contacted?</legend>
         <p class="form-hint">These work without javascript</p>
         <div class="radio-button__container">
-          <input type="radio" class="radio-button" name="q5" id="q5[upload]" value="Y">
+          <input type="radio" class="radio-button" name="q5" id="q5[upload]" value="Y"  data-show-element="#q5-upload-content">
           <label class ="radio-button__label" for="q5[upload]">Email</label>
-          <div class="radio-button__hidden-content help__text">
+          <div class="radio-button__hidden-content help__text" id="q5-upload-content">
             <label for="email">Email address</label>
             <input type="text" name="email"  id="email">
           </div>
         </div>
         <div class="radio-button__container">
-          <input type="radio" class="radio-button" name="q5" id="q5[send]" value="Y">
+          <input type="radio" class="radio-button" name="q5" id="q5[send]" value="Y" data-show-element="#q5-phone-content">
           <label class ="radio-button__label" for="q5[send]">Phone</label>
-          <div class="radio-button__hidden-content help__text">
+          <div class="radio-button__hidden-content help__text" id="q5-phone-content">
             <label for="phone">Phone number</label>
             <input type="text" name="phone"  id="phone">
           </div>
@@ -106,7 +106,7 @@ breadcrumbs:
         <div class="radio-button__container">
           <input type="radio" class="radio-button" name="q5" id="q5[later]" value="Y">
           <label class ="radio-button__label" for="q5[later]">Text message</label>
-          <div class="radio-button__hidden-content help__text">
+          <div class="radio-button__hidden-content help__text" id="q5-mobile-content" data-show-element="#q5-mobile-content">
             <label for="mobile">Mobile phone number</label>
             <input type="text" name="mobile" id="mobile">
           </div>
