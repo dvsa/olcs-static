@@ -25,6 +25,7 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
     var modalWrapper       = ".modal__wrapper";
 
     var F = OLCS.formHelper;
+    var modalEvent;
 
     //reload the parent window behind the modal
     function reloadParent() {
@@ -62,7 +63,10 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
             // just hide the modal instead
             followRedirects: false,
             callback: handleCrudResponse
-          })
+          }),
+          error: function(){
+            window.alert("fail");
+          }
         };
 
         OLCS.modalForm($.extend(response, options));
@@ -112,7 +116,7 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
      * still necessary because they've actually POSTed the original form and possibly
      * updated the version, so if they try and view another modal they'll get a version conflict
      */
-    OLCS.eventEmitter.on("hide:modal", reloadParent);
+    modalEvent = OLCS.eventEmitter.on("hide:modal", reloadParent);
   };
 
 }(document, window.jQuery));

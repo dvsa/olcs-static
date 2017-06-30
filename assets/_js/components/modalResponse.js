@@ -40,7 +40,7 @@ OLCS.modalResponse = (function(document, $, undefined) {
           else {
             document.location.href='/';
           }
-        }
+        } 
       });
 
     });

@@ -37,6 +37,8 @@ OLCS.ajax = (function(document, $, undefined) {
         var submitTimestamp = new Date();
         var since = submitTimestamp - lastTimestamp;
 
+        OLCS.ajaxError.removeError();
+
         OLCS.logger
           .group(method + " " + options.url)
           .log("Request ID " + requestId + ": start");
@@ -82,8 +84,8 @@ OLCS.ajax = (function(document, $, undefined) {
 
         if (options.error) {
           options.error.apply(null, arguments);
-        }
-
+        } 
+        OLCS.ajaxError.showError();
         OLCS.preloader.hide();
       },
       // this fires *after* success or error
