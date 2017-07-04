@@ -10,6 +10,7 @@ OLCS.radioButton = (function(document, $, undefined) {
   exports.initialize = function() {
     $('[data-show-element]').change(exports.showHide);
     exports.checkBrowserSupport();
+    exports.showHide();
   };
 
   exports.checkBrowserSupport = function(){
