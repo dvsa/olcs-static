@@ -78,6 +78,7 @@ OLCS.submitForm = (function(document, $, undefined) {
       method: form.attr("method"),
       data: data,
       success: success,
+      keepModalOpen: options.keepModalOpen || false,
       error: error,
       complete: complete,
       preloaderType: preloaderType

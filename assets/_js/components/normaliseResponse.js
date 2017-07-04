@@ -29,6 +29,7 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
     var bodySelector   = options.body      || ".js-body,.js-body__main";
     var scriptSelector = options.script    || ".js-script";
     var rootSelector   = options.root      || ".js-response";
+    var keepModalOpen  = options.keepModalOpen || false;
 
     var callback = options.callback;
     var followRedirects = options.followRedirects !== undefined ? options.followRedirects : true;
@@ -149,7 +150,9 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
       if (response.status === 302 && followRedirects) {
 
         // Fake the modal.hide functionality to avoid reloading the parent
-        $(".modal__wrapper, .overlay").remove();
+        if(keepModalOpen){
+          $(".modal__wrapper, .overlay").remove();
+        }
 
         // We may or may not want to show a preloader when calling this component
         if (preloader) {

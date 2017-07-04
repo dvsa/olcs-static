@@ -16,6 +16,11 @@ OLCS.formHandler = (function(document, $, undefined) {
     var selector = options.form;
     var isModal = options.isModal || false;
     var success = options.success;
+    var keepModalOpen = false;
+
+    if($(selector).find("#generate-document").length > 0){
+      keepModalOpen = true;
+    }
 
     // need the strict check because onChange can be passed in as false
     var onChange = options.onChange !== undefined ? options.onChange : function() {
@@ -121,6 +126,7 @@ OLCS.formHandler = (function(document, $, undefined) {
         form: form,
         success: success,
         disable: options.disable,
+        keepModalOpen: keepModalOpen,
         complete: function() {
           OLCS.eventEmitter.emit("update:" + options.container);
         }
