@@ -60,6 +60,7 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
       return text;
     }
 
+
     function parse(responseString) {
       var title  = "";
       var body   = "";
@@ -83,7 +84,8 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
         body: responseString,
         //errors: [],
         hasErrors: false,
-        hasWarnings: false
+        hasWarnings: false,
+        hasValidationErrors: false
       };
 
       if (title.length) {
@@ -131,6 +133,11 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
         OLCS.logger.debug("no matching inline script for " + scriptSelector, "normaliseResponse");
       }
 
+      //check for validation errors
+      response.hasValidationErrors = (function(){
+        return $(responseString).find(".validation-summary").length > 0;
+      })();
+
       return response;
     }
 
@@ -144,6 +151,9 @@ OLCS.normaliseResponse = (function(window, $, undefined) {
       if (typeof response === "string") {
         OLCS.logger.debug("converting response string to object", "normaliseResponse");
         response = parse(response);
+        if(response.hasValidationErrors){
+          $(".modal__wrapper").scrollTop(0);
+        }
       }
 
       // we won't invoke the callback if the status is a straightforward redirect
