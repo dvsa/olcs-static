@@ -585,6 +585,7 @@
 
         // Serve the app for a development environment
         grunt.registerTask('serve', [
+            'compile:dev',
             'browserSync',
             'watch'
         ]);
