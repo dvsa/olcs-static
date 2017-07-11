@@ -60,13 +60,13 @@
   }
   // prevent tables from causing entire page to stretch
   .field > & {
-    @extend %page-wrapper;
+    @extend %page-wrapper !optional;
     overflow-x: auto;
   }
 }
 
 .table__header {
-  @extend %header-with-actions;
+  @extend %header-with-actions !optional;
   span {
     @extend %paragraph;
     font-weight: 400;
@@ -254,12 +254,14 @@ tfoot {
     text-decoration: none;
     position: relative;
     &:after {
-      @include svg('dropdown-down');
-      content: '';
-      position: absolute;
-      display: inline-block;
-      right: 0;
-      top: 7px;
+      @if $app != 'print' {
+        @include svg('dropdown-down');
+        content: '';
+        position: absolute;
+        display: inline-block;
+        right: 0;
+        top: 7px;
+      }
     }
   }
   a:active {
