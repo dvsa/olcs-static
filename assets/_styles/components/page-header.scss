@@ -2,7 +2,7 @@
 .page-header {
 
   // Selfserve only styles
-  @if $app == 'selfserve' {
+  @if $app == 'selfserve' or $app == 'print' {
 
     position: relative;
     @media (max-width: $mobile-column-stack){

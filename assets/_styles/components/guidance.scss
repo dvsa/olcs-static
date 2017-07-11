@@ -52,12 +52,6 @@
 
 .help__text {
 
-  p {
-    @extend .help__text;
-    &:first-child {
-      padding-top: 0;
-    }
-  }
   @extend %paragraph;
   @extend %help__text;
   padding: 15px 15px 0px;

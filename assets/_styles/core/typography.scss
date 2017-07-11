@@ -184,6 +184,18 @@ ol {
     }
   }
 
+  .exclamation {
+    padding-left: 48px;
+    position: relative;
+    &:after {
+      @include svg('selfserve-exclamation');
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+
 }
 
 /**
