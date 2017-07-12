@@ -20,10 +20,11 @@ OLCS.tableSorter = (function(document, $, undefined) {
 
     $(document).on("click", linkSelector, function clickHandler(e) {
       e.preventDefault();
+      var clickedElement = this;
 
       OLCS.ajax({
         url: $(this).attr("href"),
-        success: OLCS.filterResponse(filter, container),
+        success: OLCS.filterResponse(filter, $(clickedElement).parents(options.container)),
         complete: function() {
           OLCS.eventEmitter.emit("update:" + container);
         }
