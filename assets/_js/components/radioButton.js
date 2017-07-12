@@ -8,7 +8,9 @@ OLCS.radioButton = (function(document, $, undefined) {
   var exports = {};
 
   exports.initialize = function() {
-    $('[data-show-element]').change(exports.showHide);
+    $(document).on('change', '[data-show-element]', function(){
+      exports.showHide();
+    });
     exports.checkBrowserSupport();
     exports.showHide();
   };
@@ -16,6 +18,7 @@ OLCS.radioButton = (function(document, $, undefined) {
   exports.checkBrowserSupport = function(){
     if (!Modernizr.checked) {
       $('.checkbox__hidden-content').hide();
+      $('.radio-button-content').hide();
     } 
   };
 

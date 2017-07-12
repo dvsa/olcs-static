@@ -50,6 +50,7 @@ OLCS.ready(function() {
     // A safe assumption that when the page is rendered
     // this preloader should be hidden
     OLCS.preloader.hide();
+    OLCS.radioButton.initialize();
     // Call the plugin to improve select dropdowns
     $('.chosen-select-fixed').chosen({ width: '350px' });
     $('.chosen-select-medium').chosen({ width: '53%' });
