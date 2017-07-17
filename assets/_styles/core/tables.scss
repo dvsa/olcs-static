@@ -40,8 +40,15 @@
   }
 }
 
-.table .field {
-  margin-bottom: 0;
+.table {
+  &--2-column {
+    td, th {
+      width: 50%;
+    }
+  }
+  .field {
+    margin-bottom: 0;
+  }
 }
 
 .table__wrapper {
@@ -125,6 +132,7 @@ table {
     outline: none;
   }
 }
+
 
 tr {
   &.hover {
