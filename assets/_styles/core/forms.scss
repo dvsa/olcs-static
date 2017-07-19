@@ -310,7 +310,7 @@ select,
     .js-enabled & {
       @extend .action--secondary;
       @extend %h4;
-      float: left;
+      display: inline-block;
       margin-bottom: 10px;
       &:focus {
         outline: 3px solid $outline;
@@ -336,7 +336,7 @@ select,
     @extend %hint;
     @extend %paragraph--small;
     .js-enabled & {
-      clear: none;
+      display: inline-block;
       width: auto;
       margin-left: 10px;
     }
