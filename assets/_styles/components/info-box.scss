@@ -1,21 +1,21 @@
 .info-box {
 
-	padding: 1rem;
-	margin-bottom: 1rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
 
-	&--grey {
-		background-color: $grey-3;
-	}
+    &--grey {
+        background-color: $grey-3;
+    }
 
-	&--pink {
-		background: $pink;
-	}
+    &--pink {
+        background: $pink;
+    }
 
-	&__heading {
-		font-size: font-size(4);
+    &__heading {
+        font-size: font-size(4);
 
-		&--icon {
-			padding-left: 65px;
-		}
-	}
+        &--icon {
+            padding-left: 65px;
+        }
+    }
 }
