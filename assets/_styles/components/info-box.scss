@@ -9,6 +9,12 @@
 
     &--pink {
         background: $pink;
+        color: white;
+    }
+
+    &--blue {
+        background-color: $govuk-blue;
+        color: white;
     }
 
     &__heading {
@@ -16,6 +22,31 @@
 
         &--icon {
             padding-left: 65px;
+        }
+    }
+
+    &__links {
+        list-style: none;
+    }
+
+    dl:last-child {
+        margin-bottom: 0;
+        
+        dd:last-of-type {
+            padding-bottom: 0;
+        }
+        
+    }
+
+    &__icon {
+        display: inline-block;
+        position: absolute;
+        left: 0;
+        top: 3px;
+        &-wrapper {
+            line-height: 32px;
+            position: relative;
+            padding-left: 32px;
         }
     }
 }
