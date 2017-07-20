@@ -285,6 +285,7 @@ select,
 .file-uploader {
   ul {
     list-style: none;
+    max-width: 700px;
   }
 }
 
@@ -372,6 +373,8 @@ select,
     display: inline-block;
     //float: left;
     flex:  0 0 20px;
+    width: 20px;
+    height: 20px;
     @media (max-width: $mobile-column-stack) {
       display: block;
       width: 100%;
@@ -382,7 +385,7 @@ select,
     //float: right;
     @extend %paragraph--small;
     //width: 20%;
-    flex:  0 20%;
+    flex: 0 0 100px;
     text-align: right;
     margin-right: 0;
     padding-right: 0;
@@ -403,7 +406,7 @@ select,
     margin-right: 1rem;
     text-align: right;
     display: inline-block;
-    flex:  0 0 20%;
+    flex:  1 0 60px;
     @media (max-width: $mobile-column-stack) {
       display: block;
       width: 100%;
@@ -419,7 +422,7 @@ select,
     margin-right: 1rem;
     @extend %clearfix;
     max-width: 75%;
-    flex:  2 0 50%;
+    //flex:  2 0 50%;
     @media (max-width: $mobile-column-stack) {
       display: inline-block;
       width: 100%;
