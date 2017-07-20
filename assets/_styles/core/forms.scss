@@ -663,5 +663,5 @@ select,
 // OLCS-15394 - find out how to add 'form-element__label' class
 // to 'Date of advert' legend in Operating Centres
 .adPlacedDate legend {
-  @extend .form-element__label;
+  @extend .form-element__label !optional;
 }
