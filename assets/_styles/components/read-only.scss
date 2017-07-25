@@ -83,6 +83,10 @@
   }
 }
 
+dl {
+  @extend %clearfix;
+}
+
 dt,
 dd {
   float: left;
