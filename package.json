@@ -12,7 +12,6 @@
     "grunt-karma": "~0.8.3",
     "grunt-postcss": "^0.6.0",
     "grunt-sass": "~1.0.0",
-    "grunt-svg2png": "^0.2.7",
     "karma": "~0.12.23",
     "karma-coverage": "~0.2.6",
     "karma-expect": "~1.1.0",
