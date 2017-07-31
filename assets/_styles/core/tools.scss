@@ -13,16 +13,12 @@
   }
 }
 
-// Load an SVG image from the global sprite with PNG fallback
-%sprite-bg {
-  background-image: url('../images/svg/icon-sprite.svg'), linear-gradient(transparent, transparent);
-  display: inline-block;
-}
 
 @mixin svg($src) {
   // scss-lint:disable PlaceholderInExtend
   @extend .#{$src};
-  @extend %sprite-bg;
+  @extend %svg-common;
+  display: inline-block;
 }
 
 @mixin js-enabled(){

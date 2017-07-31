@@ -1,0 +1,5 @@
+This file doesn't do anything, but it is used by jenkins to decide what build process to use. 
+
+If this file is found, it will use the npm script "npm run build:staging".
+
+If it is not found it will use the old grunt task "grunt build:staging".
