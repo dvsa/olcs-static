@@ -46,6 +46,15 @@
       width: 50%;
     }
   }
+
+  &--3-column {
+    td, th {
+      &:first-child {
+        width: 50%;
+      }
+      width: 25%;
+    }
+  }
   .field {
     margin-bottom: 0;
   }
