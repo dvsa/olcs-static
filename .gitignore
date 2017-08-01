@@ -7,8 +7,10 @@ results.xml
 public/js
 public/styles
 public/styleguides
+public/images
 public/unit-testing
 styleguides/screenshots
+assets/_styles/core/icon-sprite.scss
 
 # Third party/config
 #============================================================
@@ -21,3 +23,4 @@ node_modules
 .DS_Store
 composer.lock
 editorconfig.org
+assets/vendor

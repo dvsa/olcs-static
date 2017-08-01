@@ -8,10 +8,10 @@
 
 $app: print;
 
-@import '../../vendor/govuk_frontend_toolkit/stylesheets/colours';
-@import '../../vendor/govuk_frontend_toolkit/stylesheets/measurements';
-@import '../../vendor/govuk_frontend_toolkit/stylesheets/shims';
-@import '../../vendor/govuk_frontend_toolkit/stylesheets/typography';
+@import '../../../node_modules/govuk_frontend_toolkit/stylesheets/colours';
+@import '../../../node_modules/govuk_frontend_toolkit/stylesheets/measurements';
+@import '../../../node_modules/govuk_frontend_toolkit/stylesheets/shims';
+@import '../../../node_modules/govuk_frontend_toolkit/stylesheets/typography';
 
 @import '../core/config';
 @import '../core/tools';

@@ -37,8 +37,8 @@
         // Function to get all scripts for use with a given theme
         var scriptPaths = function(theme) {
             var files = [
-                'assets/_js/vendor/jquery.1.11.0.js',
-                'assets/_js/vendor/chosen.jquery.min.js',
+                'node_modules/jquery/dist/jquery.min.js',
+                'node_modules/chosen-npm/public/chosen.jquery.min.js',
                 'assets/_js/vendor/jquery.details.min.js',
                 'assets/_js/components/*.js',
                 'assets/_js/' + theme + '/*.js',
@@ -47,7 +47,7 @@
             ];
             if (theme === 'internal') {
                 files.push(
-                    'assets/_js/vendor/pace.min.js'
+                    'node_modules/pace-progress/pace.min.js'
                 );
             };
             if(theme === 'selfserve'){
@@ -64,7 +64,7 @@
                 'node_modules/sinon/lib/sinon.js',
                 'node_modules/sinon/lib/sinon/spy.js',
                 'node_modules/sinon/lib/sinon/**/*.js',
-                'assets/_js/vendor/jquery.1.11.0.js',
+                'node_modules/jquery/dist/jquery.min.js',
                 'assets/_js/vendor/**/*.js',
                 'assets/_js/components/**/*.js',
                 'assets/_js/internal/**/*.js',
@@ -97,8 +97,6 @@
          * - postcss
          * - copy
          * - clean
-         * - svg2png
-         * - 'dr-svg-sprites'
          * - assemble
          * - browserSync
          * - uglify
@@ -239,52 +237,6 @@
                 }
             },
 
-            /**
-             * grunt-svg2png
-             * https://github.com/dbushell/grunt-svg2png
-             */
-            svg2png: {
-                all: {
-                    files: [{
-                        flatten: true,
-                        cwd: 'assets/_images/svg/',
-                        src: '**/*.svg',
-                        dest: 'public/images/bitmap'
-                    },{
-                        flatten: true,
-                        cwd: 'public/images/svg/',
-                        src: 'icon-sprite.svg',
-                        dest: 'public/images/svg'
-                    }]
-                }, 
-                sprite: {
-                    files: [{
-                        flatten: true,
-                        cwd: 'public/images/svg/',
-                        src: 'icon-sprite.svg',
-                        dest: 'public/images/svg'
-                    }]
-                }
-            },
-
-            /**
-             * grunt-dr-svg-sprites
-             * https://github.com/drdk/grunt-dr-svg-sprites
-             */
-            'dr-svg-sprites': {
-                application: {
-                    options: {
-                        previewPath: 'public/styleguides',
-                        spriteElementPath: 'assets/_images/svg',
-                        spritePath: 'public/images/svg/icon-sprite.svg',
-                        cssPath: 'assets/_styles/core/icon-sprite.scss',
-                        layout: 'vertical',
-                        cssSuffix: 'scss',
-                        unit: 50
-                    }
-                }
-            },
-
             svg_sprite: {
                 dist: {
                     // Target basics
@@ -299,7 +251,7 @@
                             css: { // Activate the «css» mode
                                 "dest": "../../../public/styles",
                                 "sprite": "../images/svg/icon-sprite.svg",
-                                "bust": false,
+                                "bust": true,
                                 "prefix": ".",
                                 "dimensions": true,
                                 "layout": "vertical",
@@ -468,7 +420,7 @@
                 },
                 images: {
                     files: ['assets/_images/**/*.svg'],
-                    tasks: ['svg_sprite', 'sass:dev', 'postcss', 'svg2png:all']
+                    tasks: ['images', 'sass:dev', 'postcss']
                 }
             },
 
@@ -541,6 +493,7 @@
         // Function to compile the app
         var compile = function(environment) {
             var tasks = [
+                'images',
                 'sass:' + environment,
                 'postcss',
                 'uglify:' + environment
@@ -555,11 +508,6 @@
             };
             return tasks;
         };
-
-        grunt.registerTask('images', [
-            'svg_sprite', 'svg2png'
-        ]);
-
 
         // Compile the app using targeted environment
         // $ grunt compile --env=prod
@@ -595,6 +543,13 @@
             'karma:test'
         ]);
 
+        grunt.registerTask('images', [
+            'clean:images',
+            'copy:images',
+            'svg_sprite'
+         ]);
+
+
         grunt.registerTask('test:ci', 'karma:ci');
 
         // Run single unit test
@@ -628,7 +583,7 @@
          */
 
         grunt.registerTask('build:staging', [
-            'test:ci', 'compile:prod', 'jshint:static'
+            'jshint:static', 'test:ci', 'compile:prod'
         ]);
 
         grunt.registerTask('build:demo', [

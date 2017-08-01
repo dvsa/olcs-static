@@ -6,23 +6,23 @@
 $app: selfserve;
 
 // Vendor
-@import '../../vendor/govuk_frontend_toolkit/stylesheets/device-pixels';
-@import '../../vendor/govuk_frontend_toolkit/stylesheets/measurements';
-@import '../../vendor/govuk_frontend_toolkit/stylesheets/css3';
-@import '../../vendor/govuk_frontend_toolkit/stylesheets/colours';
-@import '../../vendor/govuk_frontend_toolkit/stylesheets/grid_layout';
-@import '../../vendor/govuk_frontend_toolkit/stylesheets/typography';
-@import '../../vendor/govuk_frontend_toolkit/stylesheets/design-patterns/buttons';
+@import '../../../node_modules/govuk_frontend_toolkit/stylesheets/device-pixels';
+@import '../../../node_modules/govuk_frontend_toolkit/stylesheets/measurements';
+@import '../../../node_modules/govuk_frontend_toolkit/stylesheets/css3';
+@import '../../../node_modules/govuk_frontend_toolkit/stylesheets/colours';
+@import '../../../node_modules/govuk_frontend_toolkit/stylesheets/grid_layout';
+@import '../../../node_modules/govuk_frontend_toolkit/stylesheets/typography';
+@import '../../../node_modules/govuk_frontend_toolkit/stylesheets/design-patterns/buttons';
 
 @import '../vendor/chosen';
 
 // Core
+@import '../core/icon-sprite';
 @import '../core/tools';
 @import '../core/form-controls';
 @import '../core/form-elements';
 @import '../core/radio-buttons';
 @import '../core/fonts';
-@import '../core/icon-sprite';
 @import '../core/config';
 @import '../core/base';
 @import '../core/helpers';
