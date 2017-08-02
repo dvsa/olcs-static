@@ -25,9 +25,7 @@ The following people created OLCS Static
 
 ### Requirements
 
-* [Sass](http://sass-lang.com/) >= 3.3.x (`gem install sass`)
-* [Node.js](https://nodejs.org/en/) v0.10.x (Use [Node Version Manager](https://github.com/creationix/nvm) to run old versions)
-* [Grunt](http://gruntjs.com/) (`npm install -g grunt-cli`)
+* [Node.js](https://nodejs.org/en/) v6.9.2
 
 ### Installation
 
@@ -46,16 +44,8 @@ npm install
 ##### Compile assets:
 
 ```
-grunt compile:dev
+npm run start
 ```
-
-If running this task complains about libsass bindings (i.e. "The `libsass` binding was not found"), it likely means you are running an unsupported Node version for this app. To rectify, install [Node Version Manager](https://github.com/creationix/nvm/) and run:
-
-```
-nvm install 0.10.33
-```
-
-This will install the correct Node version supported by this app. Now you can run `nvm use` inside your project to switch to this version (v0.10.33).
 
 ### Usage
 
@@ -90,42 +80,27 @@ Desired partials are then imported into the appropriate theme to be processed.
 * [internal](./blob/develop/assets/_styles/themes/internal.scss)
 * [selfserve](./blob/develop/assets/_styles/themes/selfserve.scss)
 
-### Grunt Tasks
+### Build tasks
 
-OLCS uses Grunt as the front end build tool, with all configuration being contained within `Gruntfile.js`. There are several pre-defined tasks which can be executed:
-
-##### $ grunt compile
-
-This is a basic task to compile the front end assets. Depending on the `env` argument, which can either be `dev` (default) or `prod`, the compiled assets either will or won't be minified. You can pass the `env` argument when running this task like so:
+OLCS uses NPM scripts and Grunt as the front end build tools, with all configuration being contained within `Gruntfile.js` & scripts in package.json. There are several pre-defined tasks which can be executed:
 
 ```
-$ grunt compile --env=prod
+$ npm run start
 ```
+This is the main task used for development. It will compile all the assets and start a browsersync server & watch task to monitor and compile assets on the fly. 
+```
+$ npm run build:staging
+```
+This is the task that Jenkins will run to build the static assets. It will lint javascript and run unit tests, compile CSS and JS and compile SVG icons/PNG fallback images. 
 
-##### $ grunt compile:dev
+####Unit testing
 
-This runs the `compile` task for a development environment (identical to running `grunt compile --env=dev`).
+You can run all unit tests by calling the grunt task:
 
-##### $ grunt compile:prod
+`$ grunt test`
 
-This runs the `compile` task for a production environment (identical to running `grunt compile --env=prod`).
+Individual unit tests can be called with:
 
-##### $ grunt lint
+` $ grunt test:single --taget=compnentName` 
 
-Run JavaScript and Scss code linting tasks.
-
-##### $ grunt serve
-
-Use this task to setup an environment for continuous development, automatically compiling assets on the fly. 
-
-##### $ grunt test
-
-Run JavaSript unit tests.
-
-##### $ grunt test:single
-
-Run a single JavaScript unit test for a specific component: `$ grunt test:single --target=componentName`
-
-### Linting/Unit Testing
-
-*Coming soon*
+e.g.  `grunt test:single --target=ajax` will only run ajax.test.js.
