@@ -89,14 +89,14 @@ $ npm run build:staging
 ```
 This is the task that Jenkins will run to build the static assets. It will lint javascript and run unit tests, compile CSS and JS and compile SVG icons/PNG fallback images. 
 
-####Unit testing
+#### Unit testing
 
 You can run all unit tests by calling the grunt task:
 
-`$ grunt test`
+````$ grunt test````
 
 Individual unit tests can be called with:
 
-` $ grunt test:single --taget=compnentName` 
+````$ grunt test:single --taget=compnentName````
 
 e.g.  `grunt test:single --target=ajax` will only run ajax.test.js.
