@@ -52,7 +52,7 @@
             };
             if(theme === 'selfserve'){
                 files.push(
-                    'assets/_js/vendor/modernizr.3.5.0.custom.min.js'
+                    'assets/vendor/custom-modernizr.js'
                 );
             }
             return files;
