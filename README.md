@@ -41,15 +41,11 @@ git clone https://github.com/OLCS/olcs-static.git
 npm install
 ```
 
-##### Compile assets:
-
-```
-npm run start
-```
 
 ### Usage
 
-To view the compiled assets as well as continuously compile the assets as files are changed, you can run `grunt serve` to compile the assets and styleguides, run the `watch` task, and set up a local server.
+To view the compiled assets as well as continuously compile the assets as files are changed, you can run `
+npm run start` to compile the assets and styleguides, run the `watch` task, and set up a local server.
 
 Access the compiled styleguides: 
 
