@@ -44,13 +44,11 @@ OLCS.submitForm = (function(document, $, undefined) {
     }
 
     function complete() {
-
-      if (disableOnSubmit) {
-        enabledElements.removeAttr("disabled", "aria-hidden");
-      }
-
       if (options.complete) {
         options.complete();
+      }
+      if (disableOnSubmit  && !OLCS.stopEnableButton) {
+        enabledElements.removeAttr("disabled", "aria-hidden");
       }
     }
 

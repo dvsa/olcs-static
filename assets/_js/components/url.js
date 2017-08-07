@@ -32,6 +32,7 @@ OLCS.url = (function(document, $, undefined) {
     },
 
     load: function(url) {
+      OLCS.stopEnableButton = true;
       window.location.href = url;
     }
 
