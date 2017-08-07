@@ -10,6 +10,10 @@
     &--pink {
         background: $pink;
         color: white;
+
+        a {
+            color: white;
+        }
     }
 
     &--blue {
@@ -18,9 +22,10 @@
     }
 
     &__heading {
-        font-size: font-size(4);
+        font-size: font-size(5);
 
         &--icon {
+            min-height: 34px;
             padding-left: 65px;
         }
     }
