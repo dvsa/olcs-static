@@ -110,6 +110,11 @@ h5 {
   @extend %h5;
 }
 
+.heading-large {
+  margin-top: 1.85em;
+  margin-bottom: 1.25em;
+}
+
 p {
   @extend %paragraph;
   font-weight: 400;
@@ -128,6 +133,14 @@ small {
 .divider {
   border-top: 1px solid $grey-2;
   padding: 1.5em 0 10px;
+}
+
+.seperator {
+  height: 0;
+  display: block;
+  border-top: 1px solid $grey-2;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 /**
@@ -186,6 +199,7 @@ ol {
 
   .exclamation {
     padding-left: 48px;
+    min-height: 34px;
     position: relative;
     &:after {
       @include svg('selfserve-exclamation');
