@@ -457,6 +457,9 @@ tfoot {
       border-top: none;
     }
   }
+  td {
+    font-size: font-size(5);
+  }
   thead {
     border-bottom: 1px solid $grey-2;
   }
