@@ -3,6 +3,11 @@
     padding: 1rem;
     margin-bottom: 1rem;
 
+    
+    &--large-padding {
+        padding: 2rem;
+    }
+
     &--grey {
         background-color: $grey-3;
     }
@@ -59,4 +64,5 @@
             padding-left: 32px;
         }
     }
+
 }
