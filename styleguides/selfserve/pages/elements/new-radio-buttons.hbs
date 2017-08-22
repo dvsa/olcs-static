@@ -136,6 +136,64 @@ breadcrumbs:
       </fieldset>
     </div>
 
+
+    <div class="field">
+      <h3>Stacked with conditional content - error</h3>
+      <fieldset class="radio-button__fieldset">
+        <legend class="form-element__label form-label">How do you want to be contacted?</legend>
+        <p class="form-hint">These work without javascript</p>
+        <div class="radio-button__container">
+          <input type="radio" class="radio-button" name="q7" id="q7[upload]" value="Y"  data-show-element="#q7-upload-content"  checked="checked">
+          <label class ="radio-button__label" for="q7[upload]">Email</label>
+          <div class="help__text radio-button__hidden-content radio-button__hidden-content--error" id="q7-upload-content">
+            <label for="email" class="label--error">Email address</label>
+            <input type="text" class="input--error" name="email"  id="email">
+          </div>
+        </div>
+        <div class="radio-button__container">
+          <input type="radio" class="radio-button" name="q7" id="q7[send]" value="Y" data-show-element="#q7-phone-content">
+          <label class ="radio-button__label" for="q7[send]">Phone</label>
+          <div class="radio-button__hidden-content help__text" id="q7-phone-content">
+            <label for="phone">Phone number</label>
+            <input type="text" name="phone"  id="phone">
+          </div>
+        </div>
+        <div class="radio-button__container">
+          <input type="radio" class="radio-button" name="q7" id="q7[later]" value="Y">
+          <label class ="radio-button__label" for="q7[later]">Text message</label>
+          <div class="radio-button__hidden-content help__text" id="q7-mobile-content" data-show-element="#q7-mobile-content">
+            <label for="mobile">Mobile phone number</label>
+            <input type="text" name="mobile" id="mobile">
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+
+    <div class="field">
+      <h3>Yes / No with conditional content</h3>
+      <p class="form-hint">Yes no conditional content should be displayed below the radio buttons.</p>
+      <fieldset class="radio-button__fieldset">
+        <legend class="">Do you have any other finances?</legend>
+        <p>This can incude any factoring/discount facilities or credit cards</p>
+        <div class="radio-button__container radio-button__container--inline">
+          <input type="radio" class="radio-button" name="q8" id="q8[Y]" value="Y" data-show-element="#q8-yes-content">
+          <label class ="radio-button__label" for="q8[Y]">Yes</label>
+        </div>
+        <div class="radio-button__container radio-button__container--inline">
+          <input type="radio" class="radio-button" name="q8" id="q8[N]" value="N" data-show-element="#q8-no-content">
+          <label class="radio-button__label" for="q8[N]">No</label>
+        </div>
+          <div class="radio-button__hidden-content help__text" id="q8-yes-content">
+            <p>Yes content</p>
+          </div>
+          <div class="radio-button__hidden-content help__text" id="q8-no-content">
+            <p>No content</p>
+          </div>
+      </fieldset>
+    </div>
+
+
   </div>
 
 
