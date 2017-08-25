@@ -284,7 +284,9 @@ select,
 .file-uploader {
   ul {
     list-style: none;
-    max-width: 700px;
+    @if $app == 'selfserve' {
+      max-width: 700px;
+    }
   }
 }
 
@@ -305,6 +307,8 @@ select,
       margin-bottom: 15px;
     }
   }
+
+
 
   &__label {
     .js-enabled & {
@@ -356,6 +360,7 @@ select,
   }
   width: 100%;
   justify-content: space-between;
+  align-items: center;
   padding: 10px 15px 7px 0px;
   color: $grey-1;
   border-bottom: 1px solid $grey-2;
@@ -395,10 +400,14 @@ select,
       text-align: left;
     }
   }
-  img {
-    width: 100%;
-    height: auto;
-    margin: 10px 0;
+  &__image-container {
+    max-width: 300px;
+    padding: 10px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 
   span {
