@@ -1,78 +1,45 @@
-/**
- * Application/Licence Overview
- */
+.overview {
 
-.overview-navigation {
-  @extend %contain-floats;
-  list-style: none;
-  margin-bottom: 2em;
-  border-top: 1px solid $grey-2;
-}
-
-.disabled .overflow-item:hover {
-  background: none;
-}
-
-.overview-item {
-  border-bottom: 1px solid $grey-2;
-  float: left;
-  width: 100%;
-  padding: 5px 0;
-  h4 {
-    float: left;
-    width: 40%;
-    margin: 0;
+  &__list {
+    list-style: none;
   }
-  p {
-    @extend %paragraph--small;
+
+  &__list-item {
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid $grey-2;
+    padding:  10px 0 6px 0;
+  }
+
+  &__link {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    text-decoration: none;
+
+    &--underline {
+      text-decoration: underline;
+    }
+
+    &--large {
+      @extend h3;
+      font-weight: bold;
+    }
+  }
+
+  &__item {
+    @extend .overview__link;
+    @extend h3;
+    font-weight: bold;
+    
+  }
+
+  &__status {
+    @extend .status;
+    font-size: 14px;
     float: right;
-    clear: none;
-    text-decoration: underline;
-    pointer-events: none;
-    color: $link-colour;
-    @media (max-width: 640px) {
-      font-size: 14px;
-    }
-  }
-  .status {
-    float: right;
-    font-size: 13px;
-    margin: 11px 0 0 0;
-    @media (max-width: 640px) {
-      font-size: 11px;
-    }
-  }
-}
-
-.overview-item__link {
-  padding: 5px 0;
-  float: left;
-  display: block;
-  cursor: pointer;
-  text-decoration: none;
-  .disabled & {
-    color: $grey-1;
-    cursor: default;
-    &:hover {
-      text-decoration: inherit;
-    }
-  }
-  &:hover {
-    text-decoration: underline;
-    .disabled & {
-      background: none;
-      color: $grey-1;
-    }
-  }
-  &:focus {
-    background: $yellow;
-    outline: none;
-    h4 {
-      color: $grey-1;
-    }
-    p {
-      @extend %preloader-light;
-      text-indent: -9999px;
-    }
+    line-height: 1.5em;
+    padding: 4px 6px 2px 6px;
   }
 }
