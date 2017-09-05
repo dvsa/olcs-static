@@ -153,9 +153,8 @@
                             prev: 'public/styles/internal.css.map',
                         }
                     },
-                    build: {
                         src: 'public/styles/internal.css'
-                    }
+                    
                 },
                 selfserve: {
                     options: {
@@ -164,9 +163,7 @@
                             prev: 'public/styles/selfserve.css.map',
                         }
                     },
-                    build: {
                         src: 'public/styles/selfserve.css'
-                    }
                 }
             },
 
