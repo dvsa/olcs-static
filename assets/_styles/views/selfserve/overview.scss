@@ -1,78 +1,42 @@
-/**
- * Application/Licence Overview
- */
+.overview {
 
-.overview-navigation {
-  @extend %contain-floats;
-  list-style: none;
-  margin-bottom: 2em;
-  border-top: 1px solid $grey-2;
-}
+  &__list {
+    list-style: none;
+  }
 
-.disabled .overflow-item:hover {
-  background: none;
-}
+  &__list-item {
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid $grey-2;
+    padding:  10px 0 6px 0;
+  }
 
-.overview-item {
-  border-bottom: 1px solid $grey-2;
-  float: left;
-  width: 100%;
-  padding: 5px 0;
-  h4 {
-    float: left;
-    width: 40%;
-    margin: 0;
-  }
-  p {
-    @extend %paragraph--small;
-    float: right;
-    clear: none;
-    text-decoration: underline;
-    pointer-events: none;
-    color: $link-colour;
-    @media (max-width: 640px) {
-      font-size: 14px;
-    }
-  }
-  .status {
-    float: right;
-    font-size: 13px;
-    margin: 11px 0 0 0;
-    @media (max-width: 640px) {
-      font-size: 11px;
-    }
-  }
-}
+  &__link {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    text-decoration: none;
 
-.overview-item__link {
-  padding: 5px 0;
-  float: left;
-  display: block;
-  cursor: pointer;
-  text-decoration: none;
-  .disabled & {
-    color: $grey-1;
-    cursor: default;
-    &:hover {
-      text-decoration: inherit;
+    &--underline {
+      text-decoration: underline;
+    }
+
+    &--large {
+      @extend h3;
+      font-weight: bold;
     }
   }
-  &:hover {
-    text-decoration: underline;
-    .disabled & {
-      background: none;
-      color: $grey-1;
-    }
+
+  &__item {
+    @extend .overview__link;
+    @extend h3;
+    font-weight: bold;   
   }
-  &:focus {
-    background: $yellow;
-    outline: none;
-    h4 {
-      color: $grey-1;
-    }
-    p {
-      @extend %preloader-light;
-      text-indent: -9999px;
-    }
+
+  &__status {
+    @extend .status;
+    font-size: 14px;
+    padding: 4px 6px 2px 6px;
   }
 }
