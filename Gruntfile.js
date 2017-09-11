@@ -191,7 +191,7 @@
                     }, {
                         expand: true,
                         cwd: 'public/images/',
-                        src: ['**/*.{png,jpg,gif,svg}'],
+                        src: ['**/*.{png,jpg,gif,svg,ico}'],
                         dest: '../prototypes/' + target + '/images/'
                     }, {
                         expand: true,
@@ -204,7 +204,7 @@
                     files: [{
                         expand: true,
                         cwd: 'assets/_images/',
-                        src: ['**/*.{png,jpg,gif,svg}'],
+                        src: ['**/*.{png,jpg,gif,svg,ico}'],
                         dest: 'public/images/'
                     }]
                 }
