@@ -113,6 +113,14 @@ input[type='radio']{
 
   &__hidden-content {
     margin-bottom: $gutter;
+
+    &--error {
+      border-color: $error-colour;
+
+      &.help__text {
+        border-color: $error-colour;
+      }
+    }
   }
 }
 
@@ -151,7 +159,7 @@ input[type='checkbox']{
       font-weight: 700;
 
       &:before, &:after {
-        border-color: $error-colour;
+        border: 4px solid $error-colour;
       }
     }
   }
@@ -217,4 +225,42 @@ input[type='checkbox']{
   }
 
   
+}
+
+
+
+.label {
+  &--error {
+    color: $error-colour;
+  }
+}
+
+.input {
+  &--error {
+    border: 2px solid $error-colour;
+  }
+}
+
+
+.error {
+  &__wrapper {
+    border-left: 4px solid $error-colour;
+    padding-left: 15px;
+    &.help__text {
+      border-left: 4px solid $error-colour;
+    }
+  }
+
+  &__text {
+    color: $error-colour;
+    font-weight: bold;
+  }
+
+  &__label {
+    border-color: $error-colour;
+  }
+
+  &__input {
+    border: 3px solid $error-colour;
+  }
 }
