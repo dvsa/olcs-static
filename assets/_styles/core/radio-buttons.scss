@@ -1,4 +1,4 @@
-$radion-button-size: $form-control-size;
+$radio-button-size: 34px;
 $radio-button-select-size: 18px;
 
 %input-base {
@@ -9,18 +9,19 @@ $radio-button-select-size: 18px;
   left: 0;
   margin: 0;
   z-index: 10;
-  width: $radion-button-size;
-  height: $radion-button-size;
+  width: $radio-button-size;
+  height: $radio-button-size;
   &[disabled] {
     cursor: not-allowed;
   }
 }
 
 %label-base {
+  display: block;
   margin-bottom: $gutter-half;
-  padding-left: $form-control-size + $gutter-one-third;
+  padding-left: $radio-button-size + $gutter-one-third;
   position: relative;
-  line-height: $form-control-size;
+  line-height: $radio-button-size;
   margin-right: $gutter;
   cursor: pointer;
 
@@ -36,8 +37,8 @@ $radio-button-select-size: 18px;
     left: 0;
     vertical-align: middle;
     background: transparent;
-    width: $form-control-size;
-    height: $form-control-size;
+    width: $radio-button-size;
+    height: $radio-button-size;
   }
 }
 
@@ -50,9 +51,12 @@ $radio-button-select-size: 18px;
   }
 }
 
+
 input[type='radio']{
   &.radio-button{
-    @extend %input-base;
+    @if $app == 'selfserve' {
+      @extend %input-base;
+    }
   }
 }
 
@@ -70,7 +74,11 @@ input[type='radio']{
     &--multi-line {
       line-height: inherit;
     }
-    @extend %label-base;
+
+    display: inline-block;
+    @if $app == 'selfserve' {
+      @extend %label-base;
+    }
 
     &:before {
       border-radius: 50%;
@@ -87,14 +95,14 @@ input[type='radio']{
 
   &:focus{
     + .radio-button__label:before {
-      box-shadow: 0 0 0 ($form-control-size * 0.12) $focus-colour;
+      box-shadow: 0 0 0 ($radio-button-size * 0.12) $focus-colour;
     }
   }
 
   &:checked {
     + .radio-button__label:after {
-      top: ($form-control-size - $radio-button-select-size) / 2 ;
-      left:($form-control-size - $radio-button-select-size) / 2 ;
+      top: ($radio-button-size - $radio-button-select-size) / 2 ;
+      left:($radio-button-size - $radio-button-select-size) / 2 ;
       height: 0;
       width: 0;
       border: $radio-button-select-size/2 solid $black;
@@ -130,7 +138,9 @@ input[type='radio']{
 
 input[type='checkbox']{
   &.checkbox{
-    @extend %input-base;
+    @if $app == 'selfserve' {
+      @extend %input-base;
+    }
   }
 }
 
@@ -148,7 +158,11 @@ input[type='checkbox']{
     &--multi-line {
       line-height: inherit;
     }
-    @extend %label-base;
+    
+    display: inline-block;
+    @if $app == 'selfserve' {
+      @extend %label-base;
+    }
 
     &:before {
       border: 2px solid $black;
@@ -173,7 +187,7 @@ input[type='checkbox']{
 
   &:focus{
     + .checkbox__label:before {
-      box-shadow: 0 0 0 ($form-control-size * 0.12) $focus-colour;
+      box-shadow: 0 0 0 ($radio-button-size * 0.12) $focus-colour;
     }
   }
 
@@ -192,13 +206,13 @@ input[type='checkbox']{
     + .checkbox__label:after {
       border: solid;
       border-color: $black;
-      border-width: 0 0 ($form-control-size * 0.15) ($form-control-size * 0.15);
+      border-width: 0 0 ($radio-button-size * 0.15) ($radio-button-size * 0.15);
       background: transparent;
-      width: ($form-control-size * 0.65);
-      height: ($form-control-size * 0.3);
+      width: ($radio-button-size * 0.65);
+      height: ($radio-button-size * 0.3);
       position: absolute;
-      top: ($form-control-size * 0.3);
-      left: ($form-control-size * 0.2);
+      top: ($radio-button-size * 0.3);
+      left: ($radio-button-size * 0.2);
       transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
     }
