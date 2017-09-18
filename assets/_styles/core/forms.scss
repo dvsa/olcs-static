@@ -448,6 +448,12 @@ select,
   }
 }
 
+.file__link {
+  word-wrap: break-word;
+  max-width: 300px;
+  display: inline-block;
+}
+
 .inline-upload {
   .selfserve & {
     @extend %h4;
