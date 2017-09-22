@@ -21,6 +21,8 @@
       color: $grey-1;
       font-weight: 400;
       margin-bottom: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     &__text {
