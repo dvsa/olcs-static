@@ -90,7 +90,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
           "<span>",
             kbSize + "KB",
           "</span>",
-          "<span class=file__remove>Uploading &hellip;</span>",
+          "<span class='uploading'>Uploading &hellip;</span>",
         "</li>"
       ].join("\n"));
 
@@ -105,7 +105,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
           $("[data-upload-index=" + index + "]")
             .find(".file__preloader")
             .remove()
-            .find(".file__remove")
+            .find(".uploading")
             .replaceWith("<a href=# class=file__remove>Remove</a>");
 
           if (numUploaded === totalUploads) {
@@ -159,7 +159,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
 
       F.pressButton(form, button);
 
-      $(this).eq(0).replaceWith("<span class=file__remove>Removing &hellip;</span>");
+      $(this).eq(0).replaceWith("<span class='uploading'>Removing &hellip;</span>");
 
       OLCS.submitForm({
         form: form,
