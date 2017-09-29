@@ -399,6 +399,11 @@ select,
       float: none;
       text-align: left;
     }
+
+    &.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
   }
   &__image-container {
     max-width: 300px;
