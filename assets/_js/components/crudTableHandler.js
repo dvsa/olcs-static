@@ -4,7 +4,7 @@ var OLCS = OLCS || {};
  * CRUD table handler
  */
 
-OLCS.crudTableHandler = (function(document, $, undefined) {
+OLCS.crudTableHandler = (function (document, $, undefined) {
 
   "use strict";
 
@@ -20,9 +20,9 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
       ".table__empty button"
     ].join(",");
 
-    var modalBodySelector  = ".modal__content";
-    var mainBodySelector   = ".js-body";
-    var modalWrapper       = ".modal__wrapper";
+    var modalBodySelector = ".modal__content";
+    var mainBodySelector = ".js-body";
+    var modalWrapper = ".modal__wrapper";
 
     var F = OLCS.formHelper;
     var modalEvent;
@@ -31,7 +31,7 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
     function reloadParent() {
       OLCS.ajax({
         url: window.location.href,
-        success: OLCS.normaliseResponse(function(response) {
+        success: OLCS.normaliseResponse(function (response) {
           F.render(mainBodySelector, response.body);
         }),
         preloaderType: "modal"
@@ -41,8 +41,12 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
     $(document).on("click", crudActionSelector, function handleCrudClick(e) {
       e.preventDefault();
 
+      // save the last focused element for later
+      OLCS.modal.lastFocus = document.activeElement;
+      OLCS.modal.lastFocusSelector = OLCS.generateCSSSelector($(document.activeElement));
+
       var button = $(this);
-      var form   = $(this).parents("form");
+      var form = $(this).parents("form");
 
       // manually handle rendering the modal because we need to intercept
       // any errors triggered when the user clicks a CRUD button
@@ -64,7 +68,7 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
             followRedirects: false,
             callback: handleCrudResponse
           }),
-          error: function(){
+          error: function () {
             window.alert("fail");
           }
         };
