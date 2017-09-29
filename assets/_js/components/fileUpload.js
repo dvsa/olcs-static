@@ -21,6 +21,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
     var numUploaded           = 0;
     var totalUploads          = 0;
     var MULTI_UPLOAD_DELAY    = 1000;
+    var uploadInProgress      = false;
 
     if (window.FormData === undefined) {
       OLCS.logger.warn("XHR form uploads not supported in this browser", "fileUpload");
@@ -28,15 +29,20 @@ OLCS.fileUpload = (function(document, $, undefined) {
     }
 
     function disableElements() {
+      uploadInProgress = true;
+      $(removeSelector).addClass("disabled");
       var pageActions = $(".actions-container").last().children();
       $(attachButtonSelector).addClass("disabled");
       $(pageActions, inputSelector).attr({
         "disabled"    : true,
         "aria-hidden" : true
       });
+
     }
 
     function enableElements() {
+      $(removeSelector).removeClass("disabled");
+      uploadInProgress = false;
       $(attachButtonSelector).removeClass("disabled");
       $(".actions-container").last().children().removeAttr("disabled", "aria-hidden");
     }
@@ -76,8 +82,10 @@ OLCS.fileUpload = (function(document, $, undefined) {
       var sectionIdVal   = form.find("[name='sectionId']").val();
       var security       = document.getElementById("security");
       var url            = form.attr("action") ? form.attr("action") : window.location.pathname;
+      uploadInProgress = true;
 
       OLCS.logger.debug("Uploading file " + file.name + " (" + file.type + ")", "fileUpload");
+
 
       disableElements();
       addFileList(container);
@@ -150,21 +158,22 @@ OLCS.fileUpload = (function(document, $, undefined) {
     }
 
     $(document).on("click", removeSelector, function(e) {
-      e.preventDefault();
-      e.stopPropagation();
-      e.stopImmediatePropagation();
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        if(!uploadInProgress){
+        var button = $(this);
+        var form   = $(this).parents("form");
 
-      var button = $(this);
-      var form   = $(this).parents("form");
+        F.pressButton(form, button);
 
-      F.pressButton(form, button);
+        $(this).eq(0).replaceWith("<span class='uploading'>Removing &hellip;</span>");
 
-      $(this).eq(0).replaceWith("<span class='uploading'>Removing &hellip;</span>");
-
-      OLCS.submitForm({
-        form: form,
-        success: deleteResponse
-      });
+        OLCS.submitForm({
+          form: form,
+          success: deleteResponse
+        });
+      }
     });
 
     if (asyncUploads) {
