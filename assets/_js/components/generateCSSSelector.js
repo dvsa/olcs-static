@@ -9,24 +9,27 @@ OLCS.generateCSSSelector = (function (document, $, undefined) {
     var path;
     while (node.length) {
       var realNode = node[0],
-        name = realNode.localName;
-      if (!name) {
+        element = realNode.localName;
+      if (!element) {
         break;
       }
-      name = name.toLowerCase();
-
+      var nameAttr = realNode.getAttribute("name");
+      element = element.toLowerCase();
+        if(nameAttr && nameAttr !== "undefined") {
+            element += "[name='"+nameAttr+"']";
+        }
       var parent = node.parent();
 
-      var sameTagSiblings = parent.children(name);
+      var sameTagSiblings = parent.children(element);
       if (sameTagSiblings.length > 1) {
         var allSiblings = parent.children();
         var index = allSiblings.index(realNode) + 1;
         if (index > 0) {
-          name += ":nth-child(" + index + ")";
+          element += ":nth-child(" + index + ")";
         }
       }
 
-      path = name + (path ? ">" + path : "");
+      path = element + (path ? ">" + path : "");
       node = parent;
     }
 
