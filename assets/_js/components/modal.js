@@ -8,7 +8,7 @@ var OLCS = OLCS || {};
  * a time (may need addressing in future).
  */
 
-OLCS.modal = (function (document, $, undefined) {
+OLCS.modal = (function(document, $, undefined) {
 
   'use strict';
 
@@ -20,13 +20,13 @@ OLCS.modal = (function (document, $, undefined) {
   /**
    * private interface
    */
-  var selector = '.modal';
-  var wrapper = '.modal__wrapper';
-  var overlay = '.overlay';
-  var header = '.modal__title';
-  var content = '.modal__content';
+  var selector  = '.modal';
+  var wrapper   = '.modal__wrapper';
+  var overlay   = '.overlay';
+  var header    = '.modal__title';
+  var content   = '.modal__content';
   var bodyClass = 'disable-scroll';
-  var inputs = 'textarea, input, select';
+  var inputs    = 'textarea, input, select';
   var modalTabbableElements = '.modal--alert, .modal--alert .action--primary, #cancel, .modal__close';
   var pageTabbableElements = 'a, input, select, textarea, button, body, [tabindex]:not([tabindex^="-"])';
 
@@ -35,13 +35,13 @@ OLCS.modal = (function (document, $, undefined) {
   var template = [
     '<div class="overlay" style="display:none;"></div>',
     '<div class="modal__wrapper" style="display:none;">',
-    '<div class="modal" role="dialog" aria-labelledby="modal-title" tabindex="1">',
-    '<div class="modal__header">',
-    '<h1 class="modal__title" id="modal-title"></h1>',
-    '</div>',
-    '<div class="modal__content"></div>',
-    '<a href="#" class="modal__close" aria-label="close">Close</a>',
-    '</div>',
+      '<div class="modal" role="dialog" aria-labelledby="modal-title" tabindex="1">',
+        '<div class="modal__header">',
+          '<h1 class="modal__title" id="modal-title"></h1>',
+        '</div>',
+        '<div class="modal__content"></div>',
+        '<a href="#" class="modal__close" aria-label="close">Close</a>',
+      '</div>',
     '</div>'
   ].join('\n');
 
@@ -60,13 +60,13 @@ OLCS.modal = (function (document, $, undefined) {
   /**
    * public interface
    */
-  exports.show = function (body, title) {
+  exports.show = function(body, title) {
 
     // Prevents scrolling issues on mobile Safari
     if ('ontouchstart' in window) {
-      $(document).on('focus', inputs, function () {
+      $(document).on('focus', inputs, function() {
         $(wrapper).css('position', 'absolute');
-      }).on('blur', inputs, function () {
+      }).on('blur', inputs, function() {
         $(wrapper).css('position', '');
       });
     }
