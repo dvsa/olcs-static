@@ -99,7 +99,7 @@ OLCS.modal = (function(document, $, undefined) {
     // needs resetting
     $(wrapper).scrollTop(0);
 
-    $(document).keyup(function (e) {
+    $(document).keyup(function(e) {
       if (e.keyCode === 27 && exports.isVisible()) {
         e.preventDefault();
         exports.hide();
@@ -128,7 +128,7 @@ OLCS.modal = (function(document, $, undefined) {
 
   };
 
-  exports.hide = function () {
+  exports.hide = function() {
     // sometimes we want to trigger a different action when we
     // hide the modal, such as showing a confirmation box.
     var form = $(content).find('form[data-close-trigger]');
@@ -141,7 +141,7 @@ OLCS.modal = (function(document, $, undefined) {
 
     // clean things up
     $('body').removeClass(bodyClass);
-    $(wrapper + ',' + overlay).remove();
+    $(wrapper +','+overlay).remove();
 
     // Set the aria-hidden attribute of all other content to 'false'
     // when the modal closes
@@ -155,11 +155,11 @@ OLCS.modal = (function(document, $, undefined) {
 
   };
 
-  exports.isVisible = function () {
+  exports.isVisible = function() {
     return $(wrapper).is(':visible');
   };
 
-  exports.updateBody = function (body) {
+  exports.updateBody = function(body) {
     var position = $(wrapper).scrollTop();
     OLCS.formHelper.render(content, body);
     $(wrapper).scrollTop(position);
