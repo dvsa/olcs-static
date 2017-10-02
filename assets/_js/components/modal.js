@@ -28,7 +28,7 @@ OLCS.modal = (function (document, $, undefined) {
   var bodyClass = 'disable-scroll';
   var inputs = 'textarea, input, select';
   var modalTabbableElements = '.modal--alert, .modal--alert .action--primary, #cancel, .modal__close';
-  var pageTabbableElements = 'a, input, button, body, [tabIndex=0]';
+  var pageTabbableElements = 'a, input, select, textarea, button, body, [tabindex]:not([tabindex^="-"])';
 
   var closeSelectors = selector + '__close, ' + content + ' #cancel';
 
