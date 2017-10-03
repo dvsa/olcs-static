@@ -20,7 +20,7 @@ describe("OLCS.nextFocusableElement", function() {
           $('body').append([
               '<tbody id="tbody">',
               '<tr id="tr1">',
-              '<td><a href=#></a></td>',
+              '<td><a href=#></a><p><a href=# id="link1"></a></p></td>',
               '<td><input type="checkbox" id="cb1" name="cb1"></td>',
               '</tr>',
               '<tr id="tr2">',
@@ -42,7 +42,7 @@ describe("OLCS.nextFocusableElement", function() {
 
           it("returns the next focusable element", function() {
               expect(this.result).to.be.an("object");
-              expect(this.result.attr('id')).to.be('cb1');
+              expect(this.result.id).to.be('link1');
           });
       });
 

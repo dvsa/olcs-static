@@ -8,17 +8,8 @@ OLCS.nextFocusableElement = (function (document, $, undefined) {
 
   return function init(element) {
 
-      if (!$(element).length) {
-          return {};
-      }
-      var next = $(element).next(focusableElements);
-      if(!next.length) {
-          next = $(element).parent().next().find(focusableElements).first();
-      }
-      if(!next.length) {
-          next = OLCS.nextFocusableElement($(element).parent());
-      }
-      return next;
+      var focusableElementChoices = $(focusableElements).add(element);
+      return focusableElementChoices[focusableElementChoices.index(element) + 1];
   };
 
 }(document, window.jQuery));
