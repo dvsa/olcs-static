@@ -165,7 +165,7 @@ OLCS.modal = (function(document, $, undefined) {
     $(wrapper).scrollTop(position);
   };
 
-  $('body').on('click', closeSelectors, function (e) {
+  $('body').on('click', closeSelectors, function(e) {
     e.preventDefault();
     exports.hide();
   });
@@ -177,7 +177,7 @@ OLCS.modal = (function(document, $, undefined) {
       var focusSelector = $(exports.lastFocusSelector).length ?
                                 exports.lastFocusSelector :
                                 exports.nextFocusableSelector;
-      $(focusSelector).focus();
+      $(focusSelector).focus().addClass('focused');
     }
     // cache the original overflow value
     var overflow = $(selector).css('overflow');

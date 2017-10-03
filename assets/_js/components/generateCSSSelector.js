@@ -14,13 +14,25 @@ OLCS.generateCSSSelector = (function (document, $, undefined) {
         break;
       }
       var nameAttr = realNode.getAttribute("name");
-      element = element.toLowerCase();
-        if(nameAttr && nameAttr !== "undefined") {
-            element += "[name='"+nameAttr+"']";
-        }
       var parent = node.parent();
-
       var sameTagSiblings = parent.children(element);
+
+      element = element.toLowerCase();
+
+      if(realNode.id) {
+          element += "#"+realNode.id;
+          path = element + (path ? ">" + path : "");
+          node = parent;
+          break;
+      }
+
+      if(nameAttr && nameAttr !== "undefined") {
+          element += "[name='"+nameAttr+"']";
+          path = element + (path ? ">" + path : "");
+          node = parent;
+          break;
+      }
+
       if (sameTagSiblings.length > 1) {
         var allSiblings = parent.children();
         var index = allSiblings.index(realNode) + 1;
