@@ -4,7 +4,7 @@ OLCS.generateCSSSelector = (function (document, $, undefined) {
 
   "use strict";
    
-  return function generateSelector(node) {
+  return function init(node) {
 
     var path;
     while (node.length) {

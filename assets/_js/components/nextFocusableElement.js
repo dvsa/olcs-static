@@ -6,7 +6,11 @@ OLCS.nextFocusableElement = (function (document, $, undefined) {
 
   var focusableElements = "a:visible, input:visible, select:visible, textarea:visible, button:visible, body:visible, [tabindex]:not([tabindex^=\"-\"]):visible";
 
-  return function getNext(element) {
+  return function init(element) {
+
+      if (!$(element).length) {
+          return {};
+      }
       var next = $(element).next(focusableElements);
       if(!next.length) {
           next = $(element).parent().next().find(focusableElements).first();
