@@ -45,13 +45,13 @@ OLCS.modal = (function (document, $, undefined) {
     '</div>'
   ].join('\n');
 
-  function tabFocusRestrictor() {
+  function restrictTabFocus() {
 
     $(pageTabbableElements).not(modalTabbableElements).attr('tabIndex', -1);
 
   }
 
-  function tabFocusRestorer() {
+  function restoreTabFocus() {
 
     $(pageTabbableElements).not(modalTabbableElements).removeAttr('tabIndex');
 
@@ -124,7 +124,7 @@ OLCS.modal = (function (document, $, undefined) {
     }
 
     // restrict tabbing to modal
-    tabFocusRestrictor();
+    restrictTabFocus();
 
   };
 
@@ -148,7 +148,7 @@ OLCS.modal = (function (document, $, undefined) {
     $('.page-wrapper').attr('aria-hidden', 'false');
 
     // restore tabbing to page elements
-    tabFocusRestorer();
+    restoreTabFocus();
 
     // let other components know that the modal is hidden
     OLCS.eventEmitter.emit('hide:modal');
