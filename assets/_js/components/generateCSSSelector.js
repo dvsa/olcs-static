@@ -4,29 +4,44 @@ OLCS.generateCSSSelector = (function (document, $, undefined) {
 
   "use strict";
    
-  return function generateSelector(node) {
+  return function init(node) {
 
     var path;
     while (node.length) {
       var realNode = node[0],
-        name = realNode.localName;
-      if (!name) {
+        element = realNode.localName;
+      if (!element) {
         break;
       }
-      name = name.toLowerCase();
-
+      var nameAttr = realNode.getAttribute("name");
       var parent = node.parent();
+      var sameTagSiblings = parent.children(element);
 
-      var sameTagSiblings = parent.children(name);
+      element = element.toLowerCase();
+
+      if(realNode.id) {
+          element += "#"+realNode.id;
+          path = element + (path ? ">" + path : "");
+          node = parent;
+          break;
+      }
+
+      if(nameAttr && nameAttr !== "undefined") {
+          element += "[name='"+nameAttr+"']";
+          path = element + (path ? ">" + path : "");
+          node = parent;
+          break;
+      }
+
       if (sameTagSiblings.length > 1) {
         var allSiblings = parent.children();
         var index = allSiblings.index(realNode) + 1;
         if (index > 0) {
-          name += ":nth-child(" + index + ")";
+          element += ":nth-child(" + index + ")";
         }
       }
 
-      path = name + (path ? ">" + path : "");
+      path = element + (path ? ">" + path : "");
       node = parent;
     }
 

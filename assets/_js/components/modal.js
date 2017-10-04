@@ -8,7 +8,7 @@ var OLCS = OLCS || {};
  * a time (may need addressing in future).
  */
 
-OLCS.modal = (function (document, $, undefined) {
+OLCS.modal = (function(document, $, undefined) {
 
   'use strict';
 
@@ -20,28 +20,28 @@ OLCS.modal = (function (document, $, undefined) {
   /**
    * private interface
    */
-  var selector = '.modal';
-  var wrapper = '.modal__wrapper';
-  var overlay = '.overlay';
-  var header = '.modal__title';
-  var content = '.modal__content';
+  var selector  = '.modal';
+  var wrapper   = '.modal__wrapper';
+  var overlay   = '.overlay';
+  var header    = '.modal__title';
+  var content   = '.modal__content';
   var bodyClass = 'disable-scroll';
-  var inputs = 'textarea, input, select';
+  var inputs    = 'textarea, input, select';
   var modalTabbableElements = '.modal--alert, .modal--alert .action--primary, #cancel, .modal__close';
-  var pageTabbableElements = 'a, input, button, body, [tabIndex=0]';
+  var pageTabbableElements = 'a, input, select, textarea, button, body, [tabindex]:not([tabindex^="-"])';
 
   var closeSelectors = selector + '__close, ' + content + ' #cancel';
 
   var template = [
     '<div class="overlay" style="display:none;"></div>',
     '<div class="modal__wrapper" style="display:none;">',
-    '<div class="modal" role="dialog" aria-labelledby="modal-title" tabindex="1">',
-    '<div class="modal__header">',
-    '<h1 class="modal__title" id="modal-title"></h1>',
-    '</div>',
-    '<div class="modal__content"></div>',
-    '<a href="#" class="modal__close" aria-label="close">Close</a>',
-    '</div>',
+      '<div class="modal" role="dialog" aria-labelledby="modal-title" tabindex="1">',
+        '<div class="modal__header">',
+          '<h1 class="modal__title" id="modal-title"></h1>',
+        '</div>',
+        '<div class="modal__content"></div>',
+        '<a href="#" class="modal__close" aria-label="close">Close</a>',
+      '</div>',
     '</div>'
   ].join('\n');
 
@@ -60,13 +60,13 @@ OLCS.modal = (function (document, $, undefined) {
   /**
    * public interface
    */
-  exports.show = function (body, title) {
+  exports.show = function(body, title) {
 
     // Prevents scrolling issues on mobile Safari
     if ('ontouchstart' in window) {
-      $(document).on('focus', inputs, function () {
+      $(document).on('focus', inputs, function() {
         $(wrapper).css('position', 'absolute');
-      }).on('blur', inputs, function () {
+      }).on('blur', inputs, function() {
         $(wrapper).css('position', '');
       });
     }
@@ -99,7 +99,7 @@ OLCS.modal = (function (document, $, undefined) {
     // needs resetting
     $(wrapper).scrollTop(0);
 
-    $(document).keyup(function (e) {
+    $(document).keyup(function(e) {
       if (e.keyCode === 27 && exports.isVisible()) {
         e.preventDefault();
         exports.hide();
@@ -128,7 +128,7 @@ OLCS.modal = (function (document, $, undefined) {
 
   };
 
-  exports.hide = function () {
+  exports.hide = function() {
     // sometimes we want to trigger a different action when we
     // hide the modal, such as showing a confirmation box.
     var form = $(content).find('form[data-close-trigger]');
@@ -141,7 +141,7 @@ OLCS.modal = (function (document, $, undefined) {
 
     // clean things up
     $('body').removeClass(bodyClass);
-    $(wrapper + ',' + overlay).remove();
+    $(wrapper +','+overlay).remove();
 
     // Set the aria-hidden attribute of all other content to 'false'
     // when the modal closes
@@ -155,25 +155,29 @@ OLCS.modal = (function (document, $, undefined) {
 
   };
 
-  exports.isVisible = function () {
+  exports.isVisible = function() {
     return $(wrapper).is(':visible');
   };
 
-  exports.updateBody = function (body) {
+  exports.updateBody = function(body) {
     var position = $(wrapper).scrollTop();
     OLCS.formHelper.render(content, body);
     $(wrapper).scrollTop(position);
   };
 
-  $('body').on('click', closeSelectors, function (e) {
+  $('body').on('click', closeSelectors, function(e) {
     e.preventDefault();
     exports.hide();
   });
 
   OLCS.eventEmitter.on('render', function () {
     // restore focus to last focused element
+    // if that was removed set focus on the next element
     if (typeof exports.lastFocus !== 'undefined' && !exports.isVisible()) {
-      $(exports.lastFocusSelector).focus();
+      var focusSelector = $(exports.lastFocusSelector).length ?
+                                exports.lastFocusSelector :
+                                exports.nextFocusableSelector;
+      $(focusSelector).focus().addClass('focused');
     }
     // cache the original overflow value
     var overflow = $(selector).css('overflow');
