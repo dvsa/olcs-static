@@ -24,3 +24,4 @@ node_modules
 composer.lock
 editorconfig.org
 assets/vendor
+.scannerwork/
