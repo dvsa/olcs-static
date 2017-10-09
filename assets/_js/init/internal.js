@@ -36,7 +36,7 @@ OLCS.ready(function() {
   var path = location.pathname;
   if (path.indexOf('/admin/publication/pending') > -1) {
 
-    OLCS.conditionallyToggleButtonStateOnChange({
+    OLCS.conditionallyDisableButtonStateOnChange({
 
       dataElSelector: '[data-heading="Document status"]',
       dataElValToCheck: 'New',

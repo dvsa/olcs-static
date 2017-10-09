@@ -1,9 +1,9 @@
 var OLCS = OLCS || {};
 
 /**
- * Conditionally Toggle Button State On Change
+ * Conditionally Disable Button State On Change
  *
- * Helper class to toggle the state of an action button
+ * Helper class to Disable the state of an action button
  * based on the value of a piece of data in a button's
  * wrapping <tr>. Example options:
  * {
@@ -16,14 +16,14 @@ var OLCS = OLCS || {};
  *
  */
 
-OLCS.conditionallyToggleButtonStateOnChange = (function (document, $, undefined) {
+OLCS.conditionallyDisableButtonStateOnChange = (function (document, $, undefined) {
 
   'use strict';
 
   return function init(options) {
 
     if (!options || !options.dataElSelector || !options.dataElValToCheck || !options.buttonSelector || !options.stateAttr || !options.stateAttrVal) {
-      throw new Error('OLCS.toggleButtonStateOnChange requires a dataElSelector, dataElValToCheck, buttonSelector, stateAttrVal and a stateAttr option');
+      throw new Error('OLCS.disableButtonStateOnChange requires a dataElSelector, dataElValToCheck, buttonSelector, stateAttrVal and a stateAttr option');
     }
 
     function onChange() {
@@ -31,14 +31,11 @@ OLCS.conditionallyToggleButtonStateOnChange = (function (document, $, undefined)
       if ($checkedInput.length > 0) {
         var dataElVal = $checkedInput.parents('tr').find(options.dataElSelector).text();
         var disableButton = dataElVal === options.dataElValToCheck;
-        if (typeof options.stateAttrVal === 'boolean') {
-          if (disableButton) {
-            return $(options.buttonSelector).attr(options.stateAttr, options.stateAttrVal);
-          } else {
-            return $(options.buttonSelector).removeAttr(options.stateAttr);
-          }
+        if (disableButton) {
+          return $(options.buttonSelector).attr(options.stateAttr, options.stateAttrVal);
+        } else {
+          return $(options.buttonSelector).removeAttr(options.stateAttr);
         }
-        return $(options.buttonSelector).attr(options.stateAttr, options.stateAttrVal);
       }
     }
 
