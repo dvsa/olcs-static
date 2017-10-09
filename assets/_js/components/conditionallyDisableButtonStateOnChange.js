@@ -1,9 +1,9 @@
 var OLCS = OLCS || {};
 
 /**
- * Conditionally Disable Button State On Change
+ * Conditionally Disable Button On Change
  *
- * Helper class to Disable the state of an action button
+ * Helper class to Disable the state of a button
  * based on the value of a piece of data in a button's
  * wrapping <tr>. Example options:
  * {
@@ -16,7 +16,7 @@ var OLCS = OLCS || {};
  *
  */
 
-OLCS.conditionallyDisableButtonStateOnChange = (function (document, $, undefined) {
+OLCS.conditionallyDisableButtonOnChange = (function (document, $, undefined) {
 
   'use strict';
 
