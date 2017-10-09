@@ -32,5 +32,20 @@ OLCS.ready(function() {
         return this.href + '?' + date;
     });
   });
+
+  var path = location.pathname;
+  if (path.indexOf('/admin/publication/pending') > -1) {
+
+    OLCS.conditionallyToggleButtonStateOnChange({
+
+      dataElSelector: '[data-heading="Document status"]',
+      dataElValToCheck: 'New',
+      buttonSelector: '#publish',
+      stateAttr: 'disabled',
+      stateAttrVal: true
+
+    });
+
+  }
   
 });
