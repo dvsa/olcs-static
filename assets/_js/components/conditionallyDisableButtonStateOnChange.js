@@ -39,7 +39,7 @@ OLCS.conditionallyDisableButtonOnChange = (function (document, $, undefined) {
       }
     }
 
-    $(document).on('change', onChange);
+    return $(document).on('change', onChange);
 
   };
 
