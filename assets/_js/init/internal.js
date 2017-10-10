@@ -29,7 +29,7 @@ OLCS.ready(function() {
   $('form[action*="search"] .table__wrapper').find('a').each(function() {
     var date = new Date().toJSON().slice(0,10);
     $(this).attr('href', function() {
-      return this.href + '?' + date;
+        return this.href + '?' + date;
     });
   });
 

@@ -57,11 +57,6 @@ describe("OLCS.conditionallyDisableButton", function() {
             this.body.append(template);
         });
 
-        // afterEach(function() {
-        //     this.on.restore();
-        //     $('#stub').remove();
-        // });
-
         describe('when initialised with valid options', function() {
 
             var _component;
@@ -99,6 +94,5 @@ describe("OLCS.conditionallyDisableButton", function() {
         }); // when initialised with valid options
 
     }); // Given a stubbed DOM
-
 
 });
