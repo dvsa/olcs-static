@@ -27,8 +27,6 @@ OLCS.modal = (function(document, $, undefined) {
   var content   = '.modal__content';
   var bodyClass = 'disable-scroll';
   var inputs    = 'textarea, input, select';
-  var modalTabbableElements = '.modal--alert, .modal--alert .action--primary, #cancel, .modal__close';
-  var pageTabbableElements = 'a, input, select, textarea, button, body, [tabindex]:not([tabindex^="-"])';
 
   var closeSelectors = selector + '__close, ' + content + ' #cancel';
 
@@ -44,18 +42,6 @@ OLCS.modal = (function(document, $, undefined) {
       '</div>',
     '</div>'
   ].join('\n');
-
-  function restrictTabFocus() {
-
-    $(pageTabbableElements).not(modalTabbableElements).attr('tabIndex', -1);
-
-  }
-
-  function restoreTabFocus() {
-
-    $(pageTabbableElements).not(modalTabbableElements).removeAttr('tabIndex');
-
-  }
 
   /**
    * public interface
@@ -123,9 +109,6 @@ OLCS.modal = (function(document, $, undefined) {
       }
     }
 
-    // restrict tabbing to modal
-    restrictTabFocus();
-
   };
 
   exports.hide = function() {
@@ -147,9 +130,6 @@ OLCS.modal = (function(document, $, undefined) {
     // when the modal closes
     $('.page-wrapper').attr('aria-hidden', 'false');
 
-    // restore tabbing to page elements
-    restoreTabFocus();
-
     // let other components know that the modal is hidden
     OLCS.eventEmitter.emit('hide:modal');
 
@@ -170,15 +150,7 @@ OLCS.modal = (function(document, $, undefined) {
     exports.hide();
   });
 
-  OLCS.eventEmitter.on('render', function () {
-    // restore focus to last focused element
-    // if that was removed set focus on the next element
-    if (typeof exports.lastFocus !== 'undefined' && !exports.isVisible()) {
-      var focusSelector = $(exports.lastFocusSelector).length ?
-                                exports.lastFocusSelector :
-                                exports.nextFocusableSelector;
-      $(focusSelector).focus().addClass('focused');
-    }
+  OLCS.eventEmitter.on('render', function() {
     // cache the original overflow value
     var overflow = $(selector).css('overflow');
     // change the modal's overflow when enhanced dropdown is active
