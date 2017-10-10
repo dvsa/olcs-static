@@ -29,23 +29,27 @@ OLCS.ready(function() {
   $('form[action*="search"] .table__wrapper').find('a').each(function() {
     var date = new Date().toJSON().slice(0,10);
     $(this).attr('href', function() {
-        return this.href + '?' + date;
+      return this.href + '?' + date;
     });
   });
 
   var path = location.pathname;
   if (path.indexOf('/admin/publication/pending') > -1) {
 
-    OLCS.conditionallyDisableButtonOnChange({
-
+    var options = {
       dataElSelector: '[data-heading="Document status"]',
       dataElValToCheck: 'New',
       buttonSelector: '#publish',
       stateAttr: 'disabled',
       stateAttrVal: true
+    };
+
+    $(document).on('change', function() {
+
+      OLCS.conditionallyDisableButton(options).onChange();
 
     });
 
   }
-  
+
 });

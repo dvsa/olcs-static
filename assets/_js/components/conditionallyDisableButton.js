@@ -16,9 +16,11 @@ var OLCS = OLCS || {};
  *
  */
 
-OLCS.conditionallyDisableButtonOnChange = (function (document, $, undefined) {
+OLCS.conditionallyDisableButton = (function (document, $, undefined) {
 
   'use strict';
+
+  var exports = {};
 
   return function init(options) {
 
@@ -26,7 +28,7 @@ OLCS.conditionallyDisableButtonOnChange = (function (document, $, undefined) {
       throw new Error('OLCS.disableButtonStateOnChange requires a dataElSelector, dataElValToCheck, buttonSelector, stateAttrVal and a stateAttr option');
     }
 
-    function onChange() {
+    exports.onChange = function() {
       var $checkedInput = $('input:checked');
       if ($checkedInput.length > 0) {
         var dataElVal = $checkedInput.parents('tr').find(options.dataElSelector).text();
@@ -37,9 +39,9 @@ OLCS.conditionallyDisableButtonOnChange = (function (document, $, undefined) {
           return $(options.buttonSelector).removeAttr(options.stateAttr);
         }
       }
-    }
+    };
 
-    return $(document).on('change', onChange);
+    return exports;
 
   };
 
