@@ -38,8 +38,10 @@ OLCS.ready(function() {
 
     var options = {
       dataElSelector: '[data-heading="Document status"]',
-      dataElValToCheck: 'New',
-      buttonSelector: '#publish',
+      dataElValToCheck1: 'New',
+      dataElValToCheck2: 'Generated',
+      buttonSelector1: '#publish',
+      buttonSelector2: '#generate',
       stateAttr: 'disabled',
       stateAttrVal: true
     };
