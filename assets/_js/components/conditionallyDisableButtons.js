@@ -37,10 +37,10 @@ OLCS.conditionallyDisableButtons = (function (document, $, undefined) {
         var disableButton1 = dataElVal === options.dataElValToCheck1;
         var disableButton2 = dataElVal === options.dataElValToCheck2;
         if (disableButton1) {
-          return $(options.buttonSelector1).attr(options.stateAttr, options.stateAttrVal);
+          return $(options.buttonSelector1).prop(options.stateAttr, options.stateAttrVal);
         }
         if (disableButton2) {
-          return $(options.buttonSelector2).attr(options.stateAttr, options.stateAttrVal);
+          return $(options.buttonSelector2).prop(options.stateAttr, options.stateAttrVal);
         }
         return OLCS.logger.warn('Data options supplied to OLCS.conditionallyDisableButtons (dataElValToCheck1/dataElValToCheck2) did not match value found in DOM element: ' + options.dataElSelector);
       }

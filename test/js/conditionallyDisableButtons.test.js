@@ -1,14 +1,14 @@
 /**
- * OLCS.conditionallyDisableButton
+ * OLCS.conditionallyDisableButtons
  *
- * grunt test:single --target=conditionallyDisableButton
+ * grunt test:single --target=conditionallyDisableButtons
  */
 
-describe("OLCS.conditionallyDisableButton", function() {
+describe("OLCS.conditionallyDisableButtons", function() {
     "use strict";
 
     beforeEach(function() {
-        this.component = OLCS.conditionallyDisableButton;
+        this.component = OLCS.conditionallyDisableButtons;
     });
 
     it('should be defined', function() {
@@ -62,8 +62,10 @@ describe("OLCS.conditionallyDisableButton", function() {
             var _component;
             var options = {
                 dataElSelector: '[data-heading="Document status"]',
-                dataElValToCheck: 'New',
-                buttonSelector: '#publish',
+                dataElValToCheck1: 'New',
+                dataElValToCheck2: 'Generated',
+                buttonSelector1: '#publish',
+                buttonSelector2: '#generate',
                 stateAttr: 'disabled',
                 stateAttrVal: true
             };
@@ -73,21 +75,21 @@ describe("OLCS.conditionallyDisableButton", function() {
             });
 
             it('should set the buttons disabled state when a change event is triggered on the document', function() {
-                expect($('#publish').attr('disabled')).to.equal('disabled');
-                expect($('#generate').attr('disabled')).to.equal('disabled');
+                expect($('#publish').prop('disabled')).to.be(true);
+                expect($('#generate').prop('disabled')).to.be(true);
             });
 
-            it('shouldn\'t enable the publish button when a new document is selected', function() {
-                $('#newRadio').trigger('click');
+            it('should disable the publish button when a new document is selected', function() {
+                $('#newRadio').click();
                 _component.onChange();
-                expect($('#publish').attr('disabled')).to.equal('disabled');
+                expect($('#publish').prop('disabled')).to.be(true);
 
             });
 
-            it('should enable the publish button a generated document is selected', function() {
-                $('#generatedRadio').trigger('click');
+            it('should disable the generate button a generated document is selected', function() {
+                $('#generatedRadio').click();
                 _component.onChange();
-                expect($('#publish').attr('disabled')).to.equal(undefined);
+                expect($('#generate').prop('disabled')).to.be(true);
 
             });
 
