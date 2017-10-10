@@ -18,7 +18,7 @@ var OLCS = OLCS || {};
  *
  */
 
-OLCS.conditionallyDisableButton = (function (document, $, undefined) {
+OLCS.conditionallyDisableButtons = (function (document, $, undefined) {
 
   'use strict';
 
@@ -42,7 +42,7 @@ OLCS.conditionallyDisableButton = (function (document, $, undefined) {
         if (disableButton2) {
           return $(options.buttonSelector2).attr(options.stateAttr, options.stateAttrVal);
         }
-        return OLCS.logger.warn('Data options supplied to OLCS.conditionallyDisableButton (dataElValToCheck1/dataElValToCheck2) did not match value found in DOM element: ' + options.dataElSelector);
+        return OLCS.logger.warn('Data options supplied to OLCS.conditionallyDisableButtons (dataElValToCheck1/dataElValToCheck2) did not match value found in DOM element: ' + options.dataElSelector);
       }
     };
 

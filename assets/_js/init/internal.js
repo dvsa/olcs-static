@@ -48,7 +48,7 @@ OLCS.ready(function() {
 
     $(document).on('change', function() {
 
-      OLCS.conditionallyDisableButton(options).onChange();
+      OLCS.conditionallyDisableButtons(options).onChange();
 
     });
 
