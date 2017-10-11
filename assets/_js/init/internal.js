@@ -32,5 +32,26 @@ OLCS.ready(function() {
         return this.href + '?' + date;
     });
   });
-  
+
+  var path = location.pathname;
+  if (path.indexOf('/admin/publication/pending') > -1) {
+
+    var options = {
+      dataElSelector: '[data-heading="Document status"]',
+      dataElValToCheck1: 'New',
+      dataElValToCheck2: 'Generated',
+      buttonSelector1: '#publish',
+      buttonSelector2: '#generate',
+      stateAttr: 'disabled',
+      stateAttrVal: true
+    };
+
+    $(document).on('change', function() {
+
+      OLCS.conditionallyDisableButtons(options).onChange();
+
+    });
+
+  }
+
 });
