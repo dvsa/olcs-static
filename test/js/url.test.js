@@ -37,6 +37,18 @@ describe('OLCS.url', function() {
       expect(this.component.isSame('/foo/bar/', '/foo/bar/baz/')).to.be(false);
     });
 
+    it('should return false when given matching paths but one of them with url parameters', function() {
+      expect(this.component.isSame('/foo/bar/', '/foo/bar/?parameter=foo')).to.be(false);
+    });
+
+    it('should return false when given matching paths but with different url parameters', function() {
+      expect(this.component.isSame('/foo/bar/?random=bar', '/foo/bar/?parameter=foo')).to.be(false);
+    });
+
+    it('should return true when given matching paths but with different url parameters and option to ignore those parameters', function() {
+      expect(this.component.isSame('/foo/bar/?random=bar', '/foo/bar/?parameter=foo',['random','parameter'])).to.be(true);
+    });
+
   }); // isSame
 
   describe('isCurrent', function() {
@@ -47,6 +59,14 @@ describe('OLCS.url', function() {
 
     it('should return false when given non-matching paths', function() {
       expect(this.component.isCurrent('/foo/bar/')).to.be(false);
+    });
+
+    it('should return false when given matching paths but with url parameter', function() {
+      expect(this.component.isCurrent(window.location.pathname+'?foo=bar')).to.be(false);
+    });
+
+    it('should return true when given matching paths with url parameter and option to ignore those parameters', function() {
+      expect(this.component.isCurrent(window.location.pathname+'?foo=bar', ['foo'])).to.be(true);
     });
 
   }); // isCurrent

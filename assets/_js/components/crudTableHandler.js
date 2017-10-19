@@ -88,7 +88,7 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
 
           // We check for the data-hard-refresh attribute, as in some cases we want to fully reload the page
           // to ensure that markers etc are reloaded
-          if (!form.attr("data-hard-refresh") && OLCS.url.isCurrent(response.location)) {
+          if (!form.attr("data-hard-refresh") && OLCS.url.isCurrent(response.location, ["reload"])) {
             return OLCS.modal.hide();
           }
           return OLCS.url.load(response.location);
