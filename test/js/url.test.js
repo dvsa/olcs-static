@@ -18,7 +18,7 @@ describe('OLCS.url', function() {
 
   it('should expose the correct public interface', function() {
     expect(this.component.isSame).to.be.a('function');
-    expect(this.component.isCurrent).to.be.a('function');
+    expect(this.component.isCurrentPage).to.be.a('function');
     expect(this.component.load).to.be.a('function');
   });
 
@@ -45,31 +45,39 @@ describe('OLCS.url', function() {
       expect(this.component.isSame('/foo/bar/?random=bar', '/foo/bar/?parameter=foo')).to.be(false);
     });
 
-    it('should return true when given matching paths but with different url parameters and option to ignore those parameters', function() {
-      expect(this.component.isSame('/foo/bar/?random=bar', '/foo/bar/?parameter=foo',['random','parameter'])).to.be(true);
+    it('should return true when given matching paths with same url parameters', function() {
+      expect(this.component.isSame('/foo/bar/?random=bar', '/foo/bar/?random=bar')).to.be(true);
+    });
+
+    it('should return true when given matching paths with same url parameters but only one with trailing slash', function() {
+      expect(this.component.isSame('/foo/bar/?random=bar', '/foo/bar?random=bar')).to.be(true);
     });
 
   }); // isSame
 
-  describe('isCurrent', function() {
+  describe('isCurrentPage', function() {
 
     it('should return true when given matching paths', function() {
-      expect(this.component.isCurrent(window.location.pathname)).to.be(true);
+      expect(this.component.isCurrentPage(window.location.pathname)).to.be(true);
+    });
+
+    it('should return true when given matching paths but with fragments', function() {
+      expect(this.component.isCurrentPage(window.location.pathname+'#index')).to.be(true);
+    });
+
+    it('should return true when given matching full url', function() {
+      expect(this.component.isCurrentPage(window.location.href)).to.be(true);
     });
 
     it('should return false when given non-matching paths', function() {
-      expect(this.component.isCurrent('/foo/bar/')).to.be(false);
+      expect(this.component.isCurrentPage('/foo/bar/')).to.be(false);
     });
 
     it('should return false when given matching paths but with url parameter', function() {
-      expect(this.component.isCurrent(window.location.pathname+'?foo=bar')).to.be(false);
+      expect(this.component.isCurrentPage(window.location.pathname+'?foo=bar')).to.be(false);
     });
 
-    it('should return true when given matching paths with url parameter and option to ignore those parameters', function() {
-      expect(this.component.isCurrent(window.location.pathname+'?foo=bar', ['foo'])).to.be(true);
-    });
-
-  }); // isCurrent
+  }); // isCurrentPage
 
   describe('load', function() {
 
