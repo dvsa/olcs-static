@@ -16,7 +16,7 @@
   font-family: $font--primary;
   @if $app == 'selfserve' or $app == 'print' {
     border-bottom: 2px solid;
-    padding-bottom: 0.4em; // compensate for above border
+    padding-bottom: 0.5em; // compensate for above border
     line-height: 1.4;
     &:focus {
       outline: 3px solid $outline;
