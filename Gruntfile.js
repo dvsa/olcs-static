@@ -40,6 +40,7 @@
                 'node_modules/jquery/dist/jquery.min.js',
                 'node_modules/chosen-npm/public/chosen.jquery.min.js',
                 'assets/_js/vendor/jquery.details.min.js',
+                'assets/_js/vendor/URI.min.js',
                 'assets/_js/components/*.js',
                 'assets/_js/' + theme + '/*.js',
                 'assets/_js/init/common.js',
