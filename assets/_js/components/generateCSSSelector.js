@@ -19,14 +19,14 @@ OLCS.generateCSSSelector = (function (document, $, undefined) {
 
             element = element.toLowerCase();
 
-            if(realNode.id && !realNode.id.indexOf(":")) {
-                element += "#"+realNode.id;
+            if(realNode.id) {
+                element += "[id='"+realNode.id+"']";
                 path = element + (path ? ">" + path : "");
                 node = parent;
                 break;
             }
 
-            if(nameAttr && nameAttr !== "undefined" && !nameAttr.indexOf(":")) {
+            if(nameAttr && nameAttr !== "undefined") {
                 element += "[name='"+nameAttr+"']";
                 path = element + (path ? ">" + path : "");
                 node = parent;
