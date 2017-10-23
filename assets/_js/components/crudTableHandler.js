@@ -44,8 +44,9 @@ OLCS.crudTableHandler = (function(document, $, undefined) {
       // save the last focused element for later
       OLCS.modal.lastFocus = this;
       OLCS.modal.lastFocusSelector = OLCS.generateCSSSelector($(this));
-      OLCS.modal.nextFocusable = OLCS.nextFocusableElement(this);
-      OLCS.modal.nextFocusableSelector = OLCS.generateCSSSelector($(OLCS.modal.nextFocusable));
+      OLCS.modal.nextFocusables = OLCS.nextFocusableElements(this);
+      console.log('OLCS.modal.nextFocusables'); // jshint ignore:line
+      console.log(OLCS.modal.nextFocusables); // jshint ignore:line
 
       var button = $(this);
       var form   = $(this).parents("form");
