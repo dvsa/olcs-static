@@ -1,14 +1,14 @@
 /**
  * OLCS.nextFocusableElement
  *
- * grunt test:single --target=nextFocusableElement
+ * grunt test:single --target=nextFocusableElements
  */
 
-describe("OLCS.nextFocusableElement", function() {
+describe("OLCS.nextFocusableElements", function() {
     "use strict";
 
     beforeEach(function() {
-        this.component = OLCS.nextFocusableElement;
+        this.component = OLCS.nextFocusableElements;
     });
 
     it("should be defined", function() {
@@ -40,9 +40,10 @@ describe("OLCS.nextFocusableElement", function() {
                 this.result = this.component($('#tr1 a'));
             });
 
-            it("returns the next focusable element", function() {
+            it("returns an array with the next focusable elements", function() {
                 expect(this.result).to.be.an("object");
-                expect(this.result.id).to.be('link1');
+                expect(this.result[0].id).to.be('link1');
+                expect(this.result[1].id).to.be('cb1');
             });
         });
 
