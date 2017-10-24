@@ -42,7 +42,7 @@ describe("OLCS.generateCSSSelector", function() {
 
             it("returns the selector string made by tag name and id", function() {
                 expect(this.result).to.be.an("string");
-                expect(this.result).to.be("input#cb1");
+                expect(this.result).to.be("input[id='cb1']");
             });
 
         });
@@ -66,7 +66,7 @@ describe("OLCS.generateCSSSelector", function() {
 
             it("returns the selector string made by navugating up the dom until an id or name is found", function() {
                 expect(this.result).to.be.an("string");
-                expect(this.result).to.be("tr#tr2>td:nth-child(1)>a");
+                expect(this.result).to.be("tr[id='tr2']>td:nth-child(1)>a");
             });
 
         });
