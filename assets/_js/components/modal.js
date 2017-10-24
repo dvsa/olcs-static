@@ -174,10 +174,19 @@ OLCS.modal = (function(document, $, undefined) {
     // restore focus to last focused element
     // if that was removed set focus on the next element
     if (typeof exports.lastFocus !== 'undefined' && !exports.isVisible()) {
-        var focusSelector = $(exports.lastFocusSelector).length ?
-            exports.lastFocusSelector :
-            exports.nextFocusableSelector;
+      exports.nextFocusableSelector = false;
+      for ( var i = 0; i < exports.nextFocusables.length; i++ ) {
+        exports.nextFocusableSelector = OLCS.generateCSSSelector($(exports.nextFocusables[i]));
+        if ($(exports.nextFocusableSelector).length) {
+          break;
+        }
+      }
+      var focusSelector = $(exports.lastFocusSelector).length ?
+          exports.lastFocusSelector :
+          exports.nextFocusableSelector;
+      if(focusSelector && typeof focusSelector !== 'undefined') {
         $(focusSelector).focus().addClass('focused');
+      }
     }
     // cache the original overflow value
     var overflow = $(selector).css('overflow');

@@ -20,7 +20,7 @@ OLCS.generateCSSSelector = (function (document, $, undefined) {
             element = element.toLowerCase();
 
             if(realNode.id) {
-                element += "#"+realNode.id;
+                element += "[id='"+realNode.id+"']";
                 path = element + (path ? ">" + path : "");
                 node = parent;
                 break;

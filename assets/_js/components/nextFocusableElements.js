@@ -1,6 +1,6 @@
 var OLCS = OLCS || {};
 
-OLCS.nextFocusableElement = (function (document, $, undefined) {
+OLCS.nextFocusableElements = (function (document, $, undefined) {
 
     "use strict";
 
@@ -9,7 +9,7 @@ OLCS.nextFocusableElement = (function (document, $, undefined) {
     return function init(element) {
 
         var focusableElementChoices = $(focusableElements).add(element);
-        return focusableElementChoices[focusableElementChoices.index(element) + 1];
+        return focusableElementChoices.slice(focusableElementChoices.index(element) + 1);
     };
 
 }(document, window.jQuery));
