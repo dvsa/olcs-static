@@ -18,15 +18,15 @@ OLCS.conditionalButton = (function(document, $, undefined) {
     var selector = options.container || options.form;
 
     if (options.label) {
-      filter = '[value="' + options.label + '"]';
+      filter = '[data-label="' + options.label + '"]';
     } else {
       filter = options.selector;
     }
 
     var predicate       = options.predicate;
     var checkedSelector = options.checkedSelector || 'table :checked';
-    var actionSelector  = '.actions-container button';
-  
+    var actionSelector  = '.actions-container button, .actions-container option';
+
     if ($.isPlainObject(predicate)) {
       predicate = OLCS.complexPredicate(predicate);
     }
