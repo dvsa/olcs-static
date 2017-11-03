@@ -28,6 +28,10 @@
       text-decoration: none;
     }
 
+    &.overflow {
+      overflow: visible;
+    }
+    
     .current,
     .disabled {
       @extend %navigation__link;
