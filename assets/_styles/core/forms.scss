@@ -38,6 +38,11 @@ fieldset, .fieldset {
   }
   .add-another & {
     margin-bottom: $gutter-one-third;
+
+  }
+  &.add-another-group{
+    border-bottom: 1px #bfc1c3 solid;
+    padding-bottom: $gutter-two-thirds;
   }
 } // fieldset
 
