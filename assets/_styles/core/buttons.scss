@@ -143,7 +143,7 @@
 // Actions container
 .actions-container {
   &--inline-block {
-    display: inline-block;
+    display: block;
   }
 
   li {
@@ -173,6 +173,13 @@
         margin-top: 0;
         margin-left: $gutter-two-thirds;
       }
+    }
+
+    .action--primary {
+       + .action--cancel {
+         display: block;
+         margin-top: $gutter-two-thirds;
+       }
     }
   }
 }
