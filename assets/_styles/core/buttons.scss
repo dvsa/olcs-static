@@ -143,7 +143,7 @@
 // Actions container
 .actions-container {
   &--inline-block {
-    display: block;
+    display: inline-block;
   }
 
   li {
@@ -176,7 +176,7 @@
     }
 
     .action--primary {
-       + .action--cancel {
+       + .button--block {
          display: block;
          margin-top: $gutter-two-thirds;
        }
