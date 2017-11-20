@@ -174,5 +174,12 @@
         margin-left: $gutter-two-thirds;
       }
     }
+
+    .action--primary {
+       + .button--block {
+         display: block;
+         margin-top: $gutter-two-thirds;
+       }
+    }
   }
 }
