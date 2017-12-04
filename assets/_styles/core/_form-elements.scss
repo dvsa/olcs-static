@@ -1,5 +1,7 @@
 .form-element {
 
+  font-weight: 100;
+
   &__question {
     @extend %h3;
     max-width: 25em;
