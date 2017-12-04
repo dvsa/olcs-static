@@ -13,6 +13,7 @@ OLCS.addMultiple = (function (document, $) {
         var options = $.extend({
             container: '.add-multiple',
             triggerSelector: '.hint input[type="submit"]',
+            removeTriggerSelector: '.remove_link',
             targetSelector: 'span[data-template]'
         }, custom);
 
@@ -30,6 +31,11 @@ OLCS.addMultiple = (function (document, $) {
 
                     container.find(options.targetSelector).before(template);
 
+                    e.preventDefault();
+                });
+
+                container.on('click', options.removeTriggerSelector, function(e) {
+                    $(this).parents(options.container + ' > fieldset').remove();
                     e.preventDefault();
                 });
             });
