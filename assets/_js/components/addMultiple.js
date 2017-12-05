@@ -26,9 +26,14 @@ OLCS.addMultiple = (function (document, $) {
                 triggerSelector.on('click', function (e) {
                     var template = container.find(options.targetSelector).data('template');
 
-                    var currentCount = container.find('> fieldset').length;
-                    template = template.replace(/__index__/g, currentCount);
+                    var maxFieldsetID = 0;
 
+                    container.find('> fieldset').each(function () {
+                        var thisIndex = $(this).data('group').split('[')[1].split(']')[0];
+                        maxFieldsetID = Math.max(maxFieldsetID, thisIndex);
+                    });
+
+                    template = template.replace(/__index__/g, maxFieldsetID + 1);
                     container.find(options.targetSelector).before(template);
 
                     e.preventDefault();
