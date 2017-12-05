@@ -13,7 +13,7 @@ OLCS.addMultiple = (function (document, $) {
         var options = $.extend({
             container: '.add-multiple',
             triggerSelector: '.hint input[type="submit"]',
-            removeTriggerSelector: '.remove_link',
+            removeTriggerSelector: '.remove-link a',
             targetSelector: 'span[data-template]'
         }, custom);
 
