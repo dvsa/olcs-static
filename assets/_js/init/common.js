@@ -3,6 +3,7 @@ OLCS.ready(function() {
   'use strict';
 
   OLCS.addAnother();
+  OLCS.addMultiple();
   OLCS.tableCheckAll();
   OLCS.tableRows();
   OLCS.dataTooltip();
