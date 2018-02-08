@@ -18,7 +18,7 @@ module.exports = function(config) {
       "node_modules/sinon/lib/sinon.js",
       "node_modules/sinon/lib/sinon/spy.js",
       "node_modules/sinon/lib/sinon/**/*.js",
-      "assets/_js/vendor/jquery.1.11.0.js",
+      "assets/_js/vendor/jquery.1.12.4.js",
       "assets/_js/vendor/**/*.js",
       "assets/_js/components/**/*.js",
       "test/js/setup.js",
