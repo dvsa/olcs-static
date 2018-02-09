@@ -4,6 +4,7 @@
   OLCS.logger.setLevel("ERROR");
 
   beforeEach(function() {
+    $("body").html('');
     OLCS.eventEmitter.listeners = {};
   });
 
