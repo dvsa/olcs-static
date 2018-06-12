@@ -31,6 +31,7 @@ $warning-background : #FEF7F7;
 $summary-border     : #CDD7DC;
 $summary-background : #E6EFF5;
 $outline            : #FFBF47;
+$application-submit-background: #28A197;
 
 /**
  * [3] - Layout
@@ -122,5 +123,4 @@ $mobile-column-stack: breakpoint('break-4');
 
 @if $app == 'selfserve' {
   $col-gutter : 2.5%;
-  $application-submit-background: #28A197;
 }
