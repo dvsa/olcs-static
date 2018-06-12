@@ -122,4 +122,5 @@ $mobile-column-stack: breakpoint('break-4');
 
 @if $app == 'selfserve' {
   $col-gutter : 2.5%;
+  $application-submit-background: #28A197;
 }
