@@ -89,13 +89,13 @@
 
   .return-overview {
     @extend a;
-    
+
     background-color: transparent;
     border: 0;
     padding: 0;
     text-decoration: underline;
   }
-  
+
   .guidance-blue {
     @extend %guidance;
 
