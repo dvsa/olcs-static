@@ -1,0 +1,25 @@
+.ecmt {
+    #restricted-countries-list{
+        display: none;
+    }
+    .restrictedRadio {
+        margin-bottom: 0.5em;
+    }
+    .restrictedRadio:first-of-type.selected ~ #restricted-countries-list {
+        display: block;
+    }
+    .inline .block-label {
+        clear: none;
+        float: left;
+        margin: 10px 1em 0.5em 0;
+    }
+
+    .govuk-box-highlight {
+        margin: 1em 0;
+        padding: 2em 0 1em;
+        color: $white;
+        background: $application-submit-background;
+        text-align: center;
+    }
+
+}

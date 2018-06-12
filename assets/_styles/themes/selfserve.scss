@@ -75,6 +75,7 @@ $app: selfserve;
 @import '../components/address';
 
 // Views
+@import '../views/selfserve/ecmt-permits';
 @import '../views/selfserve/overview';
 @import '../views/selfserve/search';
 @import '../views/selfserve/submit-application';
