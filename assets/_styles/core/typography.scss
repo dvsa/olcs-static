@@ -115,6 +115,11 @@ h5 {
   margin-bottom: 1.25em;
 }
 
+.heading-medium {
+  font-size: 1em;
+  line-height: 1.2em;
+}
+
 p {
   @extend %paragraph;
   font-weight: 400;
