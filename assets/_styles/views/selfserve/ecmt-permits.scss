@@ -14,11 +14,13 @@
     .cabotageRadio:first-of-type.selected ~ #cabotage-hint {
         display: block;
     }
-    
-    .inline .block-label {
-        clear: none;
-        float: left;
-        margin: 10px 1em 0.5em 0;
+
+    .inline {
+        .block-label {
+            clear: none;
+            float: left;
+            margin: 10px 1em 0.5em 0;
+        }
     }
 
     .govuk-box-highlight {
@@ -27,6 +29,11 @@
         color: $white;
         background: $application-submit-background;
         text-align: center;
+    }
+
+    td {
+        max-width: 8em;
+        vertical-align: middle;
     }
 
 }
