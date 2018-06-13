@@ -1,11 +1,13 @@
 .ecmt {
-    #restricted-countries-list{
+    #restricted-countries-list,
+    #euro6-hint {
         display: none;
     }
     .restrictedRadio {
         margin-bottom: 0.5em;
     }
-    .restrictedRadio:first-of-type.selected ~ #restricted-countries-list {
+    .restrictedRadio:first-of-type.selected ~ #restricted-countries-list,
+    .euro6Radio:last-of-type.selected ~ #euro6-hint {
         display: block;
     }
     .inline .block-label {
@@ -21,5 +23,5 @@
         background: $application-submit-background;
         text-align: center;
     }
-    
+
 }
