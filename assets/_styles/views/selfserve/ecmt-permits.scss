@@ -1,15 +1,20 @@
 .ecmt {
     #restricted-countries-list,
-    #euro6-hint {
+    #euro6-hint,
+    #cabotage-hint {
         display: none;
     }
+
     .restrictedRadio {
         margin-bottom: 0.5em;
     }
+
     .restrictedRadio:first-of-type.selected ~ #restricted-countries-list,
-    .euro6Radio:last-of-type.selected ~ #euro6-hint {
+    .euro6Radio:last-of-type.selected ~ #euro6-hint,
+    .cabotageRadio:first-of-type.selected ~ #cabotage-hint {
         display: block;
     }
+    
     .inline .block-label {
         clear: none;
         float: left;
