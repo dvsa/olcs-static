@@ -1,5 +1,5 @@
 .ecmt {
-    #restricted-countries-list,
+    .restricted-countries-list,
     #euro6-hint,
     #cabotage-hint {
         display: none;
@@ -9,7 +9,7 @@
         margin-bottom: 0.5em;
     }
 
-    .restrictedRadio:first-of-type.selected ~ #restricted-countries-list,
+    .restrictedRadio:first-of-type.selected ~ .restricted-countries-list,
     .euro6Radio:last-of-type.selected ~ #euro6-hint,
     .cabotageRadio:first-of-type.selected ~ #cabotage-hint {
         display: block;
