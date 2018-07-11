@@ -10,6 +10,7 @@
     }
 
     .restrictedRadio:first-of-type.selected ~ .restricted-countries-list,
+    .validation-wrapper + .restricted-countries-list,
     .euro6Radio:last-of-type.selected ~ #euro6-hint,
     .cabotageRadio:first-of-type.selected ~ #cabotage-hint {
         display: block;
