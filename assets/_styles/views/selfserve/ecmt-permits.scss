@@ -22,14 +22,14 @@
 
     .inline {
         .block-label {
-            clear: none;
-            float: left;
-            margin: 10px 1em 0.5em 0;
+        clear: none;
+        float: left;
+        margin: 10px 1em 0.5em 0;
         }
     }
 
     .hint {
-        width: 100%
+        width: 100%;
     }
 
     .govuk-hint {
@@ -49,4 +49,7 @@
         vertical-align: middle;
     }
 
+    .list--pad {
+        padding-left: 20px;
+    }
 }
