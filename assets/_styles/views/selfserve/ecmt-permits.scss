@@ -49,4 +49,41 @@
         vertical-align: middle;
     }
 
+    .fee-subtitle {
+        margin-bottom: 20px;
+    }
+
+    .notice {
+        position: relative;
+        margin-bottom: 30px;
+        font-size: 19px;
+
+        .icon {
+            position: absolute;
+            left: 0;
+            top: 50%;
+
+            &.icon-important {
+                background-image: url('#{$asset-path}/bitmap/icon-important.png');
+                top: 0;
+                margin: 0;
+                width: 35px;
+                height: 35px;
+            }
+        }
+
+        strong {
+            display: block;
+            margin-left: -15px;
+            padding-left: 65px;
+        }
+    }
+
+    .fee-table {
+        tr:first-child {
+            td {
+                border-top: none;
+            }
+        }
+    }
 }
