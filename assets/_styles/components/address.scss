@@ -1,0 +1,13 @@
+/**
+ * Addresses
+ */
+
+@if $app == 'selfserve' {
+
+  .address {
+    &-container {
+      margin-bottom: 1em;
+    }
+  }
+
+}
