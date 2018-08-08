@@ -86,4 +86,27 @@
             }
         }
     }
+
+    .return-overview {
+        background-color: transparent;
+        border: 0;
+        padding: 0;
+        color: $link-colour;
+        cursor: pointer;
+        text-decoration: underline;
+
+        &:active,
+        &:hover,
+        &:focus {
+            color: $link-active-colour;
+            outline: 0;
+        }
+
+        @if $app == 'selfserve' {
+            &:focus {
+                background-color: $focus-colour;
+                outline: 3px solid $focus-colour;
+            }
+        }
+    }
 }
