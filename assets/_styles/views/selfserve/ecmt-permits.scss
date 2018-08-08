@@ -80,15 +80,21 @@
     }
   }
 
-  .fee-table {
-    tr:first-child {
-      td {
-        border-top: none;
-      }
-    }
-  }
+    .fee-table {
+        tr:first-child {
+            td {
+                border-top: none;
 
-  .return-overview {
+                &:first-child {
+                    width: 30%;
+                }
+            }
+        }
+
+        td {
+            padding-right: 1.05263em;
+        }
+    }.return-overview {
     @extend a;
 
     background-color: transparent;
