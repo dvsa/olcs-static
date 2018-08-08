@@ -96,8 +96,7 @@
         text-decoration: underline;
 
         &:active,
-        &:hover,
-        &:focus {
+        &:hover {
             color: $link-active-colour;
             outline: 0;
         }
