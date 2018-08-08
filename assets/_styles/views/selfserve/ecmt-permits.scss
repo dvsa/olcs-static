@@ -1,111 +1,111 @@
 .ecmt {
-    .restricted-countries-list,
-    .sector-list,
-    #euro6-hint,
-    #cabotage-hint {
-        display: none;
+  .restricted-countries-list,
+  .sector-list,
+  #euro6-hint,
+  #cabotage-hint {
+    display: none;
+  }
+
+  .restrictedRadio,
+  .specialistRadio {
+    margin-bottom: 0.5em;
+  }
+
+  .restrictedRadio:first-of-type.selected ~ .restricted-countries-list,
+  .validation-wrapper + .restricted-countries-list,
+  .specialistRadio:first-of-type.selected ~ .sector-list,
+  .validation-wrapper + .sector-list,
+  .euro6Radio:last-of-type.selected ~ #euro6-hint,
+  .cabotageRadio:first-of-type.selected ~ #cabotage-hint {
+    display: block;
+  }
+
+  .inline {
+    .block-label {
+      clear: none;
+      float: left;
+      margin: 10px 1em 0.5em 0;
+    }
+  }
+
+  .hint {
+    width: 100%
+  }
+
+  .govuk-hint {
+    margin: 2em 0;
+  }
+
+  .govuk-box-highlight {
+    margin: 1em 0;
+    padding: 2em 0 1em;
+    color: $white;
+    background: $application-submit-background;
+    text-align: center;
+  }
+
+  td {
+    max-width: 8em;
+    vertical-align: middle;
+  }
+
+  .fee-subtitle {
+    margin-bottom: 20px;
+  }
+
+  .notice {
+    position: relative;
+    margin-bottom: 30px;
+    font-size: 19px;
+
+    .icon {
+      position: absolute;
+      left: 0;
+      top: 50%;
+
+      &.icon-important {
+        background-image: url('#{$asset-path}/bitmap/icon-important.png');
+        top: 0;
+        margin: 0;
+        width: 35px;
+        height: 35px;
+      }
     }
 
-    .restrictedRadio,
-    .specialistRadio {
-        margin-bottom: 0.5em;
+    strong {
+      display: block;
+      margin-left: -15px;
+      padding-left: 65px;
+    }
+  }
+
+  .fee-table {
+    tr:first-child {
+      td {
+        border-top: none;
+      }
+    }
+  }
+
+  .return-overview {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    color: $link-colour;
+    cursor: pointer;
+    text-decoration: underline;
+
+    &:active,
+    &:hover {
+      color: $link-active-colour;
+      outline: 0;
     }
 
-    .restrictedRadio:first-of-type.selected ~ .restricted-countries-list,
-    .validation-wrapper + .restricted-countries-list,
-    .specialistRadio:first-of-type.selected ~ .sector-list,
-    .validation-wrapper + .sector-list,
-    .euro6Radio:last-of-type.selected ~ #euro6-hint,
-    .cabotageRadio:first-of-type.selected ~ #cabotage-hint {
-        display: block;
+    @if $app == 'selfserve' {
+      &:focus {
+        background-color: $focus-colour;
+        outline: 3px solid $focus-colour;
+      }
     }
-
-    .inline {
-        .block-label {
-            clear: none;
-            float: left;
-            margin: 10px 1em 0.5em 0;
-        }
-    }
-
-    .hint {
-        width: 100%
-    }
-
-    .govuk-hint {
-        margin: 2em 0;
-    }
-
-    .govuk-box-highlight {
-        margin: 1em 0;
-        padding: 2em 0 1em;
-        color: $white;
-        background: $application-submit-background;
-        text-align: center;
-    }
-
-    td {
-        max-width: 8em;
-        vertical-align: middle;
-    }
-
-    .fee-subtitle {
-        margin-bottom: 20px;
-    }
-
-    .notice {
-        position: relative;
-        margin-bottom: 30px;
-        font-size: 19px;
-
-        .icon {
-            position: absolute;
-            left: 0;
-            top: 50%;
-
-            &.icon-important {
-                background-image: url('#{$asset-path}/bitmap/icon-important.png');
-                top: 0;
-                margin: 0;
-                width: 35px;
-                height: 35px;
-            }
-        }
-
-        strong {
-            display: block;
-            margin-left: -15px;
-            padding-left: 65px;
-        }
-    }
-
-    .fee-table {
-        tr:first-child {
-            td {
-                border-top: none;
-            }
-        }
-    }
-
-    .return-overview {
-        background-color: transparent;
-        border: 0;
-        padding: 0;
-        color: $link-colour;
-        cursor: pointer;
-        text-decoration: underline;
-
-        &:active,
-        &:hover {
-            color: $link-active-colour;
-            outline: 0;
-        }
-
-        @if $app == 'selfserve' {
-            &:focus {
-                background-color: $focus-colour;
-                outline: 3px solid $focus-colour;
-            }
-        }
-    }
+  }
 }
