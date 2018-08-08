@@ -64,7 +64,8 @@
       top: 50%;
 
       &.icon-important {
-        background-image: url('#{$asset-path}/bitmap/icon-important.png');
+        background-image: url('#{$asset-path}/bitmap/icon-important-2x.png');
+                background-size: 100%;
         top: 0;
         margin: 0;
         width: 35px;
