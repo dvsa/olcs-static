@@ -95,4 +95,11 @@
     padding: 0;
     text-decoration: underline;
   }
+  
+  .guidance-blue {
+    @extend %guidance;
+
+    background: #EBF5F9;
+    border-color: #005EA5;
+  }
 }
