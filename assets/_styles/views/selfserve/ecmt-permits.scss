@@ -130,6 +130,10 @@
 
   .extra-space {
     margin: 1em 0;
+    
+    &.large {
+      margin: 2em 0;
+    }
   }
 
   .ecmt-countries {
