@@ -2,7 +2,10 @@
   .restricted-countries-list,
   .sector-list,
   #euro6-hint,
-  #cabotage-hint {
+  #cabotage-hint,
+  .restricted-licence-guidance,
+  .restricted-licence-hint,
+  .restricted-licence-hint:before {
     display: none;
   }
 
@@ -18,6 +21,14 @@
   .euro6Radio:last-of-type.selected ~ #euro6-hint,
   .cabotageRadio:first-of-type.selected ~ #cabotage-hint {
     display: block;
+  }
+
+  .restricted-licence-label.form-control--radio.selected ~ .restricted-licence-hint {
+    @extend %guidance;
+
+    display: block;
+    margin: 1em 0;
+    pointer-events:none;
   }
 
   .inline {
