@@ -96,10 +96,64 @@
         }
     }.return-overview {
     @extend a;
-
     background-color: transparent;
     border: 0;
     padding: 0;
     text-decoration: underline;
   }
+
+  .guidance-subtitle {
+    padding: 1.5em 0;
+    margin:  0 0 3em;
+    border-bottom: 0.09em solid $grey-3;
+  }
+
+  .guidance-section {
+    padding: 0 0.938em 1em;
+
+    h2 {
+      font-size: 1.5em;
+      margin: 2em 0 0.5em;
+    }
+
+    li {
+      margin-bottom: 0.4em;
+    }
+  }
+
+  .extra-space {
+    margin: 1em 0;
+
+    &.large {
+      margin: 2em 0;
+    }
+  }
+
+  .ecmt-countries {
+    ul {
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    li {
+      flex-basis: 25%;
+      list-style: none;
+      font-size: 0.75em;
+      border-bottom: 0.09em solid $grey-3;
+      padding: 0.5em 0.3em 0.5em 0;
+
+      @media (max-width: breakpoint('break-4')) {
+        flex-basis: 33%;
+      }
+
+      @media (max-width: breakpoint('break-2')) {
+        flex-basis: 50%;
+      }
+    }
+  }
+}
+
+.info-box--permit {
+    padding: 1.8em 0 0 0;
+    border-top: 2px solid $link-colour;
 }
