@@ -2,7 +2,10 @@
   .restricted-countries-list,
   .sector-list,
   #euro6-hint,
-  #cabotage-hint {
+  #cabotage-hint,
+  .restricted-licence-guidance,
+  .restricted-licence-hint,
+  .restricted-licence-hint:before {
     display: none;
   }
 
@@ -20,6 +23,14 @@
     display: block;
   }
 
+  .restricted-licence-label.form-control--radio.selected ~ .restricted-licence-hint {
+    @extend %guidance;
+
+    display: block;
+    margin: 1em 0;
+    pointer-events:none;
+  }
+
   .inline {
     .block-label {
       clear: none;
@@ -29,11 +40,19 @@
   }
 
   .hint {
-    width: 100%
+    width: 100%;
+
+    &.space{
+        margin: 2em 0;
+    }
   }
 
   .govuk-hint {
     margin: 2em 0;
+
+    .info-para {
+      margin-bottom: 20px;
+    }
   }
 
   .govuk-box-highlight {
@@ -80,22 +99,25 @@
     }
   }
 
-    .fee-table {
-        tr:first-child {
-            td {
-                border-top: none;
+  .fee-table {
+    tr:first-child {
+      td {
+        border-top: none;
 
-                &:first-child {
-                    width: 30%;
-                }
-            }
+        &:first-child {
+          width: 30%;
         }
+      }
+    }
 
-        td {
-            padding-right: 1.05263em;
-        }
-    }.return-overview {
+    td {
+      padding-right: 1.05263em;
+    }
+  }
+
+  .return-overview {
     @extend a;
+
     background-color: transparent;
     border: 0;
     padding: 0;
