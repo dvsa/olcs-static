@@ -40,7 +40,11 @@
   }
 
   .hint {
-    width: 100%
+    width: 100%;
+
+    &.space{
+        margin: 2em 0;
+    }
   }
 
   .govuk-hint {
