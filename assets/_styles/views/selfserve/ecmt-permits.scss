@@ -23,7 +23,7 @@
     display: block;
   }
 
-  .restricted-licence-label.form-control--radio.selected ~ .restricted-licence-hint {
+  .restricted-licence-label.form-control--radio.selected + .restricted-licence-hint {
     @extend %guidance;
 
     display: block;
@@ -148,6 +148,10 @@
 
     &.large {
       margin: 2em 0;
+    }
+
+    &.top {
+      margin: 1em 0 0;
     }
   }
 
