@@ -149,6 +149,10 @@
     &.large {
       margin: 2em 0;
     }
+
+    &.top {
+      margin: 1em 0 0;
+    }
   }
 
   .ecmt-countries {
@@ -172,6 +176,13 @@
         flex-basis: 50%;
       }
     }
+  }
+
+  .guidance-blue {
+    @extend %guidance;
+
+    background: #EBF5F9;
+    border-color: #005EA5;
   }
 }
 
