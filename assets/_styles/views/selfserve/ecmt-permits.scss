@@ -188,3 +188,6 @@
     border-top: 2px solid $link-colour;
 }
 
+table.under-consideration tr:first-child td{
+  border-top: none;
+}
