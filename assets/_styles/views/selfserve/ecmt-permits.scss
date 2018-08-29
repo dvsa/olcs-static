@@ -23,7 +23,20 @@
     display: block;
   }
 
-  .restricted-licence-label.form-control--radio.selected + .restricted-licence-hint {
+  form#SpecialistHaulage b {
+    font-size: 1.2em;
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
+
+  form#SpecialistHaulage p {
+    overflow: hidden;
+    display: block;
+    padding: 0 0 0 44px;
+    margin-bottom: 20px;
+  }
+
+  .restricted-licence-input.form-control--radio.selected input + .restricted-licence-hint {
     @extend %guidance;
 
     display: block;
