@@ -34,6 +34,10 @@
     display: block;
     padding: 0 0 0 44px;
     margin-bottom: 20px;
+
+    &.error__text {
+      padding-left: 0;
+    }
   }
 
   .restricted-licence-input.form-control--radio.selected input + .restricted-licence-hint {
