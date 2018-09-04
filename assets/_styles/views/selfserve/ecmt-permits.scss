@@ -112,33 +112,29 @@
     }
   }
 
-    .fee-table {
-        tr:first-child {
-            td {
-                border-top: none;
+  .fee-table {
+    tr:first-child {
+      td {
+        border-top: none;
 
-                &:first-child {
-                    width: 30%;
-                }
-            }
+        &:first-child {
+          width: 30%;
         }
+      }
+    }
 
-        td {
-            padding-right: 1.05263em;
-        }
-    }.return-overview {
+    td {
+      padding-right: 1.05263em;
+    }
+  }
+
+  .return-overview {
     @extend a;
+
     background-color: transparent;
     border: 0;
     padding: 0;
     text-decoration: underline;
-  }
-
-  .guidance-blue {
-    @extend %guidance;
-
-    background: #EBF5F9;
-    border-color: #005EA5;
   }
 
   .guidance-subtitle {
