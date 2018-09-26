@@ -626,6 +626,12 @@ select,
   clear: both;
   margin-bottom: 0;
   padding-top: 10px;
+  &__below {
+    margin-top: 10px;
+  }
+  &__black {
+    color: $black;
+  }
   @if $app == 'internal'  {
     font-size: font-size(3);
   }
