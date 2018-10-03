@@ -74,12 +74,17 @@ $app: selfserve;
 @import '../components/system-messages';
 @import '../components/more-actions';
 @import '../components/address';
-@import '../components/check_answers';
+
+// Patterns
+@import '../patterns/check_answers';
 
 // Views
 @import '../views/selfserve/ecmt-permits';
 @import '../views/selfserve/overview';
 @import '../views/selfserve/search';
 @import '../views/selfserve/submit-application';
+
+// Overrides
+@import '../core/overrides';
 
 /*# sourceMappingURL=selfserve.css.map */
