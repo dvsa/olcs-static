@@ -1,0 +1,12 @@
+// Override dd and dt rules from base.scss and read-only.scss
+
+dt.app-check-your-answers__question,
+dd.app-check-your-answers__answer,
+dd.app-check-your-answers__change {
+  float: none;
+}
+
+dd.app-check-your-answers__answer,
+dd.app-check-your-answers__change {
+  font-weight: normal;
+}
