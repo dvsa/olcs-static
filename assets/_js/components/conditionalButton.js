@@ -43,6 +43,16 @@ OLCS.conditionalButton = (function(document, $, undefined) {
           } else {
             button.prop('disabled', true);
           }
+
+          /*
+           * Confirm that the delete button is the second element in the object
+           * and only if it has the correct dataset do we set it to disabled.
+           */
+          if (button[1] && button[1].id === 'delete' &&
+            button[1].dataset.canDeleteRow === 'false'
+          ) {
+            button[1].disabled = true;
+          }
         }, checkedInputs);
       }
 
