@@ -17,6 +17,9 @@ $app: selfserve;
 
 @import '../vendor/chosen';
 
+// Patterns
+@import '../patterns/check_answers';
+
 // Core
 @import '../core/icon-sprite';
 @import '../core/tools';
@@ -74,12 +77,15 @@ $app: selfserve;
 @import '../components/system-messages';
 @import '../components/more-actions';
 @import '../components/address';
-@import '../components/check_answers';
+@import '../components/tm-check_answers';
 
 // Views
 @import '../views/selfserve/ecmt-permits';
 @import '../views/selfserve/overview';
 @import '../views/selfserve/search';
 @import '../views/selfserve/submit-application';
+
+// Overrides
+@import '../core/overrides';
 
 /*# sourceMappingURL=selfserve.css.map */
