@@ -13,8 +13,12 @@ $app: selfserve;
 @import '../../../node_modules/govuk_frontend_toolkit/stylesheets/grid_layout';
 @import '../../../node_modules/govuk_frontend_toolkit/stylesheets/typography';
 @import '../../../node_modules/govuk_frontend_toolkit/stylesheets/design-patterns/buttons';
+@import '../../../node_modules/govuk-frontend/all';
 
 @import '../vendor/chosen';
+
+// Patterns
+@import '../patterns/check_answers';
 
 // Core
 @import '../core/icon-sprite';
@@ -73,11 +77,15 @@ $app: selfserve;
 @import '../components/system-messages';
 @import '../components/more-actions';
 @import '../components/address';
+@import '../components/tm-check_answers';
 
 // Views
 @import '../views/selfserve/ecmt-permits';
 @import '../views/selfserve/overview';
 @import '../views/selfserve/search';
 @import '../views/selfserve/submit-application';
+
+// Overrides
+@import '../core/overrides';
 
 /*# sourceMappingURL=selfserve.css.map */
