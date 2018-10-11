@@ -1,5 +1,4 @@
 // Override dd and dt rules from base.scss and read-only.scss
-
 dt.app-check-your-answers__question,
 dd.app-check-your-answers__answer,
 dd.app-check-your-answers__change {
@@ -9,4 +8,19 @@ dd.app-check-your-answers__change {
 dd.app-check-your-answers__answer,
 dd.app-check-your-answers__change {
   font-weight: normal;
+}
+
+// Permits Check Answers page
+form#CheckAnswers {
+  margin: 0;
+
+  fieldset {
+    margin: 0;
+  }
+
+  // Override [type="submit"] in olcs-static/assets/_styles/core/forms.scss:270
+  button[type="submit"].govuk-button {
+    @extend .govuk-button;
+    text-decoration: none;
+  }
 }
