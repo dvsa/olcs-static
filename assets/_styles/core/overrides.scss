@@ -24,3 +24,15 @@ form#CheckAnswers {
     text-decoration: none;
   }
 }
+
+#pg\:permits\/ecmt-fee\:generic {
+  dl div {
+    @extend .app-check-your-answers__contents;
+  }
+  dt {
+    @extend .app-check-your-answers__question;
+  }
+  dd {
+    @extend .app-check-your-answers__change;
+  }
+}
