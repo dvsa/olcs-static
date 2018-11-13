@@ -6,7 +6,7 @@
      * OLCS automated front-end build processes to setup the
      * OLCS-Static repo using the Grunt build tool. Ensure to
      * read documentation on the Wiki @ https://wiki.i-env.net
-     * note production uses Yarn 
+     * note production uses Yarn
      */
 
     'use strict';
