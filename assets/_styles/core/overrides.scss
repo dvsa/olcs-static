@@ -23,4 +23,12 @@ form#CheckAnswers {
     @extend .govuk-button;
     text-decoration: none;
   }
+
+}
+form#surrender-start{
+  button[type="submit"].govuk-button--start {
+    @extend .govuk-button;
+    @extend .govuk-button--start;
+    text-decoration: none;
+  }
 }
