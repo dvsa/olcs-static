@@ -53,7 +53,7 @@ $is-print: false !default;
 
 $font--primary : "nta", Arial, sans-serif;
 // scss-lint:disable NameFormat
-$nta-light-tabular: $font--primary;
+$nta-light-tabular: $NTA-Light-Tabular;
 // scss-lint:enable NameFormat
 $core-sizes: (
   'size-1' : 12,
