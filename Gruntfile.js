@@ -5,7 +5,8 @@
      *
      * OLCS automated front-end build processes to setup the
      * OLCS-Static repo using the Grunt build tool. Ensure to
-     * read documentation on the Wiki @ https://wiki.i-env.net/
+     * read documentation on the Wiki @ https://wiki.i-env.net
+     * note production uses Yarn
      */
 
     'use strict';
@@ -208,8 +209,18 @@
                         src: ['**/*.{png,jpg,gif,svg,ico}'],
                         dest: 'public/images/'
                     }]
+                },
+                fonts:{
+                    files: [{
+                        expand: true,
+                        cwd: 'node_modules/govuk-frontend/assets/fonts/',
+                        src: ['**/*.{woff2,woff,eot}'],
+                        dest: 'public/fonts/'
+                    }]
                 }
             },
+
+
 
             /**
              * Clean
@@ -502,11 +513,14 @@
                 );
             };
             if (environment == 'prod') {
-                tasks.push();
+                tasks.push('copyfonts');
             };
             return tasks;
         };
 
+        grunt.registerTask('copyfonts',
+            ['copy:fonts']
+        )
         // Compile the app using targeted environment
         // $ grunt compile --env=prod
         grunt.registerTask('compile',
