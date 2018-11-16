@@ -49,12 +49,12 @@ $site-width         : $base-width;
  * Declare the font sizes to be used throughout the app
  */
 
+$is-print: false !default;
+
+$font--primary : "nta", Arial, sans-serif;
 // scss-lint:disable NameFormat
 $nta-light-tabular: $NTA-Light-Tabular;
 // scss-lint:enable NameFormat
-
-$font--primary : "nta", Arial, sans-serif;
-
 $core-sizes: (
   'size-1' : 12,
   'size-2' : 14,

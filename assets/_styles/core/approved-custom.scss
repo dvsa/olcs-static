@@ -1,0 +1,14 @@
+// Blue variation of govuk design inset component
+.guidance-blue {
+  @extend .govuk-inset-text;
+
+  background: #EBF5F9;
+  border-color: govuk-colour("blue");
+}
+
+// GDS Orange is not accessible for text on a white background, this is a short term fix to increase the contrast until we redesign statuses across VOL.
+#pg\:permits\:index {
+  .status.orange {
+    color: #c5490a;
+  }
+}

@@ -132,15 +132,6 @@
     }
   }
 
-  .return-overview {
-    @extend a;
-
-    background-color: transparent;
-    border: 0;
-    padding: 0;
-    text-decoration: underline;
-  }
-
   .guidance-subtitle {
     padding: 1.5em 0;
     margin:  0 0 3em;
@@ -190,14 +181,6 @@
       }
     }
   }
-
-  .guidance-blue {
-    @extend %guidance;
-
-    background: #EBF5F9;
-    border-color: #005EA5;
-  }
-
 }
 
 .info-box--permit {
