@@ -24,14 +24,15 @@ form#CheckAnswers {
     text-decoration: none;
   }
 
-
 }
-form#surrender-start{
+
+form#surrender-start {
   button[type="submit"].govuk-button--start {
     @extend .govuk-button;
     @extend .govuk-button--start;
     text-decoration: none;
 
+  }
 }
 
 #pg\:permits\/ecmt-fee\:generic {
