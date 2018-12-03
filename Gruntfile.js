@@ -228,7 +228,7 @@
                         expand: true,
                         cwd: 'node_modules/govuk-frontend/assets/fonts/',
                         src: ['**/*.{woff2,woff,eot}'],
-                        dest: 'public/fonts/'
+                        dest: 'public/assets/fonts/'
                     }]
                 }
             },
