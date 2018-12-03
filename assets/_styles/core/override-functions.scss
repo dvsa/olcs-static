@@ -1,15 +1,15 @@
-$assetPath : '/static/public/assets/';
-$govuk-image-url-function : 'imageUrl';
-$govuk-font-url-function : 'fontUrl';
+$asset-path : '/static/public/assets/';
+$govuk-image-url-function : 'olcs-image-url';
+$govuk-font-url-function : 'olcs-font-url';
 
 @function get-function($name) {
   @return $name;
 }
 
-@function imageUrl($filename) {
-  @return url($assetPath + 'images/'+ $filename);
+@function olcs-image-url($filename) {
+  @return url($asset-path + 'images/'+ $filename);
 }
 
-@function fontUrl($filename) {
-  @return url($assetPath + 'fonts/' + $filename);
+@function olcs-font-url($filename) {
+  @return url($asset-path + 'fonts/' + $filename);
 }
