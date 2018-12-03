@@ -80,6 +80,12 @@
         // Define the theme stylesheets
         var styles = {
             'public/styles/print.css': 'assets/_styles/themes/print.scss',
+            'public/styles/selfserve.css': 'assets/_styles/themes/build-selfserve.scss',
+            'public/styles/internal.css': 'assets/_styles/themes/internal.scss'
+        };
+
+        var localStyles = {
+            'public/styles/print.css': 'assets/_styles/themes/print.scss',
             'public/styles/selfserve.css': 'assets/_styles/themes/selfserve.scss',
             'public/styles/internal.css': 'assets/_styles/themes/internal.scss'
         };
@@ -120,6 +126,13 @@
              * https://github.com/sindresorhus/grunt-sass
              */
             sass: {
+                local: {
+                    options: {
+                        outputStyle: 'expanded',
+                        sourceMap: true
+                    },
+                    files: localStyles
+                },
                 dev: {
                     options: {
                         outputStyle: 'expanded',
@@ -345,6 +358,15 @@
              * https://github.com/gruntjs/grunt-contrib-uglify
              */
             uglify: {
+                local: {
+                    options: {
+                        sourceMap: true,
+                        mangle: false,
+                        compress: false,
+                        beautify: true
+                    },
+                    files: scripts
+                },
                 dev: {
                     options: {
                         sourceMap: true,
@@ -501,13 +523,16 @@
 
         // Function to compile the app
         var compile = function(environment) {
+            console.log("===========================================");
+            console.log(environment);
+            console.log("===========================================");
             var tasks = [
                 'images',
                 'sass:' + environment,
                 'postcss',
                 'uglify:' + environment
             ];
-            if (environment == 'dev') {
+            if (environment == 'dev' || environment == 'local') {
                 tasks.push(
                     'assemble'
                 );
@@ -528,6 +553,11 @@
         );
 
         // Compile the app for development environment
+        grunt.registerTask('compile:local',
+            compile('local')
+        );
+
+        // Compile the app for development environment
         grunt.registerTask('compile:dev',
             compile('dev')
         );
@@ -545,7 +575,7 @@
 
         // Serve the app for a development environment
         grunt.registerTask('serve', [
-            'compile:dev',
+            'compile:local',
             'browserSync',
             'watch'
         ]);

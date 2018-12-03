@@ -1,0 +1,15 @@
+$assetPath : '/static/public/assets/';
+$govuk-image-url-function : 'imageUrl';
+$govuk-font-url-function : 'fontUrl';
+
+@function get-function($name) {
+  @return $name;
+}
+
+@function imageUrl($filename) {
+  @return url($assetPath + 'images/'+ $filename);
+}
+
+@function fontUrl($filename) {
+  @return url($assetPath + 'fonts/' + $filename);
+}
