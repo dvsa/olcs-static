@@ -221,6 +221,11 @@
                         cwd: 'assets/_images/',
                         src: ['**/*.{png,jpg,gif,svg,ico}'],
                         dest: 'public/images/'
+                    }, {
+                        expand: true,
+                        cwd: 'node_modules/govuk-frontend/assets/images/',
+                        src: ['**/*.{png,jpg,gif,svg,ico}'],
+                        dest: 'public/assets/images/'
                     }]
                 },
                 fonts:{
@@ -523,29 +528,24 @@
 
         // Function to compile the app
         var compile = function(environment) {
-            console.log("===========================================");
-            console.log(environment);
-            console.log("===========================================");
             var tasks = [
                 'images',
                 'sass:' + environment,
                 'postcss',
-                'uglify:' + environment
+                'uglify:' + environment,
+                'copyfonts'
             ];
-            if (environment == 'dev' || environment == 'local') {
+            if (environment === 'dev') {
                 tasks.push(
                     'assemble'
                 );
-            };
-            if (environment == 'prod') {
-                tasks.push('copyfonts');
-            };
+            }
             return tasks;
         };
 
         grunt.registerTask('copyfonts',
             ['copy:fonts']
-        )
+        );
         // Compile the app using targeted environment
         // $ grunt compile --env=prod
         grunt.registerTask('compile',
