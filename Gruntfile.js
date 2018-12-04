@@ -528,19 +528,13 @@
 
         // Function to compile the app
         var compile = function(environment) {
-            var tasks = [
+            return [
                 'images',
                 'sass:' + environment,
                 'postcss',
                 'uglify:' + environment,
                 'copyfonts'
             ];
-            if (environment === 'dev') {
-                tasks.push(
-                    'assemble'
-                );
-            }
-            return tasks;
         };
 
         grunt.registerTask('copyfonts',
@@ -625,18 +619,16 @@
          */
 
         grunt.registerTask('build:staging', [
-            'jshint:static', 'test:ci', 'compile:prod'
+            'jshint:static', 'test:ci', 'compile:dev'
         ]);
 
         grunt.registerTask('build:demo', [
             'test:ci', 'compile:prod'
         ]);
 
-        grunt.registerTask('build:live', [
-            'compile:prod'
+        grunt.registerTask('build:production', [
+            'jshint:static', 'test:ci', 'compile:prod'
         ]);
-
-  
     };
 
 }).call(this);
