@@ -1,0 +1,27 @@
+.govuk-radios__item {
+  padding: 0;
+  min-height: auto;
+  margin-bottom: 0;
+}
+
+.govuk-radios__item .govuk-label{
+  font-size: 18px;
+}
+
+.govuk-radios__input {
+  opacity: 1;
+  margin-right: 0.5em;
+  position: relative;
+  width: auto;
+  height: auto;
+}
+
+.govuk-radios__label {
+  padding: 0;
+}
+
+.govuk-radios__input + .govuk-radios__label::before,
+.govuk-radios__input + .govuk-radios__label::after,
+.govuk-radios__input:checked + .govuk-radios__label::after{
+  display: none;
+}
