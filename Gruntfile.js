@@ -204,12 +204,10 @@
                         src: ['selfserve.css'],
                         dest: '../prototypes/' + target + '/styles/'
                     }, {
-                        expand: true,
                         cwd: 'public/images/',
                         src: ['**/*.{png,jpg,gif,svg,ico}'],
                         dest: '../prototypes/' + target + '/images/'
                     }, {
-                        expand: true,
                         cwd: 'public/fonts/',
                         src: ['**/*'],
                         dest: '../prototypes/' + target + '/fonts/'
