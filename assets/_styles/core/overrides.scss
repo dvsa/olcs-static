@@ -47,3 +47,12 @@ form#surrender-start {
 
   }
 }
+
+.radio-button__fieldset--horizontal .govuk-radios,
+.radio-button__fieldset--vertical .govuk-radios {
+  margin-bottom: 15px;
+}
+
+.radio-button__fieldset--horizontal .govuk-radios__conditional {
+  margin-left: 0;
+}
