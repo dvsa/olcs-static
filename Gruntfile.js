@@ -81,6 +81,12 @@
         // Define the theme stylesheets
         var styles = {
             'public/styles/print.css': 'assets/_styles/themes/print.scss',
+            'public/styles/selfserve.css': 'assets/_styles/themes/build-selfserve.scss',
+            'public/styles/internal.css': 'assets/_styles/themes/internal.scss'
+        };
+
+        var localStyles = {
+            'public/styles/print.css': 'assets/_styles/themes/print.scss',
             'public/styles/selfserve.css': 'assets/_styles/themes/selfserve.scss',
             'public/styles/internal.css': 'assets/_styles/themes/internal.scss'
         };
@@ -121,6 +127,13 @@
              * https://github.com/sindresorhus/grunt-sass
              */
             sass: {
+                local: {
+                    options: {
+                        outputStyle: 'expanded',
+                        sourceMap: true
+                    },
+                    files: localStyles
+                },
                 dev: {
                     options: {
                         outputStyle: 'expanded',
@@ -192,12 +205,10 @@
                         src: ['selfserve.css'],
                         dest: '../prototypes/' + target + '/styles/'
                     }, {
-                        expand: true,
                         cwd: 'public/images/',
                         src: ['**/*.{png,jpg,gif,svg,ico}'],
                         dest: '../prototypes/' + target + '/images/'
                     }, {
-                        expand: true,
                         cwd: 'public/fonts/',
                         src: ['**/*'],
                         dest: '../prototypes/' + target + '/fonts/'
@@ -209,6 +220,11 @@
                         cwd: 'assets/_images/',
                         src: ['**/*.{png,jpg,gif,svg,ico}'],
                         dest: 'public/images/'
+                    }, {
+                        expand: true,
+                        cwd: 'node_modules/govuk-frontend/assets/images/',
+                        src: ['**/*.{png,jpg,gif,svg,ico}'],
+                        dest: 'public/assets/images/'
                     }]
                 },
                 fonts:{
@@ -216,7 +232,7 @@
                         expand: true,
                         cwd: 'node_modules/govuk-frontend/assets/fonts/',
                         src: ['**/*.{woff2,woff,eot}'],
-                        dest: 'public/fonts/'
+                        dest: 'public/assets/fonts/'
                     }]
                 }
             },
@@ -346,6 +362,15 @@
              * https://github.com/gruntjs/grunt-contrib-uglify
              */
             uglify: {
+                local: {
+                    options: {
+                        sourceMap: true,
+                        mangle: false,
+                        compress: false,
+                        beautify: true
+                    },
+                    files: scripts
+                },
                 dev: {
                     options: {
                         sourceMap: true,
@@ -502,30 +527,27 @@
 
         // Function to compile the app
         var compile = function(environment) {
-            var tasks = [
+            return [
                 'images',
                 'sass:' + environment,
                 'postcss',
-                'uglify:' + environment
+                'uglify:' + environment,
+                'copyfonts'
             ];
-            if (environment == 'dev') {
-                tasks.push(
-                    'assemble'
-                );
-            };
-            if (environment == 'prod') {
-                tasks.push('copyfonts');
-            };
-            return tasks;
         };
 
         grunt.registerTask('copyfonts',
             ['copy:fonts']
-        )
+        );
         // Compile the app using targeted environment
         // $ grunt compile --env=prod
         grunt.registerTask('compile',
             compile(env)
+        );
+
+        // Compile the app for development environment
+        grunt.registerTask('compile:local',
+            compile('local')
         );
 
         // Compile the app for development environment
@@ -546,7 +568,7 @@
 
         // Serve the app for a development environment
         grunt.registerTask('serve', [
-            'compile:dev',
+            'compile:local',
             'browserSync',
             'watch'
         ]);
@@ -596,18 +618,16 @@
          */
 
         grunt.registerTask('build:staging', [
-            'jshint:static', 'test:ci', 'compile:prod'
+            'jshint:static', 'test:ci', 'compile:dev'
         ]);
 
         grunt.registerTask('build:demo', [
             'test:ci', 'compile:prod'
         ]);
 
-        grunt.registerTask('build:live', [
-            'compile:prod'
+        grunt.registerTask('build:production', [
+            'jshint:static', 'test:ci', 'compile:prod'
         ]);
-
-  
     };
 
 }).call(this);

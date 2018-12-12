@@ -4,6 +4,7 @@
 .sass-cache
 *.log
 results.xml
+public/assets
 public/js
 public/styles
 public/styleguides
