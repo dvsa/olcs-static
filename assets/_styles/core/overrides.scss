@@ -47,3 +47,18 @@ form#surrender-start {
 
   }
 }
+
+form#surrender-current-discs {
+  fieldset {
+    margin-bottom: 0;
+  }
+  .field {
+    margin-bottom: 15px;
+  }
+  .govuk-checkboxes__conditional {
+    margin-bottom: 15px;
+  }
+  textarea {
+    margin-bottom: 0;
+  }
+}
