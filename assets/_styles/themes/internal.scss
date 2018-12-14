@@ -12,6 +12,7 @@ $app: internal;
 @import '../../../node_modules/govuk_frontend_toolkit/stylesheets/colours';
 @import '../../../node_modules/govuk_frontend_toolkit/stylesheets/grid_layout';
 @import '../../../node_modules/govuk_frontend_toolkit/stylesheets/typography';
+@import '../../../node_modules/govuk-frontend/components/radios/radios';
 
 @import '../vendor/chosen';
 @import '../vendor/pace';
@@ -69,6 +70,8 @@ $app: internal;
 @import '../components/system-messages';
 @import '../components/more-actions';
 @import '../components/chosen';
+
+@import '../core/internal-overrides';
 
 // Views
 @import '../views/internal/sign-in';
