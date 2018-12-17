@@ -64,9 +64,6 @@
         // Function to get which file(s) should be used to run JS tests
         var testFiles = function(theme) {
             var files = [
-                'node_modules/sinon/lib/sinon.js',
-                'node_modules/sinon/lib/sinon/spy.js',
-                'node_modules/sinon/lib/sinon/**/*.js',
                 'node_modules/jquery/dist/jquery.min.js',
                 'assets/_js/vendor/**/*.js',
                 'assets/_js/components/**/*.js',
