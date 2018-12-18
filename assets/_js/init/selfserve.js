@@ -15,4 +15,6 @@ OLCS.ready(function() {
 
   OLCS.searchFilter();
 
+  window.GOVUKFrontend.initAll();
+
 });
