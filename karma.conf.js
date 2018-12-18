@@ -11,13 +11,10 @@ module.exports = function(config) {
 
   config.set({
     
-    frameworks: ["mocha", "expect"],
+    frameworks: ["mocha", "expect","sinon"],
     
     // These files are re-defined in Gruntfile.js
     files: [
-      "node_modules/sinon/lib/sinon.js",
-      "node_modules/sinon/lib/sinon/spy.js",
-      "node_modules/sinon/lib/sinon/**/*.js",
       "assets/_js/vendor/jquery.1.12.4.js",
       "assets/_js/vendor/**/*.js",
       "assets/_js/components/**/*.js",
