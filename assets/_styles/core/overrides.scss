@@ -56,3 +56,18 @@ form#surrender-start {
 .radio-button__fieldset--horizontal .govuk-radios__conditional {
   margin-left: 0;
 }
+
+form#surrender-current-discs {
+  fieldset {
+    margin-bottom: 0;
+  }
+  .field {
+    margin-bottom: 15px;
+  }
+  .govuk-checkboxes__conditional {
+    margin-bottom: 15px;
+  }
+  textarea {
+    margin-bottom: 0;
+  }
+}
