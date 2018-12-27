@@ -10,4 +10,14 @@ ignore:
     - customizr > modernizr > lodash:
         reason: None given
         expires: '2019-01-13T12:51:44.588Z'
+  'npm:chownr:20180731':
+    - cacache > chownr:
+        reason: no patch
+        expires: '2019-01-26T10:11:30.354Z'
+    - npm > tar > chownr:
+        reason: 'no patch '
+        expires: '2019-01-26T10:11:30.355Z'
+    - node-pre-gyp > tar > chownr:
+        reason: None given
+        expires: '2019-01-26T10:11:30.355Z'
 patch: {}
