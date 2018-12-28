@@ -2,10 +2,6 @@ $asset-path : '/static/public/assets/';
 $govuk-image-url-function : 'olcs-image-url';
 $govuk-font-url-function : 'olcs-font-url';
 
-@function get-function($name) {
-  @return $name;
-}
-
 @function olcs-image-url($filename) {
   @return url($asset-path + 'images/'+ $filename);
 }
