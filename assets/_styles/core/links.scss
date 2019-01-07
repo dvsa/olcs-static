@@ -38,6 +38,9 @@ a {
   &:hover {
     text-decoration: underline;
   }
+  &.print-form {
+    margin-bottom: 1.5em;
+  }
 }
 
 @if $app == 'internal' {
