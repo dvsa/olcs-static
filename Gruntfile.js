@@ -79,7 +79,7 @@
         var styles = {
             'public/styles/print.css': 'assets/_styles/themes/print.scss',
             'public/styles/selfserve.css': 'assets/_styles/themes/build-selfserve.scss',
-            'public/styles/internal.css': 'assets/_styles/themes/internal.scss'
+            'public/styles/internal.css': 'assets/_styles/themes/build-internal.scss'
         };
 
         var localStyles = {
