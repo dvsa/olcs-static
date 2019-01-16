@@ -26,7 +26,7 @@ form#CheckAnswers {
 
 }
 
-form#surrender-start {
+form#surrender-start, form#surrender-information-changed {
   button[type="submit"].govuk-button--start {
     @extend .govuk-button;
     @extend .govuk-button--start;
