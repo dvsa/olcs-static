@@ -49,8 +49,17 @@ form#surrender-start, form#surrender-information-changed {
 }
 
 fieldset[data-group=fields\[permitsRequired\]] > fieldset {
-    padding-bottom: 30px;
-    border-bottom: 2px #c2c2c2 solid;
+  input {
+    width: 215px;
+  }
+
+  p.no-more-available { 
+    color: $govuk-secondary-text-colour;
+
+    &::first-line {
+      color: $govuk-text-colour;
+    }
+  }
 }
 
 .radio-button__fieldset--horizontal .govuk-radios,
