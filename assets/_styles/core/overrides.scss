@@ -1,16 +1,20 @@
 // Override dd and dt rules from base.scss and read-only.scss
 dt.app-check-your-answers__question,
 dd.app-check-your-answers__answer,
-dd.app-check-your-answers__change {
+dd.app-check-your-answers__change,
+dt.govuk-summary-list__key,
+dd.govuk-summary-list__value,
+dd.govuk-summary-list__actions {
   float: none;
 }
 
 dd.app-check-your-answers__answer,
-dd.app-check-your-answers__change {
+dd.app-check-your-answers__change,
+dd.govuk-summary-list__value,
+dd.govuk-summary-list__actions {
   font-weight: normal;
 }
 
-// Permits Check Answers page
 form#CheckAnswers {
   margin: 0;
 
@@ -18,12 +22,10 @@ form#CheckAnswers {
     margin: 0;
   }
 
-  // Override [type="submit"] in olcs-static/assets/_styles/core/forms.scss:270
   button[type="submit"].govuk-button {
     @extend .govuk-button;
     text-decoration: none;
   }
-
 }
 
 form#surrender-start, form#surrender-information-changed {
@@ -31,7 +33,6 @@ form#surrender-start, form#surrender-information-changed {
     @extend .govuk-button;
     @extend .govuk-button--start;
     text-decoration: none;
-
   }
 }
 
@@ -44,7 +45,6 @@ form#surrender-start, form#surrender-information-changed {
   }
   dd {
     @extend .app-check-your-answers__change;
-
   }
 }
 
@@ -79,4 +79,8 @@ form#surrender-current-discs {
 
 .govuk-grid-column-full .govuk-heading-xl {
   max-width: none;
+}
+
+.govuk-warning-text__icon {
+  box-sizing: content-box;
 }
