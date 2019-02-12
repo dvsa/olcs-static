@@ -10,7 +10,7 @@ OLCS.ajaxError = (function(document, $, undefined) {
 
     exports.translations = {
         en: "An unknown error has occurred. Please try again later.",
-        cy: "An unknown error has occurred. Please try again later."
+        cy: "Mae gwall wedi digwydd. Rhowch gynnig arall yn nes ymlaen."
     };
 
     exports.errorHTML = function(language) {
