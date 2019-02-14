@@ -15,16 +15,25 @@ dd.govuk-summary-list__actions {
   font-weight: normal;
 }
 
-form#CheckAnswers {
+form#CheckAnswers,
+form#Fees,
+form#AcceptAndPayForm {
   margin: 0;
 
   fieldset {
     margin: 0;
   }
 
-  button[type="submit"].govuk-button {
+  button[type="submit"].govuk-button,
+  input[type="submit"].govuk-button {
     @extend .govuk-button;
     text-decoration: none;
+
+    &--secondary {
+      background: govuk-colour('grey-3');
+      color: govuk-colour('black');
+      box-shadow: 0 2px 0 govuk-colour('grey-2');
+    }
   }
 }
 
@@ -33,18 +42,6 @@ form#surrender-start, form#surrender-information-changed {
     @extend .govuk-button;
     @extend .govuk-button--start;
     text-decoration: none;
-  }
-}
-
-#pg\:permits\/ecmt-fee\:generic {
-  dl div {
-    @extend .app-check-your-answers__contents;
-  }
-  dt {
-    @extend .app-check-your-answers__question;
-  }
-  dd {
-    @extend .app-check-your-answers__change;
   }
 }
 
