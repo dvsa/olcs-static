@@ -1,0 +1,28 @@
+.surrender-govuk-summary-list {
+  .govuk-summary-list {
+    &__key {
+      float: none;
+    }
+
+    &__value {
+      @extend .govuk-body;
+      float: none;
+    }
+  }
+}
+
+.list-grey {
+  border-left: solid grey;
+  margin: 10px 0;
+  padding: 10px;
+  background: $grey-3;
+  -webkit-print-color-adjust: exact;
+}
+
+.vehicle-discs-section {
+  display: contents;
+}
+
+.govuk-summary-list--border-bottom {
+  border-bottom: none;
+}

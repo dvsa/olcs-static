@@ -29,6 +29,12 @@
   }
 }
 
+dt.govuk-summary-list__key,
+dd.govuk-summary-list__value,
+dd.govuk-summary-list__actions {
+  float: none;
+}
+
 .govuk-radios__input + .govuk-radios__label::before,
 .govuk-radios__input + .govuk-radios__label::after,
 .govuk-radios__input:checked + .govuk-radios__label::after {
