@@ -34,3 +34,8 @@
 .govuk-radios__input:checked + .govuk-radios__label::after {
   display: none;
 }
+
+// Fix for table width when table is included in internal form field Divs.
+div.field>div.table__wrapper {
+  max-width: 100%;
+}
