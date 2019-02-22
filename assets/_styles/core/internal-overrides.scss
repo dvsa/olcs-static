@@ -40,6 +40,10 @@ dd.govuk-summary-list__actions {
   font-weight: normal;
 }
 
+dt.govuk-summary-list__key--weight-normal {
+  font-weight: normal;
+}
+
 .govuk-radios__input + .govuk-radios__label::before,
 .govuk-radios__input + .govuk-radios__label::after,
 .govuk-radios__input:checked + .govuk-radios__label::after {
