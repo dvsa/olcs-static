@@ -18,25 +18,10 @@ describe('OLCS.surrenderDetails', function () {
     describe('Given a stubbed DOM', function () {
         beforeEach(function () {
             this.template = [
-                '<section>',
-                '<fieldset class="surrenderChecks" data-group="checks">',
-                '<div class="field ">',
                 '<input type="checkbox" name="checks[openCases]" class="surrenderChecks__checkbox js-surrender-checks-openCases" disabled="disabled" checked="checked" id="checks[openCases]" value="1">',
-                '<label for="checks[openCases]">There are no open cases associated with this licence</label>',
-                '</div>',
-                '<div class="field ">',
                 '<input type="checkbox" name="checks[digitalSignature]" class="surrenderChecks__checkbox js-surrender-checks-digitalSignature" required="required" id="signatureCheck" value="1">',
-                '<label for="checks[digitalSignature]">Digital signature has been checked</label>',
-                '</div>',
-                '<div class="field ">',
                 '<input type="checkbox" name="checks[ecms]" class="surrenderChecks__checkbox js-surrender-checks-ecms" required="required" id="ecmsCheck" value="1">',
-                '<label for="checks[ecms]">ECMS has been checked</label>',
-                '</div>',
-                '</fieldset>',
-                '<fieldset data-group="actions">',
-                '<button type="submit" name="actions[surrender]" class="action--primary large disabled js-approve-surrender  value="" id="surrenderButton">Surrender</button>',
-                '</fieldset>',
-                '</section>'
+                '<button type="submit" name="actions[surrender]" class="action--primary large disabled js-approve-surrender  value="" id="surrenderButton">Surrender</button>'
             ].join('\n');
             this.body = $("body");
             this.body.append(this.template);
@@ -63,25 +48,10 @@ describe('OLCS.surrenderDetails', function () {
     describe('Given a surrender for a GV licence with no open cases', function () {
         beforeEach(function () {
             this.template = [
-                '<section>',
-                '<fieldset class="surrenderChecks" data-group="checks">',
-                '<div class="field ">',
                 '<input type="checkbox" name="checks[openCases]" class="surrenderChecks__checkbox js-surrender-checks-openCases" disabled="disabled" checked="checked" id="checks[openCases]" value="1">',
-                '<label for="checks[openCases]">There are no open cases associated with this licence</label>',
-                '</div>',
-                '<div class="field ">',
                 '<input type="checkbox" name="checks[digitalSignature]" class="surrenderChecks__checkbox js-surrender-checks-digitalSignature" required="required" id="signatureCheck" value="1">',
-                '<label for="checks[digitalSignature]">Digital signature has been checked</label>',
-                '</div>',
-                '<div class="field ">',
                 '<input type="checkbox" name="checks[ecms]" class="surrenderChecks__checkbox js-surrender-checks-ecms" required="required" id="ecmsCheck" value="1">',
-                '<label for="checks[ecms]">ECMS has been checked</label>',
-                '</div>',
-                '</fieldset>',
-                '<fieldset data-group="actions">',
-                '<button type="submit" name="actions[surrender]" class="action--primary large disabled js-approve-surrender  value="" id="surrenderButton">Surrender</button>',
-                '</fieldset>',
-                '</section>'
+                '<button type="submit" name="actions[surrender]" class="action--primary large disabled js-approve-surrender  value="" id="surrenderButton">Surrender</button>'
             ].join('\n');
 
             this.body = $("body");
@@ -173,21 +143,9 @@ describe('OLCS.surrenderDetails', function () {
     describe('Given a surrender for a GV licence with open cases', function () {
         beforeEach(function () {
             this.template = [
-                '<section>',
-                '<fieldset class="surrenderChecks" data-group="checks">',
-                '<div class="field ">',
                 '<input type="checkbox" name="checks[digitalSignature]" class="surrenderChecks__checkbox js-surrender-checks-digitalSignature" required="required" id="signatureCheck" value="1">',
-                '<label for="checks[digitalSignature]">Digital signature has been checked</label>',
-                '</div>',
-                '<div class="field ">',
                 '<input type="checkbox" name="checks[ecms]" class="surrenderChecks__checkbox js-surrender-checks-ecms" required="required" id="ecmsCheck" value="1">',
-                '<label for="checks[ecms]">ECMS has been checked</label>',
-                '</div>',
-                '</fieldset>',
-                '<fieldset data-group="actions">',
-                '<button type="submit" name="actions[surrender]" class="action--primary large disabled js-approve-surrender  value="" id="surrenderButton">Surrender</button>',
-                '</fieldset>',
-                '</section>'
+                '<button type="submit" name="actions[surrender]" class="action--primary large disabled js-approve-surrender  value="" id="surrenderButton">Surrender</button>'
             ].join('\n');
 
             this.body = $("body");
@@ -255,29 +213,11 @@ describe('OLCS.surrenderDetails', function () {
     describe('Given a surrender for a PSV licence with no open cases and no bus registrations', function () {
         beforeEach(function () {
             this.template = [
-                '<section>',
-                '<fieldset class="surrenderChecks" data-group="checks">',
-                '<div class="field ">',
                 '<input type="checkbox" name="checks[openCases]" class="surrenderChecks__checkbox js-surrender-checks-openCases" disabled="disabled" checked="checked" id="checks[openCases]" value="1">',
-                '<label for="checks[openCases]">There are no open cases associated with this licence</label>',
-                '</div>',
-                '<div class="field ">',
                 '<input type="checkbox" name="checks[busRegistrations]" class="surrenderChecks__checkbox js-surrender-checks-busRegistrations" disabled="disabled" checked="checked" id="checks[busRegistrations]" value="1">',
-                '<label for="checks[busRegistrations]">There are no active bus registrations associated with this licence</label>',
-                '</div>',
-                '<div class="field ">',
                 '<input type="checkbox" name="checks[digitalSignature]" class="surrenderChecks__checkbox js-surrender-checks-digitalSignature" required="required" id="signatureCheck" value="1">',
-                '<label for="checks[digitalSignature]">Digital signature has been checked</label>',
-                '</div>',
-                '<div class="field ">',
                 '<input type="checkbox" name="checks[ecms]" class="surrenderChecks__checkbox js-surrender-checks-ecms" required="required" id="ecmsCheck" value="1">',
-                '<label for="checks[ecms]">ECMS has been checked</label>',
-                '</div>',
-                '</fieldset>',
-                '<fieldset data-group="actions">',
-                '<button type="submit" name="actions[surrender]" class="action--primary large disabled js-approve-surrender  value="" id="surrenderButton">Surrender</button>',
-                '</fieldset>',
-                '</section>'
+                '<button type="submit" name="actions[surrender]" class="action--primary large disabled js-approve-surrender  value="" id="surrenderButton">Surrender</button>'
             ].join('\n');
 
             this.body = $("body");
@@ -369,42 +309,14 @@ describe('OLCS.surrenderDetails', function () {
     describe('Given a surrender for a PSV licence with no open cases and bus registrations', function () {
         beforeEach(function () {
             this.template = [
-                '<h2> Open Items</h2>',
-                '<div class="table__header" id="110">',
-                '<h3>4 active bus registrations associated with this licence.</h3>',
-                '</div>',
-                '<div class="table__wrapper">',
                 '<table name="busRegistrations">',
-                '<thead>',
-                '<tr>',
-                '<th>Reg No.</th><th>Var No.</th><th>Service No.</th><th>1st registered / cancelled</th><th>Starting point</th><th>Finishing point</th><th>Status</th></tr>',
-                '</thead>',
                 '<tbody>',
-                '<tr>',
-                '<td data-heading="Reg No."><a>PD2737280/1</a></td><td data-heading="Var No.">0</td><td data-heading="Service No.">90839 (90840, 90841)</td><td data-heading="1st registered / cancelled">15/03/2014</td><td data-heading="Starting point">Doncaster</td><td data-heading="Finishing point">Sheffield</td><td data-heading="Status">New</td>',
-                '</tr>',
                 '</tbody>',
                 '</table>',
-                '</div>',
-                '<section>',
-                '<fieldset class="surrenderChecks" data-group="checks">',
-                '<div class="field ">',
                 '<input type="checkbox" name="checks[openCases]" class="surrenderChecks__checkbox js-surrender-checks-openCases" disabled="disabled" checked="checked" id="checks[openCases]" value="1">',
-                '<label for="checks[openCases]">There are no open cases associated with this licence</label>',
-                '</div>',
-                '<div class="field ">',
                 '<input type="checkbox" name="checks[digitalSignature]" class="surrenderChecks__checkbox js-surrender-checks-digitalSignature" required="required" id="signatureCheck" value="1">',
-                '<label for="checks[digitalSignature]">Digital signature has been checked</label>',
-                '</div>',
-                '<div class="field ">',
                 '<input type="checkbox" name="checks[ecms]" class="surrenderChecks__checkbox js-surrender-checks-ecms" required="required" id="ecmsCheck" value="1">',
-                '<label for="checks[ecms]">ECMS has been checked</label>',
-                '</div>',
-                '</fieldset>',
-                '<fieldset data-group="actions">',
-                '<button type="submit" name="actions[surrender]" class="action--primary large disabled js-approve-surrender  value="" id="surrenderButton">Surrender</button>',
-                '</fieldset>',
-                '</section>'
+                '<button type="submit" name="actions[surrender]" class="action--primary large disabled js-approve-surrender  value="" id="surrenderButton">Surrender</button>'
             ].join('\n');
 
             this.body = $("body");
