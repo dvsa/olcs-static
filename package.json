@@ -9,6 +9,7 @@
     "build:grunt:production": "./node_modules/grunt-cli/bin/grunt --no-color build:production",
     "build:staging": "npm run customizr && npm run build:grunt:staging && npm run images",
     "build:production": "npm run customizr && npm run build:grunt:production && npm run images",
+    "build:container": "./node_modules/grunt-cli/bin/grunt build:container && npm run images",
     "start": "npm run customizr && ./node_modules/grunt-cli/bin/grunt serve"
   },
   "author": "Sam Quayle sam.quayle@valtech.co.uk, Edmund Reed edmund.reed@valtech.co.uk",
