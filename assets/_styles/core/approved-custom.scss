@@ -4,6 +4,11 @@
 
   background: #EBF5F9;
   border-color: govuk-colour("blue");
+
+  // to support indentation of bullet points
+  li {
+      margin-left: 30px;
+  }
 }
 
 .heading-box-grey {
