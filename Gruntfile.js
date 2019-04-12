@@ -167,7 +167,7 @@
                         }
                     },
                         src: 'public/styles/internal.css'
-                    
+
                 },
                 selfserve: {
                     options: {
@@ -281,7 +281,7 @@
                                 "render": {
                                   "scss": {
                                       "dest": path.resolve() + "/assets/_styles/core/icon-sprite.scss"
-                                  } 
+                                  }
                               },
                             }
                         }
@@ -511,7 +511,7 @@
         require('matchdep').filterAll([
             'grunt-*', '!grunt-cli', 'assemble'
         ]).forEach(grunt.loadNpmTasks);
-        
+
         /**
          * Register Grunt Tasks
          *
@@ -624,6 +624,10 @@
 
         grunt.registerTask('build:production', [
             'jshint:static', 'test:ci', 'compile:prod'
+        ]);
+
+        grunt.registerTask('build:container',[
+            'compile:dev'
         ]);
     };
 
