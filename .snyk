@@ -4,8 +4,8 @@ version: v1.13.1
 ignore:
   'npm:jquery:20150627':
     - jquery:
-        reason: in progress elsewhere
-        expires: '2019-01-13T12:51:44.587Z'
+        reason: known issue
+        expires: '2019-05-17T15:22:48.485Z'
   'npm:lodash:20180130':
     - customizr > modernizr > lodash:
         reason: None given
@@ -20,4 +20,8 @@ ignore:
     - node-pre-gyp > tar > chownr:
         reason: None given
         expires: '2019-01-26T10:11:30.355Z'
+  SNYK-JS-JQUERY-174006:
+    - jquery:
+        reason: known issue
+        expires: '2019-05-17T15:22:48.485Z'
 patch: {}
