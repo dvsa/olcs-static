@@ -20,13 +20,15 @@ OLCS.surrenderDetailsCheckboxes = (function (document, $, undefined) {
             $.ajax({
                 type: "POST",
                 url: "surrender-checks",
-                data: {signatureChecked: 1}
+                data: {signatureChecked: 1},
+                success: window.location.reload(true)
             });
         } else {
             $.ajax({
                 type: "POST",
                 url: "surrender-checks",
                 data: {signatureChecked: 0},
+                success: window.location.reload(true)
             });
         }
     };
@@ -36,13 +38,15 @@ OLCS.surrenderDetailsCheckboxes = (function (document, $, undefined) {
             $.ajax({
                 type: "POST",
                 url: "surrender-checks",
-                data: {ecmsChecked: 1}
+                data: {ecmsChecked: 1},
+                success: window.location.reload(true)
             });
         } else {
             $.ajax({
                 type: "POST",
                 url: "surrender-checks",
                 data: {ecmsChecked: 0},
+                success: window.location.reload(true)
             });
         }
     };

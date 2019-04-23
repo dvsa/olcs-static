@@ -1,3 +1,4 @@
+const sass = require('node-sass');
 (function() {
 
     /**
@@ -127,6 +128,7 @@
                 local: {
                     options: {
                         outputStyle: 'expanded',
+			implementation: sass,
                         sourceMap: true
                     },
                     files: localStyles
