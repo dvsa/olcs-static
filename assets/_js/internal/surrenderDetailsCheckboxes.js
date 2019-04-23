@@ -26,7 +26,7 @@ OLCS.surrenderDetailsCheckboxes = (function (document, $, undefined) {
             $.ajax({
                 type: "POST",
                 url: "surrender-checks",
-                data: {signatureChecked: 0},
+                data: {signatureChecked: 0}
             });
         }
     };
@@ -42,7 +42,7 @@ OLCS.surrenderDetailsCheckboxes = (function (document, $, undefined) {
             $.ajax({
                 type: "POST",
                 url: "surrender-checks",
-                data: {ecmsChecked: 0},
+                data: {ecmsChecked: 0}
             });
         }
     };
