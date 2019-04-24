@@ -43,6 +43,8 @@ describe('surrenderDetailsCheckboxes', function () {
 
     describe('Given the digital signature checkbox is unchecked', function () {
         beforeEach(function () {
+            sinon.stub(window.location, "reload");
+
             this.template = [
                 '<input type="checkbox" name="checks[digitalSignature]" class="surrenderChecks__checkbox js-surrender-checks-digitalSignature" required="required" id="signatureCheck" value="1">',
             ].join('\n');
@@ -56,10 +58,10 @@ describe('surrenderDetailsCheckboxes', function () {
 
             this.xhr = sinon.useFakeXMLHttpRequest();
             this.requests = [];
-            this.xhr.onCreate = function(xhr) {
+            this.xhr.onCreate = function (xhr) {
                 this.requests.push(xhr);
             }.bind(this);
-                this.signatureCheck.click();
+            this.signatureCheck.click();
         });
 
         afterEach(function () {
@@ -84,6 +86,7 @@ describe('surrenderDetailsCheckboxes', function () {
 
     describe('Given the digital signature checkbox is checked', function () {
         beforeEach(function () {
+            sinon.stub(window.location, "reload");
             this.template = [
                 '<input type="checkbox" name="checks[digitalSignature]" class="surrenderChecks__checkbox js-surrender-checks-digitalSignature" required="required" id="signatureCheck" value="1">',
             ].join('\n');
@@ -98,7 +101,7 @@ describe('surrenderDetailsCheckboxes', function () {
 
             this.xhr = sinon.useFakeXMLHttpRequest();
             this.requests = [];
-            this.xhr.onCreate = function(xhr) {
+            this.xhr.onCreate = function (xhr) {
                 this.requests.push(xhr);
             }.bind(this);
             this.signatureCheck.click();
@@ -126,6 +129,7 @@ describe('surrenderDetailsCheckboxes', function () {
 
     describe('Given the ecms checkbox is unchecked', function () {
         beforeEach(function () {
+            sinon.stub(window.location, "reload");
             this.template = [
                 '<input type="checkbox" name="checks[ecms]" class="surrenderChecks__checkbox js-surrender-checks-ecms" required="required" id="ecmsCheck" value="1">',
             ].join('\n');
@@ -140,7 +144,7 @@ describe('surrenderDetailsCheckboxes', function () {
 
             this.xhr = sinon.useFakeXMLHttpRequest();
             this.requests = [];
-            this.xhr.onCreate = function(xhr) {
+            this.xhr.onCreate = function (xhr) {
                 this.requests.push(xhr);
             }.bind(this);
             this.ecmsCheck.click();
@@ -168,6 +172,7 @@ describe('surrenderDetailsCheckboxes', function () {
 
     describe('Given the ecms checkbox is checked', function () {
         beforeEach(function () {
+            sinon.stub(window.location, "reload");
             this.template = [
                 '<input type="checkbox" name="checks[ecms]" class="surrenderChecks__checkbox js-surrender-checks-ecms" required="required" id="ecmsCheck" value="1">',
             ].join('\n');
@@ -182,7 +187,7 @@ describe('surrenderDetailsCheckboxes', function () {
 
             this.xhr = sinon.useFakeXMLHttpRequest();
             this.requests = [];
-            this.xhr.onCreate = function(xhr) {
+            this.xhr.onCreate = function (xhr) {
                 this.requests.push(xhr);
             }.bind(this);
             this.ecmsCheck.click();
@@ -207,6 +212,5 @@ describe('surrenderDetailsCheckboxes', function () {
             })
         });
     });
-
 
 });
