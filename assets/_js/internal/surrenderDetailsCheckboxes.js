@@ -10,44 +10,37 @@ OLCS.surrenderDetailsCheckboxes = (function (document, $, undefined) {
         $(".js-surrender-checks-digitalSignature").change(function () {
             exports.saveDigitalSignatureChecked();
         });
-        $(".js-surrender-checks-ecms").change(function () {
+        $(".js-surrender-checks-ecms").change(function() {
             exports.saveEcmsChecked();
         });
     };
 
+    exports.postCheckbox = function(name, value) {
+
+        var data = {};
+        data[name] = value;
+        $.ajax({
+            type: "POST",
+            url: "surrender-checks",
+            data: data,
+            success: window.location.reload(true)
+        });
+    };
+
+
     exports.saveDigitalSignatureChecked = function () {
         if ($(".js-surrender-checks-digitalSignature").prop("checked")) {
-            $.ajax({
-                type: "POST",
-                url: "surrender-checks",
-                data: {signatureChecked: 1},
-                success: window.location.reload(true)
-            });
+            this.postCheckbox("signatureChecked",1);
         } else {
-            $.ajax({
-                type: "POST",
-                url: "surrender-checks",
-                data: {signatureChecked: 0},
-                success: window.location.reload(true)
-            });
+            this.postCheckbox("signatureChecked",0);
         }
     };
 
     exports.saveEcmsChecked = function () {
         if ($(".js-surrender-checks-ecms").prop("checked")) {
-            $.ajax({
-                type: "POST",
-                url: "surrender-checks",
-                data: {ecmsChecked: 1},
-                success: window.location.reload(true)
-            });
+           this.postCheckbox("ecmsChecked",1);
         } else {
-            $.ajax({
-                type: "POST",
-                url: "surrender-checks",
-                data: {ecmsChecked: 0},
-                success: window.location.reload(true)
-            });
+            this.postCheckbox("ecmsChecked",0);
         }
     };
 
