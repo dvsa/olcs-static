@@ -20,4 +20,8 @@ ignore:
     - node-pre-gyp > tar > chownr:
         reason: None given
         expires: '2019-01-26T10:11:30.355Z'
+  SNYK-JS-TAR-174125:
+    - node-sass > node-gyp > tar:
+        reason: None given
+        expires: '2019-05-26T11:00:26.128Z'
 patch: {}
