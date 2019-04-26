@@ -132,6 +132,61 @@ describe('OLCS.surrenderDetails', function () {
                     expect(this.surrenderButton.classList.contains('disabled')).to.equal(true);
                 });
             });
+
+            describe("when the digital signature checkbox is checked", function () {
+
+                beforeEach(function () {
+                    sinon.stub(window.location, "reload");
+
+                    this.template = [
+                        '<input type="checkbox" name="checks[digitalSignature]" class="surrenderChecks__checkbox js-surrender-checks-digitalSignature" required="required" id="signatureCheck" value="1">',
+                        '<input type="checkbox" name="checks[ecms]" class="surrenderChecks__checkbox js-surrender-checks-ecms" required="required" id="ecmsCheck" value="1">'
+                    ].join('\n');
+
+                    this.body = $("body");
+                    this.body.append(this.template);
+
+                    this.component.init();
+                    this.xhr = sinon.useFakeXMLHttpRequest();
+                    this.requests = [];
+                    this.xhr.onCreate = function (xhr) {
+                        this.requests.push(xhr);
+                    }.bind(this);
+                    this.ecmsCheck.click();
+                    this.wait = function sleep(ms) {
+                        var start = new Date().getTime();
+                        for (var i = 0; i < 1e7; i++) {
+                            if ((new Date().getTime() - start) > ms){
+                                break;
+                            }
+                        }
+                    }
+                });
+
+                afterEach(function () {
+                    this.xhr.restore();
+                });
+
+                it("should send an ajax request", function () {
+                    this.wait(51);
+                    expect(this.requests.length).to.equal(1);
+                });
+
+                it("with the correct url", function () {
+                    this.wait(51);
+                    expect(this.requests[0].url).to.equal('surrender-checks');
+                });
+
+                it("and the correct data", function () {
+                  var expected =  {
+                        "signatureChecked":  1,
+                        "ecmsChecked" :  0,
+                    };
+                    expect(this.requests[0].requestBody).to.equal("signatureChecked=1&ecmsChecked=0");
+                });
+
+            });
+
         });
 
         afterEach(function () {
