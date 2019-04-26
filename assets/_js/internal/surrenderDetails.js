@@ -8,11 +8,36 @@ OLCS.surrenderDetails = (function(document, $) {
 
     exports.init = function () {
         $(".js-surrender-checks-digitalSignature").change(function () {
+            exports.updateChecks();
             exports.toggleSurrender();
         });
         $(".js-surrender-checks-ecms").change(function () {
+            exports.updateChecks();
             exports.toggleSurrender();
         });
+    };
+
+    exports.updateChecks = function(){
+       var checkboxes = {
+            "signatureChecked": exports.hasCheckedSignature()  ? 1 : 0,
+            "ecmsChecked" : exports.hasCheckedECMS()  ? 1 : 0
+        };
+
+       exports.postCheckbox(checkboxes);
+    };
+
+    exports.postCheckbox = function(data) {
+        OLCS.ajax({
+            method: "POST",
+            url: "surrender-checks",
+            data: data,
+            success: exports.reload(),
+            preloaderType: "modal",
+        });
+    };
+
+    exports.reload = function(){
+       window.location.reload(true);
     };
 
     exports.shouldEnableButton = function () {
