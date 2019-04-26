@@ -10,7 +10,8 @@
     "build:staging": "npm run customizr && npm run build:grunt:staging && npm run images",
     "build:production": "npm run customizr && npm run build:grunt:production && npm run images",
     "build:container": "./node_modules/grunt-cli/bin/grunt build:container && npm run images",
-    "start": "npm run customizr && ./node_modules/grunt-cli/bin/grunt serve"
+    "start": "npm run customizr && ./node_modules/grunt-cli/bin/grunt serve",
+    "test": "snyk test"
   },
   "author": "Sam Quayle sam.quayle@valtech.co.uk, Edmund Reed edmund.reed@valtech.co.uk",
   "dependencies": {
@@ -59,6 +60,7 @@
     "karma-mocha-reporter": "^2.2.5",
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-sinon": "^1.0.5",
-    "phantomjs-prebuilt": "^2.1.16"
+    "phantomjs-prebuilt": "^2.1.16",
+    "snyk": "^1.117.1"
   }
 }

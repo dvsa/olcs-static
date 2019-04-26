@@ -1,4 +1,4 @@
-const sass = require('node-sass');
+var sass = require('node-sass');
 (function() {
 
     /**
@@ -128,7 +128,7 @@ const sass = require('node-sass');
                 local: {
                     options: {
                         outputStyle: 'expanded',
-			implementation: sass,
+		            	implementation: sass,
                         sourceMap: true
                     },
                     files: localStyles
@@ -136,6 +136,7 @@ const sass = require('node-sass');
                 dev: {
                     options: {
                         outputStyle: 'expanded',
+                        implementation: sass,
                         sourceMap: true
                     },
                     files: styles
@@ -143,6 +144,7 @@ const sass = require('node-sass');
                 prod: {
                     options: {
                         outputStyle: 'compressed',
+                        implementation: sass,
                         sourceMap: false
                     },
                     files: styles
