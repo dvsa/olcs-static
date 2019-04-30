@@ -31,13 +31,13 @@ OLCS.surrenderDetails = (function(document, $) {
             method: "POST",
             url: "surrender-checks",
             data: data,
-            complete: exports.reload(),
+            complete: OLCS.surrenderDetails.reload,
             preloaderType: "modal",
         });
     };
 
     exports.reload = function(){
-      window.console.log("complete");
+     window.location.reload();
     };
 
     exports.shouldEnableButton = function () {
