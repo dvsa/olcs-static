@@ -15,6 +15,8 @@ OLCS.surrenderDetails = (function(document, $) {
             exports.toggleSurrender();
             exports.updateChecks();
         });
+
+        exports.toggleSurrender();
     };
 
     exports.updateChecks = function(){
