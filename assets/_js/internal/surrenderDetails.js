@@ -8,13 +8,15 @@ OLCS.surrenderDetails = (function(document, $) {
 
     exports.init = function () {
         $(".js-surrender-checks-digitalSignature").change(function () {
-            exports.updateChecks();
             exports.toggleSurrender();
+            exports.updateChecks();
         });
         $(".js-surrender-checks-ecms").change(function () {
-            exports.updateChecks();
             exports.toggleSurrender();
+            exports.updateChecks();
         });
+
+        exports.toggleSurrender();
     };
 
     exports.updateChecks = function(){
@@ -31,13 +33,13 @@ OLCS.surrenderDetails = (function(document, $) {
             method: "POST",
             url: "surrender-checks",
             data: data,
-            success: exports.reload(),
+            complete: OLCS.surrenderDetails.reload,
             preloaderType: "modal",
         });
     };
 
     exports.reload = function(){
-       window.location.reload(true);
+     window.location.reload();
     };
 
     exports.shouldEnableButton = function () {
