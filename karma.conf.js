@@ -26,7 +26,8 @@ module.exports = function(config) {
     
     preprocessors: {
       "assets/_js/components/*.js": ["coverage"],
-      "assets/_js/internal/*.js": ["coverage"]
+      "assets/_js/internal/*.js": ["coverage"],
+      "assets/_js/selfserve/*.js": ["coverage"]
     },
 
     client: {

@@ -69,6 +69,7 @@ var sass = require('node-sass');
                 'assets/_js/vendor/**/*.js',
                 'assets/_js/components/**/*.js',
                 'assets/_js/internal/**/*.js',
+                'assets/_js/selfserve/**/*.js',
                 'test/js/setup.js',
                 'test/js/**/' + theme + '.test.js',
                 'public/tinymce/jquery.tinymce.min.js'
