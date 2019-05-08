@@ -37,6 +37,11 @@ form#AcceptAndPayForm {
   }
 }
 
+div.table__wrapper + form#Fees {
+    clear: both;
+    padding-top: 40px;
+}
+
 form#surrender-start, form#surrender-information-changed {
   button[type="submit"].govuk-button--start {
     @extend .govuk-button;
