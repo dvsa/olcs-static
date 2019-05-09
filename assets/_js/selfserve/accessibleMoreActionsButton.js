@@ -12,7 +12,6 @@ OLCS.accessibleMoreActionsButton = (function (document, $) {
             var moreActionsList = $(".more-actions__list");
             var focusableButtons = moreActionsList.find(".more-actions__item:not(:disabled)");
             var currentFocusedButton = focusableButtons.index($(".more-actions__item:focus"));
-            var isFirstButtonFocused = currentFocusedButton === 0;
             var isLastButtonFocused = currentFocusedButton + 1 === focusableButtons.length;
             var isTabBackwards = event.shiftKey;
 
@@ -32,14 +31,13 @@ OLCS.accessibleMoreActionsButton = (function (document, $) {
                     event.preventDefault();
                     break;
                 case 9 : //Tab - close more actions list if user tabs out of list
-                    if (isLastButtonFocused && isTabBackwards === false || isFirstButtonFocused && isTabBackwards) {
+                    if (currentFocusedButton === -1 && isTabBackwards || isLastButtonFocused === true) {
                         $(".more-actions").removeClass("active");
                         moreActionsList.removeAttr("style");
                     }
                     break;
             }
         });
-
 
     };
     return exports;
