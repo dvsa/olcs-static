@@ -16,14 +16,16 @@ describe('OLCS.accessibleMoreActionsButton', function () {
     describe('Given the more actions button is selected', function () {
         beforeEach(function () {
             this.template = [
-                '<div tabindex="0" role="button" class="more-actions active">',
+                '<div id="stub">',
+                '<div id="more-actions" tabindex="0" role="button" class="more-actions active">',
                 '<div class="more-actions__button">More actions</div>',
-                '<div class="more-actions__list" style="display: block;">',
+                '<div id="more-actions-list" class="more-actions__list" style="display: block;">',
                 '<button id="delete" class="more-actions__item action--secondary" name="table[action]" type="submit" value="Delete" data-label="Remove">Remove</button>',
                 '<button id="reprint" class=" more-actions__item action--secondary" name="table[action]" type="submit" value="Reprint" data-label="Reprint Disc">Reprint Disc</button>',
                 '<button id="transfer" class=" js-require--multiple action--secondary" name="table[action]" type="submit" value="Transfer" data-label="Transfer" disabled="disabled">Transfer</button>',
                 '<button id="export" class=" more-actions__item js-disable-crud action--secondary" name="table[action]" type="submit" value="Export" data-label="Export">Export</button>',
                 '<button id="show-removed-vehicles" class="action--secondary more-actions__item" name="table[action]" type="submit" value="Show-removed-vehicles" data-label="Show removed vehicles">Show removed vehicles</button>',
+                '</div>',
                 '</div>',
                 '</div>'
             ].join('\n');
@@ -35,50 +37,165 @@ describe('OLCS.accessibleMoreActionsButton', function () {
 
             this.deleteButton = document.getElementById('delete');
             this.reprintButton = document.getElementById('reprint');
-            this.transferButton = document.getElementById('transfer');
             this.exportButton = document.getElementById('export');
-            this.ShowRemovedVehiclestButton = document.getElementById('show-removed-vehicles');
+            this.showRemovedVehiclestButton = document.getElementById('show-removed-vehicles');
+            this.moreActionsButton = document.getElementById('more-actions');
+            this.moreActionsList = document.getElementById('more-actions-list');
 
-            this.deleteButtonSpy = sinon.spy(this.deleteButton, 'focus');
-            this.reprintButtonSpy = sinon.spy(this.reprintButton, 'focus');
-            this.transferButtonSpy = sinon.spy(this.transferButton, 'focus');
-            this.exportButtonSpy = sinon.spy(this.exportButton, 'focus');
-            this.ShowRemovedVehiclestButtonSpy = sinon.spy(this.ShowRemovedVehiclestButton, 'focus');
+            this.keyDownEvent = function (args) {
+                var defaultArgs = {"keycode": 40, "shiftKey": false};
+                var overrideObject = $.extend(defaultArgs, args);
+                var press = jQuery.Event("keydown");
+                press.which = defaultArgs.keycode;
+                press.shiftKey = defaultArgs.shiftKey;
+                $(".more-actions__list").trigger(press);
+            }
         });
 
         afterEach(function () {
-            this.deleteButtonSpy.restore();
-            this.reprintButtonSpy.restore();
-            this.transferButtonSpy.restore();
-            this.exportButtonSpy.restore();
-            this.ShowRemovedVehiclestButtonSpy.restore();
+            $('#stub').remove();
         });
 
+        // arrow down key tests
         describe('when the arrow down key is pressed', function () {
             beforeEach(function () {
-                var press = jQuery.Event("keydown");
-                press.ctrlKey = false;
-                press.which = 40;
-                $(".more-actions__list").trigger(press);
-
+                this.keyDownEvent();
             });
 
             describe('and no button is focused in the button list', function () {
                 it('it should focus on the first button in the list', function () {
-                    expect(this.deleteButtonSpy.callCount).to.equal(1);
+                    expect(this.deleteButton).to.equal(document.activeElement);
                 });
             });
 
             describe('and the first button is focused in the button list', function () {
                 beforeEach(function () {
-                   $("#delete").focus();
+                    this.keyDownEvent();
                 });
+
                 it('it should focus on the second button in the list', function () {
-                    expect(this.reprintButtonSpy.callCount).to.equal(1);
+                    expect(this.reprintButton).to.equal(document.activeElement);
+                });
+            });
+
+            describe('and the second button is focused in the button list', function () {
+                beforeEach(function () {
+                    this.keyDownEvent();
+                    this.keyDownEvent();
+                });
+
+                it('it should skip the third disabled button and focus on the forth button in the list', function () {
+                    expect(this.exportButton).to.equal(document.activeElement);
+                });
+            });
+
+            describe('and the fourth button is focused in the button list', function () {
+                beforeEach(function () {
+                    this.keyDownEvent();
+                    this.keyDownEvent();
+                    this.keyDownEvent();
+                });
+
+                it('it should focus on the fifth button in the list', function () {
+                    expect(this.showRemovedVehiclestButton).to.equal(document.activeElement);
+                });
+            });
+        });
+
+        // arrow up key tests
+        describe('when the arrow up key is pressed', function () {
+            beforeEach(function () {
+                var args = {"keycode": 38};
+                this.keyDownEvent(args);
+            });
+
+            describe('and no button is focused in the button list', function () {
+                beforeEach(function () {
+                    var args = {"keycode": 38};
+                    // this.keyDownEvent(args);
+                });
+
+                it('it should focus on the fifth button in the list', function () {
+                    expect(this.showRemovedVehiclestButton).to.equal(document.activeElement);
+                });
+            });
+
+            describe('and the fifth button is focused in the button list', function () {
+                beforeEach(function () {
+                    var args = {"keycode": 38};
+                    this.keyDownEvent(args);
+                });
+
+                it('it should skip the disabled button in the list and focus on the second button', function () {
+                    expect(this.exportButton).to.equal(document.activeElement);
+                });
+            });
+
+            describe('and the fourth button is focused in the button list', function () {
+                beforeEach(function () {
+                    var args = {"keycode": 38};
+                    this.keyDownEvent(args);
+                    this.keyDownEvent(args);
+                });
+
+                it('it should skip the disabled button in the list and focus on the second button', function () {
+                    expect(this.reprintButton).to.equal(document.activeElement);
+                });
+            });
+
+            describe('and the second button is focused in the button list', function () {
+                beforeEach(function () {
+                    var args = {"keycode": 38};
+                    this.keyDownEvent(args);
+                    this.keyDownEvent(args);
+                    this.keyDownEvent(args);
+                    this.keyDownEvent(args);
+                });
+
+                it('it should focus on the first button in the list', function () {
+                    expect(this.deleteButton).to.equal(document.activeElement);
+                });
+            });
+        });
+
+
+        // tab (forward) key tests
+        describe('when the fifth (and last) button is focused in the button list', function () {
+            beforeEach(function () {
+                this.keyDownEvent();
+                this.keyDownEvent();
+                this.keyDownEvent();
+                this.keyDownEvent();
+            });
+
+            describe('and the tab button is pressed', function () {
+                beforeEach(function () {
+                    var args = {"keycode": 9};
+                    this.keyDownEvent(args);
+                });
+
+                it('the more actions button should deactivate', function () {
+                    expect(this.moreActionsButton.classList.contains('active')).to.equal(false);
+                    expect(this.moreActionsList.hasAttribute('style')).to.equal(false);
+                });
+            });
+        });
+
+        // tab backwards tests
+        describe('when no button is focused in the button list', function () {
+
+            describe('and the user tabs backwards', function () {
+                beforeEach(function () {
+                    var args = {"keycode": 9, "shiftKey": true};
+                    this.keyDownEvent(args);
+                });
+
+                it('the more actions button should deactivate', function () {
+                    expect(this.moreActionsButton.classList.contains('active')).to.equal(false);
+                    expect(this.moreActionsList.hasAttribute('style')).to.equal(false);
                 });
             });
         });
 
     });
-
 });
