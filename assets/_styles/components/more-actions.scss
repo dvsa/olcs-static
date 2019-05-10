@@ -10,6 +10,10 @@
   vertical-align: middle;
   z-index: 1;
 
+  &:focus {
+    outline: 3px solid $outline;
+  }
+
   &__button {
     @extend .action--secondary;
     &:after {
