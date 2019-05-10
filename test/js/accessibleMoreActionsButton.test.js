@@ -44,10 +44,10 @@ describe('OLCS.accessibleMoreActionsButton', function () {
 
             this.keyDownEvent = function (args) {
                 var defaultArgs = {"keycode": 40, "shiftKey": false};
-                var overrideObject = $.extend(defaultArgs, args);
+                var overrideObject = $.extend({}, defaultArgs, args);
                 var press = jQuery.Event("keydown");
-                press.which = defaultArgs.keycode;
-                press.shiftKey = defaultArgs.shiftKey;
+                press.which = overrideObject.keycode;
+                press.shiftKey = overrideObject.shiftKey;
                 $(".more-actions__list").trigger(press);
             }
         });
