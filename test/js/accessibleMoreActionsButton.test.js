@@ -126,7 +126,7 @@ describe('OLCS.accessibleMoreActionsButton', function () {
                     this.keyDownEvent(args);
                 });
 
-                it('it should skip the disabled button in the list and focus on the second button', function () {
+                it('it should focus on the fourth button in the list', function () {
                     expect(this.exportButton).to.equal(document.activeElement);
                 });
             });
