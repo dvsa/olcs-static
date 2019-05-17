@@ -47,7 +47,7 @@ var OLCS = OLCS || {};
       $('label:not(.disabled)').has(options.inputLabels).attr('tabindex', 0);
 
       // Prevent child inputs from being tab-able
-      //$('label').find(options.inputLabels).attr('tabindex', -1);
+      $('label').find(options.inputLabels).attr('tabindex', -1);
 
       // When a label is 'focused', shift focus to the child input
       $('label:not(.disabled)').has(options.inputLabels).focus(function() {

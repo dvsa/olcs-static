@@ -100,7 +100,7 @@ describe('OLCS.accessibility', function() {
     beforeEach(function() {
       $('body').append([
         '<label id="stub">',
-          '<input type="checkbox" />',
+          '<input id="checkbox-stub" type="checkbox" />',
         '</label>'
       ].join('\n'));
     });
@@ -116,8 +116,12 @@ describe('OLCS.accessibility', function() {
         OLCS.eventEmitter.emit('render');
       });
 
-      it('The target should have a tabindex', function() {
+      it('The label should have a tabindex of 0', function() {
         expect($('#stub').attr('tabindex')).to.be('0');
+      });
+
+      it('The input should have a tabindex of -1', function () {
+        expect($('#checkbox-stub').attr('tabindex')).to.be('-1');
       });
 
       describe('And the trigger element is focused', function() {
