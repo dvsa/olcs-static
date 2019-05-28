@@ -54,3 +54,30 @@ dt.govuk-summary-list__key--weight-normal {
 div.field>div.table__wrapper {
   max-width: 100%;
 }
+
+// Styles for Admin Template preview pane
+pre.wordwrap {
+  overflow-x: auto;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+#previewClose {
+  float: right;
+}
+
+.previewContent {
+  margin: 10px;
+}
+
+.previewControls {
+  padding-bottom: 15px;
+}
+
+.previewPane {
+  padding: 10px;
+  all: revert;
+}
