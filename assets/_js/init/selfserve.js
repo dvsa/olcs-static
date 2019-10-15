@@ -15,6 +15,8 @@ OLCS.ready(function() {
 
   OLCS.searchFilter();
 
+  OLCS.singleActivePermitsRequiredTextbox();
+
   window.GOVUKFrontend.initAll();
 
 });
