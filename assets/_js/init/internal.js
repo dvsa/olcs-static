@@ -24,6 +24,8 @@ OLCS.ready(function() {
 
   OLCS.wysiwyg();
 
+  OLCS.singleActivePermitsRequiredTextbox();
+
   // Small script to append date to internal search result links
   // to ensure :visited styles reset each day
   $('form[action*="search"] .table__wrapper').find('a').each(function() {
