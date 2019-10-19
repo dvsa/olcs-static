@@ -81,3 +81,8 @@ pre.wordwrap {
   padding: 10px;
   all: revert;
 }
+
+form#irhpApplication fieldset legend {
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+}
