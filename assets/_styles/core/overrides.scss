@@ -64,6 +64,10 @@ fieldset[data-group=fields\[permitsRequired\]] {
   }
 }
 
+form#Qa fieldset.date {
+    margin-top: -15px;
+}
+
 .radio-button__fieldset--horizontal .govuk-radios,
 .radio-button__fieldset--vertical .govuk-radios {
   margin-bottom: 15px;
