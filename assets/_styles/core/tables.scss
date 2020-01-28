@@ -396,6 +396,12 @@ tfoot {
 
     }
   }
+
+  td {
+    span.nowrap {
+      white-space: nowrap;
+    }
+  }
 }
 
 // Internal theme
