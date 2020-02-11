@@ -58,7 +58,7 @@ var sass = require('node-sass');
             if(theme === 'selfserve'){
                 files.push(
                     'assets/vendor/custom-modernizr.js',
-                    'node_modules/@dvsa/cookie-manager/cookie-manager.js'
+                    'assets/_js/cookie-manager.js'
                 );
             }
             return files;
@@ -123,6 +123,17 @@ var sass = require('node-sass');
             // Set any global configuration
             globalConfig: globalConfig,
 
+            babel: {
+                options: {
+                    sourceMap: true,
+                    presets: ['env']
+                },
+                dist: {
+                    files: {
+                        'assets/_js/cookie-manager.js': 'node_modules/@dvsa/cookie-manager/cookie-manager.js'
+                    }
+                }
+            },
             /**
              * Sass
              * https://github.com/sindresorhus/grunt-sass
