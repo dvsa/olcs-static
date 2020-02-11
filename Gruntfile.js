@@ -47,7 +47,8 @@ var sass = require('node-sass');
                 'assets/_js/' + theme + '/*.js',
                 'assets/_js/init/common.js',
                 'assets/_js/init/' + theme + '.js',
-                'node_modules/govuk-frontend/all.js'
+                'node_modules/govuk-frontend/all.js',
+
             ];
             if (theme === 'internal') {
                 files.push(
@@ -56,7 +57,8 @@ var sass = require('node-sass');
             };
             if(theme === 'selfserve'){
                 files.push(
-                    'assets/vendor/custom-modernizr.js'
+                    'assets/vendor/custom-modernizr.js',
+                    'node_modules/@dvsa/cookie-manager/cookie-manager.js'
                 );
             }
             return files;
