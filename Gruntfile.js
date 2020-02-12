@@ -126,7 +126,7 @@ var sass = require('node-sass');
             babel: {
                 options: {
                     sourceMap: true,
-                    presets: ['env']
+                    presets: ['@babel/preset-env']
                 },
                 dist: {
                     files: {
@@ -543,6 +543,7 @@ var sass = require('node-sass');
         // Function to compile the app
         var compile = function(environment) {
             return [
+                'babel',
                 'images',
                 'sass:' + environment,
                 'postcss',
