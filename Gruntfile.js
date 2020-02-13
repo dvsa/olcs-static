@@ -58,7 +58,7 @@ var sass = require('node-sass');
             if(theme === 'selfserve'){
                 files.push(
                     'assets/vendor/custom-modernizr.js',
-                    'assets/_js/cookie-manager.js'
+                    'assets/vendor/cookie-manager.js'
                 );
             }
             return files;
@@ -126,11 +126,12 @@ var sass = require('node-sass');
             babel: {
                 options: {
                     sourceMap: true,
+                    sourceType: 'unambiguous',
                     presets: ['@babel/preset-env']
                 },
                 dist: {
                     files: {
-                        'assets/_js/cookie-manager.js': 'node_modules/@dvsa/cookie-manager/cookie-manager.js'
+                        'assets/vendor/cookie-manager.js': 'node_modules/@dvsa/cookie-manager/cookie-manager.js'
                     }
                 }
             },
