@@ -1,5 +1,5 @@
-var module = window.module || {};
-module.exports = {};
+var exports = window.module || {};
+
 OLCS.ready(function() {
 
   "use strict";
