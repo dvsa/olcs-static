@@ -21,5 +21,6 @@ OLCS.ready(function() {
 
   window.GOVUKFrontend.initAll();
 
+  var exports = {};
   window.cookieManager.init(window.cookieConfig);
 });
