@@ -46,6 +46,7 @@
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
     "assemble": "^0.24.3",
+    "babel-plugin-add-module-exports": "^1.0.2",
     "browsersync": "0.0.1-security",
     "cssnano": "^4.1.7",
     "grunt-babel": "^8.0.0",
