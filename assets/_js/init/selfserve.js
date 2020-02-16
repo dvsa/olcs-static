@@ -1,3 +1,5 @@
+var exports = window.module || {};
+
 OLCS.ready(function() {
 
   "use strict";
@@ -18,5 +20,6 @@ OLCS.ready(function() {
   OLCS.singleActivePermitsRequiredTextbox();
 
   window.GOVUKFrontend.initAll();
-
+  exports.module = {};
+  window.cookieManager.init(window.cookieConfig);
 });
