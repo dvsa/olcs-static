@@ -17,12 +17,6 @@
 
 $govuk-cookie-banner-background: #f3f2f1;
 
-.js-enabled {
-  .gem-c-cookie-banner {
-    //display: none; // shown with JS, always on for non-JS
-  }
-}
-
 .gem-c-cookie-banner {
   @include govuk-font($size: 16);
   padding: govuk-spacing(2) 0;
@@ -57,12 +51,7 @@ $govuk-cookie-banner-background: #f3f2f1;
   }
 }
 
-// Only show accept button if users have js and can accept
 .gem-c-cookie-banner__button-accept {
-  display: none;
-}
-
-.js-enabled .gem-c-cookie-banner__button-accept {
   display: inline-block;
 }
 
