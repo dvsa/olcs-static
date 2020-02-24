@@ -17,6 +17,7 @@
   "dependencies": {
     "@sinonjs/commons": "^1.7.0",
     "autoprefixer": "^9.7.4",
+    "@dvsa/cookie-manager": "^1.0.*",
     "chosen-npm": "^1.4.2",
     "customizr": "^1.4.0",
     "govuk-frontend": "^3.5.*",
@@ -42,9 +43,13 @@
     "svg2png-many": "0.0.7"
   },
   "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
     "assemble": "^0.24.3",
+    "babel-plugin-add-module-exports": "^1.0.2",
     "browsersync": "0.0.1-security",
     "cssnano": "^4.1.7",
+    "grunt-babel": "^8.0.0",
     "grunt-browser-sync": "^2.2.0",
     "grunt-contrib-jshint": "^2.1.0",
     "grunt-contrib-watch": "^1.1.0",

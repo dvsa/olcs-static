@@ -1,3 +1,4 @@
+var module = window.module || {};
 OLCS.ready(function() {
 
   "use strict";
@@ -19,5 +20,6 @@ OLCS.ready(function() {
 
   //load govuk frontend
   window.GOVUKFrontend.initAll();
-
+  module.exports = window.cookieManager;
+  //window.cookieManager.init(window.cookieConfig);
 });
