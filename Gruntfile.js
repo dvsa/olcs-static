@@ -47,7 +47,7 @@ var sass = require('node-sass');
                 'assets/_js/' + theme + '/*.js',
                 'assets/_js/init/common.js',
                 'assets/_js/init/' + theme + '.js',
-                'node_modules/govuk-frontend/all.js',
+                'node_modules/govuk-frontend/govuk/all.js',
 
             ];
             if (theme === 'internal') {
