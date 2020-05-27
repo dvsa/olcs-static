@@ -32,15 +32,30 @@ OLCS.toggleElement = (function(document, $, undefined) {
       e.stopPropagation();
       if ($(this).hasClass('active')) {
         hide();
+
+        if ($(this).attr('aria-expanded') === 'true') {
+          $(this).attr('aria-expanded','false');
+        }
+
       } else {
         $(this).addClass('active');
         $(target).show();
+
+        if ($(this).attr('aria-expanded') === 'false') {
+          $(this).attr('aria-expanded','true');
+        }
+
       }
     });
 
     $(document).on('click', function() {
       if ($(trigger).hasClass('active')) {
         hide();
+
+        if ($(trigger).attr('aria-expanded') === 'true') {
+          $(trigger).attr('aria-expanded','false');
+        }
+
       }
     });
 
