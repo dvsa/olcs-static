@@ -529,6 +529,11 @@ select,
     }
   }
 
+  h2{
+    @extend .h3;
+  }
+
+
 }
 
 .validation-wrapper {
@@ -706,7 +711,7 @@ select,
     }
   }
 
-  // do not display break tags in generated markup for 
+  // do not display break tags in generated markup for
   // submission comments
   .submission .comment {
     br {
