@@ -27,6 +27,28 @@
     margin-bottom: .5em;
   }
 
+  &__subtitle{
+    margin-bottom: .5em;
+    font-weight: bold;
+    font-size: 24px;
+
+      @media(max-width: $mobile-column-stack) {
+        font-size: 19px;
+      }
+
+  }
+
+  &__price{
+    margin-bottom: .5em;
+    font-weight: bold;
+    font-size: 36px;
+
+      @media(max-width: $mobile-column-stack) {
+        font-size: 24px;
+      }
+
+  }
+
   ul {
     @extend %paragraph;
     padding-left: 1em;
