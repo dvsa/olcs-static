@@ -18,8 +18,8 @@ OLCS.ajaxError = (function(document, $, undefined) {
         if(!this.translations[language]){
             OLCS.logger.warn("Language '" + language + "' not supported, using en as default");
         }
-        return "<div class=\"notice-container\"><div class=\"notice--danger\"><a href=\"\" class=\"notice__close\">Close</a>" +
-               "<p role=\"alert\">" + translationString + " </p>" + 
+        return "<div class=\"notice-container\"><div class=\"notice--danger\"><a href=\"\" class=\"notice__close\" aria-label=\"Close status\">Close</a>" +
+               "<p role=\"alert\">" + translationString + " </p>" +
                "</div></div>";
     };
 
