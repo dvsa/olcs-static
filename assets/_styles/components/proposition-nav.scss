@@ -13,6 +13,7 @@
     float: left;
     display: block;
     margin: 3px 0 2px;
+    font-weight: bold;
     font-size: font-size(6);
     @media (max-width: breakpoint('break-4')) {
       font-size: font-size(5);

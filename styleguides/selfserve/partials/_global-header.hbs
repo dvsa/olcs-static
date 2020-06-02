@@ -7,11 +7,11 @@
 
     <div class="proposition">
       {{#if service}}
-        {{#is service "find-lorry-and-bus-operators"}}<h2 class="proposition__title">Find lorry and bus operators</h2>{{/is }}
-        {{#is service "find-bus-registrations"}}<h2 class="proposition__title">Find bus registrations</h2>{{/is }}
-        {{#is service "check-vehicle-operator-licensing-publications"}}<h2 class="proposition__title">Check vehicle operator licensing publications</h2>{{/is }}
+        {{#is service "find-lorry-and-bus-operators"}}<span class="proposition__title">Find lorry and bus operators</span>{{/is }}
+        {{#is service "find-bus-registrations"}}<span class="proposition__title">Find bus registrations</span>{{/is }}
+        {{#is service "check-vehicle-operator-licensing-publications"}}<span class="proposition__title">Check vehicle operator licensing publications</span>{{/is }}
         {{else}}
-        <h2 class="proposition__title">Vehicle Operator Licensing</h2>
+        <span class="proposition__title">Vehicle Operator Licensing</span>
       {{/if }}
 
       {{#if user}}
