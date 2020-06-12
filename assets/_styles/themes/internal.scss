@@ -4,7 +4,7 @@
 // @author edmund.reed@valtech.co.uk, Valtech Ltd
 
 $app: internal;
-
+$govuk-compatibility-govukfrontendtoolkit: true;
 // Vendor
 @import '../../../node_modules/govuk_frontend_toolkit/stylesheets/device-pixels';
 @import '../../../node_modules/govuk_frontend_toolkit/stylesheets/measurements';
@@ -12,8 +12,8 @@ $app: internal;
 @import '../../../node_modules/govuk_frontend_toolkit/stylesheets/colours';
 @import '../../../node_modules/govuk_frontend_toolkit/stylesheets/grid_layout';
 @import '../../../node_modules/govuk_frontend_toolkit/stylesheets/typography';
-@import '../../../node_modules/govuk-frontend/components/radios/radios';
-@import '../../../node_modules/govuk-frontend/all';
+@import '../../../node_modules/govuk-frontend/govuk/components/radios/radios';
+@import '../../../node_modules/govuk-frontend/govuk/all';
 
 @import '../vendor/chosen';
 @import '../vendor/pace';
