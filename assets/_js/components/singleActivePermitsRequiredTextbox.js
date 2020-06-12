@@ -8,7 +8,7 @@ OLCS.singleActivePermitsRequiredTextbox = (function(document, $, undefined) {
     });
 
     return function init() {
-        $("fieldset#st-number-of-permits input[type='text']").bind("propertychange change keyup paste input", function () {
+        $("fieldset#ecmt-number-of-permits input[type='text']").bind("propertychange change keyup paste input", function () {
             updateTextBoxes();
         });
     };
