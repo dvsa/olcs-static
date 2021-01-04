@@ -13,9 +13,10 @@ table.candidate-permit-selection {
       td {
         padding-bottom: 0px;
         padding-top: 0px;
-        .govuk-checkboxes__item{
+        .field{
           float: right;
           padding-top: 13px;
+          margin-bottom: 0px;
         }
       }
     }
