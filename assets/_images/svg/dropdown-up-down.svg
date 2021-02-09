@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="11.9px" height="15.2px" viewBox="0 -0.991 11.9 15.2" enable-background="new 0 -0.991 11.9 15.2" xml:space="preserve">
+<g>
+	<g>
+		<g>
+			<g>
+				<defs>
+					<polygon id="SVGID_1_" points="5.9,0 10.7,5.3 1.2,5.3 					"/>
+				</defs>
+				<clipPath id="SVGID_2_">
+					<use xlink:href="#SVGID_1_"  overflow="visible"/>
+				</clipPath>
+				<rect x="-4.134" y="-4.95" clip-path="url(#SVGID_2_)" fill="#7D7E86" width="19.5" height="15.199"/>
+			</g>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		<g>
+			<g>
+				<defs>
+					<polygon id="SVGID_3_" points="6,13.217 1.2,7.917 10.7,7.917 					"/>
+				</defs>
+				<clipPath id="SVGID_4_">
+					<use xlink:href="#SVGID_3_"  overflow="visible"/>
+				</clipPath>
+				<rect x="-3.466" y="2.969" clip-path="url(#SVGID_4_)" fill="#7D7E86" width="19.5" height="15.199"/>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

@@ -270,6 +270,17 @@ tfoot {
     color: $black;
     text-decoration: none;
     position: relative;
+
+    &:after {
+      @if $app != 'print' {
+        @include svg('dropdown-up-down');
+        content: '';
+        position: absolute;
+        display: inline-block;
+        right: 0;
+        top: 1px;
+      }
+    }
   }
 
   a:active {
