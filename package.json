@@ -34,7 +34,7 @@
     "jquery": "1.12.4",
     "matchdep": "2.0.0",
     "minimatch": "^3.0.4",
-    "mocha": "^5.2.0",
+    "mocha": "^6.2.3",
     "negotiator": "^0.6.2",
     "node-sass": "^4.13.1",
     "npm": "^6.13.7",
