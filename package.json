@@ -37,7 +37,7 @@
     "mocha": "^5.2.0",
     "negotiator": "^0.6.2",
     "node-sass": "^4.13.1",
-    "npm": "^6.13.7",
+    "npm": "^7.0.0",
     "pace-progress": "^1.0.2",
     "sinon": "^7.5.0",
     "svg2png-many": "0.0.7"
