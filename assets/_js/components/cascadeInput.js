@@ -38,7 +38,6 @@ OLCS.cascadeInput = (function(document, $, undefined) {
 
         if(disableSubmit) {
           document.getElementById(disableSubmit).disabled = true;
-
         }
 
         OLCS.ajax({

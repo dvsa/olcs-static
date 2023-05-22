@@ -25,22 +25,7 @@
   &__title {
     padding: 0;
   }
-  + .actions-container {
+  + .govuk-button-group {
     margin-top: $gutter-half;
-  }
-}
-
-/**
- * Selfserve only styles
- */
-
-@if $app == 'selfserve' {
-  .empty {
-    .action--tertiary {
-      clear: both;
-      display: block;
-      margin: 22px 0 -5px;
-      padding: 0;
-    }
   }
 }

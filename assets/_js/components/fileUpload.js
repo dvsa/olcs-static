@@ -31,7 +31,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
     function disableElements() {
       uploadInProgress = true;
       $(removeSelector).addClass("disabled");
-      var pageActions = $(".actions-container").last().children();
+      var pageActions = $(".govuk-main-wrapper").last().children();
       $(attachButtonSelector).addClass("disabled");
       $(pageActions, inputSelector).attr({
         "disabled"    : true,
@@ -44,7 +44,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
       $(removeSelector).removeClass("disabled");
       uploadInProgress = false;
       $(attachButtonSelector).removeClass("disabled");
-      $(".actions-container").last().children().removeAttr("disabled", "aria-hidden");
+      $(".govuk-main-wrapper").last().children().removeAttr("disabled", "aria-hidden");
     }
 
     function handleResponse(response, index) {
