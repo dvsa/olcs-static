@@ -54,7 +54,7 @@ OLCS.fileUpload = (function(document, $, undefined) {
     }
 
     var deleteResponse = OLCS.normaliseResponse(function(response) {
-      if (OLCS.modal.isVisible()) {
+      if (OLCS.modal.isVisible(true)) {
         OLCS.modal.updateBody(response.body);
       } else {
         F.render(mainBodySelector, response.body);
