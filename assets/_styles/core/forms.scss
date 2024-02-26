@@ -313,15 +313,13 @@ input.govuk-input,
   }
 }
 
-@if $app == 'selfserve' {
-  td {
-    .file-uploader {
-      ul {
-        margin-left: 0;
+td {
+  .file-uploader {
+    ul {
+      margin-left: 0;
 
-        li {
-          width: auto;
-        }
+      li {
+        width: auto;
       }
     }
   }
