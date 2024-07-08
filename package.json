@@ -9,8 +9,7 @@
     "build:staging": "npm run build:grunt:staging && npm run images",
     "build:production": "npm run build:grunt:production && npm run images",
     "build:container": "./node_modules/grunt-cli/bin/grunt build:container && npm run images",
-    "start": "./node_modules/grunt-cli/bin/grunt serve",
-    "test": "snyk test"
+    "start": "./node_modules/grunt-cli/bin/grunt serve"
   },
   "author": "Sam Quayle sam.quayle@valtech.co.uk, Edmund Reed edmund.reed@valtech.co.uk",
   "dependencies": {
@@ -32,7 +31,6 @@
     "minimatch": "^3.0.4",
     "mocha": "^5.2.0",
     "negotiator": "^0.6.2",
-    "npm": "^6.13.7",
     "pace-progress": "^1.0.2",
     "sass": "^1.77.6",
     "sinon": "^7.5.0",
@@ -62,8 +60,7 @@
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-sinon": "^1.0.5",
     "phantomjs-prebuilt": "^2.1.16",
-    "postcss": "^8.4.39",
-    "snyk": "1.1044.0"
+    "postcss": "^8.4.39"
   },
   "browserslist": [
     "last 2 versions"
