@@ -173,9 +173,7 @@ var sass = require('sass');
             postcss: {
                 options: {
                     processors: [
-                        require('autoprefixer')({
-                            browsers: ['last 2 versions', 'ie >= 8']
-                        })
+                        require('autoprefixer')
                     ]
                 },
                 internal: {
@@ -528,7 +526,7 @@ var sass = require('sass');
          * Load all NPM tasks automatically using 'matchdep'
          */
         require('matchdep').filterAll([
-            'grunt-*', '!grunt-cli', 'assemble'
+            'grunt-*', '!grunt-cli', 'assemble', '@lodder/grunt-postcss'
         ]).forEach(grunt.loadNpmTasks);
 
         /**
