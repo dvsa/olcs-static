@@ -45,7 +45,7 @@
     "cssnano": "^7.0.4",
     "grunt-babel": "^8.0.0",
     "grunt-browser-sync": "^2.2.0",
-    "grunt-contrib-jshint": "^2.1.0",
+    "grunt-contrib-jshint": "^3.2.0",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-gh-pages": "^3.1.0",
     "grunt-notify": "^0.4.5",
