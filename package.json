@@ -14,7 +14,7 @@
   "author": "Sam Quayle sam.quayle@valtech.co.uk, Edmund Reed edmund.reed@valtech.co.uk",
   "dependencies": {
     "@dvsa/cookie-manager": "^1.0.*",
-    "@sinonjs/commons": "^1.7.0",
+    "@sinonjs/commons": "^3.0.1",
     "autoprefixer": "^10.4.19",
     "chosen-npm": "^1.4.2",
     "govuk-frontend": "4.8.0",
