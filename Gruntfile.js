@@ -64,21 +64,6 @@ var sass = require('sass');
             return files;
         };
 
-        // Function to get which file(s) should be used to run JS tests
-        var testFiles = function(theme) {
-            var files = [
-                'node_modules/jquery/dist/jquery.min.js',
-                'assets/_js/vendor/**/*.js',
-                'assets/_js/components/**/*.js',
-                'assets/_js/internal/**/*.js',
-                'assets/_js/selfserve/**/*.js',
-                'test/js/setup.js',
-                'test/js/**/' + theme + '.test.js',
-                'public/tinymce/jquery.tinymce.min.js'
-            ];
-            return files;
-        }
-
         // Define the theme stylesheets
         var styles = {
             'public/styles/print.css': 'assets/_styles/themes/print.scss',
@@ -474,31 +459,6 @@ var sass = require('sass');
             },
 
             /**
-             * Karma
-             * https://github.com/karma-runner/grunt-karma
-             */
-            karma: {
-                options: {
-                    browsers: ['PhantomJS'],
-                    configFile: 'karma.conf.js',
-                    singleRun: true,
-                    files: testFiles('*'),
-                    reporters: ['mocha', 'coverage', 'junit']
-                },
-                test: {
-                    reporters: ['mocha', 'coverage', 'junit']
-                },
-                ci: {
-                    colors: false
-                },
-                single: {
-                    options: {
-                        files: testFiles(target)
-                    }
-                },
-            },
-
-            /**
              * grunt-localscreenshots
              * https://github.com/danielhusar/grunt-localscreenshots
              *
@@ -588,32 +548,10 @@ var sass = require('sass');
             'watch'
         ]);
 
-        // Run unit tests
-        grunt.registerTask('test', [
-            'karma:test'
-        ]);
-
         grunt.registerTask('images', [
             'clean:images',
             'copy:images',
             'svg_sprite'
-         ]);
-
-
-        grunt.registerTask('test:ci', 'karma:ci');
-
-        // Run single unit test
-        // $ grunt test:single --target=componentName
-        grunt.registerTask('test:single', [
-            'karma:single:' + target
-        ]);
-
-        // Submit a story for review
-        // $ grunt submit --target=12835
-        grunt.registerTask('submit', [
-            'lint',
-            'test',
-            'localscreenshots'
         ]);
 
         // Create a prototype
@@ -633,15 +571,15 @@ var sass = require('sass');
          */
 
         grunt.registerTask('build:staging', [
-            'jshint:static', 'test:ci', 'compile:prod'
+            'jshint:static', 'compile:prod'
         ]);
 
         grunt.registerTask('build:demo', [
-            'test:ci', 'compile:prod'
+            'compile:prod'
         ]);
 
         grunt.registerTask('build:production', [
-            'jshint:static', 'test:ci', 'compile:prod'
+            'jshint:static', 'compile:prod'
         ]);
 
         grunt.registerTask('build:container',[
