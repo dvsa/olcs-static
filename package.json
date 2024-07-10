@@ -32,7 +32,7 @@
     "mocha": "^5.2.0",
     "negotiator": "^0.6.2",
     "pace-progress": "^1.0.2",
-    "sass": "^1.77.6",
+    "sass": "^1.77.7",
     "sinon": "^7.5.0",
     "svg2png-many": "0.0.7"
   },
