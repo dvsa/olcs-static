@@ -3,12 +3,11 @@
   "private": true,
   "version": "0.29.0",
   "scripts": {
-    "images": "node svg-to-png.js public/images/svg/ public/images/bitmap/",
     "build:grunt:staging": "./node_modules/grunt-cli/bin/grunt --no-color build:staging",
     "build:grunt:production": "./node_modules/grunt-cli/bin/grunt --no-color build:production",
     "build:staging": "npm run build:grunt:staging && npm run images",
     "build:production": "npm run build:grunt:production && npm run images",
-    "build:container": "./node_modules/grunt-cli/bin/grunt build:container && npm run images",
+    "build:container": "./node_modules/grunt-cli/bin/grunt build:container",
     "start": "./node_modules/grunt-cli/bin/grunt serve"
   },
   "dependencies": {
