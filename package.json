@@ -5,8 +5,8 @@
   "scripts": {
     "build:grunt:staging": "./node_modules/grunt-cli/bin/grunt --no-color build:staging",
     "build:grunt:production": "./node_modules/grunt-cli/bin/grunt --no-color build:production",
-    "build:staging": "npm run build:grunt:staging && npm run images",
-    "build:production": "npm run build:grunt:production && npm run images",
+    "build:staging": "npm run build:grunt:staging",
+    "build:production": "npm run build:grunt:production",
     "build:container": "./node_modules/grunt-cli/bin/grunt build:container",
     "start": "./node_modules/grunt-cli/bin/grunt serve"
   },
