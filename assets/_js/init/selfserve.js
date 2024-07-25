@@ -17,7 +17,6 @@ OLCS.ready(function() {
   OLCS.searchFilter();
 
   //load govuk frontend
-  window.GOVUKFrontend.initAll();
   module.exports = window.cookieManager;
   //window.cookieManager.init(window.cookieConfig);
   OLCS.GOVUKversion = "4.3.0";
