@@ -280,15 +280,15 @@ var sass = require('sass');
                     options: {
                         mode: {
                             css: { // Activate the «css» mode
-                                "dest": "../../../public/styles",
-                                "sprite": "../images/svg/icon-sprite.svg",
-                                "bust": true,
-                                "prefix": ".",
-                                "dimensions": true,
-                                "layout": "vertical",
-                                "render": {
-                                  "scss": {
-                                      "dest": path.resolve() + "/assets/_styles/core/icon-sprite.scss"
+                                'dest': '../../../public/styles',
+                                'sprite': '../images/svg/icon-sprite.svg',
+                                'bust': true,
+                                'prefix': '.',
+                                'dimensions': true,
+                                'layout': 'vertical',
+                                'render': {
+                                  'scss': {
+                                      'dest': path.resolve() + '/assets/_styles/core/icon-sprite.scss'
                                   }
                               },
                             }
