@@ -1,4 +1,8 @@
-#OLCS Static
+# OLCS Static
+
+> [!CAUTION]
+> This repository has been integrated into the VOL mono-repository (https://github.com/dvsa/vol-app/tree/main/app/cdn) and is now archived. Do not merge into this repository.
+
 ### Synopsis
 This repo contains the styleguides, prototypes and static assets for both the OLCS internal application and external service.
 
